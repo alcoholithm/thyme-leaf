@@ -1,0 +1,650 @@
+2014-11-10 10:46:51 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:46:51 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55399'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616411.249
+    'REQUEST_TIME' => 1415616411
+]
+2014-11-10 10:48:06 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:48:05 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55400'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616485.987
+    'REQUEST_TIME' => 1415616485
+]
+2014-11-10 10:48:07 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:48:07 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55401'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616487.099
+    'REQUEST_TIME' => 1415616487
+]
+2014-11-10 10:48:08 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:48:08 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55402'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616488.093
+    'REQUEST_TIME' => 1415616488
+]
+2014-11-10 10:50:28 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:50:28 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55403'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616628.881
+    'REQUEST_TIME' => 1415616628
+]
+2014-11-10 10:54:24 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:54:24 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55404'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616864.148
+    'REQUEST_TIME' => 1415616864
+]
+2014-11-10 10:55:48 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:55:48 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55405'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616948.202
+    'REQUEST_TIME' => 1415616948
+]
+2014-11-10 10:56:07 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\controllers\EntryForm' not found' in /var/www/html/basic/controllers/SiteController.php:104
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2014-11-10 10:56:07 [::1][][4bv9lj2cdlsilsjdqd6j6i0hj4][info][application] $_GET = [
+    'r' => 'site/entry'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55406'
+    'REDIRECT_QUERY_STRING' => 'r=site/entry'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site/entry'
+    'REQUEST_URI' => '/index.php?r=site/entry'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415616967.326
+    'REQUEST_TIME' => 1415616967
+]
+2014-11-10 11:20:12 [::1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php:579
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(579): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(529): yii\db\Connection->createPdoInstance()
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(836): yii\db\Connection->open()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(823): yii\db\Connection->getMasterPdo()
+#4 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(208): yii\db\Connection->getSlavePdo()
+#5 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(813): yii\db\Command->prepare(true)
+#6 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(376): yii\db\Command->queryInternal('fetchColumn', 0)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(373): yii\db\Command->queryScalar()
+#8 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(280): yii\db\Query->queryScalar('COUNT(*)', NULL)
+#9 /var/www/html/basic/controllers/CountryController.php(17): yii\db\Query->count()
+#10 [internal function]: app\controllers\CountryController->actionIndex()
+#11 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#12 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#13 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#14 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('country/index', Array)
+#15 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#17 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php:534
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(836): yii\db\Connection->open()
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Connection.php(823): yii\db\Connection->getMasterPdo()
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(208): yii\db\Connection->getSlavePdo()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(813): yii\db\Command->prepare(true)
+#4 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(376): yii\db\Command->queryInternal('fetchColumn', 0)
+#5 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(373): yii\db\Command->queryScalar()
+#6 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(280): yii\db\Query->queryScalar('COUNT(*)', NULL)
+#7 /var/www/html/basic/controllers/CountryController.php(17): yii\db\Query->count()
+#8 [internal function]: app\controllers\CountryController->actionIndex()
+#9 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#10 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#11 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#12 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('country/index', Array)
+#13 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#15 {main}
+Additional Information:
+
+2014-11-10 11:20:12 [::1][-][-][info][application] $_GET = [
+    'r' => 'country/index'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55578'
+    'REDIRECT_QUERY_STRING' => 'r=country/index'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=country/index'
+    'REQUEST_URI' => '/index.php?r=country/index'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415618412.828
+    'REQUEST_TIME' => 1415618412
+]
+2014-11-10 11:20:40 [::1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /var/www/html/basic/views/country/index.php' in /var/www/html/basic/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/b...', Array, Object(app\controllers\CountryController))
+#1 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(367): yii\base\View->render('index', Array, Object(app\controllers\CountryController))
+#2 /var/www/html/basic/controllers/CountryController.php(28): yii\base\Controller->render('index', Array)
+#3 [internal function]: app\controllers\CountryController->actionIndex()
+#4 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('country/index', Array)
+#8 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#10 {main}
+2014-11-10 11:20:39 [::1][-][-][info][application] $_GET = [
+    'r' => 'country/index'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55580'
+    'REDIRECT_QUERY_STRING' => 'r=country/index'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=country/index'
+    'REQUEST_URI' => '/index.php?r=country/index'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415618439.915
+    'REQUEST_TIME' => 1415618439
+]
+2014-11-10 11:22:41 [::1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: /var/www/html/basic/views/country/index.php' in /var/www/html/basic/vendor/yiisoft/yii2/base/View.php:226
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/b...', Array, Object(app\controllers\CountryController))
+#1 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(367): yii\base\View->render('index', Array, Object(app\controllers\CountryController))
+#2 /var/www/html/basic/controllers/CountryController.php(28): yii\base\Controller->render('index', Array)
+#3 [internal function]: app\controllers\CountryController->actionIndex()
+#4 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#6 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('country/index', Array)
+#8 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#10 {main}
+2014-11-10 11:22:41 [::1][-][-][info][application] $_GET = [
+    'r' => 'country/index'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55584'
+    'REDIRECT_QUERY_STRING' => 'r=country/index'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=country/index'
+    'REQUEST_URI' => '/index.php?r=country/index'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415618561.77
+    'REQUEST_TIME' => 1415618561
+]
+2014-11-10 12:45:54 [::1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'yii2basic.country' doesn't exist' in /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php:819
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(819): PDOStatement->execute()
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(376): yii\db\Command->queryInternal('fetchColumn', 0)
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(373): yii\db\Command->queryScalar()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(280): yii\db\Query->queryScalar('COUNT(*)', NULL)
+#4 /var/www/html/basic/controllers/CountryController.php(17): yii\db\Query->count()
+#5 [internal function]: app\controllers\CountryController->actionIndex()
+#6 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#9 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('country/index', Array)
+#10 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'yii2basic.country' doesn't exist
+The SQL being executed was: SELECT COUNT(*) FROM `country`' in /var/www/html/basic/vendor/yiisoft/yii2/db/Schema.php:532
+Stack trace:
+#0 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(834): yii\db\Schema->convertException(Object(PDOException), 'SELECT COUNT(*)...')
+#1 /var/www/html/basic/vendor/yiisoft/yii2/db/Command.php(376): yii\db\Command->queryInternal('fetchColumn', 0)
+#2 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(373): yii\db\Command->queryScalar()
+#3 /var/www/html/basic/vendor/yiisoft/yii2/db/Query.php(280): yii\db\Query->queryScalar('COUNT(*)', NULL)
+#4 /var/www/html/basic/controllers/CountryController.php(17): yii\db\Query->count()
+#5 [internal function]: app\controllers\CountryController->actionIndex()
+#6 /var/www/html/basic/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /var/www/html/basic/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#8 /var/www/html/basic/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('index', Array)
+#9 /var/www/html/basic/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('country/index', Array)
+#10 /var/www/html/basic/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /var/www/html/basic/web/index.php(12): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'yii2basic.country' doesn't exist
+)
+
+2014-11-10 12:45:54 [::1][-][-][info][application] $_GET = [
+    'r' => 'country/index'
+]
+
+$_COOKIE = [
+    '_csrf' => 'af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s:32:\"kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt\";'
+    'PHPSESSID' => '4bv9lj2cdlsilsjdqd6j6i0hj4'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => '_csrf=af1425f53238ea9f9885a4fc3f5c406d6d45d4ef4edea07bd417f065026ab817s%3A32%3A%22kIis-CWCuf7BqtxfGdaNmHbc6Vhd8obt%22%3B; PHPSESSID=4bv9lj2cdlsilsjdqd6j6i0hj4'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/sbin:/usr/sbin:/bin:/usr/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.2.15 (CentOS) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.2.15 (CentOS)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'root@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/basic/web/index.php'
+    'REMOTE_PORT' => '55838'
+    'REDIRECT_QUERY_STRING' => 'r=country/index'
+    'REDIRECT_URL' => '/index.php'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=country/index'
+    'REQUEST_URI' => '/index.php?r=country/index'
+    'SCRIPT_NAME' => '/basic/web/index.php'
+    'PHP_SELF' => '/basic/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1415623554.564
+    'REQUEST_TIME' => 1415623554
+]
