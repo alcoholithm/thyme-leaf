@@ -10,19 +10,27 @@ public class TowerState_Hitting : State<Tower> {
         set { TowerState_Hitting.instance = value; }
     }
 
-    private TowerState_Hitting() { }
+    private TowerState_Hitting()
+    {
+        Successor = TowerState_Hitting.Instance;
+    }
 
-    public void Enter(Tower owner)
+    public override void Enter(Tower owner)
     {
         throw new System.NotImplementedException();
     }
 
-    public void Execute(Tower owner)
+    public override void Execute(Tower owner)
     {
         throw new System.NotImplementedException();
     }
 
-    public void Exit(Tower owner)
+    public override void Exit(Tower owner)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override bool IsHandleable()
     {
         throw new System.NotImplementedException();
     }

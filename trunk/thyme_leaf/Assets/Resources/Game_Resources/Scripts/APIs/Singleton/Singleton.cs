@@ -23,7 +23,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 return null;
             }
 
-            GameObject systemObject = GameObject.Find("_System");
+            GameObject systemObject;
+            systemObject = GameObject.Find("_System");
             if (systemObject == null)
             {
                 systemObject = new GameObject();

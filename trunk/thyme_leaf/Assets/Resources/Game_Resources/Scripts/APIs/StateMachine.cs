@@ -6,7 +6,8 @@ using System.Collections;
 /// </summary>
 /// <typeparam name="T"></typeparam>
 
-public class StateMachine<T> where T : GameEntity {
+public class StateMachine<T> : IHandler
+{
     public const string TAG = "[StateMachine]";
 
     private State<T> currentState;
@@ -37,6 +38,11 @@ public class StateMachine<T> where T : GameEntity {
         this.owner = owner;
     }
 
+    public void Update()
+    {
+        currentState.Execute(owner);
+    }
+
     public void ChangeState(State<T> newState)
     {
         if (newState == null)
@@ -48,7 +54,7 @@ public class StateMachine<T> where T : GameEntity {
 
         currentState.Exit(owner);
         previousState = currentState;
-        currentState = newState;
+        CurrentState = newState;
         currentState.Enter(owner);
     }
 
@@ -59,16 +65,27 @@ public class StateMachine<T> where T : GameEntity {
 
     public bool IsInState(State<T> state)
     {
-        // 같은지 비교
-        return true;
+        throw new System.NotImplementedException();
     }
 
-    //public void HandleMessage()
-    //{
-    //}
-
-    public void Update()
+    public IHandler Successor
     {
-        currentState.Execute(owner);
+        set { }
+        get { return currentState; }
+    }
+
+    public bool IsHandleable()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnMessage(Message msg)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void HandleMessage(Message msg)
+    {
+        Successor.HandleMessage(msg);
     }
 }

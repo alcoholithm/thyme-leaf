@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// The way communicate to other entity.
 /// </summary>
-public class Message {
+public class Message { // struct로 바꾸는 거 생각해보기
     public const string TAG = "[Message]";
 
     public int what;
@@ -13,17 +13,16 @@ public class Message {
     public Object obj;
     public ICommand command;
 
-    private IHandler sender;
-    private IHandler receiver;
+    public IHandler sender;
+    public IHandler receiver;
 
     public Message()
     {
-
     }
 
-    public static Message Obtain() {
-        // Message pool 에서 땡겨온다
-        return null;
+    public static Message Obtain()
+    {
+        return MessagePool.Instance.Allocate();
     }
 
     public void Recycle()
@@ -31,7 +30,7 @@ public class Message {
         // Message pool에 반납
     }
 
-    public void send()
+    public void Send()
     {
         receiver.HandleMessage(this);
     }

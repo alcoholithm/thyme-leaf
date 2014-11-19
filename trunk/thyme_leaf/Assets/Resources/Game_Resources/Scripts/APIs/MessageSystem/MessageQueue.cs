@@ -6,10 +6,11 @@ using System.Collections.Generic;
 /// <summary>
 /// This imitates android MessgeQueue almost.
 /// </summary>
-public class MessageQueue : Singleton<MessageQueue> {
+public class MessageQueue : Singleton<MessageQueue>
+{
     public new const string TAG = "[MessageQueue]";
 
-    private List<Message> messages;
+    private List<Message> messages = new List<Message>();
 
     public void Push(Message msg)
     {

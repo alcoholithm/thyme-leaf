@@ -7,9 +7,9 @@ using System.Collections;
 /// <typeparam name="T"></typeparam>
 /// owner
 
-public interface State<T>
+public abstract class State<T> : IHandler
 {
-    //public const string TAG = "[State]";
+    public const string TAG = "[State]";
 
     //protected T owner; // static 불가능 => 공유할수없다, 메모리를 잡고 있게 됨.
     //private State<T> successor;
@@ -17,20 +17,46 @@ public interface State<T>
     /// <summary>
     /// This will be called when starting the state.
     /// </summary>
-    void Enter(T owner);
+    public abstract void Enter(T owner);
 
     /// <summary>
     /// This will be called once per frame
     /// </summary>
-    void Execute(T owner);
+    public abstract void Execute(T owner);
 
     /// <summary>
     /// This will be called when leaving the state
     /// </summary>
-    void Exit(T owner);
+    public abstract void Exit(T owner);
 
     //public bool OnMessage(Message msg)
     //{
     //    return false;
     //}
+
+    private IHandler successor;
+    public IHandler Successor
+    {
+        set { successor = value; }
+        get { return successor; }
+    }
+
+    public abstract bool IsHandleable();
+
+    public void OnMessage(Message msg)
+    {
+        msg.command.Execute();
+    }
+
+    public void HandleMessage(Message msg)
+    {
+        if (IsHandleable())
+        {
+            OnMessage(msg);
+        }
+        else
+        {
+            successor.HandleMessage(msg);
+        }
+    }
 }

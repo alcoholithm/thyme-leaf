@@ -12,22 +12,30 @@ public class TowerState_Building : State<Tower>
 
     private string animName = "Tower_Building_";
 
-    private TowerState_Building() { }
+    private TowerState_Building()
+    {
+        Successor = TowerState_Hitting.Instance;
+    }
 
-    public void Enter(Tower owner)
+    public override void Enter(Tower owner)
     {
         Debug.Log("TowerState_Building start");
         owner.StartCoroutine(BuildTower(owner));
     }
 
-    public void Execute(Tower owner)
+    public override void Execute(Tower owner)
     {
 
     }
 
-    public void Exit(Tower owner)
+    public override void Exit(Tower owner)
     {
         Debug.Log("TowerState_Building end");
+    }
+
+    public override bool IsHandleable()
+    {
+        throw new System.NotImplementedException();
     }
 
     IEnumerator BuildTower(Tower owner)
@@ -36,4 +44,6 @@ public class TowerState_Building : State<Tower>
         yield return new WaitForSeconds(5.0f);
         owner.StateMachine.ChangeState(TowerState_Idling.Instance);
     }
+
+   
 }

@@ -9,7 +9,21 @@ public class Looper : Singleton<Looper> {
 
     private MessageQueue messageQueue = MessageQueue.Instance;
 
-    public static void Prepare() { }
-    public static void Loop() { }
-    public static void Quit() { }
+    //public static void Prepare()
+    //{
+    //}
+    //public static void Loop() 
+    //{
+    //    //while(true)
+    //    //{
+    //    //    Message msg = MessageQueue.Instance.top();
+    //    //    msg.Send();
+    //    //}
+
+    //    Message msg = MessageQueue.Instance.pop();
+    //    msg.Send();
+    //}
+    //public static void Quit() 
+    //{
+    //}
 }
