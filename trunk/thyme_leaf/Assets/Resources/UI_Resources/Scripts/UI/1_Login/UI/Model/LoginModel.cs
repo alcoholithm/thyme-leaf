@@ -10,7 +10,7 @@ public sealed class LoginModel : IObservable {
 
 	public string testt = "test";
 
-    protected static LoginModel instance = new LoginModel();
+    private static LoginModel instance = new LoginModel();
     public static LoginModel Instance { get { return instance; } }
 
     private bool isLogin;

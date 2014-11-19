@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameManager : Manager<GameManager> {
 
-    public const string TAG = "[GameManager]";
+    public new const string TAG = "[GameManager]";
     //void Start () {
     //    StartCoroutine("Go");
     //}

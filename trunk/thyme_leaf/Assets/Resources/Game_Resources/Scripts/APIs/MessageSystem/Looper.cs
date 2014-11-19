@@ -5,7 +5,7 @@ using System.Collections;
 /// This imitates like android looper almost.
 /// </summary>
 public class Looper : Singleton<Looper> {
-    public const string TAG = "[Looper]";
+    public new const string TAG = "[Looper]";
 
     private MessageQueue messageQueue = MessageQueue.Instance;
 

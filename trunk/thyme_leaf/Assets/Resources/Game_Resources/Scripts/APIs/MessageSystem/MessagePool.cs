@@ -6,7 +6,7 @@ using System.Collections;
 /// </summary>
 public class MessagePool : Singleton<MessagePool>
 {
-    public const string TAG = "[MessagePool]";
+    public new const string TAG = "[MessagePool]";
 
     private const int CAPACITY = 1000;
 

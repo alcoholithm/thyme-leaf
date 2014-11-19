@@ -6,7 +6,7 @@ using System.Collections;
 /// </summary>
 public class SceneManager : Manager<SceneManager>
 {
-    public const string TAG = "[SceneManager]";
+    public new const string TAG = "[SceneManager]";
 
     public const string LOGIN = "1_Login";
     public const string LOBBY = "2_Lobby";
