@@ -12,20 +12,28 @@ public class TowerState_Idling : State<Tower>
 
     private string animName = "Tower_Idling_";
 
-    private TowerState_Idling() { }
+    private TowerState_Idling() 
+    {
+        Successor = TowerState_Hitting.Instance;
+    }
 
-    public void Enter(Tower owner)
+    public override void Enter(Tower owner)
     {
         Debug.Log("TowerState_Idling start");
         owner.PlayAnimation(animName);
     }
 
-    public void Execute(Tower owner)
+    public override void Execute(Tower owner)
     {
     }
 
-    public void Exit(Tower owner)
+    public override void Exit(Tower owner)
     {
         Debug.Log("TowerState_Idling end");
+    }
+
+    public override bool IsHandleable()
+    {
+        throw new System.NotImplementedException();
     }
 }

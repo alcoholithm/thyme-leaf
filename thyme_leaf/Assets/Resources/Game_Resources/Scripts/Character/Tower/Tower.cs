@@ -4,14 +4,8 @@ using System.Collections;
 /// <summary>
 /// 
 /// </summary>
-public class Tower : GameEntity {
+public class Tower : GameEntity<Tower> {
     public new const string TAG = "[Tower]";
-
-    private StateMachine<Tower> stateMachine;
-    public StateMachine<Tower> StateMachine
-    {
-        get { return stateMachine; }
-    }
 
     [SerializeField]
     UISpriteAnimation anim;
@@ -28,11 +22,6 @@ public class Tower : GameEntity {
     void Update()
     {
         stateMachine.Update();
-    }
-
-    public override void HandleMessage(Message msg)
-    {
-        stateMachine.ChangeState(TowerState_Building.Instance);
     }
 
     public void PlayAnimation(string name)

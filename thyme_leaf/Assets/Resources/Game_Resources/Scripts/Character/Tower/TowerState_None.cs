@@ -10,34 +10,25 @@ public class TowerState_None : State<Tower>
         set { TowerState_None.instance = value; }
     }
 
-    private TowerState_None() { }
+    private TowerState_None()
+    {
+        Successor = TowerState_Hitting.Instance;
+    }
 
-    public void Enter(Tower owner)
+    public override void Enter(Tower owner)
     {
     }
 
-    public void Execute(Tower owner)
+    public override void Execute(Tower owner)
     {
     }
 
-    public void Exit(Tower owner)
+    public override void Exit(Tower owner)
     {
     }
 
-    //void Awake()
-    //{
-    //    owner = GetComponent<Tower>();
-    //}
-
-    //void OnEnable()
-    //{
-    //}
-
-    //void Update()
-    //{
-    //}
-
-    //void OnDisable()
-    //{
-    //}
+    public override bool IsHandleable()
+    {
+        throw new System.NotImplementedException();
+    }
 }
