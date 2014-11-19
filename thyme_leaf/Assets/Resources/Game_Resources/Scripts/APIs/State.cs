@@ -5,27 +5,29 @@ using System.Collections;
 /// All the state classes must be derived from this class
 /// </summary>
 /// <typeparam name="T"></typeparam>
-/// 
-public abstract class State<T> : MonoBehaviour {
-    public const string TAG = "[State]";
+/// owner
 
-    private T owner;
+public interface State<T>
+{
+    //public const string TAG = "[State]";
+
+    //protected T owner; // static 불가능 => 공유할수없다, 메모리를 잡고 있게 됨.
     //private State<T> successor;
 
     /// <summary>
     /// This will be called when starting the state.
     /// </summary>
-    public abstract void Enter();
+    void Enter(T owner);
 
     /// <summary>
     /// This will be called once per frame
     /// </summary>
-    public abstract void Execute();
+    void Execute(T owner);
 
     /// <summary>
     /// This will be called when leaving the state
     /// </summary>
-    public abstract void Exit();
+    void Exit(T owner);
 
     //public bool OnMessage(Message msg)
     //{

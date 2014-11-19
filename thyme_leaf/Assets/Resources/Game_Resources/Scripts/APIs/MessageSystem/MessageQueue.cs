@@ -7,7 +7,7 @@ using System.Collections.Generic;
 /// This imitates android MessgeQueue almost.
 /// </summary>
 public class MessageQueue : Singleton<MessageQueue> {
-    public const string TAG = "[MessageQueue]";
+    public new const string TAG = "[MessageQueue]";
 
     private List<Message> messages;
 

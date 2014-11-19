@@ -6,7 +6,7 @@ using System.Collections;
 /// </summary>
 /// <typeparam name="T"></typeparam>
 
-public class StateMachine<T> : MonoBehaviour {
+public class StateMachine<T> where T : GameEntity {
     public const string TAG = "[StateMachine]";
 
     private State<T> currentState;
@@ -46,10 +46,10 @@ public class StateMachine<T> : MonoBehaviour {
             return;
         }
 
-        currentState.Exit();
+        currentState.Exit(owner);
         previousState = currentState;
         currentState = newState;
-        currentState.Enter();
+        currentState.Enter(owner);
     }
 
     public void RevertToPreviousState()
@@ -66,4 +66,9 @@ public class StateMachine<T> : MonoBehaviour {
     //public void HandleMessage()
     //{
     //}
+
+    public void Update()
+    {
+        currentState.Execute(owner);
+    }
 }

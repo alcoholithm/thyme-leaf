@@ -6,7 +6,7 @@ using System.Collections;
 /// </summary>
 
 public class MessageDispatcher : Singleton<MessageDispatcher> {
-    public const string TAG = "[MessageDispatcher]";
+    public new const string TAG = "[MessageDispatcher]";
 
     public Message ObtainMessage() { return null; }
     public void Dispatch(Message msg) { }
