@@ -7,17 +7,12 @@ using System.Collections.Generic;
 /// </summary>
 class MessageQueue : ISystem
 {
-    public new const string TAG = "[MessageQueue]";
-
-    private static MessageQueue instance = new MessageQueue();
-
-    internal static MessageQueue Instance
-    {
-        get { return MessageQueue.instance; }
-        set { MessageQueue.instance = value; }
-    }
-
     private Queue<Message> messages;
+
+    private MessageQueue()
+    {
+        Prepare();
+    }
 
     /// <summary>
     /// followings are member functions
@@ -39,7 +34,7 @@ class MessageQueue : ISystem
         }
     }
 
-    public Message PeekTop()
+    public Message Peek()
     {
         return messages.Peek();
     }
@@ -50,10 +45,19 @@ class MessageQueue : ISystem
     /// </summary>
     public void Prepare()
     {
-        messages = new Queue<Message>();
+        this.messages = new Queue<Message>();
     }
 
     public void Quit()
     {
+    }
+
+    public const string TAG = "[MessageQueue]";
+
+    private static MessageQueue instance = new MessageQueue();
+    public static MessageQueue Instance
+    {
+        get { return MessageQueue.instance; }
+        set { MessageQueue.instance = value; }
     }
 }

@@ -8,29 +8,6 @@ using System.Collections;
 
 public class StateMachine<T> : IHandler
 {
-    public const string TAG = "[StateMachine]";
-
-    private State<T> currentState;
-    public State<T> CurrentState
-    {
-        get { return currentState; }
-        set { currentState = value; }
-    }
-
-    private State<T> globalState;
-    public State<T> GlobalState
-    {
-        get { return globalState; }
-        set { globalState = value; }
-    }
-
-    private State<T> previousState;
-    public State<T> PreviousState
-    {
-        get { return previousState; }
-        set { previousState = value; }
-    }
-
     private T owner;
 
     public StateMachine(T owner)
@@ -38,6 +15,9 @@ public class StateMachine<T> : IHandler
         this.owner = owner;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void Update()
     {
         currentState.Execute(owner);
@@ -68,13 +48,15 @@ public class StateMachine<T> : IHandler
         throw new System.NotImplementedException();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public IHandler Successor
     {
-        set { }
         get { return currentState; }
     }
 
-    public bool IsHandleable()
+    public bool IsHandleable(Message msg)
     {
         throw new System.NotImplementedException();
     }
@@ -86,6 +68,33 @@ public class StateMachine<T> : IHandler
 
     public void HandleMessage(Message msg)
     {
+        Debug.Log(TAG + "HandleMessage");
         Successor.HandleMessage(msg);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public const string TAG = "[StateMachine]";
+
+    private State<T> currentState;
+    public State<T> CurrentState
+    {
+        get { return currentState; }
+        set { currentState = value; }
+    }
+
+    private State<T> globalState;
+    public State<T> GlobalState
+    {
+        get { return globalState; }
+        set { globalState = value; }
+    }
+
+    private State<T> previousState;
+    public State<T> PreviousState
+    {
+        get { return previousState; }
+        set { previousState = value; }
     }
 }

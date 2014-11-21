@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// </summary>
 public class TowerState_Building : State<Tower>
 {
-    private static TowerState_Building instance = new TowerState_Building(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
-    public static TowerState_Building Instance
-    {
-        get { return TowerState_Building.instance; }
-        set { TowerState_Building.instance = value; }
-    }
-
     private string animName = "Tower_Building_";
 
     private TowerState_Building()
@@ -17,6 +13,19 @@ public class TowerState_Building : State<Tower>
         Successor = TowerState_Hitting.Instance;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    IEnumerator BuildTower(Tower owner)
+    {
+        owner.PlayAnimation(animName);
+        yield return new WaitForSeconds(5.0f);
+        owner.StateMachine.ChangeState(TowerState_Idling.Instance);
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public override void Enter(Tower owner)
     {
         Debug.Log("TowerState_Building start");
@@ -25,7 +34,6 @@ public class TowerState_Building : State<Tower>
 
     public override void Execute(Tower owner)
     {
-
     }
 
     public override void Exit(Tower owner)
@@ -33,17 +41,20 @@ public class TowerState_Building : State<Tower>
         Debug.Log("TowerState_Building end");
     }
 
-    public override bool IsHandleable()
+    public override bool IsHandleable(Message msg)
     {
-        throw new System.NotImplementedException();
+        Debug.Log(TAG + "IsHandleable");
+        return false;
     }
 
-    IEnumerator BuildTower(Tower owner)
+    /// <summary>
+    /// 
+    /// </summary>
+    public new const string TAG = "[TowerState_Building]";
+    private static TowerState_Building instance = new TowerState_Building(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
+    public static TowerState_Building Instance
     {
-        owner.PlayAnimation(animName);
-        yield return new WaitForSeconds(5.0f);
-        owner.StateMachine.ChangeState(TowerState_Idling.Instance);
+        get { return TowerState_Building.instance; }
+        set { TowerState_Building.instance = value; }
     }
-
-   
 }

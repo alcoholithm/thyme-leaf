@@ -4,10 +4,11 @@ using System.Collections;
 /// <summary>
 /// The way communicate to other entity.
 /// </summary>
-public class Message { // struct로 바꾸는 거 생각해보기
+public class Message
+{ // struct로 바꾸는 거 생각해보기
     public const string TAG = "[Message]";
 
-    public int what;
+    public int what = -1;
     public int arg1;
     public int arg2;
     public Object obj;
@@ -18,6 +19,7 @@ public class Message { // struct로 바꾸는 거 생각해보기
 
     public Message()
     {
+        command = new NoCommand();
     }
 
     public static Message Obtain()
@@ -32,6 +34,7 @@ public class Message { // struct로 바꾸는 거 생각해보기
 
     public void Send()
     {
+        Debug.Log("Send");
         receiver.HandleMessage(this);
     }
 }

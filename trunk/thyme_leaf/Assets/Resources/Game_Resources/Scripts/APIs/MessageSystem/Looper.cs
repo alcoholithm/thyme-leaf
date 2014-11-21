@@ -1,34 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Threading;
+using System;
 
 /// <summary>
 /// This imitates like android looper almost.
 /// </summary>
 public class Looper : ISystem
 {
-    public new const string TAG = "[Looper]";
-
-    private static Looper instance = new Looper();
-    public static Looper Instance
-    {
-        get { return instance; }
-    }
-
-    private MessageQueue messageQueue;
-    private bool active = false;
+    private volatile bool active = true;
 
     /// <summary>
     /// followings are member functions
     /// </summary>
-    public void Loop()
+    void Loop()
     {
-        //while (active)
-        //{
-        //    Message msg = messageQueue.Pop();
-        //    if (msg != null)
-        //        msg.Send();
-        //}
+        new Thread(() => DoInBackground()).Start();
+    }
 
+    void DoInBackground()
+    {
+        try
+        {
+            MessageQueue messageQueue = MessageQueue.Instance;
+            while (active)
+            {
+                Message msg = messageQueue.Pop();
+                if (msg != null)
+                    msg.Send();
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+    }
+
+    void Stop()
+    {
+        active = false;
     }
 
     /// <summary>
@@ -36,12 +46,23 @@ public class Looper : ISystem
     /// </summary>
     public void Prepare()
     {
-        messageQueue = MessageQueue.Instance;
-        active = true;
         Loop();
+        Debug.Log(TAG + "has Started");
     }
     public void Quit()
     {
-        active = false;
+        Debug.Log("Quit");
+        Stop();
+    }
+
+    /// <summary>
+    /// followings are data members
+    /// </summary>
+    public const string TAG = "[Looper]";
+
+    private static Looper instance = new Looper();
+    public static Looper Instance
+    {
+        get { return instance; }
     }
 }
