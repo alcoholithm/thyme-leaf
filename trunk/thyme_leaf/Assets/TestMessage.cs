@@ -17,5 +17,6 @@ public class TestMessage : MonoBehaviour {
         msg.receiver = receiver;
 
         MessageSystem.Instance.Dispatch(msg);
+        MessageSystem.Instance.DispatchDelayed(msg, 5);
     }
 }
