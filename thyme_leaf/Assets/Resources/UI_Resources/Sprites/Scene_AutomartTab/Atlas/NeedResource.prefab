@@ -9,16 +9,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  m_Layer: 8
-  m_Name: Fantasy Atlas
+  m_Layer: 0
+  m_Name: NeedResource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1002 &100001
-EditorExtensionImpl:
-  serializedVersion: 6
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -31,9 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1002 &400001
-EditorExtensionImpl:
-  serializedVersion: 6
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45,52 +39,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e7ef61ebb5c25394c8706a7ea658349f, type: 2}
+  material: {fileID: 2100000, guid: 1e2b69718a58a934791ef2eda0713f75, type: 2}
   mSprites:
-  - name: Beveled Outline
-    x: 215
-    y: 323
-    width: 17
-    height: 17
-    borderLeft: 5
-    borderRight: 5
-    borderTop: 5
-    borderBottom: 5
+  - name: barToggle_centerOff
+    x: 66
+    y: 315
+    width: 63
+    height: 63
+    borderLeft: 31
+    borderRight: 32
+    borderTop: 32
+    borderBottom: 31
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Bright
-    x: 198
-    y: 323
-    width: 17
-    height: 17
-    borderLeft: 5
-    borderRight: 5
-    borderTop: 5
-    borderBottom: 5
+  - name: barToggle_centerOn
+    x: 131
+    y: 315
+    width: 63
+    height: 63
+    borderLeft: 31
+    borderRight: 32
+    borderTop: 32
+    borderBottom: 31
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Dark
-    x: 234
-    y: 323
-    width: 17
-    height: 17
-    borderLeft: 5
-    borderRight: 5
-    borderTop: 5
-    borderBottom: 5
+  - name: barToggle_leftOff
+    x: 154
+    y: 385
+    width: 64
+    height: 63
+    borderLeft: 32
+    borderRight: 32
+    borderTop: 32
+    borderBottom: 31
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Fantasy Font
+  - name: barToggle_leftOn
     x: 0
-    y: 0
-    width: 256
-    height: 212
+    y: 315
+    width: 64
+    height: 63
+    borderLeft: 32
+    borderRight: 32
+    borderTop: 32
+    borderBottom: 31
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: barToggle_rightOff
+    x: 0
+    y: 251
+    width: 63
+    height: 62
+    borderLeft: 31
+    borderRight: 32
+    borderTop: 31
+    borderBottom: 31
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: barToggle_rightOn
+    x: 65
+    y: 251
+    width: 63
+    height: 62
+    borderLeft: 31
+    borderRight: 32
+    borderTop: 31
+    borderBottom: 31
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btnOuter
+    x: 0
+    y: 380
+    width: 78
+    height: 68
+    borderLeft: 30
+    borderRight: 30
+    borderTop: 20
+    borderBottom: 20
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: btnSmallGreen
+    x: 0
+    y: 177
+    width: 65
+    height: 39
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -98,77 +144,38 @@ MonoBehaviour:
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
-    paddingBottom: 44
-  - name: Flat Outline
-    x: 181
-    y: 323
-    width: 17
-    height: 17
-    borderLeft: 5
-    borderRight: 5
-    borderTop: 5
-    borderBottom: 5
+    paddingBottom: 0
+  - name: panel
+    x: 0
+    y: 450
+    width: 106
+    height: 62
+    borderLeft: 53
+    borderRight: 53
+    borderTop: 31
+    borderBottom: 31
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Glow
-    x: 217
-    y: 189
-    width: 17
-    height: 15
-    borderLeft: 4
-    borderRight: 4
-    borderTop: 4
-    borderBottom: 4
+  - name: panelBar
+    x: 80
+    y: 385
+    width: 72
+    height: 63
+    borderLeft: 36
+    borderRight: 36
+    borderTop: 32
+    borderBottom: 31
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: NGUI
-    x: 256
-    y: 178
-    width: 255
-    height: 76
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Orc Armor - Boots
-    x: 256
-    y: 0
-    width: 96
-    height: 128
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Orc Armor - Bracers
+  - name: titleCoins
     x: 130
-    y: 208
-    width: 123
-    height: 113
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 2
-    paddingRight: 3
-    paddingTop: 7
-    paddingBottom: 8
-  - name: Orc Armor - Shoulders
-    x: 0
-    y: 212
-    width: 128
-    height: 128
+    y: 281
+    width: 81
+    height: 32
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -177,41 +184,28 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Paper Background
-    x: 255
-    y: 255
-    width: 257
-    height: 257
-    borderLeft: 1
-    borderRight: 1
-    borderTop: 1
-    borderBottom: 1
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Smooth
-    x: 236
-    y: 189
-    width: 17
-    height: 17
-    borderLeft: 4
-    borderRight: 4
-    borderTop: 4
-    borderBottom: 4
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Window
+  - name: titleGems
     x: 0
-    y: 342
-    width: 254
-    height: 169
-    borderLeft: 8
-    borderRight: 8
-    borderTop: 8
-    borderBottom: 8
+    y: 218
+    width: 82
+    height: 31
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: titleUpgrades
+    x: 108
+    y: 475
+    width: 139
+    height: 37
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -220,9 +214,6 @@ MonoBehaviour:
   mReplacement: {fileID: 0}
   mCoordinates: 0
   sprites: []
---- !u!1002 &11400001
-EditorExtensionImpl:
-  serializedVersion: 6
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -235,6 +226,3 @@ Prefab:
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
   m_IsExploded: 1
---- !u!1002 &100100001
-EditorExtensionImpl:
-  serializedVersion: 6

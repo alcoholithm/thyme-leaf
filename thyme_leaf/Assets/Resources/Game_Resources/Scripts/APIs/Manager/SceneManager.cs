@@ -12,7 +12,16 @@ public class SceneManager : Manager<SceneManager>
     public const string LOBBY = "2_Lobby";
     public const string GAMEPLAY = "3_GamePlay";
 
-    private string currentScene = LOGIN;
+	public const string USERSELECT = "UserSelectScene";
+	public const string AUTOMART = "Scene_AutomartTab";
+	public const string TOWER = "Scene_TowerScene";
+	public const string SETTING = "SettingScene";
+	public const string ALARM = "AlarmScene";
+	public const string PLAYERSELECT = "PlayerSelectScene";
+	public const string LOBBYS = "LobbyScene";
+	public const string BEGIN = "BeginScene";
+
+    private string currentScene = BEGIN;
     public string CurrentScene
     {
         get { return currentScene; }
