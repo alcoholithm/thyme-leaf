@@ -39,7 +39,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 {
                     _instance = FindObjectOfType<T>();
 
-                    if (FindObjectsOfType<T>().Length > 0)
+                    if (FindObjectsOfType<T>().Length > 1)
                     {
                         Debug.LogError(TAG + " Something went really wrong " +
                                        " - there should never be more than 1 singleton!" +
@@ -50,10 +50,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
                 GameObject singleton = new GameObject();
                 singleton.transform.parent = systemObject.transform;
-                singleton.name = typeof(T).ToString();
-                DontDestroyOnLoad(singleton);
-
                 _instance = singleton.AddComponent<T>();
+                singleton.name = typeof(T).ToString();
+
+                DontDestroyOnLoad(singleton);
             }
 
             return _instance;
