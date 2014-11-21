@@ -5,6 +5,10 @@ public class TestMessage : MonoBehaviour {
 
     public Tower receiver;
 
+    void Awake()
+    {
+    }
+
     public void Send()
     {
         Message msg = MessageSystem.Instance.ObtainMessage();
@@ -13,10 +17,5 @@ public class TestMessage : MonoBehaviour {
         msg.receiver = receiver;
 
         MessageSystem.Instance.Dispatch(msg);
-    }
-
-    public void ttt()
-    {
-        SceneManager.Instance.CurrentScene = SceneManager.LOGIN;
     }
 }

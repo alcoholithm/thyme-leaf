@@ -3,13 +3,6 @@ using System.Collections;
 
 public class TowerState_None : State<Tower>
 {
-    private static TowerState_None instance = new TowerState_None(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
-    public static TowerState_None Instance
-    {
-        get { return TowerState_None.instance; }
-        set { TowerState_None.instance = value; }
-    }
-
     private TowerState_None()
     {
         Successor = TowerState_Hitting.Instance;
@@ -27,8 +20,24 @@ public class TowerState_None : State<Tower>
     {
     }
 
-    public override bool IsHandleable()
+    public override bool IsHandleable(Message msg)
     {
-        throw new System.NotImplementedException();
+        Debug.Log(TAG + "IsHandleable");
+        switch (msg.what)
+        {
+            case (int)MessageTypes.MSG_HI:
+            case (int)MessageTypes.MSG_HI2:
+                return true;
+        }
+
+        return false;
+    }
+
+    public new const string TAG = "[TowerState_None]";
+    private static TowerState_None instance = new TowerState_None(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
+    public static TowerState_None Instance
+    {
+        get { return TowerState_None.instance; }
+        set { TowerState_None.instance = value; }
     }
 }

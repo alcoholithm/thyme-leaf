@@ -21,8 +21,9 @@ public class MessageSystem : Singleton<MessageSystem>
         this.messageDispatcher = new MessageDispatcher();
     }
 
-    void OnDestroy()
+    new void OnDestroy()
     {
+        base.OnDestroy();
         Finalize(Looper.Instance);
         Finalize(MessageQueue.Instance);
     }
@@ -61,7 +62,7 @@ public class MessageSystem : Singleton<MessageSystem>
     /// </summary>
     private class MessageDispatcher
     {
-        public new const string TAG = "[MessageDispatcher]";
+        public const string TAG = "[MessageDispatcher]";
 
         public Message ObtainMessage()
         {

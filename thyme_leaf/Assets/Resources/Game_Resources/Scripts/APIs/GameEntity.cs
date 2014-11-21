@@ -20,7 +20,7 @@ public abstract class GameEntity<T> : MonoBehaviour, IHandler // client
         get { return stateMachine; }
     }
 
-    public bool IsHandleable()
+    public bool IsHandleable(Message msg)
     {
         throw new System.NotImplementedException();
     }
@@ -32,6 +32,7 @@ public abstract class GameEntity<T> : MonoBehaviour, IHandler // client
 
     public void HandleMessage(Message msg)
     {
+        Debug.Log(TAG + "HandleMessage");
         Successor.HandleMessage(msg);
     }
 }

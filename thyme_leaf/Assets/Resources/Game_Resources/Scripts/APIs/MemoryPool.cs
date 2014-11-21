@@ -6,7 +6,7 @@ using System.Collections;
 /// </summary>
 public class MemoryPool<T> where T : new()
 {
-    public new const string TAG = "[MemoryPool]";
+    public const string TAG = "[MemoryPool]";
 
     private const int CAPACITY = 1000;
 

@@ -29,11 +29,9 @@ public abstract class State<T> : IHandler
     /// </summary>
     public abstract void Exit(T owner);
 
-    //public bool OnMessage(Message msg)
-    //{
-    //    return false;
-    //}
-
+    /// <summary>
+    /// 
+    /// </summary>
     private IHandler successor;
     public IHandler Successor
     {
@@ -41,7 +39,7 @@ public abstract class State<T> : IHandler
         get { return successor; }
     }
 
-    public abstract bool IsHandleable();
+    public abstract bool IsHandleable(Message msg);
 
     public void OnMessage(Message msg)
     {
@@ -50,13 +48,14 @@ public abstract class State<T> : IHandler
 
     public void HandleMessage(Message msg)
     {
-        if (IsHandleable())
+        if (IsHandleable(msg))
         {
             OnMessage(msg);
         }
         else
         {
-            successor.HandleMessage(msg);
+            if (Successor != null)
+                Successor.HandleMessage(msg);
         }
     }
 }
