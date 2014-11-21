@@ -4,26 +4,44 @@ using System.Collections;
 /// <summary>
 /// This imitates like android looper almost.
 /// </summary>
-public class Looper : Singleton<Looper> {
+public class Looper : ISystem
+{
     public new const string TAG = "[Looper]";
 
-    private MessageQueue messageQueue = MessageQueue.Instance;
+    private static Looper instance = new Looper();
+    public static Looper Instance
+    {
+        get { return instance; }
+    }
 
-    //public static void Prepare()
-    //{
-    //}
-    //public static void Loop() 
-    //{
-    //    //while(true)
-    //    //{
-    //    //    Message msg = MessageQueue.Instance.top();
-    //    //    msg.Send();
-    //    //}
+    private MessageQueue messageQueue;
+    private bool active = false;
 
-    //    Message msg = MessageQueue.Instance.pop();
-    //    msg.Send();
-    //}
-    //public static void Quit() 
-    //{
-    //}
+    /// <summary>
+    /// followings are member functions
+    /// </summary>
+    public void Loop()
+    {
+        //while (active)
+        //{
+        //    Message msg = messageQueue.Pop();
+        //    if (msg != null)
+        //        msg.Send();
+        //}
+
+    }
+
+    /// <summary>
+    /// Followings are implemeted methods
+    /// </summary>
+    public void Prepare()
+    {
+        messageQueue = MessageQueue.Instance;
+        active = true;
+        Loop();
+    }
+    public void Quit()
+    {
+        active = false;
+    }
 }

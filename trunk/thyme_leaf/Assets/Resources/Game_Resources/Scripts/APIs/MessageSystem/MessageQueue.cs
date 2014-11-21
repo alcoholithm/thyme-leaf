@@ -2,30 +2,58 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
 /// <summary>
 /// This imitates android MessgeQueue almost.
 /// </summary>
-public class MessageQueue : Singleton<MessageQueue>
+class MessageQueue : ISystem
 {
     public new const string TAG = "[MessageQueue]";
 
-    private List<Message> messages = new List<Message>();
+    private static MessageQueue instance = new MessageQueue();
 
+    internal static MessageQueue Instance
+    {
+        get { return MessageQueue.instance; }
+        set { MessageQueue.instance = value; }
+    }
+
+    private Queue<Message> messages;
+
+    /// <summary>
+    /// followings are member functions
+    /// </summary>
     public void Push(Message msg)
     {
-        messages.Add(msg);
+        messages.Enqueue(msg);
     }
 
-    public Message pop()
+    public Message Pop()
     {
-        Message msg = messages[messages.Count - 1];
-        messages.RemoveAt(messages.Count - 1);
-        return msg;
+        try
+        {
+            return messages.Dequeue();
+        }
+        catch
+        {
+            return null;
+        }
     }
 
-    public Message top()
+    public Message PeekTop()
     {
-        return messages[messages.Count - 1];
+        return messages.Peek();
+    }
+
+
+    /// <summary>
+    /// Followings are implemeted methods
+    /// </summary>
+    public void Prepare()
+    {
+        messages = new Queue<Message>();
+    }
+
+    public void Quit()
+    {
     }
 }
