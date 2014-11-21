@@ -14,4 +14,9 @@ public class TestMessage : MonoBehaviour {
 
         MessageSystem.Instance.Dispatch(msg);
     }
+
+    public void ttt()
+    {
+        SceneManager.Instance.CurrentScene = SceneManager.LOGIN;
+    }
 }
