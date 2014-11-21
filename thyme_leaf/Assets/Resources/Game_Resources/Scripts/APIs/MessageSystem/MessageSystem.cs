@@ -51,9 +51,9 @@ public class MessageSystem : Singleton<MessageSystem>
         messageDispatcher.Dispatch(msg);
     }
 
-    public void DispatchDelayed(Message msg)
+    public void DispatchDelayed(Message msg, float seconds)
     {
-        messageDispatcher.DispatchDelayed(msg);
+        messageDispatcher.DispatchDelayed(msg, seconds);
     }
 
     /// <summary>
@@ -74,8 +74,15 @@ public class MessageSystem : Singleton<MessageSystem>
             MessageQueue.Instance.Push(msg);
         }
 
-        public void DispatchDelayed(Message msg)
+        public void DispatchDelayed(Message msg, float seconds)
         {
+            MessageSystem.Instance.StartCoroutine(WaitForSeconds(msg, seconds));
+        }
+
+        public IEnumerator WaitForSeconds(Message msg, float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            Dispatch(msg);
         }
     }
 }  
