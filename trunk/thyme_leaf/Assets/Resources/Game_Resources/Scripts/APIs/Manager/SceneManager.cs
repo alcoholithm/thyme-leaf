@@ -36,6 +36,6 @@ public class SceneManager : Manager<SceneManager>
     {
         Application.LoadLevel(currentScene);
 
-        return null;
+        yield return new AsyncOperation();
     }
 }
