@@ -5,6 +5,11 @@ using System.Collections.Generic;
 public class Define
 {
 	public static List<GameObject> pathNode;
+	public static void PathDataDispose()
+	{
+		pathNode.Clear ();
+		pathNode = null;
+	}
 
 	public static float RadianToAngle()
 	{

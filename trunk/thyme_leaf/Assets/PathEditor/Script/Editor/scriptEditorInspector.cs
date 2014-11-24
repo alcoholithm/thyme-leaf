@@ -79,7 +79,7 @@ public class scriptEditorInspector : Editor
 		GameObject obj = Instantiate(editor.pathNodeObj) as GameObject;
 		obj.transform.parent = GameObject.Find("PathNodeRoot").transform;
 		obj.transform.position = new Vector3(x, y, z);
-		obj.transform.localScale = new Vector3 (100, 100, 100);
+		obj.transform.localScale = new Vector3 (50, 50, 50);
 		obj.name = "node"+editor.productID;
 
 		scriptPathNode tempObj = obj.gameObject.GetComponent<scriptPathNode>();

@@ -1,9 +1,9 @@
-numofdata 5
+numofdata 11
 name node0
 id 0
 current_pos
--385.8713 -144.7017 0
-next node4
+-429.2881 118.2406 0
+next node10
 prev null
 turnoffBridge null
 startpoint true
@@ -15,9 +15,9 @@ null null null null
 name node1
 id 1
 current_pos
-211.6069 107.3593 0
+166.1763 117.1755 0
 next null
-prev node2
+prev node4
 turnoffBridge null
 startpoint false
 endpoint true
@@ -28,12 +28,12 @@ null null null null
 name node2
 id 2
 current_pos
-102.6916 -4.667793 0
-next node1
+198.1329 -24.50031 0
+next null
 prev node3
 turnoffBridge null
 startpoint false
-endpoint false
+endpoint true
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -41,9 +41,9 @@ null null null null
 name node3
 id 3
 current_pos
--90.24406 -32.67456 0
+117.1755 -111.8492 0
 next node2
-prev node4
+prev node5
 turnoffBridge null
 startpoint false
 endpoint false
@@ -54,8 +54,86 @@ null null null null
 name node4
 id 4
 current_pos
--247.3933 -76.24067 0
+67.10953 139.5452 0
+next node1
+prev node6
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node5
+id 5
+current_pos
+17.0437 -149.1323 0
 next node3
+prev node7
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node6
+id 6
+current_pos
+-28.76122 152.328 0
+next node4
+prev null
+turnoffBridge node8
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node7
+id 7
+current_pos
+-43.67447 -59.65291 0
+next node5
+prev null
+turnoffBridge node8
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node8
+id 8
+current_pos
+-66.04425 55.39201 0
+next null
+prev null
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot true
+turnoffidx 3
+turnoffList
+node9 node6 node7 null 
+name node9
+id 9
+current_pos
+-190.6763 68.1748 0
+next null
+prev node10
+turnoffBridge node8
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node10
+id 10
+current_pos
+-317.4391 86.28371 0
+next node9
 prev node0
 turnoffBridge null
 startpoint false

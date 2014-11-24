@@ -124,6 +124,7 @@ public class DataToFile : MonoBehaviour
 		Define.pathNode.Add(obj);
 		for(int i=1;i<DataNodeNum;i++)
 		{
+			//file format...
 			for(int k=0;k<12;k++) textReader.ReadLine();
 			nameA = textReader.ReadLine().Split(' ')[1];
 			
@@ -228,7 +229,7 @@ public class DataToFile : MonoBehaviour
 			GameObject tempsetting = Define.pathNode[c];
 			scriptPathNode tempFunc = tempsetting.GetComponent<scriptPathNode>();
 			Define.pathNode[c].transform.localPosition = current_pos;
-			Define.pathNode[c].transform.localScale = new Vector3(100,100,100);
+			Define.pathNode[c].transform.localScale = new Vector3(50,50,50);
 			tempFunc.DataInit();
 
 			tempFunc.setID(id);
@@ -241,7 +242,6 @@ public class DataToFile : MonoBehaviour
 			tempFunc.SetTurnOffListCount(turnoffIndex);
 			for(int i=0;i<Define.TurnOffMaxCount();i++)
 				tempFunc.turnoffList[i] = turnList[i];
-			scrpitUnitManager unitMgr = Define.pathNode[c].GetComponent<scrpitUnitManager>();
 			if(tempFunc.startPoint) tempFunc.ChangeIMG(SpriteList.START);
 			else if(tempFunc.endPoint) tempFunc.ChangeIMG(SpriteList.END);
 			else if(tempFunc.TurnoffRoot) tempFunc.ChangeIMG(SpriteList.TURNOFF);
