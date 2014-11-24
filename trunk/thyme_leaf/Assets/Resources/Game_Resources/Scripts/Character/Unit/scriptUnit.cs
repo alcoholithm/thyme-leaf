@@ -7,11 +7,19 @@ public class scriptUnit : MonoBehaviour
 	private MoveModeState moveMode;
 	private float radian;
 	private List<GameObject> plist;
+	private GameObject nodeCurrent;
 	private GameObject nodeStock;
 	private scriptPathNode nodeInfor;
 	private bool enableMove;
 
 	public float speed = 1;
+
+	private string nameID;
+
+	//====
+	private Vector3 mPointStart, mPointEnd;
+	private bool selectTurnoffRoot;
+	//====
 
 	void Start () 
 	{
@@ -27,24 +35,26 @@ public class scriptUnit : MonoBehaviour
 				nodeStock = plist[i];
 			}
 		}
+		nodeCurrent = nodeStock;
+
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 		transform.localPosition = nodeInfor.getPos(PosParamOption.CURRENT);
 
 		nodeStock = nodeInfor.Next;    //next point
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 
-		enableMove = false;
+		EnableMove ();
+
+		//======================
+		mPointStart = Vector3.zero;
+		mPointEnd = Vector3.zero;
+
+		selectTurnoffRoot = false;
 	}
 
 	void Update () 
 	{
-		FindCheckNode();
-
-		if(Input.GetMouseButtonDown(0))
-		{
-			Debug.Log("click");
-			EnableMove();
-		}
+		FindCheckNode ();
 	}
 
 	private void FindCheckNode()
@@ -59,21 +69,23 @@ public class scriptUnit : MonoBehaviour
 			{
 				if(moveMode == MoveModeState.FORWARD)
 				{
-					if(nodeInfor.Next != null) 
+					if(nodeInfor.Next != null)
 					{
 						nodeStock = nodeInfor.Next;
 					}
 					else
 					{
 						Debug.Log("next null");
-						if(nodeInfor.turnoffBridge != null)
+						//turnoff root true
+						if(nodeInfor.turnoffBridge == null)
 						{
-							nodeStock = nodeInfor.turnoffBridge;
+							Debug.Log("turnoff null");
+							if(nodeInfor.startPoint || nodeInfor.endPoint) MoveReverse();
+							else nodeStock = nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
 						else
 						{
-							Debug.Log("turnoff null");
-							MoveReverse();
+							nodeStock = nodeInfor.turnoffBridge;
 						}
 					}
 				}
@@ -86,28 +98,35 @@ public class scriptUnit : MonoBehaviour
 					else
 					{
 						Debug.Log("prev null");
-						if(nodeInfor.turnoffBridge != null)
+						//turnoff root true
+						if(nodeInfor.turnoffBridge == null)
 						{
-							nodeStock = nodeInfor.turnoffBridge;
+							Debug.Log("turnoff null");
+							if(nodeInfor.startPoint || nodeInfor.endPoint) MoveReverse();
+							else nodeStock = nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
 						else
 						{
-							Debug.Log("turnoff null");
-							MoveReverse();
+							nodeStock = nodeInfor.turnoffBridge;
 						}
 					}
 				}
 
-				if(nodeInfor.TurnoffRoot)
+				if(nodeInfor.TurnoffRoot && !selectTurnoffRoot)
 				{
+					selectTurnoffRoot = true;
 					DisableMove();
 					//select case
-					Debug.Log("exit");
 					return;
+				}
+				else if(!nodeInfor.TurnoffRoot)
+				{
+					selectTurnoffRoot = false;
 				}
 
 				nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 			}
+			//move module
 			float rt = Mathf.Atan2(dy, dx);
 			float xv = Mathf.Cos(rt) * (speed * Time.deltaTime);
 			float yv = Mathf.Sin(rt) * (speed * Time.deltaTime);
@@ -116,30 +135,105 @@ public class scriptUnit : MonoBehaviour
 		else
 		{
 			//don't move
-			//attack~!
-
+			if(Input.GetMouseButtonDown(0))
+			{
+				mPointStart = ToScreenCoord(Input.mousePosition);
+			}
+			else if(Input.GetMouseButtonUp(0))
+			{
+				mPointEnd = ToScreenCoord(Input.mousePosition);
+				if(SelectPathNode(ref nodeStock, mPointStart, mPointEnd))
+				{
+					Debug.Log(nodeStock);
+					EnableMove();
+				}
+			}
 		}
+
 	}
 
+	public bool SelectPathNode(ref GameObject gobj, Vector3 startPt, Vector3 endPt)
+	{
+		//gobj = turnoffRoot = nodestoke  <all like>
+		//select path node ... when unit arrive at turnoff point
+		//searching node
+		if(gobj == null) return false;
+
+		scriptPathNode tempFunc = gobj.GetComponent<scriptPathNode>();
+		Vector3 centerPoint = gobj.transform.localPosition;
+
+		float dx = endPt.x - startPt.x;
+		float dy = endPt.y - startPt.y;
+		float ag = Mathf.Atan2 (dy, dx) * Define.RadianToAngle ();
+
+		int min_idx = -1;
+		float min_r = float.MaxValue;
+		for (int i=0; i<tempFunc.CountTurnOffList(); i++)
+		{
+		    Vector3 turn_list = tempFunc.getPosTurnoffList(i);
+			dx = turn_list.x - centerPoint.x;
+			dy = turn_list.y - centerPoint.y;
+			float r = ag - (Mathf.Atan2(dy, dx) * Define.RadianToAngle());
+			r = r > 0 ? r : -r;
+		//	Debug.Log(tempFunc.turnoffList[i].name + ", " + r);
+			if(r < min_r)
+			{
+				min_r = r;
+				min_idx = i;
+			}
+		}
+	//	Debug.Log ("11111111111");
+		if (min_idx < 0 || min_r > 30) return false;
+		//=========select node part
+		GameObject tempObj = tempFunc.turnoffList [min_idx];
+		tempFunc = tempObj.GetComponent<scriptPathNode> ();
+		if (tempFunc.Next != null) 
+		{
+			//if selected node is not null
+			MoveModeSelect(MoveModeState.FORWARD);
+			gobj = tempObj;
+		}
+		else
+		{
+			Debug.Log("turnoff Root next null");
+			if(tempFunc.Prev != null)
+			{
+				MoveModeSelect(MoveModeState.BACKWARD);
+				gobj = tempObj;
+			}
+			else
+			{
+				Debug.Log("turnoff Root null error");
+				return false;
+			}
+		}
+
+		//selected node get component
+		nodeInfor = gobj.GetComponent<scriptPathNode>();
+
+		return true;
+	}
+	
 	public void MoveReverse()
 	{
 		if(moveMode == MoveModeState.FORWARD)
-			moveMode = MoveModeState.BACKWARD;
+			MoveModeSelect(MoveModeState.BACKWARD);
 		else if(moveMode == MoveModeState.BACKWARD)
-			moveMode = MoveModeState.FORWARD;
-
+			MoveModeSelect(MoveModeState.FORWARD);
+		
 		if(moveMode == MoveModeState.FORWARD) nodeStock = nodeInfor.Next;
 		else if(moveMode == MoveModeState.BACKWARD) nodeStock = nodeInfor.Prev;
 	}
-
-	public void SelectPathNode(GameObject gobj)
+	
+	public void MoveModeSelect(MoveModeState option)
 	{
-		//select path node ... when unit arrive at turnoff point
-		scriptPathNode tempFunc = gobj.GetComponent<scriptPathNode>();
-		if(tempFunc.TurnoffRoot) return;
-		
-		if(tempFunc.Next == null) moveMode = MoveModeState.BACKWARD;
-		else if(tempFunc.Prev == null) moveMode = MoveModeState.FORWARD;
+		moveMode = option;
+	}
+
+	private Vector3 ToScreenCoord(Vector3 v)
+	{
+		Vector3 temp = UICamera.mainCamera.ScreenToWorldPoint(v);
+		return UICamera.mainCamera.WorldToScreenPoint (temp);
 	}
 
 	public void EnableMove()
@@ -175,17 +269,33 @@ public class scriptUnit : MonoBehaviour
 
 	public void addPos(float x, float y)
 	{
-		//rigidbody2D.MovePosition(rigidbody2D.position + new Vector2(x,y));
 		transform.localPosition += new Vector3(x, y);
 	}
 
-	public void addPos(Vector2 v)
+	public void addPos(Vector3 v)
 	{
-		rigidbody2D.position += v;
+		transform.localPosition += v;
 	}
 
 	public Vector3 getPos()
 	{
 		return transform.localPosition;
+	}
+
+	public void setID(string v)
+	{
+		nameID = v;
+	}
+
+	public string getID()
+	{
+		return nameID;
+	}
+
+	public void RemoveUnit()
+	{
+		plist.Clear ();
+		plist = null;
+		//disconstructure
 	}
 }
