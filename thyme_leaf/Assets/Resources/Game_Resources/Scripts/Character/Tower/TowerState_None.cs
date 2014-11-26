@@ -11,11 +11,9 @@ public class TowerState_None : State<Tower>
     public override void Enter(Tower owner)
     {
     }
-
     public override void Execute(Tower owner)
     {
     }
-
     public override void Exit(Tower owner)
     {
     }
@@ -25,8 +23,7 @@ public class TowerState_None : State<Tower>
         Debug.Log(TAG + "IsHandleable");
         switch (msg.what)
         {
-            case (int)MessageTypes.MSG_HI:
-            case (int)MessageTypes.MSG_HI2:
+            case MessageTypes.MSG_BUILD_TOWER:
                 return true;
         }
 

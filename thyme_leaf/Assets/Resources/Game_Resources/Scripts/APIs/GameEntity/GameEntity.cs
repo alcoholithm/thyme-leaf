@@ -1,0 +1,92 @@
+﻿using UnityEngine;
+using System.Collections;
+
+/// <summary>
+/// All the game entities must be derived from this class.
+/// </summary>
+public abstract class GameEntity<T> : MonoBehaviour, IHandler // client
+{
+    public const string TAG = "[GameEntity]";
+
+    protected StateMachine<T> stateMachine;
+    public StateMachine<T> StateMachine
+    {
+        get { return stateMachine; }
+    }
+
+    public IHandler Successor
+    {
+        get { return stateMachine; }
+    }
+
+    public bool IsHandleable(Message msg)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnMessage(Message msg)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void HandleMessage(Message msg)
+    {
+        Debug.Log(TAG + "HandleMessage");
+        Successor.HandleMessage(msg);
+    }
+
+    public Message ObtainMessage(MessageTypes what, int arg1, int arg2, ICommand command, Object obj)
+    {
+        return Message.Obtain(this, what, arg1, arg2, command, obj);
+    }
+
+    public Message ObtainMessage(MessageTypes what, int arg1, int arg2, ICommand command)
+    {
+        return Message.Obtain(this, what, arg1, arg2, command);
+    }
+
+    public Message ObtainMessage(MessageTypes what, int arg1, int arg2, Object obj)
+    {
+        return Message.Obtain(this, what, arg1, arg2, obj);
+    }
+
+    public Message ObtainMessage(MessageTypes what, ICommand command, Object obj)
+    {
+        return Message.Obtain(this, what, command, obj);
+    }
+
+    public Message ObtainMessage(MessageTypes what, Object obj)
+    {
+        return Message.Obtain(this, what, obj);
+    }
+
+    public Message ObtainMessage(MessageTypes what, ICommand command)
+    {
+        return Message.Obtain(this, what, command);
+    }
+
+    public Message ObtainMessage(MessageTypes what, int arg1, int arg2)
+    {
+        return Message.Obtain(this, what, arg1, arg2);
+    }
+
+    public Message ObtainMessage(MessageTypes what)
+    {
+        return Message.Obtain(this, what);
+    }
+
+    public Message ObtainMessage()
+    {
+        return Message.Obtain(this);
+    }
+
+    public bool DispatchMessage(Message msg)
+    {
+        return MessageSystem.Instance.Dispatch(msg);
+    }
+
+    public bool DispatchMessageDelayed(Message msg, float seconds)
+    {
+        return MessageSystem.Instance.DispatchDelayed(msg, seconds);
+    }
+}

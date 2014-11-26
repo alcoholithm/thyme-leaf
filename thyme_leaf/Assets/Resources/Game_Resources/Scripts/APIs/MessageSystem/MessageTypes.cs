@@ -10,7 +10,6 @@ using System.Collections;
 /// 
 /// </remarks>
 public enum MessageTypes {
-    MSG_HI,
-    MSG_HI2,
-    MSG_HI3,
+    MSG_NONE = -1,
+    MSG_BUILD_TOWER,
 }

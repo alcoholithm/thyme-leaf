@@ -23,37 +23,41 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 return null;
             }
 
-            GameObject systemObject;
-            systemObject = GameObject.Find("_System");
-            if (systemObject == null)
-            {
-                systemObject = new GameObject();
-                systemObject.name = "_System";
-                DontDestroyOnLoad(systemObject);
-            }
+            //GameObject systemObject;
+            //systemObject = GameObject.Find("_System");
+            //if (systemObject == null)
+            //{
+            //    systemObject = new GameObject();
+            //    systemObject.name = "_System";
+            //    DontDestroyOnLoad(systemObject);
+            //}
 
             // Applying DCL
             if (_instance == null)
             {
                 lock (typeof(Singleton<T>))
                 {
-                    _instance = FindObjectOfType<T>();
-
-                    if (FindObjectsOfType<T>().Length > 1)
+                    T[] objs = FindObjectsOfType<T>();
+                    if (objs.Length > 1)
                     {
                         Debug.LogError(TAG + " Something went really wrong " +
                                        " - there should never be more than 1 singleton!" +
                                        " Reopenning the scene might fix it.");
-                        return _instance;
+                        return null;
                     }
+                    else if (objs.Length == 1)
+                    {
+                        _instance = objs[0];
+                    }
+                    else
+                    {
+                        GameObject singleton = new GameObject();
+                        _instance = singleton.AddComponent<T>();
+                        singleton.name = typeof(T).ToString();
+                    }
+
+                    DontDestroyOnLoad(_instance.gameObject);
                 }
-
-                GameObject singleton = new GameObject();
-                singleton.transform.parent = systemObject.transform;
-                _instance = singleton.AddComponent<T>();
-                singleton.name = typeof(T).ToString();
-
-                DontDestroyOnLoad(singleton);
             }
 
             return _instance;
