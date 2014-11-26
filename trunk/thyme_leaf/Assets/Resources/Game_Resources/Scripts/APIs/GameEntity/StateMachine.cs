@@ -32,10 +32,11 @@ public class StateMachine<T> : IHandler
             return;
         }
 
-        currentState.Exit(owner);
         previousState = currentState;
-        CurrentState = newState;
-        currentState.Enter(owner);
+        currentState = NullState.Instance as State<T>;
+        previousState.Exit(owner);
+        newState.Enter(owner);
+        currentState = newState;
     }
 
     public void RevertToPreviousState()

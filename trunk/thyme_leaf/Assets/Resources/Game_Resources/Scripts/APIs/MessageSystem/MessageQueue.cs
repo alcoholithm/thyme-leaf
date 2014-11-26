@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// <summary>
 /// This imitates android MessgeQueue almost.
 /// </summary>
-class MessageQueue : ISystem
+public class MessageQueue : ISystem
 {
     private Queue<Message> messages;
 
@@ -17,9 +17,16 @@ class MessageQueue : ISystem
     /// <summary>
     /// followings are member functions
     /// </summary>
-    public void Push(Message msg)
+    public void Push(Message command)
     {
-        messages.Enqueue(msg);
+        try
+        {
+            messages.Enqueue(command);
+        }
+        catch (System.Exception e)
+        {
+            throw e;
+        }
     }
 
     public Message Pop()
@@ -28,9 +35,9 @@ class MessageQueue : ISystem
         {
             return messages.Dequeue();
         }
-        catch
+        catch (System.Exception e)
         {
-            return null;
+            throw e;
         }
     }
 
@@ -38,7 +45,6 @@ class MessageQueue : ISystem
     {
         return messages.Peek();
     }
-
 
     /// <summary>
     /// Followings are implemeted methods
@@ -53,7 +59,6 @@ class MessageQueue : ISystem
     }
 
     public const string TAG = "[MessageQueue]";
-
     private static MessageQueue instance = new MessageQueue();
     public static MessageQueue Instance
     {

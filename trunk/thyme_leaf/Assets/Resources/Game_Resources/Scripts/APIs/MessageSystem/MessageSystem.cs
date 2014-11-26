@@ -7,7 +7,6 @@ using System.Collections;
 public class MessageSystem : Singleton<MessageSystem>
 {
     public new const string TAG = "[MessageSystem]";
-
     private MessageDispatcher messageDispatcher;
 
     /// <summary>
@@ -15,45 +14,80 @@ public class MessageSystem : Singleton<MessageSystem>
     /// </summary>
     void Awake()
     {
-        Initialize(MessageQueue.Instance);
-        Initialize(Looper.Instance);
-
         this.messageDispatcher = new MessageDispatcher();
+
+        MessageQueue.Instance.Prepare();
+
+        Looper.Instance.transform.parent = transform;
     }
 
     new void OnDestroy()
     {
         base.OnDestroy();
-        Finalize(Looper.Instance);
-        Finalize(MessageQueue.Instance);
+        MessageQueue.Instance.Quit();
     }
 
     /// <summary>
     /// followings are member functions
     /// </summary>
-    /// <param name="system"></param>
-    private void Initialize(ISystem system)
+    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command, Object obj)
+    //{
+    //    return Message.Obtain(h, what, arg1, arg2, command, obj);
+    //}
+
+    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command)
+    //{
+    //    return Message.Obtain(h, what, arg1, arg2, command);
+    //}
+
+    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, Object obj)
+    //{
+    //    return Message.Obtain(h, what, arg1, arg2, obj);
+    //}
+
+    //public Message ObtainMessage(IHandler h, MessageTypes what, ICommand command, Object obj)
+    //{
+    //    return Message.Obtain(h, what, command, obj);
+    //}
+
+    //public Message ObtainMessage(IHandler h, MessageTypes what, Object obj)
+    //{
+    //    return Message.Obtain(h, what, obj);
+    //}
+
+    //public Message ObtainMessage(IHandler h, MessageTypes what, ICommand command)
+    //{
+    //    return Message.Obtain(h, what, command);
+    //}
+
+    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2)
+    //{
+    //    return Message.Obtain(h, what, arg1, arg2);
+    //}
+
+    //public Message ObtainMessage(IHandler h, MessageTypes what)
+    //{
+    //    return Message.Obtain(h, what);
+    //}
+
+    //public Message ObtainMessage(IHandler h)
+    //{
+    //    return Message.Obtain(h);
+    //}
+
+    //public Message ObtainMessage()
+    //{
+    //    return Message.Obtain();
+    //}
+
+    public bool Dispatch(Message msg)
     {
-        system.Prepare();
-    }
-    private void Finalize(ISystem system)
-    {
-        system.Quit();
+        return messageDispatcher.Dispatch(msg);
     }
 
-    public Message ObtainMessage()
+    public bool DispatchDelayed(Message msg, float seconds)
     {
-        return messageDispatcher.ObtainMessage();
-    }
-
-    public void Dispatch(Message msg)
-    {
-        messageDispatcher.Dispatch(msg);
-    }
-
-    public void DispatchDelayed(Message msg, float seconds)
-    {
-        messageDispatcher.DispatchDelayed(msg, seconds);
+        return messageDispatcher.DispatchDelayed(msg, seconds);
     }
 
     /// <summary>
@@ -64,25 +98,40 @@ public class MessageSystem : Singleton<MessageSystem>
     {
         public const string TAG = "[MessageDispatcher]";
 
-        public Message ObtainMessage()
+        public bool Dispatch(Message msg)
         {
-            return Message.Obtain();
+            try
+            {
+                MessageQueue.Instance.Push(msg);
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+                return false;
+            }
         }
 
-        public void Dispatch(Message msg)
+        public bool DispatchDelayed(Message msg, float seconds)
         {
-            MessageQueue.Instance.Push(msg);
-        }
-
-        public void DispatchDelayed(Message msg, float seconds)
-        {
-            MessageSystem.Instance.StartCoroutine(WaitForSeconds(msg, seconds));
+            try
+            {
+                MessageSystem.Instance.StartCoroutine(WaitForSeconds(msg, seconds));
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+                return false;
+            }
         }
 
         public IEnumerator WaitForSeconds(Message msg, float seconds)
         {
             yield return new WaitForSeconds(seconds);
-            Dispatch(msg);
+
+            if (!Dispatch(msg))
+                throw new System.Exception();
         }
     }
-}  
+}

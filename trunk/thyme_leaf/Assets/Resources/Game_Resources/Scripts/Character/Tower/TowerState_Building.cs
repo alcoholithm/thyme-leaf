@@ -8,6 +8,8 @@ public class TowerState_Building : State<Tower>
 {
     private string animName = "Tower_Building_";
 
+    private float buildingTime = 5.0f;
+
     private TowerState_Building()
     {
         Successor = TowerState_Hitting.Instance;
@@ -19,12 +21,12 @@ public class TowerState_Building : State<Tower>
     IEnumerator BuildTower(Tower owner)
     {
         owner.PlayAnimation(animName);
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(buildingTime);
         owner.StateMachine.ChangeState(TowerState_Idling.Instance);
     }
     
     /// <summary>
-    /// 
+    /// followings are 
     /// </summary>
     public override void Enter(Tower owner)
     {
