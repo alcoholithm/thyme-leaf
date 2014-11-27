@@ -358,10 +358,10 @@ Transform:
   m_GameObject: {fileID: 202091562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1959266894}
-  m_Father: {fileID: 1196687327}
+  m_Father: {fileID: 821129422}
   m_RootOrder: 0
 --- !u!114 &202091566
 MonoBehaviour:
@@ -3295,6 +3295,46 @@ MonoBehaviour:
   mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
   mSpriteName: Button
   mFillCenter: 1
+--- !u!1 &821129421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 821129422}
+  - 114: {fileID: 821129423}
+  m_Layer: 0
+  m_Name: TowerSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &821129422
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821129421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 202091563}
+  m_Father: {fileID: 1196687327}
+  m_RootOrder: 0
+--- !u!114 &821129423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821129421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e3b465a513e5d4da1541955383f537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &834057763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3984,6 +4024,45 @@ Transform:
   - {fileID: 518225789}
   m_Father: {fileID: 246556457}
   m_RootOrder: 3
+--- !u!1 &1131247755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1131247756}
+  - 114: {fileID: 1131247757}
+  m_Layer: 0
+  m_Name: HeroSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131247756
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131247755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1196687327}
+  m_RootOrder: 1
+--- !u!114 &1131247757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131247755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41226f53b94da574bba95cbe9be349b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1138594626
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,7 +4101,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1196687327}
-  - 114: {fileID: 1196687328}
   m_Layer: 8
   m_Name: _Spawner
   m_TagString: Untagged
@@ -4040,20 +4118,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 202091563}
+  - {fileID: 821129422}
+  - {fileID: 1131247756}
   m_Father: {fileID: 2037686777}
   m_RootOrder: 1
---- !u!114 &1196687328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1196687326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66e3b465a513e5d4da1541955383f537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1200424464
 GameObject:
   m_ObjectHideFlags: 0
