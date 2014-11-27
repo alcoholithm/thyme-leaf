@@ -30,7 +30,7 @@ public class HeroState_Idling : State<Hero> {
 	private static HeroState_Idling instance = new HeroState_Idling();
 	public static HeroState_Idling Instance {
 		get { return HeroState_Idling.instance;}
-		set { HeroState_Idling = value;}
+		set { HeroState_Idling.instance = value;}
 	}
 
 }
