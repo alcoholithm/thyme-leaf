@@ -8,7 +8,6 @@ using System;
 /// </summary>
 public class Looper : Singleton<Looper>
 {
-    private volatile bool active = true;
     private MessageQueue messageQueue;
 
     void Awake()
@@ -39,6 +38,7 @@ public class Looper : Singleton<Looper>
     public new const string TAG = "[Looper]";
 }
 
+//private volatile bool active = true;
 //void Loop()
 //{
 //    //new Thread(() => DoInBackground()).Start();

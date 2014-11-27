@@ -17,7 +17,6 @@ public class MessageSystem : Singleton<MessageSystem>
         this.messageDispatcher = new MessageDispatcher();
 
         MessageQueue.Instance.Prepare();
-
         Looper.Instance.transform.parent = transform;
     }
 
@@ -96,8 +95,6 @@ public class MessageSystem : Singleton<MessageSystem>
     /// </summary>
     private class MessageDispatcher
     {
-        public const string TAG = "[MessageDispatcher]";
-
         public bool Dispatch(Message msg)
         {
             try
@@ -133,5 +130,7 @@ public class MessageSystem : Singleton<MessageSystem>
             if (!Dispatch(msg))
                 throw new System.Exception();
         }
+
+        public const string TAG = "[MessageDispatcher]";
     }
 }
