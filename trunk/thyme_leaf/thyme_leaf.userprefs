@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\UI_Resources\Scripts\UI\BeginScene\UI\BeginClickListener.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Game_Resources\Scripts\Character\Hero\HeroState_Moving.cs">
     <Files>
-      <File FileName="Assets\Resources\Game_Resources\Scripts\APIs\Manager\SceneManager.cs" Line="21" Column="44" />
-      <File FileName="Assets\Resources\UI_Resources\Scripts\UI\BeginScene\UI\BeginClickListener.cs" Line="10" Column="1" />
+      <File FileName="Assets\Resources\Game_Resources\Scripts\Character\Hero\Hero.cs" Line="18" Column="2" />
+      <File FileName="Assets\Resources\Game_Resources\Scripts\Character\Hero\HeroState_None.cs" Line="20" Column="3" />
+      <File FileName="Assets\Resources\Game_Resources\Scripts\Character\Hero\HeroState_Moving.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
