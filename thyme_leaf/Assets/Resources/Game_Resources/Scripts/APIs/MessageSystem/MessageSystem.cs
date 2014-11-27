@@ -6,18 +6,15 @@ using System.Collections;
 /// </summary>
 public class MessageSystem : Singleton<MessageSystem>
 {
-    public new const string TAG = "[MessageSystem]";
     private MessageDispatcher messageDispatcher;
 
-    /// <summary>
-    /// followings are unity callback methods
-    /// </summary>
+    /*
+     * followings are unity callback methods
+     */
     void Awake()
     {
-        this.messageDispatcher = new MessageDispatcher();
-
-        MessageQueue.Instance.Prepare();
-        Looper.Instance.transform.parent = transform;
+        initialize();
+        SetParent("_System");
     }
 
     new void OnDestroy()
@@ -26,58 +23,15 @@ public class MessageSystem : Singleton<MessageSystem>
         MessageQueue.Instance.Quit();
     }
 
-    /// <summary>
-    /// followings are member functions
-    /// </summary>
-    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command, Object obj)
-    //{
-    //    return Message.Obtain(h, what, arg1, arg2, command, obj);
-    //}
-
-    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command)
-    //{
-    //    return Message.Obtain(h, what, arg1, arg2, command);
-    //}
-
-    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, Object obj)
-    //{
-    //    return Message.Obtain(h, what, arg1, arg2, obj);
-    //}
-
-    //public Message ObtainMessage(IHandler h, MessageTypes what, ICommand command, Object obj)
-    //{
-    //    return Message.Obtain(h, what, command, obj);
-    //}
-
-    //public Message ObtainMessage(IHandler h, MessageTypes what, Object obj)
-    //{
-    //    return Message.Obtain(h, what, obj);
-    //}
-
-    //public Message ObtainMessage(IHandler h, MessageTypes what, ICommand command)
-    //{
-    //    return Message.Obtain(h, what, command);
-    //}
-
-    //public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2)
-    //{
-    //    return Message.Obtain(h, what, arg1, arg2);
-    //}
-
-    //public Message ObtainMessage(IHandler h, MessageTypes what)
-    //{
-    //    return Message.Obtain(h, what);
-    //}
-
-    //public Message ObtainMessage(IHandler h)
-    //{
-    //    return Message.Obtain(h);
-    //}
-
-    //public Message ObtainMessage()
-    //{
-    //    return Message.Obtain();
-    //}
+    /*
+     * followings are member functions
+     */
+    void initialize()
+    {
+        this.messageDispatcher = new MessageDispatcher();
+        MessageQueue.Instance.Prepare();
+        Looper.Instance.transform.parent = transform;
+    }
 
     public bool Dispatch(Message msg)
     {
@@ -133,4 +87,58 @@ public class MessageSystem : Singleton<MessageSystem>
 
         public const string TAG = "[MessageDispatcher]";
     }
+    public new const string TAG = "[MessageSystem]";
 }
+
+/// <summary>
+/// followings are member functions
+/// </summary>
+//public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command, Object obj)
+//{
+//    return Message.Obtain(h, what, arg1, arg2, command, obj);
+//}
+
+//public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command)
+//{
+//    return Message.Obtain(h, what, arg1, arg2, command);
+//}
+
+//public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2, Object obj)
+//{
+//    return Message.Obtain(h, what, arg1, arg2, obj);
+//}
+
+//public Message ObtainMessage(IHandler h, MessageTypes what, ICommand command, Object obj)
+//{
+//    return Message.Obtain(h, what, command, obj);
+//}
+
+//public Message ObtainMessage(IHandler h, MessageTypes what, Object obj)
+//{
+//    return Message.Obtain(h, what, obj);
+//}
+
+//public Message ObtainMessage(IHandler h, MessageTypes what, ICommand command)
+//{
+//    return Message.Obtain(h, what, command);
+//}
+
+//public Message ObtainMessage(IHandler h, MessageTypes what, int arg1, int arg2)
+//{
+//    return Message.Obtain(h, what, arg1, arg2);
+//}
+
+//public Message ObtainMessage(IHandler h, MessageTypes what)
+//{
+//    return Message.Obtain(h, what);
+//}
+
+//public Message ObtainMessage(IHandler h)
+//{
+//    return Message.Obtain(h);
+//}
+
+//public Message ObtainMessage()
+//{
+//    return Message.Obtain();
+//}

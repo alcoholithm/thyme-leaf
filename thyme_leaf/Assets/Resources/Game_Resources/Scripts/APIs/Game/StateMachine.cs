@@ -6,24 +6,27 @@ using System.Collections;
 /// </summary>
 /// <typeparam name="T"></typeparam>
 
-public class StateMachine<T> : IHandler
+public class StateMachine<TGameEntity> : IHandler
 {
-    private T owner;
+    private TGameEntity owner;
+    private State<TGameEntity> currentState;
+    private State<TGameEntity> globalState;
+    private State<TGameEntity> previousState;
 
-    public StateMachine(T owner)
+    public StateMachine(TGameEntity owner)
     {
         this.owner = owner;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+    * followings are member functions
+    */
     public void Update()
     {
         currentState.Execute(owner);
     }
 
-    public void ChangeState(State<T> newState)
+    public void ChangeState(State<TGameEntity> newState)
     {
         if (newState == null)
         {
@@ -33,7 +36,7 @@ public class StateMachine<T> : IHandler
         }
 
         previousState = currentState;
-        currentState = NullState.Instance as State<T>;
+        currentState = NullState.Instance as State<TGameEntity>;
         previousState.Exit(owner);
         newState.Enter(owner);
         currentState = newState;
@@ -44,19 +47,14 @@ public class StateMachine<T> : IHandler
         ChangeState(previousState);
     }
 
-    public bool IsInState(State<T> state)
+    public bool IsInState(State<TGameEntity> state)
     {
         throw new System.NotImplementedException();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public IHandler Successor
-    {
-        get { return currentState; }
-    }
-
+    /*
+    * followings are implemented methods of interface
+    */
     public bool IsHandleable(Message msg)
     {
         throw new System.NotImplementedException();
@@ -73,29 +71,31 @@ public class StateMachine<T> : IHandler
         Successor.HandleMessage(msg);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public const string TAG = "[StateMachine]";
+    /*
+    * followings are attributes
+    */
+    public IHandler Successor
+    {
+        get { return currentState; }
+    }
 
-    private State<T> currentState;
-    public State<T> CurrentState
+    public State<TGameEntity> CurrentState
     {
         get { return currentState; }
         set { currentState = value; }
     }
 
-    private State<T> globalState;
-    public State<T> GlobalState
+    public State<TGameEntity> GlobalState
     {
         get { return globalState; }
         set { globalState = value; }
     }
 
-    private State<T> previousState;
-    public State<T> PreviousState
+    public State<TGameEntity> PreviousState
     {
         get { return previousState; }
         set { previousState = value; }
     }
+
+    public const string TAG = "[StateMachine]";
 }

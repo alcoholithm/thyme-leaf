@@ -4,37 +4,13 @@ using System.Collections;
 /// <summary>
 /// All the game entities must be derived from this class.
 /// </summary>
-public abstract class GameEntity<T> : MonoBehaviour, IHandler // client
+public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // client
 {
-    public const string TAG = "[GameEntity]";
+    protected StateMachine<TGameEntity> stateMachine;
 
-    protected StateMachine<T> stateMachine;
-    public StateMachine<T> StateMachine
-    {
-        get { return stateMachine; }
-    }
-
-    public IHandler Successor
-    {
-        get { return stateMachine; }
-    }
-
-    public bool IsHandleable(Message msg)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnMessage(Message msg)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void HandleMessage(Message msg)
-    {
-        Debug.Log(TAG + "HandleMessage");
-        Successor.HandleMessage(msg);
-    }
-
+    /*
+    * followings are member functions
+    */
     public Message ObtainMessage(MessageTypes what, int arg1, int arg2, ICommand command, Object obj)
     {
         return Message.Obtain(this, what, arg1, arg2, command, obj);
@@ -88,5 +64,38 @@ public abstract class GameEntity<T> : MonoBehaviour, IHandler // client
     public bool DispatchMessageDelayed(Message msg, float seconds)
     {
         return MessageSystem.Instance.DispatchDelayed(msg, seconds);
+    }
+
+    /*
+    * followings are implemented methods of interface
+    */
+    public bool IsHandleable(Message msg)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnMessage(Message msg)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void HandleMessage(Message msg)
+    {
+        Debug.Log(TAG + "HandleMessage");
+        Successor.HandleMessage(msg);
+    }
+
+    public const string TAG = "[GameEntity]";
+
+    /*
+    * followings are attributes
+    */
+    public StateMachine<TGameEntity> StateMachine
+    {
+        get { return stateMachine; }
+    }
+    public IHandler Successor
+    {
+        get { return stateMachine; }
     }
 }

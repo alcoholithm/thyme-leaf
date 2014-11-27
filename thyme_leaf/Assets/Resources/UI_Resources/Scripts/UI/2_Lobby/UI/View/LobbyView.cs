@@ -36,7 +36,7 @@ public class LobbyView : MonoBehaviour, IObserver{
 
     public void Refresh()
     {
-        GameObject.Find("Manager").GetComponent<SceneManager>().CurrentScene = SceneManager.GAMEPLAY;
+        //GameObject.Find("Manager").GetComponent<SceneManager>().CurrentScene = SceneManager.GAMEPLAY;
         Debug.Log("scene loading...");
     }
 }
