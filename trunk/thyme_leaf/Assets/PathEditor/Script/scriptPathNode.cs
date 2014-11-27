@@ -16,9 +16,8 @@ public class scriptPathNode : MonoBehaviour
 	public bool TurnoffRoot;
 	public bool startPoint, endPoint;
 	private float dir_angle, dirTurnoff_angle;
-	private SpriteRenderer spriteRenderer;
 
-	public Sprite startSprite, endSprite, turnoffSprite, normalSprite;
+	private UISprite uiSprite;
 
 	public void DataInit()
 	{
@@ -39,7 +38,7 @@ public class scriptPathNode : MonoBehaviour
 
 		Next = Prev = turnoffBridge = null;
 
-		spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		uiSprite = gameObject.GetComponent<UISprite> ();
 	}
 	
 	public void AddTurnOffList(GameObject obj)
@@ -212,7 +211,7 @@ public class scriptPathNode : MonoBehaviour
 		Vector2 tempVector = new Vector2(dx, dy);
 		tempVector.Normalize();
 
-		L = 0.5f;
+	//	L = 0.5f;
 
 		tempTrans.localPosition = new Vector3 (tempVector.x * L, tempVector.y * L, 0);
 	}
@@ -287,22 +286,24 @@ public class scriptPathNode : MonoBehaviour
 
 	public void ChangeIMG(SpriteList option)
 	{
-		Sprite sprite = null;
+		string str = "none";
 		switch(option)
 		{
+		case SpriteList.END:
+			str = "End_Point";
+			break;
 		case SpriteList.NORMAL:
-			sprite = normalSprite;
+			str = "Normal_Point";
 			break;
 		case SpriteList.START:
-			sprite = startSprite;
-			break;
-		case SpriteList.END:
-			sprite = endSprite;
+			str = "Start_Point";
 			break;
 		case SpriteList.TURNOFF:
-			sprite = turnoffSprite;
+			str = "TurnOff_Point";
 			break;
 		}
-		spriteRenderer.sprite = sprite;
+		gameObject.SetActive (false);
+		uiSprite.spriteName = str;
+		gameObject.SetActive (true);
 	}
 }

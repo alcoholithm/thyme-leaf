@@ -79,7 +79,7 @@ public class scriptEditorInspector : Editor
 		GameObject obj = Instantiate(editor.pathNodeObj) as GameObject;
 		obj.transform.parent = GameObject.Find("PathNodeRoot").transform;
 		obj.transform.position = new Vector3(x, y, z);
-		obj.transform.localScale = new Vector3 (50, 50, 50);
+		obj.transform.localScale = new Vector3 (1, 1, 1);
 		obj.name = "node"+editor.productID;
 
 		scriptPathNode tempObj = obj.gameObject.GetComponent<scriptPathNode>();
@@ -294,15 +294,6 @@ public class scriptEditorInspector : Editor
 
 		Event e = Event.current;
 
-		if(e.type == EventType.KeyDown)
-		{
-
-		}
-		if(e.type == EventType.KeyUp)
-		{
-
-		}
-
 		if(e.type == EventType.MouseDown)
 		{
 			switch(editor.curentState)
@@ -320,11 +311,6 @@ public class scriptEditorInspector : Editor
 				if(editor.pathList.Count > 0) PickModule(ref e, false);
 					break;
 			}
-		}
-
-		if(e.type == EventType.MouseMove)
-		{
-
 		}
 
 		if(e.type == EventType.MouseUp)
@@ -363,10 +349,6 @@ public class scriptEditorInspector : Editor
 			{
 				SearchNode(nodeInfo.getID(), connectMode);
 				return true;
-			}
-			else if(e.button == 1)
-			{
-				
 			}
 		}
 

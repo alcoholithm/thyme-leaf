@@ -25,4 +25,20 @@ public class Define
 	{
 		return 4;
 	}
+	/*
+	public static string NodeSpriteFileName(SpriteList option)
+	{
+		switch(option)
+		{
+		case SpriteList.END:
+			return "End_Point";
+		case SpriteList.NORMAL:
+			return "Normal_Point";
+		case SpriteList.START:
+			return "Start_Point";
+		case SpriteList.TURNOFF:
+			return "TurnOff_Point";
+		}
+	}
+	*/
 }

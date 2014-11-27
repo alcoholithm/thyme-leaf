@@ -15,7 +15,7 @@ public class DataToFile : MonoBehaviour
 
 		string fileName = "mData" + stageNum + ".txt";
 		string dataPath = Application.dataPath;
-		string fullPath = dataPath + "/Resources/File/" + fileName;
+		string fullPath = dataPath + "/Resources/MapFile/" + fileName;
 
 		FileStream fs = new FileStream(fullPath, FileMode.Create);
 		TextWriter textWriter = new StreamWriter(fs);
@@ -97,7 +97,7 @@ public class DataToFile : MonoBehaviour
 		if(stageNumber <= 0) return;
 
 		string fileName = "mData" + stageNumber;
-		string fullPath = "File/" + fileName;
+		string fullPath = "MapFile/" + fileName;
 
 		TextAsset textAs = (TextAsset)Resources.Load(fullPath, typeof(TextAsset));
 
@@ -118,8 +118,10 @@ public class DataToFile : MonoBehaviour
 		//first work
 		string nameA = textReader.ReadLine().Split(' ')[1];
 		GameObject obj = Instantiate(nodePref) as GameObject;
-		obj.transform.parent = GameObject.Find("PathNodePool").transform;
-		obj.transform.position = new Vector3(0,0,0);
+		obj.transform.parent = GameObject.Find("2 - PathNodePool").transform;
+		obj.transform.localPosition = new Vector3(0,0,0);
+		obj.transform.localScale = new Vector3 (1, 1, 1);
+	//	obj.layer = 5; //ui
 		obj.name = nameA;
 		Define.pathNode.Add(obj);
 		for(int i=1;i<DataNodeNum;i++)
@@ -129,8 +131,10 @@ public class DataToFile : MonoBehaviour
 			nameA = textReader.ReadLine().Split(' ')[1];
 			
 			obj = Instantiate(nodePref) as GameObject;
-			obj.transform.parent = GameObject.Find("PathNodePool").transform;
-			obj.transform.position = new Vector3(0,0,0);
+			obj.transform.parent = GameObject.Find("2 - PathNodePool").transform;
+			obj.transform.localPosition = new Vector3(0,0,0);
+			obj.transform.localScale = new Vector3 (1, 1, 1);
+	//		obj.layer = 5; //ui
 			obj.name = nameA;
 			Define.pathNode.Add(obj);
 		}
@@ -229,7 +233,7 @@ public class DataToFile : MonoBehaviour
 			GameObject tempsetting = Define.pathNode[c];
 			scriptPathNode tempFunc = tempsetting.GetComponent<scriptPathNode>();
 			Define.pathNode[c].transform.localPosition = current_pos;
-			Define.pathNode[c].transform.localScale = new Vector3(50,50,50);
+			Define.pathNode[c].transform.localScale = new Vector3(1,1,1);
 			tempFunc.DataInit();
 
 			tempFunc.setID(id);
@@ -242,6 +246,7 @@ public class DataToFile : MonoBehaviour
 			tempFunc.SetTurnOffListCount(turnoffIndex);
 			for(int i=0;i<Define.TurnOffMaxCount();i++)
 				tempFunc.turnoffList[i] = turnList[i];
+
 			if(tempFunc.startPoint) tempFunc.ChangeIMG(SpriteList.START);
 			else if(tempFunc.endPoint) tempFunc.ChangeIMG(SpriteList.END);
 			else if(tempFunc.TurnoffRoot) tempFunc.ChangeIMG(SpriteList.TURNOFF);

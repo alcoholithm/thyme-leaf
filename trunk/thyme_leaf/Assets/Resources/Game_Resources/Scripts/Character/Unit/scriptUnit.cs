@@ -39,10 +39,8 @@ public class scriptUnit : MonoBehaviour
 
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 		transform.localPosition = nodeInfor.getPos(PosParamOption.CURRENT);
-
 		nodeStock = nodeInfor.Next;    //next point
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
-
 		EnableMove ();
 
 		//======================
@@ -175,15 +173,15 @@ public class scriptUnit : MonoBehaviour
 			dy = turn_list.y - centerPoint.y;
 			float r = ag - (Mathf.Atan2(dy, dx) * Define.RadianToAngle());
 			r = r > 0 ? r : -r;
-		//	Debug.Log(tempFunc.turnoffList[i].name + ", " + r);
 			if(r < min_r)
 			{
 				min_r = r;
 				min_idx = i;
 			}
 		}
-	//	Debug.Log ("11111111111");
+
 		if (min_idx < 0 || min_r > 30) return false;
+
 		//=========select node part
 		GameObject tempObj = tempFunc.turnoffList [min_idx];
 		tempFunc = tempObj.GetComponent<scriptPathNode> ();
@@ -292,7 +290,7 @@ public class scriptUnit : MonoBehaviour
 		return nameID;
 	}
 
-	public void RemoveUnit()
+	public void RemoveUnit() //???
 	{
 		plist.Clear ();
 		plist = null;
