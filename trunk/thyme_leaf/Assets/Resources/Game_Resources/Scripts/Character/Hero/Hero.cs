@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Hero : GameEntity<Hero> {
-	public new const string TAG = "[Tower]";
+	public new const string TAG = "[Hero]";
 	
 	private UISpriteAnimation anim;
 	
@@ -29,7 +29,7 @@ public class Hero : GameEntity<Hero> {
 	{
 		this.stateMachine = new StateMachine<Hero>(this);
 		this.stateMachine.CurrentState = HeroState_None.Instance;
-//		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
+		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
 		
 		this.anim = GetComponent<UISpriteAnimation>();
 		this.anim.Pause();

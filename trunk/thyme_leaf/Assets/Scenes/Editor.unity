@@ -187,7 +187,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: End_Point
   mFillCenter: 1
 --- !u!1 &38526044
@@ -303,7 +303,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Start_Point
   mFillCenter: 1
 --- !u!1 &41321896
@@ -381,7 +381,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &55375059
@@ -459,7 +459,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &58165249
@@ -537,7 +537,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &60290989
@@ -615,7 +615,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &110323943
@@ -693,7 +693,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &150736111
@@ -809,7 +809,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &171068217
@@ -875,7 +875,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!4 &171068219
@@ -965,7 +965,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &273414399
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &285217289
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &287655253
@@ -1199,7 +1199,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &290412077
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: TurnOff_Point
   mFillCenter: 1
 --- !u!1 &378138027
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &378436811
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &414085174
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &417384556
@@ -1703,7 +1703,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &453272539
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &478343878
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &512093979
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &535366447
@@ -2015,7 +2015,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &547736051
@@ -2131,7 +2131,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &580177599
@@ -2209,7 +2209,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1001 &583235285
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &618527194
@@ -2455,7 +2455,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &624876612
@@ -2533,7 +2533,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &680895639
@@ -2611,7 +2611,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &765502724
@@ -2689,7 +2689,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &783912759
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &834057763
@@ -2886,41 +2886,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathNodeObj: {fileID: 100000, guid: 93485dc57d9f04d1d975cfc4e380ebfb, type: 2}
-  curentState: 2
+  curentState: 3
   StageNumber: 1
-  pathList:
-  - {fileID: 38526044}
-  - {fileID: 1836146094}
-  - {fileID: 1912105240}
-  - {fileID: 1599993368}
-  - {fileID: 1227921424}
-  - {fileID: 1111466051}
-  - {fileID: 1214739199}
-  - {fileID: 1456772637}
-  - {fileID: 1094894446}
-  - {fileID: 1622474870}
-  - {fileID: 1946472674}
-  - {fileID: 1306765366}
-  - {fileID: 290412077}
-  - {fileID: 1934859821}
-  - {fileID: 1918442431}
-  - {fileID: 1409751084}
-  - {fileID: 547736051}
-  - {fileID: 150736111}
-  - {fileID: 963389113}
-  - {fileID: 1406235107}
-  - {fileID: 903623986}
-  - {fileID: 1530407670}
-  - {fileID: 1768080323}
-  - {fileID: 1519551756}
-  - {fileID: 1612400473}
-  - {fileID: 378436811}
-  - {fileID: 1583233861}
-  - {fileID: 417384556}
-  - {fileID: 1801340018}
-  - {fileID: 618527194}
-  - {fileID: 18764591}
-  productID: 30
+  pathList: []
+  productID: -1
   selectedID: -1
   selectedEventUP: -1
   selectedRemove: -1
@@ -3000,7 +2969,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &903623986
@@ -3116,7 +3085,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &924804198
@@ -3194,7 +3163,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &963389113
@@ -3310,7 +3279,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1011401467
@@ -3388,7 +3357,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1039400989
@@ -3466,7 +3435,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1040494478
@@ -3544,7 +3513,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1068830331
@@ -3720,7 +3689,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1094894446
@@ -3836,7 +3805,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1111466051
@@ -3952,7 +3921,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1129399051
@@ -4030,7 +3999,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1152687001
@@ -4108,7 +4077,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1174650961
@@ -4186,7 +4155,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1211776544
@@ -4264,7 +4233,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1214739199
@@ -4380,7 +4349,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: End_Point
   mFillCenter: 1
 --- !u!1 &1227921424
@@ -4496,7 +4465,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1271803151
@@ -4574,7 +4543,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1306765366
@@ -4690,7 +4659,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1314775027
@@ -4768,7 +4737,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1324422405
@@ -4846,7 +4815,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1385098253
@@ -4924,7 +4893,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1394174334
@@ -5002,7 +4971,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1406235107
@@ -5118,7 +5087,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1409751084
@@ -5234,7 +5203,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1456772637
@@ -5350,7 +5319,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1460005381
@@ -5428,7 +5397,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1499303930
@@ -5506,7 +5475,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1519551756
@@ -5622,7 +5591,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1530407670
@@ -5738,7 +5707,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: TurnOff_Point
   mFillCenter: 1
 --- !u!1 &1572617174
@@ -5816,7 +5785,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1583233861
@@ -5932,7 +5901,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1599993368
@@ -6048,7 +6017,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1608677681
@@ -6126,7 +6095,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1612400473
@@ -6242,7 +6211,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1622474870
@@ -6358,7 +6327,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1647027569
@@ -6436,7 +6405,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1729213844
@@ -6514,7 +6483,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1755092995
@@ -6592,7 +6561,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1760108401
@@ -6670,7 +6639,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1768080323
@@ -6786,7 +6755,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1770674274
@@ -6864,7 +6833,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1801340018
@@ -6980,7 +6949,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1834860369
@@ -7058,7 +7027,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1836146094
@@ -7174,7 +7143,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1854139835
@@ -7252,7 +7221,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1881282848
@@ -7358,7 +7327,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1897015122
@@ -7383,7 +7352,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1897015122}
-  m_LocalRotation: {x: 0, y: 0, z: .391064942, w: .920363069}
+  m_LocalRotation: {x: 0, y: 0, z: .391064972, w: .920363128}
   m_LocalPosition: {x: 67.5, y: 70, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7436,7 +7405,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1908979728
@@ -7514,7 +7483,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1912105240
@@ -7630,7 +7599,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1918442431
@@ -7746,7 +7715,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1934859821
@@ -7862,7 +7831,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: End_Point
   mFillCenter: 1
 --- !u!1 &1938315069
@@ -7940,7 +7909,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1946472674
@@ -8056,7 +8025,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!1 &1953891929
@@ -8134,7 +8103,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1959095369
@@ -8212,7 +8181,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &1961955021
@@ -8290,7 +8259,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1981180202
@@ -8484,7 +8453,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &1997598593
@@ -8562,7 +8531,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &2000118021
@@ -8640,7 +8609,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &2037686773
@@ -8830,7 +8799,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &2071551018
@@ -8908,7 +8877,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &2074713075
@@ -8986,7 +8955,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!1 &2098999835
@@ -9064,7 +9033,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!1 &2122871484

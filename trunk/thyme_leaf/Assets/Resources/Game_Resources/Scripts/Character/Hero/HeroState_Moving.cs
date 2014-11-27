@@ -5,7 +5,7 @@ public class HeroState_Moving : State<Hero> {
 
 	private HeroState_Moving()
 	{
-	//	Successor = HeroState_Hitting.Instance;
+		Successor = HeroState_Hitting.Instance;
 	}
 	public override void Enter (Hero owner)
 	{
