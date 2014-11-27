@@ -6,7 +6,6 @@ public class PathManager : Manager<PathManager> {
 
 	public GameObject PathNode;
 	public int StageNumber = 1;
-	public Sprite startSprite, endSprite, turnoffSprite, normalSprite;
 
 	public new const string TAG = "[PathManager]";
 
