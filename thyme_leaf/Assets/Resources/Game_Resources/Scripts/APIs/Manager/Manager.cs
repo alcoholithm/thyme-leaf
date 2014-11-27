@@ -8,7 +8,12 @@ using System.Collections;
 /// The name of subclass
 /// </typeparam>
 
-public class Manager<T> : SingletonGroup<T> where T : MonoBehaviour
+public class Manager<T> : Singleton<T> where T : MonoBehaviour
 {
     public new const string TAG = "[Manager]";
+
+    void Awake()
+    {
+        SetParent("_Manager");
+    }
 }

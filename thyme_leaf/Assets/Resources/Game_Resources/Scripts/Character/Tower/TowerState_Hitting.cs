@@ -8,9 +8,9 @@ public class TowerState_Hitting : State<Tower>
         Successor = null;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+     * followings are overrided methods
+     */ 
     public override void Enter(Tower owner)
     {
         throw new System.NotImplementedException();
@@ -41,9 +41,9 @@ public class TowerState_Hitting : State<Tower>
         return true;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+     * for singleton
+     */ 
     public new const string TAG = "[TowerState_Hitting]";
     private static TowerState_Hitting instance = new TowerState_Hitting(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
     public static TowerState_Hitting Instance

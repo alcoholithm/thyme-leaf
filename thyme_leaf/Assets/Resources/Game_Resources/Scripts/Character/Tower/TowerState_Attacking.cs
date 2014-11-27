@@ -35,10 +35,10 @@ public class TowerState_Attacking : State<Tower>
     /*
      * for singleton
      */
+    public new const string TAG = "[TowerState_Attacking]";
     private static TowerState_Attacking instance = new TowerState_Attacking(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
     public static TowerState_Attacking Instance
     {
         get { return TowerState_Attacking.instance; }
-        set { TowerState_Attacking.instance = value; }
     }
 }

@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerSpawner : Singleton<TowerSpawner>
+public class HeroSpawner : Singleton<HeroSpawner>
 {
-    private MemoryPool<Tower> memoryPool;
+    private MemoryPool<Hero> memoryPool;
 
     void Awake()
     {
-        memoryPool = new MemoryPool<Tower>(GetComponentsInChildren<Tower>());
+        memoryPool = new MemoryPool<Hero>(GetComponentsInChildren<Hero>());
     }
 
-    public Tower Allocate()
+    public Hero Allocate()
     {
         //Tower gameEntity = null; 
         //try
@@ -32,11 +32,11 @@ public class TowerSpawner : Singleton<TowerSpawner>
         throw new System.NotImplementedException();
     }
 
-    private Tower DynamicInstantiate()
+    private Hero DynamicInstantiate()
     {
         GameObject go = Instantiate(transform.GetChild(0).gameObject) as GameObject;
-        return go.GetComponent<Tower>();
+        return go.GetComponent<Hero>();
     }
 
-    public new const string TAG = "[TowerSpawner]";
+    public new const string TAG = "[HeroSpawner]";
 }

@@ -65,6 +65,24 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     }
 
     /// <summary>
+    /// parent this to another gameobject by string
+    /// call from Awake() if you so desire.
+    /// </summary>
+    protected void SetParent(string parentName)
+    {
+        if (parentName != null)
+        {
+            GameObject parent = GameObject.Find(parentName);
+            if (parent == null)
+            {
+                parent = new GameObject();
+                parent.name = parentName;
+            }
+            this.transform.parent = parent.transform;
+        }
+    }
+
+    /// <summary>
     /// When Unity quits, it destroys objects in a random order.
     /// In principle, a Singleton is only destroyed when application quits.
     /// If any script calls Instance after it have been destroyed, 
