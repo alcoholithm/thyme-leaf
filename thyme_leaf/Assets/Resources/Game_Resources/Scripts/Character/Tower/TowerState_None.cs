@@ -25,6 +25,8 @@ public class TowerState_None : State<Tower>
         {
             case MessageTypes.MSG_BUILD_TOWER:
                 return true;
+			//~~~~~
+			//~~~~~
         }
 
         return false;
