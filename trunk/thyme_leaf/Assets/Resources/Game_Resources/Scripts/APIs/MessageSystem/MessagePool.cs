@@ -17,6 +17,9 @@ public class MessagePool
         memoryPool = new MemoryPool<Message>(messages);
     }
 
+    /*
+     * followings are member functions
+     */
     public Message Allocate()
     {
         //Tower gameEntity = null; 

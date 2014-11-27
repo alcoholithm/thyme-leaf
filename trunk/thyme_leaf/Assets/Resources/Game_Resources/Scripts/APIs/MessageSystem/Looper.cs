@@ -10,6 +10,9 @@ public class Looper : Singleton<Looper>
 {
     private MessageQueue messageQueue;
 
+    /*
+     * followings are unity callback methods
+     */ 
     void Awake()
     {
         messageQueue = MessageQueue.Instance;
@@ -26,6 +29,9 @@ public class Looper : Singleton<Looper>
         Debug.Log(TAG + "has finished");
     }
 
+    /*
+     * followings are member functions
+     */ 
     void Loop()
     {
         try

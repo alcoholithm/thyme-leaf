@@ -8,20 +8,11 @@ public class SceneManager : Manager<SceneManager>
 {
     public new const string TAG = "[SceneManager]";
 
-    public const string LOGIN = "1_Login";
-    public const string LOBBY = "2_Lobby";
-    public const string GAMEPLAY = "3_GamePlay";
+    public const string LOBBY = "1_Lobby";
+    public const string WORLD_MAP = "2_WorldMap";
+    public const string BATTLE = "3_Battle";
 
-	public const string USERSELECT = "UserSelectScene";
-	public const string AUTOMART = "Scene_AutomartTab";
-	public const string TOWER = "Scene_TowerScene";
-	public const string SETTING = "SettingScene";
-	public const string ALARM = "AlarmScene";
-	public const string PLAYERSELECT = "PlayerSelectScene";
-	public const string LOBBYS = "LobbyScene";
-	public const string BEGIN = "BeginScene";
-
-    private string currentScene = BEGIN;
+    private string currentScene = LOBBY;
     public string CurrentScene
     {
         get { return currentScene; }

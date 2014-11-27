@@ -27,16 +27,10 @@ public abstract class State<T> : IHandler
     /// </summary>
     public abstract void Exit(T owner);
 
-    /// <summary>
-    /// 
-    /// </summary>
-    private IHandler successor;
-    public IHandler Successor
-    {
-        set { successor = value; }
-        get { return successor; }
-    }
 
+    /*
+     * followings are implemented methods of interface
+     */
     public abstract bool IsHandleable(Message msg);
 
     public void OnMessage(Message msg)
@@ -58,4 +52,10 @@ public abstract class State<T> : IHandler
     }
 
     public const string TAG = "[State]";
+    private IHandler successor;
+    public IHandler Successor
+    {
+        set { successor = value; }
+        get { return successor; }
+    }
 }

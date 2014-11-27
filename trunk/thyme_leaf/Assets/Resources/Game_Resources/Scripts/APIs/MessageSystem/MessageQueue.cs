@@ -14,9 +14,9 @@ public class MessageQueue : ISystem
         Prepare();
     }
 
-    /// <summary>
-    /// followings are member functions
-    /// </summary>
+    /*
+     * followings are member functions
+     */
     public void Push(Message command)
     {
         try
@@ -46,9 +46,9 @@ public class MessageQueue : ISystem
         return messages.Peek();
     }
 
-    /// <summary>
-    /// Followings are implemeted methods
-    /// </summary>
+    /*
+     * Followings are implemeted methods of interface
+     */
     public void Prepare()
     {
         this.messages = new Queue<Message>();

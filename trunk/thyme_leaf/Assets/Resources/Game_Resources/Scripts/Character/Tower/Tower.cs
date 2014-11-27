@@ -4,11 +4,13 @@ using System.Collections;
 /// <summary>
 /// 
 /// </summary>
-public class Tower : GameEntity<Tower> {
-    public new const string TAG = "[Tower]";
-
+public class Tower : GameEntity<Tower>
+{
     private UISpriteAnimation anim;
 
+    /*
+     * followings are unity callback methods
+     */ 
     void Awake()
     {
         Initialize();
@@ -22,12 +24,6 @@ public class Tower : GameEntity<Tower> {
     /*
      * followings are member functions
      */
-    public void PlayAnimation(string name)
-    {
-        anim.namePrefix = name;
-        anim.Play();
-    }
-
     public void Initialize()
     {
         this.stateMachine = new StateMachine<Tower>(this);
@@ -37,4 +33,12 @@ public class Tower : GameEntity<Tower> {
         this.anim = GetComponent<UISpriteAnimation>();
         this.anim.Pause();
     }
+
+    public void PlayAnimation(string name)
+    {
+        anim.namePrefix = name;
+        anim.Play();
+    }
+
+    public new const string TAG = "[Tower]";
 }
