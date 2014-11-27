@@ -29,7 +29,7 @@ public class Hero : GameEntity<Hero> {
 	{
 		this.stateMachine = new StateMachine<Hero>(this);
 		this.stateMachine.CurrentState = HeroState_None.Instance;
-		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
+//		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
 		
 		this.anim = GetComponent<UISpriteAnimation>();
 		this.anim.Pause();

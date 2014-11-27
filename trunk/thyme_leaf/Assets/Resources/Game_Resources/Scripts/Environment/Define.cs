@@ -25,6 +25,8 @@ public class Define
 	{
 		return 4;
 	}
+
+	public static int asdsad = 100;
 	/*
 	public static string NodeSpriteFileName(SpriteList option)
 	{
