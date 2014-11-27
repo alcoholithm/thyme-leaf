@@ -8,9 +8,9 @@ public class TowerState_Attacking : State<Tower>
         Successor = TowerState_Hitting.Instance;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+     * followings are overrided methods
+     */
     public override void Enter(Tower owner)
     {
         throw new System.NotImplementedException();
@@ -32,9 +32,9 @@ public class TowerState_Attacking : State<Tower>
         throw new System.NotImplementedException();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+     * for singleton
+     */
     private static TowerState_Attacking instance = new TowerState_Attacking(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
     public static TowerState_Attacking Instance
     {

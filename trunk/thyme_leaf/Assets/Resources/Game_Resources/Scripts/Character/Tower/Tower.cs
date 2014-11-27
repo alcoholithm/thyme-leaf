@@ -19,9 +19,9 @@ public class Tower : GameEntity<Tower> {
         stateMachine.Update();
     }
 
-    /// <summary>
-    /// followings are member functions
-    /// </summary>
+    /*
+     * followings are member functions
+     */
     public void PlayAnimation(string name)
     {
         anim.namePrefix = name;
