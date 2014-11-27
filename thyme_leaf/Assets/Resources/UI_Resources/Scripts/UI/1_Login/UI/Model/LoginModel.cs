@@ -25,18 +25,15 @@ public sealed class LoginModel : IObservable {
 		Debug.Log (testt);
 	}
 
-
     private LoginModel()
     {
         observers = new List<IObserver>();
         isLogin = false;
     }
 
-
     /*
      * followings are member functions
      */
-
     public void Login(string id, string passwd)
     {
         // networking... thread

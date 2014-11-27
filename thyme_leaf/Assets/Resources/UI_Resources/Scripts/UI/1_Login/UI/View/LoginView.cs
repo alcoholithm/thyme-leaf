@@ -11,24 +11,33 @@ public class LoginView : MonoBehaviour, IObserver {
     void Awake()
     {
         this.model = LoginModel.Instance;
-        this.model.RegisterObserver(this);
         this.controller = new LoginController(this);
+
+        this.model.RegisterObserver(this);
     }
 
-    public void Login()
-    {
-        string id = _id.GetComponentInChildren<UILabel>().text;
-        string passwd = _passwd.GetComponentInChildren<UILabel>().text;
+    //view에서는 view control의 제어만 담당하면 된다.
 
-        Debug.Log(id + "");
-        Debug.Log(passwd + "");
+    // 이런거는 컨트롤러 안에 들어가야 맞는 것
+    //public void Login()
+    //{
+    //    string id = _id.GetComponentInChildren<UILabel>().text;
+    //    string passwd = _passwd.GetComponentInChildren<UILabel>().text;
 
-        controller.Login(id, passwd);
-    }
+    //    Debug.Log(id + "");
+    //    Debug.Log(passwd + "");
+        
+    //    controller.Login(id, passwd);
+    //}
 
     void paint()
     {
 
+    }
+
+    public void FFF(ICommand command)
+    {
+        command.Execute();
     }
 
     public void repaint()
