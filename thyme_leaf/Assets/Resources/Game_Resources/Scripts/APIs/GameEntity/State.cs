@@ -9,8 +9,6 @@ using System.Collections;
 
 public abstract class State<T> : IHandler
 {
-    public const string TAG = "[State]";
-
     //protected T owner; // static 불가능 => 공유할수없다, 메모리를 잡고 있게 됨.
     //private State<T> successor;
 
@@ -58,4 +56,6 @@ public abstract class State<T> : IHandler
                 Successor.HandleMessage(msg);
         }
     }
+
+    public const string TAG = "[State]";
 }
