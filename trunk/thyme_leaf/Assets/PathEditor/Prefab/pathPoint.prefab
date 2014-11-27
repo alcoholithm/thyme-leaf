@@ -153,7 +153,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5811e59ecbfc54640a64c27bf63cd4ef, type: 2}
+  mAtlas: {fileID: 11400000, guid: 1a6ae0e38020ebf4597b164976d2ab0d, type: 2}
   mSpriteName: Normal_Point
   mFillCenter: 1
 --- !u!114 &11400004
@@ -203,7 +203,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 11400000, guid: 35a26c453ba11864abc334bffe4753ea, type: 2}
   mSpriteName: directionMark_TurnoffRoot
   mFillCenter: 1
 --- !u!114 &11400006
@@ -253,7 +253,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 0425da898637d48cb9f82a1850be9781, type: 2}
+  mAtlas: {fileID: 11400000, guid: 35a26c453ba11864abc334bffe4753ea, type: 2}
   mSpriteName: directionMark
   mFillCenter: 1
 --- !u!135 &13500000

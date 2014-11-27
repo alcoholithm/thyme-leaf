@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: dcde56bcd94c2496fbe6b855cc390b80, type: 2}
+  material: {fileID: 2100000, guid: 6178411d859d348438a660abf6dbc10b, type: 2}
   mSprites:
   - name: directionMark
     x: 0
