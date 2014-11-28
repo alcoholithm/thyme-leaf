@@ -15,6 +15,11 @@ public class Hero : GameEntity<Hero> {
 	{
 		stateMachine.Update();
 	}
+
+	void OnCollisionEnter() 
+	{
+
+	}
 	
 	/*
      * followings are member functions
