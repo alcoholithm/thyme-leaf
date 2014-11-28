@@ -1,12 +1,11 @@
 ﻿/// <summary>
 /// for observer pattern
 /// </summary>
-/// <typeparam name="T"></typeparam>
-public interface IObservable
+public interface IObservable<TObserver>
 {
-    void RegisterObserver(IObserver o);
-    void RemoveObserver(IObserver o);
-    void NotifyObservers();
+    void RegisterObserver(TObserver o);
+    void RemoveObserver(TObserver o);
+    void NotifyObservers<TObserver>();
     void HasChanged();
     void SetChanged();
 }
