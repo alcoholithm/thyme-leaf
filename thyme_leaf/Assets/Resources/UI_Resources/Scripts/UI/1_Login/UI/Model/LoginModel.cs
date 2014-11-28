@@ -2,28 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public sealed class LoginModel : IObservable {
-    public const string TAG = "LoginModel";
-
-    private const string ID = "test";
-    private const string PASSWD = "1234";
-
-	public string testt = "test";
-
-    private static LoginModel instance = new LoginModel();
-    public static LoginModel Instance { get { return instance; } }
+public class LoginModel : MonoBehaviour, ILoginModel, IObservable
+{
+    private const string CORRECT_ID = "test";
+    private const string CORRECT_PASSWD = "1234";
 
     private bool isLogin;
-    public bool IsLogin
-    {
-        get { return isLogin; }
-        set { isLogin = value; }
-    }
-
-	public void shoot() {
-		testt = "change";
-		Debug.Log (testt);
-	}
 
     private LoginModel()
     {
@@ -34,20 +18,24 @@ public sealed class LoginModel : IObservable {
     /*
      * followings are member functions
      */
-    public void Login(string id, string passwd)
+    public IEnumerator Login(string id, string passwd)
     {
         // networking... thread
         // need proxy
-        if (id.Equals(ID) && passwd.Equals(PASSWD))
+
+        // wwwscript같은 네트워크 클래스에게 요청을 위임한다.
+        yield return new WaitForSeconds(3);
+
+        if (id.Equals(CORRECT_ID) && passwd.Equals(CORRECT_PASSWD))
         {
             SuccessToLogin();
-            NotifyObservers();
         }
         else
         {
-            Debug.Log("Failed to login");
-			shoot ();
+            FailedToLogin();
         }
+
+        NotifyObservers();
     }
 
     void SuccessToLogin()
@@ -55,14 +43,14 @@ public sealed class LoginModel : IObservable {
         isLogin = true;
     }
 
-
-
-
+    void FailedToLogin()
+    {
+        isLogin = false;
+    }
 
     /*
      * followings are Observer pattern methods.
      */
-
     private List<IObserver> observers; // 각 옵저버 상태 구분은 state pattern
     public void RegisterObserver(IObserver o)
     {
@@ -76,15 +64,10 @@ public sealed class LoginModel : IObservable {
 
     public void NotifyObservers()
     {
-        //observers.ForEach(delegate(IObserver o)
-        //{
-        //    o.Update(this);
-        //});
-
-        foreach (IObserver o in observers)
+        observers.ForEach(delegate(IObserver o)
         {
             o.Refresh();
-        }
+        });
     }
 
     public void HasChanged()
@@ -95,5 +78,18 @@ public sealed class LoginModel : IObservable {
     public void SetChanged()
     {
         throw new System.NotImplementedException();
+    }
+
+    public bool IsLogin
+    {
+        get { return isLogin; }
+        set { isLogin = value; }
+    }
+
+    public const string TAG = "LoginModel";
+    private static LoginModel instance = new LoginModel();
+    public static LoginModel Instance
+    {
+        get { return instance; }
     }
 }
