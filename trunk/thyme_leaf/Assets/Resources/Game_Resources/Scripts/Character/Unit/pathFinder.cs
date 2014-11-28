@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class scriptUnit : MonoBehaviour 
+public class pathFinder : MonoBehaviour 
 {
 	private MoveModeState moveMode;
 	private float radian;
