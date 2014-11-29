@@ -31,7 +31,7 @@ public class Tower : GameEntity<Tower>
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.anim = GetComponent<UISpriteAnimation>();
-        this.anim.Pause();
+        //this.anim.Pause();
     }
 
     public void PlayAnimation(string name)
