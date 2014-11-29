@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Hero : GameEntity<Hero> {
 	public new const string TAG = "[Hero]";
-	
+	public int hPoint = 100;
+
 	private UISpriteAnimation anim;
 	
 	void Awake()
@@ -15,12 +16,24 @@ public class Hero : GameEntity<Hero> {
 	{
 		stateMachine.Update();
 	}
+	
 
-	void OnCollisionEnter() 
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
+		//나는 때리는 상태로
+		stateMachine.ChangeState(HeroState_Attacking.Instance);
+
+		//상대방은 쳐맞는 상태로
+		coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Hitting.Instance);
+	}
+
+	void OnCollisionStay2D(Collision2D coll)
 	{
 
 	}
-	
+
+
+
 	/*
      * followings are member functions
      */

@@ -16,6 +16,7 @@ public class HeroState_Listener : MonoBehaviour
 		hero.transform.localScale = Vector3.one;
 		hero.transform.position = new Vector3(v,h);
 
+
 		//another
 
 
