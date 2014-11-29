@@ -11,6 +11,12 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     [SerializeField]
     GameObject _playerSelectFrame;
     [SerializeField]
+    GameObject _welcomeFrame;
+    [SerializeField]
+    GameObject _goToWorldMapButton;
+    [SerializeField]
+    GameObject _settingsButton;
+    [SerializeField]
     GameObject _startButton;
     [SerializeField]
     GameObject _registerButton;
@@ -61,6 +67,15 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         gameObject.SetActive(active);
     }
 
+    public void prepareLobby()
+    {
+        SetVisible(SettingsButton, true);
+        SetVisible(GoToWorldMapButton, true);
+
+        WelcomeFrame.GetComponent<WelcomeFrame>().SetUserName(model.CurrentUser.Name);
+        SetVisible(WelcomeFrame, true);
+    }
+
     public void ActionPerformed(string actionCommand)
     {
         if (actionCommand.Equals(_startButton.name))
@@ -81,7 +96,14 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
 
     public void Refresh<T>()
     {
-        throw new System.NotImplementedException();
+        //if (typeof(T) is IScoreObserver)
+        //{
+
+        //}
+        //else if (typeof(T) is IRenewalObserver)
+        //{
+
+        //}
     }
 
     /*
@@ -99,6 +121,25 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         set { _playerSelectFrame = value; }
     }
 
+    public GameObject WelcomeFrame
+    {
+        get { return _welcomeFrame; }
+        set { _welcomeFrame = value; }
+    }
+
+
+    public GameObject GoToWorldMapButton
+    {
+        get { return _goToWorldMapButton; }
+        set { _goToWorldMapButton = value; }
+    }
+
+    public GameObject SettingsButton
+    {
+        get { return _settingsButton; }
+        set { _settingsButton = value; }
+    }
+
     public GameObject StartButton
     {
         get { return _startButton; }
@@ -106,4 +147,6 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     }
 
     public const string TAG = "[LobbyView]";
+
+
 }

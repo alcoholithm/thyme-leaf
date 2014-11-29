@@ -10,7 +10,7 @@ public class MemoryPool<T>
 
     private const int CAPACITY = 1000;
 
-    private T[] objectList;
+    //private T[] objectList;
 
     //private BitArray enabledArr = new BitArray(CAPACITY, true);
 
@@ -34,7 +34,7 @@ public class MemoryPool<T>
 
     public MemoryPool(T[] objList)
     {
-        this.objectList = objList;
+        //this.objectList = objList;
     }
 
     public T Allocate()

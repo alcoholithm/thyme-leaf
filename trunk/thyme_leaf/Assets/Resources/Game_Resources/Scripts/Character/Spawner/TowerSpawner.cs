@@ -3,14 +3,14 @@ using System.Collections;
 
 public class TowerSpawner : Singleton<TowerSpawner>
 {
-    private MemoryPool<Tower> memoryPool;
+    //private MemoryPool<Tower> memoryPool;
 
     /*
      * followings are unity callback methods
      */ 
     void Awake()
     {
-        memoryPool = new MemoryPool<Tower>(GetComponentsInChildren<Tower>());
+        //memoryPool = new MemoryPool<Tower>(GetComponentsInChildren<Tower>());
     }
 
     /*

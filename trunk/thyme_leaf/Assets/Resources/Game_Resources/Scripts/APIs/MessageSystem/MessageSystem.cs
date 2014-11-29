@@ -17,7 +17,7 @@ public class MessageSystem : Singleton<MessageSystem>
         SetParent("_System");
     }
 
-    new void OnDestroy()
+    protected override void OnDestroy()
     {
         base.OnDestroy();
         MessageQueue.Instance.Quit();

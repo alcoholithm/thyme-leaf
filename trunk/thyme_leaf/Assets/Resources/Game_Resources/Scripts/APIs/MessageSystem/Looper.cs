@@ -24,8 +24,9 @@ public class Looper : Singleton<Looper>
         Loop();
     }
 
-    void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         Debug.Log(TAG + "has finished");
     }
 

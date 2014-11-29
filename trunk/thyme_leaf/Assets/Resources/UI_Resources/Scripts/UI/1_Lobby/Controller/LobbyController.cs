@@ -34,11 +34,14 @@ public class LobbyController
         if (model.RegisterUser(userName))
         {
             str = "Welcome!!";
+            view.SetVisible(view.RegisterUserFrame, false);
+            view.prepareLobby();
+          
         }
         else
         {
             //str = model.Status();
-            str = "full!!";
+            str = "error!!";
         }
         DialogView.Instance.ShowMessageDialog(str);
         //view.StartCoroutine(model.Login(id, passwd));
