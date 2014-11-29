@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Facade of MessageDialog
+/// </summary>
 public class MessageDialog : MonoBehaviour
 {
     [SerializeField]
@@ -11,5 +14,10 @@ public class MessageDialog : MonoBehaviour
     public void SetMessage(string message)
     {
         _message.text = message;
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
     }
 }

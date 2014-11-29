@@ -3,11 +3,11 @@ using System.Collections;
 
 public class HeroSpawner : Singleton<HeroSpawner>
 {
-    private MemoryPool<Hero> memoryPool;
+    //private MemoryPool<Hero> memoryPool;
 
     void Awake()
     {
-        memoryPool = new MemoryPool<Hero>(GetComponentsInChildren<Hero>());
+        //memoryPool = new MemoryPool<Hero>(GetComponentsInChildren<Hero>());
     }
 
     public Hero Allocate()

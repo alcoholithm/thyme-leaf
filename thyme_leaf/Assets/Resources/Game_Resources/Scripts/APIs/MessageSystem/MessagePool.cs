@@ -3,18 +3,18 @@ using System.Collections;
 
 public class MessagePool
 {
-    private MemoryPool<Message> memoryPool;
+    //private MemoryPool<Message> memoryPool;
 
     private const int CAPACITY = 1000;
 
     private MessagePool()
     {
-        Message[] messages = new Message[CAPACITY];
-        for (int i = 0; i < messages.Length; i++)
-        {
-            messages[i] = new Message();
-        }
-        memoryPool = new MemoryPool<Message>(messages);
+        //Message[] messages = new Message[CAPACITY];
+        //for (int i = 0; i < messages.Length; i++)
+        //{
+        //    messages[i] = new Message();
+        //}
+        //memoryPool = new MemoryPool<Message>(messages);
     }
 
     /*

@@ -9,6 +9,14 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
 
     private int nUserMax = 3;
 
+    private User currentUser;
+
+    public User CurrentUser
+    {
+        get { return currentUser; }
+        set { currentUser = value; }
+    }
+
     private string statusMessage;
 
     private UserAdministrator()
@@ -21,8 +29,42 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
     // wwwscript같은 네트워크 클래스에게 요청을 위임한다.
 
     /*
-     * followings are Observer pattern methods.
-     */
+    * followings are implemented methods of interface
+    */
+    public bool RegisterUser(string userName)
+    {
+        bool result = false;
+        if (userName != null && userName.Length > 0)
+        {
+            if (users.Count >= nUserMax)
+                result = false;
+            else
+                users.Add(new User(userName));
+
+            result = true;
+        }
+
+        return result;
+    }
+
+    public bool RemoveUser(string userName)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool RenameUser(string oldOne, string newOne)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool IsEmpty()
+    {
+        return users.Count == 0;
+    }
+
+    /*
+    * followings are Observer pattern methods.
+    */
     public void RegisterObserver(IObserver_User o)
     {
         observers.Add(o);
@@ -49,34 +91,6 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
     public void SetChanged()
     {
         throw new System.NotImplementedException();
-    }
-
-
-    /*
-    * followings are implemented methods of interface
-    */
-    public bool RegisterUser(string userName)
-    {
-        if (users.Count >= nUserMax)
-            return false;
-
-        users.Add(new User(userName));
-        return true;
-    }
-
-    public bool RemoveUser(string userName)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public bool RenameUser(string oldOne, string newOne)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public bool IsEmpty()
-    {
-        return users.Count == 0;
     }
 
     public const string TAG = "[UserAdministrator]";
