@@ -6,7 +6,6 @@ public class pathFinder : MonoBehaviour
 {
 	private MoveModeState moveMode;
 	private float radian;
-	private List<GameObject> plist;
 	private GameObject nodeCurrent;
 	private GameObject nodeStock;
 	private scriptPathNode nodeInfor;
@@ -16,23 +15,29 @@ public class pathFinder : MonoBehaviour
 
 	private string nameID;
 
+	private string musterID;
+	private bool PinPoint;
+	private bool musterSet;
+
 	//====
 	private Vector3 mPointStart, mPointEnd;
 	private bool selectTurnoffRoot;
 	//====
 
+	//identity value
+	private float fx, fy;
+
 	void Start () 
 	{
-		plist = Define.pathNode;
 		moveMode = MoveModeState.FORWARD;
 		radian = 0;
 
-		for(int i=0;i<plist.Count;i++)
+		for(int i=0;i<Define.pathNode.Count;i++)
 		{
-			scriptPathNode tempFunc = plist[i].GetComponent<scriptPathNode>();
+			scriptPathNode tempFunc = Define.pathNode[i].GetComponent<scriptPathNode>();
 			if(tempFunc.startPoint)
 			{
-				nodeStock = plist[i];
+				nodeStock = Define.pathNode[i];
 			}
 		}
 		nodeCurrent = nodeStock;
@@ -48,6 +53,9 @@ public class pathFinder : MonoBehaviour
 		mPointEnd = Vector3.zero;
 
 		selectTurnoffRoot = false;
+
+		PinPoint = false;
+		musterSet = false;
 	}
 
 	void Update () 
@@ -125,40 +133,49 @@ public class pathFinder : MonoBehaviour
 				nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 			}
 			//move module
+			float sp = speed * Define.FrameControl();
 			float rt = Mathf.Atan2(dy, dx);
-			float xv = Mathf.Cos(rt) * (speed * Time.deltaTime);
-			float yv = Mathf.Sin(rt) * (speed * Time.deltaTime);
-			addPos(xv, yv);
+			fx = Mathf.Cos(rt) * sp;
+			fy = Mathf.Sin(rt) * sp;
+			//addPos(xv, yv);
 		}
 		else
 		{
+			//change state
 			//don't move
-			if(Input.GetMouseButtonDown(0))
+			if(selectTurnoffRoot)
 			{
-				mPointStart = ToScreenCoord(Input.mousePosition);
-			}
-			else if(Input.GetMouseButtonUp(0))
-			{
-				mPointEnd = ToScreenCoord(Input.mousePosition);
-				if(SelectPathNode(ref nodeStock, mPointStart, mPointEnd))
+				if(Input.GetMouseButtonDown(0))
 				{
-					Debug.Log(nodeStock);
-					EnableMove();
+					mPointStart = ToScreenCoord(Input.mousePosition);
 				}
+				else if(Input.GetMouseButtonUp(0))
+				{
+					mPointEnd = ToScreenCoord(Input.mousePosition);
+					if(SelectPathNode(mPointStart, mPointEnd))
+					{
+						Debug.Log(nodeStock);
+						EnableMove();
+					}
+				}
+				float value = (0.8f * Define.FrameControl());
+				Debug.Log(value);
+				fx *= value;
+				fy *= value;
 			}
 		}
-
+		addPos(fx, fy);
 	}
 
-	public bool SelectPathNode(ref GameObject gobj, Vector3 startPt, Vector3 endPt)
+	public bool SelectPathNode(Vector3 startPt, Vector3 endPt)
 	{
-		//gobj = turnoffRoot = nodestoke  <all like>
+		//turnoffRoot = nodestoke  <all like>
 		//select path node ... when unit arrive at turnoff point
 		//searching node
-		if(gobj == null) return false;
+		if(nodeStock == null) return false;
 
-		scriptPathNode tempFunc = gobj.GetComponent<scriptPathNode>();
-		Vector3 centerPoint = gobj.transform.localPosition;
+		scriptPathNode tempFunc = nodeStock.GetComponent<scriptPathNode>();
+		Vector3 centerPoint = nodeStock.transform.localPosition;
 
 		float dx = endPt.x - startPt.x;
 		float dy = endPt.y - startPt.y;
@@ -188,16 +205,16 @@ public class pathFinder : MonoBehaviour
 		if (tempFunc.Next != null) 
 		{
 			//if selected node is not null
-			MoveModeSelect(MoveModeState.FORWARD);
-			gobj = tempObj;
+			SetMoveMode(MoveModeState.FORWARD);
+			nodeStock = tempObj;
 		}
 		else
 		{
 			Debug.Log("turnoff Root next null");
 			if(tempFunc.Prev != null)
 			{
-				MoveModeSelect(MoveModeState.BACKWARD);
-				gobj = tempObj;
+				SetMoveMode(MoveModeState.BACKWARD);
+				nodeStock = tempObj;
 			}
 			else
 			{
@@ -207,7 +224,7 @@ public class pathFinder : MonoBehaviour
 		}
 
 		//selected node get component
-		nodeInfor = gobj.GetComponent<scriptPathNode>();
+		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 
 		return true;
 	}
@@ -215,17 +232,22 @@ public class pathFinder : MonoBehaviour
 	public void MoveReverse()
 	{
 		if(moveMode == MoveModeState.FORWARD)
-			MoveModeSelect(MoveModeState.BACKWARD);
+			SetMoveMode(MoveModeState.BACKWARD);
 		else if(moveMode == MoveModeState.BACKWARD)
-			MoveModeSelect(MoveModeState.FORWARD);
+			SetMoveMode(MoveModeState.FORWARD);
 		
 		if(moveMode == MoveModeState.FORWARD) nodeStock = nodeInfor.Next;
 		else if(moveMode == MoveModeState.BACKWARD) nodeStock = nodeInfor.Prev;
 	}
 	
-	public void MoveModeSelect(MoveModeState option)
+	public void SetMoveMode(MoveModeState option)
 	{
 		moveMode = option;
+	}
+
+	public MoveModeState GetMoveMode()
+	{
+		return moveMode;
 	}
 
 	private Vector3 ToScreenCoord(Vector3 v)
@@ -290,10 +312,43 @@ public class pathFinder : MonoBehaviour
 		return nameID;
 	}
 
+	public void setmusterID(string v)
+	{
+		musterID = v;
+	}
+	
+	public string getmusterID()
+	{
+		return musterID;
+	}
+
+	public bool isMuster()
+	{
+		return musterSet;
+	}
+
+	public void EnableMuster()
+	{
+		musterSet = true;
+	}
+
+	public void DisableMuster()
+	{
+		musterSet = false;
+	}
+
+	public void EnablePinpoint()
+	{
+		PinPoint = true;
+	}
+	
+	public void DisablePinpoint()
+	{
+		PinPoint = false;
+	}
+
 	public void RemoveUnit() //???
 	{
-		plist.Clear ();
-		plist = null;
 		//disconstructure
 	}
 }

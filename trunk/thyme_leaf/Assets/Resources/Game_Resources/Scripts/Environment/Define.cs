@@ -26,21 +26,8 @@ public class Define
 		return 4;
 	}
 
-	public static int asdsad = 100;
-	/*
-	public static string NodeSpriteFileName(SpriteList option)
+	public static float FrameControl()
 	{
-		switch(option)
-		{
-		case SpriteList.END:
-			return "End_Point";
-		case SpriteList.NORMAL:
-			return "Normal_Point";
-		case SpriteList.START:
-			return "Start_Point";
-		case SpriteList.TURNOFF:
-			return "TurnOff_Point";
-		}
+		return Time.deltaTime * 60;
 	}
-	*/
 }
