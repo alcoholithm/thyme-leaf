@@ -71,8 +71,6 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     {
         SetVisible(SettingsButton, true);
         SetVisible(GoToWorldMapButton, true);
-
-        WelcomeFrame.GetComponent<WelcomeFrame>().SetUserName(model.CurrentUser.Name);
         SetVisible(WelcomeFrame, true);
     }
 
@@ -108,7 +106,9 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
 
     /*
      * Followings are attributes.
-     */ 
+     */
+ 
+
     public GameObject RegisterUserFrame
     {
         get { return _registerUserFrame; }
@@ -149,4 +149,27 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     public const string TAG = "[LobbyView]";
 
 
+    public IController Controller
+    {
+        get
+        {
+            return controller;
+        }
+        set
+        {
+            controller = value as LobbyController;
+        }
+    }
+
+    public IModel Model
+    {
+        get
+        {
+            return model;
+        }
+        set
+        {
+            model = value as UserAdministrator;
+        }
+    }
 }
