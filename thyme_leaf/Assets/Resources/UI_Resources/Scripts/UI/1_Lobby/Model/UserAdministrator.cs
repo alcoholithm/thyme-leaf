@@ -7,10 +7,15 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
     private List<IObserver_User> observers;
     private List<User> users;
 
+    public List<User> Users
+    {
+        get { return users; }
+        set { users = value; }
+    }
+
     private int nUserMax = 3;
 
     private User currentUser;
-
     public User CurrentUser
     {
         get { return currentUser; }
