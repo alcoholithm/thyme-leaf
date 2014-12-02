@@ -28,5 +28,5 @@ public enum EnableNodeMode
 
 public enum SpriteList
 {
-	NORMAL = 0, START, END, TURNOFF
+	END = 0, NORMAL, START, TURNOFF
 }

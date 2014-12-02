@@ -121,7 +121,6 @@ public class DataToFile : MonoBehaviour
 		obj.transform.parent = GameObject.Find("2 - PathNodePool").transform;
 		obj.transform.localPosition = new Vector3(0,0,0);
 		obj.transform.localScale = new Vector3 (1, 1, 1);
-	//	obj.layer = 5; //ui
 		obj.name = nameA;
 		Define.pathNode.Add(obj);
 		for(int i=1;i<DataNodeNum;i++)
@@ -134,7 +133,6 @@ public class DataToFile : MonoBehaviour
 			obj.transform.parent = GameObject.Find("2 - PathNodePool").transform;
 			obj.transform.localPosition = new Vector3(0,0,0);
 			obj.transform.localScale = new Vector3 (1, 1, 1);
-	//		obj.layer = 5; //ui
 			obj.name = nameA;
 			Define.pathNode.Add(obj);
 		}
@@ -231,6 +229,8 @@ public class DataToFile : MonoBehaviour
 
 			//game object infor setting
 			GameObject tempsetting = Define.pathNode[c];
+			tempsetting.GetComponent<SphereCollider>().enabled = false;
+
 			scriptPathNode tempFunc = tempsetting.GetComponent<scriptPathNode>();
 			Define.pathNode[c].transform.localPosition = current_pos;
 			Define.pathNode[c].transform.localScale = new Vector3(1,1,1);

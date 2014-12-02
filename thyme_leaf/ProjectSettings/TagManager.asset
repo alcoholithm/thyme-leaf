@@ -4,6 +4,16 @@
 TagManager:
   tags:
   - System
+  - TagWarriorTrovant
+  - TagBarrierTrovant
+  - TagSupporterTrovant
+  - TagHealerTrovant
+  - TagArcherTrovant
+  - TagWarriorAutomart
+  - TagBarrierAutomart
+  - TagSupporterAutomart
+  - TagHealerAutomart
+  - TagArcherAutomart
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -14,8 +24,8 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: EditorLayer
-  User Layer 9: 
-  User Layer 10: 
+  User Layer 9: LayerAutomart
+  User Layer 10: LayerTrovant
   User Layer 11: 
   User Layer 12: 
   User Layer 13: 
