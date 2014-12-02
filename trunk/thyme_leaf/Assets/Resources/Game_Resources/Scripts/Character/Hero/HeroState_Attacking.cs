@@ -25,7 +25,7 @@ public class HeroState_Attacking : State<Hero> {
 		//Animation 실행
 
 		//StartCoroutine
-		if(!check) owner.StartCoroutine("HeroAttack");
+	//	if(!check) owner.StartCoroutine("HeroAttack");
 
 		//throw new System.NotImplementedException ();
 	}

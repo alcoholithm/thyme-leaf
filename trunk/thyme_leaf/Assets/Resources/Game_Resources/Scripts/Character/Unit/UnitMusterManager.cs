@@ -9,7 +9,9 @@ public class UnitMusterManager
 	private Musters[] unitMusters;
 	private MusterNames[] nameSet;
 	private int currentMusterSize;
-	private int MaxMusterCount;
+
+	private const int MaxMusterCount = 10;
+	private const int MaxMusterUnitCount = 5;
 
 	//single tone
 	private static UnitMusterManager instance;
@@ -27,13 +29,11 @@ public class UnitMusterManager
 
 	private void Initialize()
 	{
-		MaxMusterCount = 10;
-
 		nameSet = new MusterNames[MaxMusterCount];
 
 		unitMusters = new Musters[MaxMusterCount];
 
-		for(int i=0;i<10;i++)
+		for(int i=0;i<MaxMusterCount;i++)
 		{
 			nameSet[i].musterName = "muster"+(i+1);
 			nameSet[i].use = false;
@@ -49,13 +49,15 @@ public class UnitMusterManager
 		return true;
 	}
 
-	public void addMuster()
+	public string addMuster()
 	{
-		if(!canMakeMuster()) return;
+		if(!canMakeMuster()) return "none";
 
 		string str = avaliableMuster ();
 
 		unitMusters [currentMusterSize++].setName (str);
+
+		return str;
 	}
 
 	public void addUnits(string muster_name, string obj)
@@ -75,7 +77,7 @@ public class UnitMusterManager
 		{
 			if(unitMusters[i].getName() == muster_name)
 			{
-				for(int k=0;k<5;k++)
+				for(int k=0;k<MaxMusterUnitCount;k++)
 				{
 					GameObject temp = unitMusters[objIdx].getElement(k);
 					if(temp != null)
@@ -106,7 +108,10 @@ public class UnitMusterManager
 		{
 			if(unitMusters[i].getName() == muster_name)
 			{
-				unitMusters[i].removeUnit(unit_nameID);
+				if(unitMusters[i].CountUnit() <= 1)
+					freeMuster(unitMusters[i].getName());
+				else
+					unitMusters[i].removeUnit(unit_nameID);
 				break;
 			}
 		}
@@ -147,14 +152,14 @@ public class UnitMusterManager
 
 		public void Initialize()
 		{
-			obj = new GameObject[5]; //max count
-			for(int i=0;i<5;i++) obj[i] = null;
+			obj = new GameObject[MaxMusterUnitCount]; //max count
+			for(int i=0;i<MaxMusterUnitCount;i++) obj[i] = null;
 			CurrentSize = 0;
 		}
 
 		public void freeMuster()
 		{
-			for(int i=0;i<5;i++)
+			for(int i=0;i<MaxMusterUnitCount;i++)
 			{
 				obj[i] = null;
 				CurrentSize = 0;
@@ -163,9 +168,9 @@ public class UnitMusterManager
 
 		public void addUnit(GameObject gobj)
 		{
-			if(CurrentSize > 4) return;
+			if(CurrentSize > MaxMusterUnitCount-1) return;
 
-			for(int i=0;i<5;i++)
+			for(int i=0;i<MaxMusterUnitCount;i++)
 			{
 				if(obj[i] == null)
 				{
@@ -180,10 +185,11 @@ public class UnitMusterManager
 		{
 			if(CurrentSize <= 0) return;
 
-			for(int i=0;i<5;i++)
+			for(int i=0;i<MaxMusterUnitCount;i++)
 			{
 				if(obj[i] != null)
 				{
+					/*
 					//search nameID
 					pathFinder tempFunc = obj[i].GetComponent<pathFinder>();
 					if(tempFunc.getID() == nameID)
@@ -194,6 +200,7 @@ public class UnitMusterManager
 						obj[i] = null;
 						break;
 					}
+					*/
 				}
 			}
 		}

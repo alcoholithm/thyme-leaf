@@ -4,30 +4,22 @@ using System.Collections;
 public class ControllerUnit
 {
 	private ModelUnit _model;
+	private HelperUnit _helper;
 
-	public ControllerUnit(ModelUnit model)
+	public ControllerUnit(ModelUnit model, HelperUnit helper)
 	{
 		_model = model;
+		_helper = helper;
 	}
 
 	public void MoveReverse()
 	{
-		_model.MoveReverse ();
+		_helper.MoveReverse ();
 	}
 	
 	public void SetMoveMode(MoveModeState option)
 	{
-		_model.SetMoveMode (option);
-	}
-	
-	public void EnableMove()
-	{
-		_model.EnableMove ();
-	}
-	
-	public void DisableMove()
-	{
-		_model.DisableMove ();
+		_helper.SetMoveMode (option);
 	}
 	
 	public void setAngle(float ang) //radian value can't input
@@ -37,27 +29,32 @@ public class ControllerUnit
 	
 	public void setPos(float x, float y, float z)
 	{
-		_model.setPos (x, y, z);
+		_helper.setPos (x, y, z);
 	}
 	
 	public void setPos(Vector3 v)
 	{
-		_model.setPos (v);
+		_helper.setPos (v);
 	}
 	
 	public void addPos(float x, float y)
 	{
-		_model.addPos (x, y);
+		_helper.addPos (x, y);
 	}
 	
 	public void addPos(Vector3 v)
 	{
-		_model.addPos (v);
+		_helper.addPos (v);
 	}
 	
 	public void setSpeed(float v)
 	{
 		_model.setSpeed (v);
+	}
+
+	public void setHp(int v)
+	{
+		_model.setHp (v);
 	}
 	
 	public void setID(string v)
@@ -70,29 +67,24 @@ public class ControllerUnit
 		_model.setmusterID (v);
 	}
 	
-	public bool isMuster()
+	public void setMusterTrigger(bool v)
 	{
-		return _model.isMuster ();
+		_helper.setMusterTrigger (v);
 	}
 	
-	public void EnableMuster()
+	public void setMoveTrigger(bool v)
 	{
-		_model.EnableMuster ();
+		_helper.setMoveTrigger (v);
 	}
 	
-	public void DisableMuster()
+	public void setPinpointTrigger(bool v)
 	{
-		_model.DisableMuster ();
+		_helper.setPinpointTrigger (v);
 	}
-	
-	public void EnablePinpoint()
+
+	public bool isGesture()
 	{
-		_model.EnablePinpoint ();
-	}
-	
-	public void DisablePinpoint()
-	{
-		_model.DisablePinpoint ();
+		return _helper.isGesture ();
 	}
 
 }
