@@ -62,8 +62,6 @@ public class Hero : GameEntity<Hero> {
 		else controller.setMoveTrigger(false);
 
 		controller.setID (name);            
-		
-		helper.colliderSize = GetComponent<CircleCollider2D> ().radius;
 	}
 
 	//gesturing function
@@ -86,11 +84,15 @@ public class Hero : GameEntity<Hero> {
 		}
 	}
 
+	//==============================================
+	//this functions are execute -> extern area
+	//before start this Start() function
 	public void EnableAlive() { alive = true; }
 	public void DisableAlive() { alive = false; }
 
 	public void setName(string str) { name = str; }
-	
+	//===============================================
+
 	/*
      * followings are member functions
      */

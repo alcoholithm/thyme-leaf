@@ -19,8 +19,6 @@ public class HelperUnit
 
 	public Vector3 gesture_startpoint;
 	public Vector2 gesture_endpoint;
-
-	public float colliderSize;
 	//==================================
 
 	public HelperUnit(GameObject obj)
@@ -54,8 +52,6 @@ public class HelperUnit
 		selectTurnoffRoot = false;
 
 		gesture_startpoint = gesture_endpoint = Vector3.zero;
-
-		colliderSize = 0;
 		//=======================
 	}
 

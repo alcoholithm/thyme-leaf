@@ -16,7 +16,6 @@ public class HeroState_Moving : State<Hero> {
 	{
 		float dx = owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x - owner.helper.getPos ().x;
 		float dy = owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y - owner.helper.getPos ().y;
-		//Debug.Log (dx + ", " + dy);
 
 		if(owner.helper.getMoveTrigger())
 		{
