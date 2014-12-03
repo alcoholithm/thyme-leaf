@@ -183,24 +183,22 @@ public class UnitMusterManager
 
 		public void removeUnit(string nameID)
 		{
-			if(CurrentSize <= 0) return;
+			if(CurrentSize <= 1) return;
 
 			for(int i=0;i<MaxMusterUnitCount;i++)
 			{
 				if(obj[i] != null)
 				{
-					/*
 					//search nameID
-					pathFinder tempFunc = obj[i].GetComponent<pathFinder>();
-					if(tempFunc.getID() == nameID)
+					Hero tempFunc = obj[i].GetComponent<Hero>();
+					if(tempFunc.model.getID() == nameID)
 					{
-						//change parent
+						//change parent or remove
 						//...
 						CurrentSize--;
 						obj[i] = null;
 						break;
 					}
-					*/
 				}
 			}
 		}
