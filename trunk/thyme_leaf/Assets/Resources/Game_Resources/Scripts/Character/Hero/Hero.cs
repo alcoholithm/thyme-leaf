@@ -4,11 +4,11 @@ using System.Collections;
 public class Hero : GameEntity<Hero> {
 	public new const string TAG = "[Hero]";
 
-	//=======================
+	//=====================
 	//unit identity value
 	public int hPoint = 100;
 	public float speed = 10;
-	//=======================
+	//=====================
 
 	private UISpriteAnimation anim;
 
