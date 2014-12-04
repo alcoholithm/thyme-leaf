@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class HeroState_Moving : State<Hero> {
-	
+
 	private HeroState_Moving()
 	{
 		Successor = HeroState_Hitting.Instance;

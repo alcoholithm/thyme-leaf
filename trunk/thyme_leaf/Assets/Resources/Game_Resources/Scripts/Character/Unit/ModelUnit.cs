@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ModelUnit 
+public class ModelUnit
 {
 	private float radian;
 	private float speed;
