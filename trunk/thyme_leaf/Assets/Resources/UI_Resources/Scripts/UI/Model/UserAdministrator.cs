@@ -38,18 +38,15 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
     */
     public bool RegisterUser(string userName)
     {
-        bool result = false;
-        if (userName != null && userName.Length > 0)
+        if (users.Count < nUserMax 
+            && userName != null 
+            && userName.Length > 0 
+            && users.Find(user => user.Name.Equals(userName)) == null)
         {
-            if (users.Count >= nUserMax)
-                result = false;
-            else
-                users.Add(new User(userName));
-
-            result = true;
+            users.Add(new User(userName));
+            return true;
         }
-
-        return result;
+        return false;
     }
 
     public bool RemoveUser(string userName)

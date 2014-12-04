@@ -36,16 +36,7 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     /*
      * followings are member functions
      */
-    private void Begin()
-    {
-        controller.Start();
-    }
-    private void AddUser()
-    {
-        controller.Register(_userName.text);
-    }
-
-    public void prepareLobby()
+    public void PrepareLobby()
     {
         SetVisible(SettingsButton, true);
         SetVisible(GoToWorldMapButton, true);
@@ -64,11 +55,15 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     {
         if (actionCommand.Equals(_startButton.name))
         {
-            Begin();
+            controller.Start();
         }
         else if (actionCommand.Equals(_registerButton.name))
         {
-            AddUser();
+            controller.Register(_userName.text);
+        }
+        else if (actionCommand.Equals(_goToWorldMapButton.name))
+        {
+            SceneManager.Instance.CurrentScene = SceneManager.WORLD_MAP;
         }
     }
 
@@ -76,7 +71,6 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     {
         throw new System.NotImplementedException();
     }
-
 
     public void Refresh<T>()
     {

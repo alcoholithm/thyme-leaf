@@ -46,5 +46,13 @@ public class LobbyController
         //view.StartCoroutine(model.Login(id, passwd));
     }
 
+    public void PrepareLobby(string userName)
+    {
+        User currUser = model.Users.Find(user => user.Name.Equals(userName));
+        model.CurrentUser = currUser;
+        view.SetVisible(view.PlayerSelectFrame, false);
+        view.PrepareLobby();
+    }
+
     public const string TAG = "[LoginController]";
 }
