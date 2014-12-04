@@ -24,13 +24,14 @@ public class TowerState_Building : State<Tower>
         yield return new WaitForSeconds(buildingTime);
         owner.StateMachine.ChangeState(TowerState_Idling.Instance);
     }
-    
+
     /// <summary>
     /// followings are 
     /// </summary>
     public override void Enter(Tower owner)
     {
         Debug.Log("TowerState_Building start");
+        //owner.ObtainMessage(MessageTypes)
         owner.StartCoroutine(BuildTower(owner));
     }
 
