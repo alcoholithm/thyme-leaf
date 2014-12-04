@@ -15,7 +15,7 @@ public class Hero : GameEntity<Hero> {
 	public ModelUnit model;
 	public ControllerUnit controller;
 	public HelperUnit helper;
-
+	
 	private bool alive;
 	private string name;
 
