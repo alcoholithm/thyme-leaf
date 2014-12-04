@@ -9,15 +9,21 @@ public class HeroState_Hitting : State<Hero> {
 
 	public override void Enter (Hero owner)
 	{
-//		Debug.Log("Hitting Enter *********************");
+		Debug.Log("Hitting Enter *********************");
 		// throw new System.NotImplementedException ();
 	}
 
 	public override void Execute (Hero owner)
 	{
-//		Debug.Log (owner.transform.name);
-//		Debug.Log("Hitting Execute *********************");
-		// throw new System.NotImplementedException ();
+		owner.hPoint -= 1;
+		//Debug.Log (owner.hPoint);
+		Debug.Log("Hitting Execute *********************");
+
+		if(owner.hPoint <0)
+		{
+			owner.StateMachine.ChangeState(HeroState_Dying.Instance);
+		}			
+
 	}
 
 	public override void Exit (Hero owner)

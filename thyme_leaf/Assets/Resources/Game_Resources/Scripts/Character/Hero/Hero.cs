@@ -19,6 +19,8 @@ public class Hero : GameEntity<Hero> {
 	private bool alive;
 	private string name;
 
+	public Hero target;
+
 	void Awake()
 	{
 		Initialize();
@@ -33,19 +35,25 @@ public class Hero : GameEntity<Hero> {
 	void Update()
 	{
 		stateMachine.Update();
-
+		controller.setHp(hPoint);
+		//Debug.Log (hPoint);
 		Gesturing ();
 	}
 	
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
-		//나는 때리는 상태로
-		//stateMachine.ChangeState(HeroState_Attacking.Instance);
+			target = coll.gameObject.GetComponent<Hero>();
+			if(gameObject.CompareTag(Tag.TagWarriorTrovant()))
+		   {
+				//나는 때리는 상태로
+				stateMachine.ChangeState(HeroState_Attacking.Instance);
+				//상대방은 쳐맞는 상태로
+				coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Hitting.Instance);
+			}
 
-		//상대방은 쳐맞는 상태로
-		//coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Hitting.Instance);
 	}
+
 
 	private void SettingInitialize()
 	{
@@ -91,6 +99,8 @@ public class Hero : GameEntity<Hero> {
 	public void DisableAlive() { alive = false; }
 
 	public void setName(string str) { name = str; }
+
+	public void Visiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
 	//===============================================
 
 	/*
@@ -101,6 +111,19 @@ public class Hero : GameEntity<Hero> {
 		anim.namePrefix = name;
 		anim.Play();
 	}
+
+	// HeroState_Dyning Animation 
+	public void PlayAnimationOneTime(string name)
+	{
+		anim.namePrefix = name;
+		anim.Play();
+		anim.loop = false;
+	}
+
+	//Get anim Function
+	public UISpriteAnimation GetAnim() {
+		return anim;
+	}
 	
 	public void Initialize()
 	{
@@ -110,5 +133,6 @@ public class Hero : GameEntity<Hero> {
 		
 		this.anim = GetComponent<UISpriteAnimation>();
 		this.anim.Pause();
+		transform.localPosition = new Vector3(1000,1000);
 	}
 }

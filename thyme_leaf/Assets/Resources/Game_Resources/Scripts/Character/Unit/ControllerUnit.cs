@@ -56,6 +56,10 @@ public class ControllerUnit
 	{
 		_model.setHp (v);
 	}
+	public int getHp()
+	{
+		return _model.getHp();
+	}
 	
 	public void setID(string v)
 	{

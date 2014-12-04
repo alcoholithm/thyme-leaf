@@ -27,9 +27,10 @@ public class HeroSpawner : Singleton<HeroSpawner>
         return DynamicInstantiate();
     }
 
-    public void Free()
+    public void Free(GameObject some)
     {
-        throw new System.NotImplementedException();
+		Destroy(some);
+        //throw new System.NotImplementedException();
     }
 
     private Hero DynamicInstantiate()
