@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LobbyController : IController
+public class LobbyController
 {
     private UserAdministrator model;
     private LobbyView view;
@@ -35,7 +35,6 @@ public class LobbyController : IController
         {
             str = "Welcome!!";
             view.SetVisible(view.RegisterUserFrame, false);
-
             view.SetVisible(view.PlayerSelectFrame, true);
         }
         else
@@ -48,28 +47,4 @@ public class LobbyController : IController
     }
 
     public const string TAG = "[LoginController]";
-
-    public IView View
-    {
-        get
-        {
-            return view;
-        }
-        set
-        {
-            view = value as LobbyView;
-        }
-    }
-
-    public IModel Model
-    {
-        get
-        {
-            return model;
-        }
-        set
-        {
-            model = value as UserAdministrator;
-        }
-    }
 }

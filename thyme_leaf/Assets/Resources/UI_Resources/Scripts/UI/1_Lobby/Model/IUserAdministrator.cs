@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface IUserAdministrator : IModel
+public interface IUserAdministrator
 {
     bool RegisterUser(string userName);
     bool RemoveUser(string userName);
