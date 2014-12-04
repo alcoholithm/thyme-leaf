@@ -45,33 +45,19 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         controller.Register(_userName.text);
     }
 
-    /*
-     * followings are implemented methods of interface
-     */
-    public void Refresh()
-    {
-        //if (model.IsLogin)
-        //{
-        //    _id.GetComponentInChildren<UILabel>().text = "Login has succeeded";
-        //    Debug.Log("Login has succeeded");
-        //}
-        //else
-        //{
-        //    _id.GetComponentInChildren<UILabel>().text = "Login has failed";
-        //    Debug.Log("Login has failed");
-        //}
-    }
-
-    public void SetVisible(GameObject gameObject, bool active)
-    {
-        gameObject.SetActive(active);
-    }
-
     public void prepareLobby()
     {
         SetVisible(SettingsButton, true);
         SetVisible(GoToWorldMapButton, true);
         SetVisible(WelcomeFrame, true);
+    }
+
+    /*
+    * followings are implemented methods of interface
+    */
+    public void SetVisible(GameObject gameObject, bool active)
+    {
+        gameObject.SetActive(active);
     }
 
     public void ActionPerformed(string actionCommand)
@@ -94,6 +80,17 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
 
     public void Refresh<T>()
     {
+        //if (model.IsLogin)
+        //{
+        //    _id.GetComponentInChildren<UILabel>().text = "Login has succeeded";
+        //    Debug.Log("Login has succeeded");
+        //}
+        //else
+        //{
+        //    _id.GetComponentInChildren<UILabel>().text = "Login has failed";
+        //    Debug.Log("Login has failed");
+        //}
+
         //if (typeof(T) is IScoreObserver)
         //{
 
@@ -107,8 +104,6 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     /*
      * Followings are attributes.
      */
- 
-
     public GameObject RegisterUserFrame
     {
         get { return _registerUserFrame; }
@@ -146,10 +141,7 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         set { _startButton = value; }
     }
 
-    public const string TAG = "[LobbyView]";
-
-
-    public IController Controller
+    public LobbyController Controller
     {
         get
         {
@@ -157,11 +149,11 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         }
         set
         {
-            controller = value as LobbyController;
+            controller = value;
         }
     }
 
-    public IModel Model
+    public UserAdministrator Model
     {
         get
         {
@@ -169,7 +161,9 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         }
         set
         {
-            model = value as UserAdministrator;
+            model = value;
         }
     }
+
+    public const string TAG = "[LobbyView]";
 }

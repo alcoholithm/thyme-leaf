@@ -42,27 +42,27 @@ public class DialogView : MonoBehaviour, IView
         get { return DialogView.instance; }
     }
 
-    public IController Controller
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-        set
-        {
-            throw new System.NotImplementedException();
-        }
-    }
+    //public IController Controller
+    //{
+    //    get
+    //    {
+    //        throw new System.NotImplementedException();
+    //    }
+    //    set
+    //    {
+    //        throw new System.NotImplementedException();
+    //    }
+    //}
 
-    public IModel Model
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-        set
-        {
-            throw new System.NotImplementedException();
-        }
-    }
+    //public IModel Model
+    //{
+    //    get
+    //    {
+    //        throw new System.NotImplementedException();
+    //    }
+    //    set
+    //    {
+    //        throw new System.NotImplementedException();
+    //    }
+    //}
 }

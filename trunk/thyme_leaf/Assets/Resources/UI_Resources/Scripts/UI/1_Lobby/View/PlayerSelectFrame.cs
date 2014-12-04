@@ -4,15 +4,29 @@ using System.Collections.Generic;
 
 public class PlayerSelectFrame : MonoBehaviour
 {
-    [SerializeField]
-    LobbyView _view;
+    private LobbyView view;
 
     [SerializeField]
     UILabel[] _userName;
 
+    void Awake()
+    {
+        view = transform.parent.GetComponent<LobbyView>();
+    }
+
     void Start()
     {
-        List<User> users = (_view.Model as UserAdministrator).Users;
+        initialize();
+    }
+
+    void initialize()
+    {
+        setUserNames();
+    }
+
+    void setUserNames()
+    {
+        List<User> users = view.Model.Users;
 
         for (int i = 0; i < users.Count; i++)
         {

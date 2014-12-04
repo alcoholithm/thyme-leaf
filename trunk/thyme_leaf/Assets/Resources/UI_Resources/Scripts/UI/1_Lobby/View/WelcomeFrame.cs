@@ -7,21 +7,29 @@ using System.Collections;
 /// // iview 를 상속받아야하나?? 컴포지트로 가야할 듯..
 public class WelcomeFrame : MonoBehaviour
 {
-    [SerializeField]
-    LobbyView _view;
+    private LobbyView view;
 
     [SerializeField]
     UILabel _userName;
 
+    void Awake()
+    {
+        view = transform.parent.GetComponent<LobbyView>();
+    }
+
     void Start()
     {
-        User user = (_view.Model as UserAdministrator).CurrentUser;
+        initialize();
+    }
+
+    void initialize()
+    {
+        User user = view.Model.CurrentUser;
         SetUserName(user.Name);
     }
 
-    public void SetUserName(string name)
+    void SetUserName(string name)
     {
-        Debug.Log(name);
         _userName.text = name;
     }
 }

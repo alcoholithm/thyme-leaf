@@ -224,7 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e9acd3457d57a458d5ab6f3f8070b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 264203491}
   _userName: {fileID: 226234908}
 --- !u!1 &61651445
 GameObject:
@@ -4954,7 +4953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c99069bc178b4b4c91480e98f88408e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 264203491}
   _userName:
   - {fileID: 2081049392}
   - {fileID: 344727740}
