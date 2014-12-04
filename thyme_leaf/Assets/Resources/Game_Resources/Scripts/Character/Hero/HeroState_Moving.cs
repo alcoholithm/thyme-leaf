@@ -19,7 +19,7 @@ public class HeroState_Moving : State<Hero> {
 
 		if(owner.helper.getMoveTrigger())
 		{
-			if(dx * dx + dy * dy < 10) //checking range
+			if(dx * dx + dy * dy < 10) //checking range    
 			{
 				if(owner.helper.GetMoveMode() == MoveModeState.FORWARD)
 				{
@@ -70,7 +70,6 @@ public class HeroState_Moving : State<Hero> {
 				{
 					owner.helper.selectTurnoffRoot = true;
 					owner.controller.setMoveTrigger(false);
-					//select case
 					return;
 				}
 				else if(!owner.helper.nodeInfor.TurnoffRoot)
