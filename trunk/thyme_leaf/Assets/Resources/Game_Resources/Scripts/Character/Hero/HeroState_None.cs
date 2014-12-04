@@ -9,6 +9,7 @@ public class HeroState_None : State<Hero> {
 	}
 	public override void Enter (Hero owner)
 	{
+
 	}
 
 	public override void Execute (Hero owner)

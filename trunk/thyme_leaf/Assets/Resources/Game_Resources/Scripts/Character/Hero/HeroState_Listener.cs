@@ -11,6 +11,7 @@ public class HeroState_Listener : MonoBehaviour
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 		hero.EnableAlive ();
+		hero.Visiable();
 		hero.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
 		//another
 

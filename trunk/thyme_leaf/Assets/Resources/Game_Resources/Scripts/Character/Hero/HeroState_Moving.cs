@@ -9,7 +9,8 @@ public class HeroState_Moving : State<Hero> {
 	}
 	public override void Enter (Hero owner)
 	{
-		owner.PlayAnimation("Hero_Moving_");
+		Debug.Log ("Move Enter*****************************");
+		owner.PlayAnimation("Comma_Moving_Normal_");
 	}
 
 	public override void Execute (Hero owner)
