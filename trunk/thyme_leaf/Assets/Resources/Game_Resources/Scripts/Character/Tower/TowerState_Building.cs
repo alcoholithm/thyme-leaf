@@ -15,24 +15,17 @@ public class TowerState_Building : State<Tower>
         Successor = TowerState_Hitting.Instance;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    IEnumerator BuildTower(Tower owner)
-    {
-        owner.PlayAnimation(animName);
-        yield return new WaitForSeconds(buildingTime);
-        owner.StateMachine.ChangeState(TowerState_Idling.Instance);
-    }
-
-    /// <summary>
-    /// followings are 
-    /// </summary>
+    /*
+     * followings are implemented methods of interface
+     */ 
     public override void Enter(Tower owner)
     {
         Debug.Log("TowerState_Building start");
-        //owner.ObtainMessage(MessageTypes)
-        owner.StartCoroutine(BuildTower(owner));
+
+        owner.PlayAnimation(animName);
+
+        Message msg = owner.ObtainMessage(MessageTypes.MSG_TOWER_READY, new TowerReadyCommand(owner));
+        owner.DispatchMessageDelayed(msg, buildingTime);
     }
 
     public override void Execute(Tower owner)
@@ -46,13 +39,18 @@ public class TowerState_Building : State<Tower>
 
     public override bool IsHandleable(Message msg)
     {
-        Debug.Log(TAG + "IsHandleable");
+        switch (msg.what)
+        {
+            case MessageTypes.MSG_TOWER_READY:
+                return true;
+        }
+
         return false;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+     *
+     */ 
     public new const string TAG = "[TowerState_Building]";
     private static TowerState_Building instance = new TowerState_Building(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
     public static TowerState_Building Instance

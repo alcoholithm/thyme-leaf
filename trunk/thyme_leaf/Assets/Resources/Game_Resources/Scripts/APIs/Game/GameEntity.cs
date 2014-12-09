@@ -82,7 +82,7 @@ public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // clien
 
     public void HandleMessage(Message msg)
     {
-        Debug.Log(TAG + "HandleMessage");
+        //Debug.Log(TAG + "HandleMessage");
         Successor.HandleMessage(msg);
     }
 

@@ -67,7 +67,7 @@ public class StateMachine<TGameEntity> : IHandler
 
     public void HandleMessage(Message msg)
     {
-        Debug.Log(TAG + "HandleMessage");
+        //Debug.Log(TAG + "HandleMessage");
         Successor.HandleMessage(msg);
     }
 

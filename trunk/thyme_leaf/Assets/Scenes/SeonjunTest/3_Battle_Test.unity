@@ -501,7 +501,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
-  mSpriteName: Comma_Attacking_Downwards_0
+  mSpriteName: Tower_Attacking_0
   mFillCenter: 1
 --- !u!1 &246556456
 GameObject:
@@ -1828,7 +1828,7 @@ GameObject:
   - 58: {fileID: 821576091}
   m_Layer: 8
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: TagWarriorTrovant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1852,7 +1852,7 @@ CircleCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 2042777385}
   m_GameObject: {fileID: 821576089}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Radius: 35
@@ -1887,6 +1887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hPoint: 100
   speed: 40
+  target: {fileID: 0}
 --- !u!114 &821576094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,7 +1900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9bfb5c080dac24cbbc6c9f595ed413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mFPS: 5
+  mFPS: 8
   mPrefix: 
   mLoop: 1
   mSnap: 1
@@ -1952,7 +1953,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
-  mSpriteName: Comma_Attacking_Normal_1
+  mSpriteName: Comma_Attacking_Downwards_2
   mFillCenter: 1
 --- !u!1 &834057763
 GameObject:
@@ -2523,6 +2524,10 @@ Prefab:
     - target: {fileID: 400002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
+      propertyPath: mSpriteName
+      value: Tower_Attacking_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
@@ -4415,7 +4420,13 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 1599953710}
+      field: name
+    oneShot: 0
 --- !u!114 &1599953713
 MonoBehaviour:
   m_ObjectHideFlags: 0
