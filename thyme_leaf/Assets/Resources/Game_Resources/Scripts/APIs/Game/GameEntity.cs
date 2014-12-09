@@ -8,6 +8,7 @@ public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // clien
 {
     protected StateMachine<TGameEntity> stateMachine;
 
+
     /*
     * followings are member functions
     */

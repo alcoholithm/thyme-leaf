@@ -9,17 +9,17 @@ public class HeroState_Chasing : State<Hero> {
 
 	public override void Enter (Hero owner)
 	{
-		throw new System.NotImplementedException ();
+		Debug.Log("Chasing Enter");
 	}
 
 	public override void Execute (Hero owner)
 	{
-		throw new System.NotImplementedException ();
+		Debug.Log("Chasing Execute");
 	}
 
 	public override void Exit (Hero owner)
 	{
-		throw new System.NotImplementedException ();
+		Debug.Log("Chasing Exit");
 	}
 
 	public override bool IsHandleable (Message msg)

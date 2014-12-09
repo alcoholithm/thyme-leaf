@@ -5,11 +5,11 @@ public class HeroState_None : State<Hero> {
 
 	private HeroState_None()
 	{
-//		Successor = HeroState_Hitting.Instance;
+		Successor = HeroState_Hitting.Instance;
 	}
 	public override void Enter (Hero owner)
 	{
-
+		//여기서 소멸 시킴
 	}
 
 	public override void Execute (Hero owner)

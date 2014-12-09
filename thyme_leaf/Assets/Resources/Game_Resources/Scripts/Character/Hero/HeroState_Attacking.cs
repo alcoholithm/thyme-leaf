@@ -3,12 +3,14 @@ using System.Collections;
 
 public class HeroState_Attacking : State<Hero> {
 
+//	private bool check;
+
 	private string animationsName = "Comma_Attacking_Normal_";
 
-	private HeroState_Attacking() {
+	private HeroState_Attacking() 
+	{
 		Successor = HeroState_Hitting.Instance;
-
-		//check = false;
+//		check = false;
 	}
 
 	public override void Enter (Hero owner)
@@ -20,33 +22,35 @@ public class HeroState_Attacking : State<Hero> {
 	public override void Execute (Hero owner)
 	{
 		Debug.Log("Attack Execute ************************");
-		Debug.Log (owner.transform.name);
 
 		//Animation 실행
 
 		//StartCoroutine
-	//	if(!check) owner.StartCoroutine("HeroAttack");
+		//if(!check) owner.StartCoroutine("HeroAttack");
 
-		//throw new System.NotImplementedException ();
 	}
 
 	public override void Exit (Hero owner)
 	{
-
 		Debug.Log("Attack  Exit ************************");
-		//throw new System.NotImplementedException ();
 	}
 
 	public override bool IsHandleable (Message msg)
 	{
-		Debug.Log(msg);
-		switch(msg.what)
-		{
-		case MessageTypes.MSG_MOVE_HERO:
-			return true;
-		}
-		return false;
+		Debug.Log("Attack IsHandleable ************************");
+		throw new System.NotImplementedException ();
 	}
+
+	/*	
+	IEnumerator HeroAttack()
+	{
+		check = true;
+		yield return new WaitForSeconds(1);
+		//HP를 깍음
+		Debug.Log("상대 HP를 깍음");
+		check  = false;
+	}
+*/
 
 	private static HeroState_Attacking instance = new HeroState_Attacking();
 	public static HeroState_Attacking Instance
