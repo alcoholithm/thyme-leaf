@@ -91,4 +91,13 @@ public class ControllerUnit
 		return _helper.isGesture ();
 	}
 
+	public void setMoveOffset(float x, float y)
+	{
+		_model.setMoveOffset (x, y);
+	}
+
+	public Vector2 getMoveOffset()
+	{
+		return _model.getMoveOffset ();
+	}
 }

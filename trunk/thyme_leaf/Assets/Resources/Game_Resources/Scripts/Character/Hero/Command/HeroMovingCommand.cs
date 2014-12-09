@@ -11,6 +11,7 @@ public class HeroMovingCommand : ICommand {
 	public void Execute ()
 	{
 		hero.StateMachine.ChangeState(HeroState_Moving.Instance);
+		hero.target = null;
 	}
 
 

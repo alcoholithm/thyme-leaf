@@ -15,9 +15,13 @@ public class Hero : GameEntity<Hero> {
 	public ModelUnit model;
 	public ControllerUnit controller;
 	public HelperUnit helper;
-
+	
 	private bool alive;
-	private string name;
+	public string name;  //test after...chagne private
+	private float offsetX, offsetY;
+
+	public Hero target;
+	public string target_name;
 
 	void Awake()
 	{
@@ -33,19 +37,32 @@ public class Hero : GameEntity<Hero> {
 	void Update()
 	{
 		stateMachine.Update();
+		//=============================
 
+		controller.setHp(hPoint);
+		DyingCheck ();
 		Gesturing ();
+
+//		if(target == null)
+//			this.stateMachine.ChangeState(HeroState_Moving.Instance);
 	}
 	
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
-		//나는 때리는 상태로
-		//stateMachine.ChangeState(HeroState_Attacking.Instance);
+		if(target == null) 
+			target = coll.gameObject.GetComponent<Hero>();
 
-		//상대방은 쳐맞는 상태로
-		//coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Hitting.Instance);
+		if(gameObject.CompareTag(Tag.TagWarriorTrovant()))
+	    {
+			//나는 때리는 상태로
+			stateMachine.ChangeState(HeroState_Attacking.Instance);
+			//상대방은 쳐맞는 상태로
+			coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Hitting.Instance);
+		}
+
 	}
+
 
 	private void SettingInitialize()
 	{
@@ -54,14 +71,17 @@ public class Hero : GameEntity<Hero> {
 		controller = new ControllerUnit (model, helper);
 		
 		stateMachine.ChangeState(HeroState_Moving.Instance);
-		controller.setSpeed (speed / 10.0f);
 
+		controller.setSpeed (speed / 10.0f);
 		controller.setHp (hPoint);
+		controller.setMoveOffset (offsetX, offsetY);
 		
 		if(alive) controller.setMoveTrigger(true);
 		else controller.setMoveTrigger(false);
 
-		controller.setID (name);            
+		controller.setID (name);  
+
+		target = null;
 	}
 
 	//gesturing function
@@ -91,13 +111,19 @@ public class Hero : GameEntity<Hero> {
 	public void DisableAlive() { alive = false; }
 
 	public void setName(string str) { name = str; }
+	public void setOffset(float offx, float offy) { offsetX = offx; offsetY = offy; }
 
-	public UISpriteAnimation Anim()
-	{
-		return anim;
-	}
+	public void Visiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
 	//===============================================
 
+	private void DyingCheck()
+	{
+		if(model.getHp() <= 0)
+		{
+			HeroSpawner.Instance.Free(this.gameObject);
+		}
+	}
+	//===============================================
 	/*
      * followings are member functions
      */
@@ -107,11 +133,17 @@ public class Hero : GameEntity<Hero> {
 		anim.Play();
 	}
 
-	public void PlayAnimationOnTime(string name)
+	// HeroState_Dyning Animation 
+	public void PlayAnimationOneTime(string name)
 	{
 		anim.namePrefix = name;
 		anim.Play();
-		anim.Pause();
+		anim.loop = false;
+	}
+
+	//Get anim Function
+	public UISpriteAnimation GetAnim() {
+		return anim;
 	}
 	
 	public void Initialize()
@@ -122,5 +154,6 @@ public class Hero : GameEntity<Hero> {
 		
 		this.anim = GetComponent<UISpriteAnimation>();
 		this.anim.Pause();
+		transform.localPosition = new Vector3(1000,1000);
 	}
 }

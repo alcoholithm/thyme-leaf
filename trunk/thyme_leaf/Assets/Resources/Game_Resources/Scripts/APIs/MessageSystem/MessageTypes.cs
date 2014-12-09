@@ -12,5 +12,6 @@ using System.Collections;
 public enum MessageTypes {
     MSG_NONE = -1,
     MSG_BUILD_TOWER,
-	MSG_MOVE_HERO
+	MSG_MOVE_HERO,
+	MSG_DAMAGE
 }
