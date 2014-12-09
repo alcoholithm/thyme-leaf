@@ -8,7 +8,7 @@ public class Message : ICommand
 { // struct로 바꾸는 거 생각해보기
     public const string TAG = "[Message]";
 
-    public MessageTypes what = MessageTypes.MSG_BUILD_TOWER;
+    public MessageTypes what = MessageTypes.MSG_TOWER_READY;
     public int arg1;
     public int arg2;
     public Object obj;

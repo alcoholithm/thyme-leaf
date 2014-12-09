@@ -23,7 +23,7 @@ public class TowerState_None : State<Tower>
         Debug.Log(TAG + "IsHandleable");
         switch (msg.what)
         {
-            case MessageTypes.MSG_BUILD_TOWER:
+            case MessageTypes.MSG_TOWER_READY:
                 return true;
 			//~~~~~
 			//~~~~~

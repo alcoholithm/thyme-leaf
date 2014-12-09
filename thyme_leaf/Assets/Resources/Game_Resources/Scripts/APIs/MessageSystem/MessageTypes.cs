@@ -11,7 +11,7 @@ using System.Collections;
 /// </remarks>
 public enum MessageTypes {
     MSG_NONE = -1,
-    MSG_BUILD_TOWER,
+    MSG_TOWER_READY,
 	MSG_MOVE_HERO,
 	MSG_DAMAGE
 }
