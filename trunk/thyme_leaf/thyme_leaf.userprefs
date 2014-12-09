@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Game_Resources\Scripts\APIs\Game\GameEntity.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\NewThyme\Assets\Resources\Game_Resources\Scripts\Character\Hero\HeroState_Hitting.cs">
     <Files>
-      <File FileName="Assets\Resources\Game_Resources\Scripts\Character\Tower\Tower.cs" Line="7" Column="26" />
-      <File FileName="Assets\Resources\Game_Resources\Scripts\APIs\Game\GameEntity.cs" Line="15" Column="6" />
+      <File FileName="..\NewThyme\Assets\Resources\Game_Resources\Scripts\Character\Hero\HeroState_Listener.cs" Line="13" Column="23" />
+      <File FileName="..\NewThyme\Assets\Resources\Game_Resources\Scripts\Character\Hero\HeroState_Attacking.cs" Line="16" Column="39" />
+      <File FileName="..\NewThyme\Assets\Resources\Game_Resources\Scripts\Character\Hero\Hero.cs" Line="50" Column="2" />
+      <File FileName="..\NewThyme\Assets\Resources\Game_Resources\Scripts\Character\Unit\ControllerUnit.cs" Line="57" Column="12" />
+      <File FileName="..\NewThyme\Assets\Resources\Game_Resources\Scripts\Character\Unit\ModelUnit.cs" Line="36" Column="16" />
+      <File FileName="..\NewThyme\Assets\Resources\Game_Resources\Scripts\Character\Hero\HeroState_Hitting.cs" Line="22" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

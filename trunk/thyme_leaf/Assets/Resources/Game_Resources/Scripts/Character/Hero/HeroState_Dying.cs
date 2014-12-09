@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HeroState_Dying : State<Hero> {
 
-	private string animationName = "Comma_Dying_";
+	private string animationsName = "Comma_Dying_";
 
 	private HeroState_Dying() {
 		Successor = null;
@@ -11,13 +11,13 @@ public class HeroState_Dying : State<Hero> {
 
 	public override void Enter (Hero owner)
 	{
-		Debug.Log("Died Enter");
-		owner.PlayAnimationOneTime(animationName);
+		Debug.Log ("Died Enter");
+		owner.PlayAnimationOnTime(animationsName);
 	}
 
 	public override void Execute (Hero owner)
 	{
-		if( !owner.GetAnim().isPlaying)
+		if (!owner.Anim().isPlaying)
 		{
 			owner.StateMachine.ChangeState(HeroState_None.Instance);
 		}
@@ -25,11 +25,7 @@ public class HeroState_Dying : State<Hero> {
 
 	public override void Exit (Hero owner)
 	{
-		Message msg = owner.target.ObtainMessage(MessageTypes.MSG_MOVE_HERO, new HeroMovingCommand(owner.target));
-		owner.target.DispatchMessage(msg);
-
-		HeroSpawner.Instance.Free(owner.gameObject);
-		//throw new System.NotImplementedException ();
+		//HeroSpawner.Instance.Free (owner);
 	}
 
 	public override bool IsHandleable (Message msg)
@@ -39,7 +35,7 @@ public class HeroState_Dying : State<Hero> {
 
 	private static HeroState_Dying instance = new HeroState_Dying();
 	public static HeroState_Dying Instance {
-		get { return HeroState_Dying.instance;}
+		get { return HeroState_Dying.instance; }
 		set { HeroState_Dying.instance = value;}
 	}
 
