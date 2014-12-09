@@ -9,6 +9,8 @@ public class ModelUnit
 	private string musterID;
 	private int hp;
 
+	private Vector2 node_offset;
+
 	private HelperUnit _helper;
 
 	public ModelUnit(HelperUnit helper)
@@ -66,5 +68,15 @@ public class ModelUnit
 	public string getmusterID()
 	{
 		return musterID;
+	}
+
+	public void setMoveOffset(float x, float y)
+	{
+		node_offset.Set (x, y);
+	}
+
+	public Vector2 getMoveOffset()
+	{
+		return node_offset;
 	}
 }

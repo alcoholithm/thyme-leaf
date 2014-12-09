@@ -1132,7 +1132,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 2
+  mDepth: 3
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!1 &334241378
@@ -1943,6 +1943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hPoint: 100
   speed: 10
+  target: {fileID: 0}
 --- !u!114 &459902936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3125,6 +3126,54 @@ Prefab:
   m_RootGameObject: {fileID: 459902929}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &735709050
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 452842743}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+  m_RootGameObject: {fileID: 1402435544}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &762655090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,7 +3264,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 300
   mHeight: 300
-  mDepth: 2
+  mDepth: 5
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -4406,6 +4455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hPoint: 100
   speed: 10
+  target: {fileID: 0}
 --- !u!114 &1242807569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4422,50 +4472,6 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
---- !u!1001 &1269928030
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 452842743}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-  m_RootGameObject: {fileID: 1402435544}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1315586333
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,7 +4570,7 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-  m_PrefabInternal: {fileID: 1269928030}
+  m_PrefabInternal: {fileID: 735709050}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1402435545}
@@ -4575,7 +4581,7 @@ GameObject:
   - 58: {fileID: 1402435546}
   m_Layer: 8
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: TagWarriorTrovant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4584,7 +4590,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 44d99ef7867721740885762c933098cf, type: 2}
-  m_PrefabInternal: {fileID: 1269928030}
+  m_PrefabInternal: {fileID: 735709050}
   m_GameObject: {fileID: 1402435544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4597,9 +4603,9 @@ CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5800000, guid: 44d99ef7867721740885762c933098cf,
     type: 2}
-  m_PrefabInternal: {fileID: 1269928030}
+  m_PrefabInternal: {fileID: 735709050}
   m_GameObject: {fileID: 1402435544}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Radius: 35
@@ -4609,7 +4615,7 @@ Rigidbody2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5000000, guid: 44d99ef7867721740885762c933098cf,
     type: 2}
-  m_PrefabInternal: {fileID: 1269928030}
+  m_PrefabInternal: {fileID: 735709050}
   m_GameObject: {fileID: 1402435544}
   m_Mass: 1
   m_LinearDrag: 0
@@ -4625,7 +4631,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 44d99ef7867721740885762c933098cf,
     type: 2}
-  m_PrefabInternal: {fileID: 1269928030}
+  m_PrefabInternal: {fileID: 735709050}
   m_GameObject: {fileID: 1402435544}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -4634,19 +4640,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hPoint: 100
   speed: 40
+  target: {fileID: 0}
 --- !u!114 &1402435549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: 44d99ef7867721740885762c933098cf,
     type: 2}
-  m_PrefabInternal: {fileID: 1269928030}
+  m_PrefabInternal: {fileID: 735709050}
   m_GameObject: {fileID: 1402435544}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df9bfb5c080dac24cbbc6c9f595ed413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mFPS: 5
+  mFPS: 8
   mPrefix: 
   mLoop: 1
   mSnap: 1
@@ -4655,7 +4662,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400004, guid: 44d99ef7867721740885762c933098cf,
     type: 2}
-  m_PrefabInternal: {fileID: 1269928030}
+  m_PrefabInternal: {fileID: 735709050}
   m_GameObject: {fileID: 1402435544}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -4683,7 +4690,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 58
   mHeight: 70
-  mDepth: 1
+  mDepth: 4
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -4699,7 +4706,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
-  mSpriteName: Comma_Attacking_Normal_1
+  mSpriteName: Comma_Attacking_Downwards_2
   mFillCenter: 1
 --- !u!1 &1404894500
 GameObject:
@@ -5271,7 +5278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1599953710
 Transform:
   m_ObjectHideFlags: 0
@@ -5323,7 +5330,13 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 1599953710}
+      field: name
+    oneShot: 0
 --- !u!114 &1599953713
 MonoBehaviour:
   m_ObjectHideFlags: 0
