@@ -17,11 +17,12 @@ public class HeroState_Attacking : State<Hero> {
 		Debug.Log("Attack Enter ************************");
 	}
 	
-	public override void Execute (Hero owner)
+	public override IEnumerator Execute (Hero owner)
 	{
 		Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE,new HeroDamageCommand(owner.target));
 		owner.DispatchMessage(msg);
-		
+
+		return null;
 	}
 	
 	public override void Exit (Hero owner)

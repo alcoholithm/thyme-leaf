@@ -9,11 +9,11 @@ public class HeroState_Moving : State<Hero> {
 	}
 	public override void Enter (Hero owner)
 	{
-		Debug.Log ("Move Enter*****************************");
+		//if(own
 		owner.PlayAnimation("Comma_Moving_Normal_");
 	}
 
-	public override void Execute (Hero owner)
+	public override IEnumerator Execute (Hero owner)
 	{
 		float dx = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x + owner.model.getMoveOffset ().x) - owner.helper.getPos ().x;
 		float dy = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y + owner.model.getMoveOffset ().y) - owner.helper.getPos ().y;
@@ -71,7 +71,7 @@ public class HeroState_Moving : State<Hero> {
 				{
 					owner.helper.selectTurnoffRoot = true;
 					owner.controller.setMoveTrigger(false);
-					return;
+					return null;
 				}
 				else if(!owner.helper.nodeInfor.TurnoffRoot)
 				{
@@ -91,6 +91,8 @@ public class HeroState_Moving : State<Hero> {
 			//don't move
 
 		}
+
+		return null;
 	}
 
 	public override void Exit (Hero owner)
