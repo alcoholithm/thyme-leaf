@@ -9,6 +9,8 @@ public class TowerSpotView : MonoBehaviour, IView
     GameObject _sellButton;
     [SerializeField]
     GameObject _cancelButton;
+    [SerializeField]
+    GameObject _parent;
 
     private TowerSpotController controller;
     private TowerSpawner model;
@@ -30,7 +32,7 @@ public class TowerSpotView : MonoBehaviour, IView
     {
         if (actionCommand.Equals(_buildButton.name))
         {
-            controller.BuildTower();
+            controller.BuildTower(_parent);
         }
     }
 

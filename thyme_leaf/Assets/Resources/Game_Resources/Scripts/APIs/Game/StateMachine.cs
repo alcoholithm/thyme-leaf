@@ -21,17 +21,17 @@ public class StateMachine<TGameEntity> : IHandler
     /*
     * followings are member functions
     */
-    public void Update()
+    public IEnumerator Update()
     {
-        currentState.Execute(owner);
+        return currentState.Executee(owner);
     }
 
     public void ChangeState(State<TGameEntity> newState)
     {
-        if (newState == null)
+        if (newState == null || IsInState(newState))
         {
-            Debug.LogError("Trying to change to a null state");
-            Debug.Break();
+            //Debug.LogError("Trying to change to a null state");
+            //Debug.Break();
             return;
         }
 
@@ -49,7 +49,7 @@ public class StateMachine<TGameEntity> : IHandler
 
     public bool IsInState(State<TGameEntity> state)
     {
-        throw new System.NotImplementedException();
+        return currentState.Equals(state);
     }
 
     /*

@@ -11,8 +11,9 @@ public class TowerState_None : State<Tower>
     public override void Enter(Tower owner)
     {
     }
-    public override void Execute(Tower owner)
+    public override IEnumerator Execute(Tower owner)
     {
+        return null;
     }
     public override void Exit(Tower owner)
     {
