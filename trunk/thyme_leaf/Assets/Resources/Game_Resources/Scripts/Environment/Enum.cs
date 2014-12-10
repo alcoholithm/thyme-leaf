@@ -30,3 +30,9 @@ public enum SpriteList
 {
 	END = 0, NORMAL, START, TURNOFF
 }
+
+public enum UnitType
+{
+	AUTOMART_CHARACTER = 0, AUTOMART_TOWER,
+	TROVANT_CHARACTER, TROVANT_TOWER
+}
