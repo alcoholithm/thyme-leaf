@@ -118,13 +118,21 @@ public class Hero : GameEntity<Hero> {
 
 	private bool IsAttackCase(GameObject gObj)
 	{
-		if(Define.GetUnitType() == UnitType.AUTOMART_CHARACTER)
+		if(Define.GetUnitType() == (int)UnitType.AUTOMART_CHARACTER)
 		{
 			if(gObj.CompareTag(Tag.TagArcherTrovant()) || gObj.CompareTag(Tag.TagBarrierTrovant()) ||
 			   gObj.CompareTag(Tag.TagSupporterTrovant()) || gObj.CompareTag(Tag.TagHealerTrovant()) ||
 			   gObj.CompareTag(Tag.TagWarriorTrovant()))
 				return true;
 		}
+		else if(Define.GetUnitType() == (int)UnitType.TROVANT_CHARACTER)
+		{
+			if(gObj.CompareTag(Tag.TagArcherAutomart()) || gObj.CompareTag(Tag.TagBarrierAutomart()) ||
+			   gObj.CompareTag(Tag.TagSupporterAutomart()) || gObj.CompareTag(Tag.TagHealerAutomart()) ||
+			   gObj.CompareTag(Tag.TagWarriorAutomart()))
+				return true;
+		}
+
 		return false;
 	}
 
