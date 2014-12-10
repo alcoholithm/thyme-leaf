@@ -4497,7 +4497,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
-  mSpriteName: Comma_Attacking_Downwards_2
+  mSpriteName: Python_Attacking_Downwards_0
   mFillCenter: 1
 --- !u!1 &1404894500
 GameObject:

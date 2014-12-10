@@ -30,6 +30,7 @@ public class TowerState_Building : State<Tower>
 
     public override IEnumerator Execute(Tower owner)
     {
+		return null;
     }
 
     public override void Exit(Tower owner)

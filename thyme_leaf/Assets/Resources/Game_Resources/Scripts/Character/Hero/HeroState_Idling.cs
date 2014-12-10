@@ -12,7 +12,7 @@ public class HeroState_Idling : State<Hero> {
 		throw new System.NotImplementedException ();
 	}
 
-	public override void Execute (Hero owner)
+	public override IEnumerator Execute (Hero owner)
 	{
 		throw new System.NotImplementedException ();
 	}

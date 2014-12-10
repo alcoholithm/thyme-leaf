@@ -25,7 +25,7 @@ public class TowerState_Attacking : State<Tower>
 
         // 최적의 타겟을 찾고 공격을 한다.
         // 공격주기마다 상대의 체력을 깍는 메시지를 보낸다. MessageTypes.MSG_DAMAGE
-        
+		return null;
     }
 
     public override void Exit(Tower owner)

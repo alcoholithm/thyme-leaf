@@ -23,7 +23,7 @@ public class StateMachine<TGameEntity> : IHandler
     */
     public IEnumerator Update()
     {
-        return currentState.Executee(owner);
+        return currentState.Execute(owner);
     }
 
     public void ChangeState(State<TGameEntity> newState)
