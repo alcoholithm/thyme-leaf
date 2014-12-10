@@ -7,6 +7,7 @@ public class ModelUnit
 	private float speed;
 	private string nameID;
 	private string musterID;
+	private UnitType type;
 	private int hp;
 
 	private Vector2 node_offset;
@@ -78,5 +79,15 @@ public class ModelUnit
 	public Vector2 getMoveOffset()
 	{
 		return node_offset;
+	}
+
+	public void setType(UnitType option)
+	{
+		type = option;
+	}
+
+	public UnitType getType()
+	{
+		return type;
 	}
 }

@@ -100,4 +100,14 @@ public class ControllerUnit
 	{
 		return _model.getMoveOffset ();
 	}
+
+	public void setType(UnitType option)
+	{
+		_model.setType (option);
+	}
+	
+	public UnitType getType()
+	{
+		return _model.getType();
+	}
 }

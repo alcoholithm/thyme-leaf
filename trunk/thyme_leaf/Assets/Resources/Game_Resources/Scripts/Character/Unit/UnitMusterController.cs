@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class UnitMusterManager
+public class UnitMusterController
 {
-	public new const string TAG = "[UnitMusterManager]";
+	public new const string TAG = "[UnitMusterController]";
 
 	private Musters[] unitMusters;
 	private MusterNames[] nameSet;
@@ -14,15 +14,15 @@ public class UnitMusterManager
 	private const int MaxMusterUnitCount = 5;
 
 	//single tone
-	private static UnitMusterManager instance;
+	private static UnitMusterController instance;
 
-	public static UnitMusterManager GetInstance()
+	public static UnitMusterController GetInstance()
 	{
-		if(instance == null) instance = new UnitMusterManager();
+		if(instance == null) instance = new UnitMusterController();
 		return instance;
 	}
 
-	public UnitMusterManager()
+	public UnitMusterController()
 	{
 		Initialize ();
 	}
