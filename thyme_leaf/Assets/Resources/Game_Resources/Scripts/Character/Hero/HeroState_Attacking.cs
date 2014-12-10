@@ -26,7 +26,6 @@ public class HeroState_Attacking : State<Hero> {
 	
 	public override void Exit (Hero owner)
 	{
-		
 		//Debug.Log("Attack  Exit ************************");
 		//throw new System.NotImplementedException ();
 	}

@@ -32,9 +32,12 @@ public class HeroState_Dying : State<Hero> {
 		
 		HeroSpawner.Instance.Free(owner.gameObject);
 
+		//remove character in unit pool...
+		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject, owner.model.getType ());
+
 		//throw new System.NotImplementedException ();
 	}
-	//
+
 	public override bool IsHandleable (Message msg)
 	{
 		throw new System.NotImplementedException ();

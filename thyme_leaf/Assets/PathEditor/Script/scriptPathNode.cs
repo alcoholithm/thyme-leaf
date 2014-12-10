@@ -211,8 +211,6 @@ public class scriptPathNode : MonoBehaviour
 		Vector2 tempVector = new Vector2(dx, dy);
 		tempVector.Normalize();
 
-	//	L = 0.5f;
-
 		tempTrans.localPosition = new Vector3 (tempVector.x * L, tempVector.y * L, 0);
 	}
 

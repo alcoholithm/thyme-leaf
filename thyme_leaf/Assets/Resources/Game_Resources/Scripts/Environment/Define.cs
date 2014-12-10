@@ -30,4 +30,14 @@ public class Define
 	{
 		return Time.deltaTime * 60;
 	}
+
+	private static int myType = 0;
+	public static void SetUnitType(int option)
+	{
+		myType = option;
+	}
+	public static int GetUnitType()
+	{
+		return myType;
+	}
 }

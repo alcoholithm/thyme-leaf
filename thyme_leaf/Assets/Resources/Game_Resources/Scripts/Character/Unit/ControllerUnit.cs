@@ -12,102 +12,39 @@ public class ControllerUnit
 		_helper = helper;
 	}
 
-	public void MoveReverse()
-	{
-		_helper.MoveReverse ();
-	}
+	public void MoveReverse() { _helper.MoveReverse (); }
 	
-	public void SetMoveMode(MoveModeState option)
-	{
-		_helper.SetMoveMode (option);
-	}
-	
-	public void setAngle(float ang) //radian value can't input
-	{
-		_model.setAngle (ang);
-	}
-	
-	public void setPos(float x, float y, float z)
-	{
-		_helper.setPos (x, y, z);
-	}
-	
-	public void setPos(Vector3 v)
-	{
-		_helper.setPos (v);
-	}
-	
-	public void addPos(float x, float y)
-	{
-		_helper.addPos (x, y);
-	}
-	
-	public void addPos(Vector3 v)
-	{
-		_helper.addPos (v);
-	}
-	
-	public void setSpeed(float v)
-	{
-		_model.setSpeed (v);
-	}
+	public void SetMoveMode(MoveModeState option) { _helper.SetMoveMode (option); }
 
-	public void setHp(int v)
-	{
-		_model.setHp (v);
-	}
-	public int getHp()
-	{
-		return _model.getHp();
-	}
+	//radian value can't input
+	public void setAngle(float ang) { _model.setAngle (ang); }
 	
-	public void setID(string v)
-	{
-		_model.setID (v);
-	}
+	public void setPos(float x, float y, float z) { _helper.setPos (x, y, z); }
+	public void setPos(Vector3 v) { _helper.setPos (v); }
+	public void addPos(float x, float y) { _helper.addPos (x, y); }
+	public void addPos(Vector3 v) { _helper.addPos (v); }
 	
-	public void setmusterID(string v)
-	{
-		_model.setmusterID (v);
-	}
-	
-	public void setMusterTrigger(bool v)
-	{
-		_helper.setMusterTrigger (v);
-	}
-	
-	public void setMoveTrigger(bool v)
-	{
-		_helper.setMoveTrigger (v);
-	}
-	
-	public void setPinpointTrigger(bool v)
-	{
-		_helper.setPinpointTrigger (v);
-	}
+	public void setSpeed(float v) { _model.setSpeed (v); }
 
-	public bool isGesture()
-	{
-		return _helper.isGesture ();
-	}
+	public void setMaxHp(int v) { _model.setMaxHp (v); }
+	public int getMaxHp() { return _model.getMaxHp (); }
 
-	public void setMoveOffset(float x, float y)
-	{
-		_model.setMoveOffset (x, y);
-	}
-
-	public Vector2 getMoveOffset()
-	{
-		return _model.getMoveOffset ();
-	}
-
-	public void setType(UnitType option)
-	{
-		_model.setType (option);
-	}
+	public void setHp(int v) { _model.setHp (v); }
+	public int getHp() { return _model.getHp(); }
 	
-	public UnitType getType()
-	{
-		return _model.getType();
-	}
+	public void setID(string v) { _model.setID (v); }
+	
+	public void setmusterID(string v) { _model.setmusterID (v); }
+	
+	public void setMusterTrigger(bool v) { _helper.setMusterTrigger (v); }
+	
+	public void setMoveTrigger(bool v) { _helper.setMoveTrigger (v); }
+	
+	public void setPinpointTrigger(bool v) { _helper.setPinpointTrigger (v); }
+
+	public bool isGesture() { return _helper.isGesture (); }
+
+	public void setMoveOffset(float x, float y) { _model.setMoveOffset (x, y); }
+
+	public void setType(UnitType option) { _model.setType (option); }
 }
