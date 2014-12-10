@@ -83,22 +83,14 @@ public class HeroState_Moving : State<Hero> {
 			//move module
 			float sp = owner.model.getSpeed() * Define.FrameControl();
 			float rt = Mathf.Atan2(dy, dx);
-	//		owner.helper.force.Set(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp, 0.0f);
 
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
-		//	owner.controller.addPos(owner.helper.force);
 		}
 		else
 		{
 			//don't move
-			if(owner.helper.selectTurnoffRoot)
-			{
-				//stopping friction 0.8 N 
-			//	float value = (0.6f * Define.FrameControl());
-			//	owner.helper.force *= value;
-			}
+
 		}
-		//owner.controller.addPos(owner.helper.force);
 	}
 
 	public override void Exit (Hero owner)

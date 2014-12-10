@@ -11,7 +11,7 @@ public class HeroDamageCommand : ICommand {
 	public void Execute ()
 	{
 		hero.hPoint -= 1;
-		if(hero.hPoint <=0)
+		if(hero.hPoint <= 0)
 		{
 			hero.StateMachine.ChangeState(HeroState_Dying.Instance);
 		}

@@ -6,6 +6,7 @@ public class Hero : GameEntity<Hero> {
 
 	//=====================
 	//unit identity value
+	public int MaxHP = 100;
 	public int hPoint = 100;
 	public float speed = 10;
 	//=====================
@@ -19,6 +20,7 @@ public class Hero : GameEntity<Hero> {
 	private bool alive;
 	public string name;  //test after...chagne private
 	private float offsetX, offsetY;
+	private UnitType type;
 
 	public Hero target;
 	public string target_name;
@@ -40,29 +42,29 @@ public class Hero : GameEntity<Hero> {
 		//=============================
 
 		controller.setHp(hPoint);
-		DyingCheck ();
+//		DyingCheck ();
 		Gesturing ();
 
-//		if(target == null)
-//			this.stateMachine.ChangeState(HeroState_Moving.Instance);
+		if(target == null) this.stateMachine.ChangeState(HeroState_Moving.Instance);
+		else
+		{
+			target_name = target.model.getID();
+		}
 	}
 	
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
-		if(target == null) 
-			target = coll.gameObject.GetComponent<Hero>();
+		if(target == null) target = coll.gameObject.GetComponent<Hero>();
 
-		if(gameObject.CompareTag(Tag.TagWarriorTrovant()))
+		if(IsAttackCase(coll.gameObject))  //state compare okay...
 	    {
 			//나는 때리는 상태로
 			stateMachine.ChangeState(HeroState_Attacking.Instance);
 			//상대방은 쳐맞는 상태로
 			coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Hitting.Instance);
 		}
-
 	}
-
 
 	private void SettingInitialize()
 	{
@@ -72,19 +74,29 @@ public class Hero : GameEntity<Hero> {
 		
 		stateMachine.ChangeState(HeroState_Moving.Instance);
 
+		target = null;
+
 		controller.setSpeed (speed / 10.0f);
+		controller.setMaxHp (MaxHP);
 		controller.setHp (hPoint);
 		controller.setMoveOffset (offsetX, offsetY);
-		
-		if(alive) controller.setMoveTrigger(true);
-		else controller.setMoveTrigger(false);
+		controller.setID (name);
+		controller.setType (UnitType.AUTOMART_CHARACTER);
+		if(alive)
+		{
+			controller.setMoveTrigger(true);
 
-		controller.setID (name);  
-
-		target = null;
+			//unit pool insert...
+			UnitPoolController.GetInstance ().AddUnit (gameObject, model.getType());
+		}
+		else
+		{
+			controller.setMoveTrigger(false);
+		}
+		Define.GetUnitType ();
 	}
 
-	//gesturing function
+	//gesturing function...
 	private void Gesturing()
 	{
 		if(controller.isGesture())
@@ -104,9 +116,21 @@ public class Hero : GameEntity<Hero> {
 		}
 	}
 
+	private bool IsAttackCase(GameObject gObj)
+	{
+		if(Define.GetUnitType() == UnitType.AUTOMART_CHARACTER)
+		{
+			if(gObj.CompareTag(Tag.TagArcherTrovant()) || gObj.CompareTag(Tag.TagBarrierTrovant()) ||
+			   gObj.CompareTag(Tag.TagSupporterTrovant()) || gObj.CompareTag(Tag.TagHealerTrovant()) ||
+			   gObj.CompareTag(Tag.TagWarriorTrovant()))
+				return true;
+		}
+		return false;
+	}
+
 	//==============================================
-	//this functions are execute -> extern area
-	//before start this Start() function
+	//this functions are execute -> extern area...
+	//before start this Start() function...
 	public void EnableAlive() { alive = true; }
 	public void DisableAlive() { alive = false; }
 
@@ -141,8 +165,9 @@ public class Hero : GameEntity<Hero> {
 		anim.loop = false;
 	}
 
-	//Get anim Function
-	public UISpriteAnimation GetAnim() {
+	//Get anim Function...
+	public UISpriteAnimation GetAnim() 
+	{
 		return anim;
 	}
 	
