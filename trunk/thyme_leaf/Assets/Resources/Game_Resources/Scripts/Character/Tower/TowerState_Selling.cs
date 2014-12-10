@@ -16,7 +16,7 @@ public class TowerState_Selling : State<Tower>
         throw new System.NotImplementedException();
     }
 
-    public override IEnumerator Execute(Tower owner)
+    public override void Execute(Tower owner)
     {
         throw new System.NotImplementedException();
     }

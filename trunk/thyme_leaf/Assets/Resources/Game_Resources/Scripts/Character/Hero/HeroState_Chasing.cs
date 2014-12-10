@@ -12,11 +12,9 @@ public class HeroState_Chasing : State<Hero> {
 		Debug.Log("Chasing Enter");
 	}
 
-	public override IEnumerator Execute (Hero owner)
+	public override void Execute (Hero owner)
 	{
 		Debug.Log("Chasing Execute");
-
-		return null;
 	}
 
 	public override void Exit (Hero owner)

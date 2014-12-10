@@ -20,7 +20,7 @@ public abstract class State<T> : IHandler
     /// <summary>
     /// This will be called once per frame
     /// </summary>
-    public abstract IEnumerator Execute(T owner);
+    public abstract void Execute(T owner);
 
     /// <summary>
     /// This will be called when leaving the state

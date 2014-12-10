@@ -20,14 +20,9 @@ public class Tower : GameEntity<Tower>
         Initialize();
     }
 
-    //void Update()
-    //{
-    //    stateMachine.Update();
-    //}
-
-    IEnumerator Update()
+    void Update()
     {
-        return stateMachine.Update();
+        stateMachine.Update();
     }
 
     void OnTriggerEnter2D(Collider2D other)

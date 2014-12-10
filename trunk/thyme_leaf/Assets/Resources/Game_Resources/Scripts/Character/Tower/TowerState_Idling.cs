@@ -19,10 +19,9 @@ public class TowerState_Idling : State<Tower>
         owner.PlayAnimation(animName);
     }
 
-    public override IEnumerator Execute(Tower owner)
+    public override void Execute(Tower owner)
     {
         Debug.Log("Isersfs");
-        return null;
     }
 
     public override void Exit(Tower owner)

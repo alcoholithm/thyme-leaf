@@ -15,14 +15,12 @@ public class HeroState_Dying : State<Hero> {
 		owner.PlayAnimationOneTime(animationName);
 	}
 	
-	public override IEnumerator Execute (Hero owner)
+	public override void Execute (Hero owner)
 	{
 		if( !owner.GetAnim().isPlaying)
 		{
 			owner.StateMachine.ChangeState(HeroState_None.Instance);
 		}
-
-		return null;
 	}
 	
 	public override void Exit (Hero owner)

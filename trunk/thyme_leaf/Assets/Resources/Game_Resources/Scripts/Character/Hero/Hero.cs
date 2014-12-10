@@ -36,9 +36,9 @@ public class Hero : GameEntity<Hero> {
 		//3 call....???
 	}
 	
-	IEnumerator Update()
+	void Update()
 	{
-
+		stateMachine.Update();
 		//=============================
 
 		controller.setHp(hPoint);
@@ -50,8 +50,6 @@ public class Hero : GameEntity<Hero> {
 		{
 			target_name = target.model.getID();
 		}
-
-		return stateMachine.Update();
 	}
 	
 

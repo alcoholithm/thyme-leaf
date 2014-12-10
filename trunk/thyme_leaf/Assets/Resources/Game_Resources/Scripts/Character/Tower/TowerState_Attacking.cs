@@ -19,13 +19,12 @@ public class TowerState_Attacking : State<Tower>
         owner.PlayAnimation(animName);
     }
 
-    public override IEnumerator Execute(Tower owner)
+    public override void Execute(Tower owner)
     {
         //FindBestTarget();
 
         // 최적의 타겟을 찾고 공격을 한다.
         // 공격주기마다 상대의 체력을 깍는 메시지를 보낸다. MessageTypes.MSG_DAMAGE
-		return null;
     }
 
     public override void Exit(Tower owner)
