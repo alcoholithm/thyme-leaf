@@ -603,6 +603,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 264203489}
   - 114: {fileID: 264203490}
+  - 114: {fileID: 264203491}
   m_Layer: 8
   m_Name: 1 - Base layer
   m_TagString: Untagged
@@ -670,6 +671,17 @@ MonoBehaviour:
   mDepth: 3
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!114 &264203491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 264203488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e46801f9c899dd4a9f5eea32644d85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &334241378
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +769,7 @@ GameObject:
   - 58: {fileID: 352397438}
   m_Layer: 8
   m_Name: Hero
-  m_TagString: TagWarriorTrovant
+  m_TagString: TagWarriorAutomart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -814,6 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3073518f80373248a0198da00cae00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHP: 100
   hPoint: 100
   speed: 40
   name: 
@@ -884,7 +897,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
-  mSpriteName: Comma_Attacking_Downwards_2
+  mSpriteName: Python_Attacking_Downwards_0
   mFillCenter: 1
 --- !u!1 &372672567
 GameObject:

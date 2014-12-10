@@ -21,9 +21,9 @@ public class StateMachine<TGameEntity> : IHandler
     /*
     * followings are member functions
     */
-    public IEnumerator Update()
+    public void Update()
     {
-        return currentState.Execute(owner);
+        currentState.Execute(owner);
     }
 
     public void ChangeState(State<TGameEntity> newState)

@@ -12,9 +12,8 @@ public class HeroState_None : State<Hero> {
 		//여기서 소멸 시킴
 	}
 
-	public override IEnumerator Execute (Hero owner)
+	public override void Execute (Hero owner)
 	{
-		return null;
 	}
 
 	public override void Exit (Hero owner)
