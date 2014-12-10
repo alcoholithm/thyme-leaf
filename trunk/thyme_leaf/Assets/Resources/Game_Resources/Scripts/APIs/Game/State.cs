@@ -20,13 +20,12 @@ public abstract class State<T> : IHandler
     /// <summary>
     /// This will be called once per frame
     /// </summary>
-    public abstract void Execute(T owner);
+    public abstract IEnumerator Execute(T owner);
 
     /// <summary>
     /// This will be called when leaving the state
     /// </summary>
     public abstract void Exit(T owner);
-
 
     /*
      * followings are implemented methods of interface

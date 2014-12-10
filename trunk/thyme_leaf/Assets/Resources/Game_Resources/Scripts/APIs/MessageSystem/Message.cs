@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 /// <summary>
@@ -11,7 +12,7 @@ public class Message : ICommand
     public MessageTypes what = MessageTypes.MSG_TOWER_READY;
     public int arg1;
     public int arg2;
-    public Object obj;
+    public UnityEngine.Object obj;
     public ICommand command;
 
     public IHandler sender;
@@ -22,7 +23,7 @@ public class Message : ICommand
         command = new NullCommand();
     }
 
-    public static Message Obtain(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command, Object obj)
+    public static Message Obtain(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command, UnityEngine.Object obj)
     {
         Message msg = Obtain();
         msg.receiver = h;
@@ -33,7 +34,6 @@ public class Message : ICommand
         msg.obj = obj;
         return msg;
     }
-
     public static Message Obtain(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command)
     {
         Message msg = Obtain();
@@ -44,8 +44,7 @@ public class Message : ICommand
         msg.command = command;
         return msg;
     }
-
-    public static Message Obtain(IHandler h, MessageTypes what, int arg1, int arg2, Object obj)
+    public static Message Obtain(IHandler h, MessageTypes what, int arg1, int arg2, UnityEngine.Object obj)
     {
         Message msg = Obtain();
         msg.receiver = h;
@@ -55,8 +54,7 @@ public class Message : ICommand
         msg.obj = obj;
         return msg;
     }
-
-    public static Message Obtain(IHandler h, MessageTypes what, ICommand command, Object obj)
+    public static Message Obtain(IHandler h, MessageTypes what, ICommand command, UnityEngine.Object obj)
     {
         Message msg = Obtain();
         msg.receiver = h;
@@ -65,8 +63,7 @@ public class Message : ICommand
         msg.obj = obj;
         return msg;
     }
-
-    public static Message Obtain(IHandler h, MessageTypes what, Object obj)
+    public static Message Obtain(IHandler h, MessageTypes what, UnityEngine.Object obj)
     {
         Message msg = Obtain();
         msg.receiver = h;
@@ -74,7 +71,6 @@ public class Message : ICommand
         msg.obj = obj;
         return msg;
     }
-
     public static Message Obtain(IHandler h, MessageTypes what, ICommand command)
     {
         Message msg = Obtain();
@@ -83,7 +79,6 @@ public class Message : ICommand
         msg.command = command;
         return msg;
     }
-
     public static Message Obtain(IHandler h, MessageTypes what, int arg1, int arg2)
     {
         Message msg = Obtain();
@@ -93,7 +88,6 @@ public class Message : ICommand
         msg.arg2 = arg2;
         return msg;
     }
-
     public static Message Obtain(IHandler h, MessageTypes what)
     {
         Message msg = Obtain();
@@ -101,14 +95,21 @@ public class Message : ICommand
         msg.what = what;
         return msg;
     }
-
+    public static Message Obtain<TArg>(IHandler h, MessageTypes what, Action<TArg> action) where TArg : class
+    {
+        Message msg = Obtain();
+        msg.receiver = h;
+        msg.what = what;
+        msg.command = new ActionCommand<TArg>(h as TArg, action);
+        return msg;
+    }
     public static Message Obtain(IHandler h)
     {
         Message msg = Obtain();
         msg.receiver = h;
         return msg;
     }
-
+   
     public static Message Obtain()
     {
         return MessagePool.Instance.Allocate();
@@ -119,11 +120,30 @@ public class Message : ICommand
         // Message pool에 반납
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+     * 
+     */ 
     public void Execute()
     {
         receiver.HandleMessage(this);
+    }
+
+    /*
+     * 
+     */ 
+    private class ActionCommand<TArg> : ICommand
+    {
+        private TArg receiver;
+        private Action<TArg> action;
+
+        public ActionCommand(TArg receiver, Action<TArg> action)
+        {
+            this.receiver = receiver;
+            this.action = action;
+        }
+        public void Execute()
+        {
+            action(receiver);
+        }
     }
 }

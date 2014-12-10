@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 /// <summary>
@@ -12,59 +13,59 @@ public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // clien
     /*
     * followings are member functions
     */
-    public Message ObtainMessage(MessageTypes what, int arg1, int arg2, ICommand command, Object obj)
+    public Message ObtainMessage(MessageTypes what, int arg1, int arg2, ICommand command, UnityEngine.Object obj)
     {
         return Message.Obtain(this, what, arg1, arg2, command, obj);
     }
-
     public Message ObtainMessage(MessageTypes what, int arg1, int arg2, ICommand command)
     {
         return Message.Obtain(this, what, arg1, arg2, command);
     }
-
-    public Message ObtainMessage(MessageTypes what, int arg1, int arg2, Object obj)
+    public Message ObtainMessage(MessageTypes what, int arg1, int arg2, UnityEngine.Object obj)
     {
         return Message.Obtain(this, what, arg1, arg2, obj);
     }
-
-    public Message ObtainMessage(MessageTypes what, ICommand command, Object obj)
+    public Message ObtainMessage(MessageTypes what, ICommand command, UnityEngine.Object obj)
     {
         return Message.Obtain(this, what, command, obj);
     }
-
-    public Message ObtainMessage(MessageTypes what, Object obj)
+    public Message ObtainMessage(MessageTypes what, UnityEngine.Object obj)
     {
         return Message.Obtain(this, what, obj);
     }
-
     public Message ObtainMessage(MessageTypes what, ICommand command)
     {
         return Message.Obtain(this, what, command);
     }
-
     public Message ObtainMessage(MessageTypes what, int arg1, int arg2)
     {
         return Message.Obtain(this, what, arg1, arg2);
     }
-
     public Message ObtainMessage(MessageTypes what)
     {
         return Message.Obtain(this, what);
     }
-
+    public Message ObtainMessage<TArg>(MessageTypes what, Action<TArg> action) where TArg : class
+    {
+        return Message.Obtain<TArg>(this, what, action);
+    }
     public Message ObtainMessage()
     {
         return Message.Obtain(this);
     }
-
+    
     public bool DispatchMessage(Message msg)
     {
         return MessageSystem.Instance.Dispatch(msg);
     }
-
     public bool DispatchMessageDelayed(Message msg, float seconds)
     {
         return MessageSystem.Instance.DispatchDelayed(msg, seconds);
+    }
+
+    public void ChangeState(State<TGameEntity> newState)
+    {
+        stateMachine.ChangeState(newState);
     }
 
     /*
@@ -87,7 +88,6 @@ public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // clien
     }
 
     public const string TAG = "[GameEntity]";
-
     /*
     * followings are attributes
     */

@@ -8,7 +8,7 @@ public class TowerState_Building : State<Tower>
 {
     private string animName = "Tower_Building_";
 
-    private float buildingTime = 5.0f;
+    private float buildingTime = 0.5f;
 
     private TowerState_Building()
     {
@@ -28,7 +28,7 @@ public class TowerState_Building : State<Tower>
         owner.DispatchMessageDelayed(msg, buildingTime);
     }
 
-    public override void Execute(Tower owner)
+    public override IEnumerator Execute(Tower owner)
     {
     }
 

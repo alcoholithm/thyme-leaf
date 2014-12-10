@@ -19,8 +19,10 @@ public class TowerState_Idling : State<Tower>
         owner.PlayAnimation(animName);
     }
 
-    public override void Execute(Tower owner)
+    public override IEnumerator Execute(Tower owner)
     {
+        Debug.Log("Isersfs");
+        return null;
     }
 
     public override void Exit(Tower owner)
@@ -30,12 +32,19 @@ public class TowerState_Idling : State<Tower>
 
     public override bool IsHandleable(Message msg)
     {
-        throw new System.NotImplementedException();
+        switch (msg.what)
+        {
+            case MessageTypes.MSG_ENEMY_ENTER:
+                return true;
+        }
+
+        return false;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+    /*
+     * 
+     */
+    public new const string TAG = "[TowerState_Idling]";
     private static TowerState_Idling instance = new TowerState_Idling(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
     public static TowerState_Idling Instance
     {

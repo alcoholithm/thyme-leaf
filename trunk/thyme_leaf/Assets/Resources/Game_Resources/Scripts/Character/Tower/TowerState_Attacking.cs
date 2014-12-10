@@ -3,6 +3,8 @@ using System.Collections;
 
 public class TowerState_Attacking : State<Tower>
 {
+    private string animName = "Tower_Attacking_";
+
     private TowerState_Attacking()
     {
         Successor = TowerState_Hitting.Instance;
@@ -13,23 +15,33 @@ public class TowerState_Attacking : State<Tower>
      */
     public override void Enter(Tower owner)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("TowerState_Attacking start");
+        owner.PlayAnimation(animName);
     }
 
-    public override void Execute(Tower owner)
+    public override IEnumerator Execute(Tower owner)
     {
+        //FindBestTarget();
 
-        throw new System.NotImplementedException();
+        // 최적의 타겟을 찾고 공격을 한다.
+        // 공격주기마다 상대의 체력을 깍는 메시지를 보낸다. MessageTypes.MSG_DAMAGE
+        
     }
 
     public override void Exit(Tower owner)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("TowerState_Attacking end");
     }
 
     public override bool IsHandleable(Message msg)
     {
-        throw new System.NotImplementedException();
+        switch (msg.what)
+        {
+            case MessageTypes.MSG_ENEMY_LEAVE:
+                return true;
+        }
+
+        return false;
     }
 
     /*
