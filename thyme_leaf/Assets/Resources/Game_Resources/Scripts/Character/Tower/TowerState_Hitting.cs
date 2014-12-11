@@ -28,17 +28,13 @@ public class TowerState_Hitting : State<Tower>
 
     public override bool IsHandleable(Message msg)
     {
-        //Debug.Log(TAG + "IsHandleable");
-        //Debug.Log(TAG + Successor);
-        //switch (msg.what)
-        //{
-        //    case (int)MessageTypes.MSG_HI:
-        //    case (int)MessageTypes.MSG_HI2:
-        //        return true;
-        //}
+        switch (msg.what)
+        {
+            case MessageTypes.MSG_DAMAGE:
+                return true;
+        }
 
-        //return false;
-        return true;
+        return false;
     }
 
     /*

@@ -19,8 +19,8 @@ public class HeroState_Attacking : State<Hero> {
 	
 	public override void Execute (Hero owner)
 	{
-		Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE,new HeroDamageCommand(owner.target));
-		owner.DispatchMessage(msg);
+        //Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE,new HeroDamageCommand(owner.target));
+        //owner.DispatchMessage(msg);
 	}
 	
 	public override void Exit (Hero owner)

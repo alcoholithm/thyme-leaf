@@ -21,7 +21,6 @@ public class TowerState_Idling : State<Tower>
 
     public override void Execute(Tower owner)
     {
-        Debug.Log("Isersfs");
     }
 
     public override void Exit(Tower owner)

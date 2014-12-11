@@ -5,11 +5,8 @@ using System.Collections;
 /// <summary>
 /// All the game entities must be derived from this class.
 /// </summary>
-public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // client
+public abstract class GameEntity : MonoBehaviour, IHandler // client
 {
-    protected StateMachine<TGameEntity> stateMachine;
-
-
     /*
     * followings are member functions
     */
@@ -63,11 +60,6 @@ public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // clien
         return MessageSystem.Instance.DispatchDelayed(msg, seconds);
     }
 
-    public void ChangeState(State<TGameEntity> newState)
-    {
-        stateMachine.ChangeState(newState);
-    }
-
     /*
     * followings are implemented methods of interface
     */
@@ -81,6 +73,8 @@ public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // clien
         throw new System.NotImplementedException();
     }
 
+    //public abstract void HandleMessage(Message msg);
+
     public void HandleMessage(Message msg)
     {
         //Debug.Log(TAG + "HandleMessage");
@@ -88,15 +82,8 @@ public abstract class GameEntity<TGameEntity> : MonoBehaviour, IHandler // clien
     }
 
     public const string TAG = "[GameEntity]";
-    /*
-    * followings are attributes
-    */
-    public StateMachine<TGameEntity> StateMachine
+    public abstract IHandler Successor
     {
-        get { return stateMachine; }
-    }
-    public IHandler Successor
-    {
-        get { return stateMachine; }
+        get;
     }
 }

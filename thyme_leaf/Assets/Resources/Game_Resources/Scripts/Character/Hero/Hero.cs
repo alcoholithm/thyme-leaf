@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hero : GameEntity<Hero> {
+public class Hero : GameEntity {
 	public new const string TAG = "[Hero]";
+
+    private StateMachine<Hero> stateMachine;
+
+    public StateMachine<Hero> StateMachine
+    {
+        get { return stateMachine; }
+        set { stateMachine = value; }
+    }
 
 	//=====================
 	//unit identity value
@@ -201,4 +209,9 @@ public class Hero : GameEntity<Hero> {
 		this.anim.Pause();
 		transform.localPosition = new Vector3(1000,1000);
 	}
+
+    public override IHandler Successor
+    {
+        get { return stateMachine; }
+    }
 }

@@ -9,7 +9,7 @@ using System.Collections;
 public class StateMachine<TGameEntity> : IHandler
 {
     private TGameEntity owner;
-    private State<TGameEntity> currentState;
+    private State<TGameEntity> currentState ;
     private State<TGameEntity> globalState;
     private State<TGameEntity> previousState;
 
@@ -23,6 +23,7 @@ public class StateMachine<TGameEntity> : IHandler
     */
     public void Update()
     {
+        //globalState.Execute(owner);
         currentState.Execute(owner);
     }
 
