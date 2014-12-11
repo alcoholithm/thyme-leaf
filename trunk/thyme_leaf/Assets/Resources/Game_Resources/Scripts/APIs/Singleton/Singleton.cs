@@ -8,7 +8,7 @@ using System;
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     public const string TAG = "[Singleton<T>]";
-
+	public int funcTest = 0;
     protected volatile static T _instance;
 
     public static T Instance

@@ -71,7 +71,6 @@ public class HeroState_Moving : State<Hero> {
 				{
 					owner.helper.selectTurnoffRoot = true;
 					owner.controller.setMoveTrigger(false);
-					return;
 				}
 				else if(!owner.helper.nodeInfor.TurnoffRoot)
 				{

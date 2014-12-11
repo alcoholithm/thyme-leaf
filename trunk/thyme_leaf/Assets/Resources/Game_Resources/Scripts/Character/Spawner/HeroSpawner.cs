@@ -5,6 +5,8 @@ public class HeroSpawner : Singleton<HeroSpawner>
 {
     //private MemoryPool<Hero> memoryPool;
 
+
+
     void Awake()
     {
         //memoryPool = new MemoryPool<Hero>(GetComponentsInChildren<Hero>());
@@ -35,7 +37,7 @@ public class HeroSpawner : Singleton<HeroSpawner>
 
     private Hero DynamicInstantiate()
     {
-        GameObject go = Instantiate(transform.GetChild(0).gameObject) as GameObject;
+        GameObject go = Instantiate(transform.GetChild(funcTest).gameObject) as GameObject;
         return go.GetComponent<Hero>();
     }
 

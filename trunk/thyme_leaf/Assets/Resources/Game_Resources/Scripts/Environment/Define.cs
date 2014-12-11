@@ -31,12 +31,12 @@ public class Define
 		return Time.deltaTime * 60;
 	}
 
-	private static int myType = 0;
-	public static void SetUnitType(int option)
+	private static UnitType myType;
+	public static void SetUnitType(UnitType option)
 	{
 		myType = option;
 	}
-	public static int GetUnitType()
+	public static UnitType GetUnitType()
 	{
 		return myType;
 	}

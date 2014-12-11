@@ -14,6 +14,7 @@ public class HeroState_Listener : MonoBehaviour
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 
 		//unit detail setting...
+		hero.setLayer(Layer.Automart());
 		hero.EnableAlive ();
 		hero.Visiable();
 		float range_value = 100;
