@@ -21,6 +21,7 @@ public class Hero : GameEntity<Hero> {
 	public string name;  //test after...chagne private
 	private float offsetX, offsetY;
 	private UnitType type;
+	private int layer_setting;
 
 	public Hero target;
 	public string target_name;
@@ -93,7 +94,13 @@ public class Hero : GameEntity<Hero> {
 		{
 			controller.setMoveTrigger(false);
 		}
-		Define.GetUnitType ();
+
+		if(layer_setting == Layer.Automart()) gameObject.layer = Layer.Automart();
+		else if(layer_setting == Layer.Trovant()) gameObject.layer = Layer.Trovant();
+
+		if(gameObject.layer == Layer.Automart()) Define.SetUnitType(UnitType.AUTOMART_CHARACTER);
+		else if(gameObject.layer == Layer.Trovant()) Define.SetUnitType(UnitType.TROVANT_CHARACTER);
+
 	}
 
 	//gesturing function...
@@ -118,19 +125,22 @@ public class Hero : GameEntity<Hero> {
 
 	private bool IsAttackCase(GameObject gObj)
 	{
-		if(Define.GetUnitType() == (int)UnitType.AUTOMART_CHARACTER)
+		Debug.Log(gameObject.tag);
+		Debug.Log(gObj.tag);
+
+		if(gameObject.layer == Layer.Automart())
 		{
-			if(gObj.CompareTag(Tag.TagArcherTrovant()) || gObj.CompareTag(Tag.TagBarrierTrovant()) ||
-			   gObj.CompareTag(Tag.TagSupporterTrovant()) || gObj.CompareTag(Tag.TagHealerTrovant()) ||
-			   gObj.CompareTag(Tag.TagWarriorTrovant()))
+			if(gObj.CompareTag(Tag.TagWarriorTrovant()))
+			{
 				return true;
+			}
 		}
-		else if(Define.GetUnitType() == (int)UnitType.TROVANT_CHARACTER)
+		else if(gameObject.layer == Layer.Trovant())
 		{
-			if(gObj.CompareTag(Tag.TagArcherAutomart()) || gObj.CompareTag(Tag.TagBarrierAutomart()) ||
-			   gObj.CompareTag(Tag.TagSupporterAutomart()) || gObj.CompareTag(Tag.TagHealerAutomart()) ||
-			   gObj.CompareTag(Tag.TagWarriorAutomart()))
+			if(gObj.CompareTag(Tag.TagWarriorAutomart()))
+			{
 				return true;
+			}
 		}
 
 		return false;
@@ -144,6 +154,8 @@ public class Hero : GameEntity<Hero> {
 
 	public void setName(string str) { name = str; }
 	public void setOffset(float offx, float offy) { offsetX = offx; offsetY = offy; }
+
+	public void setLayer(int v) { layer_setting = v; }
 
 	public void Visiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
 	//===============================================
