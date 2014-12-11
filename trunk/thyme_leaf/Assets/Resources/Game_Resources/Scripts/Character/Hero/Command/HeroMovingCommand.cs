@@ -13,6 +13,4 @@ public class HeroMovingCommand : ICommand {
 		hero.StateMachine.ChangeState(HeroState_Moving.Instance);
 		hero.target = null;
 	}
-
-
 }

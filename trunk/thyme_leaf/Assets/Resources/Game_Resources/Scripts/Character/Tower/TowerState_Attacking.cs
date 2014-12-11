@@ -17,19 +17,22 @@ public class TowerState_Attacking : State<Tower>
     {
         Debug.Log("TowerState_Attacking start");
         owner.PlayAnimation(animName);
+        owner.StartCoroutine("Attack", owner);
     }
 
     public override void Execute(Tower owner)
     {
         //FindBestTarget();
 
-        // 최적의 타겟을 찾고 공격을 한다.
-        // 공격주기마다 상대의 체력을 깍는 메시지를 보낸다. MessageTypes.MSG_DAMAGE
+        // 1. 최적의 타겟을 찾고 공격을 한다.
+        // 2. 공격 모션을 재생
+        // 3. 공격주기마다 상대의 체력을 깍는 메시지를 보낸다. MessageTypes.MSG_DAMAGE
     }
 
     public override void Exit(Tower owner)
     {
         Debug.Log("TowerState_Attacking end");
+        owner.StopCoroutine("Attack");
     }
 
     public override bool IsHandleable(Message msg)
