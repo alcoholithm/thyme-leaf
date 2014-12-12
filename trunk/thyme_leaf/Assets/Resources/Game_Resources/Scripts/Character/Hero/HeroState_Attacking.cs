@@ -7,20 +7,37 @@ public class HeroState_Attacking : State<Hero> {
 	
 	private HeroState_Attacking() {
 		Successor = HeroState_Hitting.Instance;
-		
-		//check = false;
 	}
 	
 	public override void Enter (Hero owner)
 	{
 		owner.PlayAnimation(animationsName);
 		Debug.Log("Attack Enter ************************");
+
+		owner.helper.attack_delay = 0;  //attack delay setting...
 	}
 	
 	public override void Execute (Hero owner)
 	{
-        //Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE,new HeroDamageCommand(owner.target));
-        //owner.DispatchMessage(msg);
+		owner.helper.attack_delay += Time.deltaTime;
+		if(owner.helper.attack_delay >= 1)
+		{
+			Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE,new HeroDamageCommand(owner.target));
+			owner.DispatchMessage(msg);
+			owner.helper.attack_delay = 0;
+		}
+
+		//if.. target is null -> mode change moving state...
+		if(owner.target == null)
+		{
+			Message msg = owner.ObtainMessage<Hero>(MessageTypes.MSG_MISSING, hero => hero.StateMachine.ChangeState(HeroState_Moving.Instance));
+			owner.DispatchMessage(msg);
+		}
+		else  //test code...
+		{
+			//other name...
+			owner.target_name = owner.target.model.getID();
+		}
 	}
 	
 	public override void Exit (Hero owner)
@@ -37,6 +54,8 @@ public class HeroState_Attacking : State<Hero> {
 		case MessageTypes.MSG_MOVE_HERO:
 			return true;
 		case MessageTypes.MSG_DAMAGE:
+			return true;
+		case MessageTypes.MSG_MISSING:
 			return true;
 		}
 		return false;

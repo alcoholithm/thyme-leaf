@@ -12,13 +12,13 @@ public class HeroState_Listener : MonoBehaviour
 		hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
+		hero.setLayer(Layer.Automart());
 
 		//unit detail setting...
-		hero.setLayer(Layer.Automart());
 		hero.EnableAlive ();
 		hero.Visiable();
+//		hero.setMoveMode (MoveModeState.FORWARD);
 		float range_value = 100;
-	//	hero.setOffset (0, 0);
 		hero.setOffset (Random.Range (-range_value, range_value), Random.Range (-range_value, range_value));
 		hero.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
 
