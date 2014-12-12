@@ -68,6 +68,7 @@ public class ConnectScript : MonoBehaviour {
     }
     private void JoinServer(HostData hostData)
     {
+        Debug.Log("Connect Server");
         Network.Connect(hostData);
     }
 
