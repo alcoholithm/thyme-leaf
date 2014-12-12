@@ -13,31 +13,31 @@ public class SyncStateScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //    if (!Network.isServer)
-    //    {
-    //        if (Input.GetKey(KeyCode.UpArrow))
-    //        {
-    //            transform.Translate(Vector3.up * Time.deltaTime * 2);
-    //        }
+    void Update()
+    {
+        if (!Network.isServer)
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.Translate(Vector3.up * Time.deltaTime * 2);
+            }
 
-    //        if (Input.GetKey(KeyCode.DownArrow))
-    //        {
-    //            transform.Translate(Vector3.down * Time.deltaTime * 2);
-    //        }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.Translate(Vector3.down * Time.deltaTime * 2);
+            }
 
-    //        if (Input.GetKey(KeyCode.RightArrow))
-    //        {
-    //            transform.Translate(Vector3.right * Time.deltaTime * 2);
-    //        }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Translate(Vector3.right * Time.deltaTime * 2);
+            }
 
-    //        if (Input.GetKey(KeyCode.LeftArrow))
-    //        {
-    //            transform.Translate(Vector3.left * Time.deltaTime * 2);
-    //        }
-    //    }
-    //}
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * 2);
+            }
+        }
+    }
 
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
