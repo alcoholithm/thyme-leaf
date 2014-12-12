@@ -1,9 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerSpawner : Singleton<TowerSpawner>
+public class TowerSpawner : Spawner<Tower>
 {
+	public new const string TAG = "[TowerSpawner]";
     //private MemoryPool<Tower> memoryPool;
+
+	private static volatile TowerSpawner instance;
+	private static object locker = new Object();
+	
+	private TowerSpawner(){}
+	
+	public static TowerSpawner Instance
+	{
+		get 
+		{
+			if(instance == null)
+			{
+				lock(locker)
+				{
+					instance = new TowerSpawner();
+				}
+			}
+			return instance;
+		}
+	}
 
     /*
      * followings are unity callback methods
@@ -16,33 +37,28 @@ public class TowerSpawner : Singleton<TowerSpawner>
     /*
      * followings are member functions
      */ 
-    public Tower Allocate()
-    {
-        //Tower gameEntity = null; 
-        //try
-        //{
-        //    gameEntity = memoryPool.Allocate();
-        //}
-        //catch (System.Exception e)
-        //{
-        //    Debug.LogException(e);
-        //    gameEntity = DynamicInstantiate();
-        //}
-        //return gameEntity;
+//    public Tower Allocate()
+//    {
+//        //Tower gameEntity = null; 
+//        //try
+//        //{
+//        //    gameEntity = memoryPool.Allocate();
+//        //}
+//        //catch (System.Exception e)
+//        //{
+//        //    Debug.LogException(e);
+//        //    gameEntity = DynamicInstantiate();
+//        //}
+//        //return gameEntity;
+//
+//        return DynamicInstantiate();
+//    }
 
-        return DynamicInstantiate();
-    }
-
-    public void Free(GameObject gameObject)
-    {
-        Destroy(gameObject);
-    }
-
-    private Tower DynamicInstantiate()
+	protected override Tower DynamicInstantiate()
     {
         GameObject go = Instantiate(transform.GetChild(0).gameObject) as GameObject;
         return go.GetComponent<Tower>();
     }
 
-    public new const string TAG = "[TowerSpawner]";
+    
 }
