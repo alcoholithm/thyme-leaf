@@ -121,8 +121,7 @@ public class Hero : GameEntity {
 			if(target == null)
 			{
 				target = coll.gameObject.GetComponent<Hero>();
-				return;
-			}
+			}else return;
 
 			stateMachine.ChangeState(HeroState_Attacking.Instance);
 			//상대방은 쳐맞는 상태로
@@ -188,11 +187,16 @@ public class Hero : GameEntity {
 
 	//Get anim Function...
 	public UISpriteAnimation GetAnim() { return anim; }
-
 	//==========================
 
 	//==========================
-
+	public void TargetingInitialize()
+	{
+		if(target == null)
+		{
+			stateMachine.ChangeState(HeroState_Moving.Instance);
+		}else target_name = target.model.getID();
+	}
 	//===============================================
 	/*
      * followings are member functions

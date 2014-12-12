@@ -19,6 +19,7 @@ public class HeroState_Listener : MonoBehaviour
 		hero.Visiable();
 //		hero.setMoveMode (MoveModeState.FORWARD);
 		float range_value = 100;
+		hero.setOffset (0, 0);
 		hero.setOffset (Random.Range (-range_value, range_value), Random.Range (-range_value, range_value));
 		hero.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
 

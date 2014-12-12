@@ -121,7 +121,7 @@ public class HelperUnit
 			}
 		}
 		
-		if (min_idx < 0 || min_r > 30) return false;
+		if (min_idx < 0 || min_r > 40) return false;
 		
 		//=========select node part
 		GameObject tempObj = tempFunc.turnoffList [min_idx];
