@@ -6,22 +6,24 @@ using System.Collections.Generic;
 /// <summary>
 /// 
 /// </summary>
-public class Tower : GameEntity
+public class Tower : GameEntity, IObservable_User
 {
     private UISpriteAnimation anim;
 
+    private List<IObserver_User> observers = new List<IObserver_User>();
+
     private StateMachine<Tower> stateMachine;
 
-    private List<GameEntity> enemies;
+    private List<GameEntity> enemies= new List<GameEntity>();
     private GameEntity currentTarget;
 
-    //---------------------
+    //---------------------model
     //private string description = "Super Power zzang zzang tower";
 
     private float maxHP = 100;
     private float currentHP = 100;
 
-    private Weapon weapon;
+    private Weapon weapon = new Weapon();
 
     private float reloadingTime = 0.2f; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
     //---------------------
@@ -34,9 +36,6 @@ public class Tower : GameEntity
         this.stateMachine = new StateMachine<Tower>(this);
         this.stateMachine.CurrentState = TowerState_None.Instance;
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
-
-        this.enemies = new List<GameEntity>();
-        this.weapon = new Weapon();
 
         this.anim = GetComponent<UISpriteAnimation>();
         this.anim.Pause();
@@ -79,6 +78,7 @@ public class Tower : GameEntity
     {
         currentHP -= damage;
         Debug.Log("HP : " + currentHP + " / " + maxHP);
+        NotifyObservers<HealthBarView>();
     }
 
     public bool IsDead()
@@ -145,5 +145,40 @@ public class Tower : GameEntity
         set { currentTarget = value; }
     }
 
+    public float MaxHP
+    {
+        get { return maxHP; }
+        set { maxHP = value; }
+    }
 
+    public float CurrentHP
+    {
+        get { return currentHP; }
+        set { currentHP = value; }
+    }
+
+    public void RegisterObserver(IObserver_User o)
+    {
+        observers.Add(o);
+    }
+
+    public void RemoveObserver(IObserver_User o)
+    {
+        observers.Remove(o);
+    }
+
+    public void NotifyObservers<TObserver>()
+    {
+        observers.ForEach(o => o.Refresh<TObserver>());
+    }
+
+    public void HasChanged()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetChanged()
+    {
+        throw new NotImplementedException();
+    }
 }
