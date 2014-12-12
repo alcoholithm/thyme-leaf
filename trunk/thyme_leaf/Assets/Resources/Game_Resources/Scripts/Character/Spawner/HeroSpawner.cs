@@ -37,7 +37,16 @@ public class HeroSpawner : Singleton<HeroSpawner>
 
     private Hero DynamicInstantiate()
     {
-        GameObject go = Instantiate(transform.GetChild(funcTest).gameObject) as GameObject;
+        GameObject go;
+        if (!Network.isServer && !Network.isClient)
+        {
+            go = Instantiate(transform.GetChild(funcTest).gameObject) as GameObject;
+        }
+        else
+        {
+            //Network.Instantiate(prefab, transform.position, transform.rotation, 0);
+            go = Network.Instantiate(transform.GetChild(funcTest).gameObject, transform.position, transform.rotation,0) as GameObject;
+        }
         return go.GetComponent<Hero>();
     }
 

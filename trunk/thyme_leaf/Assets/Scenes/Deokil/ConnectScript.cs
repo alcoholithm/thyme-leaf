@@ -30,6 +30,35 @@ public class ConnectScript : MonoBehaviour {
         Network.natFacilitatorPort = facilitatorPort;
     }
 
+    void Update()
+    {
+        if (!Network.isClient && !Network.isServer)
+        {
+            if (Input.GetKey("1"))
+            {
+                Debug.Log("Start Server");
+                Network.InitializeServer(1, 25005, !Network.HavePublicAddress());
+                MasterServer.RegisterHost(typeName, gameName);
+            }
+            if (Input.GetKey("2"))
+            {
+                Debug.Log("Refresh Hosts");
+                MasterServer.RequestHostList(typeName);
+            }
+            if (hostList != null)
+            {
+                for (int i = 0; i < hostList.Length; i++)
+                {
+                    Debug.Log("Host Name [" +i+ "] : " + hostList[i].gameName);
+                }
+                if (Input.GetKey("3"))
+                {
+                    JoinServer(hostList[0]);
+                }
+            }
+        }
+    }
+
     void OnGUI()
     {
         if (!Network.isClient && !Network.isServer)
