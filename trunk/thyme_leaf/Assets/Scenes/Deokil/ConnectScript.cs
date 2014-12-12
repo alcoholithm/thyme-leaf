@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ConnectScript : MonoBehaviour {
+public class ConnectScript : MonoBehaviour
+{
 
     // Server IP & Port
     public string masterSeverIP = "210.118.69.150";
@@ -49,12 +50,12 @@ public class ConnectScript : MonoBehaviour {
             {
                 for (int i = 0; i < hostList.Length; i++)
                 {
-                    Debug.Log("Host Name [" +i+ "] : " + hostList[i].gameName);
+                    Debug.Log("Host Name [" + i + "] : " + hostList[i].gameName);
                 }
-                if (Input.GetKey("3"))
-                {
-                    JoinServer(hostList[0]);
-                }
+            }
+            if (Input.GetKey("3"))
+            {
+                JoinServer(hostList[0]);
             }
         }
     }
@@ -93,7 +94,7 @@ public class ConnectScript : MonoBehaviour {
     void OnConnectedToServer()
     {
         Debug.Log("Server Joined");
-        Network.Instantiate(prefab, transform.position, transform.rotation, 0);
+        //Network.Instantiate(prefab, transform.position, transform.rotation, 0);
     }
     private void JoinServer(HostData hostData)
     {
@@ -105,7 +106,7 @@ public class ConnectScript : MonoBehaviour {
     void OnServerInitialized()
     {
         Debug.Log("OnServerInitialized()");
-        
+
     }
 
     void OnMasterServerEvent(MasterServerEvent msEvent)
@@ -117,6 +118,6 @@ public class ConnectScript : MonoBehaviour {
         }
     }
 
-	
-	
+
+
 }
