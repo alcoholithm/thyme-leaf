@@ -36,7 +36,7 @@ public class ModelUnit
 	public void addHp(int v) 
 	{
 		hp += v;
-		if(maxhp >= hp) hp = maxhp;
+		if(maxhp <= hp) hp = maxhp;
 	}
 	public int getHp() { return hp; }
 

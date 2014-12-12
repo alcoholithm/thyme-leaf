@@ -24,15 +24,18 @@ public class Hero : GameEntity {
 	public ModelUnit model;
 	public ControllerUnit controller;
 	public HelperUnit helper;
-	
-	private bool alive;
+
+	//setting value...
+	private bool alive = false;
 	public string name;  //test after...chagne private
 	private float offsetX, offsetY;
 	private UnitType type;
 	private int layer_setting;
+	private MoveModeState move_state;
 
 	public Hero target;
-	public string target_name;
+	public string target_name; //test debug...
+	//=====================
 
 	void Awake()
 	{
@@ -49,52 +52,56 @@ public class Hero : GameEntity {
 	{
 		stateMachine.Update();
 		//=============================
-
-		controller.setHp(hPoint);
-//		DyingCheck ();
 		Gesturing ();
-
-		if(target == null) this.stateMachine.ChangeState(HeroState_Moving.Instance);
-		else
-		{
-			target_name = target.model.getID();
-		}
-	}
-	
-
-	void OnCollisionEnter2D(Collision2D coll) 
-	{
-		if(target == null) target = coll.gameObject.GetComponent<Hero>();
-
-		if(IsAttackCase(coll.gameObject))  //state compare okay...
-	    {
-			//나는 때리는 상태로
-			stateMachine.ChangeState(HeroState_Attacking.Instance);
-			//상대방은 쳐맞는 상태로
-			coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Hitting.Instance);
-		}
 	}
 
+	//unit detail initialize...
 	private void SettingInitialize()
 	{
+		//mvc setting...
 		helper = new HelperUnit (this.gameObject);
 		model = new ModelUnit (helper);
 		controller = new ControllerUnit (model, helper);
 		
-		stateMachine.ChangeState(HeroState_Moving.Instance);
-
+		//other reference...
 		target = null;
-
+		
 		controller.setSpeed (speed / 10.0f);
 		controller.setMaxHp (MaxHP);
 		controller.setHp (hPoint);
 		controller.setMoveOffset (offsetX, offsetY);
 		controller.setID (name);
 		controller.setType (UnitType.AUTOMART_CHARACTER);
+		
+		if(layer_setting == Layer.Automart())
+		{
+			gameObject.layer = Layer.Automart();
+			controller.setLayer(Layer.Automart());
+			Define.SetUnitType(UnitType.AUTOMART_CHARACTER);
+			controller.StartPointSetting(StartPoint.AUTOMART_POINT);
+		}
+		else if(layer_setting == Layer.Trovant())
+		{
+			gameObject.layer = Layer.Trovant();
+			controller.setLayer(Layer.Trovant());
+			Define.SetUnitType(UnitType.TROVANT_CHARACTER);
+			controller.StartPointSetting(StartPoint.TROVANT_POINT);
+		}
+
+		/*
+		//move mode initialize...
+		if(move_state == MoveModeState.FORWARD) controller.SetMoveMode(MoveModeState.FORWARD);
+		else controller.SetMoveMode(MoveModeState.BACKWARD);
+		*/
+
+		//move trigger & unit pool manager setting <add>...
 		if(alive)
 		{
+			//moving state...
+			stateMachine.ChangeState(HeroState_Moving.Instance);
+			//moveing enable...
 			controller.setMoveTrigger(true);
-
+			
 			//unit pool insert...
 			UnitPoolController.GetInstance ().AddUnit (gameObject, model.getType());
 		}
@@ -102,13 +109,46 @@ public class Hero : GameEntity {
 		{
 			controller.setMoveTrigger(false);
 		}
+	}
 
-		if(layer_setting == Layer.Automart()) gameObject.layer = Layer.Automart();
-		else if(layer_setting == Layer.Trovant()) gameObject.layer = Layer.Trovant();
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		Debug.Log ("=========================================");
 
-		if(gameObject.layer == Layer.Automart()) Define.SetUnitType(UnitType.AUTOMART_CHARACTER);
-		else if(gameObject.layer == Layer.Trovant()) Define.SetUnitType(UnitType.TROVANT_CHARACTER);
+		if(IsAttackCase(coll.gameObject))  //state compare okay...
+	    {
+			//나는 때리는 상태로
+			if(target == null)
+			{
+				target = coll.gameObject.GetComponent<Hero>();
+				return;
+			}
 
+			stateMachine.ChangeState(HeroState_Attacking.Instance);
+			//상대방은 쳐맞는 상태로
+			coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Attacking.Instance);
+		}
+	}
+
+	//attack mode checking...
+	private bool IsAttackCase(GameObject gObj)
+	{
+		//add.....tag...
+		if(gameObject.layer == Layer.Automart())
+		{
+			if(gObj.CompareTag(Tag.TagWarriorTrovant()))
+			{
+				return true;
+			}
+		}
+		else if(gameObject.layer == Layer.Trovant())
+		{
+			if(gObj.CompareTag(Tag.TagWarriorAutomart()))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	//gesturing function...
@@ -131,29 +171,6 @@ public class Hero : GameEntity {
 		}
 	}
 
-	private bool IsAttackCase(GameObject gObj)
-	{
-		Debug.Log(gameObject.tag);
-		Debug.Log(gObj.tag);
-
-		if(gameObject.layer == Layer.Automart())
-		{
-			if(gObj.CompareTag(Tag.TagWarriorTrovant()))
-			{
-				return true;
-			}
-		}
-		else if(gameObject.layer == Layer.Trovant())
-		{
-			if(gObj.CompareTag(Tag.TagWarriorAutomart()))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 	//==============================================
 	//this functions are execute -> extern area...
 	//before start this Start() function...
@@ -165,16 +182,17 @@ public class Hero : GameEntity {
 
 	public void setLayer(int v) { layer_setting = v; }
 
-	public void Visiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
-	//===============================================
+	public void setMoveMode(MoveModeState option) { move_state = option; }
 
-	private void DyingCheck()
-	{
-		if(model.getHp() <= 0)
-		{
-			HeroSpawner.Instance.Free(this.gameObject);
-		}
-	}
+	public void Visiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
+
+	//Get anim Function...
+	public UISpriteAnimation GetAnim() { return anim; }
+
+	//==========================
+
+	//==========================
+
 	//===============================================
 	/*
      * followings are member functions
@@ -193,12 +211,6 @@ public class Hero : GameEntity {
 		anim.loop = false;
 	}
 
-	//Get anim Function...
-	public UISpriteAnimation GetAnim() 
-	{
-		return anim;
-	}
-	
 	public void Initialize()
 	{
 		this.stateMachine = new StateMachine<Hero>(this);

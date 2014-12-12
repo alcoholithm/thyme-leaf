@@ -9,7 +9,6 @@ public class HeroState_Moving : State<Hero> {
 	}
 	public override void Enter (Hero owner)
 	{
-		//if(own
 		owner.PlayAnimation("Comma_Moving_Normal_");
 	}
 
@@ -18,6 +17,57 @@ public class HeroState_Moving : State<Hero> {
 		float dx = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x + owner.model.getMoveOffset ().x) - owner.helper.getPos ().x;
 		float dy = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y + owner.model.getMoveOffset ().y) - owner.helper.getPos ().y;
 
+		//checking...
+		Vector3 me = owner.helper.getPos(); // this character position...
+		if(owner.helper.lockOn_target == null)
+		{
+			for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
+			{
+				GameObject other = UnitPoolController.GetInstance().ElementUnit(i);
+
+				bool check = false;
+				switch(owner.gameObject.layer)
+				{
+				case 9:  //automart
+					if(other.layer == Layer.Automart()) check = true;
+					break;
+				case 10:  //trovant
+					if(other.layer == Layer.Trovant()) check = true;
+					break;
+				default:
+					check = true;
+					break;
+				}
+
+				if(!check)
+				{
+					Vector3 other_pos = other.transform.localPosition;
+
+					float cdx = other_pos.x - me.x;
+					float cdy = other_pos.y - me.y;
+					if(cdx * cdx + cdy * cdy < 100 * 100)
+					{
+						owner.helper.setMoveTrigger(false);
+						owner.helper.lockOn_target = other;
+						break;
+					}
+				}
+			}
+		}
+		else if(owner.helper.lockOn_target != null)
+		{
+			if(!owner.helper.getMoveTrigger())
+			{
+				Vector3 tempPos = owner.helper.lockOn_target.transform.localPosition;
+				float cdx = tempPos.x - me.x;
+				float cdy = tempPos.y - me.y;
+				float angle_rt = Mathf.Atan2(cdy, cdx);
+				float speed_v = owner.model.getSpeed();
+				owner.controller.addPos(speed_v * Mathf.Cos(angle_rt), speed_v * Mathf.Sin(angle_rt));
+			}
+		}
+
+		//moving...
 		if(owner.helper.getMoveTrigger())
 		{
 			if(dx * dx + dy * dy < 10) //checking range    
@@ -30,11 +80,11 @@ public class HeroState_Moving : State<Hero> {
 					}
 					else
 					{
-						Debug.Log("next null");
+						//Debug.Log("next null");
 						//turnoff root true
 						if(owner.helper.nodeInfor.turnoffBridge == null)
 						{
-							Debug.Log("turnoff null");
+							//Debug.Log("turnoff null");
 							if(owner.helper.nodeInfor.startPoint || owner.helper.nodeInfor.endPoint) owner.controller.MoveReverse();
 							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
@@ -52,11 +102,11 @@ public class HeroState_Moving : State<Hero> {
 					}
 					else
 					{
-						Debug.Log("prev null");
+						//Debug.Log("prev null");
 						//turnoff root true
 						if(owner.helper.nodeInfor.turnoffBridge == null)
 						{
-							Debug.Log("turnoff null");
+							//Debug.Log("turnoff null");
 							if(owner.helper.nodeInfor.startPoint || owner.helper.nodeInfor.endPoint) owner.controller.MoveReverse();
 							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
@@ -71,6 +121,7 @@ public class HeroState_Moving : State<Hero> {
 				{
 					owner.helper.selectTurnoffRoot = true;
 					owner.controller.setMoveTrigger(false);
+					return;
 				}
 				else if(!owner.helper.nodeInfor.TurnoffRoot)
 				{
@@ -85,16 +136,12 @@ public class HeroState_Moving : State<Hero> {
 
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
 		}
-		else
-		{
-			//don't move
-
-		}
 	}
 
 	public override void Exit (Hero owner)
 	{
 		//exit stage...
+		owner.helper.lockOn_target = null;
 	}
 
 	public override bool IsHandleable (Message msg)

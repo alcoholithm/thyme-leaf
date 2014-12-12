@@ -9,21 +9,19 @@ public class HeroState_Hitting : State<Hero> {
 	
 	public override void Enter (Hero owner)
 	{
-        //Debug.Log("Hitting Enter *********************");
-        throw new System.NotImplementedException();
+		Debug.Log("Hitting Enter *********************");
+		// throw new System.NotImplementedException ();
 	}
 	
 	public override void Execute (Hero owner)
 	{
-        //Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, new HeroDamageCommand(owner.target));
-        //owner.DispatchMessage(msg);
-        throw new System.NotImplementedException();
+
 	}
 	
 	public override void Exit (Hero owner)
 	{
 		//		Debug.Log("Hitting  Exit *********************");
-        throw new System.NotImplementedException();
+		// throw new System.NotImplementedException ();
 	}
 	
 	public override bool IsHandleable (Message msg)

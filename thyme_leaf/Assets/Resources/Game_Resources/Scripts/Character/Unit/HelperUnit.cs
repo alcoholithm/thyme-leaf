@@ -5,12 +5,15 @@ public class HelperUnit
 {
 	public GameObject currentUnit;
 
+	//moving value
 	private MoveModeState moveMode;
 	public GameObject nodeStock;
 	public scriptPathNode nodeInfor;
 	private bool enableMove;
-	private bool PinPoint;
-	private bool musterSet;
+	public GameObject lockOn_target;
+
+	//attacking value
+	public float attack_delay;
 
 	//==================================
 	//extra
@@ -19,6 +22,8 @@ public class HelperUnit
 
 	public Vector3 gesture_startpoint;
 	public Vector2 gesture_endpoint;
+
+	private int current_layer;
 	//==================================
 
 	public HelperUnit(GameObject obj)
@@ -26,23 +31,6 @@ public class HelperUnit
 		currentUnit = obj;
 		
 		moveMode = MoveModeState.FORWARD;
-		
-		for(int i=0;i<Define.pathNode.Count;i++)
-		{
-			scriptPathNode tempFunc = Define.pathNode[i].GetComponent<scriptPathNode>();
-			if(tempFunc.startPoint)
-			{
-				nodeStock = Define.pathNode[i];
-			}
-		}
-		
-		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
-		currentUnit.transform.localPosition = nodeInfor.getPos(PosParamOption.CURRENT);
-		nodeStock = nodeInfor.Next;    //next point
-		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
-
-		PinPoint = false;
-		musterSet = false;
 
 		enableMove = false;
 
@@ -52,7 +40,33 @@ public class HelperUnit
 		selectTurnoffRoot = false;
 
 		gesture_startpoint = gesture_endpoint = Vector3.zero;
+
+		lockOn_target = null;
 		//=======================
+
+		attack_delay = 0;
+	}
+
+	public void StartPointSetting(StartPoint option)
+	{
+		for(int i=0;i<Define.pathNode.Count;i++)
+		{
+			scriptPathNode tempFunc = Define.pathNode[i].GetComponent<scriptPathNode>();
+			if(option == StartPoint.AUTOMART_POINT)
+			{ 
+				if(tempFunc.startPoint) nodeStock = Define.pathNode[i];
+			}
+			else if(option == StartPoint.TROVANT_POINT)
+			{
+				if(tempFunc.endPoint) nodeStock = Define.pathNode[i];
+			}
+		}
+		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
+
+		setPos (nodeInfor.getPos (PosParamOption.CURRENT));
+
+		if(nodeInfor.Prev != null) SetMoveMode(MoveModeState.BACKWARD);
+		else if(nodeInfor.Next != null) SetMoveMode(MoveModeState.FORWARD);
 	}
 
 	public Vector3 ToScreenCoord(Vector3 v)
@@ -115,7 +129,7 @@ public class HelperUnit
 		if (tempFunc.Next != null) 
 		{
 			//if selected node is not null
-			SetMoveMode(MoveModeState.FORWARD);
+			moveMode = MoveModeState.FORWARD;
 			nodeStock = tempObj;
 		}
 		else
@@ -123,7 +137,7 @@ public class HelperUnit
 			Debug.Log("turnoff Root next null");
 			if(tempFunc.Prev != null)
 			{
-				SetMoveMode(MoveModeState.BACKWARD);
+				moveMode = MoveModeState.BACKWARD;
 				nodeStock = tempObj;
 			}
 			else
@@ -147,85 +161,38 @@ public class HelperUnit
 
 		return hit.collider;
 	}
-	
+
 	public void MoveReverse()
 	{
 		if(moveMode == MoveModeState.FORWARD)
 			SetMoveMode(MoveModeState.BACKWARD);
 		else if(moveMode == MoveModeState.BACKWARD)
 			SetMoveMode(MoveModeState.FORWARD);
-		
-		if(moveMode == MoveModeState.FORWARD) nodeStock = nodeInfor.Next;
-		else if(moveMode == MoveModeState.BACKWARD) nodeStock = nodeInfor.Prev;
 	}
 
-	public void setPos(float x, float y, float z)
-	{
-		currentUnit.transform.localPosition = new Vector3(x, y, z);
-	}
-	
-	public void setPos(Vector3 v)
-	{
-		currentUnit.transform.localPosition = v;
-	}
-	
-	public void addPos(float x, float y)
-	{
-		currentUnit.transform.localPosition += new Vector3(x, y);
-	}
-	
-	public void addPos(Vector3 v)
-	{
-		currentUnit.transform.localPosition += v;
-	}
-	
-	public Vector3 getPos()
-	{
-		return currentUnit.transform.localPosition;
-	}
+	public void setLayer(int v) { current_layer = v; }
+	public int getLayer() { return current_layer; }
+
+	public void setPos(float x, float y, float z) { currentUnit.transform.localPosition = new Vector3(x, y, z); }
+	public void setPos(Vector3 v) { currentUnit.transform.localPosition = v; }
+	public void addPos(float x, float y) { currentUnit.transform.localPosition += new Vector3(x, y); }
+	public void addPos(Vector3 v) { currentUnit.transform.localPosition += v; }
+	public Vector3 getPos() { return currentUnit.transform.localPosition; }
 	
 	public void SetMoveMode(MoveModeState option)
 	{
 		moveMode = option;
-	}
-	
-	public MoveModeState GetMoveMode()
-	{
-		return moveMode;
-	}
 
-	public void setMusterTrigger(bool v)
-	{
-		musterSet = v;
-	}
-	
-	public bool getMusterTrigger()
-	{
-		return musterSet;
-	}
-	
-	public void setMoveTrigger(bool v)
-	{
-		enableMove = v;
-	}
-	
-	public bool getMoveTrigger()
-	{
-		return enableMove;
-	}
-	
-	public void setPinpointTrigger(bool v)
-	{
-		PinPoint = v;
-	}
-	
-	public bool getPinpointTrigger()
-	{
-		return PinPoint;
-	}
+		if(moveMode == MoveModeState.FORWARD) nodeStock = nodeInfor.Next;
+		else if(moveMode == MoveModeState.BACKWARD) nodeStock = nodeInfor.Prev;
 
-	public bool isGesture()
-	{
-		return selectTurnoffRoot;
+		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 	}
+	public MoveModeState GetMoveMode() { return moveMode; }
+	
+	public void setMoveTrigger(bool v) { enableMove = v; }
+	public bool getMoveTrigger() { return enableMove; }
+
+	public bool isGesture() { return selectTurnoffRoot; }
+
 }

@@ -12,12 +12,19 @@ public class ControllerUnit
 		_helper = helper;
 	}
 
+	public void StartPointSetting(StartPoint option)
+	{
+		_helper.StartPointSetting (option);
+	}
+
 	public void MoveReverse() { _helper.MoveReverse (); }
 	
 	public void SetMoveMode(MoveModeState option) { _helper.SetMoveMode (option); }
 
 	//radian value can't input
 	public void setAngle(float ang) { _model.setAngle (ang); }
+
+	public void setLayer(int v) { _helper.setLayer (v); }
 	
 	public void setPos(float x, float y, float z) { _helper.setPos (x, y, z); }
 	public void setPos(Vector3 v) { _helper.setPos (v); }
@@ -29,18 +36,15 @@ public class ControllerUnit
 	public void setMaxHp(int v) { _model.setMaxHp (v); }
 	public int getMaxHp() { return _model.getMaxHp (); }
 
+	public void addHp(int v) { _model.addHp (v); }
 	public void setHp(int v) { _model.setHp (v); }
 	public int getHp() { return _model.getHp(); }
 	
 	public void setID(string v) { _model.setID (v); }
 	
 	public void setmusterID(string v) { _model.setmusterID (v); }
-	
-	public void setMusterTrigger(bool v) { _helper.setMusterTrigger (v); }
-	
+
 	public void setMoveTrigger(bool v) { _helper.setMoveTrigger (v); }
-	
-	public void setPinpointTrigger(bool v) { _helper.setPinpointTrigger (v); }
 
 	public bool isGesture() { return _helper.isGesture (); }
 
