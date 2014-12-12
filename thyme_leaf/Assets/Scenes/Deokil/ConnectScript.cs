@@ -50,7 +50,7 @@ public class ConnectScript : MonoBehaviour
             {
                 for (int i = 0; i < hostList.Length; i++)
                 {
-                    Debug.Log("Host Name [" + i + "] : " + hostList[i].gameName);
+                    //Debug.Log("Host Name [" + i + "] : " + hostList[i].gameName);
                 }
             }
             if (Input.GetKey("3"))
