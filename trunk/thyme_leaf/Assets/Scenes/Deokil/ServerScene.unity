@@ -382,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1122878075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +399,7 @@ MonoBehaviour:
   facilitatorIP: 210.118.69.150
   facilitatorPort: 50005
   gameName: Custom Room Name
-  prefab: {fileID: 0}
+  prefab: {fileID: 400000, guid: 54ed0d05146456546a6bc56caf7803fc, type: 2}
 --- !u!212 &1122878076
 SpriteRenderer:
   m_ObjectHideFlags: 0
