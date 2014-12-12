@@ -15,7 +15,7 @@ public class TowerState_Idling : State<Tower>
     /// </summary>
     public override void Enter(Tower owner)
     {
-        Debug.Log("TowerState_Idling start");
+        Debug.Log(TAG + " Enter");
         owner.PlayAnimation(animName);
     }
 
@@ -25,7 +25,7 @@ public class TowerState_Idling : State<Tower>
 
     public override void Exit(Tower owner)
     {
-        Debug.Log("TowerState_Idling end");
+        Debug.Log(TAG + " Exit");
     }
 
     public override bool IsHandleable(Message msg)

@@ -33,9 +33,9 @@ public class TowerSpawner : Singleton<TowerSpawner>
         return DynamicInstantiate();
     }
 
-    public void Free()
+    public void Free(GameObject gameObject)
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
     }
 
     private Tower DynamicInstantiate()

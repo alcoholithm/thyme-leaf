@@ -11,28 +11,54 @@ public class TowerState_Attacking : State<Tower>
     }
 
     /*
+     * followings are member functions
+     */ 
+    private void FindBestTarget(Tower owner)
+    {
+        // 초기에 이애가 죽었는지 살았는지 판단해야함.
+        // 다른 놈에 의해 제거될 가능성도 있으므로
+        if (owner.Enemies.Count > 0)
+        {
+            owner.CurrentTarget = owner.Enemies[0];
+        }
+    }
+
+    /*
      * followings are overrided methods
      */
     public override void Enter(Tower owner)
     {
-        Debug.Log("TowerState_Attacking start");
+        Debug.Log(TAG + " Enter");
         owner.PlayAnimation(animName);
-        owner.StartCoroutine("Attack", owner);
+        FindBestTarget(owner);
+
+        owner.SetAttackable(true);
     }
 
     public override void Execute(Tower owner)
     {
-        //FindBestTarget();
+        if (owner.Enemies.Count <= 0)
+        {
+            Message msg = owner.ObtainMessage(MessageTypes.MSG_ENEMY_LEAVE);
+            owner.DispatchMessage(msg);
 
-        // 1. 최적의 타겟을 찾고 공격을 한다.
+            return;
+        }
+
+        FindBestTarget(owner);
+
+        //Debug.Log(owner.Enemies.Count);
+
+        // 1. 매 프레임 최적의 타겟을 찾는다.
         // 2. 공격 모션을 재생
         // 3. 공격주기마다 상대의 체력을 깍는 메시지를 보낸다. MessageTypes.MSG_DAMAGE
     }
 
     public override void Exit(Tower owner)
     {
-        Debug.Log("TowerState_Attacking end");
-        owner.StopCoroutine("Attack");
+        Debug.Log(TAG + " Exit");
+
+        owner.SetAttackable(false);
     }
 
     public override bool IsHandleable(Message msg)
@@ -44,6 +70,20 @@ public class TowerState_Attacking : State<Tower>
         }
 
         return false;
+    }
+
+    public override void OnMessage(Message msg)
+    {
+        switch (msg.what)
+        {
+            case MessageTypes.MSG_ENEMY_LEAVE:
+                (msg.receiver as Tower).ChangeState(TowerState_Idling.Instance);
+                break;
+
+            default:
+                msg.command.Execute();
+                break;
+        }
     }
 
     /*

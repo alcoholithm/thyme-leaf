@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// for FSM
 /// </summary>
-/// <typeparam name="T"></typeparam>
+/// <typeparam name="TGameEntity"></typeparam>
 
 public class StateMachine<TGameEntity> : IHandler
 {
@@ -23,11 +23,11 @@ public class StateMachine<TGameEntity> : IHandler
     */
     public void Update()
     {
-        //globalState.Execute(owner);
+        globalState.Execute(owner);
         currentState.Execute(owner);
     }
 
-    public void ChangeState(State<TGameEntity> newState)
+    public void ChangeState(State<TGameEntity> newState) 
     {
         if (newState == null || IsInState(newState))
         {
@@ -36,11 +36,18 @@ public class StateMachine<TGameEntity> : IHandler
             return;
         }
 
+        // 이 루틴은 1회성으로 실행되어야 한다.
+        // 절대 재귀적인 호출은 불가함.
         previousState = currentState;
         currentState = NullState.Instance as State<TGameEntity>;
         previousState.Exit(owner);
         newState.Enter(owner);
         currentState = newState;
+
+        //previousState = currentState;
+        //currentState.Exit(owner);
+        //currentState = newState;
+        //currentState.Enter(owner);
     }
 
     public void RevertToPreviousState()
@@ -68,7 +75,7 @@ public class StateMachine<TGameEntity> : IHandler
 
     public void HandleMessage(Message msg)
     {
-        //Debug.Log(TAG + "HandleMessage");
+        //Debug.Log(TAG + "HandleMessage" + typeof(TGameEntity));
         Successor.HandleMessage(msg);
     }
 

@@ -38,6 +38,10 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
     {
         return Message.Obtain(this, what, arg1, arg2);
     }
+    public Message ObtainMessage(MessageTypes what, int arg1)
+    {
+        return Message.Obtain(this, what, arg1);
+    }
     public Message ObtainMessage(MessageTypes what)
     {
         return Message.Obtain(this, what);
@@ -60,6 +64,11 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
         return MessageSystem.Instance.DispatchDelayed(msg, seconds);
     }
 
+    //public abstract void Attack();
+    //public abstract void TakeDamage(int damage);
+
+    //public abstract void ChangeState<(State<T> newState);
+
     /*
     * followings are implemented methods of interface
     */
@@ -72,8 +81,6 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
     {
         throw new System.NotImplementedException();
     }
-
-    //public abstract void HandleMessage(Message msg);
 
     public void HandleMessage(Message msg)
     {
