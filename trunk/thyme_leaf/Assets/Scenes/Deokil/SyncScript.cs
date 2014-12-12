@@ -17,26 +17,26 @@ public class SyncScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Network.isServer)
+        if (!Network.isServer)
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                transform.Translate(Vector3.up * Time.deltaTime);
+                transform.Translate(Vector3.up * Time.deltaTime * 2);
             }
 
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                transform.Translate(Vector3.down * Time.deltaTime);
+                transform.Translate(Vector3.down * Time.deltaTime * 2);
             }
 
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                transform.Translate(Vector3.right * Time.deltaTime);
+                transform.Translate(Vector3.right * Time.deltaTime * 2);
             }
 
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                transform.Translate(Vector3.left * Time.deltaTime);
+                transform.Translate(Vector3.left * Time.deltaTime * 2);
             }
         }
     }
@@ -45,16 +45,16 @@ public class SyncScript : MonoBehaviour
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
         Debug.Log("OnSerializeNetworkView");
+        Vector3 syncPos = Vector3.zero;
         if (stream.isWriting)
         {
-            Vector3 writePos = currPos;
-            stream.Serialize(ref writePos);
+            syncPos = currPos;
+            stream.Serialize(ref syncPos);
         }
         else
         {
-            Vector3 receivePos = new Vector3(0, 0, 0);
-            stream.Serialize(ref receivePos);
-            currPos = receivePos;
+            stream.Serialize(ref syncPos);
+            currPos = syncPos;
         }
     }
 }
