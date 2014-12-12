@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SyncScript : MonoBehaviour
+public class SyncStateScript : MonoBehaviour
 {
 
     private Vector3 currPos;
