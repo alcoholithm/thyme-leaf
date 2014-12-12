@@ -94,7 +94,7 @@ public class ConnectScript : MonoBehaviour
     void OnConnectedToServer()
     {
         Debug.Log("Server Joined");
-        //Network.Instantiate(prefab, transform.position, transform.rotation, 0);
+        Network.Instantiate(prefab, transform.position, transform.rotation, 0);
     }
     private void JoinServer(HostData hostData)
     {

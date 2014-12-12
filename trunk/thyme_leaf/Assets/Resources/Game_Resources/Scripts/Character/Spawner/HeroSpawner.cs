@@ -45,10 +45,14 @@ public class HeroSpawner : Singleton<HeroSpawner>
         else
         {
             Debug.Log("N_Instantiate");
-            go = Instantiate(transform.GetChild(funcTest).gameObject) as GameObject;
-            NetworkViewID viewID = Network.AllocateViewID();
-            go.GetComponent<NetworkView>().viewID = viewID;
+            //GameObject trans = Instantiate(transform.GetChild(funcTest).gameObject);
+            Transform trans = transform.GetChild(funcTest);
+
+            //NetworkViewID viewID = Network.AllocateViewID();
+            GameObject obj = Network.Instantiate(trans, transform.position, transform.rotation, 0) as GameObject;
+            return obj.GetComponent<Hero>();
         }
+
         return go.GetComponent<Hero>();
     }
 
