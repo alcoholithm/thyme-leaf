@@ -3,19 +3,26 @@ using System.Collections;
 
 public class ConnectScript : MonoBehaviour {
 
+    // Server IP & Port
     public string masterSeverIP = "210.118.69.150";
     public int masterServerPort = 23466;
     public string facilitatorIP = "210.118.69.150";
     public int facilitatorPort = 50005;
 
-    private const string typeName = "WhatTypeNameDoYouWant";
-    private const string gameName = "Thyme Leaf";
+    // Never touch it
+    private const string typeName = "Thyme Leaf";
+
+    // User can type any room name by using gameName
+    public string gameName = "Custom Room Name";
 
     private HostData[] hostList;
 
-    private void JoinServer(HostData hostData)
+    void Start()
     {
-        Network.Connect(hostData);
+        MasterServer.ipAddress = masterSeverIP;
+        MasterServer.port = masterServerPort;
+        Network.natFacilitatorIP = facilitatorIP;
+        Network.natFacilitatorPort = facilitatorPort;
     }
 
     void OnGUI()
@@ -43,7 +50,7 @@ public class ConnectScript : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Host List is NULL");
+                //Debug.Log("Host List is NULL");
             }
         }
     }
@@ -53,7 +60,10 @@ public class ConnectScript : MonoBehaviour {
     {
         Debug.Log("Server Joined");
     }
-
+    private void JoinServer(HostData hostData)
+    {
+        Network.Connect(hostData);
+    }
 
     // Server Side
     void OnServerInitialized()
@@ -70,11 +80,6 @@ public class ConnectScript : MonoBehaviour {
         }
     }
 
-	void Start () {
-        MasterServer.ipAddress = masterSeverIP;
-        MasterServer.port = masterServerPort;
-        Network.natFacilitatorIP = facilitatorIP;
-        Network.natFacilitatorPort = facilitatorPort;
-	}
+	
 	
 }
