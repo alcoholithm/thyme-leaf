@@ -32,7 +32,7 @@ public abstract class State<T> : IHandler
      */
     public abstract bool IsHandleable(Message msg);
 
-    public void OnMessage(Message msg)
+    public virtual void OnMessage(Message msg)
     {
         msg.command.Execute();
     }

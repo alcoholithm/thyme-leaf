@@ -8,7 +8,7 @@ public class TowerState_Building : State<Tower>
 {
     private string animName = "Tower_Building_";
 
-    private float buildingTime = 0.5f;
+    private float buildingTime = 1.5f;
 
     private TowerState_Building()
     {
@@ -20,7 +20,7 @@ public class TowerState_Building : State<Tower>
      */ 
     public override void Enter(Tower owner)
     {
-        Debug.Log("TowerState_Building start");
+        Debug.Log(TAG + " Enter");
 
         owner.PlayAnimation(animName);
 
@@ -34,7 +34,7 @@ public class TowerState_Building : State<Tower>
 
     public override void Exit(Tower owner)
     {
-        Debug.Log("TowerState_Building end");
+        Debug.Log(TAG + " Exit");
     }
 
     public override bool IsHandleable(Message msg)

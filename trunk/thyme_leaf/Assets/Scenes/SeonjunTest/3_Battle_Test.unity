@@ -783,7 +783,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 352397436}
   m_Enabled: 0
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: 35.0900002
   m_Center: {x: 0, y: 0}
 --- !u!50 &352397439
@@ -867,13 +867,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 58
+  mWidth: 56
   mHeight: 70
   mDepth: 4
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .828571439
+  aspectRatio: .800000012
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -885,7 +885,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
-  mSpriteName: Python_Attacking_Downwards_0
+  mSpriteName: Comma_Attacking_Downwards_0
   mFillCenter: 1
 --- !u!1 &372672567
 GameObject:
@@ -2146,6 +2146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e3b465a513e5d4da1541955383f537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  funcTest: 0
 --- !u!1 &834057763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,6 +2944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41226f53b94da574bba95cbe9be349b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  funcTest: 0
 --- !u!1 &1138594626
 GameObject:
   m_ObjectHideFlags: 0
@@ -4252,6 +4254,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 44d99ef7867721740885762c933098cf, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44d99ef7867721740885762c933098cf, type: 2}
   m_RootGameObject: {fileID: 352397436}
@@ -4445,6 +4451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f146a98db535a41849255d33299862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  funcTest: 0
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
 --- !u!4 &1545058306

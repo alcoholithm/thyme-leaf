@@ -88,6 +88,14 @@ public class Message : ICommand
         msg.arg2 = arg2;
         return msg;
     }
+    public static Message Obtain(IHandler h, MessageTypes what, int arg1)
+    {
+        Message msg = Obtain();
+        msg.receiver = h;
+        msg.what = what;
+        msg.arg1 = arg1;
+        return msg;
+    }
     public static Message Obtain(IHandler h, MessageTypes what)
     {
         Message msg = Obtain();
@@ -109,7 +117,6 @@ public class Message : ICommand
         msg.receiver = h;
         return msg;
     }
-   
     public static Message Obtain()
     {
         return MessagePool.Instance.Allocate();

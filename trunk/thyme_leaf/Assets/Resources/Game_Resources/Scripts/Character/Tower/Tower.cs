@@ -16,14 +16,14 @@ public class Tower : GameEntity
     private GameEntity currentTarget;
 
     //---------------------
-    private string description = "Super Power zzang zzang tower";
+    //private string description = "Super Power zzang zzang tower";
 
-    private float MaxHP = 100;
-    private float CurrentHP = 100;
+    private float maxHP = 100;
+    private float currentHP = 100;
 
     private Weapon weapon;
 
-    private float reloadingTime; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
+    private float reloadingTime = 0.2f; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
     //---------------------
 
     /*
@@ -36,6 +36,7 @@ public class Tower : GameEntity
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.enemies = new List<GameEntity>();
+        this.weapon = new Weapon();
 
         this.anim = GetComponent<UISpriteAnimation>();
         this.anim.Pause();
@@ -46,27 +47,43 @@ public class Tower : GameEntity
         stateMachine.ChangeState(newState);
     }
 
+    public void RevertToPreviousState()
+    {
+        stateMachine.RevertToPreviousState();
+    }
+
     public void PlayAnimation(string name)
     {
         anim.namePrefix = name;
         anim.Play();
     }
 
-    public IEnumerator Attack()
+    public void SetAttackable(bool active)
+    {
+        if (active)
+            StartCoroutine("Attack");
+        else
+            StopCoroutine("Attack");
+    }
+
+    IEnumerator Attack()
     {
         while (true)
         {
             yield return new WaitForSeconds(reloadingTime);
-            yield return weapon.Fire(currentTarget);
-
-            //currentTarget.GetComponent<Hero>();
-            //currentTarget.ObtainMessage(MessageTypes.MSG_DAMAGE, new AttackCommand<(currentTarget.GetComponent<Hero>(), power));
+            yield return StartCoroutine(weapon.Fire(this));
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        throw new NotImplementedException();
+        currentHP -= damage;
+        Debug.Log("HP : " + currentHP + " / " + maxHP);
+    }
+
+    public bool IsDead()
+    {
+        return currentHP <= 0;
     }
 
     /*
@@ -109,19 +126,24 @@ public class Tower : GameEntity
      * followings are attributes
      */
     public new const string TAG = "[Tower]";
+    public override IHandler Successor
+    {
+        get { return stateMachine; }
+    }
+    public StateMachine<Tower> StateMachine
+    {
+        get { return stateMachine; }
+    }
     public List<GameEntity> Enemies
     {
         get { return enemies; }
         set { enemies = value; }
     }
-
-    public StateMachine<Tower> StateMachine
+    public GameEntity CurrentTarget
     {
-        get { return stateMachine; }
+        get { return currentTarget; }
+        set { currentTarget = value; }
     }
 
-    public override IHandler Successor
-    {
-        get { return stateMachine; }
-    }
+
 }
