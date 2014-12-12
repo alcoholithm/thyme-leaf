@@ -44,6 +44,7 @@ public class HeroSpawner : Singleton<HeroSpawner>
         }
         else
         {
+            Debug.Log("N_Instantiate");
             //Network.Instantiate(prefab, transform.position, transform.rotation, 0);
             go = Network.Instantiate(transform.GetChild(funcTest).gameObject, transform.position, transform.rotation,0) as GameObject;
         }
