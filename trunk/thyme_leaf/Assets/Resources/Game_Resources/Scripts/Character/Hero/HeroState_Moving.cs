@@ -17,6 +17,7 @@ public class HeroState_Moving : State<Hero> {
 		float dx = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x + owner.model.getMoveOffset ().x) - owner.helper.getPos ().x;
 		float dy = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y + owner.model.getMoveOffset ().y) - owner.helper.getPos ().y;
 
+		/*
 		//checking...
 		Vector3 me = owner.helper.getPos(); // this character position...
 		if(owner.helper.lockOn_target == null)
@@ -66,6 +67,7 @@ public class HeroState_Moving : State<Hero> {
 				owner.controller.addPos(speed_v * Mathf.Cos(angle_rt), speed_v * Mathf.Sin(angle_rt));
 			}
 		}
+		*/
 
 		//moving...
 		if(owner.helper.getMoveTrigger())

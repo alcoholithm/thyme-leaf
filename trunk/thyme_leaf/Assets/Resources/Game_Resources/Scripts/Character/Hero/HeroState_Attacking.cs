@@ -28,16 +28,20 @@ public class HeroState_Attacking : State<Hero> {
 		}
 
 		//if.. target is null -> mode change moving state...
+		owner.TargetingInitialize ();
+
+		/*
 		if(owner.target == null)
 		{
-			Message msg = owner.ObtainMessage<Hero>(MessageTypes.MSG_MISSING, hero => hero.StateMachine.ChangeState(HeroState_Moving.Instance));
-			owner.DispatchMessage(msg);
+	//		Message msg = owner.ObtainMessage<Hero>(MessageTypes.MSG_MISSING, hero => hero.StateMachine.ChangeState(HeroState_Moving.Instance));
+	//		owner.DispatchMessage(msg);
 		}
 		else  //test code...
 		{
 			//other name...
 			owner.target_name = owner.target.model.getID();
 		}
+		*/
 	}
 	
 	public override void Exit (Hero owner)
