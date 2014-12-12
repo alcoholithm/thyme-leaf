@@ -17,6 +17,11 @@ public class ConnectScript : MonoBehaviour {
 
     private HostData[] hostList;
 
+
+
+    // Var. for Testing
+    public Transform prefab;
+
     void Start()
     {
         MasterServer.ipAddress = masterSeverIP;
@@ -59,6 +64,7 @@ public class ConnectScript : MonoBehaviour {
     void OnConnectedToServer()
     {
         Debug.Log("Server Joined");
+        Network.Instantiate(prefab, transform.position, transform.rotation, 0);
     }
     private void JoinServer(HostData hostData)
     {
@@ -69,6 +75,7 @@ public class ConnectScript : MonoBehaviour {
     void OnServerInitialized()
     {
         Debug.Log("OnServerInitialized()");
+        
     }
 
     void OnMasterServerEvent(MasterServerEvent msEvent)
