@@ -3,10 +3,17 @@ using System.Collections;
 
 public class HeroState_Listener : MonoBehaviour
 {
+    private HeroSpawner heroSpawner;
+
+    void Awake()
+    {
+        heroSpawner = GameObject.Find(EnumConverter.getManagerName(EnumManager.HERO_SPAWNER)).GetComponent<HeroSpawner>();
+    }
+
     void OnClick()
     {
 		Transform temp = GameObject.Find ("AutomartPool").transform;
-        Hero hero = HeroSpawner.Instance.Allocate();
+        Hero hero = heroSpawner.DynamicInstantiate();
 
 		//main setting...
 		hero.transform.parent = temp;
