@@ -42,7 +42,7 @@ public enum UnitType
 	AUTOMART_TOWER, TROVANT_TOWER
 }
 
-public enum EnumManager
+public enum SpawnerType
 {
     HERO_SPAWNER = 0,
     TROVANT_SPAWNER,

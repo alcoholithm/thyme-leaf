@@ -6,7 +6,7 @@ public class HeroState_Listener_Trovant : MonoBehaviour
     private TrovantSpawner trovantSpawner;
 
     void Awake(){
-        trovantSpawner = GameObject.Find(EnumConverter.getManagerName(EnumManager.TROVANT_SPAWNER)).GetComponent<TrovantSpawner>();
+        trovantSpawner = GameObject.Find(EnumConverter.getManagerName(SpawnerType.TROVANT_SPAWNER)).GetComponent<TrovantSpawner>();
     }
 
 	void OnClick()
