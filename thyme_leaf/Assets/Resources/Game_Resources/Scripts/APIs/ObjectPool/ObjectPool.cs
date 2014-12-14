@@ -39,7 +39,7 @@ public class ObjectPool
     public GameObject GetObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
-        {
+        {            
             if (pooledObjects[i].activeSelf == false)
             {
                 pooledObjects[i].SetActive(true);
