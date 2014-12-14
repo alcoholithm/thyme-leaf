@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnumConverter {
-    public static string getManagerName(SpawnerType manager){
+    public static string getSpawnerNameBy(SpawnerType manager){
         switch (manager)
         {
             case SpawnerType.HERO_SPAWNER:
