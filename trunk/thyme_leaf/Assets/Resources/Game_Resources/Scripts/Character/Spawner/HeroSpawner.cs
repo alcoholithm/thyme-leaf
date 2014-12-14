@@ -1,56 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public sealed class HeroSpawner : Spawner<Hero>
+public class HeroSpawner : MonoBehaviour
 {
-	public new const string TAG = "[AutomatSpawner]";
+	public const string TAG = "[AutomatSpawner]";
 
-	public Transform prefab;
+    // we hava only single automat
+    // I think we have to more automats, doesn't it?
 
-	private static volatile HeroSpawner instance;
-	private static object locker = new Object();
+    public GameObject[] automats;
+    public int initPoolSize = 100;
+    public int maxPoolSize = 200;
 
-	private HeroSpawner(){}
-
-	public static HeroSpawner Instance
-	{
-		get 
-		{
-			if(instance == null)
-			{
-				lock(locker)
-				{
-					GameObject singleton = new GameObject();
-					instance = singleton.AddComponent<HeroSpawner>();
-					singleton.name = typeof(HeroSpawner).ToString();
-				}
-			}
-			return instance;
-
-		}
-	}
-
-	protected override Hero DynamicInstantiate()
+    void Awake()
     {
-        GameObject go;
-        if (!Network.isServer && !Network.isClient)
+        foreach (GameObject automat in automats)
         {
-			Debug.Log("Transform : "+transform);
-			Debug.Log("Child Count : "+transform.childCount);
-//            go = Instantiate(transform.GetChild(0).gameObject) as GameObject;
-			go = Instantiate(prefab) as GameObject;
+            ObjectPoolingManager.Instance.CreatePool(automat, initPoolSize, maxPoolSize, false);
         }
-        else
-        {
-            Debug.Log("N_Instantiate");
-//            Transform trans = transform.GetChild(0);
-//            GameObject obj = Network.Instantiate(trans, transform.position, transform.rotation, 0) as GameObject;
-//            return obj.GetComponent<Hero>();
-			return null;
-        }
-
-        return go.GetComponent<Hero>();
     }
 
-    
+    public Hero getHero()
+    {
+        return ObjectPoolingManager.Instance.GetObject(automats[0].name).GetComponent<Hero>();
+    }
+
+    public Hero getObject(string name)
+    {
+        return ObjectPoolingManager.Instance.GetObject(name).GetComponent<Hero>();
+    }
+
+	public Hero DynamicInstantiate()
+    {
+        return getHero();
+    }
+
+    public Hero Allocate()
+    {
+        return DynamicInstantiate();
+    }
+
+    public void Free(GameObject gameObject)
+    {
+        //Do you need some more handling the object?
+        gameObject.SetActive(false);           
+    }
 }

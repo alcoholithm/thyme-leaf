@@ -41,3 +41,10 @@ public enum UnitType
 	AUTOMART_CHARACTER = 9 ,TROVANT_CHARACTER, 
 	AUTOMART_TOWER, TROVANT_TOWER
 }
+
+public enum EnumManager
+{
+    HERO_SPAWNER = 0,
+    TROVANT_SPAWNER,
+    TOWER_SPAWNER,
+}

@@ -3,11 +3,18 @@ using System.Collections;
 
 public class HeroState_Listener_Trovant : MonoBehaviour
 {
+    private TrovantSpawner trovantSpawner;
+
+    void Awake(){
+        trovantSpawner = GameObject.Find(EnumConverter.getManagerName(EnumManager.TROVANT_SPAWNER)).GetComponent<TrovantSpawner>();
+    }
+
 	void OnClick()
 	{
 		Transform temp = GameObject.Find ("TrovantPool").transform;
-		Hero hero = HeroSpawner.Instance.Allocate();
-		
+
+        Hero hero = trovantSpawner.DynamicInstantiate();
+
 		//main setting...
 		hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;

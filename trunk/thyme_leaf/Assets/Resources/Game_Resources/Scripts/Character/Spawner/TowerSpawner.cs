@@ -1,64 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerSpawner : Spawner<Tower>
+public class TowerSpawner : MonoBehaviour
 {
 	public new const string TAG = "[TowerSpawner]";
-    //private MemoryPool<Tower> memoryPool;
 
-	private static volatile TowerSpawner instance;
-	private static object locker = new Object();
-	
-	private TowerSpawner(){}
-	
-	public static TowerSpawner Instance
-	{
-		get 
-		{
-			if(instance == null)
-			{
-				lock(locker)
-				{
-					instance = new TowerSpawner();
-				}
-			}
-			return instance;
-		}
-	}
+    // it is single tower. if you need more towers talk to deokil. never touch this code in your mind
+    public GameObject[] towers;
+    public int initPoolSize = 100;
+    public int maxPoolSize = 200;
 
-    /*
-     * followings are unity callback methods
-     */ 
     void Awake()
     {
-        //memoryPool = new MemoryPool<Tower>(GetComponentsInChildren<Tower>());
+        foreach (GameObject tower in towers)
+        {
+            ObjectPoolingManager.Instance.CreatePool(tower, initPoolSize, maxPoolSize, false);
+        }
     }
 
-    /*
-     * followings are member functions
-     */ 
-//    public Tower Allocate()
-//    {
-//        //Tower gameEntity = null; 
-//        //try
-//        //{
-//        //    gameEntity = memoryPool.Allocate();
-//        //}
-//        //catch (System.Exception e)
-//        //{
-//        //    Debug.LogException(e);
-//        //    gameEntity = DynamicInstantiate();
-//        //}
-//        //return gameEntity;
-//
-//        return DynamicInstantiate();
-//    }
-
-	protected override Tower DynamicInstantiate()
+    public Tower getTower()
     {
-        GameObject go = Instantiate(transform.GetChild(0).gameObject) as GameObject;
-        return go.GetComponent<Tower>();
+        return ObjectPoolingManager.Instance.GetObject(towers[0].name).GetComponent<Tower>();
     }
 
-    
+    public Tower getObject(string name)
+    {
+        return ObjectPoolingManager.Instance.GetObject(name).GetComponent<Tower>();
+    }
+
+    public Tower DynamicInstantiate()
+    {
+        return getTower();
+    }
+
+    public Tower Allocate()
+    {
+        return DynamicInstantiate();
+    }
+
+    public void Free(GameObject gameObject)
+    {
+        //Do you need some more handling the object?
+        gameObject.SetActive(false);
+    }
 }

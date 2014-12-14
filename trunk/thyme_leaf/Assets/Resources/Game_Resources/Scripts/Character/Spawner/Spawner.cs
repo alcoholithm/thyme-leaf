@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Spawner<T> : MonoBehaviour {
+public class Spawner : MonoBehaviour {
 
-	public const string TAG = "[Spawner]";
-
-	public T Allocate()
-	{
-		return DynamicInstantiate();
+	// Use this for initialization
+	void Start () {
+	
 	}
-
-	public void Free(GameObject gameObject)
-	{
-		Destroy(gameObject);
+	
+	// Update is called once per frame
+	void Update () {
+	
 	}
-
-	protected abstract T DynamicInstantiate();
 }

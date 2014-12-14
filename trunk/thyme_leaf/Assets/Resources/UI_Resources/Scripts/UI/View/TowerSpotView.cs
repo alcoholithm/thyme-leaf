@@ -20,8 +20,8 @@ public class TowerSpotView : MonoBehaviour, IView
      */
     void Awake()
     {
-        this.model = TowerSpawner.Instance;
-        this.controller = new TowerSpotController(this, TowerSpawner.Instance);
+        //this.model = TowerSpawner.Instance;
+        //this.controller = new TowerSpotController(this, TowerSpawner.Instance);
         //this.model.RegisterObserver(this);
     }
 
