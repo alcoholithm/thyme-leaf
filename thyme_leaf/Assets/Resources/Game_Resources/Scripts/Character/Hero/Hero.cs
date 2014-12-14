@@ -21,9 +21,9 @@ public class Hero : GameEntity {
 
 	private UISpriteAnimation anim;
 
-	public ModelUnit model;
-	public ControllerUnit controller;
-	public HelperUnit helper;
+	public ModelHero model;
+	public ControllerHero controller;
+	public Helper helper;
 
 	//setting value...
 	private bool alive = false;
@@ -59,10 +59,11 @@ public class Hero : GameEntity {
 	private void SettingInitialize()
 	{
 		//mvc setting...
-		helper = new HelperUnit (this.gameObject);
-		model = new ModelUnit (helper);
-		controller = new ControllerUnit (model, helper);
-		
+		helper = new Helper (this.gameObject);
+		model = new ModelHero (helper);
+		controller = new ControllerHero (model, helper);
+
+
 		//other reference...
 		target = null;
 		
@@ -87,12 +88,6 @@ public class Hero : GameEntity {
 			Define.SetUnitType(UnitType.TROVANT_CHARACTER);
 			controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		}
-
-		/*
-		//move mode initialize...
-		if(move_state == MoveModeState.FORWARD) controller.SetMoveMode(MoveModeState.FORWARD);
-		else controller.SetMoveMode(MoveModeState.BACKWARD);
-		*/
 
 		//move trigger & unit pool manager setting <add>...
 		if(alive)
@@ -195,7 +190,7 @@ public class Hero : GameEntity {
 		if(target == null)
 		{
 			stateMachine.ChangeState(HeroState_Moving.Instance);
-		}else target_name = target.model.getID();
+		}else target_name = target.model.getName();
 	}
 	//===============================================
 	/*

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class UnitPoolController
 {
 	private List<GameObject> unitPool;
-	private List<GameObject> unitAutomart;
 
 	public new const string TAG = "[UnitPoolController]";
 
@@ -39,7 +38,7 @@ public class UnitPoolController
 		switch(option)
 		{
 		case UnitType.AUTOMART_CHARACTER:
-			str1 = uObj.GetComponent<Hero>().model.getID();
+			str1 = uObj.GetComponent<Hero>().model.getName();
 			break;
 		case UnitType.AUTOMART_TOWER:
 			break;
@@ -56,7 +55,7 @@ public class UnitPoolController
 			case UnitType.AUTOMART_CHARACTER:
 				Hero tempFunc = unitPool[i].GetComponent<Hero>();
 				if(tempFunc == null) continue;
-				else str2 = tempFunc.model.getID();
+				else str2 = tempFunc.model.getName();
 				break;
 			case UnitType.AUTOMART_TOWER:
 				break;
@@ -95,8 +94,8 @@ public class UnitPoolController
 			switch(option)
 			{
 			case UnitType.AUTOMART_CHARACTER:
-				str1 = uObj.GetComponent<Hero>().model.getID();
-				str2 = unitPool[i].GetComponent<Hero>().model.getID();
+				str1 = uObj.GetComponent<Hero>().model.getName();
+				str2 = unitPool[i].GetComponent<Hero>().model.getName();
 				break;
 			case UnitType.AUTOMART_TOWER:
 				break;

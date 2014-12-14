@@ -40,4 +40,6 @@ public class Define
 	{
 		return myType;
 	}
+
+	public static int Select_Hero = 0;
 }
