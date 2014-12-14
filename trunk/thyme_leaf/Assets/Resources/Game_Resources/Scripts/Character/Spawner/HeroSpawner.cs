@@ -8,7 +8,6 @@ public class HeroSpawner : MonoBehaviour
 
     // we hava only single automat
     // I think we have to more automats, doesn't it?
-    //
 
     public GameObject[] automats;
     public int initPoolSize = 100;
