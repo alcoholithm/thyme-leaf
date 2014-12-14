@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class EnumConverter {
-    public static string getManagerName(EnumManager manager){
+    public static string getManagerName(SpawnerType manager){
         switch (manager)
         {
-            case EnumManager.HERO_SPAWNER:
+            case SpawnerType.HERO_SPAWNER:
                 return "HeroSpawner";
-            case EnumManager.TOWER_SPAWNER:
+            case SpawnerType.TOWER_SPAWNER:
                 return "TowerSpawner";
-            case EnumManager.TROVANT_SPAWNER:
+            case SpawnerType.TROVANT_SPAWNER:
                 return "TrovantSpawner";
             default:
                 return "";
