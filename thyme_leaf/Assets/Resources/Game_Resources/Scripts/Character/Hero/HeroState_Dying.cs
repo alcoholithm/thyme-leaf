@@ -8,7 +8,7 @@ public class HeroState_Dying : State<Hero> {
 
 	private HeroState_Dying() {
 		Successor = null;
-        heroSpawner = GameObject.Find(EnumConverter.getManagerName(SpawnerType.HERO_SPAWNER)).GetComponent<HeroSpawner>();
+        heroSpawner = GameObject.Find(EnumConverter.getSpawnerNameBy(SpawnerType.HERO_SPAWNER)).GetComponent<HeroSpawner>();
 	}
 	
 	public override void Enter (Hero owner)
