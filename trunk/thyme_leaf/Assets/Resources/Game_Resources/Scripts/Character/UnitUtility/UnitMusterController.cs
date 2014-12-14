@@ -191,7 +191,7 @@ public class UnitMusterController
 				{
 					//search nameID
 					Hero tempFunc = obj[i].GetComponent<Hero>();
-					if(tempFunc.model.getID() == nameID)
+					if(tempFunc.model.getName() == nameID)
 					{
 						//change parent or remove
 						//...

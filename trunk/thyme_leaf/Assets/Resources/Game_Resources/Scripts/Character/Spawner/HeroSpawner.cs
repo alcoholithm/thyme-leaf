@@ -1,50 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
-public class HeroSpawner : MonoBehaviour
+public class HeroSpawner : Singleton<HeroSpawner>
 {
-	public const string TAG = "[AutomatSpawner]";
+    //private MemoryPool<Hero> memoryPool;
 
-    // we hava only single automat
-    // I think we have to more automats, doesn't it?
-    //
 
-    public GameObject[] automats;
-    public int initPoolSize = 100;
-    public int maxPoolSize = 200;
 
     void Awake()
     {
-        foreach (GameObject automat in automats)
-        {
-            ObjectPoolingManager.Instance.CreatePool(automat, initPoolSize, maxPoolSize, false);
-        }
-    }
-
-    public Hero getHero()
-    {
-        return ObjectPoolingManager.Instance.GetObject(automats[0].name).GetComponent<Hero>();
-    }
-
-    public Hero getObject(string name)
-    {
-        return ObjectPoolingManager.Instance.GetObject(name).GetComponent<Hero>();
-    }
-
-	public Hero DynamicInstantiate()
-    {
-        return getHero();
+        //memoryPool = new MemoryPool<Hero>(GetComponentsInChildren<Hero>());
     }
 
     public Hero Allocate()
     {
+        //Tower gameEntity = null; 
+        //try
+        //{
+        //    gameEntity = memoryPool.Allocate();
+        //}
+        //catch (System.Exception e)
+        //{
+        //    Debug.LogException(e);
+        //    gameEntity = DynamicInstantiate();
+        //}
+        //return gameEntity;
+
         return DynamicInstantiate();
     }
 
-    public void Free(GameObject gameObject)
+    public void Free(GameObject some)
     {
-        //Do you need some more handling the object?
-        gameObject.SetActive(false);           
+		Destroy(some);
+        //throw new System.NotImplementedException();
     }
+
+    private Hero DynamicInstantiate()
+    {
+        GameObject go;
+        if (!Network.isServer && !Network.isClient)
+        {
+            go = Instantiate(transform.GetChild(funcTest).gameObject) as GameObject;
+        }
+        else
+        {
+            Debug.Log("N_Instantiate");
+            //GameObject trans = Instantiate(transform.GetChild(funcTest).gameObject);
+            Transform trans = transform.GetChild(funcTest);
+
+            //NetworkViewID viewID = Network.AllocateViewID();
+            GameObject obj = Network.Instantiate(trans, transform.position, transform.rotation, 0) as GameObject;
+            return obj.GetComponent<Hero>();
+        }
+
+        return go.GetComponent<Hero>();
+    }
+
+    public new const string TAG = "[HeroSpawner]";
 }
