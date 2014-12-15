@@ -20,7 +20,7 @@ public class HeroState_None : State<Hero> {
 	{
 	}
 
-	public override bool IsHandleable (Message msg)
+    public override bool HandleMessage(Message msg)
 	{
 		return false;
 	}

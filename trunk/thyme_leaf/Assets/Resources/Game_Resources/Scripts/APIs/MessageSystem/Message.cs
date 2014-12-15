@@ -132,7 +132,7 @@ public class Message : ICommand
      */ 
     public void Execute()
     {
-        receiver.HandleMessage(this);
+        receiver.OnMessage(this);
     }
 
     /*

@@ -52,29 +52,17 @@ public class TowerState_Hitting : State<Tower>
         Debug.Log(TAG + " Exit");
     }
 
-    public override bool IsHandleable(Message msg)
-    {
-        switch (msg.what)
-        {
-            case MessageTypes.MSG_DAMAGE:
-                return true;
-        }
-        return false;
-    }
-
-    public override void OnMessage(Message msg)
+    public override bool HandleMessage(Message msg)
     {
         switch (msg.what)
         {
             case MessageTypes.MSG_DAMAGE:
                 (msg.receiver as Tower).TakeDamage(msg.arg1);
                 //(msg.receiver as Tower).ChangeState(TowerState_Hitting.instance);
-                break;
-
-            default:
-                msg.command.Execute();
-                break;
+                return true;
         }
+
+        return false;
     }
 
     /*

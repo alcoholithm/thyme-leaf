@@ -30,20 +30,18 @@ public abstract class State<T> : IHandler
     /*
      * followings are implemented methods of interface
      */
-    public abstract bool IsHandleable(Message msg);
+    //public abstract bool IsHandleable(Message msg);
 
-    public virtual void OnMessage(Message msg)
-    {
-        msg.command.Execute();
-    }
+    //public virtual void OnMessage(Message msg)
+    //{
+    //    msg.command.Execute();
+    //}
 
-    public void HandleMessage(Message msg)
+    public abstract bool HandleMessage(Message msg);
+
+    public void OnMessage(Message msg)
     {
-        if (IsHandleable(msg))
-        {
-            OnMessage(msg);
-        }
-        else
+        if (!HandleMessage(msg))
         {
             if (Successor != null)
                 Successor.HandleMessage(msg);

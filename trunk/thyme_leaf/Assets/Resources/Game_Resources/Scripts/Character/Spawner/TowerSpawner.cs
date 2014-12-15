@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class TowerSpawner : MonoBehaviour
+public class TowerSpawner : Singleton<TowerSpawner>
 {
 	public new const string TAG = "[TowerSpawner]";
 

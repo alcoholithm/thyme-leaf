@@ -22,7 +22,7 @@ public class HeroState_Idling : State<Hero> {
 		throw new System.NotImplementedException ();
 	}
 
-	public override bool IsHandleable (Message msg)
+	public override bool HandleMessage(Message msg)
 	{
 		throw new System.NotImplementedException ();
 	}

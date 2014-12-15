@@ -28,11 +28,12 @@ public class TowerState_Idling : State<Tower>
         Debug.Log(TAG + " Exit");
     }
 
-    public override bool IsHandleable(Message msg)
+    public override bool HandleMessage(Message msg)
     {
         switch (msg.what)
         {
             case MessageTypes.MSG_ENEMY_ENTER:
+                msg.command.Execute();
                 return true;
         }
 

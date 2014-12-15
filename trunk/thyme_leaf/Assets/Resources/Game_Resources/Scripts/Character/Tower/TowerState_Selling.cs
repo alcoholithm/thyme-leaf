@@ -26,7 +26,7 @@ public class TowerState_Selling : State<Tower>
         throw new System.NotImplementedException();
     }
 
-    public override bool IsHandleable(Message msg)
+    public override bool HandleMessage(Message msg)
     {
         throw new System.NotImplementedException();
     }
