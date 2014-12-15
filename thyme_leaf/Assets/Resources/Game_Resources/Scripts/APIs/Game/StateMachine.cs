@@ -63,20 +63,15 @@ public class StateMachine<TGameEntity> : IHandler
     /*
     * followings are implemented methods of interface
     */
-    public bool IsHandleable(Message msg)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnMessage(Message msg)
     {
-        throw new System.NotImplementedException();
+        //Debug.Log(TAG + "HandleMessage" + typeof(TGameEntity));
+        Successor.OnMessage(msg);
     }
 
-    public void HandleMessage(Message msg)
+    public bool HandleMessage(Message msg)
     {
-        //Debug.Log(TAG + "HandleMessage" + typeof(TGameEntity));
-        Successor.HandleMessage(msg);
+        throw new System.NotImplementedException();
     }
 
     /*

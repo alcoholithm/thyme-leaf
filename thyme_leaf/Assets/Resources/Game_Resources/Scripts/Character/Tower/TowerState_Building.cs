@@ -37,11 +37,12 @@ public class TowerState_Building : State<Tower>
         Debug.Log(TAG + " Exit");
     }
 
-    public override bool IsHandleable(Message msg)
+    public override bool HandleMessage(Message msg)
     {
         switch (msg.what)
         {
             case MessageTypes.MSG_TOWER_READY:
+                msg.command.Execute();
                 return true;
         }
 

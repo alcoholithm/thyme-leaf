@@ -6,7 +6,6 @@ public class Weapon //: MonoBehaviour
     private float delay = 0.2f; //
     private int power = 10;
 
-
     public IEnumerator Fire(GameEntity target)
     {
         yield return new WaitForSeconds(delay);

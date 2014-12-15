@@ -18,17 +18,8 @@ public class TowerState_None : State<Tower>
     {
     }
 
-    public override bool IsHandleable(Message msg)
+    public override bool HandleMessage(Message msg)
     {
-        Debug.Log(TAG + "IsHandleable");
-        switch (msg.what)
-        {
-            case MessageTypes.MSG_TOWER_READY:
-                return true;
-			//~~~~~
-			//~~~~~
-        }
-
         return false;
     }
 

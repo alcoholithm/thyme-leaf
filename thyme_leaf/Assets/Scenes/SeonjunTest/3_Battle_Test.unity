@@ -2174,6 +2174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   funcTest: 0
+  towers:
+  - {fileID: 231306425}
+  initPoolSize: 100
+  maxPoolSize: 200
 --- !u!1 &834057763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +3002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41226f53b94da574bba95cbe9be349b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  funcTest: 0
+  automats:
+  - {fileID: 352397436}
+  initPoolSize: 100
+  maxPoolSize: 200
 --- !u!1 &1138594626
 GameObject:
   m_ObjectHideFlags: 0

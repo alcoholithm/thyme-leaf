@@ -41,10 +41,10 @@ public class TowerState_Dying : State<Tower>
     public override void Exit(Tower owner)
     {
         Debug.Log(TAG + "Exit");
-        //TowerSpawner.Instance.Free(owner.gameObject);
+        TowerSpawner.Instance.Free(owner.gameObject);
     }
 
-    public override bool IsHandleable(Message msg)
+    public override bool HandleMessage(Message msg)
     {
         throw new System.NotImplementedException();
     }

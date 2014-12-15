@@ -146,7 +146,7 @@ public class HeroState_Moving : State<Hero> {
 		owner.helper.lockOn_target = null;
 	}
 
-	public override bool IsHandleable (Message msg)
+	public override bool HandleMessage (Message msg)
 	{
 		return false;
 	}

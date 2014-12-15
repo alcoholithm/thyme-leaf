@@ -11,7 +11,10 @@ public interface IHandler
         get;
     }
 
-    bool IsHandleable(Message msg);
+    //bool IsHandleable(Message msg);
+    //void OnMessage(Message msg);
+    //void HandleMessage(Message msg);
+
     void OnMessage(Message msg);
-    void HandleMessage(Message msg);
+    bool HandleMessage(Message msg);
 }

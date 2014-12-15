@@ -72,20 +72,15 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
     /*
     * followings are implemented methods of interface
     */
-    public bool IsHandleable(Message msg)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnMessage(Message msg)
     {
-        throw new System.NotImplementedException();
+        //Debug.Log(TAG + "HandleMessage");
+        Successor.OnMessage(msg);
     }
 
-    public void HandleMessage(Message msg)
+    public bool HandleMessage(Message msg)
     {
-        //Debug.Log(TAG + "HandleMessage");
-        Successor.HandleMessage(msg);
+        throw new System.NotImplementedException();
     }
 
     public const string TAG = "[GameEntity]";

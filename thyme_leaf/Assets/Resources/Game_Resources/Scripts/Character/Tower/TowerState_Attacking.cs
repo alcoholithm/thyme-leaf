@@ -61,29 +61,18 @@ public class TowerState_Attacking : State<Tower>
         owner.SetAttackable(false);
     }
 
-    public override bool IsHandleable(Message msg)
+    public override bool HandleMessage(Message msg)
     {
-        switch (msg.what)
-        {
-            case MessageTypes.MSG_ENEMY_LEAVE:
-                return true;
-        }
-
-        return false;
-    }
-
-    public override void OnMessage(Message msg)
-    {
+        bool isHandleable = false;
         switch (msg.what)
         {
             case MessageTypes.MSG_ENEMY_LEAVE:
                 (msg.receiver as Tower).ChangeState(TowerState_Idling.Instance);
-                break;
-
-            default:
-                msg.command.Execute();
+                isHandleable = true;
                 break;
         }
+
+        return isHandleable;
     }
 
     /*
