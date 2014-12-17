@@ -14,7 +14,5 @@ public enum MessageTypes {
     MSG_TOWER_READY,
 	MSG_MOVE_HERO,
 	MSG_DAMAGE,
-    MSG_ENEMY_ENTER,
-    MSG_ENEMY_LEAVE,
 	MSG_MISSING
 }

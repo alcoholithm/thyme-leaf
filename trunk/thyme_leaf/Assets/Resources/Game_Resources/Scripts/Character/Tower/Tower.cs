@@ -23,7 +23,7 @@ public class Tower : GameEntity, IObservable_User
     private float maxHP = 100;
     private float currentHP = 100;
 
-    private Weapon weapon = new Weapon();
+    private Weapon weapon;
 
     private float reloadingTime = 0.2f; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
     //---------------------
@@ -39,6 +39,8 @@ public class Tower : GameEntity, IObservable_User
 
         this.anim = GetComponent<UISpriteAnimation>();
         this.anim.Pause();
+
+        this.weapon = new Weapon(this);
     }
 
     public void ChangeState(State<Tower> newState)
@@ -70,7 +72,9 @@ public class Tower : GameEntity, IObservable_User
         while (true)
         {
             yield return new WaitForSeconds(reloadingTime);
-            yield return StartCoroutine(weapon.Fire(this));
+            //yield return StartCoroutine(weapon.Fire(this));
+            if (currentTarget != null) // 임시코드
+                yield return StartCoroutine(weapon.Fire(currentTarget));
         }
     }
 
@@ -101,25 +105,18 @@ public class Tower : GameEntity, IObservable_User
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("TagProjectile"))
+            return;
+
         enemies.Add(other.GetComponent<GameEntity>()); // 모든 상태에서 적은 계속 리스트에 넣어야 함. 셀링상태에서도 사용자가 취소를 누를 경우 대비
-
-        Message msg =
-            this.ObtainMessage<Tower>(
-            MessageTypes.MSG_ENEMY_ENTER,
-            tower => tower.ChangeState(TowerState_Attacking.Instance));
-
-        this.DispatchMessage(msg);
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        enemies.Remove(other.GetComponent<GameEntity>());
+        if (other.CompareTag("TagProjectile"))
+            return;
 
-        Message msg =
-            this.ObtainMessage<Tower>(
-            MessageTypes.MSG_ENEMY_LEAVE,
-            tower => tower.ChangeState(TowerState_Idling.Instance));
-        this.DispatchMessage(msg);
+        enemies.Remove(other.GetComponent<GameEntity>());
     }
 
     /*

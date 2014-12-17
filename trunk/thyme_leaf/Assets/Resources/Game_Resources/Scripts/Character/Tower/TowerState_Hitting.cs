@@ -3,10 +3,7 @@ using System.Collections;
 
 public class TowerState_Hitting : State<Tower>
 {
-    //private int takenDamage;
     private string animName = "Tower_Hitting_";
-
-    private float testTime = 2f;
 
     private TowerState_Hitting()
     {
@@ -58,7 +55,6 @@ public class TowerState_Hitting : State<Tower>
         {
             case MessageTypes.MSG_DAMAGE:
                 (msg.receiver as Tower).TakeDamage(msg.arg1);
-                //(msg.receiver as Tower).ChangeState(TowerState_Hitting.instance);
                 return true;
         }
 
