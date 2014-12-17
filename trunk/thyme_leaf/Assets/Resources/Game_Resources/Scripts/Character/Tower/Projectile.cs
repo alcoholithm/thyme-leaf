@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField]
+    UI2DSpriteAnimation _fx;
+
     private GameEntity owner; // temp
     private GameEntity target;
     private int power = 10;
@@ -44,6 +47,8 @@ public class Projectile : MonoBehaviour
 
         Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, power);
         owner.DispatchMessage(msg);
+
+        //_fx.
 
         ProjectileSpawner.Instance.Free(this.gameObject);
     }
