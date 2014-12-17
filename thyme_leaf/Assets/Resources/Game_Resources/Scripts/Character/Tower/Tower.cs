@@ -53,8 +53,17 @@ public class Tower : GameEntity, IObservable_User
         stateMachine.RevertToPreviousState();
     }
 
+    public void OnFinished()
+    {
+        Debug.Log("asfd");
+    }
+
     public void PlayAnimation(string name)
     {
+        Debug.Log(anim.frames);
+        Debug.Log(anim.framesPerSecond);
+
+        anim.loop = false;
         anim.namePrefix = name;
         anim.Play();
     }
