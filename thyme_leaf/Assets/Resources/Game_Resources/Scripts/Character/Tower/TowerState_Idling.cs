@@ -21,6 +21,13 @@ public class TowerState_Idling : State<Tower>
 
     public override void Execute(Tower owner)
     {
+        // 매 프레임마다 주변에 적이 있는지 아닌지 검사를 해 주어야 한다.
+        // 마찬가지로 아군에게 죽어서 없어진 경우도 체크해줘야 한다.
+        if (owner.Enemies.Count > 0)
+        {
+            owner.ChangeState(TowerState_Attacking.Instance);
+            return;
+        }
     }
 
     public override void Exit(Tower owner)
@@ -30,12 +37,12 @@ public class TowerState_Idling : State<Tower>
 
     public override bool HandleMessage(Message msg)
     {
-        switch (msg.what)
-        {
-            case MessageTypes.MSG_ENEMY_ENTER:
-                msg.command.Execute();
-                return true;
-        }
+        //switch (msg.what)
+        //{
+        //    case MessageTypes.MSG_ENEMY_ENTER:
+        //        msg.command.Execute();
+        //        return true;
+        //}
 
         return false;
     }

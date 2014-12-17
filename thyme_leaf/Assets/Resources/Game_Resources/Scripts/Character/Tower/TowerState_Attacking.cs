@@ -37,21 +37,16 @@ public class TowerState_Attacking : State<Tower>
 
     public override void Execute(Tower owner)
     {
-        if (owner.Enemies.Count <= 0)
-        {
-            Message msg = owner.ObtainMessage(MessageTypes.MSG_ENEMY_LEAVE);
-            owner.DispatchMessage(msg);
-
-            return;
-        }
-
+        // 1. 매 프레임 최적의 타겟을 찾는다.
+        // 이 함수를 통해서 에너미 리스트에 적이 죽었는지 판별한다.
         FindBestTarget(owner);
 
-        //Debug.Log(owner.Enemies.Count);
-
-        // 1. 매 프레임 최적의 타겟을 찾는다.
-        // 2. 공격 모션을 재생
-        // 3. 공격주기마다 상대의 체력을 깍는 메시지를 보낸다. MessageTypes.MSG_DAMAGE
+        // if there are no enemies anymore.
+        if (owner.Enemies.Count == 0)
+        {
+            owner.ChangeState(TowerState_Idling.Instance);
+            return;
+        }
     }
 
     public override void Exit(Tower owner)
@@ -64,13 +59,12 @@ public class TowerState_Attacking : State<Tower>
     public override bool HandleMessage(Message msg)
     {
         bool isHandleable = false;
-        switch (msg.what)
-        {
-            case MessageTypes.MSG_ENEMY_LEAVE:
-                (msg.receiver as Tower).ChangeState(TowerState_Idling.Instance);
-                isHandleable = true;
-                break;
-        }
+        //switch (msg.what)
+        //{
+        //    case MessageTypes.MSG_ENEMY_LEAVE:
+        //        isHandleable = true;
+        //        break;
+        //}
 
         return isHandleable;
     }
