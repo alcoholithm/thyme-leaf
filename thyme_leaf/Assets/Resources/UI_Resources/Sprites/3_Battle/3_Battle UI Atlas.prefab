@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: dowitAtlas
+  m_Name: 3_Battle UI Atlas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,65 +39,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 40d755d41d6b1f44fa1caefdfeefc036, type: 2}
+  material: {fileID: 2100000, guid: 9358759d478b4914c9d9a453046de871, type: 2}
   mSprites:
-  - name: backgroundIMG
+  - name: Map
     x: 0
-    y: 584
-    width: 600
-    height: 440
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: dothegi
-    x: 601
-    y: 748
-    width: 250
-    height: 276
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: imgres
-    x: 0
-    y: 307
-    width: 314
-    height: 160
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: inputBOX
-    x: 0
-    y: 238
-    width: 393
-    height: 68
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: login box
-    x: 0
-    y: 468
-    width: 439
-    height: 115
+    y: 320
+    width: 1000
+    height: 704
     borderLeft: 0
     borderRight: 0
     borderTop: 0
