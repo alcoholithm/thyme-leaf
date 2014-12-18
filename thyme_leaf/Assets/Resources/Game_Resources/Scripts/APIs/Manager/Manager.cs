@@ -14,7 +14,7 @@ public class Manager<T> : Singleton<T> where T : MonoBehaviour
 
     protected virtual void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-        SetParent("_Manager");
+        GameObject parent = SetParent("_Manager");
+        DontDestroyOnLoad(parent.gameObject);
     }
 }

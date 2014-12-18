@@ -7,7 +7,7 @@ public class DialogView : MonoBehaviour, IView
     //private UserAdministrator model;
 
     [SerializeField]
-    GameObject _messageDialog;
+    private GameObject _messageDialog;
 
     void Awake()
     {

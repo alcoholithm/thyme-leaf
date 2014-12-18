@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     private GameEntity target;
     private int power = 10;
     private float movingSpeed = 0.7f;
-    private float rotationSpeed = 1f;
+    //private float rotationSpeed = 1f;
 
     void Awake()
     {
@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("OnEnable");
         //transform.LookAt(target.transform.position);
 
         fx.Pause();
@@ -50,11 +49,8 @@ public class Projectile : MonoBehaviour
         if (!target.collider2D.Equals(other))
             return;
 
-        Debug.Log("Fire");
-
         movingSpeed = 0;
 
-        //fx.ResetToBeginning();
         //fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
         fx.PlayOneShot(animName, new VoidFunction(() => gameObject.SetActive(false)));
 

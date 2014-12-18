@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TowerState_Hitting : State<Tower>
 {
-    private string animName = "Tower_Hitting_";
+    //private string animName = "Tower_Hitting_";
 
     private TowerState_Hitting()
     {

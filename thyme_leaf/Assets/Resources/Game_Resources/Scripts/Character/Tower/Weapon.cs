@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class Weapon //: MonoBehaviour
 {
+    [SerializeField]
     private float delay = 0.2f; // 무기를 발사하는 애니메이션이 완료되는 시간
     private GameEntity owner;
 

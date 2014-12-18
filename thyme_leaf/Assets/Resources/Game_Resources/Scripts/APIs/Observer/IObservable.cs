@@ -1,11 +1,12 @@
 ﻿/// <summary>
 /// for observer pattern
 /// </summary>
-public interface IObservable<TObserver>
+
+public interface IObservable
 {
-    void RegisterObserver(TObserver o);
-    void RemoveObserver(TObserver o);
-    void NotifyObservers<TObserver>();
+    void RegisterObserver(IObserver o, ObserverTypes field);
+    void RemoveObserver(IObserver o, ObserverTypes field);
+    void NotifyObservers(ObserverTypes field);
     void HasChanged();
     void SetChanged();
 }

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class UserAdministrator : IUserAdministrator, IObservable_User
+public class UserAdministrator : IUserAdministrator, IObservable
 {
-    private List<IObserver_User> observers;
+    private Dictionary<ObserverTypes, List<IObserver>> observers;
     private List<User> users;
 
     public List<User> Users
@@ -26,7 +27,7 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
 
     private UserAdministrator()
     {
-        this.observers = new List<IObserver_User>();
+        this.observers = new Dictionary<ObserverTypes, List<IObserver>>();
         this.users = new List<User>();
     }
     // networking... thread
@@ -38,9 +39,9 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
     */
     public bool RegisterUser(string userName)
     {
-        if (users.Count < nUserMax 
-            && userName != null 
-            && userName.Length > 0 
+        if (users.Count < nUserMax
+            && userName != null
+            && userName.Length > 0
             && users.Find(user => user.Name.Equals(userName)) == null)
         {
             users.Add(new User(userName));
@@ -67,38 +68,47 @@ public class UserAdministrator : IUserAdministrator, IObservable_User
     /*
     * followings are Observer pattern methods.
     */
-    public void RegisterObserver(IObserver_User o)
+    public void RegisterObserver(IObserver o, ObserverTypes field)
     {
-        observers.Add(o);
-    }
-
-    public void RemoveObserver(IObserver_User o)
-    {
-        observers.Remove(o);
-    }
-
-    public void NotifyObservers<TObserver>()
-    {
-        observers.ForEach(delegate(IObserver_User o)
+        if (!observers.ContainsKey(field))
         {
-            o.Refresh<TObserver>();
-        });
+            observers.Add(field, new List<IObserver>());
+        }
+        observers[field].Add(o);
+    }
+
+    public void RemoveObserver(IObserver o, ObserverTypes field)
+    {
+        if (observers[field].Count <= 1)
+            observers.Remove(field);
+        else
+            observers[field].Remove(o);
+    }
+
+    public void NotifyObservers(ObserverTypes field)
+    {
+        observers[field].ForEach(o => o.Refresh(field));
     }
 
     public void HasChanged()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void SetChanged()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
+    /*
+     * 
+     */ 
     public const string TAG = "[UserAdministrator]";
     private static UserAdministrator instance = new UserAdministrator();
     public static UserAdministrator Instance
     {
         get { return instance; }
     }
+
+
 }
