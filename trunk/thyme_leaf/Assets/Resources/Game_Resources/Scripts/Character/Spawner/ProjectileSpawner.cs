@@ -4,17 +4,17 @@ using System.Collections;
 public class ProjectileSpawner : Singleton<ProjectileSpawner>
 {
     [SerializeField]
-    GameObject[] projectiles;
+    private GameObject[] projectiles;
     [SerializeField]
-    int initPoolSize = 100;
+    private int initPoolSize = 100;
     [SerializeField]
-    int maxPoolSize = 200;
+    private int maxPoolSize = 200;
 
     void Awake()
     {
         foreach (GameObject tower in projectiles)
         {
-            ObjectPoolingManager.Instance.CreatePool(tower, initPoolSize, maxPoolSize, false);
+            ObjectPoolingManager.Instance.CreatePool(gameObject, tower, initPoolSize, maxPoolSize, false);
         }
     }
 
