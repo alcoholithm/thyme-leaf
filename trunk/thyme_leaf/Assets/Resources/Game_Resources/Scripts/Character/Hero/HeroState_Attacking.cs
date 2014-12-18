@@ -12,10 +12,12 @@ public class HeroState_Attacking : State<Hero>
     }
 
     public override void Enter(Hero owner)
-    {
-        owner.PlayAnimation(animationsName);
-
-        Debug.Log("Attack Enter ************************");
+	{		
+		if((owner.gameObject.layer == Layer.Automart())){
+			owner.PlayAnimation("Comma_Attacking_Normal_");
+		}else if((owner.gameObject.layer == Layer.Trovant())) {
+			owner.PlayAnimation("Python_Attacking_Normal_");
+		}
 
         owner.helper.attack_delay_counter = 0;  //attack delay setting...
     }
