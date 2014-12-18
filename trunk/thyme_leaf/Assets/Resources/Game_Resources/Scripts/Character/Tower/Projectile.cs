@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
         gameObject.SetActive(false);
         fx = GetComponent<NGUISpriteAnimation>();
         sprite = GetComponent<UISprite>();
+
     }
 
     void OnEnable()
@@ -25,11 +26,11 @@ public class Projectile : MonoBehaviour
         Debug.Log("OnEnable");
         //transform.LookAt(target.transform.position);
 
+        fx.Pause();
+
         movingSpeed = 0.7f;
         sprite.spriteName = "Comma_Attacking_Downwards_0";
         sprite.MakePixelPerfect();
-
-        fx.Pause();
     }
 
     void Update()
@@ -51,14 +52,11 @@ public class Projectile : MonoBehaviour
 
         Debug.Log("Fire");
 
-        //Message msg = target.ObtainMessage(MessageTypes.MSG_DAMAGE, power);
-        //target.DispatchMessage(msg);
-
-
         movingSpeed = 0;
 
-        fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
-
+        //fx.ResetToBeginning();
+        //fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
+        fx.PlayOneShot(animName, new VoidFunction(() => gameObject.SetActive(false)));
 
         Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, power);
         owner.DispatchMessage(msg);
@@ -66,7 +64,6 @@ public class Projectile : MonoBehaviour
 
     public void FireProcess(GameEntity owner, GameEntity target)
     {
-        Debug.Log("asdddddddddd");
         this.owner = owner;
         this.target = target;
         gameObject.SetActive(true);

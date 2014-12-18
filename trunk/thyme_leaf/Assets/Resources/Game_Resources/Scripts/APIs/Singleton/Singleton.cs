@@ -38,6 +38,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
+        Debug.Log("Destory");
         applicationIsQuitting = true;
     }
 

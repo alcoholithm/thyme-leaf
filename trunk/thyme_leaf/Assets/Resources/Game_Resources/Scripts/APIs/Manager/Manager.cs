@@ -12,7 +12,7 @@ public class Manager<T> : Singleton<T> where T : MonoBehaviour
 {
     public new const string TAG = "[Manager]";
 
-    void Awake()
+    protected virtual void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         SetParent("_Manager");
