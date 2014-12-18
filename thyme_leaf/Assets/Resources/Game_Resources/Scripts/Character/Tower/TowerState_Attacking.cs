@@ -29,7 +29,8 @@ public class TowerState_Attacking : State<Tower>
     public override void Enter(Tower owner)
     {
         Debug.Log(TAG + " Enter");
-        owner.PlayAnimation(animName);
+
+        owner.Anim.Play(animName);
         FindBestTarget(owner);
 
         owner.SetAttackable(true);

@@ -16,7 +16,6 @@ public class TowerState_Dying : State<Tower>
      * followings are member functions
      */ 
 
-
     /*
      * followings are overrided methods
      */
@@ -25,7 +24,7 @@ public class TowerState_Dying : State<Tower>
     public override void Enter(Tower owner)
     {
         Debug.Log(TAG + "Enter");
-        owner.PlayAnimation(animName);
+        owner.Anim.PlayOneShot(animName, new VoidFunction2<Tower>(x => x.ChangeState(TowerState_None.Instance), owner));
     }
 
     public override void Execute(Tower owner)
@@ -34,7 +33,7 @@ public class TowerState_Dying : State<Tower>
 
         if (time < 0)
         {
-            owner.ChangeState(TowerState_None.Instance);
+            
         }
     }
 

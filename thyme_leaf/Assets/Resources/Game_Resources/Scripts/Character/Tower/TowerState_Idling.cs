@@ -16,7 +16,7 @@ public class TowerState_Idling : State<Tower>
     public override void Enter(Tower owner)
     {
         Debug.Log(TAG + " Enter");
-        owner.PlayAnimation(animName);
+        owner.Anim.Play(animName);
     }
 
     public override void Execute(Tower owner)
