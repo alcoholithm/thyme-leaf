@@ -51,6 +51,7 @@ public class ProjectileSpawner : Singleton<ProjectileSpawner>
     public void Free(GameObject gameObject)
     {
         //Do you need some more handling the object?
+        gameObject.transform.parent = transform;
         gameObject.SetActive(false);
     }
 
