@@ -16,14 +16,17 @@ public class TowerState_Building : State<Tower>
     }
 
     /*
+     * followings are member functions
+     */ 
+
+    /*
      * followings are implemented methods of interface
      */ 
     public override void Enter(Tower owner)
     {
         Debug.Log(TAG + " Enter");
 
-        owner.PlayAnimation(animName);
-
+        owner.Anim.Play(animName);
         Message msg = owner.ObtainMessage(MessageTypes.MSG_TOWER_READY, new TowerReadyCommand(owner));
         owner.DispatchMessageDelayed(msg, buildingTime);
     }
@@ -50,7 +53,7 @@ public class TowerState_Building : State<Tower>
     }
 
     /*
-     *
+     * Attributes
      */ 
     public new const string TAG = "[TowerState_Building]";
     private static TowerState_Building instance = new TowerState_Building(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
@@ -59,4 +62,5 @@ public class TowerState_Building : State<Tower>
         get { return TowerState_Building.instance; }
         set { TowerState_Building.instance = value; }
     }
+
 }

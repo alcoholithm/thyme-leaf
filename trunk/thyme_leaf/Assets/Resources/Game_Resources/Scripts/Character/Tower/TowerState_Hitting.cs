@@ -18,7 +18,6 @@ public class TowerState_Hitting : State<Tower>
     public override void Enter(Tower owner)
     {
         Debug.Log(TAG + " Enter");
-        owner.PlayAnimation(animName);
     }
 
     // -주의- 전역상태이기 때문에 계속 실행된다.

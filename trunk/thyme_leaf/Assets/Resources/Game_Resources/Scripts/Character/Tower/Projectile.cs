@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField]
-    UI2DSpriteAnimation _fx;
+    private NGUISpriteAnimation fx;
+    private UISprite sprite;
+    string animName = "Weapon_PoisonGas_";
 
     private GameEntity owner; // temp
     private GameEntity target;
@@ -15,18 +16,26 @@ public class Projectile : MonoBehaviour
     void Awake()
     {
         gameObject.SetActive(false);
+        fx = GetComponent<NGUISpriteAnimation>();
+        sprite = GetComponent<UISprite>();
     }
 
-    void Start()
+    void OnEnable()
     {
-        // Z축을 움직여야 하는데 잘 안된다.
+        Debug.Log("OnEnable");
         //transform.LookAt(target.transform.position);
+
+        movingSpeed = 0.7f;
+        sprite.spriteName = "Comma_Attacking_Downwards_0";
+        sprite.MakePixelPerfect();
+
+        fx.Pause();
     }
 
     void Update()
     {
         Vector3 direction = target.transform.position - transform.position;
-        
+
         direction.z = 0;
 
         transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
@@ -45,16 +54,19 @@ public class Projectile : MonoBehaviour
         //Message msg = target.ObtainMessage(MessageTypes.MSG_DAMAGE, power);
         //target.DispatchMessage(msg);
 
+
+        movingSpeed = 0;
+
+        fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
+
+
         Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, power);
         owner.DispatchMessage(msg);
-
-        //_fx.
-
-        ProjectileSpawner.Instance.Free(this.gameObject);
     }
 
     public void FireProcess(GameEntity owner, GameEntity target)
     {
+        Debug.Log("asdddddddddd");
         this.owner = owner;
         this.target = target;
         gameObject.SetActive(true);

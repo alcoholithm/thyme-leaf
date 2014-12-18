@@ -1,63 +1,93 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class NGUISpriteAnimation : MonoBehaviour
+/// <summary>
+/// This is improved version of NGUI's UISpriteAnimation.
+/// </summary>
+
+public class NGUISpriteAnimation : UISpriteAnimation
 {
     [SerializeField]
-    int _framerates = 30;
+    private int _framerate = 30;
     [SerializeField]
-    string _namePrefix = "";
+    private string _namePrefix = "";
     [SerializeField]
-    bool _loop = true;
+    private bool _loop = true;
     [SerializeField]
-    bool _pixelSnap = true;
+    private bool _pixelSnap = true;
 
-    private UISprite currentSprite;
-    private float delta = 0f;
-    private int currentIndex = 0;
-    private bool isPlaying = true;
-    private List<string> spriteNames = new List<string>();
+    private ICommand command;
+    private bool oneShot = true;
 
-
-
-    /*
-     * followings are public member functions.
-     */ 
-    public void Play()
-    {
-        //StartCoroutine();
-    }
-
-    public void Pause()
-    {
-
-    }
-
-    public void ResetToBeginning()
-    {
-
-    }
-
-    public void RebuildSpriteList()
-    {
-    }
-
-    /*
-    * followings are public member functions.
-    */
     void Awake()
     {
-        this.currentSprite = GetComponent<UISprite>();
+        mFPS = _framerate;
+        mPrefix = _namePrefix;
+        mLoop = _loop;
+        mSnap = _pixelSnap;
     }
 
-    void Start()
+    protected override void Update()
     {
-        RebuildSpriteList();
+        if (mActive && mSpriteNames.Count > 1 && Application.isPlaying && mFPS > 0)
+        {
+            mDelta += RealTime.deltaTime;
+            float rate = 1f / mFPS;
+
+            if (rate < mDelta)
+            {
+
+                mDelta = (rate > 0f) ? mDelta - rate : 0f;
+
+                if (++mIndex >= mSpriteNames.Count)
+                {
+                    mIndex = 0;
+                    mActive = mLoop;
+
+                    if (command != null)
+                    {
+                        command.Execute();
+                        if (oneShot)
+                            command = null;
+                    }
+                }
+
+                if (mActive)
+                {
+                    mSprite.spriteName = mSpriteNames[mIndex];
+                    if (mSnap) mSprite.MakePixelPerfect();
+                }
+            }
+        }
     }
 
-    void Update()
+    public void Play(string animName)
     {
+        namePrefix = animName;
+        mLoop = true;
+        oneShot = false;
+        Play();
+    }
 
+    public void Play(string animName, ICommand command)
+    {
+        this.command = command;
+        Play(animName);
+    }
+
+    public void PlayOneShot(string animName)
+    {
+        namePrefix = animName;
+        mLoop = false;
+        oneShot = true;
+        Play();
+    }
+
+    public void PlayOneShot(string animName, ICommand command)
+    {
+        this.command = command;
+        PlayOneShot(animName);
     }
 }

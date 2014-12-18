@@ -8,7 +8,7 @@ using System.Collections.Generic;
 /// </summary>
 public class Tower : GameEntity, IObservable_User
 {
-    private UISpriteAnimation anim;
+    private NGUISpriteAnimation anim;
 
     private List<IObserver_User> observers = new List<IObserver_User>();
 
@@ -37,43 +37,10 @@ public class Tower : GameEntity, IObservable_User
         this.stateMachine.CurrentState = TowerState_None.Instance;
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
-        this.anim = GetComponent<UISpriteAnimation>();
+        this.anim = GetComponent<NGUISpriteAnimation>();
         this.anim.Pause();
 
         this.weapon = new Weapon(this);
-    }
-
-    public void ChangeState(State<Tower> newState)
-    {
-        stateMachine.ChangeState(newState);
-    }
-
-    public void RevertToPreviousState()
-    {
-        stateMachine.RevertToPreviousState();
-    }
-
-    public void OnFinished()
-    {
-        Debug.Log("asfd");
-    }
-
-    public void PlayAnimation(string name)
-    {
-        Debug.Log(anim.frames);
-        Debug.Log(anim.framesPerSecond);
-
-        anim.loop = false;
-        anim.namePrefix = name;
-        anim.Play();
-    }
-
-    public void SetAttackable(bool active)
-    {
-        if (active)
-            StartCoroutine("Attack");
-        else
-            StopCoroutine("Attack");
     }
 
     IEnumerator Attack()
@@ -86,6 +53,29 @@ public class Tower : GameEntity, IObservable_User
                 yield return StartCoroutine(weapon.Fire(currentTarget));
         }
     }
+
+    /*
+     * followings are public member functions
+     */
+    public void ChangeState(State<Tower> newState)
+    {
+        stateMachine.ChangeState(newState);
+    }
+
+    public void RevertToPreviousState()
+    {
+        stateMachine.RevertToPreviousState();
+    }
+
+    public void SetAttackable(bool active)
+    {
+        if (active)
+            StartCoroutine("Attack");
+        else
+            StopCoroutine("Attack");
+    }
+
+    
 
     public void TakeDamage(int damage)
     {
@@ -161,6 +151,12 @@ public class Tower : GameEntity, IObservable_User
     {
         get { return currentHP; }
         set { currentHP = value; }
+    }
+
+    public NGUISpriteAnimation Anim
+    {
+        get { return anim; }
+        set { anim = value; }
     }
 
     public void RegisterObserver(IObserver_User o)
