@@ -1770,7 +1770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41226f53b94da574bba95cbe9be349b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  funcTest: 0
+  automats:
+  - {fileID: 100000, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
+  initPoolSize: 100
+  maxPoolSize: 200
 --- !u!1 &459902929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3548,7 +3551,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 965308755}
   - 114: {fileID: 965308756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrovantSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
