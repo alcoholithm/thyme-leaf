@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TrovantSpawner : Singleton<TrovantSpawner>{
 
-    public const string TAG = "[TrovantSpawner]";
+    public new const string TAG = "[TrovantSpawner]";
 
     [SerializeField]
     private GameObject[] trovants;

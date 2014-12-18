@@ -438,6 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b56b6b5623f3b0438a8b2eabf69bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 100
+  weapon:
+    delay: 0
 --- !u!114 &231306428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,6 +759,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3f44cb9bbb2b9da42b6206f895baa372, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 3f44cb9bbb2b9da42b6206f895baa372, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1348,6 +1355,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b56b6b5623f3b0438a8b2eabf69bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 100
+  weapon:
+    delay: 0
 --- !u!114 &459902932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3086,7 +3096,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1138594627}
-  - 95: {fileID: 1138594628}
   m_Layer: 8
   m_Name: 4 - UI
   m_TagString: Untagged
@@ -3109,21 +3118,6 @@ Transform:
   - {fileID: 1880595080}
   m_Father: {fileID: 1068830332}
   m_RootOrder: 3
---- !u!95 &1138594628
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1138594626}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8c03809703938a34892d22803f66f5a4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1149660215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3325,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b56b6b5623f3b0438a8b2eabf69bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 100
+  weapon:
+    delay: 0
 --- !u!114 &1242807565
 MonoBehaviour:
   m_ObjectHideFlags: 0

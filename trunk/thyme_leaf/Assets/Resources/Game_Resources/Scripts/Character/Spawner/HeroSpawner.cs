@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class HeroSpawner : Singleton<HeroSpawner>
 {
-    public const string TAG = "[AutomatSpawner]";
+    public new const string TAG = "[AutomatSpawner]";
 
     // we hava only single automat
     // I think we have to more automats, doesn't it?

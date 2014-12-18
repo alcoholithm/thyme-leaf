@@ -6,23 +6,27 @@ using System.Collections.Generic;
 /// <summary>
 /// 
 /// </summary>
-public class Tower : GameEntity, IObservable_User
+
+public class Tower : GameEntity, IObservable
 {
     private NGUISpriteAnimation anim;
 
-    private List<IObserver_User> observers = new List<IObserver_User>();
+    private Dictionary<ObserverTypes, List<IObserver>> observers = new Dictionary<ObserverTypes, List<IObserver>>();
 
     private StateMachine<Tower> stateMachine;
 
-    private List<GameEntity> enemies= new List<GameEntity>();
+    private List<GameEntity> enemies = new List<GameEntity>();
     private GameEntity currentTarget;
 
     //---------------------model
     //private string description = "Super Power zzang zzang tower";
 
+    [SerializeField]
+    //private TowerModel towerModel;
     private float maxHP = 100;
     private float currentHP = 100;
 
+    [SerializeField]
     private Weapon weapon;
 
     private float reloadingTime = 0.2f; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
@@ -75,13 +79,13 @@ public class Tower : GameEntity, IObservable_User
             StopCoroutine("Attack");
     }
 
-    
+
 
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
         Debug.Log("HP : " + currentHP + " / " + maxHP);
-        NotifyObservers<HealthBarView>();
+        NotifyObservers(ObserverTypes.Health);
     }
 
     public bool IsDead()
@@ -159,19 +163,26 @@ public class Tower : GameEntity, IObservable_User
         set { anim = value; }
     }
 
-    public void RegisterObserver(IObserver_User o)
+    public void RegisterObserver(IObserver o, ObserverTypes field)
     {
-        observers.Add(o);
+        if (!observers.ContainsKey(field))
+        {
+            observers.Add(field, new List<IObserver>());
+        }
+        observers[field].Add(o);
     }
 
-    public void RemoveObserver(IObserver_User o)
+    public void RemoveObserver(IObserver o, ObserverTypes field)
     {
-        observers.Remove(o);
+        if (observers[field].Count <= 1)
+            observers.Remove(field);
+        else
+            observers[field].Remove(o);
     }
 
-    public void NotifyObservers<TObserver>()
+    public void NotifyObservers(ObserverTypes field)
     {
-        observers.ForEach(o => o.Refresh<TObserver>());
+        observers[field].ForEach(o => o.Refresh(field));
     }
 
     public void HasChanged()

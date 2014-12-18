@@ -7,10 +7,10 @@ public class PlayerSelectFrame : MonoBehaviour, IView
     private LobbyView view;
 
     [SerializeField]
-    GameObject[] _playerSlots;
+    private GameObject[] _playerSlots;
 
     [SerializeField]
-    UIButton _closeButton;
+    private UIButton _closeButton;
 
     /*
      * followings are unity callback methods
@@ -20,21 +20,20 @@ public class PlayerSelectFrame : MonoBehaviour, IView
         view = transform.parent.GetComponent<LobbyView>();
     }
 
-    void Start()
+    void OnEnable()
     {
-        //initialize();
         UpdateUI();
     }
 
-    private void initialize()
-    {
-        setUserNames();
-    }
 
     /*
      * following are member functions
      */
-    void setUserNames()
+    private void initialize()
+    {
+        setUserNames();
+    }
+    private void setUserNames()
     {
         List<User> users = view.Model.Users;
 
@@ -49,8 +48,9 @@ public class PlayerSelectFrame : MonoBehaviour, IView
         this.gameObject.SetActive(false);
     }
 
+
     /*
-     * following are member functions
+     * following are overrided methods
      */
     public void ActionPerformed(string actionCommand)
     {
@@ -76,4 +76,9 @@ public class PlayerSelectFrame : MonoBehaviour, IView
     {
         initialize();
     }
+
+    /*
+     * 
+     */
+    public const string TAG = "[PlayerSelectFrame]";
 }

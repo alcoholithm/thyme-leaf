@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HealthBarView : MonoBehaviour, IView, IObserver_User
+public class HealthBarView : MonoBehaviour, IView, IObserver
 {
     private UISlider slider;
 
@@ -18,7 +18,7 @@ public class HealthBarView : MonoBehaviour, IView, IObserver_User
     void Awake()
     {
         this.slider = GetComponent<UISlider>();
-        model.RegisterObserver(this);
+        model.RegisterObserver(this, ObserverTypes.Health);
     }
 
     /*
@@ -46,8 +46,11 @@ public class HealthBarView : MonoBehaviour, IView, IObserver_User
         UpdateHealthBar();
     }
 
-    public void Refresh<T>()
+    public void Refresh(ObserverTypes field)
     {
-        UpdateUI();
+        if (field == ObserverTypes.Health)
+        {
+            UpdateUI();
+        }
     }
 }

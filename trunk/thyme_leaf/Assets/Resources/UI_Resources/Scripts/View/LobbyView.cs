@@ -1,27 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LobbyView : MonoBehaviour, IView, IObserver_User
+public class LobbyView : MonoBehaviour, IView, IObserver
 {
     private LobbyController controller;
     private UserAdministrator model;
 
     [SerializeField]
-    GameObject _registerUserFrame;
+    private GameObject _registerUserFrame;
     [SerializeField]
-    GameObject _playerSelectFrame;
+    private GameObject _playerSelectFrame;
     [SerializeField]
-    GameObject _welcomeFrame;
+    private GameObject _welcomeFrame;
     [SerializeField]
-    GameObject _goToWorldMapButton;
+    private GameObject _goToWorldMapButton;
     [SerializeField]
-    GameObject _settingsButton;
+    private GameObject _settingsButton;
     [SerializeField]
-    GameObject _startButton;
+    private GameObject _startButton;
     [SerializeField]
-    GameObject _registerButton;
+    private GameObject _registerButton;
     [SerializeField]
-    UILabel _userName;
+    private UILabel _userName;
 
     /*
      * followings are unity callback methods
@@ -30,7 +30,7 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
     {
         this.model = UserAdministrator.Instance;
         this.controller = new LobbyController(this, UserAdministrator.Instance);
-        this.model.RegisterObserver(this);
+        this.model.RegisterObserver(this, ObserverTypes.Lobby);
     }
 
     /*
@@ -72,7 +72,7 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         throw new System.NotImplementedException();
     }
 
-    public void Refresh<T>()
+    public void Refresh(ObserverTypes field)
     {
         //if (model.IsLogin)
         //{
@@ -93,6 +93,8 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         //{
 
         //}
+
+        throw new System.NotImplementedException();
     }
 
     /*
@@ -116,7 +118,6 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
         set { _welcomeFrame = value; }
     }
 
-
     public GameObject GoToWorldMapButton
     {
         get { return _goToWorldMapButton; }
@@ -137,26 +138,14 @@ public class LobbyView : MonoBehaviour, IView, IObserver_User
 
     public LobbyController Controller
     {
-        get
-        {
-            return controller;
-        }
-        set
-        {
-            controller = value;
-        }
+        get { return controller; }
+        set { controller = value; }
     }
 
     public UserAdministrator Model
     {
-        get
-        {
-            return model;
-        }
-        set
-        {
-            model = value;
-        }
+        get { return model; }
+        set { model = value; }
     }
 
     public const string TAG = "[LobbyView]";

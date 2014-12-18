@@ -12,7 +12,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     /// parent this to another gameobject by string
     /// call from Awake() if you so desire.
     /// </summary>
-    protected void SetParent(string parentName)
+    protected GameObject SetParent(string parentName)
     {
         if (parentName != null)
         {
@@ -22,8 +22,13 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 parent = new GameObject();
                 parent.name = parentName;
             }
+
             this.transform.parent = parent.transform;
+
+            return parent;
         }
+
+        return null;
     }
 
     /// <summary>
@@ -38,7 +43,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        Debug.Log("Destory");
         applicationIsQuitting = true;
     }
 
