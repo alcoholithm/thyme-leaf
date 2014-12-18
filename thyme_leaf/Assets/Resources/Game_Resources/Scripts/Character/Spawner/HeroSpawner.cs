@@ -2,22 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class HeroSpawner : MonoBehaviour
+public class HeroSpawner : Singleton<HeroSpawner>
 {
     public const string TAG = "[AutomatSpawner]";
 
     // we hava only single automat
     // I think we have to more automats, doesn't it?
 
-    public GameObject[] automats;
-    public int initPoolSize = 100;
-    public int maxPoolSize = 200;
+    [SerializeField]
+    private GameObject[] automats;
+    [SerializeField]
+    private int initPoolSize = 100;
+    [SerializeField]
+    private int maxPoolSize = 200;
 
     void Awake()
     {
         foreach (GameObject automat in automats)
         {
-            ObjectPoolingManager.Instance.CreatePool(automat, initPoolSize, maxPoolSize, false);
+            ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);                 
         }
     }
 
@@ -44,6 +47,7 @@ public class HeroSpawner : MonoBehaviour
     public void Free(GameObject gameObject)
     {
         //Do you need some more handling the object?
+        gameObject.transform.parent = transform;
         gameObject.SetActive(false);
     }
 }

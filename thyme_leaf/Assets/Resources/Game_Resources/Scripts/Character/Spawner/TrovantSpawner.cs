@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TrovantSpawner : MonoBehaviour {
+public class TrovantSpawner : Singleton<TrovantSpawner>{
 
     public const string TAG = "[TrovantSpawner]";
-        
-    public GameObject[] trovants;
-    public int initPoolSize = 100;
-    public int maxPoolSize = 200;
+
+    [SerializeField]
+    private GameObject[] trovants;
+    [SerializeField]
+    private int initPoolSize = 100;
+    [SerializeField]
+    private int maxPoolSize = 200;
 
     void Awake()
     {
         foreach (GameObject trovant in trovants)
-        {
-            ObjectPoolingManager.Instance.CreatePool(trovant, initPoolSize, maxPoolSize, false);
+        {            
+            ObjectPoolingManager.Instance.CreatePool(gameObject, trovant, initPoolSize, maxPoolSize, false);
         }
     }
     
@@ -40,6 +43,7 @@ public class TrovantSpawner : MonoBehaviour {
 
     public void Free(GameObject gameObject)
     {
-        Destroy(gameObject);
+        gameObject.transform.parent = transform;
+        gameObject.SetActive(false);        
     }
 }

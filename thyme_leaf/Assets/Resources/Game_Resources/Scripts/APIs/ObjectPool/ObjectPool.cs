@@ -10,13 +10,14 @@ public class ObjectPool
     private int maxPoolSize;
     private int initialPoolSize;
 
-    public ObjectPool(GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
+    public ObjectPool(GameObject spawner, GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
     {
         pooledObjects = new List<GameObject>();
 
         for (int i = 0; i < initialPoolSize; i++)
         {
             GameObject nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
+            nObj.transform.parent = spawner.transform;
             nObj.SetActive(false);
             pooledObjects.Add(nObj);
             GameObject.DontDestroyOnLoad(nObj);
