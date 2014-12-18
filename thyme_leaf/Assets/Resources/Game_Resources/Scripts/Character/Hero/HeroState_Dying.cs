@@ -13,8 +13,11 @@ public class HeroState_Dying : State<Hero> {
 	
 	public override void Enter (Hero owner)
 	{
-		Debug.Log("Died Enter");
-		owner.PlayAnimationOneTime(animationName);
+		if((owner.gameObject.layer == Layer.Automart())){
+			owner.PlayAnimationOneTime("Comma_Dying_");
+		}else if((owner.gameObject.layer == Layer.Trovant())) {
+			owner.PlayAnimationOneTime("Python_Dying");
+		}
 	}
 	
 	public override void Execute (Hero owner)
