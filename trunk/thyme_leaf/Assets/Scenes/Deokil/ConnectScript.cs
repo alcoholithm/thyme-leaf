@@ -105,6 +105,13 @@ public class ConnectScript : MonoBehaviour
     }
 
     // Server Side
+    void OnPlayerConnected()
+    {
+        Debug.Log("Player Joined to Server");
+        Application.LoadLevel("MultiplayScene");
+    }
+
+    // Server Side
     void OnServerInitialized()
     {
         Debug.Log("OnServerInitialized()");        
