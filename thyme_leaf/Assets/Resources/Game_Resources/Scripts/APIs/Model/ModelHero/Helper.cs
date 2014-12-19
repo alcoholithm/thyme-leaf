@@ -23,7 +23,7 @@ public class Helper
 	public Vector3 gesture_startpoint;
 	public Vector2 gesture_endpoint;
 
-	private Layer current_layer;
+	//private Layer current_layer;
 
 	//collision range
 	public float collision_range;
@@ -167,8 +167,8 @@ public class Helper
 			SetMoveMode(MoveModeState.FORWARD);
 	}
 
-	public void setLayer(Layer v) { current_layer = v; }
-	public Layer getLayer() { return current_layer; }
+//	public void setLayer(Layer v) { current_layer = v; }
+//	public Layer getLayer() { return current_layer; }
 
 	public void setPos(float x, float y, float z) { currentUnit.transform.localPosition = new Vector3(x, y, z); }
 	public void setPos(Vector3 v) { currentUnit.transform.localPosition = v; }

@@ -36,6 +36,9 @@ public class Hero : GameEntity {
 	public ModelHero model;
 	public ControllerHero controller;
 	public Helper helper;
+
+	private Layer layer;
+	
 	//=====================
 
 	void Awake()
@@ -108,16 +111,20 @@ public class Hero : GameEntity {
 	private bool IsAttackCase(GameObject gObj)
 	{
 		//add.....tag...
-		Layer type = (Layer)gameObject.layer;
+		Layer type = getLayer();
+
+
 		switch (type) {
 		case Layer.Automart:
-			if(gObj.CompareTag(Tag.TagWarriorTrovant())) return true;
+			if(Layer.Trovant == (Layer) gObj.layer) return true;
+			//if(gObj.CompareTag(Tag.TagWarriorTrovant())) return true;
 			break;
 		case Layer.Trovant:
-			if(gObj.CompareTag(Tag.TagWarriorAutomart())) return true;
+//			if(gObj.CompareTag(Tag.TagWarriorAutomart())) return true;
+			if(Layer.Automart == (Layer) gObj.layer) return true;
+//			return Layer.Automat == (Layer) gObj.Layer;
 			break;
 		}
-
 		return false;
 	}
 
@@ -153,7 +160,14 @@ public class Hero : GameEntity {
 	public void setName(string str) { name = str; }
 	public void setOffset(float offx, float offy) { offsetX = offx; offsetY = offy; }
 
-	public void setLayer(Layer v) { gameObject.layer = (int)v; helper.setLayer (v);}
+	public void setLayer(Layer v) { 
+		Debug.Log ("You changed layer from " + layer + " to " + v);
+		layer = v; 
+	}
+
+	public Layer getLayer(){
+		return (Layer) layer;
+	}
 
 	public void CollisionVisiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
 

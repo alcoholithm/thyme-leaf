@@ -2,9 +2,9 @@
 using System.Collections;
 
 public enum Layer {
-	Automart = 9,
-	Trovant = 10,
-	Tower = 11
+	Automart = 8,
+	Trovant = 9,
+	Tower = 10
 }
 
 //public class Layer

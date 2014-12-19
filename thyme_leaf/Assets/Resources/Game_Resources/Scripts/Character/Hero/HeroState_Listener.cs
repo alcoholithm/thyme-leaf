@@ -22,14 +22,14 @@ public class HeroState_Listener : MonoBehaviour
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 
 		//unit detail setting...
+//		hero.setLayer(Layer.Automart);
 		hero.setLayer(Layer.Automart);
-		if(hero.helper.getLayer() == Layer.Automart)
+		if(hero.getLayer() == Layer.Automart)
 		{
-
 			Debug.Log("I'm alive!!!!");
 			hero.controller.StartPointSetting(StartPoint.AUTOMART_POINT);
 		}
-		else if(hero.helper.getLayer() == Layer.Trovant)
+		else if(hero.getLayer() == Layer.Trovant)
 		{			
 			hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		}
@@ -44,8 +44,6 @@ public class HeroState_Listener : MonoBehaviour
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
 		//moveing enable...
 		hero.controller.setMoveTrigger(true);
-
-		Debug.Log ("I'm alive ??? "+hero.gameObject.layer +" .... " + hero.helper.getLayer());
 
 		//unit pool insert...
 		UnitPoolController.GetInstance ().AddUnit (hero.gameObject, hero.model.getType());

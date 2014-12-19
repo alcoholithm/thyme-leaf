@@ -18,7 +18,7 @@ public class HealthBarView : MonoBehaviour, IView, IObserver
     void Awake()
     {
         this.slider = GetComponent<UISlider>();
-        model.RegisterObserver(this, ObserverTypes.Health);
+        //model.RegisterObserver(this, ObserverTypes.Health);
     }
 
     /*

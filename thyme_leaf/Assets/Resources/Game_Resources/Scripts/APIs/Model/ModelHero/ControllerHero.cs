@@ -23,7 +23,7 @@ public class ControllerHero
 	
 	public void SetMoveMode(MoveModeState option) { _helper.SetMoveMode (option); }
 
-	public void setLayer(Layer v) { _helper.setLayer (v); }
+//	public void setLayer(Layer v) { _helper.setLayer (v); }
 	
 	public void setPos(float x, float y, float z) { _helper.setPos (x, y, z); }
 	public void setPos(Vector3 v) { _helper.setPos (v); }

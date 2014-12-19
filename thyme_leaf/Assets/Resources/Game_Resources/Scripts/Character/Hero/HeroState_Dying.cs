@@ -13,9 +13,9 @@ public class HeroState_Dying : State<Hero> {
 	
 	public override void Enter (Hero owner)
 	{
-		if((owner.gameObject.layer == (int) Layer.Automart)){
+		if((owner.getLayer() == Layer.Automart)){
 			owner.Anim.PlayOneShot("Comma_Dying_");
-		}else if((owner.gameObject.layer == (int) Layer.Trovant)) {
+		}else if((owner.getLayer() == Layer.Trovant)) {
 			owner.Anim.PlayOneShot("Python_Dying");
 		}
 	}

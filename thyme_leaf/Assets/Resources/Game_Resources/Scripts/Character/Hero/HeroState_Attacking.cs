@@ -12,10 +12,10 @@ public class HeroState_Attacking : State<Hero>
     }
 
     public override void Enter(Hero owner)
-	{		
-		if((owner.gameObject.layer == (int)Layer.Automart)){
+	{
+		if((owner.getLayer() == Layer.Automart)){
 			owner.Anim.Play("Comma_Attacking_Normal_");
-		}else if((owner.gameObject.layer == (int) Layer.Trovant)) {
+		}else if((owner.getLayer() == Layer.Trovant)) {
 			owner.Anim.Play("Python_Attacking_Normal_");
 		}
 
@@ -31,12 +31,12 @@ public class HeroState_Attacking : State<Hero>
 			GameObject other = UnitPoolController.GetInstance().ElementUnit(i);
 			
 			bool check = false;
-			switch(owner.gameObject.layer)
+			switch(owner.getLayer())
 			{
-			case 9:  //automart
+			case Layer.Automart:  //automart
 				if(other.layer == (int)Layer.Automart) check = true;
 				break;
-			case 10:  //trovant
+			case Layer.Trovant:  //trovant
 				if(other.layer == (int) Layer.Trovant) check = true;
 				break;
 			default:
