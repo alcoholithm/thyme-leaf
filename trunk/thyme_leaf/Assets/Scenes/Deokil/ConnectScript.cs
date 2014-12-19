@@ -94,7 +94,8 @@ public class ConnectScript : MonoBehaviour
     void OnConnectedToServer()
     {
         Debug.Log("Server Joined");
-        Network.Instantiate(prefab, transform.position, transform.rotation, 0);
+        //Network.Instantiate(prefab, transform.position, transform.rotation, 0);
+        Application.LoadLevel("MultiplayScene");
     }
     private void JoinServer(HostData hostData)
     {
@@ -106,7 +107,7 @@ public class ConnectScript : MonoBehaviour
     void OnServerInitialized()
     {
         Debug.Log("OnServerInitialized()");
-
+        Application.LoadLevel("MultiplayScene");
     }
 
     void OnMasterServerEvent(MasterServerEvent msEvent)

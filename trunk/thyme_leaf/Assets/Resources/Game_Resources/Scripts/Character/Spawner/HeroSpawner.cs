@@ -10,11 +10,11 @@ public class HeroSpawner : Singleton<HeroSpawner>
     // I think we have to more automats, doesn't it?
 
     [SerializeField]
-    private GameObject[] automats;
+    protected GameObject[] automats;
     [SerializeField]
-    private int initPoolSize = 100;
+    protected int initPoolSize = 100;
     [SerializeField]
-    private int maxPoolSize = 200;
+    protected int maxPoolSize = 200;
 
     void Awake()
     {
@@ -50,4 +50,5 @@ public class HeroSpawner : Singleton<HeroSpawner>
         gameObject.transform.parent = transform;
         gameObject.SetActive(false);
     }
+
 }

@@ -6,11 +6,11 @@ public class TrovantSpawner : Singleton<TrovantSpawner>{
     public new const string TAG = "[TrovantSpawner]";
 
     [SerializeField]
-    private GameObject[] trovants;
+    protected GameObject[] trovants;
     [SerializeField]
-    private int initPoolSize = 100;
+    protected int initPoolSize = 100;
     [SerializeField]
-    private int maxPoolSize = 200;
+    protected int maxPoolSize = 200;
 
     void Awake()
     {
