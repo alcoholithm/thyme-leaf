@@ -1,8 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Layer
-{
-	public static int Automart() { return 9; }
-	public static int Trovant() { return 10; }
+public enum Layer {
+	Automart = 9,
+	Trovant = 10,
+	Tower = 11
 }
+
+//public class Layer
+//{
+//
+//	public const  int Automart() { return 9; }
+//	public static int Trovant() { return 10; }
+//	public static int Tower() { return 11; }
+//
+//}

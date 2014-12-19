@@ -16,8 +16,8 @@ public class UnitNameGetter
 
 	private int trovant_ID;
 	private int automart_ID;
-	private string automart_name;
-	private string trovant_name;
+	private int trovant_tower_ID;
+	private int automart_tower_ID;
 
 	public UnitNameGetter()
 	{
@@ -27,21 +27,34 @@ public class UnitNameGetter
 	private void Initialize()
 	{
 		trovant_ID = automart_ID = 1;
-		automart_name = "automart_";
-		trovant_name = "trovant_";
+		trovant_tower_ID = automart_tower_ID = 1;
 	}
 
 	public string getNameTrovant()
 	{
-		string str = trovant_name + trovant_ID;
+		string str = "trovant_" + trovant_ID;
 		trovant_ID++;
 		return str;
 	}
 
 	public string getNameAutomart()
 	{
-		string str = automart_name + automart_ID;
+		string str = "automart_" + automart_ID;
 		automart_ID++;
+		return str;
+	}
+
+	public string getNameTrovantTower()
+	{
+		string str = "trovant_tower_" + trovant_tower_ID;
+		trovant_tower_ID++;
+		return str;
+	}
+
+	public string getNameAutomartTower()
+	{
+		string str = "automart_tower_" + automart_tower_ID;
+		automart_tower_ID++;
 		return str;
 	}
 }

@@ -38,8 +38,8 @@ public enum StartPoint
 
 public enum UnitType
 {
-	AUTOMART_CHARACTER = 9 ,TROVANT_CHARACTER, 
-	AUTOMART_TOWER, TROVANT_TOWER
+	AUTOMART_CHARACTER = 9 ,TROVANT_CHARACTER = 10, 
+	AUTOMART_TOWER = 11
 }
 
 public enum SpawnerType

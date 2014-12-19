@@ -10,7 +10,7 @@ public class Helper
 	public GameObject nodeStock;
 	public scriptPathNode nodeInfor;
 	private bool enableMove;
-	public GameObject lockOn_target;
+	public Hero attack_target;
 
 	//attacking value
 	public float attack_delay_counter;
@@ -23,7 +23,10 @@ public class Helper
 	public Vector3 gesture_startpoint;
 	public Vector2 gesture_endpoint;
 
-	private int current_layer;
+	private Layer current_layer;
+
+	//collision range
+	public float collision_range;
 	//==================================
 
 	public Helper(GameObject obj)
@@ -41,7 +44,7 @@ public class Helper
 
 		gesture_startpoint = gesture_endpoint = Vector3.zero;
 
-		lockOn_target = null;
+		attack_target = null;
 		//=======================
 
 		attack_delay_counter = 0;
@@ -67,12 +70,6 @@ public class Helper
 
 		if(nodeInfor.Prev != null) SetMoveMode(MoveModeState.BACKWARD);
 		else if(nodeInfor.Next != null) SetMoveMode(MoveModeState.FORWARD);
-	}
-
-	public Vector3 ToScreenCoord(Vector3 v)
-	{
-		Vector3 temp = UICamera.mainCamera.ScreenToWorldPoint(v);
-		return UICamera.mainCamera.WorldToScreenPoint (temp);
 	}
 
 	public bool SelectPathNode(Vector3 startPt, Vector3 endPt)
@@ -170,8 +167,8 @@ public class Helper
 			SetMoveMode(MoveModeState.FORWARD);
 	}
 
-	public void setLayer(int v) { current_layer = v; }
-	public int getLayer() { return current_layer; }
+	public void setLayer(Layer v) { current_layer = v; }
+	public Layer getLayer() { return current_layer; }
 
 	public void setPos(float x, float y, float z) { currentUnit.transform.localPosition = new Vector3(x, y, z); }
 	public void setPos(Vector3 v) { currentUnit.transform.localPosition = v; }

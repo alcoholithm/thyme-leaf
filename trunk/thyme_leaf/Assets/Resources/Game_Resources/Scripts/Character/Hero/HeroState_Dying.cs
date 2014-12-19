@@ -13,9 +13,9 @@ public class HeroState_Dying : State<Hero> {
 	
 	public override void Enter (Hero owner)
 	{
-		if((owner.gameObject.layer == Layer.Automart())){
+		if((owner.gameObject.layer == (int) Layer.Automart)){
 			owner.PlayAnimationOneTime("Comma_Dying_");
-		}else if((owner.gameObject.layer == Layer.Trovant())) {
+		}else if((owner.gameObject.layer == (int) Layer.Trovant)) {
 			owner.PlayAnimationOneTime("Python_Dying");
 		}
 	}
@@ -32,9 +32,10 @@ public class HeroState_Dying : State<Hero> {
 	{
 		if(owner == null) return;
 
-		Message msg = owner.target.ObtainMessage(MessageTypes.MSG_MOVE_HERO, new HeroMovingCommand(owner.target));
-		owner.target.DispatchMessage(msg);
-		
+		//no massage...
+	//	Message msg = owner.target.ObtainMessage(MessageTypes.MSG_MOVE_HERO, new HeroMovingCommand(owner.target));
+	//	owner.target.DispatchMessage(msg);
+
         heroSpawner.Free(owner.gameObject);
 
 		//remove character in unit pool...
