@@ -106,8 +106,7 @@ public class ConnectScript : MonoBehaviour
     // Server Side
     void OnServerInitialized()
     {
-        Debug.Log("OnServerInitialized()");
-        Application.LoadLevel("MultiplayScene");
+        Debug.Log("OnServerInitialized()");        
     }
 
     void OnMasterServerEvent(MasterServerEvent msEvent)
