@@ -79,7 +79,7 @@ public class ConnectScript : MonoBehaviour
             {
                 for (int i = 0; i < hostList.Length; i++)
                 {
-                    if (GUI.Button(new Rect(400, 50 + (110 * i), 100, 50), hostList[i].gameName))
+                    if (GUI.Button(new Rect(0, 130 + (110 * i), 100, 50), hostList[i].gameName))
                         JoinServer(hostList[i]);
                 }
             }
