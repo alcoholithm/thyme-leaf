@@ -9,9 +9,9 @@ public class HeroState_Moving : State<Hero> {
 	}
 	public override void Enter (Hero owner)
 	{
-		if((owner.gameObject.layer == Layer.Automart())){
+		if((owner.gameObject.layer == (int) Layer.Automart)){
 			owner.PlayAnimation("Comma_Moving_Normal_");
-		}else if((owner.gameObject.layer == Layer.Trovant())) {
+		}else if((owner.gameObject.layer == (int) Layer.Trovant)) {
 			owner.PlayAnimation("Python_Moving_Normal_");
 		}
 	}
@@ -21,10 +21,9 @@ public class HeroState_Moving : State<Hero> {
 		float dx = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x + owner.model.getMoveOffset ().x) - owner.helper.getPos ().x;
 		float dy = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y + owner.model.getMoveOffset ().y) - owner.helper.getPos ().y;
 
-		/*
 		//checking...
 		Vector3 me = owner.helper.getPos(); // this character position...
-		if(owner.helper.lockOn_target == null)
+		if(owner.target == null)
 		{
 			for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
 			{
@@ -34,10 +33,10 @@ public class HeroState_Moving : State<Hero> {
 				switch(owner.gameObject.layer)
 				{
 				case 9:  //automart
-					if(other.layer == Layer.Automart()) check = true;
+					if(other.layer == (int) Layer.Automart) check = true;
 					break;
 				case 10:  //trovant
-					if(other.layer == Layer.Trovant()) check = true;
+					if(other.layer == (int) Layer.Trovant) check = true;
 					break;
 				default:
 					check = true;
@@ -46,32 +45,26 @@ public class HeroState_Moving : State<Hero> {
 
 				if(!check)
 				{
-					Vector3 other_pos = other.transform.localPosition;
-
-					float cdx = other_pos.x - me.x;
-					float cdy = other_pos.y - me.y;
-					if(cdx * cdx + cdy * cdy < 100 * 100)
+					float range = owner.helper.collision_range + 120;
+					if(Vector3.SqrMagnitude(other.transform.localPosition - me) < range * range)
 					{
 						owner.helper.setMoveTrigger(false);
-						owner.helper.lockOn_target = other;
+						owner.target = other.GetComponent<Hero>();
 						break;
 					}
 				}
 			}
 		}
-		else if(owner.helper.lockOn_target != null)
+		else if(owner.target != null)
 		{
 			if(!owner.helper.getMoveTrigger())
 			{
-				Vector3 tempPos = owner.helper.lockOn_target.transform.localPosition;
-				float cdx = tempPos.x - me.x;
-				float cdy = tempPos.y - me.y;
-				float angle_rt = Mathf.Atan2(cdy, cdx);
+				Vector3 d = owner.target.helper.getPos() - me;
+				float r = Mathf.Atan2(d.y, d.x);
 				float speed_v = owner.model.getSpeed();
-				owner.controller.addPos(speed_v * Mathf.Cos(angle_rt), speed_v * Mathf.Sin(angle_rt));
+				owner.controller.addPos(speed_v * Mathf.Cos(r), speed_v * Mathf.Sin(r));
 			}
 		}
-		*/
 
 		//moving...
 		if(owner.helper.getMoveTrigger())
@@ -147,7 +140,8 @@ public class HeroState_Moving : State<Hero> {
 	public override void Exit (Hero owner)
 	{
 		//exit stage...
-		owner.helper.lockOn_target = null;
+		owner.target = null;
+		owner.helper.setMoveTrigger(true);
 	}
 
 	public override bool HandleMessage (Message msg)

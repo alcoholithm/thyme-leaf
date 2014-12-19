@@ -44,8 +44,8 @@ public class UnitPoolController
 			break;
 		case UnitType.TROVANT_CHARACTER:
 			break;
-		case UnitType.TROVANT_TOWER:
-			break;
+	//	case UnitType.TROVANT_TOWER:
+	//		break;
 		}
 
 		for(int i=0;i<unitPool.Count;i++)
@@ -61,8 +61,8 @@ public class UnitPoolController
 				break;
 			case UnitType.TROVANT_CHARACTER:
 				break;
-			case UnitType.TROVANT_TOWER:
-				break;
+		//	case UnitType.TROVANT_TOWER:
+		//		break;
 			}
 			if(str1 == str2)
 			{
@@ -101,8 +101,8 @@ public class UnitPoolController
 				break;
 			case UnitType.TROVANT_CHARACTER:
 				break;
-			case UnitType.TROVANT_TOWER:
-				break;
+		//	case UnitType.TROVANT_TOWER:
+		//		break;
 			}
 			if(str1 == str2) return true;
 		}

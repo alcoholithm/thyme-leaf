@@ -11,7 +11,8 @@ public class HeroDamageCommand : ICommand {
 	public void Execute ()
 	{
 		hero.controller.addHp (-20);
-		hero.hPoint = hero.model.getHp ();  //test code...
+		hero.CurrentHP = hero.model.getHp ();  //test code...
+		hero.HealthUpdate ();
 		if(hero.model.getHp() <= 0)
 		{
 			hero.StateMachine.ChangeState(HeroState_Dying.Instance);

@@ -23,7 +23,7 @@ public class ControllerHero
 	
 	public void SetMoveMode(MoveModeState option) { _helper.SetMoveMode (option); }
 
-	public void setLayer(int v) { _helper.setLayer (v); }
+	public void setLayer(Layer v) { _helper.setLayer (v); }
 	
 	public void setPos(float x, float y, float z) { _helper.setPos (x, y, z); }
 	public void setPos(Vector3 v) { _helper.setPos (v); }
@@ -40,7 +40,7 @@ public class ControllerHero
 	public void addHp(int v) { _model.addHp (v); }
 	public void setHp(int v) { _model.setHp (v); }
 	
-	public void setID(string v) { _model.setName (v); }
+	public void setName(string v) { _model.setName (v); }
 	
 	public void setmusterID(string v) { _model.setMusterID (v); }
 

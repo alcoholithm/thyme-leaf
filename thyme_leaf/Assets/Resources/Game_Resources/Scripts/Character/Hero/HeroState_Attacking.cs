@@ -13,9 +13,9 @@ public class HeroState_Attacking : State<Hero>
 
     public override void Enter(Hero owner)
 	{		
-		if((owner.gameObject.layer == Layer.Automart())){
+		if((owner.gameObject.layer == (int)Layer.Automart)){
 			owner.PlayAnimation("Comma_Attacking_Normal_");
-		}else if((owner.gameObject.layer == Layer.Trovant())) {
+		}else if((owner.gameObject.layer == (int) Layer.Trovant)) {
 			owner.PlayAnimation("Python_Attacking_Normal_");
 		}
 
@@ -24,22 +24,64 @@ public class HeroState_Attacking : State<Hero>
 
     public override void Execute(Hero owner)
     {
-        owner.helper.attack_delay_counter += Time.deltaTime;
-        if (owner.helper.attack_delay_counter >= 1)
-        {
-            Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, new HeroDamageCommand(owner.target));
-            owner.DispatchMessage(msg);
-            owner.helper.attack_delay_counter = 0;
-        }
+		//area checking...
+		bool isCharacter = false;
+		for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
+		{
+			GameObject other = UnitPoolController.GetInstance().ElementUnit(i);
+			
+			bool check = false;
+			switch(owner.gameObject.layer)
+			{
+			case 9:  //automart
+				if(other.layer == (int)Layer.Automart) check = true;
+				break;
+			case 10:  //trovant
+				if(other.layer == (int) Layer.Trovant) check = true;
+				break;
+			default:
+				check = true;
+				break;
+			}
+			
+			if(!check)
+			{
+				float range = owner.helper.collision_range + 50;
+				if(Vector3.SqrMagnitude(other.transform.localPosition - owner.helper.getPos()) < range * range)
+				{
+					isCharacter = true;
+					Hero other_infor = other.GetComponent<Hero>();
+					if(owner.helper.attack_target.model.getName() != other_infor.model.getName())
+						owner.helper.attack_target = other.GetComponent<Hero>();
+					break;
+				}
+			}
+		}
+		
+		if(!isCharacter)
+		{
+			owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+		}
 
-        //if.. target is null -> mode change moving state...
-        owner.TargetingInitialize();
+		if(owner.helper.attack_target != null)
+		{
+			//attack...  & test
+			owner.helper.attack_delay_counter += Time.deltaTime;
+			if (owner.helper.attack_delay_counter >= 1)
+			{
+				Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, new HeroDamageCommand(owner.helper.attack_target));
+				owner.DispatchMessage(msg);
+				owner.helper.attack_delay_counter = 0;
+			}
+		}
+
     }
 
     public override void Exit(Hero owner)
     {
         //Debug.Log("Attack  Exit ************************");
         //throw new System.NotImplementedException ();
+		owner.helper.attack_target = null;
     }
 
     public override bool HandleMessage(Message msg)

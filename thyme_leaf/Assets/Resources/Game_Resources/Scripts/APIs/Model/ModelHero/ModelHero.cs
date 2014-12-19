@@ -20,6 +20,15 @@ public class ModelHero : AutomartUnit
 		_helper = helper;
 	}
 
+	public void setAttackDelay(int v) { attackDelay = v; }
+	public int getAttackDelay() { return attackDelay; }
+	
+	public void setAttackDamage(int v) { this.attackDamage = v; }
+	public int getAttackDamage() { return this.attackDamage; }
+	
+	public void setAttackRange(int v) { this.attackRange = v; }
+	public int getAttackRange() { return this.attackRange; }
+
 	public override void setMaxHp(int v) { maxHp = v; }
 	public override int getMaxHp() { return maxHp; }
 	

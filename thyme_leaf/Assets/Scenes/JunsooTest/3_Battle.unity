@@ -449,6 +449,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6c2380fcf41de5042b3d718f6d39a991, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c2380fcf41de5042b3d718f6d39a991, type: 2}
   m_RootGameObject: {fileID: 789249732}
@@ -847,7 +851,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3001
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -921,7 +925,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3003
+  startingRenderQueue: 3002
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -1196,7 +1200,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3003
+  startingRenderQueue: 3002
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -3139,7 +3143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &789249733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3899,7 +3903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f146a98db535a41849255d33299862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  funcTest: 0
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
 --- !u!4 &1065547571
@@ -5446,8 +5449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d4b76e30db9374b93088261f9b7915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towers: {fileID: 1200424465}
-  towerSpot: {fileID: 1006760326}
 --- !u!1 &1686096416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,7 +5971,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: e99360125c877460d9d21381497cfe51, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Background
   mFillCenter: 1
 --- !u!1 &2034468049
