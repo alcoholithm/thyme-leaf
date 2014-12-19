@@ -19,7 +19,7 @@ public class Hero : GameEntity {
 	public float speed = 10;
 	//=====================
 
-	private UISpriteAnimation anim;	
+	private NGUISpriteAnimation anim;	
 	private HealthBarView health_bar_controller;
 
 	//setting value...
@@ -165,19 +165,13 @@ public class Hero : GameEntity {
 	/*
      * followings are member functions
      */
-	public void PlayAnimation(string name)
+
+	public NGUISpriteAnimation Anim
 	{
-		anim.namePrefix = name;
-		anim.Play();
+		get { return anim; }
+		set { anim = value; }
 	}
 
-	// HeroState_Dyning Animation 
-	public void PlayAnimationOneTime(string name)
-	{
-		anim.namePrefix = name;
-		anim.Play();
-		anim.loop = false;
-	}
 
 	public void Initialize()
 	{
@@ -185,7 +179,7 @@ public class Hero : GameEntity {
 		this.stateMachine.CurrentState = HeroState_None.Instance;
 		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
 		
-		this.anim = GetComponent<UISpriteAnimation>();
+		this.anim = GetComponent<NGUISpriteAnimation>();
 		this.anim.Pause();
 		transform.localPosition = new Vector3(1000,1000);
 	}

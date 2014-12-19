@@ -10,9 +10,9 @@ public class HeroState_Moving : State<Hero> {
 	public override void Enter (Hero owner)
 	{
 		if((owner.gameObject.layer == (int) Layer.Automart)){
-			owner.PlayAnimation("Comma_Moving_Normal_");
+			owner.Anim.Play("Comma_Moving_Normal_");
 		}else if((owner.gameObject.layer == (int) Layer.Trovant)) {
-			owner.PlayAnimation("Python_Moving_Normal_");
+			owner.Anim.Play("Python_Moving_Normal_");
 		}
 	}
 
