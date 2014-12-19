@@ -64,13 +64,13 @@ public class ConnectScript : MonoBehaviour
     {
         if (!Network.isClient && !Network.isServer)
         {
-            if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
+            if (GUI.Button(new Rect(0, 0, 100, 50), "Start Server"))
             {
                 Network.InitializeServer(1, 25005, !Network.HavePublicAddress());
                 MasterServer.RegisterHost(typeName, gameName);
             }
 
-            if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
+            if (GUI.Button(new Rect(0, 50 + 10, 100, 50), "Refresh Hosts"))
             {
                 MasterServer.RequestHostList(typeName);
             }
@@ -79,7 +79,7 @@ public class ConnectScript : MonoBehaviour
             {
                 for (int i = 0; i < hostList.Length; i++)
                 {
-                    if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName))
+                    if (GUI.Button(new Rect(400, 50 + (110 * i), 100, 50), hostList[i].gameName))
                         JoinServer(hostList[i]);
                 }
             }
