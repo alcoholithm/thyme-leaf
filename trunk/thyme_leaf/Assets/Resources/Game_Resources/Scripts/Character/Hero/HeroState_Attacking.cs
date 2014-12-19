@@ -51,7 +51,7 @@ public class HeroState_Attacking : State<Hero>
 				{
 					isCharacter = true;
 					Hero other_infor = other.GetComponent<Hero>();
-					if(owner.helper.attack_target.model.getName() != other_infor.model.getName())
+					if(owner.helper.attack_target.model.Name != other_infor.model.Name)
 						owner.helper.attack_target = other.GetComponent<Hero>();
 					break;
 				}

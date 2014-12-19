@@ -38,7 +38,7 @@ public class UnitPoolController
 		switch(option)
 		{
 		case UnitType.AUTOMART_CHARACTER:
-			str1 = uObj.GetComponent<Hero>().model.getName();
+			str1 = uObj.GetComponent<Hero>().model.Name;
 			break;
 		case UnitType.AUTOMART_TOWER:
 			break;
@@ -55,7 +55,7 @@ public class UnitPoolController
 			case UnitType.AUTOMART_CHARACTER:
 				Hero tempFunc = unitPool[i].GetComponent<Hero>();
 				if(tempFunc == null) continue;
-				else str2 = tempFunc.model.getName();
+				else str2 = tempFunc.model.Name;
 				break;
 			case UnitType.AUTOMART_TOWER:
 				break;
@@ -94,8 +94,8 @@ public class UnitPoolController
 			switch(option)
 			{
 			case UnitType.AUTOMART_CHARACTER:
-				str1 = uObj.GetComponent<Hero>().model.getName();
-				str2 = unitPool[i].GetComponent<Hero>().model.getName();
+				str1 = uObj.GetComponent<Hero>().model.Name;
+				str2 = unitPool[i].GetComponent<Hero>().model.Name;
 				break;
 			case UnitType.AUTOMART_TOWER:
 				break;

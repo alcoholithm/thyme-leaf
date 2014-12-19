@@ -1,63 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ModelHero : AutomartUnit
+public class MHero : Unit
 {
-	//damage...
-	private int criticalDamage;
-	private int criticalProbability;
-	
-	//attack...
-	private int attackDelay;
-	private int attackDamage;
-	private int attackRange;
+    private Weapon weapon;
+    private Helper _helper;
 
-	private Helper _helper;
+    //IMovable
+    private float movingSpeed;
 
-	public ModelHero(Helper helper)
-	{
-		radian = 0;
-		_helper = helper;
-	}
+    //extra... IGroupable
+    private float radian;
+    private string musterID;
+    private Vector2 node_offset;
 
-	public void setAttackDelay(int v) { attackDelay = v; }
-	public int getAttackDelay() { return attackDelay; }
-	
-	public void setAttackDamage(int v) { this.attackDamage = v; }
-	public int getAttackDamage() { return this.attackDamage; }
-	
-	public void setAttackRange(int v) { this.attackRange = v; }
-	public int getAttackRange() { return this.attackRange; }
+    public MHero(Helper helper)
+    {
+        radian = 0;
+        _helper = helper;
+    }
 
-	public override void setMaxHp(int v) { maxHp = v; }
-	public override int getMaxHp() { return maxHp; }
-	
-	public override void setHp(int v) { curHp = v; }
-	public override void addHp(int v) 
-	{
-		curHp += v;
-		if(maxHp <= curHp) curHp = maxHp;
-	}
-	public override int getHp() { return curHp; }
-	
-	public override void setName(string v) { name = v; }
-	public override string getName() {	return name; }
-	
-	public override void setDefencePoint(int v) { defence_point = v; }
-	public override int getDefencePoint() { return defence_point; }
-	
-	public override void setType(UnitType option) { type = option; }
-	public override UnitType getType() {	return type; }
+    /*
+     * 
+     */
+    public float MovingSpeed
+    {
+        get { return movingSpeed; }
+        set { movingSpeed = value; }
+    }
+    public float Radian
+    {
+        get { return radian * Define.RadianToAngle(); }
+        set { radian = Define.AngleToRadian() * value; }
+    }
 
-	public override void setSpeed(float v) { speed = v; }
-	public override float getSpeed() { return speed; }
-	
-	public override void setAngle(float ang) { radian = Define.AngleToRadian() * ang; }
-	public override float getAngle() { return radian * Define.RadianToAngle(); }
-	
-	public override void setMusterID(string v) { musterID = v; }
-	public override string getMusterID() { return musterID; }
-	
-	public override void setMoveOffset(float x, float y) { node_offset.Set (x, y); }
-	public override Vector2 getMoveOffset() { return node_offset; }
+    public string MusterID
+    {
+        get { return musterID; }
+        set { musterID = value; }
+    }
+
+    public Vector2 Node_offset
+    {
+        get { return node_offset; }
+        set { node_offset = value; }
+    }
+
+    public new const string TAG = "[MHero]";
 }

@@ -8,7 +8,7 @@ using System.Collections;
 public abstract class GameEntity : MonoBehaviour, IHandler // client
 {
     /*
-    * followings are member functions
+    * followings are public member functions
     */
     public Message ObtainMessage(MessageTypes what, int arg1, int arg2, ICommand command, UnityEngine.Object obj)
     {
@@ -54,7 +54,7 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
     {
         return Message.Obtain(this);
     }
-    
+
     public bool DispatchMessage(Message msg)
     {
         return MessageSystem.Instance.Dispatch(msg);
@@ -64,13 +64,8 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
         return MessageSystem.Instance.DispatchDelayed(msg, seconds);
     }
 
-    //public abstract void Attack();
-    //public abstract void TakeDamage(int damage);
-
-    //public abstract void ChangeState<(State<T> newState);
-
     /*
-    * followings are implemented methods of interface
+    * followings are implemented methods of "IHandler"
     */
     public void OnMessage(Message msg)
     {
@@ -83,6 +78,9 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
         throw new System.NotImplementedException();
     }
 
+    /*
+     * 
+     */ 
     public const string TAG = "[GameEntity]";
     public abstract IHandler Successor
     {

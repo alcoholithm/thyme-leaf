@@ -18,8 +18,8 @@ public class HeroState_Moving : State<Hero> {
 
 	public override void Execute (Hero owner)
 	{
-		float dx = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x + owner.model.getMoveOffset ().x) - owner.helper.getPos ().x;
-		float dy = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y + owner.model.getMoveOffset ().y) - owner.helper.getPos ().y;
+		float dx = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x + owner.model.Node_offset.x) - owner.helper.getPos ().x;
+		float dy = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y + owner.model.Node_offset.y) - owner.helper.getPos ().y;
 
 		//checking...
 		Vector3 me = owner.helper.getPos(); // this character position...
@@ -61,7 +61,7 @@ public class HeroState_Moving : State<Hero> {
 			{
 				Vector3 d = owner.target.helper.getPos() - me;
 				float r = Mathf.Atan2(d.y, d.x);
-				float speed_v = owner.model.getSpeed() * Define.FrameControl();
+				float speed_v = owner.model.MovingSpeed * Define.FrameControl();
 				owner.controller.addPos(speed_v * Mathf.Cos(r), speed_v * Mathf.Sin(r));
 			}
 		}
@@ -130,7 +130,7 @@ public class HeroState_Moving : State<Hero> {
 				owner.helper.nodeInfor = owner.helper.nodeStock.GetComponent<scriptPathNode>();
 			}
 			//move module
-			float sp = owner.model.getSpeed() * Define.FrameControl();
+			float sp = owner.model.MovingSpeed * Define.FrameControl();
 			float rt = Mathf.Atan2(dy, dx);
 
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);

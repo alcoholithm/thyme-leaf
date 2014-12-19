@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// 
 /// </summary>
-public class TowerState_Building : State<Tower>
+public class TowerState_Building : State<ATT_Type1>
 {
     private string animName = "Tower_Building_";
 
@@ -22,7 +22,7 @@ public class TowerState_Building : State<Tower>
     /*
      * followings are implemented methods of interface
      */ 
-    public override void Enter(Tower owner)
+    public override void Enter(ATT_Type1 owner)
     {
         Debug.Log(TAG + " Enter");
 
@@ -31,11 +31,11 @@ public class TowerState_Building : State<Tower>
         owner.DispatchMessageDelayed(msg, buildingTime);
     }
 
-    public override void Execute(Tower owner)
+    public override void Execute(ATT_Type1 owner)
     {
     }
 
-    public override void Exit(Tower owner)
+    public override void Exit(ATT_Type1 owner)
     {
         Debug.Log(TAG + " Exit");
     }

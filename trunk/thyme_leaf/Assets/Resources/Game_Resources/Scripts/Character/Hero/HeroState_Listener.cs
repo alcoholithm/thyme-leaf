@@ -50,7 +50,7 @@ public class HeroState_Listener : MonoBehaviour
 		hero.controller.setMoveTrigger(true);
 
 		//unit pool insert...
-		UnitPoolController.GetInstance ().AddUnit (hero.gameObject, hero.model.getType());
+		UnitPoolController.GetInstance ().AddUnit (hero.gameObject, hero.model.Type);
 		//another   
 		//Message msg = tower.ObtainMessage(MessageTypes.MSG_BUILD_TOWER, new TowerBuildCommand(tower));
   		//tower.DispatchMessage(msg);

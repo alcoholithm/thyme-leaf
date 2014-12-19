@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_None : State<Tower>
+public class TowerState_None : State<ATT_Type1>
 {
     private TowerState_None()
     {
         Successor = TowerState_Hitting.Instance;
     }
 
-    public override void Enter(Tower owner)
+    public override void Enter(ATT_Type1 owner)
     {
     }
-    public override void Execute(Tower owner)
+    public override void Execute(ATT_Type1 owner)
     {
     }
-    public override void Exit(Tower owner)
+    public override void Exit(ATT_Type1 owner)
     {
     }
 

@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HealthBarView : MonoBehaviour, IView, IObserver
+public class HealthBarView : MonoBehaviour, IView
 {
     private UISlider slider;
 
     // model
-    [SerializeField]
-    Tower model;
+    Unit model;
+
+    public Unit Model
+    {
+        get { return model; }
+        set { model = value; }
+    }
 
     //controller
 
@@ -18,7 +23,6 @@ public class HealthBarView : MonoBehaviour, IView, IObserver
     void Awake()
     {
         this.slider = GetComponent<UISlider>();
-        //model.RegisterObserver(this, ObserverTypes.Health);
     }
 
     /*
@@ -26,17 +30,13 @@ public class HealthBarView : MonoBehaviour, IView, IObserver
      */ 
     void UpdateHealthBar()
     {
-        float ratio = model.CurrentHP / model.MaxHP;
+        Debug.Log(model.HP + " " + model.MaxHP);
+        float ratio = model.HP / model.MaxHP;
         Color color = Color.Lerp(Color.red, Color.green, ratio);
 
         this.slider.value = ratio;
         this.slider.foregroundWidget.color = color;
     }
-
-	public void UpdateHealthBar_test(GameObject obj)
-	{
-
-	}
 
     /*
      * followings are overrided methods
@@ -45,16 +45,9 @@ public class HealthBarView : MonoBehaviour, IView, IObserver
     {
         throw new System.NotImplementedException();
     }
+
     public void UpdateUI()
     {
         UpdateHealthBar();
-    }
-
-    public void Refresh(ObserverTypes field)
-    {
-        if (field == ObserverTypes.Health)
-        {
-            UpdateUI();
-        }
     }
 }
