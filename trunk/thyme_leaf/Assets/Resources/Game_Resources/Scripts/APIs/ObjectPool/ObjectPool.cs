@@ -16,7 +16,11 @@ public class ObjectPool
 
         for (int i = 0; i < initialPoolSize; i++)
         {
-            GameObject nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
+            GameObject nObj = null;
+            nObj = Network.peerType == NetworkPeerType.Disconnected ?
+                GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject :
+                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;
+
             nObj.transform.parent = spawner.transform;
             nObj.SetActive(false);
             pooledObjects.Add(nObj);

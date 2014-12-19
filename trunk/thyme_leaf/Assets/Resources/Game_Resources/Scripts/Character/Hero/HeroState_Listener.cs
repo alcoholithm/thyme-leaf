@@ -3,17 +3,10 @@ using System.Collections;
 
 public class HeroState_Listener : MonoBehaviour
 {
-    private HeroSpawner heroSpawner;
-
-    void Awake()
-    {
-        heroSpawner = GameObject.Find(EnumConverter.getSpawnerNameBy(SpawnerType.HERO_SPAWNER)).GetComponent<HeroSpawner>();
-    }
-
     void OnClick()
     {
 		Transform temp = GameObject.Find ("AutomatUnits").transform;
-        Hero hero = heroSpawner.DynamicInstantiate();
+        Hero hero = HeroSpawner.Instance.Allocate();
 		Debug.Log ("character init");
 
 		//main setting...
