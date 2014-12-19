@@ -85,8 +85,8 @@ public class Helper
 		if(coll == null) return false;
 		else
 		{
-			string i_am = currentUnit.GetComponent<Hero>().model.getName();
-			if(i_am == coll.gameObject.GetComponent<Hero>().model.getName())
+			string i_am = currentUnit.GetComponent<Hero>().model.Name;
+			if(i_am == coll.gameObject.GetComponent<Hero>().model.Name)
 				like_check = true;
 		}
 		if(!like_check) return false;

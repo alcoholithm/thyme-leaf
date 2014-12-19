@@ -22,22 +22,22 @@ public class TowerSpawner : Singleton<TowerSpawner>
         }
     }
 
-    public Tower getTower()
+    public ATT_Type1 getTower()
     {
-        return ObjectPoolingManager.Instance.GetObject(towers[0].name).GetComponent<Tower>();
+        return ObjectPoolingManager.Instance.GetObject(towers[0].name).GetComponent<ATT_Type1>();
     }
 
-    public Tower getObject(string name)
+    public ATT_Type1 getObject(string name)
     {
-        return ObjectPoolingManager.Instance.GetObject(name).GetComponent<Tower>();
+        return ObjectPoolingManager.Instance.GetObject(name).GetComponent<ATT_Type1>();
     }
 
-    public Tower DynamicInstantiate()
+    public ATT_Type1 DynamicInstantiate()
     {
         return getTower();
     }
 
-    public Tower Allocate()
+    public ATT_Type1 Allocate()
     {
         return DynamicInstantiate();
     }

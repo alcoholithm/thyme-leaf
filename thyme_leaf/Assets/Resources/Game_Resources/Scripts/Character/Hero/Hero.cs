@@ -33,7 +33,7 @@ public class Hero : GameEntity {
 	public string target_name; //test debug...
 
 	[HideInInspector]
-	public ModelHero model;
+	public MHero model;
 	public ControllerHero controller;
 	public Helper helper;
 
@@ -62,7 +62,7 @@ public class Hero : GameEntity {
 		Debug.Log ("SettingInitialize");
 		//mvc setting...
 		helper = new Helper (this.gameObject);
-		model = new ModelHero (helper);
+		model = new MHero (helper);
 		controller = new ControllerHero (model, helper);
 
 		//other reference...

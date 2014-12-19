@@ -39,7 +39,7 @@ public class HeroState_Dying : State<Hero> {
         heroSpawner.Free(owner.gameObject);
 
 		//remove character in unit pool...
-		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject, owner.model.getType ());
+		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject, owner.model.Type);
 
 		//throw new System.NotImplementedException ();
 	}

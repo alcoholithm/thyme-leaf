@@ -9,7 +9,12 @@ public class Projectile : MonoBehaviour
 
     private GameEntity owner; // temp
     private GameEntity target;
-    private int power = 10;
+
+    //attack... IAttackable
+    private int attackDamage = 10;
+    private int attackRange;
+
+    // IMovable
     private float movingSpeed = 0.7f;
     //private float rotationSpeed = 1f;
 
@@ -54,7 +59,7 @@ public class Projectile : MonoBehaviour
         //fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
         fx.PlayOneShot(animName, new VoidFunction(() => gameObject.SetActive(false)));
 
-        Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, power);
+        Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
         owner.DispatchMessage(msg);
     }
 

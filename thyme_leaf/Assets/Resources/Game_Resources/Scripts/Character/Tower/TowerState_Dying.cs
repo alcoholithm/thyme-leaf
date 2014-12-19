@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_Dying : State<Tower>
+public class TowerState_Dying : State<ATT_Type1>
 {
     private string animName = "Tower_Dying_";
 
@@ -21,13 +21,13 @@ public class TowerState_Dying : State<Tower>
      */
 
  
-    public override void Enter(Tower owner)
+    public override void Enter(ATT_Type1 owner)
     {
         Debug.Log(TAG + "Enter");
-        owner.Anim.PlayOneShot(animName, new VoidFunction2<Tower>(x => x.ChangeState(TowerState_None.Instance), owner));
+        owner.Anim.PlayOneShot(animName, new VoidFunction2<ATT_Type1>(x => x.ChangeState(TowerState_None.Instance), owner));
     }
 
-    public override void Execute(Tower owner)
+    public override void Execute(ATT_Type1 owner)
     {
         time -= Time.deltaTime;
 
@@ -37,7 +37,7 @@ public class TowerState_Dying : State<Tower>
         }
     }
 
-    public override void Exit(Tower owner)
+    public override void Exit(ATT_Type1 owner)
     {
         Debug.Log(TAG + "Exit");
         TowerSpawner.Instance.Free(owner.gameObject);
