@@ -6,7 +6,20 @@ public class HeroState_Listener : MonoBehaviour
     void OnClick()
     {
 		Transform temp = GameObject.Find ("AutomatUnits").transform;
-        Hero hero = HeroSpawner.Instance.Allocate();
+        Hero hero = null;
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            hero = HeroSpawner.Instance.Allocate();
+        }
+        else if (Network.isServer)
+        {
+            hero = HostHeroSpawner.Instance.Allocate();
+        }
+        else if (Network.isClient)
+        {
+            hero = ClientHeroSpawner.Instance.Allocate();
+        }
+
 		Debug.Log ("character init");
 
 		//main setting...
