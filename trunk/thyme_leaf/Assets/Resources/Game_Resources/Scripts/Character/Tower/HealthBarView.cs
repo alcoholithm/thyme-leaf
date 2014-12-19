@@ -33,6 +33,10 @@ public class HealthBarView : MonoBehaviour, IView, IObserver
         this.slider.foregroundWidget.color = color;
     }
 
+	public void UpdateHealthBar_test(GameObject obj)
+	{
+
+	}
 
     /*
      * followings are overrided methods

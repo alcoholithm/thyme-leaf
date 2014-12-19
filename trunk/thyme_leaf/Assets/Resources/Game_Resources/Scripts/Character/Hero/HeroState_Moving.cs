@@ -61,7 +61,7 @@ public class HeroState_Moving : State<Hero> {
 			{
 				Vector3 d = owner.target.helper.getPos() - me;
 				float r = Mathf.Atan2(d.y, d.x);
-				float speed_v = owner.model.getSpeed();
+				float speed_v = owner.model.getSpeed() * Define.FrameControl();
 				owner.controller.addPos(speed_v * Mathf.Cos(r), speed_v * Mathf.Sin(r));
 			}
 		}
