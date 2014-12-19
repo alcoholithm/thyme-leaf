@@ -12,22 +12,21 @@ public class HeroState_Listener_Trovant : MonoBehaviour
 	void OnClick()
 	{
 		Transform temp = GameObject.Find ("TrovantPool").transform;
-
         Hero hero = trovantSpawner.DynamicInstantiate();
-
+	
 		//main setting...
 		hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 
 		//unit detail setting...
+//		hero.setLayer(Layer.Trovant);
 		hero.setLayer(Layer.Trovant);
-		
-		if(hero.helper.getLayer() == Layer.Automart)
+		if(hero.getLayer() == Layer.Automart)
 		{
 			hero.controller.StartPointSetting(StartPoint.AUTOMART_POINT);
 		}
-		else if(hero.helper.getLayer() == Layer.Trovant)
+		else if(hero.getLayer() == Layer.Trovant)
 		{			
 			hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		}
