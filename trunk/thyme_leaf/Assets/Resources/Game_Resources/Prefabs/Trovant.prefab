@@ -15,7 +15,6 @@ GameObject:
   - 114: {fileID: 11400006}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11400016}
   m_Layer: 8
   m_Name: Trovant
   m_TagString: TagWarriorTrovant
@@ -408,17 +407,6 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
---- !u!114 &11400016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224fae66e2417a24682f2d0ae20de60a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
