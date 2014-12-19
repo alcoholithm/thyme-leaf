@@ -29,6 +29,7 @@ public class ConnectScript : MonoBehaviour
         MasterServer.port = masterServerPort;
         Network.natFacilitatorIP = facilitatorIP;
         Network.natFacilitatorPort = facilitatorPort;
+        Network.minimumAllocatableViewIDs = 1000;
     }
 
     void Update()
