@@ -11,7 +11,7 @@ public class HeroState_Listener_Trovant : MonoBehaviour
 
 	void OnClick()
 	{
-		Transform temp = GameObject.Find ("TrovantPool").transform;
+		Transform temp = GameObject.Find ("TrovantUnits").transform;
         Hero hero = trovantSpawner.DynamicInstantiate();
 	
 		//main setting...
@@ -20,7 +20,6 @@ public class HeroState_Listener_Trovant : MonoBehaviour
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 
 		//unit detail setting...
-//		hero.setLayer(Layer.Trovant);
 		hero.setLayer(Layer.Trovant);
 		if(hero.getLayer() == Layer.Automart)
 		{
@@ -31,7 +30,7 @@ public class HeroState_Listener_Trovant : MonoBehaviour
 			hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		}
 		hero.CollisionVisiable ();
-		hero.EnableAlive ();
+//		hero.EnableAlive ();
 		
 		hero.controller.setType (UnitType.TROVANT_CHARACTER);
 		hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());

@@ -37,8 +37,6 @@ public class Hero : GameEntity {
 	public ControllerHero controller;
 	public Helper helper;
 
-	private Layer layer;
-	
 	//=====================
 
 	void Awake()
@@ -113,16 +111,18 @@ public class Hero : GameEntity {
 		//add.....tag...
 		Layer type = getLayer();
 
-
 		switch (type) {
 		case Layer.Automart:
-			if(Layer.Trovant == (Layer) gObj.layer) return true;
-			//if(gObj.CompareTag(Tag.TagWarriorTrovant())) return true;
+			if(Layer.Trovant == (Layer) gObj.layer)
+			{
+				return true;
+			}
 			break;
 		case Layer.Trovant:
-//			if(gObj.CompareTag(Tag.TagWarriorAutomart())) return true;
-			if(Layer.Automart == (Layer) gObj.layer) return true;
-//			return Layer.Automat == (Layer) gObj.Layer;
+			if(Layer.Automart == (Layer) gObj.layer)
+			{
+				return true;
+			}
 			break;
 		}
 		return false;
@@ -155,19 +155,12 @@ public class Hero : GameEntity {
 
 	//==============================================
 	//this functions are execute -> extern area...
-	//before start this Start() function...
-	public void EnableAlive() { health_bar_controller = transform.GetChild (0).GetChild(0).gameObject.GetComponent<HealthBarView> (); }
+//	public void EnableAlive() { health_bar_controller = transform.GetChild (0).GetChild(0).gameObject.GetComponent<HealthBarView> (); }
 	public void setName(string str) { name = str; }
 	public void setOffset(float offx, float offy) { offsetX = offx; offsetY = offy; }
 
-	public void setLayer(Layer v) { 
-		Debug.Log ("You changed layer from " + layer + " to " + v);
-		layer = v; 
-	}
-
-	public Layer getLayer(){
-		return (Layer) layer;
-	}
+	public void setLayer(Layer v) { gameObject.layer = (int) v; }
+	public Layer getLayer() { return (Layer) gameObject.layer; }
 
 	public void CollisionVisiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
 

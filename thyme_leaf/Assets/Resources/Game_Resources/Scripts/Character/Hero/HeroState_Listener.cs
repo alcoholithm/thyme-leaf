@@ -12,7 +12,7 @@ public class HeroState_Listener : MonoBehaviour
 
     void OnClick()
     {
-		Transform temp = GameObject.Find ("AutomartPool").transform;
+		Transform temp = GameObject.Find ("AutomatUnits").transform;
         Hero hero = heroSpawner.DynamicInstantiate();
 		Debug.Log ("character init");
 
@@ -22,11 +22,9 @@ public class HeroState_Listener : MonoBehaviour
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 
 		//unit detail setting...
-//		hero.setLayer(Layer.Automart);
 		hero.setLayer(Layer.Automart);
 		if(hero.getLayer() == Layer.Automart)
 		{
-			Debug.Log("I'm alive!!!!");
 			hero.controller.StartPointSetting(StartPoint.AUTOMART_POINT);
 		}
 		else if(hero.getLayer() == Layer.Trovant)
@@ -34,7 +32,7 @@ public class HeroState_Listener : MonoBehaviour
 			hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		}
 		hero.CollisionVisiable ();
-		hero.EnableAlive ();
+//		hero.EnableAlive ();
 
 		hero.controller.setType (UnitType.AUTOMART_CHARACTER);
 		hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
