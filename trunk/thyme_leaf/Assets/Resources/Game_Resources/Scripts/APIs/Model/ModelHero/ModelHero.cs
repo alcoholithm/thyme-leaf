@@ -12,7 +12,7 @@ public class MHero : Unit
     //extra... IGroupable
     private float radian;
     private string musterID;
-    private Vector2 node_offset;
+    private Vector3 node_offset;
 
     public MHero(Helper helper)
     {
@@ -40,7 +40,7 @@ public class MHero : Unit
         set { musterID = value; }
     }
 
-    public Vector2 Node_offset
+    public Vector3 Node_offset
     {
         get { return node_offset; }
         set { node_offset = value; }

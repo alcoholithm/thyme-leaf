@@ -23,7 +23,8 @@ public class Helper
 	public Vector3 gesture_startpoint;
 	public Vector2 gesture_endpoint;
 
-	//private Layer current_layer;
+	public Vector3 oldpos;
+	//==================================
 
 	//collision range
 	public float collision_range;
@@ -32,6 +33,8 @@ public class Helper
 	public Helper(GameObject obj)
 	{
 		currentUnit = obj;
+
+		oldpos = getPos ();
 		
 		moveMode = MoveModeState.FORWARD;
 
@@ -48,6 +51,13 @@ public class Helper
 		//=======================
 
 		attack_delay_counter = 0;
+	}
+
+	public float CurrentAngle()
+	{
+		Vector3 d = getPos () - oldpos;
+		oldpos = getPos ();
+		return Mathf.Atan2 (d.y, d.x) * Define.RadianToAngle ();
 	}
 
 	public void StartPointSetting(StartPoint option)

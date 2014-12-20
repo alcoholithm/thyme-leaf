@@ -28,16 +28,18 @@ public class HeroState_Attacking : State<Hero>
 		bool isCharacter = false;
 		for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
 		{
-			GameObject other = UnitPoolController.GetInstance().ElementUnit(i);
+			UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
+
+			if(owner.model.Name == other.nameID) continue;
 			
 			bool check = false;
 			switch(owner.getLayer())
 			{
 			case Layer.Automart:  //automart
-				if(other.layer == (int)Layer.Automart) check = true;
+				if(other.obj.layer == (int)Layer.Automart) check = true;
 				break;
 			case Layer.Trovant:  //trovant
-				if(other.layer == (int) Layer.Trovant) check = true;
+				if(other.obj.layer == (int)Layer.Trovant) check = true;
 				break;
 			default:
 				check = true;
@@ -46,21 +48,23 @@ public class HeroState_Attacking : State<Hero>
 			
 			if(!check)
 			{
-				float range = owner.helper.collision_range + 50;
-				if(Vector3.SqrMagnitude(other.transform.localPosition - owner.helper.getPos()) < range * range)
+				float range = 150;//owner.helper.collision_range + 120;
+				if(Vector3.SqrMagnitude(other.obj.transform.localPosition - owner.helper.getPos()) < range * range)
 				{
 					isCharacter = true;
-					Hero other_infor = other.GetComponent<Hero>();
+					Hero other_infor = other.obj.GetComponent<Hero>();
 					if(owner.helper.attack_target.model.Name != other_infor.model.Name)
-						owner.helper.attack_target = other.GetComponent<Hero>();
+						owner.helper.attack_target = other.obj.GetComponent<Hero>();
 					break;
 				}
 			}
 		}
 		
-		if(!isCharacter)
+		if(!isCharacter && owner.helper.attack_target.model.HP <= 0)
 		{
+			owner.target = null;
 			owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+			Debug.Log("return");
 		}
 
 		if(owner.helper.attack_target != null)
