@@ -38,6 +38,8 @@ public class HealthBarView : MonoBehaviour, IView
         this.slider.foregroundWidget.color = color;
     }
 
+	public UISlider getSlider() { return slider; }
+
     /*
      * followings are overrided methods
      */ 

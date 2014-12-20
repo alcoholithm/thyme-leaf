@@ -31,19 +31,18 @@ public class ControllerHero
     public void addPos(Vector3 v) { _helper.addPos(v); }
 
     //model...
-    public void setAngle(float ang) { _model.Radian = ang; }
+    public void setAngle(float ang) { _model.Angle = ang; }
 
     public void setSpeed(float v) { _model.MovingSpeed = v; }
 
     public void setMaxHp(int v) { _model.MaxHP = v; }
 
-    public void addHp(int v)
-    {
-        _model.HP += v;
-    }
+    public void addHp(int v) { _model.HP += v; }
     public void setHp(int v) { _model.HP = v; }
 
     public void setName(string v) { _model.Name = v; }
+
+	public void setSpeciesName(string v) { _model.SpecieName = v; }
 
     public void setmusterID(string v) { _model.MusterID = v; }
 

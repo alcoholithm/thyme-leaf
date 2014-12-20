@@ -23,7 +23,7 @@ public class Hero : GameEntity {
 	private NGUISpriteAnimation anim;	
 	private HealthBarView health_bar_controller;
 
-	//setting value...59.47
+	//setting value...
 	private float offsetX, offsetY;
 	private UnitType type;
 
@@ -34,6 +34,8 @@ public class Hero : GameEntity {
 	public MHero model;
 	public ControllerHero controller;
 	public Helper helper;
+
+	private string current_anim_name;
 	//=====================
 
 	void Awake()
@@ -80,7 +82,6 @@ public class Hero : GameEntity {
 		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
 
 		health_bar_controller = transform.GetChild (0).GetChild(0).gameObject.GetComponent<HealthBarView> ();
-		Debug.Log (health_bar_controller);
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
@@ -150,12 +151,48 @@ public class Hero : GameEntity {
 
 	public void ChangingAnimationAngle()
 	{
+		helper.angle_calculation_rate += Time.deltaTime;
+		if(helper.angle_calculation_rate >= 0.1f)
+		{
+			helper.angle_calculation_rate = 0;
 
+			int dir = helper.Current_Right_orLeft ();
+			float a = helper.CurrentAngle ();
+			controller.setAngle (a);
+
+			if(dir == -1) transform.localScale = new Vector3(-1, 1, 1);  //left
+			else transform.localScale = new Vector3(1, 1, 1);            //right
+
+			if(a < -45 && a > -135) //down
+			{
+				anim.Play("Comma_Moving_Downwards_");
+				Debug.Log("down");
+			}
+			else if(a >= -45 && a <= 45)  //right
+			{
+				anim.Play("Comma_Moving_Normal_");
+				Debug.Log("right");
+			}
+			else if(a <= -135 || a >= 135) //left
+			{
+				anim.Play("Comma_Moving_Normal_");
+				Debug.Log("left");
+			}
+			else if(a > 45 && a < 135) //up
+			{
+				anim.Play("Comma_Moving_Upwards_");
+				Debug.Log("up");
+			}
+		}
 	}
 
 	public void HealthUpdate()
 	{
-//		health_bar_controller.UpdateUI();
+		float ratio = model.HP / (float)model.MaxHP;
+		Color color = Color.Lerp(Color.red, Color.green, ratio);
+		
+		health_bar_controller.getSlider().value = ratio;
+		health_bar_controller.getSlider().foregroundWidget.color = color;
 	}
 
 	//==============================================
@@ -164,6 +201,9 @@ public class Hero : GameEntity {
 
 	public void setLayer(Layer v) { gameObject.layer = (int) v; }
 	public Layer getLayer() { return (Layer) gameObject.layer; }
+
+	public void setAnimName(string str){ current_anim_name = str; }
+	public string getAnimName() { return current_anim_name; }
 
 	public void CollisionSetting(bool trigger) { gameObject.GetComponent<CircleCollider2D>().enabled = trigger; }
 

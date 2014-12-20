@@ -24,6 +24,8 @@ public class Helper
 	public Vector2 gesture_endpoint;
 
 	public Vector3 oldpos;
+
+	public float angle_calculation_rate;
 	//==================================
 
 	//collision range
@@ -51,6 +53,7 @@ public class Helper
 		//=======================
 
 		attack_delay_counter = 0;
+		angle_calculation_rate = 0;
 	}
 
 	public float CurrentAngle()
@@ -58,6 +61,13 @@ public class Helper
 		Vector3 d = getPos () - oldpos;
 		oldpos = getPos ();
 		return Mathf.Atan2 (d.y, d.x) * Define.RadianToAngle ();
+	}
+
+	public int Current_Right_orLeft()
+	{
+		//-1 = left, 1 = right
+		float d = getPos ().x - oldpos.x;
+		return d <= 0 ? -1 : 1;
 	}
 
 	public void StartPointSetting(StartPoint option)
