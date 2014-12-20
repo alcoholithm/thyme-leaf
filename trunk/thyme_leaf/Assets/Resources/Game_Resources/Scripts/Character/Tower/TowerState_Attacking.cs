@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_Attacking : State<ATT_Type1>
+public class TowerState_Attacking : State<Agt_Type1>
 {
     private string animName = "Tower_Attacking_";
 
@@ -15,7 +15,7 @@ public class TowerState_Attacking : State<ATT_Type1>
     /*
      * followings are overrided methods
      */
-    public override void Enter(ATT_Type1 owner)
+    public override void Enter(Agt_Type1 owner)
     {
         Debug.Log(TAG + " Enter");
 
@@ -24,7 +24,7 @@ public class TowerState_Attacking : State<ATT_Type1>
         owner.SetAttackable(true);
     }
 
-    public override void Execute(ATT_Type1 owner)
+    public override void Execute(Agt_Type1 owner)
     {
         // if there are no enemies anymore.
         if (owner.Model.Enemies.Count == 0)
@@ -34,7 +34,7 @@ public class TowerState_Attacking : State<ATT_Type1>
         }
     }
 
-    public override void Exit(ATT_Type1 owner)
+    public override void Exit(Agt_Type1 owner)
     {
         Debug.Log(TAG + " Exit");
 

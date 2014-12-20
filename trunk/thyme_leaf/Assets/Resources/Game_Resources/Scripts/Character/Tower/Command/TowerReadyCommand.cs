@@ -3,9 +3,9 @@ using System.Collections;
 
 public class TowerReadyCommand : ICommand
 {
-    private ATT_Type1 tower;
+    private Agt_Type1 tower;
 
-    public TowerReadyCommand(ATT_Type1 tower)
+    public TowerReadyCommand(Agt_Type1 tower)
     {
         this.tower = tower;
     }

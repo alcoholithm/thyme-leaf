@@ -20,7 +20,7 @@ public class TowerSpotController
     public void BuildTower(GameObject parent)
     {
         // view에 대한 조작
-        ATT_Type1 tower = TowerSpawner.Instance.Allocate();
+        Agt_Type1 tower = TowerSpawner.Instance.Allocate();
         tower.transform.parent = parent.transform;
         tower.transform.localScale = Vector3.one;
         tower.transform.position = view.transform.position;
