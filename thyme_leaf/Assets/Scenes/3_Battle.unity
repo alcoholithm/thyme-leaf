@@ -844,182 +844,6 @@ Prefab:
   m_RootGameObject: {fileID: 1599953709}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &352397436
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 1de1dbab945234747b8ceea5efbbeffa, type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 352397437}
-  - 114: {fileID: 352397442}
-  - 114: {fileID: 352397441}
-  - 114: {fileID: 352397440}
-  - 50: {fileID: 352397439}
-  - 58: {fileID: 352397438}
-  - 148: {fileID: 352397444}
-  - 114: {fileID: 352397443}
-  m_Layer: 8
-  m_Name: Hero
-  m_TagString: TagWarriorAutomart
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &352397437
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 1de1dbab945234747b8ceea5efbbeffa, type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1000, y: 1000, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1131247756}
-  m_RootOrder: 0
---- !u!58 &352397438
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5800000, guid: 1de1dbab945234747b8ceea5efbbeffa,
-    type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: 35.0900002
-  m_Center: {x: 0, y: 0}
---- !u!50 &352397439
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5000000, guid: 1de1dbab945234747b8ceea5efbbeffa,
-    type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!114 &352397440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 1de1dbab945234747b8ceea5efbbeffa,
-    type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3073518f80373248a0198da00cae00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 100
-  CurrentHP: 100
-  speed: 40
-  name: 
-  target: {fileID: 0}
-  target_name: 
---- !u!114 &352397441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 1de1dbab945234747b8ceea5efbbeffa,
-    type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeba56312861fe946bf7f352f6a51225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mFPS: 30
-  mPrefix: 
-  mLoop: 1
-  mSnap: 1
-  _framerate: 30
-  _namePrefix: 
-  _loop: 1
-  _pixelSnap: 1
---- !u!114 &352397442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 1de1dbab945234747b8ceea5efbbeffa,
-    type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 56
-  mHeight: 70
-  mDepth: 4
-  autoResizeBoxCollider: 1
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: .800000012
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
-  mSpriteName: Comma_Attacking_Downwards_0
-  mFillCenter: 1
---- !u!114 &352397443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: 1de1dbab945234747b8ceea5efbbeffa,
-    type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71a11ae15c4cc204d891d75eb22c7fc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!148 &352397444
-NetworkView:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 14800000, guid: 1de1dbab945234747b8ceea5efbbeffa,
-    type: 2}
-  m_PrefabInternal: {fileID: 523317545}
-  m_GameObject: {fileID: 352397436}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 352397437}
-  m_ViewID:
-    m_ID: 1
-    m_Type: 1
 --- !u!1 &370593730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,7 +3104,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1131247756}
   - 114: {fileID: 1131247757}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: HeroSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3296,8 +3120,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 352397437}
+  m_Children: []
   m_Father: {fileID: 1196687327}
   m_RootOrder: 1
 --- !u!114 &1131247757
@@ -3313,7 +3136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   automats:
-  - {fileID: 352397436}
+  - {fileID: 100000, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
   initPoolSize: 100
   maxPoolSize: 200
 --- !u!1 &1138594626
@@ -6035,7 +5858,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1825442711}
   - 114: {fileID: 1825442712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrovantSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,7 +17,6 @@ interface IMovalble
     void Move();
 }
 
-
 interface IATT_Type1 : IAttackable
 {
     void TakeDamage(int damage);
@@ -135,7 +134,7 @@ public class ATT_Type1 : GameEntity, IATT_Type1, IStateMachineControllable<ATT_T
         this.anim = GetComponent<NGUISpriteAnimation>();
         //this.anim.Pause();
 
-        this.healthbar.Model = this.model;
+      //  this.healthbar.Model = this.model;
 
         model.RegisterObserver(this, ObserverTypes.Health);
     }

@@ -6,26 +6,17 @@ public class HeroState_Listener : MonoBehaviour
     void OnClick()
     {
 		Transform temp = GameObject.Find ("AutomatUnits").transform;
-        Hero hero = null;
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            hero = HeroSpawner.Instance.Allocate();
-        }
-        else if (Network.isServer)
-        {
-            hero = HostHeroSpawner.Instance.Allocate();
-        }
-        else if (Network.isClient)
-        {
-            hero = ClientHeroSpawner.Instance.Allocate();
-        }
-
+        Hero hero = HeroSpawner.Instance.Allocate();
 		Debug.Log ("character init");
 
 		//main setting...
 		hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
+
+		//unknown code..
+		hero.gameObject.SetActive (false);
+		hero.gameObject.SetActive (true);
 
 		//unit detail setting...
 		hero.setLayer(Layer.Automart);
@@ -37,8 +28,7 @@ public class HeroState_Listener : MonoBehaviour
 		{			
 			hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		}
-		hero.CollisionVisiable ();
-//		hero.EnableAlive ();
+		hero.CollisionSetting (true);
 
 		hero.controller.setType (UnitType.AUTOMART_CHARACTER);
 		hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
@@ -48,9 +38,17 @@ public class HeroState_Listener : MonoBehaviour
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
 		//moveing enable...
 		hero.controller.setMoveTrigger(true);
+		//hp bar setting...
+		hero.HealthUpdate ();
+
+		//test...
+		hero.my_name = hero.model.Name;
 
 		//unit pool insert...
-		UnitPoolController.GetInstance ().AddUnit (hero.gameObject, hero.model.Type);
+		Debug.Log ("11111");
+		Debug.Log (hero.model.Name);
+		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
+		UnitPoolController.GetInstance ().AddUnit (u_obj);
 		//another   
 		//Message msg = tower.ObtainMessage(MessageTypes.MSG_BUILD_TOWER, new TowerBuildCommand(tower));
   		//tower.DispatchMessage(msg);

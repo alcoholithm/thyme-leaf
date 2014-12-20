@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Hero : GameEntity {
 	public new const string TAG = "[Hero]";
@@ -22,21 +23,17 @@ public class Hero : GameEntity {
 	private NGUISpriteAnimation anim;	
 	private HealthBarView health_bar_controller;
 
-	//setting value...
-	private bool alive = false;
-	public string name;  //test after...chagne private
+	//setting value...59.47
 	private float offsetX, offsetY;
 	private UnitType type;
-	private int layer_setting;
 
 	public Hero target;
-	public string target_name; //test debug...
+	public string my_name;
 
 	[HideInInspector]
 	public MHero model;
 	public ControllerHero controller;
 	public Helper helper;
-
 	//=====================
 
 	void Awake()
@@ -54,6 +51,9 @@ public class Hero : GameEntity {
 		stateMachine.Update();
 		//=============================
 		Gesturing ();
+
+		//angle checking...
+
 	}
 
 	//unit detail initialize...
@@ -63,21 +63,24 @@ public class Hero : GameEntity {
 		//mvc setting...
 		helper = new Helper (this.gameObject);
 		model = new MHero (helper);
-		controller = new ControllerHero (model, helper);
+		controller = new ControllerHero (model, helper); 
 
 		//other reference...
 		target = null;
 
 		float range_value = 100;
 		setOffset (Random.Range (-range_value, range_value), Random.Range (-range_value, range_value));
-		
+
 		controller.setSpeed (speed / 10.0f);
 		controller.setMaxHp (MaxHP);
-		controller.setHp (CurrentHP);
+		controller.setHp (MaxHP);
 		controller.setMoveOffset (offsetX, offsetY);
 
 		helper.setMoveTrigger (false);
 		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
+
+		health_bar_controller = transform.GetChild (0).GetChild(0).gameObject.GetComponent<HealthBarView> ();
+		Debug.Log (health_bar_controller);
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
@@ -90,18 +93,16 @@ public class Hero : GameEntity {
 			if(IsAttackCase(coll.gameObject))  //state compare okay...
 		    {
 				helper.attack_target = coll.gameObject.GetComponent<Hero>();
-				//나는 때리는 상태로
+				//my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
-				//상대방은 쳐맞는 상태로
-				coll.gameObject.GetComponent<Hero>().stateMachine.ChangeState(HeroState_Attacking.Instance);
 			}
 		}
 		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
 		{
-			if(IsAttackCase(coll.gameObject))  //state compare okay...
-			{
-				helper.attack_target = coll.gameObject.GetComponent<Hero>();
-			}
+//			if(IsAttackCase(coll.gameObject))  //state compare okay...
+//			{
+//				helper.attack_target = coll.gameObject.GetComponent<Hero>();
+//			}
 		}
 	}
 
@@ -110,7 +111,6 @@ public class Hero : GameEntity {
 	{
 		//add.....tag...
 		Layer type = getLayer();
-
 		switch (type) {
 		case Layer.Automart:
 			if(Layer.Trovant == (Layer) gObj.layer)
@@ -148,23 +148,28 @@ public class Hero : GameEntity {
 		}
 	}
 
+	public void ChangingAnimationAngle()
+	{
+
+	}
+
 	public void HealthUpdate()
 	{
-		//health_bar_controller.UpdateHealthBar_Test (this.gameObject);
+//		health_bar_controller.UpdateUI();
 	}
 
 	//==============================================
-	//this functions are execute -> extern area...
-//	public void EnableAlive() { health_bar_controller = transform.GetChild (0).GetChild(0).gameObject.GetComponent<HealthBarView> (); }
 	public void setName(string str) { name = str; }
 	public void setOffset(float offx, float offy) { offsetX = offx; offsetY = offy; }
 
 	public void setLayer(Layer v) { gameObject.layer = (int) v; }
 	public Layer getLayer() { return (Layer) gameObject.layer; }
 
-	public void CollisionVisiable() { gameObject.GetComponent<CircleCollider2D>().enabled = true; }
+	public void CollisionSetting(bool trigger) { gameObject.GetComponent<CircleCollider2D>().enabled = trigger; }
 
-	//Get anim Function...
+	public void Die(){ helper.setPos (1000, 1000, 0); CollisionSetting (false); }
+
+	//get anim Function...
 	public UISpriteAnimation GetAnim() { return anim; }
 	//==========================
 

@@ -18,8 +18,7 @@ public class HeroState_Moving : State<Hero> {
 
 	public override void Execute (Hero owner)
 	{
-		float dx = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).x + owner.model.Node_offset.x) - owner.helper.getPos ().x;
-		float dy = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT).y + owner.model.Node_offset.y) - owner.helper.getPos ().y;
+		Vector3 d = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT) + owner.model.Node_offset) - owner.helper.getPos ();
 
 		//checking...
 		Vector3 me = owner.helper.getPos(); // this character position...
@@ -27,16 +26,18 @@ public class HeroState_Moving : State<Hero> {
 		{
 			for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
 			{
-				GameObject other = UnitPoolController.GetInstance().ElementUnit(i);
+				UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
+
+				if(owner.model.Name == other.nameID) continue;
 
 				bool check = false;
 				switch(owner.getLayer())
-				{
+				{ 
 				case Layer.Automart:  //automart
-					if(other.layer == (int) Layer.Automart) check = true;
+					if(other.obj.layer == (int) Layer.Automart) check = true;
 					break;
 				case Layer.Trovant:  //trovant
-					if(other.layer == (int) Layer.Trovant) check = true;
+					if(other.obj.layer == (int) Layer.Trovant) check = true;
 					break;
 				default:
 					check = true;
@@ -45,11 +46,12 @@ public class HeroState_Moving : State<Hero> {
 
 				if(!check)
 				{
-					float range = owner.helper.collision_range + 120;
-					if(Vector3.SqrMagnitude(other.transform.localPosition - me) < range * range)
+					float range = 150;//owner.helper.collision_range + 200;
+					float dist = Vector3.SqrMagnitude(other.obj.transform.localPosition - me);
+					if(dist < range * range)
 					{
 						owner.helper.setMoveTrigger(false);
-						owner.target = other.GetComponent<Hero>();
+						owner.target = other.obj.GetComponent<Hero>();
 						break;
 					}
 				}
@@ -59,8 +61,9 @@ public class HeroState_Moving : State<Hero> {
 		{
 			if(!owner.helper.getMoveTrigger())
 			{
-				Vector3 d = owner.target.helper.getPos() - me;
-				float r = Mathf.Atan2(d.y, d.x);
+				Debug.Log("!!!!!!!!!!!!!!!!");
+				Vector3 dd = owner.target.helper.getPos() - me;
+				float r = Mathf.Atan2(dd.y, dd.x);
 				float speed_v = owner.model.MovingSpeed * Define.FrameControl();
 				owner.controller.addPos(speed_v * Mathf.Cos(r), speed_v * Mathf.Sin(r));
 			}
@@ -69,7 +72,7 @@ public class HeroState_Moving : State<Hero> {
 		//moving...
 		if(owner.helper.getMoveTrigger())
 		{
-			if(dx * dx + dy * dy < 10) //checking range    
+			if(Vector3.SqrMagnitude(d) < 10) //checking range    
 			{
 				if(owner.helper.GetMoveMode() == MoveModeState.FORWARD)
 				{
@@ -131,7 +134,7 @@ public class HeroState_Moving : State<Hero> {
 			}
 			//move module
 			float sp = owner.model.MovingSpeed * Define.FrameControl();
-			float rt = Mathf.Atan2(dy, dx);
+			float rt = Mathf.Atan2(d.y, d.x);
 
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
 		}

@@ -36,10 +36,11 @@ public class HeroState_Dying : State<Hero> {
 	//	Message msg = owner.target.ObtainMessage(MessageTypes.MSG_MOVE_HERO, new HeroMovingCommand(owner.target));
 	//	owner.target.DispatchMessage(msg);
 
+		owner.Die ();
         heroSpawner.Free(owner.gameObject);
 
 		//remove character in unit pool...
-		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject, owner.model.Type);
+		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject);
 
 		//throw new System.NotImplementedException ();
 	}

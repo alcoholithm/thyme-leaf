@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class UnitPoolController
 {
-	private List<GameObject> unitPool;
+	private List<UnitObject> unitPool;
 
 	public new const string TAG = "[UnitPoolController]";
 
@@ -19,52 +19,32 @@ public class UnitPoolController
 
 	public UnitPoolController()
 	{
-		unitPool = new List<GameObject> ();
+		unitPool = new List<UnitObject> ();
 	}
 
-	public void AddUnit(GameObject uObj, UnitType option)
+	public void AddUnit(UnitObject uObj)
 	{
-		if(!isUnit(ref uObj, option))
+		if(!isUnit(ref uObj))
 		{
 			unitPool.Add(uObj);
 		}
 	}
 
-	public void RemoveUnit(GameObject uObj, UnitType option)
+	public void RemoveUnit(GameObject uObj)
 	{
-		string str1, str2;
-		str1 = "temp";
-		str2 = "temp";
-		switch(option)
+		string str1 = "";
+		if(uObj.layer == (int)Layer.Automart || uObj.layer == (int)Layer.Trovant)
 		{
-		case UnitType.AUTOMART_CHARACTER:
 			str1 = uObj.GetComponent<Hero>().model.Name;
-			break;
-		case UnitType.AUTOMART_TOWER:
-			break;
-		case UnitType.TROVANT_CHARACTER:
-			break;
-	//	case UnitType.TROVANT_TOWER:
-	//		break;
+		}
+		else if(uObj.layer == (int)Layer.Tower)
+		{
+			//add...
 		}
 
 		for(int i=0;i<unitPool.Count;i++)
 		{
-			switch(option)
-			{
-			case UnitType.AUTOMART_CHARACTER:
-				Hero tempFunc = unitPool[i].GetComponent<Hero>();
-				if(tempFunc == null) continue;
-				else str2 = tempFunc.model.Name;
-				break;
-			case UnitType.AUTOMART_TOWER:
-				break;
-			case UnitType.TROVANT_CHARACTER:
-				break;
-		//	case UnitType.TROVANT_TOWER:
-		//		break;
-			}
-			if(str1 == str2)
+			if(str1 == unitPool[i].nameID)
 			{
 				unitPool.RemoveAt(i);
 				break;
@@ -77,34 +57,19 @@ public class UnitPoolController
 		return unitPool.Count;
 	}
 	
-	public GameObject ElementUnit(int idx)
+	public UnitObject ElementUnit(int idx)
 	{
-		if(idx < 0 || idx >= unitPool.Count) return null;
+		if(idx < 0 || idx >= unitPool.Count) return new UnitObject(0);
 
 		return unitPool [idx];
 	}
 
-	public bool isUnit(ref GameObject uObj, UnitType option)
+	public bool isUnit(ref UnitObject uObj)
 	{
-		string str1, str2;
-		str1 = "temp";
-		str2 = "temp";
+		string str1 = uObj.nameID;
 		for(int i=0;i<unitPool.Count;i++)
 		{
-			switch(option)
-			{
-			case UnitType.AUTOMART_CHARACTER:
-				str1 = uObj.GetComponent<Hero>().model.Name;
-				str2 = unitPool[i].GetComponent<Hero>().model.Name;
-				break;
-			case UnitType.AUTOMART_TOWER:
-				break;
-			case UnitType.TROVANT_CHARACTER:
-				break;
-		//	case UnitType.TROVANT_TOWER:
-		//		break;
-			}
-			if(str1 == str2) return true;
+			if(str1 == unitPool[i].nameID) return true;
 		}
 		return false;
 	}
@@ -113,5 +78,26 @@ public class UnitPoolController
 	{
 		unitPool.Clear ();
 		unitPool = null;
+	}
+}
+
+public struct UnitObject
+{
+	public GameObject obj;
+	public string nameID;
+	public UnitType type;
+
+	public UnitObject(GameObject obj, string name, UnitType type)
+	{
+		this.obj = obj;
+		nameID = name;
+		this.type = type;
+	}
+
+	public UnitObject(int null_)
+	{
+		obj = null;
+		nameID = "";
+		this.type = UnitType.AUTOMART_CHARACTER;
 	}
 }
