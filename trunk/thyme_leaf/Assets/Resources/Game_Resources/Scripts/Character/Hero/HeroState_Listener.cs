@@ -5,6 +5,7 @@ public class HeroState_Listener : MonoBehaviour
 {
     void OnClick()
     {
+		string anim_check;
 		Transform temp = GameObject.Find ("AutomatUnits").transform;
         Hero hero = HeroSpawner.Instance.Allocate();
 		Debug.Log ("character init");
@@ -19,6 +20,7 @@ public class HeroState_Listener : MonoBehaviour
 		hero.gameObject.SetActive (true);
 
 		//unit detail setting...
+
 		hero.setLayer(Layer.Automart);
 		if(hero.getLayer() == Layer.Automart)
 		{
@@ -36,6 +38,7 @@ public class HeroState_Listener : MonoBehaviour
 		//move trigger & unit pool manager setting <add>...
 		//moving state...
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
+		hero.setAnimName ("Comma_Moving_Normal_");
 		//moveing enable...
 		hero.controller.setMoveTrigger(true);
 		//hp bar setting...
@@ -45,8 +48,6 @@ public class HeroState_Listener : MonoBehaviour
 		hero.my_name = hero.model.Name;
 
 		//unit pool insert...
-		Debug.Log ("11111");
-		Debug.Log (hero.model.Name);
 		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
 		UnitPoolController.GetInstance ().AddUnit (u_obj);
 		//another   

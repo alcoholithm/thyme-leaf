@@ -9,6 +9,7 @@ public abstract class Unit : IObservable
     protected int currHp;
     protected int defense;
     protected UnitType type;
+	protected string species_name;
 
     private Dictionary<ObserverTypes, List<IObserver>> observers =
         new Dictionary<ObserverTypes, List<IObserver>>();
@@ -58,6 +59,11 @@ public abstract class Unit : IObservable
         get { return name; }
         set { name = value; }
     }
+	public string SpecieName
+	{
+		get { return species_name; }
+		set { species_name = value; }
+	}
     public string Description
     {
         get { return description; }

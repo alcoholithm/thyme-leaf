@@ -10,13 +10,13 @@ public class MHero : Unit
     private float movingSpeed;
 
     //extra... IGroupable
-    private float radian;
+    private float angle;
     private string musterID;
     private Vector3 node_offset;
 
     public MHero(Helper helper)
     {
-        radian = 0;
+		angle = 0;
         _helper = helper;
     }
 
@@ -28,10 +28,10 @@ public class MHero : Unit
         get { return movingSpeed; }
         set { movingSpeed = value; }
     }
-    public float Radian
+    public float Angle
     {
-        get { return radian * Define.RadianToAngle(); }
-        set { radian = Define.AngleToRadian() * value; }
+		get { return angle; }
+		set { angle = value; }
     }
 
     public string MusterID
