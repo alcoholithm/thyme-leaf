@@ -135,7 +135,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
+  mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
   mSpriteName: Comma_Attacking_Normal_6
   mFillCenter: 1
 --- !u!1001 &100100000

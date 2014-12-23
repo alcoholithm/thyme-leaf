@@ -74,9 +74,8 @@ MonoBehaviour:
   MaxHP: 100
   CurrentHP: 100
   speed: 40
-  name: 
   target: {fileID: 0}
-  target_name: 
+  my_name: 
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,7 +142,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: b5b827b73d1b3884d8037ff40803256e, type: 2}
+  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
   mSpriteName: Comma_Attacking_Downwards_0
   mFillCenter: 1
 --- !u!114 &11400006
