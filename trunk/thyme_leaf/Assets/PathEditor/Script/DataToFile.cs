@@ -42,10 +42,10 @@ public class DataToFile : MonoBehaviour
 			dat = dataNode.turnoffBridge == null ? "null" : dataNode.turnoffBridge.name;
 			textWriter.WriteLine("turnoffBridge " + dat);
 
-			dat = dataNode.startPoint == true ? "true" : "false";
-			textWriter.WriteLine("startpoint " + dat);
-			dat = dataNode.endPoint == true ? "true" : "false";
-			textWriter.WriteLine("endpoint " + dat);
+			dat = dataNode.automatPoint == true ? "true" : "false";
+			textWriter.WriteLine("automatpoint " + dat);
+			dat = dataNode.trovantPoint == true ? "true" : "false";
+			textWriter.WriteLine("trovantpoint " + dat);
 			dat = dataNode.TurnoffRoot == true ? "true" : "false";
 			textWriter.WriteLine("turnoffRoot " + dat);
 
@@ -92,7 +92,7 @@ public class DataToFile : MonoBehaviour
 		textWriter.Close();
 	}
 
-	public static void LoadData(int stageNumber, GameObject nodePref)
+	public static void LoadData(int stageNumber, GameObject nodePref, GameObject automat_ct, GameObject trovant_ct)
 	{
 		if(stageNumber <= 0) return;
 
@@ -109,7 +109,7 @@ public class DataToFile : MonoBehaviour
 		Stream strm = new MemoryStream(textAs.bytes);
 		StreamReader textReader = new StreamReader(strm);
 
-		Define.pathNode = new List<GameObject>();
+		Define.pathNode = new List<MapDataStruct> ();
 		//parsing start
 
 		string str = textReader.ReadLine();
@@ -122,7 +122,7 @@ public class DataToFile : MonoBehaviour
 		obj.transform.localPosition = new Vector3(0,0,0);
 		obj.transform.localScale = new Vector3 (1, 1, 1);
 		obj.name = nameA;
-		Define.pathNode.Add(obj);
+		Define.pathNode.Add(new MapDataStruct (obj, false, false, false));
 		for(int i=1;i<DataNodeNum;i++)
 		{
 			//file format...
@@ -134,7 +134,7 @@ public class DataToFile : MonoBehaviour
 			obj.transform.localPosition = new Vector3(0,0,0);
 			obj.transform.localScale = new Vector3 (1, 1, 1);
 			obj.name = nameA;
-			Define.pathNode.Add(obj);
+			Define.pathNode.Add(new MapDataStruct (obj, false, false, false));
 		}
 		textReader = new StreamReader(strm);
 		textReader.BaseStream.Seek(0, SeekOrigin.Begin);  //first point
@@ -161,9 +161,9 @@ public class DataToFile : MonoBehaviour
 			{
 				for(int i=0;i<Define.pathNode.Count;i++)
 				{
-					if(next_node == Define.pathNode[i].name)
+					if(next_node == Define.pathNode[i].obj.name)
 					{
-						Next = Define.pathNode[i];
+						Next = Define.pathNode[i].obj;
 						break;
 					}
 				}
@@ -175,9 +175,9 @@ public class DataToFile : MonoBehaviour
 			{
 				for(int i=0;i<Define.pathNode.Count;i++)
 				{
-					if(prev_node == Define.pathNode[i].name)
+					if(prev_node == Define.pathNode[i].obj.name)
 					{
-						Prev = Define.pathNode[i];
+						Prev = Define.pathNode[i].obj;
 						break;
 					}
 				}
@@ -189,17 +189,17 @@ public class DataToFile : MonoBehaviour
 			{
 				for(int i=0;i<Define.pathNode.Count;i++)
 				{
-					if(turnoff_node == Define.pathNode[i].name)
+					if(turnoff_node == Define.pathNode[i].obj.name)
 					{
-						TurnOffRoot = Define.pathNode[i];
+						TurnOffRoot = Define.pathNode[i].obj;
 						break;
 					}
 				}
 			}
 
-			bool start_pt = bool.Parse(textReader.ReadLine().Split(' ')[1]);
+			bool automat_pt = bool.Parse(textReader.ReadLine().Split(' ')[1]);
 
-			bool end_pt = bool.Parse(textReader.ReadLine().Split(' ')[1]);
+			bool trovant_pt = bool.Parse(textReader.ReadLine().Split(' ')[1]);
 
 			bool turnoff_pt = bool.Parse(textReader.ReadLine().Split(' ')[1]);
 
@@ -218,9 +218,9 @@ public class DataToFile : MonoBehaviour
 				{
 					for(int k=0;k<Define.pathNode.Count;k++)
 					{
-						if(tempList[i] == Define.pathNode[k].name)
+						if(tempList[i] == Define.pathNode[k].obj.name)
 						{
-							turnList[i] = Define.pathNode[k];
+							turnList[i] = Define.pathNode[k].obj;
 							break;
 						}
 					}
@@ -228,32 +228,93 @@ public class DataToFile : MonoBehaviour
 			}
 
 			//game object infor setting
-			GameObject tempsetting = Define.pathNode[c];
+			GameObject tempsetting = Define.pathNode[c].obj;
 			tempsetting.GetComponent<SphereCollider>().enabled = false;
 
 			scriptPathNode tempFunc = tempsetting.GetComponent<scriptPathNode>();
-			Define.pathNode[c].transform.localPosition = current_pos;
-			Define.pathNode[c].transform.localScale = new Vector3(1,1,1);
+			Define.pathNode[c].obj.transform.localPosition = current_pos;
+			Define.pathNode[c].obj.transform.localScale = new Vector3(1,1,1);
 			tempFunc.DataInit();
 
 			tempFunc.setID(id);
 			tempFunc.Next = Next;
 			tempFunc.Prev = Prev;
 			tempFunc.turnoffBridge = TurnOffRoot;
-			tempFunc.startPoint = start_pt;
-			tempFunc.endPoint = end_pt;
+			tempFunc.automatPoint = automat_pt;
+			tempFunc.trovantPoint = trovant_pt;
 			tempFunc.TurnoffRoot = turnoff_pt;
 			tempFunc.SetTurnOffListCount(turnoffIndex);
 			for(int i=0;i<Define.TurnOffMaxCount();i++)
 				tempFunc.turnoffList[i] = turnList[i];
 
-			if(tempFunc.startPoint) tempFunc.ChangeIMG(SpriteList.START);
-			else if(tempFunc.endPoint) tempFunc.ChangeIMG(SpriteList.END);
+			if(tempFunc.automatPoint) tempFunc.ChangeIMG(SpriteList.AUTOMAT);
+			else if(tempFunc.trovantPoint) tempFunc.ChangeIMG(SpriteList.TROVANT);
 			else if(tempFunc.TurnoffRoot) tempFunc.ChangeIMG(SpriteList.TURNOFF);
 
-			Define.pathNode[c] = tempsetting;
+			tempFunc.SetVisialbe(true);
+
+			MapDataStruct mapdata = Define.pathNode[c];
+			mapdata.obj = tempsetting;
+			Define.pathNode[c] = mapdata;
 		}
 
+		//object center position setting...
+		for(int i=0;i<Define.pathNode.Count;i++)
+		{
+			scriptPathNode tempFunc = Define.pathNode[i].obj.GetComponent<scriptPathNode>();
+			if(tempFunc.automatPoint && !Define.pathNode[i].isUse)
+			{
+				MapDataStruct map_data = Define.pathNode[i];
+				map_data.isUse = true;
+				map_data.automat_center = true;
+				Define.pathNode[i] = map_data;
 
+				GameObject center = Instantiate(automat_ct) as GameObject;
+				center.transform.parent = GameObject.Find("4 - UI").transform.FindChild("1 - Base layer");
+				center.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
+				center.transform.localScale = new Vector3(1, 1, 1);
+
+				i = 0;
+				continue;
+			}
+
+			if(tempFunc.trovantPoint && !Define.pathNode[i].isUse)
+			{
+				MapDataStruct map_data = Define.pathNode[i];
+				map_data.isUse = true;
+				map_data.trovant_center = true;
+				Define.pathNode[i] = map_data; 
+
+				GameObject center = Instantiate(trovant_ct) as GameObject;
+				center.transform.parent = GameObject.Find("4 - UI").transform.FindChild("1 - Base layer");
+				center.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
+				center.transform.localScale = new Vector3(1, 1, 1);
+
+				i = 0;
+				continue;
+			}
+		}
+	}
+}
+
+public struct MapDataStruct
+{
+	public GameObject obj;
+	public bool trovant_center;
+	public bool automat_center;
+	public bool isUse;
+
+	public MapDataStruct(GameObject obj, bool trovant_center, bool automat_center, bool isUse)
+	{
+		this.obj = obj;
+		this.automat_center = automat_center;
+		this.trovant_center = trovant_center;
+		this.isUse = isUse;
+	}
+
+	public MapDataStruct(int null_)
+	{
+		obj = null;
+		automat_center = trovant_center = isUse = false;
 	}
 }

@@ -7,10 +7,10 @@ public class CommandAutomat_Initialize : MonoBehaviour
 	{
 		for(int i=0;i<Define.pathNode.Count;i++)
 		{
-			scriptPathNode tempFunc = Define.pathNode[i].GetComponent<scriptPathNode>();
-			if(tempFunc.startPoint)
+			scriptPathNode tempFunc = Define.pathNode[i].obj.GetComponent<scriptPathNode>();
+			if(tempFunc.automatPoint)
 			{
-				transform.localPosition = Define.pathNode[i].transform.localPosition;
+				transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
 			}
 		}
 	}

@@ -23,12 +23,12 @@ public enum PosParamOption
 
 public enum EnableNodeMode
 {
-	START_NODE = 0, END_NODE, TURNOFF_NODE
+	AUTOMAT_NODE = 0, TROVANT_NODE, TURNOFF_NODE
 }
 
 public enum SpriteList
 {
-	END = 0, NORMAL, START, TURNOFF
+	TROVANT = 0, NORMAL, AUTOMAT, TURNOFF
 }
 
 public enum StartPoint
@@ -48,3 +48,4 @@ public enum SpawnerType
     TROVANT_SPAWNER,
     TOWER_SPAWNER,
 }
+

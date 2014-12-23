@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Define
 {
-	public static List<GameObject> pathNode;
+	public static List<MapDataStruct> pathNode;
 	public static void PathDataDispose()
 	{
 		pathNode.Clear ();

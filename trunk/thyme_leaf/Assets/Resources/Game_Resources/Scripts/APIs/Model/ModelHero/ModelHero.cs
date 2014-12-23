@@ -11,12 +11,13 @@ public class MHero : Unit
 
     //extra... IGroupable
     private float angle;
-    private string musterID;
+    private int musterID;
     private Vector3 node_offset;
 
     public MHero(Helper helper)
     {
 		angle = 0;
+		musterID = -1;
         _helper = helper;
     }
 
@@ -34,7 +35,7 @@ public class MHero : Unit
 		set { angle = value; }
     }
 
-    public string MusterID
+    public int MusterID
     {
         get { return musterID; }
         set { musterID = value; }

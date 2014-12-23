@@ -66,14 +66,13 @@ public class HeroState_Moving : State<Hero> {
 				float r = Mathf.Atan2(dd.y, dd.x);
 				float speed_v = owner.model.MovingSpeed * Define.FrameControl();
 				owner.controller.addPos(speed_v * Mathf.Cos(r), speed_v * Mathf.Sin(r));
-				owner.model.Angle = r * Define.RadianToAngle();
 			}
 		}
 
 		//moving...
 		if(owner.helper.getMoveTrigger())
 		{
-			if(Vector3.SqrMagnitude(d) < 10) //checking range    
+			if(Vector3.SqrMagnitude(d) < 20) //checking range    
 			{
 				if(owner.helper.GetMoveMode() == MoveModeState.FORWARD)
 				{
@@ -88,7 +87,7 @@ public class HeroState_Moving : State<Hero> {
 						if(owner.helper.nodeInfor.turnoffBridge == null)
 						{
 							//Debug.Log("turnoff null");
-							if(owner.helper.nodeInfor.startPoint || owner.helper.nodeInfor.endPoint) owner.controller.MoveReverse();
+							if(owner.helper.nodeInfor.automatPoint || owner.helper.nodeInfor.trovantPoint) owner.controller.MoveReverse();
 							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
 						else
@@ -110,7 +109,7 @@ public class HeroState_Moving : State<Hero> {
 						if(owner.helper.nodeInfor.turnoffBridge == null)
 						{
 							//Debug.Log("turnoff null");
-							if(owner.helper.nodeInfor.startPoint || owner.helper.nodeInfor.endPoint) owner.controller.MoveReverse();
+							if(owner.helper.nodeInfor.automatPoint || owner.helper.nodeInfor.trovantPoint) owner.controller.MoveReverse();
 							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
 						else
@@ -136,7 +135,6 @@ public class HeroState_Moving : State<Hero> {
 			//move module
 			float sp = owner.model.MovingSpeed * Define.FrameControl();
 			float rt = Mathf.Atan2(d.y, d.x);
-			owner.model.Angle = rt * Define.RadianToAngle();
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
 		}
 		owner.ChangingAnimationAngle ();

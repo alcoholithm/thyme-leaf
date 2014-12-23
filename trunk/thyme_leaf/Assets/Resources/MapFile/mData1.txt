@@ -1,9 +1,9 @@
-numofdata 27
+numofdata 40
 name node0
 id 0
 current_pos
--881 615 0
-next node12
+-964 -167 0
+next node21
 prev null
 turnoffBridge null
 startpoint true
@@ -15,10 +15,10 @@ null null null null
 name node1
 id 1
 current_pos
-164 -325 0
-next null
-prev node28
-turnoffBridge node25
+-80 386 0
+next node22
+prev node2
+turnoffBridge null
 startpoint false
 endpoint false
 turnoffRoot false
@@ -28,9 +28,9 @@ null null null null
 name node2
 id 2
 current_pos
-615 -230 0
-next node7
-prev node24
+-175 346 0
+next node1
+prev node4
 turnoffBridge null
 startpoint false
 endpoint false
@@ -41,22 +41,22 @@ null null null null
 name node3
 id 3
 current_pos
-688 60 0
-next node10
-prev node7
+-48 43 0
+next null
+prev null
 turnoffBridge null
 startpoint false
 endpoint false
-turnoffRoot false
-turnoffidx 0
+turnoffRoot true
+turnoffidx 3
 turnoffList
-null null null null 
+node7 node29 node6 null 
 name node4
 id 4
 current_pos
-520 323 0
-next node6
-prev node10
+-243 269 0
+next node2
+prev node5
 turnoffBridge null
 startpoint false
 endpoint false
@@ -67,10 +67,10 @@ null null null null
 name node5
 id 5
 current_pos
--347 -302 0
-next node26
-prev null
-turnoffBridge node18
+-235 172 0
+next node4
+prev node6
+turnoffBridge null
 startpoint false
 endpoint false
 turnoffRoot false
@@ -80,10 +80,10 @@ null null null null
 name node6
 id 6
 current_pos
-688 425 0
-next node8
-prev node4
-turnoffBridge null
+-157 97 0
+next node5
+prev null
+turnoffBridge node3
 startpoint false
 endpoint false
 turnoffRoot false
@@ -93,10 +93,10 @@ null null null null
 name node7
 id 7
 current_pos
-707 -94 0
-next node3
-prev node2
-turnoffBridge null
+76 -18 0
+next null
+prev node8
+turnoffBridge node3
 startpoint false
 endpoint false
 turnoffRoot false
@@ -106,22 +106,9 @@ null null null null
 name node8
 id 8
 current_pos
-863 533 0
-next null
-prev node6
-turnoffBridge null
-startpoint false
-endpoint true
-turnoffRoot false
-turnoffidx 0
-turnoffList
-null null null null 
-name node10
-id 10
-current_pos
-580 172 0
-next node4
-prev node3
+190 -71 0
+next node7
+prev node9
 turnoffBridge null
 startpoint false
 endpoint false
@@ -129,13 +116,52 @@ turnoffRoot false
 turnoffidx 0
 turnoffList
 null null null null 
+name node9
+id 9
+current_pos
+298 -107 0
+next node8
+prev node10
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node10
+id 10
+current_pos
+398 -152 0
+next node9
+prev null
+turnoffBridge node11
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node11
+id 11
+current_pos
+439 -245 0
+next null
+prev null
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot true
+turnoffidx 3
+turnoffList
+node12 node39 node10 null 
 name node12
 id 12
 current_pos
--789 512 0
-next node13
-prev node0
-turnoffBridge null
+381 -334 0
+next null
+prev node13
+turnoffBridge node11
 startpoint false
 endpoint false
 turnoffRoot false
@@ -145,9 +171,9 @@ null null null null
 name node13
 id 13
 current_pos
--729 365 0
-next node14
-prev node12
+265 -374 0
+next node12
+prev node14
 turnoffBridge null
 startpoint false
 endpoint false
@@ -158,9 +184,9 @@ null null null null
 name node14
 id 14
 current_pos
--701 209 0
-next node15
-prev node13
+142 -362 0
+next node13
+prev node15
 turnoffBridge null
 startpoint false
 endpoint false
@@ -171,9 +197,9 @@ null null null null
 name node15
 id 15
 current_pos
--761 50 0
-next node16
-prev node14
+15 -334 0
+next node14
+prev node16
 turnoffBridge null
 startpoint false
 endpoint false
@@ -184,9 +210,9 @@ null null null null
 name node16
 id 16
 current_pos
--740 -106 0
-next node17
-prev node15
+-108 -290 0
+next node15
+prev node17
 turnoffBridge null
 startpoint false
 endpoint false
@@ -197,10 +223,10 @@ null null null null
 name node17
 id 17
 current_pos
--577 -154 0
-next null
-prev node16
-turnoffBridge node18
+-231 -242 0
+next node16
+prev node18
+turnoffBridge null
 startpoint false
 endpoint false
 turnoffRoot false
@@ -210,23 +236,23 @@ null null null null
 name node18
 id 18
 current_pos
--407 -149 0
-next null
-prev null
+-365 -188 0
+next node17
+prev node19
 turnoffBridge null
 startpoint false
 endpoint false
-turnoffRoot true
-turnoffidx 3
+turnoffRoot false
+turnoffidx 0
 turnoffList
-node17 node19 node5 null 
+null null null null 
 name node19
 id 19
 current_pos
--326 -10 0
-next node20
-prev null
-turnoffBridge node18
+-485 -161 0
+next node18
+prev node20
+turnoffBridge null
 startpoint false
 endpoint false
 turnoffRoot false
@@ -236,9 +262,9 @@ null null null null
 name node20
 id 20
 current_pos
--211 128 0
-next node21
-prev node19
+-639 -152 0
+next node19
+prev node21
 turnoffBridge null
 startpoint false
 endpoint false
@@ -249,9 +275,9 @@ null null null null
 name node21
 id 21
 current_pos
--39 209 0
-next node22
-prev node20
+-810 -161 0
+next node20
+prev node0
 turnoffBridge null
 startpoint false
 endpoint false
@@ -262,9 +288,9 @@ null null null null
 name node22
 id 22
 current_pos
-92 99 0
+29 406 0
 next node23
-prev node21
+prev node1
 turnoffBridge null
 startpoint false
 endpoint false
@@ -275,10 +301,10 @@ null null null null
 name node23
 id 23
 current_pos
-183 -46 0
-next null
+147 419 0
+next node24
 prev node22
-turnoffBridge node25
+turnoffBridge null
 startpoint false
 endpoint false
 turnoffRoot false
@@ -288,10 +314,10 @@ null null null null
 name node24
 id 24
 current_pos
-448 -209 0
-next node2
-prev null
-turnoffBridge node25
+288 427 0
+next node25
+prev node23
+turnoffBridge null
 startpoint false
 endpoint false
 turnoffRoot false
@@ -301,22 +327,22 @@ null null null null
 name node25
 id 25
 current_pos
-284 -184 0
-next null
-prev null
+442 427 0
+next node26
+prev node24
 turnoffBridge null
 startpoint false
 endpoint false
-turnoffRoot true
-turnoffidx 3
+turnoffRoot false
+turnoffidx 0
 turnoffList
-node1 node23 node24 null 
+null null null null 
 name node26
 id 26
 current_pos
--266 -447 0
+588 413 0
 next node27
-prev node5
+prev node25
 turnoffBridge null
 startpoint false
 endpoint false
@@ -327,7 +353,7 @@ null null null null
 name node27
 id 27
 current_pos
--111 -489 0
+756 395 0
 next node28
 prev node26
 turnoffBridge null
@@ -340,10 +366,153 @@ null null null null
 name node28
 id 28
 current_pos
-32 -429 0
-next node1
+954 371 0
+next null
 prev node27
 turnoffBridge null
+startpoint false
+endpoint true
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node29
+id 29
+current_pos
+50 104 0
+next null
+prev node30
+turnoffBridge node3
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node30
+id 30
+current_pos
+165 143 0
+next node29
+prev node31
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node31
+id 31
+current_pos
+292 161 0
+next node30
+prev node32
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node32
+id 32
+current_pos
+424 146 0
+next node31
+prev node33
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node33
+id 33
+current_pos
+554 126 0
+next node32
+prev node34
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node34
+id 34
+current_pos
+696 104 0
+next node33
+prev node35
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node35
+id 35
+current_pos
+783 12 0
+next node34
+prev node36
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node36
+id 36
+current_pos
+795 -92 0
+next node35
+prev node37
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node37
+id 37
+current_pos
+739 -185 0
+next node36
+prev node38
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node38
+id 38
+current_pos
+646 -242 0
+next node37
+prev node39
+turnoffBridge null
+startpoint false
+endpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node39
+id 39
+current_pos
+541 -251 0
+next node38
+prev null
+turnoffBridge node11
 startpoint false
 endpoint false
 turnoffRoot false

@@ -14,7 +14,7 @@ public class scriptPathNode : MonoBehaviour
 	private int turnoffListIndex;
 	private int id;
 	public bool TurnoffRoot;
-	public bool startPoint, endPoint;
+	public bool automatPoint, trovantPoint;
 	private float dir_angle, dirTurnoff_angle;
 
 	private UISprite uiSprite;
@@ -25,7 +25,7 @@ public class scriptPathNode : MonoBehaviour
 		turnoffList = new GameObject[Define.TurnOffMaxCount()];
 		turnoffListIndex = 0;
 		id = -1;
-		startPoint = endPoint = false;
+		automatPoint = trovantPoint = false;
 		TurnoffRoot = false;
 		dir_angle = dirTurnoff_angle = 0;
 
@@ -116,24 +116,24 @@ public class scriptPathNode : MonoBehaviour
 	
 	public void EnableStartPoint()
 	{
-		startPoint = true;
+		automatPoint = true;
 		DisableEndPoint();
 	}
 	
 	public void DisableStartPoint()
 	{
-		startPoint = false;
+		automatPoint = false;
 	}
 	
 	public void EnableEndPoint()
 	{
-		endPoint = true;
+		trovantPoint = true;
 		DisableStartPoint();
 	}
 	
 	public void DisableEndPoint()
 	{
-		endPoint = false;
+		trovantPoint = false;
 	}
 	
 	public void EnableTurnoffRoot()
@@ -287,13 +287,13 @@ public class scriptPathNode : MonoBehaviour
 		string str = "none";
 		switch(option)
 		{
-		case SpriteList.END:
+		case SpriteList.TROVANT:
 			str = "End_Point";
 			break;
 		case SpriteList.NORMAL:
 			str = "Normal_Point";
 			break;
-		case SpriteList.START:
+		case SpriteList.AUTOMAT:
 			str = "Start_Point";
 			break;
 		case SpriteList.TURNOFF:
@@ -303,5 +303,10 @@ public class scriptPathNode : MonoBehaviour
 		gameObject.SetActive (false);
 		uiSprite.spriteName = str;
 		gameObject.SetActive (true);
+	}
+
+	public void SetVisialbe(bool trigger)
+	{
+		uiSprite.enabled = trigger;
 	}
 }

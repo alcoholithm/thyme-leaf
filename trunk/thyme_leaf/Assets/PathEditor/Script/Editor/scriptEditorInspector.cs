@@ -205,13 +205,13 @@ public class scriptEditorInspector : Editor
 		{
 			switch(option)
 			{
-			case EnableNodeMode.START_NODE:
+			case EnableNodeMode.AUTOMAT_NODE:
 				tempFunc.EnableStartPoint();
-				tempFunc.ChangeIMG(SpriteList.START);
+				tempFunc.ChangeIMG(SpriteList.AUTOMAT);
 				break;
-			case EnableNodeMode.END_NODE:
+			case EnableNodeMode.TROVANT_NODE:
 				tempFunc.EnableEndPoint();
-				tempFunc.ChangeIMG(SpriteList.END);
+				tempFunc.ChangeIMG(SpriteList.TROVANT);
 				break;
 			case EnableNodeMode.TURNOFF_NODE:
 				tempFunc.EnableTurnoffRoot();
@@ -223,10 +223,10 @@ public class scriptEditorInspector : Editor
 		{
 			switch(option)
 			{
-			case EnableNodeMode.START_NODE:
+			case EnableNodeMode.AUTOMAT_NODE:
 				tempFunc.DisableStartPoint();
 				break;
-			case EnableNodeMode.END_NODE:
+			case EnableNodeMode.TROVANT_NODE:
 				tempFunc.DisableEndPoint();
 				break;
 			case EnableNodeMode.TURNOFF_NODE:
@@ -266,13 +266,13 @@ public class scriptEditorInspector : Editor
 		{
 			if(editor.pathList.Count > 0) ResetNodeInfor(editor.selectedID);
 		}
-		else if(GUI.Button(new Rect(10,90,100,30), "Start Point"))
+		else if(GUI.Button(new Rect(10,90,100,30), "Automat Point"))
 		{
-			if(editor.pathList.Count > 0) NodeModeSetting(true, EnableNodeMode.START_NODE, editor.selectedID);
+			if(editor.pathList.Count > 0) NodeModeSetting(true, EnableNodeMode.AUTOMAT_NODE, editor.selectedID);
 		}
-		else if(GUI.Button(new Rect(10,130,100,30), "End Point"))
+		else if(GUI.Button(new Rect(10,130,100,30), "Trovant Point"))
 		{
-			if(editor.pathList.Count > 0) NodeModeSetting(true, EnableNodeMode.END_NODE, editor.selectedID);
+			if(editor.pathList.Count > 0) NodeModeSetting(true, EnableNodeMode.TROVANT_NODE, editor.selectedID);
 		}
 		else if(GUI.Button(new Rect(10,170,100,30), "TurnOff Point"))
 		{
@@ -282,8 +282,8 @@ public class scriptEditorInspector : Editor
 		{
 			if(editor.pathList.Count > 0)
 			{
-				NodeModeSetting(false, EnableNodeMode.START_NODE, editor.selectedID);
-				NodeModeSetting(false, EnableNodeMode.END_NODE, editor.selectedID);
+				NodeModeSetting(false, EnableNodeMode.AUTOMAT_NODE, editor.selectedID);
+				NodeModeSetting(false, EnableNodeMode.TROVANT_NODE, editor.selectedID);
 				NodeModeSetting(false, EnableNodeMode.TURNOFF_NODE, editor.selectedID);          
 			}
 		}
