@@ -9,20 +9,20 @@ public class Helper
 	private MoveModeState moveMode;
 	public GameObject nodeStock;
 	public scriptPathNode nodeInfor;
+
 	private bool enableMove;
-	public Hero attack_target;
+	private bool enalbeMuster;
 
 	//attacking value
 	public float attack_delay_counter;
-
+	public Hero attack_target;
 	//==================================
 	//extra
 	public bool selectTurnoffRoot;
-	public Vector3 force;
 
+	public string old_name;
 	public Vector3 gesture_startpoint;
 	public Vector2 gesture_endpoint;
-
 	public Vector3 oldpos;
 
 	public float angle_calculation_rate;
@@ -44,7 +44,6 @@ public class Helper
 
 		//======================
 		//extra value
-		force = Vector3.zero;
 		selectTurnoffRoot = false;
 
 		gesture_startpoint = gesture_endpoint = Vector3.zero;
@@ -67,21 +66,22 @@ public class Helper
 	{
 		//-1 = left, 1 = right
 		float d = getPos ().x - oldpos.x;
-		return d <= 0 ? -1 : 1;
+		if(d < 7 && d > -7) return 0;
+		else return d <= 0 ? -1 : 1;
 	}
 
 	public void StartPointSetting(StartPoint option)
 	{
 		for(int i=0;i<Define.pathNode.Count;i++)
 		{
-			scriptPathNode tempFunc = Define.pathNode[i].GetComponent<scriptPathNode>();
+			scriptPathNode tempFunc = Define.pathNode[i].obj.GetComponent<scriptPathNode>();
 			if(option == StartPoint.AUTOMART_POINT)
 			{ 
-				if(tempFunc.startPoint) nodeStock = Define.pathNode[i];
+				if(tempFunc.automatPoint) nodeStock = Define.pathNode[i].obj;
 			}
 			else if(option == StartPoint.TROVANT_POINT)
 			{
-				if(tempFunc.endPoint) nodeStock = Define.pathNode[i];
+				if(tempFunc.trovantPoint) nodeStock = Define.pathNode[i].obj;
 			}
 		}
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
@@ -92,35 +92,59 @@ public class Helper
 		else if(nodeInfor.Next != null) SetMoveMode(MoveModeState.FORWARD);
 	}
 
-	public bool SelectPathNode(Vector3 startPt, Vector3 endPt)
+	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option)
 	{
 		//turnoffRoot = nodestoke  <all like>
 		//select path node ... when unit arrive at turnoff point
 		//searching node
+		Vector3 start_pt = startPt;
+		Vector2 end_pt = endPt;
+
 		if(nodeStock == null) return false;
 
-		Collider2D coll = RaycastHittingObject (startPt);
-		//test code
-		bool like_check = false;
-		if(coll == null) return false;
-		else
-		{
-			string i_am = currentUnit.GetComponent<Hero>().model.Name;
-			if(i_am == coll.gameObject.GetComponent<Hero>().model.Name)
-				like_check = true;
-		}
-		if(!like_check) return false;
-
-		//layer checking...
-
-		float dx = endPt.x - startPt.x;
-		float dy = endPt.y - startPt.y;
-
 		scriptPathNode tempFunc = nodeStock.GetComponent<scriptPathNode>();
+		if(!tempFunc.TurnoffRoot)
+		{
+			old_name = nodeStock.name;
+			Debug.Log("before : "+old_name);
+			return false;
+		}
 		Vector3 centerPoint = nodeStock.transform.localPosition;
 
+		if(option == Layer.Trovant)
+		{
+			start_pt = getPos();
+
+			while(true)
+			{
+				int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
+				if(old_name != tempFunc.turnoffList[rand_idx].name)
+				{
+					Debug.Log("cur : "+tempFunc.turnoffList[rand_idx].name);
+					end_pt = tempFunc.getPosTurnoffList(rand_idx);
+					break;
+				}
+			}
+		}
+
+		if(option != Layer.Trovant)
+		{
+			Collider2D coll = RaycastHittingObject (start_pt);
+			//test code
+			bool like_check = false;
+			if(coll == null) return false;
+			else
+			{
+				string i_am = currentUnit.GetComponent<Hero>().model.Name;
+				if(i_am == coll.gameObject.GetComponent<Hero>().model.Name)
+					like_check = true;
+			}
+			if(!like_check) return false;
+		}
+		float dx = end_pt.x - start_pt.x;
+		float dy = end_pt.y - start_pt.y;
 		float ag = Mathf.Atan2 (dy, dx) * Define.RadianToAngle ();
-		Debug.Log ("angle : " + ag);
+//		Debug.Log ("angle : " + ag);
 
 		int min_idx = -1;
 		float min_r = float.MaxValue;
@@ -187,9 +211,6 @@ public class Helper
 			SetMoveMode(MoveModeState.FORWARD);
 	}
 
-//	public void setLayer(Layer v) { current_layer = v; }
-//	public Layer getLayer() { return current_layer; }
-
 	public void setPos(float x, float y, float z) { currentUnit.transform.localPosition = new Vector3(x, y, z); }
 	public void setPos(Vector3 v) { currentUnit.transform.localPosition = v; }
 	public void addPos(float x, float y) { currentUnit.transform.localPosition += new Vector3(x, y); }
@@ -209,6 +230,9 @@ public class Helper
 	
 	public void setMoveTrigger(bool v) { enableMove = v; }
 	public bool getMoveTrigger() { return enableMove; }
+
+	public void setMusterTrigger(bool v) { enalbeMuster = v; }
+	public bool getMusterTrigger() { return enalbeMuster; }
 
 	public bool isGesture() { return selectTurnoffRoot; }
 

@@ -132,20 +132,36 @@ public class Hero : GameEntity {
 	//gesturing function...
 	private void Gesturing()
 	{
-		if(controller.isGesture())
+		Layer my_layer = (Layer)gameObject.layer;
+		switch(my_layer)
 		{
-			if(Input.GetMouseButtonDown(0))
+		case Layer.Automart:
+			if(controller.isGesture())
 			{
-				helper.gesture_startpoint = Input.mousePosition;
+				if(Input.GetMouseButtonDown(0))
+				{
+					helper.gesture_startpoint = Input.mousePosition;
+				}
+				else if(Input.GetMouseButtonUp(0))
+				{
+					helper.gesture_endpoint = Input.mousePosition;
+					if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
+					{
+						controller.setMoveTrigger(true);
+					}
+				}
 			}
-			else if(Input.GetMouseButtonUp(0))
+			break;
+		case Layer.Trovant:
+			if(controller.isGesture())
 			{
-				helper.gesture_endpoint = Input.mousePosition;
-				if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint))
+				Debug.Log("gesture trovant");
+				if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
 				{
 					controller.setMoveTrigger(true);
 				}
 			}
+			break;
 		}
 	}
 
@@ -160,28 +176,32 @@ public class Hero : GameEntity {
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
-			if(dir == -1) transform.localScale = new Vector3(-1, 1, 1);  //left
-			else transform.localScale = new Vector3(1, 1, 1);            //right
+			if(dir == -1) transform.localScale = new Vector3(-1, 1, 1);    //left
+			else if(dir == 1) transform.localScale = new Vector3(1, 1, 1); //right
 
 			if(a < -45 && a > -135) //down
 			{
-				anim.Play("Comma_Moving_Downwards_");
+				anim.Play("Python_Moving_Downwards_");
 				Debug.Log("down");
+		//		transform.localRotation = Quaternion.Euler(0,0,0);
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
-				anim.Play("Comma_Moving_Normal_");
+				anim.Play("Python_Moving_Normal_");
 				Debug.Log("right");
+		//		transform.localRotation = Quaternion.Euler(0,0,a);
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
-				anim.Play("Comma_Moving_Normal_");
+				anim.Play("Python_Moving_Normal_");
 				Debug.Log("left");
+		//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
 			}
 			else if(a > 45 && a < 135) //up
 			{
-				anim.Play("Comma_Moving_Upwards_");
-				Debug.Log("up");
+			//	anim.Play("Python_Moving_Upwards_");
+			//	Debug.Log("up");
+			//	transform.localRotation = Quaternion.Euler(0,0,0);
 			}
 		}
 	}

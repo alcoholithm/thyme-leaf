@@ -51,14 +51,14 @@ public class HelperUnit
 	{
 		for(int i=0;i<Define.pathNode.Count;i++)
 		{
-			scriptPathNode tempFunc = Define.pathNode[i].GetComponent<scriptPathNode>();
+			scriptPathNode tempFunc = Define.pathNode[i].obj.GetComponent<scriptPathNode>();
 			if(option == StartPoint.AUTOMART_POINT)
 			{ 
-				if(tempFunc.startPoint) nodeStock = Define.pathNode[i];
+				if(tempFunc.automatPoint) nodeStock = Define.pathNode[i].obj;
 			}
 			else if(option == StartPoint.TROVANT_POINT)
 			{
-				if(tempFunc.endPoint) nodeStock = Define.pathNode[i];
+				if(tempFunc.trovantPoint) nodeStock = Define.pathNode[i].obj;
 			}
 		}
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();

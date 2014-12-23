@@ -5,7 +5,6 @@ public class HeroState_Listener : MonoBehaviour
 {
     void OnClick()
     {
-		string anim_check;
 		Transform temp = GameObject.Find ("AutomatUnits").transform;
         Hero hero = HeroSpawner.Instance.Allocate();
 		Debug.Log ("character init");

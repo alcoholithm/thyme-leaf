@@ -15,6 +15,8 @@ public class ControllerHero
     //helper...
     public void setMoveTrigger(bool v) { _helper.setMoveTrigger(v); }
 
+	public void setMusterTrigger(bool v) { _helper.setMusterTrigger (v); }
+
     public bool isGesture() { return _helper.isGesture(); }
 
     public void StartPointSetting(StartPoint option) { _helper.StartPointSetting(option); }
@@ -22,8 +24,6 @@ public class ControllerHero
     public void MoveReverse() { _helper.MoveReverse(); }
 
     public void SetMoveMode(MoveModeState option) { _helper.SetMoveMode(option); }
-
-    //	public void setLayer(Layer v) { _helper.setLayer (v); }
 
     public void setPos(float x, float y, float z) { _helper.setPos(x, y, z); }
     public void setPos(Vector3 v) { _helper.setPos(v); }
@@ -44,7 +44,7 @@ public class ControllerHero
 
 	public void setSpeciesName(string v) { _model.SpecieName = v; }
 
-    public void setmusterID(string v) { _model.MusterID = v; }
+    public void setmusterID(int v) { _model.MusterID = v; }
 
     public void setMoveOffset(float x, float y) { _model.Node_offset = new Vector2(x, y); }
 
