@@ -56,7 +56,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: Franscis_Type1_Attacking_Downwards_1
     x: 911
-    y: 462
+    y: 27
     width: 134
     height: 144
     borderLeft: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: Franscis_Type1_Attacking_Downwards_3
     x: 911
-    y: 317
+    y: 172
     width: 134
     height: 144
     borderLeft: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: Franscis_Type1_Attacking_Downwards_5
     x: 911
-    y: 172
+    y: 317
     width: 134
     height: 144
     borderLeft: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: Franscis_Type1_Attacking_Downwards_7
     x: 911
-    y: 27
+    y: 462
     width: 134
     height: 144
     borderLeft: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Normal_1
     x: 766
-    y: 305
+    y: 19
     width: 138
     height: 142
     borderLeft: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Normal_2
     x: 911
-    y: 748
+    y: 607
     width: 138
     height: 140
     borderLeft: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Normal_3
     x: 766
-    y: 448
+    y: 162
     width: 138
     height: 142
     borderLeft: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Normal_5
     x: 766
-    y: 19
+    y: 305
     width: 138
     height: 142
     borderLeft: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Normal_6
     x: 911
-    y: 607
+    y: 748
     width: 138
     height: 140
     borderLeft: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Normal_7
     x: 766
-    y: 162
+    y: 448
     width: 138
     height: 142
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_1
-    x: 617
-    y: 888
+    x: 465
+    y: 310
     width: 148
     height: 136
     borderLeft: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_7
-    x: 465
-    y: 310
+    x: 617
+    y: 888
     width: 148
     height: 136
     borderLeft: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_0
     x: 617
-    y: 602
+    y: 745
     width: 141
     height: 142
     borderLeft: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
     paddingBottom: 9
   - name: Franscis_Type1_Moving_Downwards_7
     x: 617
-    y: 745
+    y: 602
     width: 141
     height: 142
     borderLeft: 0
@@ -575,8 +575,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 15
   - name: Franscis_Type1_Moving_Normal_1
-    x: 314
-    y: 13
+    x: 465
+    y: 736
     width: 142
     height: 143
     borderLeft: 0
@@ -588,8 +588,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 15
   - name: Franscis_Type1_Moving_Normal_2
-    x: 165
-    y: 141
+    x: 314
+    y: 732
     width: 144
     height: 146
     borderLeft: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
     paddingBottom: 11
   - name: Franscis_Type1_Moving_Normal_3
     x: 165
-    y: 875
+    y: 725
     width: 148
     height: 149
     borderLeft: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
     paddingBottom: 5
   - name: Franscis_Type1_Moving_Normal_5
     x: 165
-    y: 725
+    y: 875
     width: 148
     height: 149
     borderLeft: 0
@@ -640,8 +640,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 7
   - name: Franscis_Type1_Moving_Normal_6
-    x: 314
-    y: 732
+    x: 165
+    y: 141
     width: 144
     height: 146
     borderLeft: 0
@@ -653,8 +653,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 11
   - name: Franscis_Type1_Moving_Normal_7
-    x: 465
-    y: 736
+    x: 314
+    y: 13
     width: 142
     height: 143
     borderLeft: 0
@@ -900,14 +900,14 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: White
-    x: 151
-    y: 399
-    width: 13
-    height: 13
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    x: 0
+    y: 17
+    width: 15
+    height: 15
+    borderLeft: 1
+    borderRight: 1
+    borderTop: 1
+    borderBottom: 1
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
