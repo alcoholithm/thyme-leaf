@@ -61,7 +61,7 @@ public class Hero : GameEntity {
 	//unit detail initialize...
 	public void SettingInitialize()
 	{
-		Debug.Log ("SettingInitialize");
+        //Debug.Log ("SettingInitialize");
 		//mvc setting...
 		helper = new Helper (this.gameObject);
 		model = new MHero (helper);
@@ -208,11 +208,11 @@ public class Hero : GameEntity {
 
 	public void HealthUpdate()
 	{
-		float ratio = model.HP / (float)model.MaxHP;
-		Color color = Color.Lerp(Color.red, Color.green, ratio);
+        //float ratio = model.HP / (float)model.MaxHP;
+        //Color color = Color.Lerp(Color.red, Color.green, ratio);
 		
-		health_bar_controller.getSlider().value = ratio;
-		health_bar_controller.getSlider().foregroundWidget.color = color;
+        //health_bar_controller.getSlider().value = ratio;
+        //health_bar_controller.getSlider().foregroundWidget.color = color;
 	}
 
 	//==============================================

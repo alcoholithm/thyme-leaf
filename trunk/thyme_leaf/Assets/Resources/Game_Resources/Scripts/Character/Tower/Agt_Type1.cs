@@ -84,11 +84,6 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     //---------------------
 
-    // 만약 스트링을 보내지 않고 이넘 값을 보내도 되는 걸로 테스트가 완료 되면 스트링 대신 이넘으로 고치기
-    //public const string FUNCTION_ATTACK = "attack";
-    //public const string FUNCTION_TAKEDAMAGE = "takeDamage";
-    //public const string FUNCTION_TAKEDAMAGE = "isDead";
-
     /*
     * followings are unity callback methods
     */

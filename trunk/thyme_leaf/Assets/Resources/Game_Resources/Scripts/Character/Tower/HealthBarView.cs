@@ -31,7 +31,7 @@ public class HealthBarView : MonoBehaviour, IView
     void UpdateHealthBar()
     {
         Debug.Log(model.HP + " " + model.MaxHP);
-        float ratio = model.HP / model.MaxHP;
+        float ratio = (float)model.HP / model.MaxHP;
         Color color = Color.Lerp(Color.red, Color.green, ratio);
 
         this.slider.value = ratio;

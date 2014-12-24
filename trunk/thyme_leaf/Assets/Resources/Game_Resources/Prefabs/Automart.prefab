@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400002}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Automart
   m_TagString: TagWarriorAutomart
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400008}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: 2_Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400010}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: 1 - [1-2] Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
   mSpriteName: White
   mFillCenter: 1
 --- !u!114 &11400010
