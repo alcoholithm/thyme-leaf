@@ -37,7 +37,7 @@ public class ObjectPool : MonoBehaviour
             {
                 //multi play
                 nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;
-                nObj.networkView.viewID = Network.AllocateViewID();
+                //nObj.networkView.viewID = Network.AllocateViewID();
                 Debug.Log(spawner + " creates " + nObj +" ("+ nObj.networkView.viewID +") "+" that's parent is " + nObj.transform.parent);
 
                 //Transform ttt = GameObject.Find("Pool").transform;
