@@ -14,6 +14,7 @@ public class TrovantSpawner : Singleton<TrovantSpawner>{
 
     void Awake()
     {
+        if (!Network.isServer) Destroy(this);
         foreach (GameObject trovant in trovants)
         {            
             ObjectPoolingManager.Instance.CreatePool(gameObject, trovant, initPoolSize, maxPoolSize, false);

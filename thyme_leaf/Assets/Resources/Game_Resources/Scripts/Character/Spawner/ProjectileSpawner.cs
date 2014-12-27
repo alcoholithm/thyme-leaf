@@ -12,6 +12,7 @@ public class ProjectileSpawner : Singleton<ProjectileSpawner>
 
     void Awake()
     {
+        if (!Network.isServer) Destroy(this);
         foreach (GameObject tower in projectiles)
         {
             ObjectPoolingManager.Instance.CreatePool(gameObject, tower, initPoolSize, maxPoolSize, false);
