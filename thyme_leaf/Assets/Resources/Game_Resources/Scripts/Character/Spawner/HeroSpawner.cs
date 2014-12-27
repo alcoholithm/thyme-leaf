@@ -17,9 +17,7 @@ public class HeroSpawner : Singleton<HeroSpawner>
     protected int maxPoolSize = 200;
 
     void Awake()
-    {
-        if (!Network.isServer) Destroy(this);
-
+    {   
         foreach (GameObject automat in automats)
         {
             ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);                 

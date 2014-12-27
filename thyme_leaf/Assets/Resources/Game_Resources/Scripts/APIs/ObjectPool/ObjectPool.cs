@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
-public class ObjectPool
+public class ObjectPool : MonoBehaviour
 {
     private List<GameObject> pooledObjects;
     private GameObject pooledObj;
     private int maxPoolSize;
     private int initialPoolSize;
+
+    [RPC]
+    void ttt(NetworkViewID id)
+    {
+        Transform ttt = GameObject.Find("Pool").transform;
+        GameObject g = NetworkView.Find(id).gameObject;
+        g.transform.parent = ttt;
+        g.SetActive(false);
+    }
 
     public ObjectPool(GameObject spawner, GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
     {
@@ -17,15 +26,25 @@ public class ObjectPool
         for (int i = 0; i < initialPoolSize; i++)
         {
             GameObject nObj = null;
-            nObj = Network.peerType == NetworkPeerType.Disconnected ?
-                GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject :
+            if (Network.peerType == NetworkPeerType.Disconnected)
+            {
+                //single play
+                nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
+                nObj.transform.parent = obj.transform;
+                nObj.SetActive(false);
+            }
+            else
+            {
+                //multi play
                 nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;
+                Debug.Log(spawner + " creates " + nObj + " that's parent is " + nObj.transform.parent);
 
-            Debug.Log(spawner + " creates " + nObj + " that's parent is " + nObj.transform.parent);
+                //Transform ttt = GameObject.Find("Pool").transform;
+                //nObj.transform.parent = ttt;
+                //nObj.SetActive(false);
+                networkView.RPC("ttt",RPCMode.Others,nObj.networkView.viewID);
+            }
 
-            Transform ttt = GameObject.Find("Pool").transform;
-            nObj.transform.parent = ttt;
-            nObj.SetActive(false);
             pooledObjects.Add(nObj);
             GameObject.DontDestroyOnLoad(nObj);
         }
