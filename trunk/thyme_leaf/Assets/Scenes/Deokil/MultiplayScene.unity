@@ -1249,6 +1249,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 426194859}
   - 114: {fileID: 426194860}
+  - 148: {fileID: 426194861}
   m_Layer: 8
   m_Name: TowerSpawner
   m_TagString: Untagged
@@ -1284,6 +1285,18 @@ MonoBehaviour:
   - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
   initPoolSize: 100
   maxPoolSize: 200
+--- !u!148 &426194861
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 426194858}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 426194859}
+  m_ViewID:
+    m_ID: 3
+    m_Type: 1
 --- !u!1 &449384485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,6 +4262,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1426349215}
   - 114: {fileID: 1426349216}
+  - 148: {fileID: 1426349217}
   m_Layer: 8
   m_Name: ProjectileSpawner
   m_TagString: Untagged
@@ -4284,6 +4298,18 @@ MonoBehaviour:
   - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
   initPoolSize: 100
   maxPoolSize: 200
+--- !u!148 &1426349217
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1426349214}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1426349215}
+  m_ViewID:
+    m_ID: 2
+    m_Type: 1
 --- !u!1001 &1436492194
 Prefab:
   m_ObjectHideFlags: 0
@@ -5582,6 +5608,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1820747003}
   - 114: {fileID: 1820747004}
+  - 148: {fileID: 1820747005}
   m_Layer: 10
   m_Name: HeroSpawner
   m_TagString: Untagged
@@ -5617,6 +5644,18 @@ MonoBehaviour:
   - {fileID: 100000, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
   initPoolSize: 100
   maxPoolSize: 200
+--- !u!148 &1820747005
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820747002}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1820747003}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
 --- !u!1 &1862384773
 GameObject:
   m_ObjectHideFlags: 0
@@ -6421,6 +6460,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2095970919}
   - 114: {fileID: 2095970920}
+  - 148: {fileID: 2095970921}
   m_Layer: 9
   m_Name: TrovantSpawner
   m_TagString: Untagged
@@ -6456,6 +6496,18 @@ MonoBehaviour:
   - {fileID: 100000, guid: 9f7aa33dea83f49e29652f5bfa3cbff2, type: 2}
   initPoolSize: 100
   maxPoolSize: 200
+--- !u!148 &2095970921
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2095970918}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 2095970919}
+  m_ViewID:
+    m_ID: 4
+    m_Type: 1
 --- !u!1 &2117163495
 GameObject:
   m_ObjectHideFlags: 0
