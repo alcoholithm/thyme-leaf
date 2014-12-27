@@ -258,6 +258,8 @@ public class DataToFile : MonoBehaviour
 			Define.pathNode[c] = mapdata;
 		}
 
+		//ohu~~
+		/*
 		//object center position setting...
 		for(int i=0;i<Define.pathNode.Count;i++)
 		{
@@ -294,6 +296,7 @@ public class DataToFile : MonoBehaviour
 				continue;
 			}
 		}
+		*/
 	}
 }
 
