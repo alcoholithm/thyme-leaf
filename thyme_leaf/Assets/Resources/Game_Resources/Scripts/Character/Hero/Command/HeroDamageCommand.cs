@@ -15,6 +15,7 @@ public class HeroDamageCommand : ICommand {
 		hero.HealthUpdate ();
 		if(hero.model.HP <= 0)
 		{
+			Debug.Log(hero.model.Name + " die");
 			hero.StateMachine.ChangeState(HeroState_Dying.Instance);
 		}
 	}

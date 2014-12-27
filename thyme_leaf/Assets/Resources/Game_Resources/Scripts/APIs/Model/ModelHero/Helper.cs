@@ -106,7 +106,7 @@ public class Helper
 		if(!tempFunc.TurnoffRoot)
 		{
 			old_name = nodeStock.name;
-			Debug.Log("before : "+old_name);
+		//	Debug.Log("before : "+old_name);
 			return false;
 		}
 		Vector3 centerPoint = nodeStock.transform.localPosition;
@@ -120,7 +120,7 @@ public class Helper
 				int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
 				if(old_name != tempFunc.turnoffList[rand_idx].name)
 				{
-					Debug.Log("cur : "+tempFunc.turnoffList[rand_idx].name);
+			//		Debug.Log("cur : "+tempFunc.turnoffList[rand_idx].name);
 					end_pt = tempFunc.getPosTurnoffList(rand_idx);
 					break;
 				}
@@ -175,7 +175,7 @@ public class Helper
 		}
 		else
 		{
-			Debug.Log("turnoff Root next null");
+		//	Debug.Log("turnoff Root next null");
 			if(tempFunc.Prev != null)
 			{
 				moveMode = MoveModeState.BACKWARD;
@@ -183,7 +183,7 @@ public class Helper
 			}
 			else
 			{
-				Debug.Log("turnoff Root null error");
+		//		Debug.Log("turnoff Root null error");
 				return false;
 			}
 		}

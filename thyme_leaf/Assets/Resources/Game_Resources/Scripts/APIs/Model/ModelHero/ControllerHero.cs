@@ -37,8 +37,17 @@ public class ControllerHero
 
     public void setMaxHp(int v) { _model.MaxHP = v; }
 
-    public void addHp(int v) { _model.HP += v; }
-    public void setHp(int v) { _model.HP = v; }
+    public void addHp(int v) 
+	{
+		_model.HP += v; 
+		if(_model.HP <= 0) _model.HP = 0;
+		else if(_model.HP >= _model.MaxHP) _model.HP = _model.MaxHP;
+	}
+    public void setHp(int v) { 
+		_model.HP = v; 
+		if(_model.HP <= 0) _model.HP = 0;
+		else if(_model.HP >= _model.MaxHP) _model.HP = _model.MaxHP;
+	}
 
     public void setName(string v) { _model.Name = v; }
 

@@ -22,10 +22,8 @@ public class HeroState_Dying : State<Hero> {
 	
 	public override void Execute (Hero owner)
 	{
-		if( !owner.GetAnim().isPlaying)
-		{
+//		if( !owner.GetAnim().isPlaying)
 			owner.StateMachine.ChangeState(HeroState_None.Instance);
-		}
 	}
 	
 	public override void Exit (Hero owner)
@@ -33,8 +31,8 @@ public class HeroState_Dying : State<Hero> {
 		if(owner == null) return;
 
 		//no massage...
-	//	Message msg = owner.target.ObtainMessage(MessageTypes.MSG_MOVE_HERO, new HeroMovingCommand(owner.target));
-	//	owner.target.DispatchMessage(msg);
+//		Message msg = owner.target.ObtainMessage(MessageTypes.MSG_MOVE_HERO, new HeroMovingCommand(owner.target));
+//		owner.target.DispatchMessage(msg);
 
 		owner.Die ();
         heroSpawner.Free(owner.gameObject);

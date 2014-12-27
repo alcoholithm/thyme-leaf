@@ -22,20 +22,20 @@ public class Hero : GameEntity {
 
 	private NGUISpriteAnimation anim;	
 	private HealthBarView health_bar_controller;
-
-	//setting value...
-	private float offsetX, offsetY;
-	private UnitType type;
-
+	
 	public Hero target;
-	public string my_name;
+	public string my_name;  //test code...
+	public string state_name;
 
 	[HideInInspector]
 	public MHero model;
+	[HideInInspector]
 	public ControllerHero controller;
+	[HideInInspector]
 	public Helper helper;
 
-	private string current_anim_name;
+	[HideInInspector]
+	public Transform health_bar_body;
 	//=====================
 
 	void Awake()
@@ -70,18 +70,17 @@ public class Hero : GameEntity {
 		//other reference...
 		target = null;
 
-		float range_value = 100;
-		setOffset (Random.Range (-range_value, range_value), Random.Range (-range_value, range_value));
-
 		controller.setSpeed (speed / 10.0f);
 		controller.setMaxHp (MaxHP);
 		controller.setHp (MaxHP);
-		controller.setMoveOffset (offsetX, offsetY);
+		float range_value = 100;
+		controller.setMoveOffset (Random.Range (-range_value, range_value), Random.Range (-range_value, range_value));
 
 		helper.setMoveTrigger (false);
 		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
 
 		health_bar_controller = transform.GetChild (0).GetChild(0).gameObject.GetComponent<HealthBarView> ();
+		health_bar_body = transform.GetChild (0);
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
@@ -176,8 +175,16 @@ public class Hero : GameEntity {
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
-			if(dir == -1) transform.localScale = new Vector3(-1, 1, 1);    //left
-			else if(dir == 1) transform.localScale = new Vector3(1, 1, 1); //right
+			if(dir == -1)
+			{
+				transform.localScale = new Vector3(-1, 1, 1); //left
+				health_bar_body.localScale = new Vector3(-1, 1, 1);
+			}
+			else if(dir == 1)
+			{
+				transform.localScale = new Vector3(1, 1, 1);  //right
+				health_bar_body.localScale = new Vector3(1, 1, 1);
+			}
 
 			if(a < -45 && a > -135) //down
 			{
@@ -208,22 +215,16 @@ public class Hero : GameEntity {
 
 	public void HealthUpdate()
 	{
-        //float ratio = model.HP / (float)model.MaxHP;
-        //Color color = Color.Lerp(Color.red, Color.green, ratio);
+        float ratio = model.HP / (float)model.MaxHP;
+        Color color = Color.Lerp(Color.red, Color.green, ratio);
 		
-        //health_bar_controller.getSlider().value = ratio;
-        //health_bar_controller.getSlider().foregroundWidget.color = color;
+        health_bar_controller.getSlider().value = ratio;
+        health_bar_controller.getSlider().foregroundWidget.color = color;
 	}
 
 	//==============================================
-	public void setName(string str) { name = str; }
-	public void setOffset(float offx, float offy) { offsetX = offx; offsetY = offy; }
-
 	public void setLayer(Layer v) { gameObject.layer = (int) v; }
 	public Layer getLayer() { return (Layer) gameObject.layer; }
-
-	public void setAnimName(string str){ current_anim_name = str; }
-	public string getAnimName() { return current_anim_name; }
 
 	public void CollisionSetting(bool trigger) { gameObject.GetComponent<CircleCollider2D>().enabled = trigger; }
 

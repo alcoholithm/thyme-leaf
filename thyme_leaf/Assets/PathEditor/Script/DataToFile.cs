@@ -92,7 +92,7 @@ public class DataToFile : MonoBehaviour
 		textWriter.Close();
 	}
 
-	public static void LoadData(int stageNumber, GameObject nodePref, GameObject automat_ct, GameObject trovant_ct)
+	public static void LoadData(int stageNumber, GameObject nodePref)
 	{
 		if(stageNumber <= 0) return;
 

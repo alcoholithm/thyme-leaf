@@ -19,6 +19,7 @@ public class HeroState_Attacking : State<Hero>
 			owner.Anim.Play("Python_Attacking_Normal_");
 		}
 
+		owner.state_name = "Attacking_";
         owner.helper.attack_delay_counter = 0;  //attack delay setting...
     }
 
@@ -64,12 +65,12 @@ public class HeroState_Attacking : State<Hero>
 		{
 			owner.target = null;
 			owner.StateMachine.ChangeState(HeroState_Moving.Instance);
-			Debug.Log("return");
+			Debug.Log("nothing emy~");
 		}
 
 		if(owner.helper.attack_target != null)
 		{
-			//attack...  & test
+			//attack...
 			owner.helper.attack_delay_counter += Time.deltaTime;
 			if (owner.helper.attack_delay_counter >= 1)
 			{
