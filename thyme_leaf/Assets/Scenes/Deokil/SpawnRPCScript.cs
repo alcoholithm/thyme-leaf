@@ -7,6 +7,7 @@ public class SpawnRPCScript : MonoBehaviour {
     [RPC]
     void INIT_SPAWNED_OBJECT(NetworkViewID babyId)
     {
+        Debug.Log("INIT_SPAWNED_OBJECT " + babyId);
         GameObject baby = NetworkView.Find(babyId).gameObject;
         baby.transform.parent = transform;
         baby.SetActive(false);
