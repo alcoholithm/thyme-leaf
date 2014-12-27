@@ -42,7 +42,7 @@ public class ObjectPool : MonoBehaviour
                 //Transform ttt = GameObject.Find("Pool").transform;
                 //nObj.transform.parent = ttt;
                 //nObj.SetActive(false);
-                networkView.RPC("ttt",RPCMode.Others,nObj.networkView.viewID);
+                spawner.networkView.RPC("ttt",RPCMode.Others,nObj.networkView.viewID);
             }
 
             pooledObjects.Add(nObj);
