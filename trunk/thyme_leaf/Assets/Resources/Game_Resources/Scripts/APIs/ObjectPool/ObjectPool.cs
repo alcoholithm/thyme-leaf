@@ -35,8 +35,8 @@ public class ObjectPool
             else
             {
                 //multi-play
-                nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
-                //nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;               
+                //nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
+                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;               
                 
                 //NetworkViewID viewID = Network.AllocateViewID();
 
