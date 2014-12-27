@@ -10,17 +10,16 @@ public class ObjectPool : MonoBehaviour
     private int maxPoolSize;
     private int initialPoolSize;
 
-    [RPC]
-    void ttt(NetworkViewID id)
-    {
-        Transform ttt = GameObject.Find("Pool").transform;
-        GameObject g = NetworkView.Find(id).gameObject;
-        g.transform.parent = ttt;
-        g.SetActive(false);
-    }
+    private static GameObject poolMgr;
+    private GameObject spawner;
 
     public ObjectPool(GameObject spawner, GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
     {
+        if (poolMgr == null)
+            poolMgr = GameObject.Find("Pool").gameObject;
+        if (spawner == null)
+            this.spawner = spawner;
+
         pooledObjects = new List<GameObject>();
 
         for (int i = 0; i < initialPoolSize; i++)
@@ -28,22 +27,19 @@ public class ObjectPool : MonoBehaviour
             GameObject nObj = null;
             if (Network.peerType == NetworkPeerType.Disconnected)
             {
-                //single play
+                //single-play
                 nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
                 nObj.transform.parent = obj.transform;
                 nObj.SetActive(false);
             }
             else
             {
-                //multi play
-                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;
-                //nObj.networkView.viewID = Network.AllocateViewID();
-                Debug.Log(spawner + " creates " + nObj +" ("+ nObj.networkView.viewID +") "+" that's parent is " + nObj.transform.parent);
+                //multi-play
+                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject; 
+                // Network.Instantiate method allocates network viewID automatically
+                spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj.networkView.viewID);
 
-                //Transform ttt = GameObject.Find("Pool").transform;
-                //nObj.transform.parent = ttt;
-                //nObj.SetActive(false);
-                GameObject.Find("Pool").gameObject.GetComponent<NetworkView>().networkView.RPC("ttt",RPCMode.All,nObj.networkView.viewID);
+                Debug.Log(spawner + " creates " + nObj +" ("+ nObj.networkView.viewID +") "+" that's parent is " + nObj.transform.parent);
             }
 
             pooledObjects.Add(nObj);

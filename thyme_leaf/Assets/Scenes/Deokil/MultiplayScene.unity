@@ -5642,6 +5642,7 @@ GameObject:
   - 4: {fileID: 1820747003}
   - 114: {fileID: 1820747004}
   - 148: {fileID: 1820747005}
+  - 114: {fileID: 1820747006}
   m_Layer: 10
   m_Name: HeroSpawner
   m_TagString: Untagged
@@ -5689,6 +5690,17 @@ NetworkView:
   m_ViewID:
     m_ID: 1
     m_Type: 1
+--- !u!114 &1820747006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820747002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db45feb961a05554187d17d7631d4bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1862384773
 GameObject:
   m_ObjectHideFlags: 0
