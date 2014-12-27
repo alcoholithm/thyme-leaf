@@ -38,12 +38,12 @@ public class ObjectPool : MonoBehaviour
                 //multi play
                 nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;
                 nObj.networkView.viewID = Network.AllocateViewID();
-                Debug.Log(spawner + " creates " + nObj + " that's parent is " + nObj.transform.parent);
+                Debug.Log(spawner + " creates " + nObj +" ("+ nObj.networkView.viewID +") "+" that's parent is " + nObj.transform.parent);
 
                 //Transform ttt = GameObject.Find("Pool").transform;
                 //nObj.transform.parent = ttt;
                 //nObj.SetActive(false);
-                GameObject.Find("Pool").gameObject.GetComponent<NetworkView>().networkView.RPC("ttt",RPCMode.Others,nObj.networkView.viewID);
+                GameObject.Find("Pool").gameObject.GetComponent<NetworkView>().networkView.RPC("ttt",RPCMode.All,nObj.networkView.viewID);
             }
 
             pooledObjects.Add(nObj);
