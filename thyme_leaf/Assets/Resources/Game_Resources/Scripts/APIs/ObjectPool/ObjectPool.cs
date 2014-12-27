@@ -68,7 +68,7 @@ public class ObjectPool
             {
                 if (Network.peerType != NetworkPeerType.Disconnected){                    
                     if (spawner != null)
-                    {
+                    {                        
                         spawner.networkView.RPC("ACTIVE_OBJECT", RPCMode.All, pooledObjects[i].networkView.viewID);
                     }
                     else
