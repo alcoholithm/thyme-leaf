@@ -60,12 +60,20 @@ public class ObjectPool : MonoBehaviour
         */
     }
 
+    [RPC]
+    public void NetworkGetObject(NetworkViewID id)
+    {
+        NetworkView.Find(id).gameObject.SetActive(true);
+    }
+
     public GameObject GetObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {            
             if (pooledObjects[i].activeSelf == false)
             {
+                if (Network.peerType == NetworkPeerType.Connecting)
+                    spawner.networkView.RPC("NetworkGetObject",RPCMode.Others,pooledObjects[i].networkView.viewID);
                 pooledObjects[i].SetActive(true);
                 return pooledObjects[i];
             }
@@ -73,7 +81,15 @@ public class ObjectPool : MonoBehaviour
 
         if (this.maxPoolSize > this.pooledObjects.Count)
         {            
-            GameObject nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
+            GameObject nObj = null;
+            if (Network.peerType == NetworkPeerType.Connecting)
+            {
+                nObj = Network.Instantiate(pooledObj, Vector3.zero, Quaternion.identity, 0) as GameObject;                
+            }
+            else
+            {
+                nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
+            }
             nObj.SetActive(true);
             pooledObjects.Add(nObj);
             return nObj;
