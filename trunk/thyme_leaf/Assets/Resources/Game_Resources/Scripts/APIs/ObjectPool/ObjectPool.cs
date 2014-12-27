@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
-public class ObjectPool
+public class ObjectPool : MonoBehaviour
 {
     private List<GameObject> pooledObjects;
     private GameObject pooledObj;
@@ -11,14 +11,14 @@ public class ObjectPool
     private int initialPoolSize;
 
     private static GameObject poolMgr;
-    private GameObject spawner = null;
+    private GameObject spawner;
 
     public ObjectPool(GameObject spawner, GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
-    {        
-        if (this.spawner == null)
-        {
+    {
+        if (poolMgr == null)
+            poolMgr = GameObject.Find("Pool").gameObject;
+        if (spawner == null)
             this.spawner = spawner;
-        }
 
         pooledObjects = new List<GameObject>();
 
@@ -67,34 +67,14 @@ public class ObjectPool
         {            
             if (pooledObjects[i].activeSelf == false)
             {
-                if (Network.peerType != NetworkPeerType.Disconnected){                    
-                    if (spawner != null)
-                    {                        
-                        spawner.networkView.RPC("ACTIVE_OBJECT", RPCMode.All, pooledObjects[i].networkView.viewID);
-                    }
-                    else
-                    {
-                        Debug.Log("Spawner is null in " + GetHashCode());
-                    }
-                }
-                else{
-                    pooledObjects[i].SetActive(true);
-                }
+                pooledObjects[i].SetActive(true);
                 return pooledObjects[i];
             }
         }
 
         if (this.maxPoolSize > this.pooledObjects.Count)
         {            
-            GameObject nObj = null;
-            if (Network.peerType == NetworkPeerType.Connecting)
-            {
-                nObj = Network.Instantiate(pooledObj, Vector3.zero, Quaternion.identity, 0) as GameObject;                
-            }
-            else
-            {
-                nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
-            }
+            GameObject nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
             nObj.SetActive(true);
             pooledObjects.Add(nObj);
             return nObj;
