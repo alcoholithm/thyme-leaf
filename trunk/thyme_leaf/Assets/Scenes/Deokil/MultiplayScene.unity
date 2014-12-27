@@ -3335,6 +3335,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1136849225}
+  - 114: {fileID: 1136849227}
+  - 148: {fileID: 1136849226}
   m_Layer: 0
   m_Name: Pool
   m_TagString: Untagged
@@ -3354,6 +3356,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!148 &1136849226
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136849224}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1136849225}
+  m_ViewID:
+    m_ID: 5
+    m_Type: 1
+--- !u!114 &1136849227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136849224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153c37d14821e724096d8db1d031afd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1137407168
 GameObject:
   m_ObjectHideFlags: 0
