@@ -2921,7 +2921,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294965759
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4537,8 +4537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
-  automat_center: {fileID: 0}
-  trovant_cener: {fileID: 0}
+  automat_center: {fileID: 100002, guid: 3adb53c770cc144578f47841988ad58a, type: 2}
+  trovant_cener: {fileID: 100002, guid: a78a165056eb9480d9c75c2eca96d66e, type: 2}
   StageNumber: 1
 --- !u!4 &1545058306
 Transform:

@@ -14,6 +14,8 @@ public class HeroState_Moving : State<Hero> {
 		}else if((owner.getLayer() == Layer.Trovant)) {
 			owner.Anim.Play("Python_Moving_Normal_");
 		}
+
+		owner.state_name = "Moving_";
 	}
 
 	public override void Execute (Hero owner)

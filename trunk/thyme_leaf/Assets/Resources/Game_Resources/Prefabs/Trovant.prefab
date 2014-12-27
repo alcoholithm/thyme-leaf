@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400002}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Trovant
   m_TagString: TagWarriorTrovant
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400008}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 2_Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400010}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 1 - [1-2] Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
