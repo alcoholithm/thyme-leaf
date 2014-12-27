@@ -5,10 +5,10 @@ public class ConnectScript : MonoBehaviour
 {
 
     // Server IP & Port
-    public string masterSeverIP = "210.118.69.150";
-    public int masterServerPort = 23466;
-    public string facilitatorIP = "210.118.69.150";
-    public int facilitatorPort = 50005;
+    private const string masterSeverIP = "210.118.69.150";
+    private const int masterServerPort = 23466;
+    private const string facilitatorIP = "210.118.69.150";
+    private const int facilitatorPort = 50005;
 
     // Never touch it
     private const string typeName = "Thyme Leaf";
@@ -29,7 +29,7 @@ public class ConnectScript : MonoBehaviour
         MasterServer.port = masterServerPort;
         Network.natFacilitatorIP = facilitatorIP;
         Network.natFacilitatorPort = facilitatorPort;
-        Network.minimumAllocatableViewIDs = 1000;
+        Network.minimumAllocatableViewIDs = 10000;        
     }
 
     void Update()
