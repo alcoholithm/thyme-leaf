@@ -18,6 +18,8 @@ public class HeroSpawner : Singleton<HeroSpawner>
 
     void Awake()
     {
+        if (!Network.isServer) Destroy(this);
+
         foreach (GameObject automat in automats)
         {
             ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);                 
