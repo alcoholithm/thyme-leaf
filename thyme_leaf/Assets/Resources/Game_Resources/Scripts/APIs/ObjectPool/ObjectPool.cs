@@ -35,11 +35,12 @@ public class ObjectPool
             else
             {
                 //multi-play
-                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject; 
+                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;
+                nObj.networkView.viewID = Network.AllocateViewID();
                 // Network.Instantiate method allocates network viewID automatically
                 spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj.networkView.viewID);
 
-                //Debug.Log(spawner + " creates " + nObj +" ("+ nObj.networkView.viewID +") "+" that's parent is " + nObj.transform.parent);
+                Debug.Log(spawner + " creates " + nObj +" ("+ nObj.networkView.viewID +") "+" that's parent is " + nObj.transform.parent);
             }
 
             pooledObjects.Add(nObj);
