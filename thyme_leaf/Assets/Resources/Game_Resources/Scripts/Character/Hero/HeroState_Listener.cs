@@ -3,8 +3,18 @@ using System.Collections;
 
 public class HeroState_Listener : MonoBehaviour
 {
+    [RPC]
+    void NetworkOnClick()
+    {
+
+    }
+
     void OnClick()
     {
+        if (Network.peerType != NetworkPeerType.Disconnected)
+        {
+            Debug.Log("Connected....");
+        }
 		Transform temp = GameObject.Find ("AutomatUnits").transform;
         Hero hero = HeroSpawner.Instance.Allocate();
 		Debug.Log ("character init");
