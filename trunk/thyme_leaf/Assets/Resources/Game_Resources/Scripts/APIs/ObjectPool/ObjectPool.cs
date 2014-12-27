@@ -74,7 +74,7 @@ public class ObjectPool : MonoBehaviour
             if (pooledObjects[i].activeSelf == false)
             {
                 if (Network.peerType == NetworkPeerType.Connecting)
-                    spawner.networkView.RPC("NetworkGetObject",RPCMode.All,pooledObjects[i].networkView.viewID);
+                    spawner.networkView.RPC("ACTIVE_OBJECT", RPCMode.All, pooledObjects[i].networkView.viewID);
                 else
                     pooledObjects[i].SetActive(true);
                 return pooledObjects[i];
