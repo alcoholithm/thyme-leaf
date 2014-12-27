@@ -846,8 +846,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
-  automat_center: {fileID: 0}
-  trovant_cener: {fileID: 0}
   StageNumber: 1
 --- !u!4 &244665739
 Transform:
@@ -3331,58 +3329,6 @@ Prefab:
   m_RootGameObject: {fileID: 1426349214}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &1136849224
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1136849225}
-  - 114: {fileID: 1136849227}
-  - 148: {fileID: 1136849226}
-  m_Layer: 0
-  m_Name: Pool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1136849225
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1136849224}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
---- !u!148 &1136849226
-NetworkView:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1136849224}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 1136849225}
-  m_ViewID:
-    m_ID: 5
-    m_Type: 1
---- !u!114 &1136849227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1136849224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 153c37d14821e724096d8db1d031afd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1137407168
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,7 +5589,7 @@ GameObject:
   - 114: {fileID: 1820747004}
   - 148: {fileID: 1820747005}
   - 114: {fileID: 1820747006}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: HeroSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5675,7 +5621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   automats:
-  - {fileID: 100000, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
+  - {fileID: 100008, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
   initPoolSize: 100
   maxPoolSize: 200
 --- !u!148 &1820747005

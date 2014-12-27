@@ -12,7 +12,7 @@ public class SpawnRPCScript : MonoBehaviour {
     }
 
     [RPC]
-    public void ACTIVE_OBJECT(NetworkViewID id)
+    void ACTIVE_OBJECT(NetworkViewID id)
     {
         NetworkView.Find(id).gameObject.SetActive(true);
         Debug.Log("ACTIVE_OBJECT " + id);
