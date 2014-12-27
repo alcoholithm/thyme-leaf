@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool
 {
     private List<GameObject> pooledObjects;
     private GameObject pooledObj;
@@ -11,14 +11,14 @@ public class ObjectPool : MonoBehaviour
     private int initialPoolSize;
 
     private static GameObject poolMgr;
-    private GameObject spawner;
+    private GameObject spawner = null;
 
     public ObjectPool(GameObject spawner, GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
     {
-        if (poolMgr == null)
-            poolMgr = GameObject.Find("Pool").gameObject;
-        if (spawner == null)
+        if (this.spawner == null)
+        {
             this.spawner = spawner;
+        }
 
         pooledObjects = new List<GameObject>();
 
@@ -40,7 +40,7 @@ public class ObjectPool : MonoBehaviour
                 // Network.Instantiate method allocates network viewID automatically
                 spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj.networkView.viewID);
 
-                Debug.Log(spawner + " creates " + nObj +" ("+ nObj.networkView.viewID +") "+" that's parent is " + nObj.transform.parent);
+                Debug.Log(spawner + " creates " + nObj + " (" + nObj.networkView.viewID + ") " + " that's parent is " + nObj.transform.parent);
             }
 
             pooledObjects.Add(nObj);
@@ -64,17 +64,39 @@ public class ObjectPool : MonoBehaviour
     public GameObject GetObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
-        {            
+        {
             if (pooledObjects[i].activeSelf == false)
             {
-                pooledObjects[i].SetActive(true);
+                if (Network.peerType != NetworkPeerType.Disconnected)
+                {
+                    if (spawner != null)
+                    {
+                        spawner.networkView.RPC("ACTIVE_OBJECT", RPCMode.All, pooledObjects[i].networkView.viewID);
+                    }
+                    else
+                    {
+                        Debug.Log("Spawner is null in " + GetHashCode());
+                    }
+                }
+                else
+                {
+                    pooledObjects[i].SetActive(true);
+                }
                 return pooledObjects[i];
             }
         }
 
         if (this.maxPoolSize > this.pooledObjects.Count)
-        {            
-            GameObject nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
+        {
+            GameObject nObj = null;
+            if (Network.peerType == NetworkPeerType.Connecting)
+            {
+                nObj = Network.Instantiate(pooledObj, Vector3.zero, Quaternion.identity, 0) as GameObject;
+            }
+            else
+            {
+                nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
+            }
             nObj.SetActive(true);
             pooledObjects.Add(nObj);
             return nObj;
