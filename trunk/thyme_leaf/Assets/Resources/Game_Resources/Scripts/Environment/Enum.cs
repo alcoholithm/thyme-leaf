@@ -49,7 +49,7 @@ public enum SpawnerType
     TOWER_SPAWNER,
 }
 
-public static class RPCMethod
+public class RPCMethod
 {
-    public static const string INIT_SPAWNED_OBJECT = "INIT_SPAWNED_OBJECT";
+    public const string INIT_SPAWNED_OBJECT = "INIT_SPAWNED_OBJECT";
 }
