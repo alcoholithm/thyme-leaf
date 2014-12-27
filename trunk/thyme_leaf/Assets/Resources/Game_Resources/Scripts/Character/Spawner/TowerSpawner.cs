@@ -18,6 +18,7 @@ public class TowerSpawner : Singleton<TowerSpawner>
     {
        // if (!Network.isServer) Destroy(this);
         Destroy(this);
+        if (towers == null) return;
         foreach (GameObject tower in towers)
         {            
             ObjectPoolingManager.Instance.CreatePool(gameObject,tower, initPoolSize, maxPoolSize, false);
