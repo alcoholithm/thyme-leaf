@@ -60,21 +60,16 @@ public class ObjectPool : MonoBehaviour
         */
     }
 
-    [RPC]
-    public void NetworkGetObject(NetworkViewID id)
-    {
-        NetworkView.Find(id).gameObject.SetActive(true);
-        Debug.Log("NetworkGetObject " + id);
-    }
-
     public GameObject GetObject()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {            
             if (pooledObjects[i].activeSelf == false)
             {
-                if (Network.peerType == NetworkPeerType.Connecting)
+                if (Network.peerType != NetworkPeerType.Disconnected){
+                    Debug.Log("NetworkGetObject " + pooledObjects[i].networkView.viewID);
                     spawner.networkView.RPC("ACTIVE_OBJECT", RPCMode.All, pooledObjects[i].networkView.viewID);
+                }
                 else
                     pooledObjects[i].SetActive(true);
                 return pooledObjects[i];
