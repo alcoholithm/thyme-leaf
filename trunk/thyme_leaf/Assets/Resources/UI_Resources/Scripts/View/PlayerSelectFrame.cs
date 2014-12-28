@@ -10,6 +10,12 @@ public class PlayerSelectFrame : MonoBehaviour, IView
     private GameObject[] _playerSlots;
 
     [SerializeField]
+    private UIButton _renameButton;
+
+    [SerializeField]
+    private UIButton _deleteButton;
+
+    [SerializeField]
     private UIButton _closeButton;
 
     /*
@@ -48,6 +54,18 @@ public class PlayerSelectFrame : MonoBehaviour, IView
         this.gameObject.SetActive(false);
     }
 
+    public void isClick(int num)
+    {
+        for (int i = 0; i < 3; i++ )
+        {
+            if( i == num)
+                _playerSlots[num].transform.GetChild(1).gameObject.SetActive(true);
+            else
+                _playerSlots[i].transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
+
+
 
     /*
      * following are overrided methods
@@ -56,15 +74,32 @@ public class PlayerSelectFrame : MonoBehaviour, IView
     {
         if (actionCommand.Equals(_playerSlots[0].name))
         {
-            view.Controller.PrepareLobby(_playerSlots[0].GetComponentInChildren<UILabel>().text);
+            isClick(0);
+            //view.Controller.PrepareLobby(_playerSlots[0].GetComponentInChildren<UILabel>().text);
         }
         else if (actionCommand.Equals(_playerSlots[1].name))
         {
-            view.Controller.PrepareLobby(_playerSlots[1].GetComponentInChildren<UILabel>().text);
+            isClick(1);
+            //view.Controller.PrepareLobby(_playerSlots[1].GetComponentInChildren<UILabel>().text);
         }
         else if (actionCommand.Equals(_playerSlots[2].name))
         {
-            view.Controller.PrepareLobby(_playerSlots[2].GetComponentInChildren<UILabel>().text);
+            isClick(2);
+            //view.Controller.PrepareLobby(_playerSlots[2].GetComponentInChildren<UILabel>().text);
+        }
+        else if(actionCommand.Equals(_renameButton.name))
+        {
+            int userCnt = view.Model.Users.Count;
+            int userMax = view.Model.NUserMax;
+
+            if (userCnt < userMax)
+                view.Controller.RenameAdd();
+            else
+                DialogView.Instance.ShowMessageDialog("Exceed number!");
+        }
+        else if(actionCommand.Equals(_deleteButton.name))
+        {
+            DialogView.Instance.ShowMessageDialog("Really Delete?");
         }
         else if (actionCommand.Equals(_closeButton.name))
         {
