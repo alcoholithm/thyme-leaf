@@ -2588,7 +2588,13 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 1128416535}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 638394470}
+      field: name
+    oneShot: 0
 --- !u!114 &638394473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2911,7 +2917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &659487170
 Transform:
   m_ObjectHideFlags: 0
@@ -3043,7 +3049,13 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 1128416535}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 668147079}
+      field: name
+    oneShot: 0
 --- !u!114 &668147082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,6 +5024,8 @@ MonoBehaviour:
   - {fileID: 1903314796}
   - {fileID: 658503169}
   - {fileID: 644067075}
+  _renameButton: {fileID: 668147081}
+  _deleteButton: {fileID: 638394472}
   _closeButton: {fileID: 402077561}
 --- !u!1 &1135053684
 GameObject:
@@ -5243,7 +5257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1239320355
 Transform:
   m_ObjectHideFlags: 0
@@ -6847,7 +6861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1929258442
 Transform:
   m_ObjectHideFlags: 0

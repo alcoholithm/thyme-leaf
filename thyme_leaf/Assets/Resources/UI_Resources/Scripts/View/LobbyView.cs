@@ -40,7 +40,15 @@ public class LobbyView : MonoBehaviour, IView, IObserver
     {
         SetVisible(SettingsButton, true);
         SetVisible(GoToWorldMapButton, true);
-        SetVisible(WelcomeFrame, true);
+        WelcomeRefresh();
+    }
+
+    public void HideLobby()
+    {
+        SetVisible(SettingsButton, false);
+        SetVisible(GoToWorldMapButton, false);
+        SetVisible(WelcomeFrame, false);
+        SetVisible(PlayerSelectFrame, false);
     }
 
     /*
@@ -95,6 +103,12 @@ public class LobbyView : MonoBehaviour, IView, IObserver
         //}
 
         throw new System.NotImplementedException();
+    }
+
+    public void WelcomeRefresh()
+    {
+        SetVisible(WelcomeFrame, false);
+        SetVisible(WelcomeFrame, true);
     }
 
     /*

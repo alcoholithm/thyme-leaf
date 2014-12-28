@@ -33,9 +33,10 @@ public class LobbyController
         string str;
         if (model.RegisterUser(userName))
         {
-            str = "Welcome!!";
+            str = "Welcome!! "+userName;
             view.SetVisible(view.RegisterUserFrame, false);
-            view.SetVisible(view.PlayerSelectFrame, true);
+
+            PrepareLobby(userName);
         }
         else
         {
@@ -48,10 +49,26 @@ public class LobbyController
 
     public void PrepareLobby(string userName)
     {
-        User currUser = model.Users.Find(user => user.Name.Equals(userName));
-        model.CurrentUser = currUser;
-        view.SetVisible(view.PlayerSelectFrame, false);
-        view.PrepareLobby();
+        string newName = userName.ToLower();
+        if( newName != "empty")
+        {
+            User currUser = model.Users.Find(user => user.Name.Equals(userName));
+            model.CurrentUser = currUser;
+            
+            view.SetVisible(view.PlayerSelectFrame, false);
+            view.PrepareLobby();
+        }
+        else
+        {
+            view.HideLobby();
+            view.SetVisible(view.RegisterUserFrame, true);
+        }
+    }
+
+    public void RenameAdd()
+    {
+        view.HideLobby();
+        view.SetVisible(view.RegisterUserFrame, true);
     }
 
     public const string TAG = "[LoginController]";

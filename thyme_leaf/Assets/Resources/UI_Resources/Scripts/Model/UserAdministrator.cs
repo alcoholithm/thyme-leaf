@@ -15,6 +15,11 @@ public class UserAdministrator : IUserAdministrator, IObservable
     }
 
     private int nUserMax = 3;
+    public int NUserMax
+    {
+        get { return nUserMax; }
+        set { nUserMax = value; }
+    }
 
     private User currentUser;
     public User CurrentUser
