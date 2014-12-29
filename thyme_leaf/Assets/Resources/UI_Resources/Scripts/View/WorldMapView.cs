@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WorldMapView : MonoBehaviour, IView
+public class WorldMapView : View, IActionListener
 {
     private WorldMapController controller;
     private IUserAdministrator model;
@@ -20,8 +20,6 @@ public class WorldMapView : MonoBehaviour, IView
 
     [SerializeField]
     GameObject _storyBtn;
-
-    
 
     public void ActionPerformed(string actionCommand)
     {
@@ -43,7 +41,7 @@ public class WorldMapView : MonoBehaviour, IView
         }
     }
 
-    public void UpdateUI()
+    public override void UpdateUI()
     {
         throw new System.NotImplementedException();
     }

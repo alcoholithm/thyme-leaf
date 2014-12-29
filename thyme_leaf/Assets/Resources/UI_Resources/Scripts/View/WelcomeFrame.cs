@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Facade of WelcomeFrame
 /// </summary>
-public class WelcomeFrame : MonoBehaviour, IView
+public class WelcomeFrame : View, IActionListener
 {
     private LobbyView view;
 
@@ -42,7 +42,7 @@ public class WelcomeFrame : MonoBehaviour, IView
         }
     }
 
-    public void UpdateUI()
+    public override void UpdateUI()
     {
         throw new System.NotImplementedException();
     }

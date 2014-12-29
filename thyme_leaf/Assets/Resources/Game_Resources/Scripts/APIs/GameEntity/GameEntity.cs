@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// All the game entities must be derived from this class.
 /// </summary>
-public abstract class GameEntity : MonoBehaviour, IHandler // client
+public abstract class GameEntity : View, IHandler
 {
     /*
     * followings are public member functions
@@ -72,18 +72,18 @@ public abstract class GameEntity : MonoBehaviour, IHandler // client
         //Debug.Log(TAG + "HandleMessage");
         Successor.OnMessage(msg);
     }
-
     public bool HandleMessage(Message msg)
     {
         throw new System.NotImplementedException();
     }
 
     /*
-     * 
+     * followings are attributes
      */ 
-    public const string TAG = "[GameEntity]";
     public abstract IHandler Successor
     {
         get;
     }
+
+    public const string TAG = "[GameEntity]";
 }

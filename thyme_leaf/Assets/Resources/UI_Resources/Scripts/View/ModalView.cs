@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ModalView : MonoBehaviour, IView
+public class ModalView : View, IActionListener
 {
     [SerializeField]
     GameObject _settingsButton;
@@ -15,10 +15,5 @@ public class ModalView : MonoBehaviour, IView
         {
             _settings.SetActive(true);
         }
-    }
-
-    public void UpdateUI()
-    {
-        throw new System.NotImplementedException();
     }
 }

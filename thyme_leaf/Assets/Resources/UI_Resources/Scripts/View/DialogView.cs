@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DialogView : Singleton<DialogView>, IView
+public class DialogView : Singleton<DialogView>
 {
     private LobbyController controller;
 
@@ -37,16 +37,6 @@ public class DialogView : Singleton<DialogView>, IView
         gameObject.SetActive(active);
     }
 
-    public void ActionPerformed(string ActionCommand)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void UpdateUI()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void DeleteTemp()
     {
         Debug.Log("click!");
@@ -76,5 +66,5 @@ public class DialogView : Singleton<DialogView>, IView
     //        throw new System.NotImplementedException();
     //    }
     //}
-    public const string TAG = "[DialogView]";
+    public new const string TAG = "[DialogView]";
 }

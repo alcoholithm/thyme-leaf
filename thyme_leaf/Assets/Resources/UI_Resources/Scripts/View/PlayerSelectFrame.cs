@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerSelectFrame : MonoBehaviour, IView
+public class PlayerSelectFrame : View, IActionListener
 {
     private int ClickFlag;
 
@@ -116,7 +116,7 @@ public class PlayerSelectFrame : MonoBehaviour, IView
         }
     }
 
-    public void UpdateUI()
+    public override void UpdateUI()
     {
         initialize();
     }
