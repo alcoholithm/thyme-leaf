@@ -57,12 +57,39 @@ public class UserAdministrator : IUserAdministrator, IObservable
 
     public bool RemoveUser(string userName)
     {
-        throw new System.NotImplementedException();
+        if( users.Find(user => user.Name.Equals(userName)) != null)
+        {
+            int posIndex;
+            posIndex = users.FindIndex(user => user.Name.Equals(nUserMax));
+            users.RemoveAt(posIndex);
+
+            Debug.Log("Pass");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Fail");
+            return false;
+        }
+        
     }
 
-    public bool RenameUser(string oldOne, string newOne)
+    public bool RenameUser(string oldOne, string newOne, int clickFlag)
     {
-        throw new System.NotImplementedException();
+        if(newOne != null
+           && newOne.Length > 0
+           && users.Find(user => user.Name.Equals(newOne)) == null)
+        {
+            users[clickFlag].Name = newOne;
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+        
     }
 
     public bool IsEmpty()

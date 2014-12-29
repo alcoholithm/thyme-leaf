@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class PlayerSelectFrame : MonoBehaviour, IView
 {
+    private int ClickFlag;
+
     private LobbyView view;
 
     [SerializeField]
@@ -56,6 +58,7 @@ public class PlayerSelectFrame : MonoBehaviour, IView
 
     public void isClick(int num)
     {
+        ClickFlag = num;
         for (int i = 0; i < 3; i++ )
         {
             if( i == num)
@@ -65,6 +68,18 @@ public class PlayerSelectFrame : MonoBehaviour, IView
         }
     }
 
+    public void isEmpty(int num)
+    {
+        string slotText;
+        slotText = _playerSlots[num].GetComponentInChildren<UILabel>().text;
+        slotText = slotText.ToLower();
+
+        if( slotText.Equals("empty"))
+        {
+            view.Controller.PrepareLobby(_playerSlots[num].GetComponentInChildren<UILabel>().text);
+        }
+        
+    }
 
 
     /*
@@ -75,27 +90,21 @@ public class PlayerSelectFrame : MonoBehaviour, IView
         if (actionCommand.Equals(_playerSlots[0].name))
         {
             isClick(0);
-            //view.Controller.PrepareLobby(_playerSlots[0].GetComponentInChildren<UILabel>().text);
+            isEmpty(0);
         }
         else if (actionCommand.Equals(_playerSlots[1].name))
         {
             isClick(1);
-            //view.Controller.PrepareLobby(_playerSlots[1].GetComponentInChildren<UILabel>().text);
+            isEmpty(1);
         }
         else if (actionCommand.Equals(_playerSlots[2].name))
         {
             isClick(2);
-            //view.Controller.PrepareLobby(_playerSlots[2].GetComponentInChildren<UILabel>().text);
+            isEmpty(2);
         }
         else if(actionCommand.Equals(_renameButton.name))
         {
-            int userCnt = view.Model.Users.Count;
-            int userMax = view.Model.NUserMax;
-
-            if (userCnt < userMax)
-                view.Controller.RenameAdd();
-            else
-                DialogView.Instance.ShowMessageDialog("Exceed number!");
+            view.Controller.RenameFunc(_playerSlots[ClickFlag].GetComponentInChildren<UILabel>().text,ClickFlag);
         }
         else if(actionCommand.Equals(_deleteButton.name))
         {

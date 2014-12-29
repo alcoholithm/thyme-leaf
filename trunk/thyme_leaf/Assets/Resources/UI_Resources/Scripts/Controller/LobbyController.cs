@@ -35,7 +35,6 @@ public class LobbyController
         {
             str = "Welcome!! "+userName;
             view.SetVisible(view.RegisterUserFrame, false);
-
             PrepareLobby(userName);
         }
         else
@@ -65,10 +64,21 @@ public class LobbyController
         }
     }
 
-    public void RenameAdd()
+    public void RenameFunc(string origName, int flag)
     {
-        view.HideLobby();
-        view.SetVisible(view.RegisterUserFrame, true);
+        model.RenameUser(origName, "test123", flag);
+
+        User currUser = model.Users.Find(user => user.Name.Equals("test123"));
+        model.CurrentUser = currUser;
+
+        view.SetVisible(view.PlayerSelectFrame, false);
+        view.PrepareLobby();
+    }
+
+    public void DeleteNameFunc(string userName)
+    {
+        Debug.Log("Here");
+        model.RemoveUser(userName);
     }
 
     public const string TAG = "[LoginController]";

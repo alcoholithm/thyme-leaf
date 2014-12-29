@@ -1,23 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DialogView : MonoBehaviour, IView
+public class DialogView : Singleton<DialogView>, IView
 {
-    //private LobbyController controller;
+    private LobbyController controller;
+
+    [SerializeField]
+    private LobbyView _view;
+    
     //private UserAdministrator model;
 
     [SerializeField]
     private GameObject _messageDialog;
 
+    [SerializeField]
+    private GameObject _confirmDialog;
+
     void Awake()
     {
-        instance = this;
+        controller = _view.Controller;
     }
 
     public void ShowMessageDialog(string message)
     {
         _messageDialog.GetComponent<MessageDialog>().SetMessage(message);
         SetVisible(_messageDialog, true);
+    }
+    public void ShowConfirmDialog(string message)
+    {
+        _confirmDialog.GetComponent<ConfirmDialog>().SetMessage(message);
+        SetVisible(_confirmDialog, true);
     }
 
     public void SetVisible(GameObject gameObject, bool active)
@@ -35,11 +47,10 @@ public class DialogView : MonoBehaviour, IView
         throw new System.NotImplementedException();
     }
 
-    public const string TAG = "[DialogView]";
-    private static DialogView instance;
-    public static DialogView Instance
+    public void DeleteTemp()
     {
-        get { return DialogView.instance; }
+        Debug.Log("click!");
+        controller.DeleteNameFunc("A");
     }
 
     //public IController Controller
@@ -65,4 +76,5 @@ public class DialogView : MonoBehaviour, IView
     //        throw new System.NotImplementedException();
     //    }
     //}
+    public const string TAG = "[DialogView]";
 }
