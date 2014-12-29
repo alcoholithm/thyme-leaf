@@ -1,23 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LobbyView : View, IActionListener, IObserver
+public class LobbyView : View, IActionListener
 {
+    //---------------------MVC
     private LobbyController controller;
     private UserAdministrator model;
+    //---------------------
 
     [SerializeField]
+    private GameObject _startButton;
+    [SerializeField]
     private GameObject _registerUserFrame;
+
     [SerializeField]
     private GameObject _playerSelectFrame;
     [SerializeField]
     private GameObject _welcomeFrame;
+
     [SerializeField]
     private GameObject _goToWorldMapButton;
+
     [SerializeField]
     private GameObject _settingsButton;
-    [SerializeField]
-    private GameObject _startButton;
     [SerializeField]
     private GameObject _registerButton;
     [SerializeField]
@@ -28,13 +33,18 @@ public class LobbyView : View, IActionListener, IObserver
      */
     void Awake()
     {
+        // mvc
         this.model = UserAdministrator.Instance;
-        this.controller = new LobbyController(this, UserAdministrator.Instance);
-        this.model.RegisterObserver(this, ObserverTypes.Lobby);
+        this.controller = new LobbyController(this, this.model);
+        //this.model.RegisterObserver(this, ObserverTypes.Lobby);
+
+        // set children
+        this.Add(_playerSelectFrame.GetComponent<PlayerSelectFrame>());
+        this.Add(_welcomeFrame.GetComponent<WelcomeFrame>());
     }
 
     /*
-     * followings are member functions
+     * followings are public member functions
      */
     public void PrepareLobby()
     {
@@ -51,14 +61,20 @@ public class LobbyView : View, IActionListener, IObserver
         SetVisible(PlayerSelectFrame, false);
     }
 
-    /*
-    * followings are implemented methods of interface
-    */
     public void SetVisible(GameObject gameObject, bool active)
     {
         gameObject.SetActive(active);
     }
 
+    public void WelcomeRefresh()
+    {
+        SetVisible(WelcomeFrame, false);
+        SetVisible(WelcomeFrame, true);
+    }
+
+    /*
+    * followings are implemented methods of "IActionListener"
+    */
     public void ActionPerformed(string actionCommand)
     {
         if (actionCommand.Equals(_startButton.name))
@@ -75,36 +91,6 @@ public class LobbyView : View, IActionListener, IObserver
         }
     }
 
-    public void Refresh(ObserverTypes field)
-    {
-        //if (model.IsLogin)
-        //{
-        //    _id.GetComponentInChildren<UILabel>().text = "Login has succeeded";
-        //    Debug.Log("Login has succeeded");
-        //}
-        //else
-        //{
-        //    _id.GetComponentInChildren<UILabel>().text = "Login has failed";
-        //    Debug.Log("Login has failed");
-        //}
-
-        //if (typeof(T) is IScoreObserver)
-        //{
-
-        //}
-        //else if (typeof(T) is IRenewalObserver)
-        //{
-
-        //}
-
-        throw new System.NotImplementedException();
-    }
-
-    public void WelcomeRefresh()
-    {
-        SetVisible(WelcomeFrame, false);
-        SetVisible(WelcomeFrame, true);
-    }
 
     /*
      * Followings are attributes.

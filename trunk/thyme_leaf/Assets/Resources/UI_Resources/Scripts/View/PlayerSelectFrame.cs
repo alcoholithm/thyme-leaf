@@ -108,7 +108,7 @@ public class PlayerSelectFrame : View, IActionListener
         }
         else if(actionCommand.Equals(_deleteButton.name))
         {
-            DialogView.Instance.ShowMessageDialog("Really Delete?");
+            DialogFacade.Instance.ShowMessageDialog("Really Delete?");
         }
         else if (actionCommand.Equals(_closeButton.name))
         {
