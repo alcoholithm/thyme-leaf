@@ -4,12 +4,12 @@ using System.Collections;
 /// <summary>
 /// Facade of MessageDialog
 /// </summary>
-public class MessageDialog : MonoBehaviour
+public class ConfirmDialog : MonoBehaviour
 {
     [SerializeField]
-    private UILabel _title;
+    UILabel _title;
     [SerializeField]
-    private UILabel _message;
+    UILabel _message;
 
     void OnEnable()
     {
