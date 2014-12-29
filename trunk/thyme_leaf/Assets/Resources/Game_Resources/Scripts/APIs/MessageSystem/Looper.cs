@@ -4,7 +4,7 @@ using System.Threading;
 using System;
 
 /// <summary>
-/// This imitates like android looper almost.
+/// Class "Looper" imitates like "android looper" almost.
 /// </summary>
 public class Looper : Singleton<Looper>
 {
@@ -12,28 +12,21 @@ public class Looper : Singleton<Looper>
 
     /*
      * followings are unity callback methods
-     */ 
+     */
     void Awake()
     {
         messageQueue = MessageQueue.Instance;
-        Debug.Log(TAG + "has started");
     }
 
     void Update()
     {
-        Loop();
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        Debug.Log(TAG + "has finished");
+        GetMessageAndExecute();
     }
 
     /*
      * followings are member functions
-     */ 
-    void Loop()
+     */
+    void GetMessageAndExecute()
     {
         try
         {

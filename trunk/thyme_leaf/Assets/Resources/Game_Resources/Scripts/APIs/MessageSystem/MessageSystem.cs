@@ -14,7 +14,6 @@ public class MessageSystem : Singleton<MessageSystem>
     void Awake()
     {
         initialize();
-        SetParent("_System");
     }
 
     protected override void OnDestroy()
@@ -28,11 +27,15 @@ public class MessageSystem : Singleton<MessageSystem>
      */
     void initialize()
     {
+        SetParent("_System");
         this.messageDispatcher = new MessageDispatcher();
         MessageQueue.Instance.Prepare();
-        Looper.Instance.transform.parent = transform;
+        Looper.Instance.transform.parent = transform; //
     }
 
+    /*
+     * followings are public member functions
+     */
     public bool Dispatch(Message msg)
     {
         return messageDispatcher.Dispatch(msg);

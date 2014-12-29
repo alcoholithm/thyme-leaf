@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Class "MessagePool" is memory pool for preventing memory fragmentation
+/// </summary>
 public class MessagePool
 {
     //private MemoryPool<Message> memoryPool;
-
-    private const int CAPACITY = 1000;
+    //private const int CAPACITY = 1000;
 
     private MessagePool()
     {
@@ -44,7 +46,7 @@ public class MessagePool
 
     private Message DynamicInstantiate()
     {
-        return new Message();
+        return new Message(new NullCommand());
     }
 
     public const string TAG = "[MessagePool]";
