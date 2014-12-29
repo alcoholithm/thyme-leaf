@@ -42,7 +42,7 @@ public class LobbyController
             //str = model.Status();
             str = "error!!";
         }
-        DialogView.Instance.ShowMessageDialog(str);
+        DialogFacade.Instance.ShowMessageDialog(str);
         //view.StartCoroutine(model.Login(id, passwd));
     }
 

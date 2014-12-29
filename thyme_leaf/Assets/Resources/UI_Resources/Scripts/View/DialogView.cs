@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DialogView : Singleton<DialogView>
+public class DialogFacade : Singleton<DialogFacade>
 {
     private LobbyController controller;
 
@@ -18,18 +18,23 @@ public class DialogView : Singleton<DialogView>
 
     void Awake()
     {
-        controller = _view.Controller;
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        this.controller = _view.Controller;
     }
 
     public void ShowMessageDialog(string message)
     {
         _messageDialog.GetComponent<MessageDialog>().SetMessage(message);
-        SetVisible(_messageDialog, true);
+        _messageDialog.SetActive(true);
     }
     public void ShowConfirmDialog(string message)
     {
         _confirmDialog.GetComponent<ConfirmDialog>().SetMessage(message);
-        SetVisible(_confirmDialog, true);
+        _confirmDialog.SetActive(true);
     }
 
     public void SetVisible(GameObject gameObject, bool active)
@@ -43,28 +48,5 @@ public class DialogView : Singleton<DialogView>
         controller.DeleteNameFunc("A");
     }
 
-    //public IController Controller
-    //{
-    //    get
-    //    {
-    //        throw new System.NotImplementedException();
-    //    }
-    //    set
-    //    {
-    //        throw new System.NotImplementedException();
-    //    }
-    //}
-
-    //public IModel Model
-    //{
-    //    get
-    //    {
-    //        throw new System.NotImplementedException();
-    //    }
-    //    set
-    //    {
-    //        throw new System.NotImplementedException();
-    //    }
-    //}
-    public new const string TAG = "[DialogView]";
+    public new const string TAG = "[DialogFacade]";
 }
