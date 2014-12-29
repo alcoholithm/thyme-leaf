@@ -7,23 +7,6 @@ using System.Collections.Generic;
 /// 
 /// </summary>
 
-interface IAttackable
-{
-    IEnumerator Attack();
-}
-
-interface IMovalble
-{
-    void Move();
-}
-
-
-interface IAgt : IAttackable
-{
-    void TakeDamage(int damage);
-    void CheckDeath();
-}
-
 public class Agt_Controller
 {
     private Agt_Type1 view;
@@ -59,30 +42,31 @@ public class Agt_Controller
     public void EnemyEnter(GameEntity enemy)
     {
         model.AddEnemy(enemy);
-        
     }
 
-    internal void EnemyLeave(GameEntity enemy)
+    public void EnemyLeave(GameEntity enemy)
     {
         model.RemoveEnemy(enemy);
     }
 }
 
-public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>, IObserver, IView
+public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>, IObserver
 {
-    private NGUISpriteAnimation anim;
-
+    //-------------------- Children
     [SerializeField]
-    private HealthBarView healthbar;
+    private HealthBar healthbar;
+    //--------------------
+
+    private NGUISpriteAnimation anim;
 
     private StateMachine<Agt_Type1> stateMachine;
 
-    //---------------------MVC
+    //--------------------- MVC
     [SerializeField]
     private Tower model;
     private Agt_Controller controller;
-
     //---------------------
+
 
     /*
     * followings are unity callback methods
@@ -122,7 +106,11 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         this.model = new Tower(this);
         this.controller = new Agt_Controller(this, model);
 
-        //State machine
+        // set children
+        this.healthbar.Model = this.model;
+        this.Add(healthbar);
+
+        // set state machine
         this.stateMachine = new StateMachine<Agt_Type1>(this);
         this.stateMachine.CurrentState = TowerState_None.Instance;
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
@@ -130,22 +118,12 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         this.anim = GetComponent<NGUISpriteAnimation>();
         //this.anim.Pause();
 
-        this.healthbar.Model = this.model;
 
-        model.RegisterObserver(this, ObserverTypes.Health);
+        this.model.RegisterObserver(this, ObserverTypes.Health);
     }
-
-
-    public void SetAttackable(bool active)
-    {
-        if (active)
-            StartCoroutine("Attack");
-        else
-            StopCoroutine("Attack");
-    }
-
+    
     /*
-    * followings are implemented methods of "IATT_Type1"
+    * followings are implemented methods of "IAgt"
     */
     public void TakeDamage(int damage)
     {
@@ -160,6 +138,14 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
     public IEnumerator Attack() //  controller 안에 들어가야한다.
     {
         return controller.Attack();
+    }
+
+    public void SetAttackable(bool active)
+    {
+        if (active)
+            StartCoroutine("Attack");
+        else
+            StopCoroutine("Attack");
     }
 
     /*
@@ -186,18 +172,6 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         }
     }
 
-    /*
-     * followings are implemented methods of "IView"
-    */
-    public void ActionPerformed(string actionCommand)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UpdateUI()
-    {
-        healthbar.UpdateUI();
-    }
 
     /*
      * followings are attributes
@@ -221,12 +195,11 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         get { return model; }
         set { model = value; }
     }
-
     public Agt_Controller Controller
     {
         get { return controller; }
         set { controller = value; }
     }
 
-    public new const string TAG = "[Tower]";
+    public new const string TAG = "[Agt_Type1]";
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LobbyView : MonoBehaviour, IView, IObserver
+public class LobbyView : View, IActionListener, IObserver
 {
     private LobbyController controller;
     private UserAdministrator model;
@@ -73,11 +73,6 @@ public class LobbyView : MonoBehaviour, IView, IObserver
         {
             SceneManager.Instance.CurrentScene = SceneManager.WORLD_MAP;
         }
-    }
-
-    public void UpdateUI()
-    {
-        throw new System.NotImplementedException();
     }
 
     public void Refresh(ObserverTypes field)

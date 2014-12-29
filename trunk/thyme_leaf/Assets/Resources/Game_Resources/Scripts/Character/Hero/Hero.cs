@@ -21,7 +21,7 @@ public class Hero : GameEntity {
 	//=====================
 
 	private NGUISpriteAnimation anim;	
-	private HealthBarView health_bar_controller;
+	private HealthBar health_bar_controller;
 	
 	public Hero target;
 	public string my_name;  //test code...
@@ -79,7 +79,7 @@ public class Hero : GameEntity {
 		helper.setMoveTrigger (false);
 		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
 
-		health_bar_controller = transform.GetChild (0).GetChild(0).gameObject.GetComponent<HealthBarView> ();
+        health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
 		health_bar_body = transform.GetChild (0);
 	}
 
@@ -213,14 +213,14 @@ public class Hero : GameEntity {
 		}
 	}
 
-	public void HealthUpdate()
-	{
+    public void HealthUpdate()
+    {
         float ratio = model.HP / (float)model.MaxHP;
         Color color = Color.Lerp(Color.red, Color.green, ratio);
-		
+
         health_bar_controller.getSlider().value = ratio;
         health_bar_controller.getSlider().foregroundWidget.color = color;
-	}
+    }
 
 	//==============================================
 	public void setLayer(Layer v) { gameObject.layer = (int) v; }

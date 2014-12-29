@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerSpotView : MonoBehaviour, IView
+public class TowerSpotView : View, IActionListener
 {
     [SerializeField]
     GameObject _buildButton;
@@ -33,10 +33,5 @@ public class TowerSpotView : MonoBehaviour, IView
         {
             controller.BuildTower(_parent);
         }
-    }
-
-    public void UpdateUI()
-    {
-        throw new System.NotImplementedException();
     }
 }
