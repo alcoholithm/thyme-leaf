@@ -3,13 +3,11 @@ using System;
 using System.Collections;
 
 /// <summary>
-/// The way communicate to other entity.
+/// The way that communicate to other entity.
 /// </summary>
-public class Message : ICommand
-{ // struct로 바꾸는 거 생각해보기
-    public const string TAG = "[Message]";
-
-    public MessageTypes what = MessageTypes.MSG_TOWER_READY;
+public struct Message : ICommand
+{
+    public MessageTypes what;
     public int arg1;
     public int arg2;
     public UnityEngine.Object obj;
@@ -18,9 +16,15 @@ public class Message : ICommand
     public IHandler sender;
     public IHandler receiver;
 
-    public Message()
+    public Message(ICommand command)
     {
-        command = new NullCommand();
+        this.what = MessageTypes.MSG_NONE;
+        this.arg1 = 0;
+        this.arg2 = 0;
+        this.obj = null;
+        this.command = command;
+        this.sender = null;
+        this.receiver = null;
     }
 
     public static Message Obtain(IHandler h, MessageTypes what, int arg1, int arg2, ICommand command, UnityEngine.Object obj)
@@ -128,16 +132,19 @@ public class Message : ICommand
     }
 
     /*
-     * 
-     */ 
+     * followings are implemented methods of "ICommand"
+     */
     public void Execute()
     {
         receiver.OnMessage(this);
     }
 
-    /*
-     * 
-     */ 
+    /// <summary>
+    /// Class "ActionCommand" is a command class for supporting lambda expression.
+    /// </summary>
+    /// <typeparam name="TArg">
+    /// The parameter for lambda expression.
+    /// </typeparam>
     private class ActionCommand<TArg> : ICommand
     {
         private TArg receiver;
@@ -153,4 +160,9 @@ public class Message : ICommand
             action(receiver);
         }
     }
+
+    /*
+     * followings are attributes
+     */
+    public const string TAG = "[Message]";
 }
