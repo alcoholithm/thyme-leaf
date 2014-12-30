@@ -4,7 +4,7 @@ using System.Collections;
 public class TowerSpotView : View, IActionListener
 {
     [SerializeField]
-    GameObject _buildButton;
+    GameObject _upgradeButton;
     [SerializeField]
     GameObject _sellButton;
     [SerializeField]
@@ -29,9 +29,9 @@ public class TowerSpotView : View, IActionListener
      */
     public void ActionPerformed(string actionCommand)
     {
-        if (actionCommand.Equals(_buildButton.name))
+        if (actionCommand.Equals(_upgradeButton.name))
         {
-            controller.BuildTower(_parent);
+            //controller.BuildTower(_parent);
         }
     }
 }

@@ -1374,7 +1374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a41312691183f47853239a595086c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 0}
   _messageDialog: {fileID: 100034}
   _confirmDialog: {fileID: 100010}
 --- !u!114 &11400010
