@@ -19,7 +19,7 @@ public class HeroSpawner : Singleton<HeroSpawner>
     void Awake()
     {
         if ((Network.peerType != NetworkPeerType.Disconnected) || Network.isClient)
-            Destroy(this.gameObject);
+            return;
 
         foreach (GameObject automat in automats)
         {
