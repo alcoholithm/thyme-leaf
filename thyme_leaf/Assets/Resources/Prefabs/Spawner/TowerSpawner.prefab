@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
-  initPoolSize: 100
+  initPoolSize: 20
   maxPoolSize: 200
 --- !u!114 &11400002
 MonoBehaviour:

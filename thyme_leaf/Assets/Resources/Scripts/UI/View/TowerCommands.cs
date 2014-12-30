@@ -17,9 +17,18 @@ public class TowerCommandsController
     public void UpgradeTower()
     {
         Debug.Log("AAAAAAAA");
+
+        Agt_Type1 tower = model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>();
+
+        Debug.Log(tower.ToString());
+        Debug.Log(tower.StateMachine.ToString());
+        Debug.Log(tower.StateMachine.CurrentState.ToString());
+
+        tower.ChangeState(TowerState_Building.Instance);
+
         //model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>().ChangeState(TowerState_Idling.Instance);
-        Message msg = model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>().ObtainMessage(MessageTypes.MSG_TOWER_READY, new TowerReadyCommand(model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>()));
-        model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>().DispatchMessageDelayed(msg, 1.5f);
+        //Message msg = tower.ObtainMessage(MessageTypes.MSG_TOWER_READY, new TowerReadyCommand(model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>()));
+        //tower.DispatchMessageDelayed(msg, 1.5f);
         //throw new System.NotImplementedException();
         //model.SelectedObject.GetComponent<Agt_Type1>().Upgrade();
     }
