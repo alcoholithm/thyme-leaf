@@ -26,6 +26,7 @@ public class Hero : GameEntity {
 	public Hero target;
 	public string my_name;  //test code...
 	public string state_name;
+	private bool onlyfirst;
 
 	[HideInInspector]
 	public MHero model;
@@ -69,6 +70,8 @@ public class Hero : GameEntity {
 
 		//other reference...
 		target = null;
+
+		onlyfirst = false;
 
 		controller.setSpeed (speed / 10.0f);
 		controller.setMaxHp (MaxHP);
@@ -163,18 +166,18 @@ public class Hero : GameEntity {
 			break;
 		}
 	}
-
+	
 	public void ChangingAnimationAngle()
 	{
 		helper.angle_calculation_rate += Time.deltaTime;
 		if(helper.angle_calculation_rate >= 0.1f)
 		{
 			helper.angle_calculation_rate = 0;
-
+			
 			int dir = helper.Current_Right_orLeft ();
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
-
+			
 			if(dir == -1)
 			{
 				transform.localScale = new Vector3(-1, 1, 1); //left
@@ -185,31 +188,163 @@ public class Hero : GameEntity {
 				transform.localScale = new Vector3(1, 1, 1);  //right
 				health_bar_body.localScale = new Vector3(1, 1, 1);
 			}
-
+			
 			if(a < -45 && a > -135) //down
 			{
 				anim.Play("Python_Moving_Downwards_");
 				Debug.Log("down");
-		//		transform.localRotation = Quaternion.Euler(0,0,0);
+				//		transform.localRotation = Quaternion.Euler(0,0,0);
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
 				anim.Play("Python_Moving_Normal_");
 				Debug.Log("right");
-		//		transform.localRotation = Quaternion.Euler(0,0,a);
+				//		transform.localRotation = Quaternion.Euler(0,0,a);
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
 				anim.Play("Python_Moving_Normal_");
 				Debug.Log("left");
-		//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
+				//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
 			}
 			else if(a > 45 && a < 135) //up
 			{
-			//	anim.Play("Python_Moving_Upwards_");
-			//	Debug.Log("up");
-			//	transform.localRotation = Quaternion.Euler(0,0,0);
+				//	anim.Play("Python_Moving_Upwards_");
+				//	Debug.Log("up");
+				//	transform.localRotation = Quaternion.Euler(0,0,0);
 			}
+		}
+	}
+	
+	public void MusterControl()
+	{
+		if(getLayer() != Layer.Automart) return;
+		
+		if(!controller.isGesture()) onlyfirst = false;
+		
+		if(controller.isGesture() && !onlyfirst) //cross point...
+		{
+			Debug.Log("muster control! : "+helper.getCurrentNodeName());
+			onlyfirst = true;
+			//search...muster...
+			bool isCharacter = false;
+			bool isCount = false;
+			for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
+			{
+				UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
+				
+				if(model.Name == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
+				
+				//okay unit...
+				isCount = true;
+				
+				//okay cross like root...
+				if(helper.getCurrentNodeName() == "null" && other.infor_hero.helper.getCurrentNodeName() == "null")
+					continue;
+				
+				if(other.infor_hero.controller.isGesture() &&
+				   helper.getCurrentNodeName() == other.infor_hero.helper.getCurrentNodeName())
+				{
+					//i none muster & u muster okay...
+					if(!helper.getMusterTrigger() && other.infor_hero.helper.getMusterTrigger())
+					{
+						string muster_id = other.infor_hero.model.MusterID;
+						
+						//add good...
+						bool check = UnitMusterController.GetInstance().addUnit(muster_id, this);
+						//add fail...
+						if(!check)
+						{
+							//push other muster...
+							Debug.Log("other current muster full : "+muster_id);
+							//get leader...
+							//Hero leader = UnitMusterController.GetInstance().LeaderObj(muster_id);
+							//push action...
+							
+						}
+						else
+						{
+							Debug.Log("i none muster & u muster okay..."+muster_id);
+						}
+						isCharacter = true;
+					}
+					//i && u muster okay...
+					else if(helper.getMusterTrigger() && other.infor_hero.helper.getMusterTrigger())
+					{
+						string muster_id = other.infor_hero.model.MusterID;
+						string i_muster_id = model.MusterID;
+						if(i_muster_id == muster_id)
+						{
+							Debug.Log("muster id like...return...");
+							continue;
+						}
+						bool check = UnitMusterController.GetInstance().addUnits(muster_id, model.MusterID);
+						if(!check)
+						{
+							Debug.Log("i && u musters full");
+							//push other muster...
+						}
+						else
+						{
+							Debug.Log("i && u muster okay...");
+						}
+						isCharacter = true;
+					}
+					//i muster okay & u none muster...
+					else if(helper.getMusterTrigger() && !other.infor_hero.helper.getMusterTrigger())
+					{
+						string muster_id = model.MusterID;
+						bool check = UnitMusterController.GetInstance().addUnit(muster_id, other.infor_hero);
+						if(!check)
+						{
+							Debug.Log("i current muster full : "+muster_id);
+							//push other muster...
+						}
+						else
+						{
+							Debug.Log("i muster okay & u none muster...");
+						}
+						isCharacter = true;
+					}
+				}
+			}
+			//nothing character & not if...
+			if(!isCharacter && isCount)
+			{
+				List<Hero> list_arr = new List<Hero>();
+				Debug.Log("nothing character & not if...");
+				if(!helper.getMusterTrigger())
+				{
+					for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
+					{
+						UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
+						
+						if(model.Name == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
+						if(helper.getCurrentNodeName() == "null" && other.infor_hero.helper.getCurrentNodeName() == "null")
+							continue;
+						if(other.infor_hero.controller.isGesture() &&
+						   helper.getCurrentNodeName() == other.infor_hero.helper.getCurrentNodeName())
+						{
+							list_arr.Add(other.infor_hero);
+						}
+					}
+					if(list_arr.Count > 0)
+					{
+						string muster_name = UnitMusterController.GetInstance().addMuster(this);
+						if(muster_name != "none")
+						{
+							Debug.Log("muster make : "+muster_name);
+						}
+						for(int i=0;i<list_arr.Count;i++)
+						{
+							UnitMusterController.GetInstance().addUnit(muster_name, list_arr[i]);
+						}
+					}
+				}
+				list_arr.Clear();
+				list_arr = null;
+			}
+			//command exit...
 		}
 	}
 

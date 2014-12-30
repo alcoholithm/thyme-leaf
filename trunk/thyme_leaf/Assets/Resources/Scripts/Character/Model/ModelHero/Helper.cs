@@ -4,64 +4,65 @@ using System.Collections;
 public class Helper
 {
 	public GameObject currentUnit;
-
+	
 	//moving value
 	private MoveModeState moveMode;
 	public GameObject nodeStock;
 	public scriptPathNode nodeInfor;
-
+	private string current_node_name;
+	
 	private bool enableMove;
 	private bool enalbeMuster;
-
+	
 	//attacking value
 	public float attack_delay_counter;
 	public Hero attack_target;
 	//==================================
 	//extra
 	public bool selectTurnoffRoot;
-
+	
 	public string old_name;
 	public Vector3 gesture_startpoint;
 	public Vector2 gesture_endpoint;
 	public Vector3 oldpos;
-
+	
 	public float angle_calculation_rate;
 	//==================================
-
+	
 	//collision range
 	public float collision_range;
 	//==================================
-
+	
 	public Helper(GameObject obj)
 	{
 		currentUnit = obj;
-
+		
 		oldpos = getPos ();
 		
 		moveMode = MoveModeState.FORWARD;
-
+		
 		enableMove = false;
-
+		
 		//======================
 		//extra value
 		selectTurnoffRoot = false;
-
+		
 		gesture_startpoint = gesture_endpoint = Vector3.zero;
-
+		
 		attack_target = null;
 		//=======================
-
+		
 		attack_delay_counter = 0;
 		angle_calculation_rate = 0;
 	}
-
+	
 	public float CurrentAngle()
 	{
 		Vector3 d = getPos () - oldpos;
 		oldpos = getPos ();
 		return Mathf.Atan2 (d.y, d.x) * Define.RadianToAngle ();
 	}
-
+	
 	public int Current_Right_orLeft()
 	{
 		//-1 = left, 1 = right
@@ -69,7 +70,7 @@ public class Helper
 		if(d < 7 && d > -7) return 0;
 		else return d <= 0 ? -1 : 1;
 	}
-
+	
 	public void StartPointSetting(StartPoint option)
 	{
 		for(int i=0;i<Define.pathNode.Count;i++)
@@ -85,48 +86,52 @@ public class Helper
 			}
 		}
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
-
+		
 		setPos (nodeInfor.getPos (PosParamOption.CURRENT));
-
+		
 		if(nodeInfor.Prev != null) SetMoveMode(MoveModeState.BACKWARD);
 		else if(nodeInfor.Next != null) SetMoveMode(MoveModeState.FORWARD);
 	}
-
+	
 	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option)
+	{
+		return SelectPathNode(startPt, endPt, option, 0);
+	}
+	
+	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option, int default_auto)
 	{
 		//turnoffRoot = nodestoke  <all like>
 		//select path node ... when unit arrive at turnoff point
 		//searching node
 		Vector3 start_pt = startPt;
 		Vector2 end_pt = endPt;
-
+		
 		if(nodeStock == null) return false;
-
+		
 		scriptPathNode tempFunc = nodeStock.GetComponent<scriptPathNode>();
 		if(!tempFunc.TurnoffRoot)
 		{
-			old_name = nodeStock.name;
-		//	Debug.Log("before : "+old_name);
 			return false;
 		}
 		Vector3 centerPoint = nodeStock.transform.localPosition;
-
-		if(option == Layer.Trovant)
+		
+		if(option == Layer.Trovant || default_auto == 1)
 		{
 			start_pt = getPos();
-
-			while(true)
-			{
-				int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
-				if(old_name != tempFunc.turnoffList[rand_idx].name)
-				{
-			//		Debug.Log("cur : "+tempFunc.turnoffList[rand_idx].name);
-					end_pt = tempFunc.getPosTurnoffList(rand_idx);
-					break;
-				}
-			}
+			
+			//			while(true)
+			//			{
+			int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
+			end_pt = tempFunc.getPosTurnoffList(rand_idx);
+			//				if(old_name != tempFunc.turnoffList[rand_idx].name)
+			//				{
+			//					Debug.Log("cur : "+tempFunc.turnoffList[rand_idx].name);
+			//					end_pt = tempFunc.getPosTurnoffList(rand_idx);
+			//					break;
+			//				}
+			//			}
 		}
-
+		
 		if(option != Layer.Trovant)
 		{
 			Collider2D coll = RaycastHittingObject (start_pt);
@@ -144,8 +149,8 @@ public class Helper
 		float dx = end_pt.x - start_pt.x;
 		float dy = end_pt.y - start_pt.y;
 		float ag = Mathf.Atan2 (dy, dx) * Define.RadianToAngle ();
-//		Debug.Log ("angle : " + ag);
-
+		//		Debug.Log ("angle : " + ag);
+		
 		int min_idx = -1;
 		float min_r = float.MaxValue;
 		for (int i=0; i<tempFunc.CountTurnOffList(); i++)
@@ -175,7 +180,7 @@ public class Helper
 		}
 		else
 		{
-		//	Debug.Log("turnoff Root next null");
+			//	Debug.Log("turnoff Root next null");
 			if(tempFunc.Prev != null)
 			{
 				moveMode = MoveModeState.BACKWARD;
@@ -183,7 +188,7 @@ public class Helper
 			}
 			else
 			{
-		//		Debug.Log("turnoff Root null error");
+				//		Debug.Log("turnoff Root null error");
 				return false;
 			}
 		}
@@ -193,16 +198,16 @@ public class Helper
 		
 		return true;
 	}
-
+	
 	public Collider2D RaycastHittingObject(Vector3 mouse_position)
 	{
 		Vector2 wp = UICamera.mainCamera.ScreenToWorldPoint(mouse_position);
 		Ray2D ray = new Ray2D (wp, Vector2.zero);
 		RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
+		
 		return hit.collider;
 	}
-
+	
 	public void MoveReverse()
 	{
 		if(moveMode == MoveModeState.FORWARD)
@@ -210,7 +215,7 @@ public class Helper
 		else if(moveMode == MoveModeState.BACKWARD)
 			SetMoveMode(MoveModeState.FORWARD);
 	}
-
+	
 	public void setPos(float x, float y, float z) { currentUnit.transform.localPosition = new Vector3(x, y, z); }
 	public void setPos(Vector3 v) { currentUnit.transform.localPosition = v; }
 	public void addPos(float x, float y) { currentUnit.transform.localPosition += new Vector3(x, y); }
@@ -220,20 +225,22 @@ public class Helper
 	public void SetMoveMode(MoveModeState option)
 	{
 		moveMode = option;
-
+		
 		if(moveMode == MoveModeState.FORWARD) nodeStock = nodeInfor.Next;
 		else if(moveMode == MoveModeState.BACKWARD) nodeStock = nodeInfor.Prev;
-
+		
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 	}
 	public MoveModeState GetMoveMode() { return moveMode; }
 	
 	public void setMoveTrigger(bool v) { enableMove = v; }
 	public bool getMoveTrigger() { return enableMove; }
-
+	
 	public void setMusterTrigger(bool v) { enalbeMuster = v; }
 	public bool getMusterTrigger() { return enalbeMuster; }
-
+	
 	public bool isGesture() { return selectTurnoffRoot; }
-
+	
+	public string getCurrentNodeName() { return nodeInfor == null ? "null" : nodeInfor.name; }
+	
 }
