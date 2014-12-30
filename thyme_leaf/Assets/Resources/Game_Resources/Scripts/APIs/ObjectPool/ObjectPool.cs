@@ -29,14 +29,14 @@ public class ObjectPool
             {
                 //single-play
                 nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
-                nObj.transform.parent = spawner.transform;
+                nObj.transform.parent = this.spawner.transform;
                 nObj.SetActive(false);
             }
             else
             {
                 //multi-play
                 //nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
-                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;               
+                nObj = Network.Instantiate(obj, Vector3.zero, Quaternion.identity, 0) as GameObject;
                 
                 //NetworkViewID viewID = Network.AllocateViewID();
 
@@ -45,7 +45,7 @@ public class ObjectPool
                 
                 //nObj.networkView.viewID = Network.AllocateViewID();
                 // Network.Instantiate method allocates network viewID automatically
-                spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj.networkView.viewID);
+                this.spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj.networkView.viewID);
 
                 Debug.Log(spawner + " creates " + nObj + " (" + nObj.networkView.viewID + ") " + " that's parent is " + nObj.transform.parent);
             }
