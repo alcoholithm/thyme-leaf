@@ -80,7 +80,7 @@ GameObject:
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400012}
   m_Layer: 10
-  m_Name: Automart
+  m_Name: Automat
   m_TagString: TagWarriorAutomart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,6 +405,8 @@ MonoBehaviour:
   speed: 40
   target: {fileID: 0}
   my_name: 
+  state_name: 
+  health_bar_body: {fileID: 0}
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
