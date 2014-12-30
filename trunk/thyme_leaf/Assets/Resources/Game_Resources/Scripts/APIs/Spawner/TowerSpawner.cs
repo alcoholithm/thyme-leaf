@@ -16,7 +16,7 @@ public class TowerSpawner : Singleton<TowerSpawner>
 
     void Awake()
     {
-        if ((Network.peerType != NetworkPeerType.Disconnected) || Network.isClient)
+        if (Network.isClient)
             return;
 
         foreach (GameObject tower in towers)
