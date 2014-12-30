@@ -964,7 +964,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 11.3999996
+  aspectRatio: 1
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -5668,13 +5668,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 0}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 1174816008}
-      field: name
-    oneShot: 0
+  onClick: []
 --- !u!114 &1174816011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9213,6 +9207,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2026657084}
+  - 114: {fileID: 2026657085}
   m_Layer: 8
   m_Name: 4 - UI
   m_TagString: Untagged
@@ -9235,6 +9230,17 @@ Transform:
   - {fileID: 1503414975}
   m_Father: {fileID: 1838881447}
   m_RootOrder: 3
+--- !u!114 &2026657085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026657083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acaa71eeff32876459d4062048c656e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2054644367
 GameObject:
   m_ObjectHideFlags: 0

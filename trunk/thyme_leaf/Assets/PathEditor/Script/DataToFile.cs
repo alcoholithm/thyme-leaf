@@ -97,7 +97,7 @@ public class DataToFile : MonoBehaviour
 		if(stageNumber <= 0) return;
 
 		string fileName = "mData" + stageNumber;
-		string fullPath = "MapFile/" + fileName;
+		string fullPath = "Props/" + "MapFile/" + fileName;
 
 		TextAsset textAs = (TextAsset)Resources.Load(fullPath, typeof(TextAsset));
 
