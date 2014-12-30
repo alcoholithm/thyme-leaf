@@ -29,7 +29,7 @@ public class ObjectPool
             {
                 //single-play
                 nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
-                nObj.transform.parent = obj.transform;
+                nObj.transform.parent = spawner.transform;
                 nObj.SetActive(false);
             }
             else
