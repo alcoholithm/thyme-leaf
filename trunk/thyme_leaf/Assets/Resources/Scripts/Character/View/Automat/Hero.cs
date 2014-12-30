@@ -157,7 +157,7 @@ public class Hero : GameEntity {
 		case Layer.Trovant:
 			if(controller.isGesture())
 			{
-				Debug.Log("gesture trovant");
+                //Debug.Log("gesture trovant");
 				if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
 				{
 					controller.setMoveTrigger(true);
@@ -192,19 +192,19 @@ public class Hero : GameEntity {
 			if(a < -45 && a > -135) //down
 			{
 				anim.Play("Python_Moving_Downwards_");
-				Debug.Log("down");
+                //Debug.Log("down");
 				//		transform.localRotation = Quaternion.Euler(0,0,0);
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
 				anim.Play("Python_Moving_Normal_");
-				Debug.Log("right");
+                //Debug.Log("right");
 				//		transform.localRotation = Quaternion.Euler(0,0,a);
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
 				anim.Play("Python_Moving_Normal_");
-				Debug.Log("left");
+                //Debug.Log("left");
 				//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
 			}
 			else if(a > 45 && a < 135) //up

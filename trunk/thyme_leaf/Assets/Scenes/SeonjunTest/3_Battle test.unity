@@ -4857,7 +4857,7 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1001 &778640258
+--- !u!1001 &785727529
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4903,6 +4903,10 @@ Prefab:
     - target: {fileID: 14800000, guid: 060c1fcc8aa67224d859ab155d40cd17, type: 2}
       propertyPath: m_ViewID.m_Type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 060c1fcc8aa67224d859ab155d40cd17, type: 2}
+      propertyPath: initPoolSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 060c1fcc8aa67224d859ab155d40cd17, type: 2}
@@ -7705,7 +7709,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 060c1fcc8aa67224d859ab155d40cd17, type: 2}
-  m_PrefabInternal: {fileID: 778640258}
+  m_PrefabInternal: {fileID: 785727529}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1166264804}
@@ -7723,7 +7727,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 060c1fcc8aa67224d859ab155d40cd17, type: 2}
-  m_PrefabInternal: {fileID: 778640258}
+  m_PrefabInternal: {fileID: 785727529}
   m_GameObject: {fileID: 1166264803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -7736,7 +7740,7 @@ NetworkView:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 14800000, guid: 060c1fcc8aa67224d859ab155d40cd17,
     type: 2}
-  m_PrefabInternal: {fileID: 778640258}
+  m_PrefabInternal: {fileID: 785727529}
   m_GameObject: {fileID: 1166264803}
   m_Enabled: 1
   m_StateSynchronization: 1
@@ -7749,7 +7753,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: 060c1fcc8aa67224d859ab155d40cd17,
     type: 2}
-  m_PrefabInternal: {fileID: 778640258}
+  m_PrefabInternal: {fileID: 785727529}
   m_GameObject: {fileID: 1166264803}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -7761,7 +7765,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 060c1fcc8aa67224d859ab155d40cd17,
     type: 2}
-  m_PrefabInternal: {fileID: 778640258}
+  m_PrefabInternal: {fileID: 785727529}
   m_GameObject: {fileID: 1166264803}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -7770,7 +7774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
-  initPoolSize: 100
+  initPoolSize: 10
   maxPoolSize: 200
 --- !u!1 &1174816007
 GameObject:
@@ -9700,7 +9704,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3008
+  startingRenderQueue: 3006
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -9793,7 +9797,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3009
+  startingRenderQueue: 3007
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -12024,7 +12028,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -13041,7 +13045,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3008
+  startingRenderQueue: 3006
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
