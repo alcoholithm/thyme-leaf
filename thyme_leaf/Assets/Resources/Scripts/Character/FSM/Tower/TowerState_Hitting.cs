@@ -36,7 +36,7 @@ public class TowerState_Hitting : State<Agt_Type1>
         //    owner.RevertToPreviousState();
         //}
 
-        owner.CheckDeath();
+        //owner.CheckDeath();
     }
 
     public override void Exit(Agt_Type1 owner)

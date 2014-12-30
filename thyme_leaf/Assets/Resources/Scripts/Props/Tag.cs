@@ -15,8 +15,13 @@ public class Tag
 	public static string TagArcherAutomart() { return "TagArcherAutomart"; }
 	public static string TagSupporterAutomart() { return "TagSupporterAutomart"; }
 	public static string TagBarrierAutomart() { return "TagBarrierAutomart"; }
-	public static string TagHealerAutomart() { return "TagHealerAutomart"; }
+    public static string TagHealerAutomart() { return "TagHealerAutomart"; }
 
 	//tower
+    public static string TagTower = "TagTower";
+    public static string TagTowerSpot = "TagTowerSpot";
+    public static string TagCommandCenter = "TagCommandCenter";
+
+    public static string TagProjectile = "TagProjectile";
 	//loading...
 }

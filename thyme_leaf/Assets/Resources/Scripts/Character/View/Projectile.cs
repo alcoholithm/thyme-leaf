@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     private GameEntity target;
 
     [SerializeField]
-    private int attackDamage = 10;
+    private int attackDamage;
     [SerializeField]
     private int attackRange;
 
@@ -24,7 +24,6 @@ public class Projectile : MonoBehaviour
         gameObject.SetActive(false);
         fx = GetComponent<NGUISpriteAnimation>();
         sprite = GetComponent<UISprite>();
-
     }
 
     void OnEnable()
@@ -34,7 +33,7 @@ public class Projectile : MonoBehaviour
         fx.Pause();
 
         movingSpeed = 0.7f;
-        sprite.spriteName = "Comma_Attacking_Downwards_0";
+        sprite.spriteName = "Tower_Attacking_0";
         sprite.MakePixelPerfect();
     }
 
@@ -57,8 +56,8 @@ public class Projectile : MonoBehaviour
 
         movingSpeed = 0;
 
-        //fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
-        fx.PlayOneShot(animName, new VoidFunction(() => gameObject.SetActive(false)));
+        fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
+        //fx.PlayOneShot(animName, new VoidFunction(() => gameObject.SetActive(false)));
 
         Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
         owner.DispatchMessage(msg);

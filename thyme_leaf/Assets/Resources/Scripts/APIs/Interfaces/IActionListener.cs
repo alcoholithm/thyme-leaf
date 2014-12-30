@@ -3,5 +3,5 @@ using System.Collections;
 
 public interface IActionListener
 {
-    void ActionPerformed(string actionCommand);
+    void ActionPerformed(GameObject source);
 }

@@ -10,9 +10,6 @@ public class TowerState_Idling : State<Agt_Type1>
         Successor = TowerState_Hitting.Instance;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public override void Enter(Agt_Type1 owner)
     {
         Debug.Log(TAG + " Enter");
@@ -48,13 +45,13 @@ public class TowerState_Idling : State<Agt_Type1>
     }
 
     /*
-     * 
+     * Followings are Attributes
      */
-    public new const string TAG = "[TowerState_Idling]";
     private static TowerState_Idling instance = new TowerState_Idling(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
     public static TowerState_Idling Instance
     {
         get { return TowerState_Idling.instance; }
         set { TowerState_Idling.instance = value; }
     }
+    public new const string TAG = "[TowerState_Idling]";
 }

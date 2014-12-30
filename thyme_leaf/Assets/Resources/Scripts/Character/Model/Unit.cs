@@ -18,6 +18,24 @@ public abstract class Unit : IObservable
     private Dictionary<ObserverTypes, List<IObserver>> observers =
         new Dictionary<ObserverTypes, List<IObserver>>();
 
+
+    /*
+     * Followings are unity callback methods
+     */
+    public Unit()
+    {
+        _maxHp = 100;
+        _currHp = _maxHp;
+    }
+
+    /*
+     * Followings are public member functions
+     */
+    public bool IsDead()
+    {
+        return _currHp <= 0;
+    }
+
     /*
     * followings are implemented methods of "IObservable"
     */
