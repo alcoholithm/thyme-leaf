@@ -76,6 +76,8 @@ MonoBehaviour:
   speed: 40
   target: {fileID: 0}
   my_name: 
+  state_name: 
+  health_bar_body: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
