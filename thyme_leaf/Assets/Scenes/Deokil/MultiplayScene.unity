@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _messageDialog: {fileID: 1806431495}
-  _confirmDialog: {fileID: 0}
+  _confirmDialog: {fileID: 1862384773}
 --- !u!114 &148817728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8341,8 +8341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e981e89aa8a1874fa8f8f296475daa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _title: {fileID: 0}
-  _message: {fileID: 0}
+  _title: {fileID: 843517790}
+  _message: {fileID: 1480479968}
 --- !u!1 &1867600697
 GameObject:
   m_ObjectHideFlags: 0
