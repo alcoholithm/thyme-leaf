@@ -16,9 +16,9 @@ public class TowerSpawner : Singleton<TowerSpawner>
 
     void Awake()
     {
-       // if (!Network.isServer) Destroy(this);
-        Destroy(this);
-        if (towers == null) return;
+        if(Network.peerType != NetworkPeerType.Disconnected)
+            Destroy(this.gameObject);
+
         foreach (GameObject tower in towers)
         {            
             ObjectPoolingManager.Instance.CreatePool(gameObject,tower, initPoolSize, maxPoolSize, false);
