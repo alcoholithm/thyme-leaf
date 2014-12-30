@@ -22,7 +22,8 @@ public abstract class View : MonoBehaviour, IView
         if (views != null)
             views.Remove(view);
         else
-            throw new System.NotSupportedException();
+            Debug.LogError(new System.NotSupportedException());
+
     }
 
     public IView GetChild(int index)
@@ -30,14 +31,15 @@ public abstract class View : MonoBehaviour, IView
         if (views != null)
             return views[index];
 
-        throw new System.NotSupportedException();
+        Debug.LogError(new System.NotSupportedException());
+        return null;
     }
 
     public virtual void UpdateUI()
     {
         if (views != null)
             views.ForEach(v => v.UpdateUI());
-
-        throw new System.NotSupportedException();
+        else
+            Debug.LogError(new System.NotSupportedException());
     }
 }

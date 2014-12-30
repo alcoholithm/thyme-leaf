@@ -23,9 +23,9 @@ public class ModalView : View, IActionListener
         //this.Add(_settings.GetComponent<Setting>());
     }
 
-    public void ActionPerformed(string actionCommand)
+    public void ActionPerformed(GameObject source)
     {
-        if (actionCommand.Equals(_settingsButton.name))
+        if (source.Equals(_settingsButton))
         {
             _settings.SetActive(true);
         }

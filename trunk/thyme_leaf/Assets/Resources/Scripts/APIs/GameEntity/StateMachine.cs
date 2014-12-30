@@ -39,7 +39,7 @@ public class StateMachine<TGameEntity> : IHandler
         // 이 루틴은 1회성으로 실행되어야 한다.
         // 절대 재귀적인 호출은 불가함.
         previousState = currentState;
-        currentState = NullState.Instance as State<TGameEntity>;
+        currentState = NullState<TGameEntity>.Instance;
         previousState.Exit(owner);
         newState.Enter(owner);
         currentState = newState;

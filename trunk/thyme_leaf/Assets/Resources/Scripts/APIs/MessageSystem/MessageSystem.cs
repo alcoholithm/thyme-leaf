@@ -70,6 +70,8 @@ public class MessageSystem : Singleton<MessageSystem>
         {
             try
             {
+                // 문제가 있는 듯 하다.
+                // 코루틴 말고 타임스탬프를 찍어서 관리해보자..
                 MessageSystem.Instance.StartCoroutine(WaitForSeconds(msg, seconds));
                 return true;
             }
@@ -85,7 +87,9 @@ public class MessageSystem : Singleton<MessageSystem>
             yield return new WaitForSeconds(seconds);
 
             if (!Dispatch(msg))
-                throw new System.Exception();
+            {
+                Debug.LogError(new System.Exception("err"));
+            }
         }
 
         public const string TAG = "[MessageDispatcher]";

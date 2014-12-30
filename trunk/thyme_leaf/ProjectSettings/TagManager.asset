@@ -14,8 +14,10 @@ TagManager:
   - TagSupporterAutomart
   - TagHealerAutomart
   - TagArcherAutomart
-  - TagNormalTower
+  - TagTower
   - TagProjectile
+  - TagTowerSpot
+  - TagCommandCenter
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

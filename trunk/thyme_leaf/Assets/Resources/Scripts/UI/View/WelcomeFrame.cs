@@ -34,9 +34,9 @@ public class WelcomeFrame : View, IActionListener
         _userName.text = name;
     }
 
-    public void ActionPerformed(string actionCommand)
+    public void ActionPerformed(GameObject source)
     {
-        if (actionCommand.Equals(_addUserButton.name))
+        if (source.name.Equals(_addUserButton.name))
         {
             view.SetVisible(view.PlayerSelectFrame, true);
         }

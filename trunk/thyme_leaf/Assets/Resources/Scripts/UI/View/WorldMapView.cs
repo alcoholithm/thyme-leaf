@@ -21,21 +21,21 @@ public class WorldMapView : View, IActionListener
     [SerializeField]
     GameObject _storyBtn;
 
-    public void ActionPerformed(string actionCommand)
+    public void ActionPerformed(GameObject source)
     {
-        if (actionCommand.Equals(_getToTheFight.name))
+        if (source.Equals(_getToTheFight))
         {
             SceneManager.Instance.CurrentScene = SceneManager.BATTLE;
         }
-        else if(actionCommand.Equals(_backBtn.name))
+        else if (source.Equals(_backBtn))
         {
             SceneManager.Instance.CurrentScene = SceneManager.LOBBY;
         }
-        else if(actionCommand.Equals(_inventoryBtn.name))
+        else if (source.Equals(_inventoryBtn))
         {
             SceneManager.Instance.CurrentScene = SceneManager.TOWER;
         }
-        else if(actionCommand.Equals(_towerSettingBtn.name))
+        else if (source.Equals(_towerSettingBtn))
         {
             SceneManager.Instance.CurrentScene = SceneManager.AUTO;
         }

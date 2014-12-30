@@ -85,32 +85,32 @@ public class PlayerSelectFrame : View, IActionListener
     /*
      * following are overrided methods
      */
-    public void ActionPerformed(string actionCommand)
+    public void ActionPerformed(GameObject source)
     {
-        if (actionCommand.Equals(_playerSlots[0].name))
+        if (source.name.Equals(_playerSlots[0].name))
         {
             isClick(0);
             isEmpty(0);
         }
-        else if (actionCommand.Equals(_playerSlots[1].name))
+        else if (source.name.Equals(_playerSlots[1].name))
         {
             isClick(1);
             isEmpty(1);
         }
-        else if (actionCommand.Equals(_playerSlots[2].name))
+        else if (source.name.Equals(_playerSlots[2].name))
         {
             isClick(2);
             isEmpty(2);
         }
-        else if(actionCommand.Equals(_renameButton.name))
+        else if (source.name.Equals(_renameButton.name))
         {
             view.Controller.RenameFunc(_playerSlots[ClickFlag].GetComponentInChildren<UILabel>().text,ClickFlag);
         }
-        else if(actionCommand.Equals(_deleteButton.name))
+        else if (source.name.Equals(_deleteButton.name))
         {
             DialogFacade.Instance.ShowMessageDialog("Really Delete?");
         }
-        else if (actionCommand.Equals(_closeButton.name))
+        else if (source.name.Equals(_closeButton.name))
         {
             Close();
         }

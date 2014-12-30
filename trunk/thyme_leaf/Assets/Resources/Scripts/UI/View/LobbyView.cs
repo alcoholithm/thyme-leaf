@@ -75,17 +75,17 @@ public class LobbyView : View, IActionListener
     /*
     * followings are implemented methods of "IActionListener"
     */
-    public void ActionPerformed(string actionCommand)
+    public void ActionPerformed(GameObject source)
     {
-        if (actionCommand.Equals(_startButton.name))
+        if (source.name.Equals(_startButton.name))
         {
             controller.Start();
         }
-        else if (actionCommand.Equals(_registerButton.name))
+        else if (source.name.Equals(_registerButton.name))
         {
             controller.Register(_userName.text);
         }
-        else if (actionCommand.Equals(_goToWorldMapButton.name))
+        else if (source.name.Equals(_goToWorldMapButton.name))
         {
             SceneManager.Instance.CurrentScene = SceneManager.WORLD_MAP;
         }

@@ -42,6 +42,7 @@ public class TowerSpawner : Singleton<TowerSpawner>
 
     public Agt_Type1 Allocate()
     {
+        //return (Instantiate(towers[0]) as GameObject).GetComponent<Agt_Type1>();
         return DynamicInstantiate();
     }
 

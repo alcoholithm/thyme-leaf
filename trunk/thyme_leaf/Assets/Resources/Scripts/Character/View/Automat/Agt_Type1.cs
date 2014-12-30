@@ -25,18 +25,13 @@ public class Agt_Controller
 
     public void TakeDamage(int damage)
     {
+        //Debug.Log("HP : " + model.HP + " / " + model.MaxHP);
         model.HP -= damage;
-        Debug.Log("HP : " + model.HP + " / " + model.MaxHP);
 
         if (model.IsDead())
         {
             view.ChangeState(TowerState_Dying.Instance);
         }
-    }
-
-    public bool IsDead()
-    {
-        return model.IsDead();
     }
 
     public void EnemyEnter(GameEntity enemy)
@@ -76,6 +71,11 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         Initialize();
     }
 
+    void OnEnable()
+    {
+        Initialize(); // 귀찮아서 이렇게 한다. 원래는 Reset을 만들고 다시 new 로 인스턴시에이션 할 필요없이 각 클래스의 초기화루틴을 호출한다.
+    }
+
     void Update()
     {
         stateMachine.Update();
@@ -83,7 +83,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("TagProjectile"))
+        if (other.CompareTag(Tag.TagProjectile))
             return;
 
         controller.EnemyEnter(other.GetComponent<GameEntity>()); // 모든 상태에서 적은 계속 리스트에 넣어야 함. 셀링상태에서도 사용자가 취소를 누를 경우 대비
@@ -91,7 +91,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("TagProjectile"))
+        if (other.CompareTag(Tag.TagProjectile))
             return;
 
         controller.EnemyLeave(other.GetComponent<GameEntity>());
@@ -100,7 +100,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
     /*
      * followings are member functions
      */
-    void Initialize()
+    private void Initialize()
     {
         // MVC
         this._model = new Tower(this);
@@ -116,23 +116,17 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.anim = GetComponent<NGUISpriteAnimation>();
-        //this.anim.Pause();
-
+        this.anim.Pause();
 
         this._model.RegisterObserver(this, ObserverTypes.Health);
     }
-    
+
     /*
     * followings are implemented methods of "IAgt"
     */
     public void TakeDamage(int damage)
     {
         controller.TakeDamage(damage);
-    }
-
-    public void CheckDeath()
-    {
-        controller.IsDead();
     }
 
     public IEnumerator Attack() //  controller 안에 들어가야한다.

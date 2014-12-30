@@ -36,11 +36,6 @@ public class Tower : Unit, IAttackable
     /*
     * followings are implemented methods of "ITower"
     */
-    public bool IsDead()
-    {
-        return _currHp <= 0;
-    }
-
     public void AddEnemy(GameEntity enemy)
     {
         enemies.Add(enemy);
@@ -81,4 +76,6 @@ public class Tower : Unit, IAttackable
     public new const string TAG = "[Tower]";
 
 
+
+   
 }
