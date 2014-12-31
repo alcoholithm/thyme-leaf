@@ -6,7 +6,7 @@ public class HeroState_Listener_Trovant : MonoBehaviour
 	void OnClick()
 	{
 		Transform temp = GameObject.Find ("TrovantUnits").transform;
-		Hero hero = HeroSpawnerScript.Instance.GetHero ();
+		Hero hero = Spawner.Instance.GetTrovant (TrovantType.COMMA);
 
 		//main setting...
 		hero.transform.parent = temp;
