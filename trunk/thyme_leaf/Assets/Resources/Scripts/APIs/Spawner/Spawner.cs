@@ -135,6 +135,9 @@ public class Spawner : Singleton<Spawner>
 		//active...
 		go.SetActive (true);
 
+        //go.GetComponent<UISprite>().enabled = false;
+        go.GetComponent<UISprite>().enabled = true;
+
 		//main setting...
 		hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
@@ -179,6 +182,9 @@ public class Spawner : Singleton<Spawner>
 		
 		//active...
 		go.SetActive (true);
+
+        //go.GetComponent<UISprite>().enabled = false;
+        go.GetComponent<UISprite>().enabled = true;
 
 		hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
