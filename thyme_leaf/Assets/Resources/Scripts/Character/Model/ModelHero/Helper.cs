@@ -4,12 +4,13 @@ using System.Collections;
 public class Helper
 {
 	public GameObject currentUnit;
+	public Hero current_hero;
 	
 	//moving value
 	private MoveModeState moveMode;
 	public GameObject nodeStock;
 	public scriptPathNode nodeInfor;
-	private string current_node_name;
+//	private string current_node_name;
 	
 	private bool enableMove;
 	private bool enalbeMuster;
@@ -36,6 +37,7 @@ public class Helper
 	public Helper(GameObject obj)
 	{
 		currentUnit = obj;
+		current_hero = obj.GetComponent<Hero> ();
 		
 		oldpos = getPos ();
 		
@@ -95,7 +97,7 @@ public class Helper
 	
 	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option)
 	{
-		return SelectPathNode(startPt, endPt, option, 0);
+		return SelectPathNode(startPt, endPt, option, FindingNodeDefaultOption.NORMAL);
 	}
 	
 	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option, FindingNodeDefaultOption default_auto)
@@ -108,7 +110,7 @@ public class Helper
 		//select path node ... when unit arrive at turnoff point
 		//searching node
 		Vector3 start_pt = startPt;
-		Vector2 end_pt = endPt;
+		Vector3 end_pt = endPt;
 		
 		if(nodeStock == null) return false;
 		
@@ -122,21 +124,14 @@ public class Helper
 		if(option == Layer.Trovant || default_auto == FindingNodeDefaultOption.RANDOM_NODE)
 		{
 			start_pt = getPos();
-			
-			//			while(true)
-			//			{
 			int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
 			end_pt = tempFunc.getPosTurnoffList(rand_idx);
-			//				if(old_name != tempFunc.turnoffList[rand_idx].name)
-			//				{
-			//					Debug.Log("cur : "+tempFunc.turnoffList[rand_idx].name);
-			//					end_pt = tempFunc.getPosTurnoffList(rand_idx);
-			//					break;
-			//				}
-			//			}
+
+			current_hero.helper.gesture_startpoint = start_pt;
+			current_hero.helper.gesture_endpoint = end_pt;
 		}
 		
-		if(option != Layer.Trovant && default_auto != FindingNodeDefaultOption.MUSTER_COMMAND)
+		if(option != Layer.Trovant && default_auto == FindingNodeDefaultOption.NORMAL)
 		{
 			Collider2D coll = RaycastHittingObject (start_pt);
 			Debug.Log(coll == null ? "null" : coll.name);

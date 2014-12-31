@@ -32,8 +32,9 @@ public class HeroState_Hitting : State<Hero>
         switch (msg.what)
         {
             case MessageTypes.MSG_MOVE_HERO:
+				//msg.command.Execute();
             case MessageTypes.MSG_DAMAGE:
-                msg.command.Execute();
+				(msg.receiver as Hero).TakeDamage(msg.arg1);
                 return true;
         }
         return false;
