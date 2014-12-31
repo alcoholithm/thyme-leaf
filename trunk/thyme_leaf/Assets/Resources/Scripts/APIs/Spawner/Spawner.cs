@@ -72,7 +72,7 @@ public class Spawner : Manager<Spawner>
             if (trovants != null)
                 for (int i = 0; i < trovants.Length; i++)
                 {
-                    GameObject go = towers[i];
+                    GameObject go = trovants[i];
                     ObjectPoolingManager.Instance.CreatePool(trovantPool, go, UnitType.TROVANT_CHARACTER, i, initPoolSize, maxPoolSize, false);
                 }
         }
