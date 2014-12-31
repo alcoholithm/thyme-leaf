@@ -56,7 +56,9 @@ public class ObjectPool
                 Spawner.Instance.GetComponent<NetworkView>().networkView.RPC("TEST", RPCMode.All, 
                     this.spawner.networkView.viewID, viewID, unitType, type);
 
-                Debug.Log(this.spawner + " creates " + nObj + " (" + nObj.networkView.viewID + ") " + " that's parent is " + nObj.transform.parent);
+                nObj = NetworkView.Find(viewID).gameObject;
+
+                Debug.Log(this.spawner + " creates " + nObj + " (" + viewID + ") " + " that's parent is " + nObj.transform.parent);
             }
 
             pooledObjects.Add(nObj);
