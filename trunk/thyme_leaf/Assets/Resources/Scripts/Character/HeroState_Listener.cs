@@ -16,7 +16,7 @@ public class HeroState_Listener : MonoBehaviour
             Debug.Log("Connected....");
         }
 		Transform temp = GameObject.Find ("AutomatUnits").transform;
-        Hero hero = HeroSpawner.Instance.Allocate();
+        Hero hero = Spawner.Instance.Allocate();
 		Debug.Log ("character init");
 
 		//main setting...

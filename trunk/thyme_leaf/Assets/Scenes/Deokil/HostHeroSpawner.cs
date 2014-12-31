@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HostHeroSpawner : HeroSpawner
+public class HostHeroSpawner : Spawner
 {
     void Awake()
     {

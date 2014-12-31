@@ -4,11 +4,11 @@ using System.Collections;
 public class HeroState_Dying : State<Hero> {
 	
 	private string animationName = "Comma_Dying_";
-    private HeroSpawner heroSpawner;
+    private Spawner heroSpawner;
 
 	private HeroState_Dying() {
 		Successor = null;
-        heroSpawner = GameObject.Find(EnumConverter.getSpawnerNameBy(SpawnerType.HERO_SPAWNER)).GetComponent<HeroSpawner>();
+        heroSpawner = GameObject.Find(EnumConverter.getSpawnerNameBy(SpawnerType.HERO_SPAWNER)).GetComponent<Spawner>();
 	}
 	
 	public override void Enter (Hero owner)
