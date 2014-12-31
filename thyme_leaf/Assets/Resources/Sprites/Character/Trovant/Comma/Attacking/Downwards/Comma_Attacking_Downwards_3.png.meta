@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a0f0f7d7aa8995e46a2b6e8991e43a46
+guid: 2f9f8772bb276ef4f89935dad3909b48
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -25,9 +25,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
