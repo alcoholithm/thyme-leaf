@@ -122,8 +122,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 40
-  mHeight: 40
+  mWidth: 30
+  mHeight: 30
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: Tower_Attacking_0
+  mSpriteName: APT_Poison_0
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:

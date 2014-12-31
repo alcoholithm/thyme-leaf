@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TowerState_Idling : State<Agt_Type1>
 {
-    private string animName = "APT_Idling_";
+    private string animName = "APT_Type1_Idling_";
 
     private TowerState_Idling() 
     {

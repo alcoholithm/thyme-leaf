@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
 {
     private NGUISpriteAnimation fx;
     private UISprite sprite;
-    string animName = "Weapon_PoisonGas_";
+    string animName = "APT_Poison_";
 
     private GameEntity owner; // temp
     private GameEntity target;
@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         fx.Pause();
 
         movingSpeed = 0.7f;
-        sprite.spriteName = "Tower_Attacking_0";
+        sprite.spriteName = "APT_Poison_0";
         sprite.MakePixelPerfect();
     }
 
