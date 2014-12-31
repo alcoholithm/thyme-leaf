@@ -6272,6 +6272,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1083648779}
+  - 148: {fileID: 1083648780}
   m_Layer: 0
   m_Name: TrovantBuildingPool
   m_TagString: Untagged
@@ -6291,6 +6292,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 372316765}
   m_RootOrder: 1
+--- !u!148 &1083648780
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083648778}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1083648779}
+  m_ViewID:
+    m_ID: 5
+    m_Type: 1
 --- !u!1 &1111014025
 GameObject:
   m_ObjectHideFlags: 0
@@ -8639,6 +8652,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1320028866}
+  - 148: {fileID: 1320028867}
   m_Layer: 10
   m_Name: AutomatPool
   m_TagString: Untagged
@@ -8658,6 +8672,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1952819842}
   m_RootOrder: 1
+--- !u!148 &1320028867
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320028865}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1320028866}
+  m_ViewID:
+    m_ID: 2
+    m_Type: 1
 --- !u!1 &1331213385
 GameObject:
   m_ObjectHideFlags: 0
@@ -11456,6 +11482,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1873544074}
+  - 148: {fileID: 1873544075}
   m_Layer: 9
   m_Name: TrovantPool
   m_TagString: Untagged
@@ -11475,6 +11502,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472647981}
   m_RootOrder: 1
+--- !u!148 &1873544075
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873544073}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1873544074}
+  m_ViewID:
+    m_ID: 3
+    m_Type: 1
 --- !u!1 &1874962624
 GameObject:
   m_ObjectHideFlags: 0
@@ -12720,6 +12759,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2135319717}
+  - 148: {fileID: 2135319718}
   m_Layer: 10
   m_Name: AutomatBuildingPool
   m_TagString: Untagged
@@ -12739,6 +12779,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 600692055}
   m_RootOrder: 1
+--- !u!148 &2135319718
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135319716}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 2135319717}
+  m_ViewID:
+    m_ID: 4
+    m_Type: 1
 --- !u!1 &2142133685
 GameObject:
   m_ObjectHideFlags: 0
