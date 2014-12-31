@@ -45,7 +45,7 @@ public class ObjectPool
                 
                 //nObj.networkView.viewID = Network.AllocateViewID();
                 // Network.Instantiate method allocates network viewID automatically
-                this.spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj.networkView.viewID);
+                Spawner.Instance.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj.networkView.viewID);
 
                 Debug.Log(this.spawner + " creates " + nObj + " (" + nObj.networkView.viewID + ") " + " that's parent is " + nObj.transform.parent);
             }

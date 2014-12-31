@@ -3,9 +3,6 @@ using System.Collections;
 
 public class SpawnRPCScript : MonoBehaviour {
 
-    private GameObject pool;
-       
-
     [RPC]
     void INIT_SPAWNED_OBJECT(NetworkViewID babyId)
     {
