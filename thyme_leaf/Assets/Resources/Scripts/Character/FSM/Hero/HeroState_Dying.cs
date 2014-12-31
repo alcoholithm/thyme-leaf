@@ -4,11 +4,9 @@ using System.Collections;
 public class HeroState_Dying : State<Hero> {
 	
 	private string animationName = "Comma_Dying_";
-    private Spawner heroSpawner;
 
 	private HeroState_Dying() {
 		Successor = null;
-        heroSpawner = GameObject.Find(EnumConverter.getSpawnerNameBy(SpawnerType.HERO_SPAWNER)).GetComponent<Spawner>();
 	}
 	
 	public override void Enter (Hero owner)
@@ -35,7 +33,7 @@ public class HeroState_Dying : State<Hero> {
 //		owner.target.DispatchMessage(msg);
 
 		owner.Die ();
-        heroSpawner.Free(owner.gameObject);
+        Spawner.Instance.Free(owner.gameObject);
 
 		//remove character in unit pool...
 		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject);
