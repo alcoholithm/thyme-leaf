@@ -49,6 +49,7 @@ public class ObjectPoolingManager
 
     public GameObject GetObject(string objName)
     {
+        Debug.Log("Dictionaly Name : "+objName);
         return ObjectPoolingManager.Instance.objectPools[objName].GetObject();
     }
 }
