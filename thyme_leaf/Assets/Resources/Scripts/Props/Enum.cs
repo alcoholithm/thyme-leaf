@@ -39,7 +39,7 @@ public enum StartPoint
 public enum UnitType
 {
 	AUTOMART_CHARACTER = 9 ,TROVANT_CHARACTER = 10, 
-	AUTOMART_TOWER = 11
+	AUTOMART_TOWER = 11, AUTOMAT_PROJECTILE = 12
 }
 
 public enum AutomatType
@@ -68,12 +68,12 @@ public enum FindingNodeDefaultOption
 	NORMAL = 0, RANDOM_NODE, MUSTER_COMMAND
 }
 
-public enum SpawnerType
-{
-    HERO_SPAWNER = 0,
-    TROVANT_SPAWNER,
-    TOWER_SPAWNER,
-}
+//public enum SpawnerType
+//{
+//    HERO_SPAWNER = 0,
+//    TROVANT_SPAWNER,
+//    TOWER_SPAWNER,
+//}
 
 public class RPCMethod
 {

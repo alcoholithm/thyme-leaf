@@ -13,11 +13,16 @@ public class ObjectPool
     private static GameObject poolMgr;
     private GameObject spawner = null;
 
-    public ObjectPool(GameObject spawner, GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
+    public ObjectPool(GameObject spawner, GameObject obj, UnitType unitType, int type, int initialPoolSize, int maxPoolSize, bool shouldShrink)
     {
         if (this.spawner == null)
         {
             this.spawner = spawner;
+        }
+
+        if (Network.isClient)
+        {
+            return;
         }
 
         pooledObjects = new List<GameObject>();
@@ -31,21 +36,25 @@ public class ObjectPool
                 nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
                 nObj.transform.parent = this.spawner.transform;
                 nObj.SetActive(false);
-            }
-            else
+            }            
+            else if (Network.isServer)
             {
                 //multi-play
+                NetworkViewID viewID = Network.AllocateViewID();
+
                 //nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
-                nObj = Network.Instantiate(obj, Vector3.one, Quaternion.identity, 0) as GameObject;
+
+
+                //nObj = Network.Instantiate(obj, Vector3.one, Quaternion.identity, 0) as GameObject;
                 
-                //NetworkViewID viewID = Network.AllocateViewID();
 
                 //spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj);
                                 
                 
                 //nObj.networkView.viewID = Network.AllocateViewID();
                 // Network.Instantiate method allocates network viewID automatically
-                Spawner.Instance.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, this.spawner.networkView.viewID, nObj.networkView.viewID);
+                Spawner.Instance.GetComponent<NetworkView>().networkView.RPC("TEST", RPCMode.All, 
+                    this.spawner.networkView.viewID, nObj.networkView.viewID, unitType, type);
 
                 Debug.Log(this.spawner + " creates " + nObj + " (" + nObj.networkView.viewID + ") " + " that's parent is " + nObj.transform.parent);
             }

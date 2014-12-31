@@ -49,28 +49,32 @@ public class Spawner : Manager<Spawner>
         if (Network.isServer || Network.peerType == NetworkPeerType.Disconnected)
         {
             if(automats != null)
-            foreach (GameObject go in automats)
-            {
-                ObjectPoolingManager.Instance.CreatePool(automatPool, go, initPoolSize, maxPoolSize, false);
-            }
+                for (int i = 0; i < automats.Length; i++)
+                {
+                    GameObject go = automats[i];
+                    ObjectPoolingManager.Instance.CreatePool(automatPool, go, UnitType.AUTOMART_CHARACTER, i, initPoolSize, maxPoolSize, false);
+                }
 
             if (towers != null)
-            foreach (GameObject go in towers)
-            {
-                ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
-            }
+                for (int i = 0; i < towers.Length; i++)
+                {
+                    GameObject go = towers[i];
+                    ObjectPoolingManager.Instance.CreatePool(automatPool, go, UnitType.AUTOMART_TOWER, i, initPoolSize, maxPoolSize, false);
+                }
 
             if (projectiles != null)
-            foreach (GameObject go in projectiles)
-            {
-                ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
-            }
+                for (int i = 0; i < projectiles.Length; i++)
+                {
+                    GameObject go = projectiles[i];
+                    ObjectPoolingManager.Instance.CreatePool(automatPool, go, UnitType.AUTOMAT_PROJECTILE, i, initPoolSize, maxPoolSize, false);
+                }
 
             if (trovants != null)
-            foreach (GameObject go in trovants)
-            {
-                ObjectPoolingManager.Instance.CreatePool(trovantPool, go, initPoolSize, maxPoolSize, false);
-            }
+                for (int i = 0; i < trovants.Length; i++)
+                {
+                    GameObject go = towers[i];
+                    ObjectPoolingManager.Instance.CreatePool(automatPool, go, UnitType.TROVANT_CHARACTER, i, initPoolSize, maxPoolSize, false);
+                }
         }
     }
 
@@ -78,28 +82,48 @@ public class Spawner : Manager<Spawner>
 
     public Hero GetHero(AutomatType type)
     {
-        GameObject go = ObjectPoolingManager.Instance.GetObject(automats[(int)type].name);
+        return GetHero((int)type);
+    }
+
+    public Hero GetHero(int type)
+    {
+        GameObject go = ObjectPoolingManager.Instance.GetObject(automats[type].name);
         InitHero(ref go);
         return go.GetComponent<Hero>();
     }
 
     public Hero GetTrovant(TrovantType type)
     {
-        GameObject go = ObjectPoolingManager.Instance.GetObject(trovants[(int)type].name);
+        return GetTrovant((int)type);
+    }
+
+    public Hero GetTrovant(int type)
+    {
+        GameObject go = ObjectPoolingManager.Instance.GetObject(trovants[type].name);
         InitTrovant(ref go);
         return go.GetComponent<Hero>();
     }
 
     public Agt_Type1 GetTower(TowerType type)
     {
-        GameObject go = ObjectPoolingManager.Instance.GetObject(towers[(int)type].name);
+        return GetTower((int)type);
+    }
+
+    public Agt_Type1 GetTower(int type)
+    {
+        GameObject go = ObjectPoolingManager.Instance.GetObject(towers[type].name);
         InitTower(ref go);
         return go.GetComponent<Agt_Type1>();
     }
 
     public Projectile GetProjectile(ProjectileType type)
     {
-        GameObject go = ObjectPoolingManager.Instance.GetObject(projectiles[(int) type].name);
+        return GetProjectile((int)type);
+    }
+
+    public Projectile GetProjectile(int type)
+    {
+        GameObject go = ObjectPoolingManager.Instance.GetObject(projectiles[type].name);
         InitProjectile(ref go);
         return go.GetComponent<Projectile>();
     }
@@ -124,19 +148,15 @@ public class Spawner : Manager<Spawner>
 
     private void InitHero(ref GameObject go)
     {
-		if (Network.peerType != NetworkPeerType.Disconnected)
-		{
-			Debug.Log("Connected....");
-		}
-		Transform temp = GameObject.Find ("AutomatUnits").transform;
-		Hero hero = go.GetComponent<Hero> ();
-		Debug.Log ("character init");
+        //Transform temp = GameObject.Find ("AutomatUnits").transform;
+        Hero hero = go.GetComponent<Hero>();
+        Debug.Log("character init");
 
 		//active...
 		go.SetActive (true);
 
 		//main setting...
-		hero.transform.parent = temp;
+        //hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 		
@@ -165,18 +185,14 @@ public class Spawner : Manager<Spawner>
 
     private void InitTrovant(ref GameObject go)
     {
-		if (Network.peerType != NetworkPeerType.Disconnected)
-		{
-			Debug.Log("Connected....");
-		}
-		Transform temp = GameObject.Find ("TrovantUnits").transform;
+        //Transform temp = GameObject.Find ("TrovantUnits").transform;
 		Hero hero = go.GetComponent<Hero> ();
 		Debug.Log ("character init");
 		
 		//active...
 		go.SetActive (true); 
 
-		hero.transform.parent = temp;
+        //hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 
@@ -206,27 +222,26 @@ public class Spawner : Manager<Spawner>
 
     private void InitTower(ref GameObject go)
     {
-        //go.layer = (int)Layer.Tower;
         go.transform.position = Vector3.zero;
         go.transform.localScale = Vector3.one;
     }
 
     private void InitProjectile(ref GameObject go)
     {
-        //go.layer = (int)Layer.Tower;
         go.transform.position = Vector3.zero;
         go.transform.localScale = Vector3.one;
     }
 
 
     /**********************************/
+    // RPC Methods
 
     [RPC]
     void INIT_SPAWNED_OBJECT(NetworkViewID spawnerID, NetworkViewID bornerID)
     {
         //if (pool == null)
         //    pool = GameObject.Find("Pool").gameObject;
-        Debug.Log("INIT_SPAWNED_OBJECT " + bornerID);
+        Debug.Log("INIT_SPAWNED_OBJECT " + bornerID + " FROM " + spawnerID);
         GameObject borner = NetworkView.Find(bornerID).gameObject;
         GameObject spawner = NetworkView.Find(spawnerID).gameObject;
 
@@ -241,4 +256,32 @@ public class Spawner : Manager<Spawner>
         baby.SetActive(true);
         Debug.Log("ACTIVE_OBJECT " + id);
     }
+
+    [RPC]
+    void TEST(NetworkViewID spawnerID, NetworkViewID viewID, UnitType unitType, int type)
+    {
+        GameObject nObj = null;
+        GameObject spawner = NetworkView.Find(spawnerID).gameObject;
+        switch (unitType)
+        {
+            case UnitType.AUTOMART_CHARACTER:
+                nObj = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+                break;
+            case UnitType.AUTOMART_TOWER:
+                nObj = GameObject.Instantiate(towers[type], Vector3.zero, Quaternion.identity) as GameObject;
+                break;
+            case UnitType.AUTOMAT_PROJECTILE:
+                nObj = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
+                break;
+            case UnitType.TROVANT_CHARACTER:
+                nObj = GameObject.Instantiate(trovants[type], Vector3.zero, Quaternion.identity) as GameObject;
+                break;
+
+            default:
+                Debug.Log("Not found Unit Type : " + unitType);
+                break;
+        }
+        nObj.networkView.viewID = viewID;
+    }
 }
+
