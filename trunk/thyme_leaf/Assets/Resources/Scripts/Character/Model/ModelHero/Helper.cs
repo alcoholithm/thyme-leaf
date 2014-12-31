@@ -23,7 +23,7 @@ public class Helper
 	
 	public string old_name;
 	public Vector3 gesture_startpoint;
-	public Vector2 gesture_endpoint;
+	public Vector3 gesture_endpoint;
 	public Vector3 oldpos;
 	
 	public float angle_calculation_rate;
@@ -98,8 +98,12 @@ public class Helper
 		return SelectPathNode(startPt, endPt, option, 0);
 	}
 	
-	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option, int default_auto)
+	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option, FindingNodeDefaultOption default_auto)
 	{
+		//default_auto = normal //normal...
+		//default_auto = random_node //the same team case.... push other muster...
+		//default_auto = muster_command //muster command...
+
 		//turnoffRoot = nodestoke  <all like>
 		//select path node ... when unit arrive at turnoff point
 		//searching node
@@ -115,7 +119,7 @@ public class Helper
 		}
 		Vector3 centerPoint = nodeStock.transform.localPosition;
 		
-		if(option == Layer.Trovant || default_auto == 1)
+		if(option == Layer.Trovant || default_auto == FindingNodeDefaultOption.RANDOM_NODE)
 		{
 			start_pt = getPos();
 			
@@ -132,9 +136,10 @@ public class Helper
 			//			}
 		}
 		
-		if(option != Layer.Trovant)
+		if(option != Layer.Trovant && default_auto != FindingNodeDefaultOption.MUSTER_COMMAND)
 		{
 			Collider2D coll = RaycastHittingObject (start_pt);
+			Debug.Log(coll == null ? "null" : coll.name);
 			//test code
 			bool like_check = false;
 			if(coll == null) return false;
@@ -146,6 +151,7 @@ public class Helper
 			}
 			if(!like_check) return false;
 		}
+
 		float dx = end_pt.x - start_pt.x;
 		float dy = end_pt.y - start_pt.y;
 		float ag = Mathf.Atan2 (dy, dx) * Define.RadianToAngle ();

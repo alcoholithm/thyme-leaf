@@ -25,8 +25,12 @@ public class Hero : GameEntity {
 	
 	public Hero target;
 	public string my_name;  //test code...
-	public string state_name;
+	public string state_name; //test code...
+	public string muster_name; //test code...
+
+	//extra...
 	private bool onlyfirst;
+	private string hit_unit;
 
 	[HideInInspector]
 	public MHero model;
@@ -54,9 +58,7 @@ public class Hero : GameEntity {
 		stateMachine.Update();
 		//=============================
 		Gesturing ();
-
-		//angle checking...
-
+		MusterControl ();
 	}
 
 	//unit detail initialize...
@@ -98,6 +100,8 @@ public class Hero : GameEntity {
 				helper.attack_target = coll.gameObject.GetComponent<Hero>();
 				//my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
+
+//				gameObject.collider2D.rigidbody2D.isKinematic = false;
 			}
 		}
 		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
@@ -143,13 +147,24 @@ public class Hero : GameEntity {
 				if(Input.GetMouseButtonDown(0))
 				{
 					helper.gesture_startpoint = Input.mousePosition;
+					GameObject obj = helper.RaycastHittingObject(helper.gesture_startpoint).gameObject;
+					if(obj == null) return;
+					hit_unit = helper.RaycastHittingObject(helper.gesture_startpoint).gameObject.GetComponent<Hero>().model.Name;
 				}
 				else if(Input.GetMouseButtonUp(0))
 				{
+					if(hit_unit != model.Name) return;
+					hit_unit = "null";  //initailize...
+
 					helper.gesture_endpoint = Input.mousePosition;
 					if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
 					{
 						controller.setMoveTrigger(true);
+					}
+					if(helper.getMusterTrigger())
+					{
+						Debug.Log("command move");
+						UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
 					}
 				}
 			}
@@ -170,24 +185,24 @@ public class Hero : GameEntity {
 	public void ChangingAnimationAngle()
 	{
 		helper.angle_calculation_rate += Time.deltaTime;
-		if(helper.angle_calculation_rate >= 0.1f)
+		if(helper.angle_calculation_rate >= 0.2f)
 		{
 			helper.angle_calculation_rate = 0;
 			
-			int dir = helper.Current_Right_orLeft ();
+//			int dir = helper.Current_Right_orLeft ();
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 			
-			if(dir == -1)
-			{
-				transform.localScale = new Vector3(-1, 1, 1); //left
-				health_bar_body.localScale = new Vector3(-1, 1, 1);
-			}
-			else if(dir == 1)
-			{
-				transform.localScale = new Vector3(1, 1, 1);  //right
-				health_bar_body.localScale = new Vector3(1, 1, 1);
-			}
+//			if(dir == -1)
+//			{
+//				transform.localScale = new Vector3(-1, 1, 1); //left
+//				health_bar_body.localScale = new Vector3(-1, 1, 1);
+//			}
+//			else if(dir == 1)
+//			{
+//				transform.localScale = new Vector3(1, 1, 1);  //right
+//				health_bar_body.localScale = new Vector3(1, 1, 1);
+//			}
 			
 			if(a < -45 && a > -135) //down
 			{
@@ -197,22 +212,26 @@ public class Hero : GameEntity {
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
+				transform.localScale = new Vector3(1, 1, 1); //left
+				health_bar_body.localScale = new Vector3(1, 1, 1);
 				anim.Play("Python_Moving_Normal_");
-                //Debug.Log("right");
+//                Debug.Log("right");
 				//		transform.localRotation = Quaternion.Euler(0,0,a);
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
+				transform.localScale = new Vector3(-1, 1, 1); //left
+				health_bar_body.localScale = new Vector3(-1, 1, 1);
 				anim.Play("Python_Moving_Normal_");
-                //Debug.Log("left");
+//                Debug.Log("left");
 				//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
 			}
-			else if(a > 45 && a < 135) //up
-			{
-				//	anim.Play("Python_Moving_Upwards_");
-				//	Debug.Log("up");
-				//	transform.localRotation = Quaternion.Euler(0,0,0);
-			}
+//			else if(a > 45 && a < 135) //up
+//			{
+//				anim.Play("Python_Moving_Upwards_");
+//				Debug.Log("up");
+//				transform.localRotation = Quaternion.Euler(0,0,0);
+//			}
 		}
 	}
 	
@@ -267,6 +286,8 @@ public class Hero : GameEntity {
 							Debug.Log("i none muster & u muster okay..."+muster_id);
 						}
 						isCharacter = true;
+
+						break;
 					}
 					//i && u muster okay...
 					else if(helper.getMusterTrigger() && other.infor_hero.helper.getMusterTrigger())
@@ -289,6 +310,8 @@ public class Hero : GameEntity {
 							Debug.Log("i && u muster okay...");
 						}
 						isCharacter = true;
+
+						break;
 					}
 					//i muster okay & u none muster...
 					else if(helper.getMusterTrigger() && !other.infor_hero.helper.getMusterTrigger())
@@ -305,6 +328,8 @@ public class Hero : GameEntity {
 							Debug.Log("i muster okay & u none muster...");
 						}
 						isCharacter = true;
+
+						break;
 					}
 				}
 			}

@@ -63,7 +63,6 @@ public class HeroState_Moving : State<Hero> {
 		{
 			if(!owner.helper.getMoveTrigger())
 			{
-				Debug.Log("!!!!!!!!!!!!!!!!");
 				Vector3 dd = owner.target.helper.getPos() - me;
 				float r = Mathf.Atan2(dd.y, dd.x);
 				float speed_v = owner.model.MovingSpeed * Define.FrameControl();

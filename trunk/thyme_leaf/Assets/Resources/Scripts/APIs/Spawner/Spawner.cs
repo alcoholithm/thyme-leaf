@@ -20,11 +20,6 @@ public class Spawner : Singleton<Spawner>
     [SerializeField]
     private int maxPoolSize = 200;
 
-    private GameObject automatPool;
-    private GameObject trovantPool;
-    private GameObject automatBuildingPool;
-    private GameObject trovantBuildingPool;
-
 
     /**********************************/
     
@@ -41,36 +36,30 @@ public class Spawner : Singleton<Spawner>
 
     void Start()
     {
-        if (automatPool == null) automatPool = GameObject.Find("AutomatPool");
-        if (trovantPool == null) trovantPool = GameObject.Find("TrovantPool");
-        if (automatBuildingPool == null) automatBuildingPool = GameObject.Find("AutomatBuildingPool");
-        if (trovantBuildingPool == null) trovantBuildingPool = GameObject.Find("TrovantBuildingPool");
-
-
         if (Network.isServer || Network.peerType == NetworkPeerType.Disconnected)
         {
             if(automats != null)
             foreach (GameObject go in automats)
             {
-                ObjectPoolingManager.Instance.CreatePool(automatPool, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
             }
 
             if (towers != null)
             foreach (GameObject go in towers)
             {
-                ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
             }
 
             if (projectiles != null)
             foreach (GameObject go in projectiles)
             {
-                ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
             }
 
             if (trovants != null)
             foreach (GameObject go in trovants)
             {
-                ObjectPoolingManager.Instance.CreatePool(trovantPool, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
             }
         }
     }
@@ -126,11 +115,97 @@ public class Spawner : Singleton<Spawner>
     private void InitHero(ref GameObject go)
     {
         go.layer = (int)Layer.Automart;
+
+		if (Network.peerType != NetworkPeerType.Disconnected)
+		{
+			Debug.Log("Connected....");
+		}
+		Transform temp = GameObject.Find ("AutomatUnits").transform;
+		Hero hero = go.GetComponent<Hero> ();
+		Debug.Log ("character init");
+
+		//active...
+		go.SetActive (true);
+
+		//main setting...
+		hero.transform.parent = temp;
+		hero.transform.localScale = Vector3.one;
+		hero.transform.localPosition = new Vector3 (0, 0, 0);
+		
+		//unknown code..
+//		hero.gameObject.SetActive (false);
+//		hero.gameObject.SetActive (true);
+		
+		//unit detail setting...
+		
+		hero.setLayer(Layer.Automart);
+		hero.controller.StartPointSetting(StartPoint.AUTOMART_POINT);
+		hero.CollisionSetting (true);
+		
+		hero.controller.setType (UnitType.AUTOMART_CHARACTER);
+		hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
+		
+		//move trigger & unit pool manager setting <add>...
+		//moving state...
+		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
+		//moveing enable...
+		hero.controller.setMoveTrigger(true);
+		//hp bar setting...
+		hero.HealthUpdate ();
+		
+		//test...
+		hero.my_name = hero.model.Name;
+		
+		//unit pool insert...
+		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
+		UnitPoolController.GetInstance ().AddUnit (u_obj);
     }
 
     private void InitTrovant(ref GameObject go)
     {
         go.layer = (int)Layer.Trovant;
+
+		if (Network.peerType != NetworkPeerType.Disconnected)
+		{
+			Debug.Log("Connected....");
+		}
+		Transform temp = GameObject.Find ("TrovantUnits").transform;
+		Hero hero = go.GetComponent<Hero> ();
+		Debug.Log ("character init");
+		
+		//active...
+		go.SetActive (true);
+
+		hero.transform.parent = temp;
+		hero.transform.localScale = Vector3.one;
+		hero.transform.localPosition = new Vector3 (0, 0, 0);
+		
+		//unknown code..
+		//		hero.gameObject.SetActive (false);
+		//		hero.gameObject.SetActive (true);
+		
+		//unit detail setting...
+		hero.setLayer(Layer.Trovant);
+		hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
+		hero.CollisionSetting (true);
+		
+		hero.controller.setType (UnitType.TROVANT_CHARACTER);
+		hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
+		
+		//move trigger & unit pool manager setting <add>...
+		//moving state...
+		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
+		//moveing enable...
+		hero.controller.setMoveTrigger(true);
+		//hp bar setting...
+		hero.HealthUpdate ();
+		
+		//test...
+		hero.my_name = hero.model.Name;
+		
+		//unit pool insert...
+		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
+		UnitPoolController.GetInstance ().AddUnit (u_obj);
     }
 
     private void InitTower(ref GameObject go)

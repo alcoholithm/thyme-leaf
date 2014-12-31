@@ -63,6 +63,11 @@ public enum TowerType
     APT = 0,
 }
 
+public enum FindingNodeDefaultOption
+{
+	NORMAL = 0, RANDOM_NODE, MUSTER_COMMAND
+}
+
 public enum SpawnerType
 {
     HERO_SPAWNER = 0,
