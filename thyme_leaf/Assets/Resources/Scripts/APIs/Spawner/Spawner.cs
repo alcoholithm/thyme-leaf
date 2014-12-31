@@ -80,6 +80,18 @@ public class Spawner : Manager<Spawner>
 
     /**********************************/
 
+    public Hero DynamicGetHero(AutomatType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            GameObject go = GameObject.Instantiate(automats[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
+            return go.GetComponent<Hero>();
+        }
+        else
+        {
+            return GetHero(type);
+        }
+    }
 
     public Hero GetHero(AutomatType type)
     {
@@ -112,6 +124,20 @@ public class Spawner : Manager<Spawner>
         return go.GetComponent<Hero>();
     }
 
+
+    public Hero DynamicGetTrovant(TrovantType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            GameObject go = GameObject.Instantiate(trovants[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
+            return go.GetComponent<Hero>();
+        }
+        else
+        {
+            return GetTrovant(type);
+        }
+    }
+
     public Hero GetTrovant(TrovantType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -141,6 +167,19 @@ public class Spawner : Manager<Spawner>
         return go.GetComponent<Hero>();
     }
 
+    public Agt_Type1 DynamicGetTower(TowerType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            GameObject go = GameObject.Instantiate(towers[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
+            return go.GetComponent<Agt_Type1>();
+        }
+        else
+        {
+            return GetTower(type);
+        }
+    }
+
     public Agt_Type1 GetTower(TowerType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -168,6 +207,19 @@ public class Spawner : Manager<Spawner>
         GameObject go = ObjectPoolingManager.Instance.GetObject(towers[type].name);
         InitTower(ref go);
         return go.GetComponent<Agt_Type1>();
+    }
+
+    public Projectile DynamicGetProjectile(ProjectileType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            GameObject go = GameObject.Instantiate(projectiles[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
+            return go.GetComponent<Projectile>();
+        }
+        else
+        {
+            return GetProjectile(type);
+        }
     }
 
     public Projectile GetProjectile(ProjectileType type)
@@ -238,7 +290,7 @@ public class Spawner : Manager<Spawner>
         Debug.Log("character init");
 
 		//active...
-		go.SetActive (true);
+		//go.SetActive (true);
 
 		//main setting...
         //hero.transform.parent = temp;
@@ -275,13 +327,13 @@ public class Spawner : Manager<Spawner>
 		Debug.Log ("character init");
 		
 		//active...
-		go.SetActive (true); 
+		//go.SetActive (true); 
 
         //hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 
-
+        
 		//unit detail setting...
 		hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		hero.CollisionSetting (true);
