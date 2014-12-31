@@ -18,12 +18,12 @@ public class HeroSpawner : Singleton<HeroSpawner>
 
     void Awake()
     {
-        if (Network.isClient)
-            return;
-
-        foreach (GameObject automat in automats)
+        if (Network.isServer)
         {
-            ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);                 
+            foreach (GameObject automat in automats)
+            {
+                ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
+            }
         }
     }
 

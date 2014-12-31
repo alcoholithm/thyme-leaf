@@ -16,12 +16,12 @@ public class TowerSpawner : Singleton<TowerSpawner>
 
     void Awake()
     {
-        if (Network.isClient)
-            return;
-
-        foreach (GameObject tower in towers)
-        {            
-            ObjectPoolingManager.Instance.CreatePool(gameObject,tower, initPoolSize, maxPoolSize, false);
+        if (Network.isServer)
+        {
+            foreach (GameObject tower in towers)
+            {
+                ObjectPoolingManager.Instance.CreatePool(gameObject, tower, initPoolSize, maxPoolSize, false);
+            }
         }
     }
 
