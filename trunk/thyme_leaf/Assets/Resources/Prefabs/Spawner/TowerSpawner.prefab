@@ -8,9 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 10
   m_Name: TowerSpawner
   m_TagString: Untagged
@@ -38,12 +38,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c59f29c5087175742aefee7667754576, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b9ca4ba3d63b7a48827893c01d60858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  automats: []
   towers:
-  - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
-  initPoolSize: 20
+  - {fileID: 0}
+  projectiles: []
+  trovants: []
+  initPoolSize: 100
   maxPoolSize: 200
 --- !u!114 &11400002
 MonoBehaviour:
