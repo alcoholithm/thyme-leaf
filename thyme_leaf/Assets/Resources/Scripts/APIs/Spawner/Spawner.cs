@@ -93,6 +93,8 @@ public class Spawner : Manager<Spawner>
                     GameObject go = thouses[i];
                     ObjectPoolingManager.Instance.CreatePool(trovantBuildingPool, go, 5, maxPoolSize, false);
                 }
+			
+			PathManager.Instance.ShootMap();
         }
     }
 
@@ -119,7 +121,7 @@ public class Spawner : Manager<Spawner>
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            return GetWChat((int)type);
+            return GetThouse((int)type);
         }
         else
         {
@@ -138,14 +140,15 @@ public class Spawner : Manager<Spawner>
         go.transform.parent = trovantBuildingPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-        InitHero(ref go);
+		InitThouse(ref go);
     }
 
     [System.Obsolete("GetWChat(int type) is deprecated, please use GetWChat(WChatType type) instead.")]
     public W_Chat GetThouse(int type)
     {
+		Debug.Log ("GetThouse : " + (THouseType) type);
         GameObject go = ObjectPoolingManager.Instance.GetObject(thouses[type].name);
-        InitWChat(ref go);
+		InitThouse(ref go);
         return go.GetComponent<W_Chat>();
     }
 
@@ -191,7 +194,7 @@ public class Spawner : Manager<Spawner>
         go.transform.parent = automatBuildingPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-        InitHero(ref go);
+        InitWChat(ref go);
     }
 
     [System.Obsolete("GetWChat(int type) is deprecated, please use GetWChat(WChatType type) instead.")]
@@ -429,6 +432,13 @@ public class Spawner : Manager<Spawner>
 
     /**********************************/
     // Initialize Object
+
+
+	private void InitThouse(ref GameObject go)
+	{
+		go.transform.parent = GameObject.Find("TrovantBuildings").transform;
+		go.transform.localScale = new Vector3(1, 1, 1);
+	}
 
     private void InitWChat(ref GameObject go)
     {

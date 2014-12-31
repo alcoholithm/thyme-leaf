@@ -42,6 +42,7 @@ public class ObjectPoolingManager
         else
         {
             ObjectPool nPool = new ObjectPool(spawner, objToPool, initialPoolSize, maxPoolSize, shouldShrink);
+			Debug.Log("Dictionaly Name : " + objToPool.name);
             ObjectPoolingManager.Instance.objectPools.Add(objToPool.name, nPool);
             return true;
         }
