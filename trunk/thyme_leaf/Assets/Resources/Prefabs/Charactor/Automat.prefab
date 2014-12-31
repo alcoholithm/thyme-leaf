@@ -406,6 +406,7 @@ MonoBehaviour:
   target: {fileID: 0}
   my_name: 
   state_name: 
+  muster_name: 
   health_bar_body: {fileID: 0}
 --- !u!148 &14800000
 NetworkView:

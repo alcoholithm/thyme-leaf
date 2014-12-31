@@ -138,7 +138,6 @@ public class HeroState_Moving : State<Hero> {
 			float rt = Mathf.Atan2(d.y, d.x);
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
 		}
-		owner.ChangingAnimationAngle ();
 	}
 
 	public override void Exit (Hero owner)

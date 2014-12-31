@@ -71,6 +71,7 @@ public class UnitMusterController
 		Hero leader = unitMusters [idx].getElement (unit_idx);
 
 		//lock on system setting...
+		Debug.Log ("command attack");
 		for(int i=0;i<MaxMusterUnitCount;i++)
 		{
 			Hero hero = unitMusters[idx].getElement(i);
@@ -78,6 +79,7 @@ public class UnitMusterController
 			{
 				if(hero.target == null && hero.StateMachine.CurrentState == HeroState_Moving.Instance)
 				{
+					Debug.Log("i : " + i);
 					hero.target = leader.helper.attack_target;
 				}
 			}
@@ -121,7 +123,6 @@ public class UnitMusterController
 			   hero.StateMachine.CurrentState == HeroState_Moving.Instance)
 			{
 //				Debug.Log("ohter : "+hero.model.Name);
-				Debug.Log("i : "+i);
 				hero.helper.gesture_startpoint = hero.helper.getPos();
 				hero.helper.gesture_endpoint = hero.helper.gesture_startpoint + (d * 100);
 				if(hero.helper.SelectPathNode(hero.helper.gesture_startpoint, hero.helper.gesture_endpoint, hero.getLayer(), FindingNodeDefaultOption.MUSTER_COMMAND))
@@ -179,6 +180,7 @@ public class UnitMusterController
 			}
 		}
 		if(objIdx < 0) return false;
+		List<Hero> hero_list = new List<Hero> ();
 		
 		for(int i=0;i<MaxMusterCount;i++)
 		{
@@ -189,22 +191,31 @@ public class UnitMusterController
 					Debug.Log("add units fail over counter");
 					return false;
 				}
+
 				for(int k=0;k<MaxMusterUnitCount;k++)
 				{
 					Hero temp = unitMusters[objIdx].getElement(k);
-					if(temp != null)
-					{
-						temp.controller.setMusterID(muster_name);
-						temp.controller.setMusterLeaderTrigger(false);
-						temp.controller.setMusterTrigger(true);
-						
-						unitMusters[i].addUnit(temp);
-					}
+					if(temp != null) hero_list.Add(temp);
 				}
+				objIdx = i;
 				break;
 			}
 		}
+		//first muster remove...
 		freeMuster (objName);
+
+		//second muster add...
+		for(int i=0;i<hero_list.Count;i++)
+		{
+			hero_list[i].controller.setMusterID(muster_name);
+			hero_list[i].controller.setMusterLeaderTrigger(false);
+			hero_list[i].controller.setMusterTrigger(true);
+
+			unitMusters[objIdx].addUnit(hero_list[i]);
+		}
+		hero_list.Clear ();
+		hero_list = null;
+
 		return true;
 	}
 	
@@ -293,9 +304,9 @@ public class UnitMusterController
 			{
 				if(obj[i] == null) continue;
 
-//				obj[i].controller.setMusterID("null");
-//				obj[i].controller.setMusterLeaderTrigger(false);
-//				obj[i].controller.setMusterTrigger(false);
+				obj[i].controller.setMusterID("null");
+				obj[i].controller.setMusterLeaderTrigger(false);
+				obj[i].controller.setMusterTrigger(false);
 				
 				obj[i] = null;
 				CurrentSize = 0;
@@ -334,6 +345,9 @@ public class UnitMusterController
 						//...
 						CurrentSize--;
 						if(obj[i].model.MusterLeader) leader = null;
+						obj[i].controller.setMusterID("null");
+						obj[i].controller.setMusterLeaderTrigger(false);
+						obj[i].controller.setMusterTrigger(false);
 						obj[i] = null;
 						break;
 					}
