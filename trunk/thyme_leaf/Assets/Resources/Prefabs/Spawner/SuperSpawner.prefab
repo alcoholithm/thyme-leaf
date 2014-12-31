@@ -8,15 +8,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 148: {fileID: 14800000}
   - 114: {fileID: 11400000}
-  m_Layer: 9
-  m_Name: TrovantSpawner
+  - 148: {fileID: 14800000}
+  m_Layer: 0
+  m_Name: SuperSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -37,9 +37,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f22d6c079a1184945b84bd49a3a23352, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b9ca4ba3d63b7a48827893c01d60858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  automats:
+  - {fileID: 100008, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
+  towers:
+  - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
+  projectiles:
+  - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
+  trovants:
+  - {fileID: 100000, guid: 9f7aa33dea83f49e29652f5bfa3cbff2, type: 2}
+  initPoolSize: 100
+  maxPoolSize: 200
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
@@ -47,7 +57,7 @@ NetworkView:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_StateSynchronization: 1
+  m_StateSynchronization: 0
   m_Observed: {fileID: 400000}
   m_ViewID:
     m_ID: 0

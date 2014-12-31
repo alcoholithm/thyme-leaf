@@ -2,36 +2,50 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Spawner : MonoBehaviour//: Singleton<Spawner>
+public class Spawner : Singleton<Spawner>
 {
     public new const string TAG = "[Spawner]";
 
     [SerializeField]
-    protected GameObject[] automats;
+    private GameObject[] automats;
     [SerializeField]
-    protected GameObject[] towers;
+    private GameObject[] towers;
     [SerializeField]
-    protected GameObject[] projectiles;
+    private GameObject[] projectiles;
     [SerializeField]
-    protected GameObject[] trovants;
+    private GameObject[] trovants;
 
     [SerializeField]
-    protected int initPoolSize = 100;
+    private int initPoolSize = 100;
     [SerializeField]
-    protected int maxPoolSize = 200;
-
-    void Awake()
-    {
-        instance = this;
-    }
+    private int maxPoolSize = 200;
 
     void Start()
     {
-        if (Network.isServer)
+        if (Network.isServer || Network.peerType == NetworkPeerType.Disconnected)
         {
-            foreach (GameObject automat in automats)
+            if(automats != null)
+            foreach (GameObject go in automats)
             {
-                ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
+            }
+
+            if (towers != null)
+            foreach (GameObject go in towers)
+            {
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
+            }
+
+            if (projectiles != null)
+            foreach (GameObject go in projectiles)
+            {
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
+            }
+
+            if (trovants != null)
+            foreach (GameObject go in trovants)
+            {
+                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
             }
         }
     }
@@ -45,76 +59,33 @@ public class Spawner : MonoBehaviour//: Singleton<Spawner>
         //}
     }
 
-
-    // use only test
-    public Hero GetHero()
-    {
-        return GetHero(AutomatType.FRANSIS_TYPE1);
-    }
-
-    public Agt_Type1 GetTower()
-    {
-        return GetTower(TowerType.APT);
-    }
-
-    public Projectile GetProjectile()
-    {
-        return GetProjectile(ProjectileType.POISON);
-    }
-
-    public Hero GetTrovant()
-    {
-        return GetTrovant(TrovantType.COMMA);
-    }
-
-    
-
     public Hero GetHero(AutomatType type)
     {
-        return ObjectPoolingManager.Instance.GetObject(automats[(int)type].name).GetComponent<Hero>();
+        GameObject go = ObjectPoolingManager.Instance.GetObject(automats[(int)type].name);
+        go.layer = (int) Layer.Automart;
+        return go.GetComponent<Hero>();
     }
 
     public Hero GetTrovant(TrovantType type)
     {
-        return ObjectPoolingManager.Instance.GetObject(trovants[(int) type].name).GetComponent<Hero>();
+        GameObject go = ObjectPoolingManager.Instance.GetObject(trovants[(int)type].name);
+        go.layer = (int) Layer.Trovant;
+        return go.GetComponent<Hero>();
     }
 
     public Agt_Type1 GetTower(TowerType type)
     {
-        return ObjectPoolingManager.Instance.GetObject(towers[(int)type].name).GetComponent<Agt_Type1>();
+        GameObject go = ObjectPoolingManager.Instance.GetObject(towers[(int)type].name);
+        go.layer = (int) Layer.Tower;
+        return go.GetComponent<Agt_Type1>();
     }
 
     public Projectile GetProjectile(ProjectileType type)
     {
-        return ObjectPoolingManager.Instance.GetObject(projectiles[(int) type].name).GetComponent<Projectile>();
+        GameObject go = ObjectPoolingManager.Instance.GetObject(projectiles[(int) type].name);
+        go.layer = (int) Layer.Tower;
+        return go.GetComponent<Projectile>();
     }
-
-
-    //public Hero GetObject(string name)
-    //{
-    //    return ObjectPoolingManager.Instance.GetObject(name).GetComponent<Hero>();
-    //}
-
-    //public Agt_Type1 GetObject(string name)
-    //{
-    //    return ObjectPoolingManager.Instance.GetObject(name).GetComponent<Agt_Type1>();
-    //}
-
-    //public Hero GetObject(string name)
-    //{
-    //    return ObjectPoolingManager.Instance.GetObject(name).GetComponent<Hero>();
-    //}
-
-
-    //public Hero DynamicInstantiate()
-    //{
-    //    return GetHero();
-    //}
-
-    //public Hero Allocate()
-    //{
-    //    return DynamicInstantiate();
-    //}
 
     public void PerfectFree(GameObject gameObject)
     {
@@ -128,9 +99,4 @@ public class Spawner : MonoBehaviour//: Singleton<Spawner>
         gameObject.SetActive(false);
     }
 
-    private static Spawner instance;
-    public static Spawner Instance
-    {
-        get { return instance; }
-    }
 }
