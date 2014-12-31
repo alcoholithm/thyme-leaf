@@ -28,15 +28,15 @@ public class HeroState_Dying : State<Hero> {
 	{
 		if(owner == null) return;
 
-		//no massage...
-//		Message msg = owner.target.ObtainMessage(MessageTypes.MSG_MOVE_HERO, new HeroMovingCommand(owner.target));
-//		owner.target.DispatchMessage(msg);
-
+		//current unit muster release...
+		if(owner.helper.getMusterTrigger())
+			UnitMusterController.GetInstance().removeUnit(owner.model.MusterID, owner.model.Name);
+		//collision module exit...
 		owner.Die ();
-        Spawner.Instance.Free(owner.gameObject);
-
 		//remove character in unit pool...
 		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject);
+
+        Spawner.Instance.Free(owner.gameObject);
 
 		//throw new System.NotImplementedException ();
 	}

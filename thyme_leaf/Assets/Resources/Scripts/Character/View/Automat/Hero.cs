@@ -58,7 +58,10 @@ public class Hero : GameEntity {
 		stateMachine.Update();
 		//=============================
 		Gesturing ();
-	//	MusterControl ();
+		//animation control...
+		ChangingAnimationAngle ();
+		//muster control...
+		MusterControl ();
 	}
 
 	//unit detail initialize...
@@ -100,13 +103,11 @@ public class Hero : GameEntity {
 				helper.attack_target = coll.gameObject.GetComponent<Hero>();
 				//my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
-
-//				gameObject.collider2D.rigidbody2D.isKinematic = false;
 			}
 		}
 		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
 		{
-//			if(IsAttackCase(coll.gameObject))  //state compare okay...
+//			if(IsAttackCase(coll.gameObject)) 
 //			{
 //				helper.attack_target = coll.gameObject.GetComponent<Hero>();
 //			}
@@ -147,9 +148,10 @@ public class Hero : GameEntity {
 				if(Input.GetMouseButtonDown(0))
 				{
 					helper.gesture_startpoint = Input.mousePosition;
-					GameObject obj = helper.RaycastHittingObject(helper.gesture_startpoint).gameObject;
-					if(obj == null) return;
-					hit_unit = helper.RaycastHittingObject(helper.gesture_startpoint).gameObject.GetComponent<Hero>().model.Name;
+					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
+					if(collider == null) return;
+					Hero obj = collider.gameObject.GetComponent<Hero>();
+					hit_unit = obj.model.Name;
 				}
 				else if(Input.GetMouseButtonUp(0))
 				{
@@ -413,7 +415,7 @@ public class Hero : GameEntity {
 		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
 		
 		this.anim = GetComponent<NGUISpriteAnimation>();
-//		this.anim.Pause();
+		this.anim.Pause();
 		transform.localPosition = new Vector3(1000,1000);
 	}
 

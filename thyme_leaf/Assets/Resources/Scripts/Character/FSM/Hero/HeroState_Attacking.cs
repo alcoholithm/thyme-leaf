@@ -21,6 +21,9 @@ public class HeroState_Attacking : State<Hero>
 
 		owner.state_name = "Attacking_";
         owner.helper.attack_delay_counter = 0;  //attack delay setting...
+
+		if(owner.helper.getMusterTrigger())
+			UnitMusterController.GetInstance().CommandAttack(owner.model.MusterID, owner.model.Name);
     }
 
     public override void Execute(Hero owner)
