@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Thumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400014}
   - 148: {fileID: 14800000}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Tower
   m_TagString: TagTower
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400006}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: 2_Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400012}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: 1 - [1-2] Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
