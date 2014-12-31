@@ -257,8 +257,6 @@ public class DataToFile : MonoBehaviour
 			mapdata.obj = tempsetting;
 			Define.pathNode[c] = mapdata;
 		}
-
-		//ohu~~
 		/*
 		//object center position setting...
 		for(int i=0;i<Define.pathNode.Count;i++)
@@ -272,7 +270,7 @@ public class DataToFile : MonoBehaviour
 				Define.pathNode[i] = map_data;
 
 				GameObject center = Instantiate(automat_ct) as GameObject;
-				center.transform.parent = GameObject.Find("4 - UI").transform.FindChild("1 - Base layer");
+				center.transform.parent = GameObject.Find("AutomatBuildings").transform;
 				center.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
 				center.transform.localScale = new Vector3(1, 1, 1);
 
@@ -288,7 +286,7 @@ public class DataToFile : MonoBehaviour
 				Define.pathNode[i] = map_data; 
 
 				GameObject center = Instantiate(trovant_ct) as GameObject;
-				center.transform.parent = GameObject.Find("4 - UI").transform.FindChild("1 - Base layer");
+				center.transform.parent = GameObject.Find("TrovantBuildings").transform;
 				center.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
 				center.transform.localScale = new Vector3(1, 1, 1);
 

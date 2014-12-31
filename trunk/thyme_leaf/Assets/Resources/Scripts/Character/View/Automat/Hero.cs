@@ -278,10 +278,12 @@ public class Hero : GameEntity {
 						{
 							//push other muster...
 							Debug.Log("other current muster full : "+muster_id);
-							//get leader...
-							//Hero leader = UnitMusterController.GetInstance().LeaderObj(muster_id);
 							//push action...
-							
+							if(other.infor_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other.infor_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+							{
+								other.infor_hero.controller.setMoveTrigger(true);
+								UnitMusterController.GetInstance().CommandMove(other.infor_hero.model.MusterID, other.nameID);
+							}
 						}
 						else
 						{
@@ -305,7 +307,12 @@ public class Hero : GameEntity {
 						if(!check)
 						{
 							Debug.Log("i && u musters full");
-							//push other muster...
+							//push action...
+							if(other.infor_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other.infor_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+							{
+								other.infor_hero.controller.setMoveTrigger(true);
+								UnitMusterController.GetInstance().CommandMove(other.infor_hero.model.MusterID, other.nameID);
+							}
 						}
 						else
 						{
@@ -323,7 +330,12 @@ public class Hero : GameEntity {
 						if(!check)
 						{
 							Debug.Log("i current muster full : "+muster_id);
-							//push other muster...
+							//push action...
+							if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+							{
+								controller.setMoveTrigger(true);
+								UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
+							}
 						}
 						else
 						{
@@ -383,6 +395,18 @@ public class Hero : GameEntity {
         health_bar_controller.getSlider().value = ratio;
         health_bar_controller.getSlider().foregroundWidget.color = color;
     }
+
+	public void TakeDamage(int damage_range)
+	{
+		controller.addHp (-damage_range);
+		CurrentHP = model.HP;  //test code...
+		HealthUpdate ();
+		if(model.HP <= 0)
+		{
+			Debug.Log(model.Name + " die");
+			StateMachine.ChangeState(HeroState_Dying.Instance);
+		}
+	}
 
 	//==============================================
 	public void setLayer(Layer v) { gameObject.layer = (int) v; }
