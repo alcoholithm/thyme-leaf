@@ -258,10 +258,12 @@ public class Spawner : Manager<Spawner>
     }
 
     [RPC]
-    void TEST(NetworkViewID spawnerID, NetworkViewID viewID, UnitType unitType, int type)
+    void TEST(NetworkViewID spawnerID, NetworkViewID viewID, int unitTypeNum, int type)
     {
         GameObject nObj = null;
         GameObject spawner = NetworkView.Find(spawnerID).gameObject;
+        UnitType unitType = (UnitType)unitTypeNum;
+
         switch (unitType)
         {
             case UnitType.AUTOMART_CHARACTER:
