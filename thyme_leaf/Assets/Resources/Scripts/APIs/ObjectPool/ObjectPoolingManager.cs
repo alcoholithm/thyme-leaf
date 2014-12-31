@@ -41,7 +41,7 @@ public class ObjectPoolingManager
         }
         else
         {
-            ObjectPool nPool = new ObjectPool(spawner, objToPool, unitType, type, initialPoolSize, maxPoolSize, shouldShrink);
+            ObjectPool nPool = new ObjectPool(spawner, objToPool, initialPoolSize, maxPoolSize, shouldShrink);
             ObjectPoolingManager.Instance.objectPools.Add(objToPool.name, nPool);
             return true;
         }

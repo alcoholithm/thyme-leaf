@@ -13,7 +13,7 @@ public class ObjectPool
     private static GameObject poolMgr;
     private GameObject spawner = null;
 
-    public ObjectPool(GameObject spawner, GameObject obj, UnitType unitType, int type, int initialPoolSize, int maxPoolSize, bool shouldShrink)
+    public ObjectPool(GameObject spawner, GameObject obj, int initialPoolSize, int maxPoolSize, bool shouldShrink)
     {
         if (this.spawner == null)
         {
@@ -37,29 +37,29 @@ public class ObjectPool
                 nObj.transform.parent = this.spawner.transform;
                 nObj.SetActive(false);
             }            
-            else if (Network.isServer)
-            {
-                //multi-play
-                NetworkViewID viewID = Network.AllocateViewID();
+            //else if (Network.isServer)
+            //{
+            //    //multi-play
+            //    NetworkViewID viewID = Network.AllocateViewID();
 
-                //nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
+            //    //nObj = GameObject.Instantiate(obj, Vector3.zero, Quaternion.identity) as GameObject;
 
 
-                //nObj = Network.Instantiate(obj, Vector3.one, Quaternion.identity, 0) as GameObject;
+            //    //nObj = Network.Instantiate(obj, Vector3.one, Quaternion.identity, 0) as GameObject;
                 
 
-                //spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj);
+            //    //spawner.GetComponent<NetworkView>().networkView.RPC(RPCMethod.INIT_SPAWNED_OBJECT, RPCMode.All, nObj);
                                 
                 
-                //nObj.networkView.viewID = Network.AllocateViewID();
-                // Network.Instantiate method allocates network viewID automatically
-                Spawner.Instance.GetComponent<NetworkView>().networkView.RPC("TEST", RPCMode.All, 
-                    this.spawner.networkView.viewID, viewID, (int) unitType, type);
+            //    //nObj.networkView.viewID = Network.AllocateViewID();
+            //    // Network.Instantiate method allocates network viewID automatically
+            //    Spawner.Instance.GetComponent<NetworkView>().networkView.RPC("TEST", RPCMode.All, 
+            //        this.spawner.networkView.viewID, viewID, (int) unitType, type);
 
-                nObj = NetworkView.Find(viewID).gameObject;
+            //    nObj = NetworkView.Find(viewID).gameObject;
 
-                Debug.Log(this.spawner + " creates " + nObj + " (" + viewID + ") " + " that's parent is " + nObj.transform.parent);
-            }
+            //    Debug.Log(this.spawner + " creates " + nObj + " (" + viewID + ") " + " that's parent is " + nObj.transform.parent);
+            //}
 
             pooledObjects.Add(nObj);
             GameObject.DontDestroyOnLoad(nObj);

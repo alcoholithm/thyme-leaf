@@ -68,13 +68,6 @@ public enum FindingNodeDefaultOption
 	NORMAL = 0, RANDOM_NODE, MUSTER_COMMAND
 }
 
-//public enum SpawnerType
-//{
-//    HERO_SPAWNER = 0,
-//    TROVANT_SPAWNER,
-//    TOWER_SPAWNER,
-//}
-
 public class RPCMethod
 {
     public const string INIT_SPAWNED_OBJECT = "INIT_SPAWNED_OBJECT";

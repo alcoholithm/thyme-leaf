@@ -46,7 +46,7 @@ public class Spawner : Manager<Spawner>
         if (automatBuildingPool == null) automatBuildingPool = GameObject.Find("AutomatBuildingPool");
         if (trovantBuildingPool == null) trovantBuildingPool = GameObject.Find("TrovantBuildingPool");
 
-        if (Network.isServer || Network.peerType == NetworkPeerType.Disconnected)
+        if (Network.peerType == NetworkPeerType.Disconnected)
         {
             if(automats != null)
                 for (int i = 0; i < automats.Length; i++)
@@ -80,11 +80,31 @@ public class Spawner : Manager<Spawner>
 
     /**********************************/
 
+
     public Hero GetHero(AutomatType type)
     {
-        return GetHero((int)type);
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            return GetHero((int)type);
+        }
+        else
+        {
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetHero", RPCMode.All, viewID, (int) type);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go.GetComponent<Hero>();
+        }
     }
 
+    [RPC]
+    void NetworkGetHero(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.networkView.viewID = viewID;
+        InitHero(ref go);
+    }
+    
+    [System.Obsolete("GetHero(int type) is deprecated, please use GetHero(AutomatType type) instead.")]
     public Hero GetHero(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(automats[type].name);
@@ -94,9 +114,26 @@ public class Spawner : Manager<Spawner>
 
     public Hero GetTrovant(TrovantType type)
     {
-        return GetTrovant((int)type);
+        if (Network.peerType == NetworkPeerType.Disconnected)
+            return GetTrovant((int)type);
+        else
+        {
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetTrovant", RPCMode.All, viewID, (int)type);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go.GetComponent<Hero>();
+        }
     }
 
+    [RPC]
+    void NetworkGetTrovant(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.networkView.viewID = viewID;
+        InitTrovant(ref go);
+    }
+
+    [System.Obsolete("GetTrovant(int type) is deprecated, please use GetTrovant(TrovantType type) instead.")]
     public Hero GetTrovant(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(trovants[type].name);
@@ -106,9 +143,26 @@ public class Spawner : Manager<Spawner>
 
     public Agt_Type1 GetTower(TowerType type)
     {
-        return GetTower((int)type);
+        if (Network.peerType == NetworkPeerType.Disconnected)
+            return GetTower((int)type);
+        else
+        {
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetTower", RPCMode.All, viewID, (int)type);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go.GetComponent<Agt_Type1>();
+        }
     }
 
+    [RPC]
+    void NetworkGetTower(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.networkView.viewID = viewID;
+        InitTower(ref go);
+    }
+
+    [System.Obsolete("GetTower(int type) is deprecated, please use GetTower(TowerType type) instead.")]
     public Agt_Type1 GetTower(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(towers[type].name);
@@ -118,9 +172,26 @@ public class Spawner : Manager<Spawner>
 
     public Projectile GetProjectile(ProjectileType type)
     {
-        return GetProjectile((int)type);
+        if (Network.peerType == NetworkPeerType.Disconnected)
+            return GetProjectile((int)type);
+        else
+        {
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go.GetComponent<Projectile>();
+        }
     }
 
+    [RPC]
+    void NetworkGetProjectile(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.networkView.viewID = viewID;
+        InitProjectile(ref go);
+    }
+
+    [System.Obsolete("GetProjectile(int type) is deprecated, please use GetProjectile(ProjectileType type) instead.")]
     public Projectile GetProjectile(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(projectiles[type].name);
@@ -130,17 +201,31 @@ public class Spawner : Manager<Spawner>
 
 
     /**********************************/
+    // Dying Methods
 
     public void PerfectFree(GameObject gameObject)
     {
-        Destroy(gameObject);
+        if (Network.peerType == NetworkPeerType.Disconnected)
+            Destroy(gameObject);
+        else
+            Free(gameObject);
     }
 
     public void Free(GameObject gameObject)
     {
         //Do you need some more handling the object?
         //gameObject.transform.parent = transform;
-        gameObject.SetActive(false);
+        if (Network.peerType == NetworkPeerType.Disconnected)
+            gameObject.SetActive(false);
+        else
+            networkView.RPC("NetworkFree", RPCMode.All, gameObject.networkView.viewID);
+    }
+
+    [RPC]
+    void NetworkFree(NetworkViewID viewID)
+    {
+        GameObject go = NetworkView.Find(viewID).gameObject;
+        Destroy(go);
     }
 
     /**********************************/
@@ -236,6 +321,8 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // RPC Methods
 
+
+    /*
     [RPC]
     void INIT_SPAWNED_OBJECT(NetworkViewID spawnerID, NetworkViewID bornerID)
     {
@@ -280,10 +367,11 @@ public class Spawner : Manager<Spawner>
                 break;
 
             default:
-                Debug.Log("Not found Unit Type : " + unitType);
+                Debug.LogError("Not found Unit Type : " + unitType);
                 break;
         }
         nObj.networkView.viewID = viewID;
     }
+    */
 }
 
