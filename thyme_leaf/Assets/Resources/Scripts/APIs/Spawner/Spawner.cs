@@ -222,14 +222,16 @@ public class Spawner : Singleton<Spawner>
     /**********************************/
 
     [RPC]
-    void INIT_SPAWNED_OBJECT(NetworkViewID babyId)
+    void INIT_SPAWNED_OBJECT(NetworkViewID spawnerID, NetworkViewID bornerID)
     {
         //if (pool == null)
         //    pool = GameObject.Find("Pool").gameObject;
-        Debug.Log("INIT_SPAWNED_OBJECT " + babyId);
-        GameObject baby = NetworkView.Find(babyId).gameObject;
-        baby.transform.parent = transform;
-        baby.SetActive(false);
+        Debug.Log("INIT_SPAWNED_OBJECT " + bornerID);
+        GameObject borner = NetworkView.Find(bornerID).gameObject;
+        GameObject spawner = NetworkView.Find(spawnerID).gameObject;
+
+        borner.transform.parent = spawner.transform;
+        borner.SetActive(false);
     }
 
     [RPC]
