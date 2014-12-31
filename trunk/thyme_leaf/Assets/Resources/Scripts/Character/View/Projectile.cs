@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
 
         movingSpeed = 0;
 
-        fx.PlayOneShot(animName, new VoidFunction(() => ProjectileSpawner.Instance.Free(this.gameObject)));
+        fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.PerfectFree(this.gameObject)));
         //fx.PlayOneShot(animName, new VoidFunction(() => gameObject.SetActive(false)));
 
         Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
