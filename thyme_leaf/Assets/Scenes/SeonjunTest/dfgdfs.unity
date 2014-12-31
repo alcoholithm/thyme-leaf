@@ -180,6 +180,7 @@ GameObject:
   - 114: {fileID: 28091876}
   - 114: {fileID: 28091875}
   - 65: {fileID: 28091874}
+  - 114: {fileID: 28091878}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
@@ -313,6 +314,18 @@ MonoBehaviour:
   _model:
     _maxHp: 100
     _currHp: 100
+--- !u!114 &28091878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: 29cbf384dd633b143bdb02d735a18569,
+    type: 2}
+  m_PrefabInternal: {fileID: 844667075}
+  m_GameObject: {fileID: 28091872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9235c7872195646a9808a4f7db2ef60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &91343629
 GameObject:
   m_ObjectHideFlags: 0
