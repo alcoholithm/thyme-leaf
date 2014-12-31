@@ -115,7 +115,7 @@ public class Spawner : Singleton<Spawner>
     public void Free(GameObject gameObject)
     {
         //Do you need some more handling the object?
-        gameObject.transform.parent = transform;
+        //gameObject.transform.parent = transform;
         gameObject.SetActive(false);
     }
 
@@ -134,9 +134,6 @@ public class Spawner : Singleton<Spawner>
 
 		//active...
 		go.SetActive (true);
-
-//        go.GetComponent<UISprite>().enabled = false;
-//        go.GetComponent<UISprite>().enabled = true;
 
 		//main setting...
 		hero.transform.parent = temp;
@@ -178,9 +175,6 @@ public class Spawner : Singleton<Spawner>
 		
 		//active...
 		go.SetActive (true); 
-
-//        go.GetComponent<UISprite>().enabled = false;
-//        go.GetComponent<UISprite>().enabled = true;
 
 		hero.transform.parent = temp;
 		hero.transform.localScale = Vector3.one;
