@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11400006}
   m_Layer: 9
   m_Name: Trovant command center
-  m_TagString: Untagged
+  m_TagString: TagCommandCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 877, y: 392, z: -100.000031}
+  m_LocalPosition: {x: 877, y: 392, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.53674316e-07, z: 0}
+  m_LocalPosition: {x: 3.05175781e-05, y: 1.52587891e-05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bee3942f45bef41a02c18b8df7ed34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayTime: 0
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166bed3a16cc20042a390306a251f198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 11400012}
   _model:
     _maxHp: 100
     _currHp: 100

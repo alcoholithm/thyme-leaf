@@ -5,6 +5,9 @@ public class HealthBar : View
 {
     private UISlider slider;
 
+    [SerializeField]
+    private float displayTime;
+
     //------------------ MVC
     private Unit model;
     //------------------
@@ -20,18 +23,29 @@ public class HealthBar : View
     /*
      * followings are member functions
      */
-    void Initialize()
+    private void Initialize()
     {
         this.slider = GetComponent<UISlider>();
     }
 
-    void UpdateHealthBar()
+    private void UpdateHealthBar()
     {
         float ratio = (float)model.HP / model.MaxHP;
         Color color = Color.Lerp(Color.red, Color.green, ratio);
 
         this.slider.value = ratio;
         this.slider.foregroundWidget.color = color;
+    }
+
+    private void Paint()
+    {
+        UpdateHealthBar();
+    }
+
+    private IEnumerator HideDelayed()
+    {
+        yield return new WaitForSeconds(displayTime);
+        gameObject.SetActive(false);
     }
 
     public UISlider getSlider() { return slider; }
@@ -41,12 +55,17 @@ public class HealthBar : View
      */
     public override void UpdateUI()
     {
-        UpdateHealthBar();
+        gameObject.SetActive(true);
+        StopCoroutine("HideDelayed");
+        Paint();
+        if (gameObject.activeInHierarchy)
+            StartCoroutine("HideDelayed");
     }
+
 
     /*
      * followings are attributes
-     */ 
+     */
     public Unit Model
     {
         get { return model; }
