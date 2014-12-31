@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ClientHeroSpawner : HeroSpawner {
+public class ClientHeroSpawner : Spawner {
     void Awake()
     {
         if (Network.isClient)

@@ -42,6 +42,27 @@ public enum UnitType
 	AUTOMART_TOWER = 11
 }
 
+public enum AutomatType
+{
+    FRANSIS_TYPE1 = 0,
+
+}
+
+public enum TrovantType
+{
+    COMMA = 0,
+}
+
+public enum ProjectileType
+{
+    POISON = 0,
+}
+
+public enum TowerType
+{
+    APT = 0,
+}
+
 public enum SpawnerType
 {
     HERO_SPAWNER = 0,
