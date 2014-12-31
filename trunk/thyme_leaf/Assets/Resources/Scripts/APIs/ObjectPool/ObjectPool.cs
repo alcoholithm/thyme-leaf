@@ -98,8 +98,10 @@ public class ObjectPool
                 }
                 else
                 {
+                    pooledObjects[i].transform.parent = this.spawner.transform;
                     pooledObjects[i].SetActive(true);
                 }
+                
                 return pooledObjects[i];
             }
         }
@@ -107,16 +109,18 @@ public class ObjectPool
         if (this.maxPoolSize > this.pooledObjects.Count)
         {
             GameObject nObj = null;
-            if (Network.peerType == NetworkPeerType.Connecting)
-            {
-                nObj = Network.Instantiate(pooledObj, Vector3.zero, Quaternion.identity, 0) as GameObject;
-            }
-            else
-            {
-                nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
-            }
-            nObj.SetActive(true);
+            //if (Network.peerType == NetworkPeerType.Connecting)
+            //{
+            //    nObj = Network.Instantiate(pooledObj, Vector3.zero, Quaternion.identity, 0) as GameObject;
+            //}
+            //else
+            //{
+            nObj = GameObject.Instantiate(pooledObj, Vector3.zero, Quaternion.identity) as GameObject;
             pooledObjects.Add(nObj);
+            //}
+            nObj.SetActive(false);
+            nObj.transform.parent = this.spawner.transform;
+            nObj.SetActive(true);
             return nObj;
         }
         return null;
