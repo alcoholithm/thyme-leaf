@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Spawner : Singleton<Spawner>
+public class Spawner : MonoBehaviour//: Singleton<Spawner>
 {
     public new const string TAG = "[Spawner]";
 
@@ -19,6 +19,11 @@ public class Spawner : Singleton<Spawner>
     protected int initPoolSize = 100;
     [SerializeField]
     protected int maxPoolSize = 200;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -123,4 +128,9 @@ public class Spawner : Singleton<Spawner>
         gameObject.SetActive(false);
     }
 
+    private static Spawner instance;
+    public static Spawner Instance
+    {
+        get { return instance; }
+    }
 }

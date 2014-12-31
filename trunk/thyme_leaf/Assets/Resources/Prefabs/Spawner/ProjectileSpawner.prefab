@@ -43,7 +43,7 @@ MonoBehaviour:
   automats: []
   towers: []
   projectiles:
-  - {fileID: 0}
+  - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
   trovants: []
   initPoolSize: 100
   maxPoolSize: 200

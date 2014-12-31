@@ -43,10 +43,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   automats: []
   towers:
-  - {fileID: 0}
+  - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
   projectiles: []
   trovants: []
-  initPoolSize: 100
+  initPoolSize: 10
   maxPoolSize: 200
 --- !u!114 &11400002
 MonoBehaviour:
