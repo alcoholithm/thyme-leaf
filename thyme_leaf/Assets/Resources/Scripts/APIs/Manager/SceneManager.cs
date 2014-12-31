@@ -13,6 +13,7 @@ public class SceneManager : Manager<SceneManager>
     public const string BATTLE = "3_Battle";
     public const string TOWER = "4_TowerSet";
     public const string AUTO = "5_AutomartSet";
+    public const string MULTI = "MultiplayScene";
 
     private string currentScene = LOBBY;
     public string CurrentScene

@@ -37,16 +37,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9ca4ba3d63b7a48827893c01d60858, type: 3}
+  m_Script: {fileID: 11500000, guid: e3b3a3a91cc6f6d4ebe7673d4fb94bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  automats: []
-  towers: []
-  projectiles:
-  - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
-  trovants: []
-  initPoolSize: 100
-  maxPoolSize: 200
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
