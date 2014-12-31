@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TowerState_Dying : State<Agt_Type1>
 {
-    private string animName = "APT_Dying_";
+    private string animName = "APT_Type1_Dying_";
 
     private TowerState_Dying()
     {
