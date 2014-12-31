@@ -20,6 +20,11 @@ public class Spawner : Singleton<Spawner>
     [SerializeField]
     private int maxPoolSize = 200;
 
+    private GameObject automatPool;
+    private GameObject trovantPool;
+    private GameObject automatBuildingPool;
+    private GameObject trovantBuildingPool;
+
 
     /**********************************/
     
@@ -36,30 +41,35 @@ public class Spawner : Singleton<Spawner>
 
     void Start()
     {
+        if (automatPool == null) automatPool = GameObject.Find("AutomatPool");
+        if (trovantPool == null) trovantPool = GameObject.Find("TrovantPool");
+        if (automatBuildingPool == null) automatBuildingPool = GameObject.Find("AutomatBuildingPool");
+        if (trovantBuildingPool == null) trovantBuildingPool = GameObject.Find("TrovantBuildingPool");
+
         if (Network.isServer || Network.peerType == NetworkPeerType.Disconnected)
         {
             if(automats != null)
             foreach (GameObject go in automats)
             {
-                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(automatPool, go, initPoolSize, maxPoolSize, false);
             }
 
             if (towers != null)
             foreach (GameObject go in towers)
             {
-                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
             }
 
             if (projectiles != null)
             foreach (GameObject go in projectiles)
             {
-                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
             }
 
             if (trovants != null)
             foreach (GameObject go in trovants)
             {
-                ObjectPoolingManager.Instance.CreatePool(gameObject, go, initPoolSize, maxPoolSize, false);
+                ObjectPoolingManager.Instance.CreatePool(trovantPool, go, initPoolSize, maxPoolSize, false);
             }
         }
     }
@@ -114,8 +124,6 @@ public class Spawner : Singleton<Spawner>
 
     private void InitHero(ref GameObject go)
     {
-        go.layer = (int)Layer.Automart;
-
 		if (Network.peerType != NetworkPeerType.Disconnected)
 		{
 			Debug.Log("Connected....");
@@ -137,8 +145,6 @@ public class Spawner : Singleton<Spawner>
 //		hero.gameObject.SetActive (true);
 		
 		//unit detail setting...
-		
-		hero.setLayer(Layer.Automart);
 		hero.controller.StartPointSetting(StartPoint.AUTOMART_POINT);
 		hero.CollisionSetting (true);
 		
@@ -163,8 +169,6 @@ public class Spawner : Singleton<Spawner>
 
     private void InitTrovant(ref GameObject go)
     {
-        go.layer = (int)Layer.Trovant;
-
 		if (Network.peerType != NetworkPeerType.Disconnected)
 		{
 			Debug.Log("Connected....");
@@ -185,7 +189,6 @@ public class Spawner : Singleton<Spawner>
 		//		hero.gameObject.SetActive (true);
 		
 		//unit detail setting...
-		hero.setLayer(Layer.Trovant);
 		hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
 		hero.CollisionSetting (true);
 		
