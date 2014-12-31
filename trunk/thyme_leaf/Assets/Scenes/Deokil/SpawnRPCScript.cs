@@ -2,14 +2,18 @@
 using System.Collections;
 
 public class SpawnRPCScript : MonoBehaviour {
+
+    private GameObject pool;
        
 
     [RPC]
     void INIT_SPAWNED_OBJECT(NetworkViewID babyId)
     {
+        if (pool == null)
+            pool = GameObject.Find("Pool").gameObject;
         Debug.Log("INIT_SPAWNED_OBJECT " + babyId);
         GameObject baby = NetworkView.Find(babyId).gameObject;
-        //baby.transform.parent = transform;
+        baby.transform.parent = pool.transform;
         baby.SetActive(false);
     }
 
