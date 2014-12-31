@@ -16,24 +16,24 @@ public class HeroSpawner : Singleton<HeroSpawner>
     [SerializeField]
     protected int maxPoolSize = 200;
 
-    //void Awake()
-    //{
-    //    if (Network.isServer)
-    //    {
-    //        foreach (GameObject automat in automats)
-    //        {
-    //            ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
-    //        }
-    //    }
-    //}
+    void Start()
+    {
+        if (Network.isServer)
+        {
+            foreach (GameObject automat in automats)
+            {
+                ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
+            }
+        }
+    }
 
     public void OnNetworkLoadedLevel()
     {
-        Debug.Log("Start Object Pool");
-        foreach (GameObject automat in automats)
-        {
-            ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
-        }
+        //Debug.Log("Start Object Pool");
+        //foreach (GameObject automat in automats)
+        //{
+        //    ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
+        //}
     }
 
     public Hero getHero()
