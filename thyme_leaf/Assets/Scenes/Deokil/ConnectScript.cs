@@ -127,15 +127,31 @@ public class ConnectScript : MonoBehaviour
         }
     }
 
+    // Common Side
+    void OnDisconnectedFromServer()
+    {
+        Application.LoadLevel("MultiplayInitScene");
+    }
+
     [RPC]
     void LoadLevel()
     {
         Network.SetSendingEnabled(0, false);
         Network.isMessageQueueRunning = false;
 
-        //Network.SetLevelPrefix("");
+        Network.SetLevelPrefix(5);
         Application.LoadLevel("MultiplayScene");
         Network.SetSendingEnabled(0, true);
+        StartCoroutine("Fade");
+        StartCoroutine("Fade");
+
+        Network.isMessageQueueRunning = true;
+        Network.SetSendingEnabled(0, true);
+
     }
 
+    IEnumerator Fade()
+    {
+        yield return new WaitForSeconds(1);
+    }
 }
