@@ -45,12 +45,13 @@ public enum UnitType
 public enum AutomatType
 {
     FRANSIS_TYPE1 = 0,
-
+    FALSTAFF_TYPE1,    
 }
 
 public enum TrovantType
 {
     COMMA = 0,
+    PYTHON,
 }
 
 public enum ProjectileType
@@ -61,6 +62,15 @@ public enum ProjectileType
 public enum TowerType
 {
     APT = 0,
+    AGT, // Automat Gun Tower
+    AST, // Automat Slow Tower
+    ASPT, // Automat Splash Tower
+    ATT, // Automat Turret Tower
+}
+
+public enum WChatType // Walkalbe Commanding Headquater Against Trovant
+{
+    WCHAT_TYPE1 = 0,
 }
 
 public enum FindingNodeDefaultOption
