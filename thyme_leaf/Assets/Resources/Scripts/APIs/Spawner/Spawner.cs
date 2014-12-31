@@ -210,11 +210,15 @@ public class Spawner : Singleton<Spawner>
 
     private void InitTower(ref GameObject go)
     {
-        go.layer = (int)Layer.Tower;
+        //go.layer = (int)Layer.Tower;
+        go.transform.position = Vector3.zero;
+        go.transform.localScale = Vector3.one;
     }
 
     private void InitProjectile(ref GameObject go)
     {
-        go.layer = (int)Layer.Tower;
+        //go.layer = (int)Layer.Tower;
+        go.transform.position = Vector3.zero;
+        go.transform.localScale = Vector3.one;
     }
 }
