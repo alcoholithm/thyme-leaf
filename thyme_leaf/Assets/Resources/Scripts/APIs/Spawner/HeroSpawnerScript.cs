@@ -13,4 +13,5 @@ public class HeroSpawnerScript : Singleton<HeroSpawnerScript> {
     {
         return Spawner.Instance.GetHero(type);
     }
+
 }

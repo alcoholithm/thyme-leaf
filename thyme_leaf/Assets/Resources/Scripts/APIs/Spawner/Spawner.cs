@@ -20,6 +20,20 @@ public class Spawner : Singleton<Spawner>
     [SerializeField]
     private int maxPoolSize = 200;
 
+
+    /**********************************/
+    
+    public void OnNetworkLoadedLevel()
+    {
+        //Debug.Log("Start Object Pool");
+        //foreach (GameObject automat in automats)
+        //{
+        //    ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
+        //}
+    }
+
+    /**********************************/
+
     void Start()
     {
         if (Network.isServer || Network.peerType == NetworkPeerType.Disconnected)
@@ -50,42 +64,38 @@ public class Spawner : Singleton<Spawner>
         }
     }
 
-    public void OnNetworkLoadedLevel()
-    {
-        //Debug.Log("Start Object Pool");
-        //foreach (GameObject automat in automats)
-        //{
-        //    ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
-        //}
-    }
+    /**********************************/
 
     public Hero GetHero(AutomatType type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(automats[(int)type].name);
-        go.layer = (int) Layer.Automart;
+        InitHero(ref go);
         return go.GetComponent<Hero>();
     }
 
     public Hero GetTrovant(TrovantType type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(trovants[(int)type].name);
-        go.layer = (int) Layer.Trovant;
+        InitTrovant(ref go);
         return go.GetComponent<Hero>();
     }
 
     public Agt_Type1 GetTower(TowerType type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(towers[(int)type].name);
-        go.layer = (int) Layer.Tower;
+        InitTower(ref go);
         return go.GetComponent<Agt_Type1>();
     }
 
     public Projectile GetProjectile(ProjectileType type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(projectiles[(int) type].name);
-        go.layer = (int) Layer.Tower;
+        InitProjectile(ref go);
         return go.GetComponent<Projectile>();
     }
+
+
+    /**********************************/
 
     public void PerfectFree(GameObject gameObject)
     {
@@ -99,4 +109,26 @@ public class Spawner : Singleton<Spawner>
         gameObject.SetActive(false);
     }
 
+    /**********************************/
+    // Initialize Object
+
+    private void InitHero(ref GameObject go)
+    {
+        go.layer = (int)Layer.Automart;
+    }
+
+    private void InitTrovant(ref GameObject go)
+    {
+        go.layer = (int)Layer.Trovant;
+    }
+
+    private void InitTower(ref GameObject go)
+    {
+        go.layer = (int)Layer.Tower;
+    }
+
+    private void InitProjectile(ref GameObject go)
+    {
+        go.layer = (int)Layer.Tower;
+    }
 }
