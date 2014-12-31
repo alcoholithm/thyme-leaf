@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 100
   CurrentHP: 100
-  speed: 40
+  speed: 20
   target: {fileID: 0}
   my_name: 
   state_name: 

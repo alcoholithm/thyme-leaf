@@ -42,6 +42,96 @@ public class UnitMusterController
 		}
 		currentMusterSize = 0;
 	}	
+
+	//command...
+	public void CommandAttack(string muster_name, string current_unit_name)
+	{
+		int idx = -1;
+		for(int i=0;i<MaxMusterCount;i++)
+		{
+			if(unitMusters[i].getName() == muster_name)
+			{
+				idx = i;
+				break;
+			}
+		}
+		if(idx < 0) return;
+
+		int unit_idx = -1;
+		for(int i=0;i<MaxMusterUnitCount;i++)
+		{
+			Hero hero = unitMusters[idx].getElement(i);
+			if(hero != null && hero.model.Name == current_unit_name)
+			{
+				unit_idx = i;
+				break;
+			}
+		}
+		if(unit_idx < 0) return;
+		Hero leader = unitMusters [idx].getElement (unit_idx);
+
+		//lock on system setting...
+		for(int i=0;i<MaxMusterUnitCount;i++)
+		{
+			Hero hero = unitMusters[idx].getElement(i);
+			if(hero != null && hero.model.Name != current_unit_name)
+			{
+				if(hero.target == null && hero.StateMachine.CurrentState == HeroState_Moving.Instance)
+				{
+					hero.target = leader.helper.attack_target;
+				}
+			}
+		}
+	}
+
+	public void CommandMove(string muster_name, string current_unit_name)
+	{
+		int idx = -1;
+		for(int i=0;i<MaxMusterCount;i++)
+		{
+			if(unitMusters[i].getName() == muster_name)
+			{
+				idx = i;
+				break;
+			}
+		}
+		if(idx < 0) return;
+		
+		int unit_idx = -1;
+		for(int i=0;i<MaxMusterUnitCount;i++)
+		{
+			Hero hero = unitMusters[idx].getElement(i);
+			if(hero != null && hero.model.Name == current_unit_name)
+			{
+				unit_idx = i;
+				break;
+			}
+		}
+		if(unit_idx < 0) return;
+		Hero leader = unitMusters [idx].getElement (unit_idx);
+		Debug.Log ("leader : "+leader.model.Name);
+
+		Vector3 d = (leader.helper.gesture_endpoint - leader.helper.gesture_startpoint);
+		d.Normalize ();
+
+		for(int i=0;i<MaxMusterUnitCount;i++)
+		{
+			Hero hero = unitMusters[idx].getElement(i);
+			if(hero != null && hero.model.Name != current_unit_name &&
+			   hero.StateMachine.CurrentState == HeroState_Moving.Instance)
+			{
+//				Debug.Log("ohter : "+hero.model.Name);
+				Debug.Log("i : "+i);
+				hero.helper.gesture_startpoint = hero.helper.getPos();
+				hero.helper.gesture_endpoint = hero.helper.gesture_startpoint + (d * 100);
+				if(hero.helper.SelectPathNode(hero.helper.gesture_startpoint, hero.helper.gesture_endpoint, hero.getLayer(), FindingNodeDefaultOption.MUSTER_COMMAND))
+				{
+//					Debug.Log("move okay");
+					hero.controller.setMoveTrigger(true);
+				}
+			}
+		}
+	}
 	
 	public bool canMakeMuster()
 	{
@@ -94,7 +184,11 @@ public class UnitMusterController
 		{
 			if(unitMusters[i].getName() == muster_name)
 			{
-				if(unitMusters[i].CountUnit() + unitMusters[objIdx].CountUnit() > 5) return false;
+				if(unitMusters[i].CountUnit() + unitMusters[objIdx].CountUnit() > 5)
+				{
+					Debug.Log("add units fail over counter");
+					return false;
+				}
 				for(int k=0;k<MaxMusterUnitCount;k++)
 				{
 					Hero temp = unitMusters[objIdx].getElement(k);
@@ -120,12 +214,16 @@ public class UnitMusterController
 		{
 			if(unitMusters[i].getName() == muster_name)
 			{
-				if(unitMusters[i].CountUnit() >= MaxMusterUnitCount) return false;
+				if(unitMusters[i].CountUnit() >= MaxMusterUnitCount)
+				{
+					Debug.Log(unitMusters[i].getName() + " : " + unitMusters[i].CountUnit());
+					return false;
+				}
 				obj.controller.setMusterID(muster_name);
 				if(unitMusters[i].CountUnit() <= 0) obj.controller.setMusterLeaderTrigger(true);
 				else obj.controller.setMusterLeaderTrigger(false);
 				obj.controller.setMusterTrigger(true);
-				
+
 				unitMusters[i].addUnit(obj);
 				return true;
 			}
@@ -193,9 +291,11 @@ public class UnitMusterController
 		{
 			for(int i=0;i<MaxMusterUnitCount;i++)
 			{
-				obj[i].controller.setMusterID("null");
-				obj[i].controller.setMusterLeaderTrigger(false);
-				obj[i].controller.setMusterTrigger(false);
+				if(obj[i] == null) continue;
+
+//				obj[i].controller.setMusterID("null");
+//				obj[i].controller.setMusterLeaderTrigger(false);
+//				obj[i].controller.setMusterTrigger(false);
 				
 				obj[i] = null;
 				CurrentSize = 0;
@@ -211,6 +311,7 @@ public class UnitMusterController
 				if(obj[i] == null)
 				{
 					obj[i] = gobj;
+					obj[i].muster_name = name;
 					if(obj[i].model.MusterLeader) leader = obj[i];
 					CurrentSize++;
 					break;
