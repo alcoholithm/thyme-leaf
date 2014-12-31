@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HostTrovantSpawner : TrovantSpawner {
+public class HostTrovantSpawner {
     //void Awake()
     //{
     //    foreach (GameObject trovant in trovants)

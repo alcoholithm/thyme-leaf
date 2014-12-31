@@ -8,9 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  - 114: {fileID: 11400008}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 10
   m_Name: HeroSpawner
   m_TagString: Untagged
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db45feb961a05554187d17d7631d4bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400008
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -49,16 +49,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9ca4ba3d63b7a48827893c01d60858, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b91242bf9b73334e88e7703e9b7aa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  automats:
-  - {fileID: 100008, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
-  towers: []
-  projectiles: []
-  trovants: []
-  initPoolSize: 100
-  maxPoolSize: 200
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
