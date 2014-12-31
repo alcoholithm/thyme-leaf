@@ -19,7 +19,7 @@ public class CommandCenterCommandsController
         view.gameObject.SetActive(false);
 
         Transform temp = GameObject.Find("TrovantUnits").transform;
-        Hero hero = TrovantSpawner.Instance.Allocate();
+        Hero hero = Spawner.Instance.GetHero();
 
         //main setting...
         hero.transform.parent = temp;

@@ -31,8 +31,7 @@ public class TowerState_Dying : State<Agt_Type1>
         //temporary code
         owner.gameObject.transform.parent.tag = Tag.TagTowerSpot;
 
-        TowerSpawner.Instance.Free(owner.gameObject);
-
+        Spawner.Instance.PerfectFree(owner.gameObject);
     }
 
     public override bool HandleMessage(Message msg)

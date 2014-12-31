@@ -7772,10 +7772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59f29c5087175742aefee7667754576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towers:
-  - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
-  initPoolSize: 10
-  maxPoolSize: 200
 --- !u!1 &1174816007
 GameObject:
   m_ObjectHideFlags: 0
@@ -8241,6 +8237,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   automats:
   - {fileID: 100008, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
+  towers: []
+  projectiles: []
+  trovants: []
   initPoolSize: 100
   maxPoolSize: 200
 --- !u!114 &1232391670
@@ -8567,10 +8566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22d6c079a1184945b84bd49a3a23352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trovants:
-  - {fileID: 100000, guid: 9f7aa33dea83f49e29652f5bfa3cbff2, type: 2}
-  initPoolSize: 100
-  maxPoolSize: 200
 --- !u!1 &1290918674
 GameObject:
   m_ObjectHideFlags: 0
@@ -12772,10 +12767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b3a3a91cc6f6d4ebe7673d4fb94bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectiles:
-  - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
-  initPoolSize: 100
-  maxPoolSize: 200
 --- !u!148 &2054644370
 NetworkView:
   m_ObjectHideFlags: 0
