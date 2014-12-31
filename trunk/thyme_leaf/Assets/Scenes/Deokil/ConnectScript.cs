@@ -94,9 +94,9 @@ public class ConnectScript : MonoBehaviour
     // Client Side
     void OnConnectedToServer()
     {
-        Debug.Log("Server Joined");
+        Debug.Log("Client(Me) Joined Server");
         //Network.Instantiate(prefab, transform.position, transform.rotation, 0);
-        Application.LoadLevel("MultiplayScene");
+        //Application.LoadLevel("MultiplayScene");
     }
     private void JoinServer(HostData hostData)
     {
@@ -107,8 +107,9 @@ public class ConnectScript : MonoBehaviour
     // Server Side
     void OnPlayerConnected()
     {
-        Debug.Log("Player Joined to Server");
-        Application.LoadLevel("MultiplayScene");
+        Debug.Log("Player Joined to Server(Me)");
+        networkView.RPC("LoadLevel",RPCMode.All);
+        //Application.LoadLevel("MultiplayScene");
     }
 
     // Server Side
@@ -126,6 +127,15 @@ public class ConnectScript : MonoBehaviour
         }
     }
 
+    [RPC]
+    void LoadLevel()
+    {
+        Network.SetSendingEnabled(0, false);
+        Network.isMessageQueueRunning = false;
 
+        //Network.SetLevelPrefix("");
+        Application.LoadLevel("MultiplayScene");
+        Network.SetSendingEnabled(0, true);
+    }
 
 }
