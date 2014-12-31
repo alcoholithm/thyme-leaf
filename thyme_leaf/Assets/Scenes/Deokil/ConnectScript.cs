@@ -145,10 +145,10 @@ public class ConnectScript : MonoBehaviour
         Network.SetSendingEnabled(0, false);
         Network.isMessageQueueRunning = false;
 
-        Network.SetLevelPrefix(5);
+        Network.SetLevelPrefix(5);        
         Application.LoadLevel("MultiplayScene");
-        StartCoroutine("Fade");
-        StartCoroutine("Fade");
+        StartCoroutine(Fade());
+        StartCoroutine(Fade());
 
         Network.isMessageQueueRunning = true;
         Network.SetSendingEnabled(0, true);
@@ -163,6 +163,6 @@ public class ConnectScript : MonoBehaviour
 
     IEnumerator Fade()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.0f);
     }
 }
