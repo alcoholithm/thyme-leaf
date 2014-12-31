@@ -14,14 +14,22 @@ public class TowerSpawner : Singleton<TowerSpawner>
     [SerializeField]
     private int maxPoolSize = 200;
 
-    void Awake()
+    //void Awake()
+    //{
+    //    if (Network.isServer)
+    //    {
+    //        foreach (GameObject tower in towers)
+    //        {
+    //            ObjectPoolingManager.Instance.CreatePool(gameObject, tower, initPoolSize, maxPoolSize, false);
+    //        }
+    //    }
+    //}
+
+    public void OnNetworkLoadedLevel()
     {
-        if (Network.isServer)
+        foreach (GameObject automat in towers)
         {
-            foreach (GameObject tower in towers)
-            {
-                ObjectPoolingManager.Instance.CreatePool(gameObject, tower, initPoolSize, maxPoolSize, false);
-            }
+            ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
         }
     }
 

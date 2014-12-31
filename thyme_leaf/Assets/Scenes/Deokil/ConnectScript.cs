@@ -141,13 +141,17 @@ public class ConnectScript : MonoBehaviour
 
         Network.SetLevelPrefix(5);
         Application.LoadLevel("MultiplayScene");
-        Network.SetSendingEnabled(0, true);
         StartCoroutine("Fade");
         StartCoroutine("Fade");
 
         Network.isMessageQueueRunning = true;
         Network.SetSendingEnabled(0, true);
 
+        Object[] gos = FindObjectsOfType(typeof(GameObject));
+        foreach (GameObject go in gos)
+        {
+            go.SendMessage("OnNetworkLoadedLevel", SendMessageOptions.DontRequireReceiver);
+        }
     }
 
     IEnumerator Fade()
