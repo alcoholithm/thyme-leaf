@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TowerState_Dying : State<Agt_Type1>
 {
-    private string animName = "APT_Type1_Dying_";
+    private string animName = "Tower_Dying_";
 
     private TowerState_Dying()
     {
@@ -31,7 +31,7 @@ public class TowerState_Dying : State<Agt_Type1>
         //temporary code
         owner.gameObject.transform.parent.tag = Tag.TagTowerSpot;
 
-        Spawner.Instance.PerfectFree(owner.gameObject);
+        Spawner.Instance.Free(owner.gameObject);
     }
 
     public override bool HandleMessage(Message msg)

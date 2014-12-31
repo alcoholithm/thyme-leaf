@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         fx.Pause();
 
         movingSpeed = 0.7f;
-        sprite.spriteName = "APT_Poison_0";
+        sprite.spriteName = "Tower_Attacking_0";
         sprite.MakePixelPerfect();
     }
 
@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
 
         movingSpeed = 0;
 
-        fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.PerfectFree(this.gameObject)));
+        fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
         //fx.PlayOneShot(animName, new VoidFunction(() => gameObject.SetActive(false)));
 
         Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
