@@ -27,7 +27,7 @@ public class TowerSpotCommandsController
         model.SelectedObject.tag = Tag.TagTower;
 
         // view에 대한 조작
-        Agt_Type1 tower = TowerSpawnerScript.Instance.GetTower();
+        Agt_Type1 tower = Spawner.Instance.GetTower(TowerType.APT);
         tower.transform.parent = model.SelectedObject.transform;
         tower.transform.localScale = Vector3.one;
         tower.transform.position = model.SelectedObject.transform.position;
