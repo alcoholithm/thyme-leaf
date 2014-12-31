@@ -29,6 +29,7 @@ public class HeroSpawner : Singleton<HeroSpawner>
 
     public void OnNetworkLoadedLevel()
     {
+        Debug.Log("Start Object Pool");
         foreach (GameObject automat in automats)
         {
             ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
