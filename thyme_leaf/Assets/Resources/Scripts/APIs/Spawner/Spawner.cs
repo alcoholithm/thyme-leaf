@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Spawner : Singleton<Spawner>
+public class Spawner : Manager<Spawner>
 {
     public new const string TAG = "[Spawner]";
 
