@@ -211,6 +211,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1817152232}
   - 114: {fileID: 1817152231}
+  - 148: {fileID: 1817152233}
   m_Layer: 0
   m_Name: NetworkTester
   m_TagString: Untagged
@@ -230,10 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bccdc76be9467744b3ffdbb2164a243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterSeverIP: 210.118.69.150
-  masterServerPort: 23466
-  facilitatorIP: 210.118.69.150
-  facilitatorPort: 50005
   gameName: Custom Room Name
   prefab: {fileID: 400000, guid: 54ed0d05146456546a6bc56caf7803fc, type: 2}
 --- !u!4 &1817152232
@@ -248,3 +245,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!148 &1817152233
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1817152230}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 1817152232}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
