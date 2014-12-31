@@ -78,7 +78,7 @@ public class Helper
 		for(int i=0;i<Define.pathNode.Count;i++)
 		{
 			scriptPathNode tempFunc = Define.pathNode[i].obj.GetComponent<scriptPathNode>();
-			if(option == StartPoint.AUTOMART_POINT)
+			if(option == StartPoint.AUTOMAT_POINT)
 			{ 
 				if(tempFunc.automatPoint) nodeStock = Define.pathNode[i].obj;
 			}

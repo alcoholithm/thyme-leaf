@@ -33,7 +33,7 @@ public class ObjectPoolingManager
         }
     }
 
-    public bool CreatePool(GameObject spawner, GameObject objToPool, UnitType unitType, int type, int initialPoolSize, int maxPoolSize, bool shouldShrink)
+    public bool CreatePool(GameObject spawner, GameObject objToPool, int initialPoolSize, int maxPoolSize, bool shouldShrink)
     {
         if (ObjectPoolingManager.Instance.objectPools.ContainsKey(objToPool.name))
         {

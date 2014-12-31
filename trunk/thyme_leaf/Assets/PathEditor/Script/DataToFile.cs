@@ -257,6 +257,10 @@ public class DataToFile : MonoBehaviour
 			mapdata.obj = tempsetting;
 			Define.pathNode[c] = mapdata;
 		}
+
+        W_Chat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);        
+        W_Chat w2 = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
+
 		/*
 		//object center position setting...
 		for(int i=0;i<Define.pathNode.Count;i++)

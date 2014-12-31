@@ -14,6 +14,10 @@ public class Spawner : Manager<Spawner>
     private GameObject[] projectiles;
     [SerializeField]
     private GameObject[] trovants;
+    [SerializeField]
+    private GameObject[] wchats;
+    [SerializeField]
+    private GameObject[] thouses;
 
     [SerializeField]
     private int initPoolSize = 100;
@@ -48,35 +52,157 @@ public class Spawner : Manager<Spawner>
 
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            if(automats != null)
+            if (automats != null)
                 for (int i = 0; i < automats.Length; i++)
                 {
                     GameObject go = automats[i];
-                    ObjectPoolingManager.Instance.CreatePool(automatPool, go, UnitType.AUTOMART_CHARACTER, i, initPoolSize, maxPoolSize, false);
+                    ObjectPoolingManager.Instance.CreatePool(automatPool, go, initPoolSize, maxPoolSize, false);
                 }
 
             if (towers != null)
                 for (int i = 0; i < towers.Length; i++)
                 {
                     GameObject go = towers[i];
-                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, UnitType.AUTOMART_TOWER, i, initPoolSize, maxPoolSize, false);
+                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
                 }
 
             if (projectiles != null)
                 for (int i = 0; i < projectiles.Length; i++)
                 {
                     GameObject go = projectiles[i];
-                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, UnitType.AUTOMAT_PROJECTILE, i, initPoolSize, maxPoolSize, false);
+                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go,  initPoolSize, maxPoolSize, false);
                 }
 
             if (trovants != null)
                 for (int i = 0; i < trovants.Length; i++)
                 {
                     GameObject go = trovants[i];
-                    ObjectPoolingManager.Instance.CreatePool(trovantPool, go, UnitType.TROVANT_CHARACTER, i, initPoolSize, maxPoolSize, false);
+                    ObjectPoolingManager.Instance.CreatePool(trovantPool, go, initPoolSize, maxPoolSize, false);
+                }
+
+            if (wchats != null)
+                for (int i = 0; i < wchats.Length; i++)
+                {
+                    GameObject go = wchats[i];
+                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, 1, maxPoolSize, false);
+                }
+
+            if (thouses != null)
+                for (int i = 0; i < thouses.Length; i++)
+                {
+                    GameObject go = thouses[i];
+                    ObjectPoolingManager.Instance.CreatePool(trovantBuildingPool, go, 5, maxPoolSize, false);
                 }
         }
     }
+
+    /**********************************/
+
+
+    public W_Chat DynamicGetThouse(THouseType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            GameObject go = GameObject.Instantiate(thouses[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
+            go.SetActive(false);
+            go.transform.parent = trovantBuildingPool.transform;
+            go.SetActive(true);
+            return go.GetComponent<W_Chat>();
+        }
+        else
+        {
+            return GetThouse(type);
+        }
+    }
+
+    public W_Chat GetThouse(THouseType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            return GetWChat((int)type);
+        }
+        else
+        {
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetThouse", RPCMode.All, viewID, (int)type);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go.GetComponent<W_Chat>();
+        }
+    }
+
+    [RPC]
+    void NetworkGetThouse(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(thouses[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = trovantBuildingPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitHero(ref go);
+    }
+
+    [System.Obsolete("GetWChat(int type) is deprecated, please use GetWChat(WChatType type) instead.")]
+    public W_Chat GetThouse(int type)
+    {
+        GameObject go = ObjectPoolingManager.Instance.GetObject(thouses[type].name);
+        InitWChat(ref go);
+        return go.GetComponent<W_Chat>();
+    }
+
+
+    /**********************************/
+
+    public W_Chat DynamicGetWChat(WChatType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            GameObject go = GameObject.Instantiate(wchats[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
+            go.SetActive(false);
+            go.transform.parent = automatBuildingPool.transform;
+            go.SetActive(true);
+            return go.GetComponent<W_Chat>();
+        }
+        else
+        {
+            return GetWChat(type);
+        }
+    }
+
+    public W_Chat GetWChat(WChatType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            return GetWChat((int)type);
+        }
+        else
+        {
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetWChat", RPCMode.All, viewID, (int)type);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go.GetComponent<W_Chat>();
+        }
+    }
+
+    [RPC]
+    void NetworkGetWChat(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(wchats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitHero(ref go);
+    }
+
+    [System.Obsolete("GetWChat(int type) is deprecated, please use GetWChat(WChatType type) instead.")]
+    public W_Chat GetWChat(int type)
+    {
+        GameObject go = ObjectPoolingManager.Instance.GetObject(wchats[type].name);
+        InitWChat(ref go);
+        return go.GetComponent<W_Chat>();
+    }
+
+
 
     /**********************************/
 
@@ -304,6 +430,12 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // Initialize Object
 
+    private void InitWChat(ref GameObject go)
+    {
+        go.transform.parent = GameObject.Find("AutomatBuildings").transform;
+        go.transform.localScale = new Vector3(1, 1, 1);
+    }
+
     private void InitHero(ref GameObject go)
     {
         //Transform temp = GameObject.Find ("AutomatUnits").transform;
@@ -319,10 +451,10 @@ public class Spawner : Manager<Spawner>
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 		
 		//unit detail setting...
-		hero.controller.StartPointSetting(StartPoint.AUTOMART_POINT);
+		hero.controller.StartPointSetting(StartPoint.AUTOMAT_POINT);
 		hero.CollisionSetting (true);
 		
-		hero.controller.setType (UnitType.AUTOMART_CHARACTER);
+		hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
 		hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
 		
 		//move trigger & unit pool manager setting <add>...

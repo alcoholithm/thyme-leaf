@@ -95,7 +95,7 @@ public struct UnitObject
 		nameID = name;
 		this.type = type;
 		
-		if(type != UnitType.AUTOMART_TOWER)
+		if(type != UnitType.AUTOMAT_TOWER)
 		{
 			infor_hero = obj.GetComponent<Hero>();
 			infor_tower = null;
@@ -111,7 +111,7 @@ public struct UnitObject
 	{
 		obj = null;
 		nameID = "";
-		this.type = UnitType.AUTOMART_CHARACTER;
+		this.type = UnitType.AUTOMAT_CHARACTER;
 		infor_hero = null;
 		infor_tower = null;
 	}

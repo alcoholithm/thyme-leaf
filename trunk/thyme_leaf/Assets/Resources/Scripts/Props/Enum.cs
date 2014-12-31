@@ -33,13 +33,14 @@ public enum SpriteList
 
 public enum StartPoint
 {
-	AUTOMART_POINT = 0, TROVANT_POINT
+	AUTOMAT_POINT = 0, TROVANT_POINT
 }
 
 public enum UnitType
 {
-	AUTOMART_CHARACTER = 9 ,TROVANT_CHARACTER = 10, 
-	AUTOMART_TOWER = 11, AUTOMAT_PROJECTILE = 12
+    AUTOMAT_WCHAT = 8,
+	AUTOMAT_CHARACTER = 9 ,TROVANT_CHARACTER = 10, 
+	AUTOMAT_TOWER = 11, AUTOMAT_PROJECTILE = 12
 }
 
 public enum AutomatType
@@ -66,6 +67,11 @@ public enum TowerType
     AST, // Automat Slow Tower
     ASPT, // Automat Splash Tower
     ATT, // Automat Turret Tower
+}
+
+public enum THouseType
+{
+    THOUSE_TYPE1 = 0,
 }
 
 public enum WChatType // Walkalbe Commanding Headquater Against Trovant
