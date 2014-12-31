@@ -54,7 +54,7 @@ public class ObjectPool
                 //nObj.networkView.viewID = Network.AllocateViewID();
                 // Network.Instantiate method allocates network viewID automatically
                 Spawner.Instance.GetComponent<NetworkView>().networkView.RPC("TEST", RPCMode.All, 
-                    this.spawner.networkView.viewID, viewID, unitType, type);
+                    this.spawner.networkView.viewID, viewID, (int) unitType, type);
 
                 nObj = NetworkView.Find(viewID).gameObject;
 
