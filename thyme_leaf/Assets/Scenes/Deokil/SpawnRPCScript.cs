@@ -9,7 +9,7 @@ public class SpawnRPCScript : MonoBehaviour {
     {
         Debug.Log("INIT_SPAWNED_OBJECT " + babyId);
         GameObject baby = NetworkView.Find(babyId).gameObject;
-        baby.transform.parent = transform;
+        //baby.transform.parent = transform;
         baby.SetActive(false);
     }
 
