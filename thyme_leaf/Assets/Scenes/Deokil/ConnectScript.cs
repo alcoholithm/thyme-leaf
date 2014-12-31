@@ -23,6 +23,12 @@ public class ConnectScript : MonoBehaviour
     // Var. for Testing
     public Transform prefab;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+        networkView.group = 1;
+    }
+
     void Start()
     {
         MasterServer.ipAddress = masterSeverIP;
@@ -150,6 +156,7 @@ public class ConnectScript : MonoBehaviour
         Object[] gos = FindObjectsOfType(typeof(GameObject));
         foreach (GameObject go in gos)
         {
+            Debug.Log("Found " + go);
             go.SendMessage("OnNetworkLoadedLevel", SendMessageOptions.DontRequireReceiver);
         }
     }
