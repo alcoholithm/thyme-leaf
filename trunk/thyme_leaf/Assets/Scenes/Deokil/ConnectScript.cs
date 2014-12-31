@@ -153,12 +153,12 @@ public class ConnectScript : MonoBehaviour
         Network.isMessageQueueRunning = true;
         Network.SetSendingEnabled(0, true);
 
-        Object[] gos = FindObjectsOfType(typeof(GameObject));
-        foreach (GameObject go in gos)
-        {
-            Debug.Log("Found " + go);
-            go.SendMessage("OnNetworkLoadedLevel", SendMessageOptions.DontRequireReceiver);
-        }
+        //Object[] gos = FindObjectsOfType(typeof(GameObject));
+        //foreach (GameObject go in gos)
+        //{
+        //    Debug.Log("Found " + go);
+        //    go.SendMessage("OnNetworkLoadedLevel", SendMessageOptions.DontRequireReceiver);
+        //}
     }
 
     IEnumerator Fade()
