@@ -58,7 +58,7 @@ public class Hero : GameEntity {
 		stateMachine.Update();
 		//=============================
 		Gesturing ();
-		MusterControl ();
+	//	MusterControl ();
 	}
 
 	//unit detail initialize...
@@ -413,7 +413,7 @@ public class Hero : GameEntity {
 		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
 		
 		this.anim = GetComponent<NGUISpriteAnimation>();
-		this.anim.Pause();
+//		this.anim.Pause();
 		transform.localPosition = new Vector3(1000,1000);
 	}
 
