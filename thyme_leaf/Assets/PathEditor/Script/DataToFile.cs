@@ -122,7 +122,7 @@ public class DataToFile : MonoBehaviour
 		obj.transform.localPosition = new Vector3(0,0,0);
 		obj.transform.localScale = new Vector3 (1, 1, 1);
 		obj.name = nameA;
-		Define.pathNode.Add(new MapDataStruct (obj, false, false, false));
+		Define.pathNode.Add(new MapDataStruct (obj, false, false, false, obj.name));
 		for(int i=1;i<DataNodeNum;i++)
 		{
 			//file format...
@@ -134,7 +134,7 @@ public class DataToFile : MonoBehaviour
 			obj.transform.localPosition = new Vector3(0,0,0);
 			obj.transform.localScale = new Vector3 (1, 1, 1);
 			obj.name = nameA;
-			Define.pathNode.Add(new MapDataStruct (obj, false, false, false));
+			Define.pathNode.Add(new MapDataStruct (obj, false, false, false, obj.name));
 		}
 		textReader = new StreamReader(strm);
 		textReader.BaseStream.Seek(0, SeekOrigin.Begin);  //first point
@@ -266,19 +266,22 @@ public struct MapDataStruct
 	public GameObject obj;
 	public bool trovant_center;
 	public bool automat_center;
+	public string node_name;
 	public bool isUse;
 
-	public MapDataStruct(GameObject obj, bool trovant_center, bool automat_center, bool isUse)
+	public MapDataStruct(GameObject obj, bool trovant_center, bool automat_center, bool isUse, string node_name)
 	{
 		this.obj = obj;
 		this.automat_center = automat_center;
 		this.trovant_center = trovant_center;
 		this.isUse = isUse;
+		this.node_name = node_name;
 	}
 
 	public MapDataStruct(int null_)
 	{
 		obj = null;
 		automat_center = trovant_center = isUse = false;
+		node_name = "null";
 	}
 }
