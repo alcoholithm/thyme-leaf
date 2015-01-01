@@ -8119,6 +8119,7 @@ GameObject:
   - 4: {fileID: 1254741074}
   - 114: {fileID: 1254741076}
   - 114: {fileID: 1254741075}
+  - 148: {fileID: 1254741077}
   m_Layer: 8
   m_Name: 2 - TowerSpot Commands
   m_TagString: Untagged
@@ -8174,6 +8175,18 @@ MonoBehaviour:
   hideInactive: 0
   keepWithinPanel: 0
   sorted: 0
+--- !u!148 &1254741077
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1254741073}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 1254741074}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1 &1281904936
 GameObject:
   m_ObjectHideFlags: 0
