@@ -14,9 +14,9 @@ public class CommandCenterCommandsController
         this.model = model;
     }
 
-    public void SpawnHero()
+    public void SpawnHero(AutomatType type)
     {
-        Spawner.Instance.GetHero(AutomatType.FRANSIS_TYPE1);
+        Spawner.Instance.GetHero(type);
     }
 
     public void Cancel()
@@ -32,7 +32,9 @@ public class CommandCenterCommands : View, IActionListener
 
     // children
     [SerializeField]
-    GameObject _spawnHero;
+    GameObject _spawnHero1;
+    [SerializeField]
+    GameObject _spawnHero2;
     [SerializeField]
     GameObject _cancelButton;
 
@@ -53,9 +55,13 @@ public class CommandCenterCommands : View, IActionListener
      */
     public void ActionPerformed(GameObject source)
     {
-        if (source.Equals(_spawnHero))
+        if (source.Equals(_spawnHero1))
         {
-            controller.SpawnHero();
+            controller.SpawnHero(AutomatType.FRANSIS_TYPE1);
+        }
+        else if (source.Equals(_spawnHero2))
+        {
+            controller.SpawnHero(AutomatType.FALSTAFF_TYPE1);
         }
         else if (source.Equals(_cancelButton))
         {
