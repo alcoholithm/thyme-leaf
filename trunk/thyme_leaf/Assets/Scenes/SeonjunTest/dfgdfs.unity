@@ -181,13 +181,14 @@ GameObject:
   - 114: {fileID: 28091875}
   - 65: {fileID: 28091874}
   - 114: {fileID: 28091878}
+  - 148: {fileID: 28091879}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &28091873
 Transform:
   m_ObjectHideFlags: 0
@@ -326,6 +327,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9235c7872195646a9808a4f7db2ef60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!148 &28091879
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14800000, guid: 29cbf384dd633b143bdb02d735a18569,
+    type: 2}
+  m_PrefabInternal: {fileID: 844667075}
+  m_GameObject: {fileID: 28091872}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 28091873}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1 &91343629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,7 +1588,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3008
+  startingRenderQueue: 3002
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -4514,6 +4528,10 @@ Prefab:
       propertyPath: onClick.Array.data[0].mParameters.Array.data[0].obj
       value: 
       objectReference: {fileID: 28091872}
+    - target: {fileID: 100008, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
   m_RootGameObject: {fileID: 28091872}
@@ -6485,6 +6503,7 @@ GameObject:
   - 4: {fileID: 1287180415}
   - 114: {fileID: 1287180414}
   - 148: {fileID: 1287180413}
+  - 114: {fileID: 1287180416}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -6525,6 +6544,10 @@ MonoBehaviour:
   - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
   trovants:
   - {fileID: 100000, guid: 9f7aa33dea83f49e29652f5bfa3cbff2, type: 2}
+  wchats:
+  - {fileID: 100008, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+  thouses:
+  - {fileID: 100002, guid: 510c01b18835d2b4f80f7564591ece58, type: 2}
   initPoolSize: 10
   maxPoolSize: 200
 --- !u!4 &1287180415
@@ -6539,6 +6562,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1287180416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 9cc916d891ee6bc46b90e267fc5d7c74,
+    type: 2}
+  m_PrefabInternal: {fileID: 96482600}
+  m_GameObject: {fileID: 1287180412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db45feb961a05554187d17d7631d4bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1323606329
 GameObject:
   m_ObjectHideFlags: 0
@@ -6928,6 +6963,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 510c01b18835d2b4f80f7564591ece58, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 510c01b18835d2b4f80f7564591ece58, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7463,7 +7502,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3008
+  startingRenderQueue: 3002
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -8466,13 +8505,14 @@ GameObject:
   - 114: {fileID: 1587542874}
   - 65: {fileID: 1587542873}
   - 114: {fileID: 1587542872}
+  - 148: {fileID: 1587542877}
   m_Layer: 9
   m_Name: Trovant command center
   m_TagString: TagCommandCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1587542871
 Transform:
   m_ObjectHideFlags: 0
@@ -8605,6 +8645,19 @@ MonoBehaviour:
   _model:
     _maxHp: 100
     _currHp: 100
+--- !u!148 &1587542877
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14800000, guid: 510c01b18835d2b4f80f7564591ece58,
+    type: 2}
+  m_PrefabInternal: {fileID: 1361136290}
+  m_GameObject: {fileID: 1587542870}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 1587542871}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!1 &1604496591
 GameObject:
   m_ObjectHideFlags: 0
@@ -9207,7 +9260,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3009
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -12230,7 +12283,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3002
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0

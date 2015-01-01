@@ -25,10 +25,15 @@ public class Tower : Unit, IAttackable
     {
         // 초기에 이애가 죽었는지 살았는지 판단해야함.
         // 다른 놈에 의해 제거될 가능성도 있으므로
+
+        enemies.ForEach(e => { if (!e.gameObject.activeInHierarchy) enemies.Remove(e); });
+
         if (Enemies.Count > 0)
         {
             CurrentTarget = Enemies[0];
         }
+        else
+            CurrentTarget = null;
 
         return CurrentTarget;
     }
