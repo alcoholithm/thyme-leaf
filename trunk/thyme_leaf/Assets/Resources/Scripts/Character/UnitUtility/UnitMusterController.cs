@@ -80,7 +80,9 @@ public class UnitMusterController
 				if(hero.target == null && hero.StateMachine.CurrentState == HeroState_Moving.Instance)
 				{
 					Debug.Log("i : " + i);
+					//lock on system...
 					hero.target = leader.helper.attack_target;
+					hero.controller.setMoveTrigger(false);
 				}
 			}
 		}

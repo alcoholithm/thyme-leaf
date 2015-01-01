@@ -28,9 +28,10 @@ public class HeroState_Hitting : State<Hero>
 
     public override bool HandleMessage(Message msg)
     {
+		//ok...
         Debug.Log(msg);
         switch (msg.what)
-        {
+        { 
             case MessageTypes.MSG_MOVE_HERO:
 				//msg.command.Execute();
             case MessageTypes.MSG_DAMAGE:

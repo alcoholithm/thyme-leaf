@@ -61,7 +61,12 @@ public class HeroState_Moving : State<Hero> {
 		}
 		else if(owner.target != null)
 		{
-			if(!owner.helper.getMoveTrigger())
+			if(owner.target.model.HP <= 0)
+			{
+				owner.target = null;
+				owner.target.controller.setMoveTrigger(true);
+			}
+			else if(!owner.helper.getMoveTrigger())
 			{
 				Vector3 dd = owner.target.helper.getPos() - me;
 				float r = Mathf.Atan2(dd.y, dd.x);
