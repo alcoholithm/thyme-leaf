@@ -14,6 +14,8 @@ public class MHero : Unit
 	private string musterID;
 	private bool muster_leader;
 	private Vector3 node_offset;
+
+	private string state_name;
 	
 	public MHero(Helper helper)
 	{
@@ -52,6 +54,12 @@ public class MHero : Unit
 	{
 		get { return muster_leader; }
 		set { muster_leader = value; }
+	}
+
+	public string StateName
+	{
+		get { return state_name; }
+		set { state_name = value; }
 	}
 	
 	public new const string TAG = "[MHero]";

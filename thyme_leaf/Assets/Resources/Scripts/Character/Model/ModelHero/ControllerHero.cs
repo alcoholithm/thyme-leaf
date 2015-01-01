@@ -60,4 +60,6 @@ public class ControllerHero
 	public void setMoveOffset(float x, float y) { _model.Node_offset = new Vector2(x, y); }
 	
 	public void setType(UnitType option) { _model.Type = option; }
+
+	public void setStateName(string state_name) { _model.StateName = state_name; }
 }

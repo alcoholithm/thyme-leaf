@@ -9,13 +9,14 @@ public class HeroState_Moving : State<Hero> {
 	}
 	public override void Enter (Hero owner)
 	{
-		if((owner.getLayer() == Layer.Automart)){
-			owner.Anim.Play("Comma_Moving_Normal_");
-		}else if((owner.getLayer() == Layer.Trovant)) {
-			owner.Anim.Play("Python_Moving_Normal_");
-		}
+//		if((owner.getLayer() == Layer.Automart)){
+//			owner.Anim.Play("Comma_Moving_Normal_");
+//		}else if((owner.getLayer() == Layer.Trovant)) {
+//			owner.Anim.Play("Python_Moving_Normal_");
+//		}
 
-		owner.state_name = "Moving_";
+		owner.controller.setStateName ("Moving_");
+		owner.state_name = owner.model.StateName;
 	}
 
 	public override void Execute (Hero owner)
