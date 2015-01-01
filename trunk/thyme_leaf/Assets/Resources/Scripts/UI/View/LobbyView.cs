@@ -77,15 +77,15 @@ public class LobbyView : View, IActionListener
     */
     public void ActionPerformed(GameObject source)
     {
-        if (source.name.Equals(_startButton.name))
+        if (source.Equals(_startButton))
         {
             controller.Start();
         }
-        else if (source.name.Equals(_registerButton.name))
+        else if (source.Equals(_registerButton))
         {
             controller.Register(_userName.text);
         }
-        else if (source.name.Equals(_goToWorldMapButton.name))
+        else if (source.Equals(_goToWorldMapButton))
         {
             SceneManager.Instance.CurrentScene = SceneManager.WORLD_MAP;
         }
