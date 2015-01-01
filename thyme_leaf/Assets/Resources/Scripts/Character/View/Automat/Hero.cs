@@ -152,6 +152,7 @@ public class Hero : GameEntity {
     [RPC]
     void NetworkGesture(Vector3 startPt, Vector3 endPt, int my_layer)
     {
+        Debug.Log("GOGOGOGO "+startPt + " , " + endPt);
         if (helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, (Layer) my_layer))
         {
             controller.setMoveTrigger(true);
