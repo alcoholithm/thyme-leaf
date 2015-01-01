@@ -36,7 +36,7 @@ public class Projectile : MonoBehaviour
         fx.Pause();
 
         movingSpeed = 0.7f;
-        sprite.spriteName = "Tower_Attacking_0";
+        sprite.spriteName = "APT_Poison_0";
         sprite.MakePixelPerfect();
     }
 
