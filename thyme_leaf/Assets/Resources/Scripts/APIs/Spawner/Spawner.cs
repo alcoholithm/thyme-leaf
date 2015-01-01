@@ -297,7 +297,9 @@ public class Spawner : Manager<Spawner>
         go.transform.parent = trovantPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-        InitTrovant(ref go);
+
+        if (viewID.isMine)
+            InitTrovant(ref go);
     }
 
     [System.Obsolete("GetTrovant(int type) is deprecated, please use GetTrovant(TrovantType type) instead.")]
