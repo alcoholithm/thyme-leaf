@@ -81,7 +81,7 @@ public class Hero : GameEntity {
 		controller.setSpeed (speed / 10.0f);
 		controller.setMaxHp (MaxHP);
 		controller.setHp (MaxHP);
-		float range_value = 100;
+		float range_value = 0;
 		controller.setMoveOffset (Random.Range (-range_value, range_value), Random.Range (-range_value, range_value));
 
 		helper.setMoveTrigger (false);
