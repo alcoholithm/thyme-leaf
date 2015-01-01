@@ -60,6 +60,7 @@ public class BattleView : View, IActionListener
         this.controller = new BattleController(this);
 
         // Set children
+        this.Add(_commandCenterCommands.GetComponent<CommandCenterCommands>());
         this.Add(_towerSpotCommands.GetComponent<TowerSpotCommands>());
         this.Add(_towerCommands.GetComponent<TowerCommands>());
     }
