@@ -16,6 +16,9 @@ public class HeroState_Dying : State<Hero> {
 		}else if((owner.getLayer() == Layer.Trovant)) {
 			owner.Anim.PlayOneShot("Python_Dying");
 		}
+
+		owner.controller.setStateName("Dying_");
+		owner.state_name = owner.model.StateName;
 	}
 	
 	public override void Execute (Hero owner)

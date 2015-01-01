@@ -194,6 +194,10 @@ public class Hero : GameEntity {
 //			int dir = helper.Current_Right_orLeft ();
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
+
+			string sp_name = "";
+			if(getLayer() == Layer.Automart) sp_name = "Comma_";
+			else if(getLayer() == Layer.Trovant) sp_name = "Python_";
 			
 //			if(dir == -1)
 //			{
@@ -208,7 +212,7 @@ public class Hero : GameEntity {
 			
 			if(a < -45 && a > -135) //down
 			{
-				anim.Play("Python_Moving_Downwards_");
+				anim.Play(sp_name+model.StateName+"Downwards_");
                 //Debug.Log("down");
 				//		transform.localRotation = Quaternion.Euler(0,0,0);
 			}
@@ -216,7 +220,7 @@ public class Hero : GameEntity {
 			{
 				transform.localScale = new Vector3(1, 1, 1); //left
 				health_bar_body.localScale = new Vector3(1, 1, 1);
-				anim.Play("Python_Moving_Normal_");
+				anim.Play(sp_name+model.StateName+"Normal_");
 //                Debug.Log("right");
 				//		transform.localRotation = Quaternion.Euler(0,0,a);
 			}
@@ -224,7 +228,7 @@ public class Hero : GameEntity {
 			{
 				transform.localScale = new Vector3(-1, 1, 1); //left
 				health_bar_body.localScale = new Vector3(-1, 1, 1);
-				anim.Play("Python_Moving_Normal_");
+				anim.Play(sp_name+model.StateName+"Normal_");
 //                Debug.Log("left");
 				//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
 			}

@@ -13,13 +13,14 @@ public class HeroState_Attacking : State<Hero>
 
     public override void Enter(Hero owner)
 	{
-		if((owner.getLayer() == Layer.Automart)){
-			owner.Anim.Play("Comma_Attacking_Normal_");
-		}else if((owner.getLayer() == Layer.Trovant)) {
-			owner.Anim.Play("Python_Attacking_Normal_");
-		}
+//		if((owner.getLayer() == Layer.Automart)){
+//			owner.Anim.Play("Comma_Attacking_Normal_");
+//		}else if((owner.getLayer() == Layer.Trovant)) {
+//			owner.Anim.Play("Python_Attacking_Normal_");
+//		}
 
-		owner.state_name = "Attacking_";
+		owner.controller.setStateName ("Attacking_");
+		owner.state_name = owner.model.StateName;
         owner.helper.attack_delay_counter = 0;  //attack delay setting...
 
 		if(owner.helper.getMusterTrigger())
