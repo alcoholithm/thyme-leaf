@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour
 
     private GameEntity owner; // temp
     private GameEntity target;
+    private Vector3 targetPosition;
+
+    private bool flag = false;
 
     [SerializeField]
     private int attackDamage;
@@ -39,9 +42,31 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        Vector3 direction = target.transform.position - transform.position;
+        //if (flag)
+        //    return;
 
+        if (!target.gameObject.activeInHierarchy)
+            Spawner.Instance.Free(this.gameObject);
+
+        //Vector3 direction = targetPosition - transform.position;
+        Vector3 direction = target.transform.position - transform.position;
         direction.z = 0;
+
+        //Debug.Log(direction.magnitude);
+        //if (direction.magnitude <= 0.05f)
+        //{
+        //    movingSpeed = 0;
+        //    flag = true;
+
+        //    if (target.gameObject.activeInHierarchy)
+        //    {
+        //        Message msg = target.GetComponent<Hero>().ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
+        //        owner.DispatchMessage(msg);
+        //    }
+
+
+        //    fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
+        //}
 
         transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
 
