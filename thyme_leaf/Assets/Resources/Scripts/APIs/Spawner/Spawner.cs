@@ -415,12 +415,15 @@ public class Spawner : Manager<Spawner>
 
     public void Free(GameObject gameObject)
     {
-        //Do you need some more handling the object?
-        //gameObject.transform.parent = transform;
         if (Network.peerType == NetworkPeerType.Disconnected)
             gameObject.SetActive(false);
         else
-            networkView.RPC("NetworkFree", RPCMode.All, gameObject.networkView.viewID);
+        {
+            if (gameObject.networkView.isMine)
+                networkView.RPC("NetworkFree", RPCMode.All, gameObject.networkView.viewID);
+            else
+                gameObject.SetActive(false);
+        }
     }
 
     [RPC]
