@@ -429,6 +429,8 @@ public class Spawner : Manager<Spawner>
     [RPC]
     void NetworkFree(NetworkViewID viewID)
     {
+        if (!NetworkView.Find(viewID))
+            return;
         GameObject go = NetworkView.Find(viewID).gameObject;
         Destroy(go);
     }
