@@ -152,6 +152,7 @@ GameObject:
   - 114: {fileID: 28353986}
   - 148: {fileID: 28353987}
   - 114: {fileID: 28353988}
+  - 114: {fileID: 28353989}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -184,13 +185,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   automats:
-  - {fileID: 100008, guid: 66a0916690a394be2a5f427d9236013b, type: 2}
+  - {fileID: 100008, guid: 49ec784fbb4614d03bacd3338c0f83e0, type: 2}
+  - {fileID: 100008, guid: 11282234ffd414b3eab30ca3d86bfdb0, type: 2}
   towers:
   - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
   projectiles:
   - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
   trovants:
-  - {fileID: 100000, guid: 9f7aa33dea83f49e29652f5bfa3cbff2, type: 2}
+  - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
+  - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
   wchats:
   - {fileID: 100008, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
   thouses:
@@ -214,6 +217,18 @@ NetworkView:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: 9cc916d891ee6bc46b90e267fc5d7c74,
+    type: 2}
+  m_PrefabInternal: {fileID: 1505512055}
+  m_GameObject: {fileID: 28353984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db45feb961a05554187d17d7631d4bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &28353989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 9cc916d891ee6bc46b90e267fc5d7c74,
     type: 2}
   m_PrefabInternal: {fileID: 1505512055}
   m_GameObject: {fileID: 28353984}
