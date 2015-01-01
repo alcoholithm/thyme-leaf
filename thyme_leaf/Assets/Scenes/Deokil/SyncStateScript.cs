@@ -30,6 +30,11 @@ public class SyncStateScript : MonoBehaviour
     {
         transform.position = position;
     }
+
+    public void NetworkInitTower()
+    {
+
+    }
         
     //void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     //{
