@@ -31,22 +31,51 @@ public class SyncStateScript : MonoBehaviour
         transform.position = position;
     }
 
-    public void NetworkInitTower(BattleModel model)
+
+    /****************************************************************************************************/
+    // Network methods for tower
+
+    public void NetworkInitTower(BattleModel model, GameObject view)
     {
         if (gameObject.networkView.isMine)
-            networkView.RPC("OnNetworkInitTower", RPCMode.All, model.SelectedObject.networkView.viewID);
+            networkView.RPC("OnNetworkInitTower", RPCMode.All, model.SelectedObject.networkView.viewID, view.networkView.viewID);
     }
 
     [RPC]
-    void OnNetworkInitTower(NetworkViewID parentViewID)
+    void OnNetworkInitTower(NetworkViewID parentViewID, NetworkViewID viewViewID)
     {
         Transform parentTransform = NetworkView.Find(parentViewID).transform;
         gameObject.transform.parent = parentTransform;
         gameObject.transform.localScale = Vector3.one;
         gameObject.transform.position = parentTransform.position;
         gameObject.GetComponent<Agt_Type1>().StateMachine.ChangeState(TowerState_Building.Instance);
+        NetworkView.Find(viewViewID).gameObject.SetActive(false);
     }
-        
+
+    /****************************************************************************************************/
+    // Network methods for projectile
+
+    public void NetworkInitProjectile(GameEntity owner, GameEntity target)
+    {
+        if (gameObject.networkView.isMine)
+            networkView.RPC("OnNetworkInitProjectile", RPCMode.All, owner.networkView.viewID, target.networkView.viewID);
+    }
+
+    [RPC]
+    void OnNetworkInitProjectile(NetworkViewID ownerViewID, NetworkViewID targetViewID)
+    {
+        GameObject owner = NetworkView.Find(ownerViewID).gameObject;
+        GameObject target = NetworkView.Find(targetViewID).gameObject;
+
+        gameObject.transform.position = owner.transform.position;
+        gameObject.transform.localScale = Vector3.one;
+        gameObject.GetComponent<Projectile>().FireProcess(owner.GetComponent<GameEntity>(), target.GetComponent<GameEntity>());
+    }
+
+
+    /****************************************************************************************************/
+    // Test methods for real time synchronization
+
     //void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     //{
     //    Debug.Log("OnSerializeNetworkView");
