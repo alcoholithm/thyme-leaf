@@ -19,6 +19,16 @@ public class UnitPoolController
 	
 	public UnitPoolController()
 	{
+		Initialize();
+	}
+
+	public void Initialize()
+	{
+		if(unitPool != null)
+		{
+			unitPool.Clear();
+			unitPool = null;
+		}
 		unitPool = new List<UnitObject> ();
 	}
 	

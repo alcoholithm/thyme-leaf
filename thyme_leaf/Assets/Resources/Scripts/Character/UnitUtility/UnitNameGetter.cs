@@ -24,7 +24,7 @@ public class UnitNameGetter
 		Initialize ();
 	}
 
-	private void Initialize()
+	public void Initialize()
 	{
 		trovant_ID = automart_ID = 1;
 		trovant_tower_ID = automart_tower_ID = 1;

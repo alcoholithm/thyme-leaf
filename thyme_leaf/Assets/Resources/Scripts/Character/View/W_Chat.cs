@@ -46,7 +46,7 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     private CommandCenter _model;
     private W_Chat_Controller controller;
     //---------------------
-	private string position_node;
+	private GameObject position_node;
 
     /*
     * followings are unity callback methods
@@ -120,7 +120,7 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     /*
      * Followings are attributes
      */ 
-	public string PositionNode
+	public GameObject PositionNode
 	{
 		get { return position_node; }
 		set { position_node = value; }

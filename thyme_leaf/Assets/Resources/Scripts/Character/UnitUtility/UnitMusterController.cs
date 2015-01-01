@@ -27,8 +27,11 @@ public class UnitMusterController
 		Initialize ();
 	}
 	
-	private void Initialize()
+	public void Initialize()
 	{
+		if(nameSet != null) nameSet = null;
+		if(unitMusters != null) unitMusters = null;
+
 		nameSet = new MusterNames[MaxMusterCount];
 		
 		unitMusters = new Musters[MaxMusterCount];

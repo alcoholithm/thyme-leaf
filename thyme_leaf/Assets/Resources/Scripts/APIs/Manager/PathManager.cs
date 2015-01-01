@@ -12,6 +12,9 @@ public class PathManager : Manager<PathManager> {
 	void Awake()
 	{
 		DataToFile.LoadData(StageNumber, PathNode);
+		UnitNameGetter.GetInstance ().Initialize ();
+		UnitMusterController.GetInstance ().Initialize ();
+		UnitPoolController.GetInstance ().Initialize ();
 	}
 
 	public void ShootMap()
@@ -26,12 +29,9 @@ public class PathManager : Manager<PathManager> {
 				map_data.isUse = true;
 				map_data.automat_center = true;
 				Define.pathNode[i] = map_data;
-				
-				//				GameObject center = Instantiate(automat_ct) as GameObject;
-				//				center.transform.parent = GameObject.Find("AutomatBuildings").transform;
 				W_Chat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
 				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-				//				center.transform.localScale = new Vector3(1, 1, 1);
+				w.PositionNode = Define.pathNode[i].obj;
 				
 				i = 0;
 				continue;
@@ -43,13 +43,9 @@ public class PathManager : Manager<PathManager> {
 				map_data.isUse = true;
 				map_data.trovant_center = true;
 				Define.pathNode[i] = map_data; 
-				
-				//				GameObject center = Instantiate(trovant_ct) as GameObject;
-				//				center.transform.parent = GameObject.Find("TrovantBuildings").transform;
-				//				center.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-				//				center.transform.localScale = new Vector3(1, 1, 1);
 				W_Chat w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
 				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
+				w.PositionNode = Define.pathNode[i].obj;
 				
 				i = 0;
 				continue;

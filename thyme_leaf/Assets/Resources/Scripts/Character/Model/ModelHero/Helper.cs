@@ -105,10 +105,17 @@ public class Helper
 		//default_auto = normal //normal...
 		//default_auto = random_node //the same team case.... push other muster...
 		//default_auto = muster_command //muster command...
+		//~ = other...
 
 		//turnoffRoot = nodestoke  <all like>
 		//select path node ... when unit arrive at turnoff point
 		//searching node
+		if(default_auto == FindingNodeDefaultOption.OTHER)
+		{
+			SelectNodeFinding(startPt, endPt);
+			return;
+		}
+
 		Vector3 start_pt = startPt;
 		Vector3 end_pt = endPt;
 		
