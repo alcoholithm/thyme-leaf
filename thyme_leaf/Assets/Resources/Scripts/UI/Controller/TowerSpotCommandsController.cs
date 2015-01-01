@@ -29,16 +29,18 @@ public class TowerSpotCommandsController
         // view에 대한 조작
         Agt_Type1 tower = Spawner.Instance.GetTower(TowerType.APT);
 
-        //SyncStateScript sss = tower.gameObject.GetComponent<SyncStateScript>();
-        //sss.NetworkInitTower(model);
+        if(Network.peerType == NetworkPeerType.Disconnected) InitBuildedTower(ref tower); // Single mode
+        else tower.gameObject.GetComponent<SyncStateScript>().NetworkInitTower(model); // Multi mode
+
+        view.gameObject.SetActive(false);
+    }
+
+    public void InitBuildedTower(ref Agt_Type1 tower)
+    {
         tower.transform.parent = model.SelectedObject.transform;
         tower.transform.localScale = Vector3.one;
         tower.transform.position = model.SelectedObject.transform.position;
         tower.StateMachine.ChangeState(TowerState_Building.Instance);
-
-        Debug.Log("what is this ? : "+model.SelectedObject);
-
-        view.gameObject.SetActive(false);
     }
 
     public void Cancel()
