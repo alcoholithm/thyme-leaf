@@ -138,7 +138,7 @@ public class Hero : GameEntity {
 
 
     /// <summary>
-    /// Networking methods made by deokil
+    /// Networking methods made by Deokil
     /// </summary>
     private void SubGesture(Vector3 startPt, Vector3 endPt, Layer my_layer)
     {
