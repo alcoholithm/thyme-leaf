@@ -113,7 +113,7 @@ public class Helper
 		if(default_auto == FindingNodeDefaultOption.OTHER)
 		{
 			SelectNodeFinding(startPt, endPt);
-			return;
+			return true;
 		}
 
 		Vector3 start_pt = startPt;

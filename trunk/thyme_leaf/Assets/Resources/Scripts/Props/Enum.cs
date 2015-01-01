@@ -81,7 +81,7 @@ public enum WChatType // Walkalbe Commanding Headquater Against Trovant
 
 public enum FindingNodeDefaultOption
 {
-	NORMAL = 0, RANDOM_NODE, MUSTER_COMMAND
+	NORMAL = 0, RANDOM_NODE, MUSTER_COMMAND, OTHER
 }
 
 public class RPCMethod
