@@ -248,7 +248,9 @@ public class Spawner : Manager<Spawner>
         go.transform.parent = automatPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-        InitHero(ref go);
+
+        if(viewID.isMine)
+            InitHero(ref go);
     }
     
     [System.Obsolete("GetHero(int type) is deprecated, please use GetHero(AutomatType type) instead.")]
