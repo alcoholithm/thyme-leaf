@@ -136,9 +136,39 @@ public class Hero : GameEntity {
 		return false;
 	}
 
+
+    /// <summary>
+    /// Networking methods made by deokil
+    /// </summary>
+    private void SubGesture(Vector3 startPt, Vector3 endPt, Layer my_layer)
+    {
+        int mLayer = (int)my_layer;
+        if (Network.peerType == NetworkPeerType.Disconnected)
+            NetworkGesture(startPt, endPt, mLayer);
+        else 
+            networkView.RPC("NetworkGesture", RPCMode.All, startPt, endPt, mLayer);
+    }
+
+    [RPC]
+    void NetworkGesture(Vector3 startPt, Vector3 endPt, int my_layer)
+    {
+        if (helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, (Layer) my_layer))
+        {
+            controller.setMoveTrigger(true);
+        }
+        if (helper.getMusterTrigger())
+        {
+            Debug.Log("command move");
+            UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
+        }
+    }
+
 	//gesturing function...
 	private void Gesturing()
 	{
+        // when connected to network and this object is mine
+        if (Network.peerType != NetworkPeerType.Disconnected && !networkView.isMine) return;
+
 		Layer my_layer = (Layer)gameObject.layer;
 		switch(my_layer)
 		{
@@ -157,17 +187,10 @@ public class Hero : GameEntity {
 				{
 					if(hit_unit != model.Name) return;
 					hit_unit = "null";  //initailize...
-
 					helper.gesture_endpoint = Input.mousePosition;
-					if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
-					{
-						controller.setMoveTrigger(true);
-					}
-					if(helper.getMusterTrigger())
-					{
-						Debug.Log("command move");
-						UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
-					}
+
+                    // Don't touch this method that is for network
+                    SubGesture(helper.gesture_startpoint, helper.gesture_endpoint, my_layer);
 				}
 			}
 			break;
