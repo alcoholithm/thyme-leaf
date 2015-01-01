@@ -12,9 +12,9 @@ public class HeroState_Dying : State<Hero> {
 	public override void Enter (Hero owner)
 	{
 		if((owner.getLayer() == Layer.Automart)){
-			owner.Anim.PlayOneShot("Comma_Dying_");
+			owner.Anim.PlayOneShot(owner.p_name+"Dying_");
 		}else if((owner.getLayer() == Layer.Trovant)) {
-			owner.Anim.PlayOneShot("Python_Dying");
+			owner.Anim.PlayOneShot(owner.p_name+"Dying_");
 		}
 
 		owner.controller.setStateName("Dying_");
@@ -23,7 +23,7 @@ public class HeroState_Dying : State<Hero> {
 	
 	public override void Execute (Hero owner)
 	{
-//		if( !owner.GetAnim().isPlaying)
+		if( !owner.GetAnim().isPlaying)
 			owner.StateMachine.ChangeState(HeroState_None.Instance);
 	}
 	

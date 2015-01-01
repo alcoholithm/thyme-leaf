@@ -53,7 +53,7 @@ public class HeroState_Attacking : State<Hero>
 			
 			if(!check)
 			{
-				float range = 150;//owner.helper.collision_range + 120;
+				float range = 100;//owner.helper.collision_range + 120;
 				if(Vector3.SqrMagnitude(other.obj.transform.localPosition - owner.helper.getPos()) < range * range)
 				{
 					isCharacter = true;

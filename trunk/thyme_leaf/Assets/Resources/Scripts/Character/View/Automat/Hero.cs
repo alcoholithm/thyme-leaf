@@ -28,6 +28,8 @@ public class Hero : GameEntity {
 	public string state_name; //test code...
 	public string muster_name; //test code...
 
+	public string p_name;
+
 	//extra...
 	private bool onlyfirst;
 	private string hit_unit;
@@ -91,7 +93,7 @@ public class Hero : GameEntity {
 		health_bar_body = transform.GetChild (0);
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	void OnTriggerEnter2D(Collider2D coll)
 	{
 		//coll return checking...
 		if(coll == null) return;
@@ -103,6 +105,8 @@ public class Hero : GameEntity {
 				helper.attack_target = coll.gameObject.GetComponent<Hero>();
 				//my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
+
+				Debug.Log("checking");
 			}
 		}
 		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
@@ -210,17 +214,19 @@ public class Hero : GameEntity {
 	public void ChangingAnimationAngle()
 	{
 		helper.angle_calculation_rate += Time.deltaTime;
-		if(helper.angle_calculation_rate >= 0.2f)
+		if(helper.angle_calculation_rate >= 0.1f)
 		{
+			if(stateMachine.CurrentState == HeroState_Dying.Instance) return;
+
 			helper.angle_calculation_rate = 0;
 			
 //			int dir = helper.Current_Right_orLeft ();
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
-			string sp_name = "";
-			if(getLayer() == Layer.Automart) sp_name = "Comma_";
-			else if(getLayer() == Layer.Trovant) sp_name = "Python_";
+//			string sp_name = "";
+//			if(getLayer() == Layer.Automart) sp_name = "Franscis_Type1_";
+//			else if(getLayer() == Layer.Trovant) sp_name = "Comma_";
 			
 //			if(dir == -1)
 //			{
@@ -235,7 +241,7 @@ public class Hero : GameEntity {
 			
 			if(a < -45 && a > -135) //down
 			{
-				anim.Play(sp_name+model.StateName+"Downwards_");
+				anim.Play(p_name+model.StateName+"Downwards_");
                 //Debug.Log("down");
 				//		transform.localRotation = Quaternion.Euler(0,0,0);
 			}
@@ -243,7 +249,7 @@ public class Hero : GameEntity {
 			{
 				transform.localScale = new Vector3(1, 1, 1); //left
 				health_bar_body.localScale = new Vector3(1, 1, 1);
-				anim.Play(sp_name+model.StateName+"Normal_");
+				anim.Play(p_name+model.StateName+"Normal_");
 //                Debug.Log("right");
 				//		transform.localRotation = Quaternion.Euler(0,0,a);
 			}
@@ -251,7 +257,7 @@ public class Hero : GameEntity {
 			{
 				transform.localScale = new Vector3(-1, 1, 1); //left
 				health_bar_body.localScale = new Vector3(-1, 1, 1);
-				anim.Play(sp_name+model.StateName+"Normal_");
+				anim.Play(p_name+model.StateName+"Normal_");
 //                Debug.Log("left");
 				//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
 			}

@@ -65,11 +65,21 @@ public class HeroState_Moving : State<Hero> {
 			if(owner.target.model.HP <= 0)
 			{
 				owner.target = null;
-				owner.target.controller.setMoveTrigger(true);
+				owner.controller.setMoveTrigger(true);
 			}
 			else if(!owner.helper.getMoveTrigger())
 			{
 				Vector3 dd = owner.target.helper.getPos() - me;
+				/*
+				float ldx = dd.x > 0 ? dd.x : -dd.x;
+				float ldy = dd.y > 0 ? dd.y : -dd.y;
+				if(ldx <= owner.helper.collision_range-10 || ldy <= owner.helper.collision_range-10)
+				{
+					owner.controller.setMoveTrigger(true);
+					owner.target = null;
+					return;
+				}
+				*/
 				float r = Mathf.Atan2(dd.y, dd.x);
 				float speed_v = owner.model.MovingSpeed * Define.FrameControl();
 				owner.controller.addPos(speed_v * Mathf.Cos(r), speed_v * Mathf.Sin(r));
@@ -79,7 +89,7 @@ public class HeroState_Moving : State<Hero> {
 		//moving...
 		if(owner.helper.getMoveTrigger())
 		{
-			if(Vector3.SqrMagnitude(d) < 20) //checking range    
+			if(Vector3.SqrMagnitude(d) < 50) //checking range    
 			{
 				if(owner.helper.GetMoveMode() == MoveModeState.FORWARD)
 				{
@@ -140,9 +150,12 @@ public class HeroState_Moving : State<Hero> {
 				owner.helper.nodeInfor = owner.helper.nodeStock.GetComponent<scriptPathNode>();
 			}
 			//move module
-			float sp = owner.model.MovingSpeed * Define.FrameControl();
-			float rt = Mathf.Atan2(d.y, d.x);
-			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
+			if(!owner.helper.selectTurnoffRoot)
+			{
+				float sp = owner.model.MovingSpeed * Define.FrameControl();
+				float rt = Mathf.Atan2(d.y, d.x);
+				owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
+			}
 		}
 	}
 

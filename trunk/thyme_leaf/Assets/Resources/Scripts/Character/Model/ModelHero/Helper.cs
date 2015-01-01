@@ -203,7 +203,8 @@ public class Helper
 		
 		//selected node get component
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
-		
+		selectTurnoffRoot = false;
+
 		return true;
 	}
 
