@@ -337,7 +337,7 @@ public class Spawner : Manager<Spawner>
     [RPC]
     void NetworkGetTower(NetworkViewID viewID, int type)
     {
-        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        GameObject go = GameObject.Instantiate(towers[type], Vector3.zero, Quaternion.identity) as GameObject;
         go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
         go.SetActive(true);
