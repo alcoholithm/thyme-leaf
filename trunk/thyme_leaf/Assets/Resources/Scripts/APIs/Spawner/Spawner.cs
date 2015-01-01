@@ -248,9 +248,7 @@ public class Spawner : Manager<Spawner>
         go.transform.parent = automatPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-
-        if(viewID.isMine)
-            InitHero(ref go);
+        InitHero(ref go);
     }
     
     [System.Obsolete("GetHero(int type) is deprecated, please use GetHero(AutomatType type) instead.")]
@@ -297,9 +295,7 @@ public class Spawner : Manager<Spawner>
         go.transform.parent = trovantPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-
-        if (viewID.isMine)
-            InitTrovant(ref go);
+        InitTrovant(ref go);
     }
 
     [System.Obsolete("GetTrovant(int type) is deprecated, please use GetTrovant(TrovantType type) instead.")]

@@ -5,40 +5,32 @@ public class SyncStateScript : MonoBehaviour
 {
 
     private Vector3 currPos;
+    private Hero hero;
 
     // Use this for initialization
     void Start()
     {
-        currPos = transform.position;
+        //currPos = transform.position;
+        if (hero == null)
+            hero = gameObject.GetComponent<Hero>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!Network.isServer)
+        if (hero != null && hero.controller.isGesture())
         {
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                transform.Translate(Vector3.up * Time.deltaTime * 2);
-            }
-
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                transform.Translate(Vector3.down * Time.deltaTime * 2);
-            }
-
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.Translate(Vector3.right * Time.deltaTime * 2);
-            }
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                transform.Translate(Vector3.left * Time.deltaTime * 2);
-            }
+            networkView.RPC("OnArriveBranch", RPCMode.Others, transform.position);
         }
     }
 
+    [RPC]
+    void OnArriveBranch(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    /*
     void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
     {
         Debug.Log("OnSerializeNetworkView");
@@ -54,4 +46,5 @@ public class SyncStateScript : MonoBehaviour
             currPos = syncPos;
         }
     }
+    */
 }
