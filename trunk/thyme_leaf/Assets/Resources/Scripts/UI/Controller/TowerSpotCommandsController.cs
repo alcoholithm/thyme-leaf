@@ -28,15 +28,15 @@ public class TowerSpotCommandsController
 
         // view에 대한 조작
         Agt_Type1 tower = Spawner.Instance.GetTower(TowerType.APT);
-        if(tower == null)
-            Debug.Log("Tower is Null");
-        if (model == null)
-            Debug.Log("Model Is Null");
+
+        //SyncStateScript sss = tower.gameObject.GetComponent<SyncStateScript>();
+        //sss.NetworkInitTower(model);
         tower.transform.parent = model.SelectedObject.transform;
         tower.transform.localScale = Vector3.one;
         tower.transform.position = model.SelectedObject.transform.position;
-
         tower.StateMachine.ChangeState(TowerState_Building.Instance);
+
+        Debug.Log("what is this ? : "+model.SelectedObject);
 
         view.gameObject.SetActive(false);
     }
