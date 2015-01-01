@@ -290,7 +290,7 @@ public class Spawner : Manager<Spawner>
     [RPC]
     void NetworkGetTrovant(NetworkViewID viewID, int type)
     {
-        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        GameObject go = GameObject.Instantiate(trovants[type], Vector3.zero, Quaternion.identity) as GameObject;
         go.SetActive(false);
         go.transform.parent = trovantPool.transform;
         go.SetActive(true);
@@ -385,7 +385,7 @@ public class Spawner : Manager<Spawner>
     [RPC]
     void NetworkGetProjectile(NetworkViewID viewID, int type)
     {
-        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        GameObject go = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
         go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
         go.SetActive(true);
