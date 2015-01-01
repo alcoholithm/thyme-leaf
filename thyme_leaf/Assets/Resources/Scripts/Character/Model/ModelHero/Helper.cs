@@ -110,11 +110,11 @@ public class Helper
 		//turnoffRoot = nodestoke  <all like>
 		//select path node ... when unit arrive at turnoff point
 		//searching node
-		if(default_auto == FindingNodeDefaultOption.OTHER)
-		{
-			SelectNodeFinding(startPt, endPt);
-			return true;
-		}
+//		if(default_auto == FindingNodeDefaultOption.OTHER)
+//		{
+//			SelectNodeFinding(startPt, endPt);
+//			return true;
+//		}
 
 		Vector3 start_pt = startPt;
 		Vector3 end_pt = endPt;
@@ -138,21 +138,21 @@ public class Helper
 			current_hero.helper.gesture_endpoint = end_pt;
 		}
 		
-		if(option != Layer.Trovant && default_auto == FindingNodeDefaultOption.NORMAL)
-		{
-			Collider2D coll = RaycastHittingObject (start_pt);
-			Debug.Log(coll == null ? "null" : coll.name);
-			//test code
-			bool like_check = false;
-			if(coll == null) return false;
-			else
-			{
-				string i_am = currentUnit.GetComponent<Hero>().model.Name;
-				if(i_am == coll.gameObject.GetComponent<Hero>().model.Name)
-					like_check = true;
-			}
-			if(!like_check) return false;
-		}
+//		if(option != Layer.Trovant && default_auto == FindingNodeDefaultOption.NORMAL)
+//		{
+//			Collider2D coll = RaycastHittingObject (start_pt);
+//			Debug.Log(coll == null ? "null" : coll.name);
+//			//test code
+//			bool like_check = false;
+//			if(coll == null) return false;
+//			else
+//			{
+//				string i_am = currentUnit.GetComponent<Hero>().model.Name;
+//				if(i_am == coll.gameObject.GetComponent<Hero>().model.Name)
+//					like_check = true;
+//			}
+//			if(!like_check) return false;
+//		}
 
 		float dx = end_pt.x - start_pt.x;
 		float dy = end_pt.y - start_pt.y;
