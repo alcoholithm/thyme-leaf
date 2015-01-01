@@ -493,6 +493,53 @@ public class Spawner : Manager<Spawner>
 		UnitPoolController.GetInstance ().AddUnit (u_obj);
     }
 
+	private void InitUint(ref GameObject go, StartPoint type)
+	{
+		//Transform temp = GameObject.Find ("AutomatUnits").transform;
+		Hero hero = go.GetComponent<Hero>();
+		Debug.Log("character init");
+		
+		//active...
+		//go.SetActive (true);
+		
+		//main setting...
+		//hero.transform.parent = temp;
+		hero.transform.localScale = Vector3.one;
+		hero.transform.localPosition = new Vector3 (0, 0, 0);
+		
+		//unit detail setting...
+		if(type == StartPoint.AUTOMAT_POINT)
+			hero.controller.StartPointSetting(StartPoint.AUTOMAT_POINT);
+		else
+			hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
+		hero.CollisionSetting (true);
+
+		if(type == StartPoint.AUTOMAT_POINT)
+		{
+			hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
+			hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
+		}
+		else
+		{
+			hero.controller.setType (UnitType.TROVANT_CHARACTER);
+			hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
+		}
+		//move trigger & unit pool manager setting <add>...
+		//moving state...
+		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
+		//moveing enable...
+		hero.controller.setMoveTrigger(true);
+		//hp bar setting...
+		hero.HealthUpdate ();
+		
+		//test...
+		hero.my_name = hero.model.Name;
+		
+		//unit pool insert...
+		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
+		UnitPoolController.GetInstance ().AddUnit (u_obj);
+	}
+
     private void InitTower(ref GameObject go)
     {
         go.transform.position = Vector3.zero;
