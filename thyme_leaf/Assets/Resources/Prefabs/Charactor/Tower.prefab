@@ -28,6 +28,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400014}
   - 148: {fileID: 14800000}
+  - 114: {fileID: 11400000}
   m_Layer: 10
   m_Name: Tower
   m_TagString: TagTower
@@ -131,6 +132,17 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: 200
   m_Center: {x: 0, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a11ae15c4cc204d891d75eb22c7fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,7 +371,7 @@ NetworkView:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
-  m_StateSynchronization: 1
+  m_StateSynchronization: 0
   m_Observed: {fileID: 400002}
   m_ViewID:
     m_ID: 0
