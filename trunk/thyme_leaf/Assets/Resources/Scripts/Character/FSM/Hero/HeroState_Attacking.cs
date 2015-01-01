@@ -64,12 +64,15 @@ public class HeroState_Attacking : State<Hero>
 				}
 			}
 		}
-		
-		if(!isCharacter && owner.helper.attack_target.model.HP <= 0)
+
+		if(owner.helper.attack_target != null)
 		{
-			owner.target = null;
-			owner.StateMachine.ChangeState(HeroState_Moving.Instance);
-			Debug.Log("nothing emy~");
+			if(!isCharacter && owner.helper.attack_target.model.HP <= 0)
+			{
+				owner.target = null;
+				owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+				Debug.Log("nothing emy~");
+			}
 		}
 
 		if(owner.helper.attack_target != null)
