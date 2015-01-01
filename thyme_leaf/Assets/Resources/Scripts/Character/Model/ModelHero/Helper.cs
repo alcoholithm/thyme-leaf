@@ -199,6 +199,65 @@ public class Helper
 		
 		return true;
 	}
+
+	public void SelectNodeFinding(Vector3 start_pt, Vector3 end_pt)
+	{
+		if(!isGesture()) return;
+
+		scriptPathNode tempFunc = nodeStock.GetComponent<scriptPathNode>();
+		if(!tempFunc.TurnoffRoot) return;
+		
+		Vector3 centerPoint = nodeStock.transform.localPosition;
+
+		float dx = end_pt.x - start_pt.x;
+		float dy = end_pt.y - start_pt.y;
+		float ag = Mathf.Atan2 (dy, dx) * Define.RadianToAngle ();
+		
+		int min_idx = -1;
+		float min_r = float.MaxValue;
+		for (int i=0; i<tempFunc.CountTurnOffList(); i++)
+		{
+			Vector3 turn_list = tempFunc.getPosTurnoffList(i);
+			dx = turn_list.x - centerPoint.x;
+			dy = turn_list.y - centerPoint.y;
+			float r = ag - (Mathf.Atan2(dy, dx) * Define.RadianToAngle());
+			r = r > 0 ? r : -r;
+			if(r < min_r)
+			{
+				min_r = r;
+				min_idx = i;
+			}
+		}
+		
+		if (min_idx < 0 || min_r > 40) return;
+		
+		//=========select node part
+		GameObject tempObj = tempFunc.turnoffList [min_idx];
+		tempFunc = tempObj.GetComponent<scriptPathNode> ();
+		if (tempFunc.Next != null) 
+		{
+			//if selected node is not null
+			moveMode = MoveModeState.FORWARD;
+			nodeStock = tempObj;
+		}
+		else
+		{
+			//	Debug.Log("turnoff Root next null");
+			if(tempFunc.Prev != null)
+			{
+				moveMode = MoveModeState.BACKWARD;
+				nodeStock = tempObj;
+			}
+			else
+			{
+				//		Debug.Log("turnoff Root null error");
+				return;
+			}
+		}
+		
+		//selected node get component
+		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
+	}
 	
 	public Collider2D RaycastHittingObject(Vector3 mouse_position)
 	{
