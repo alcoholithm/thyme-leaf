@@ -42,7 +42,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: d1ef65dbec0e7414e817fd1522630da7, type: 2}
   mSprites:
   - name: APT_Poison_0
-    x: 485
+    x: 492
     y: 1891
     width: 6
     height: 10
@@ -68,7 +68,7 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 12
   - name: APT_Poison_2
-    x: 492
+    x: 485
     y: 1891
     width: 6
     height: 10
@@ -80,7 +80,7 @@ MonoBehaviour:
     paddingRight: 12
     paddingTop: 10
     paddingBottom: 10
-  - name: APT_Poison_3
+  - name: APT_PoisonFX_0
     x: 1752
     y: 1899
     width: 23
@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 6
     paddingBottom: 5
-  - name: APT_Poison_4
+  - name: APT_PoisonFX_1
     x: 1690
     y: 1890
     width: 30
@@ -106,7 +106,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 1
     paddingBottom: 1
-  - name: APT_Poison_5
+  - name: APT_PoisonFX_2
     x: 1721
     y: 1895
     width: 30

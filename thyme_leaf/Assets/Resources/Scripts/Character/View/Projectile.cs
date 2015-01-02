@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
 {
     private NGUISpriteAnimation fx;
     private UISprite sprite;
-    string animName = "APT_Poison_";
+    string animName = "APT_PoisonFX_";
 
     private GameEntity owner; // temp
     private GameEntity target;
@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
     {
         //transform.LookAt(target.transform.position);
 
-        fx.Pause();
+        //fx.Pause();
 
         movingSpeed = 0.7f;
         sprite.spriteName = "APT_Poison_0";
