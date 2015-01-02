@@ -157,7 +157,7 @@ public class Helper
 		float dx = end_pt.x - start_pt.x;
 		float dy = end_pt.y - start_pt.y;
 		float ag = Mathf.Atan2 (dy, dx) * Define.RadianToAngle ();
-				Debug.Log ("angle : " + ag);
+		Debug.Log ("angle : " + ag);
 		
 		int min_idx = -1;
 		float min_r = float.MaxValue;
@@ -175,7 +175,7 @@ public class Helper
 			}
 		}
 		
-		if (min_idx < 0 || min_r > 40) return false;
+		if (min_idx < 0 || min_r > 70) return false;
 		
 		//=========select node part
 		GameObject tempObj = tempFunc.turnoffList [min_idx];

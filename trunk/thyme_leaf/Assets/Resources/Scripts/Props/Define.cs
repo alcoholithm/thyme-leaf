@@ -42,23 +42,58 @@ public class Define
 public struct PathNodeOffsetStruct
 {
 	public int size;
-	public Vector3[] offset;
-//	public OffsetStruct[] 
+	public OffsetStruct[] offset_st;
 
 	public PathNodeOffsetStruct(int size)
 	{
 		this.size = size;
-		offset = new Vector3[size];
+		offset_st = new OffsetStruct[size];
+		for (int i=0; i<size; i++) offset_st [i].Initialize ();
 	}
 	public void Dispose()
 	{
 		size = 0;
-		offset = null;
+		for (int i=0; i<size; i++) offset_st [i].Initialize ();
 	}
+
+	public OffsetStruct getNodeOffset()
+	{
+		OffsetStruct data = new OffsetStruct ();
+		for(int i=0;i<size;i++)
+		{
+			if(!offset_st[i].is_use) 
+			{
+				offset_st[i].is_use = true;
+				offset_st[i].idx = i;
+				data = offset_st[i];
+				break;
+			}
+		}
+		return data;
+	}
+
+	public void OffsetRelease(OffsetStruct off)
+	{
+		int idx = off.idx;
+		offset_st [idx].Initialize ();
+	}
+
+	public Vector3 getOffsetPos(int idx)
+	{
+		return offset_st [idx].offset;
+	}
+
+	public void setOffsetPos(int idx, float x, float y)
+	{
+		offset_st [idx].Initialize (false, new Vector3 (x, y, 0));
+	}
+
+
 }
 
 public struct OffsetStruct
 {
+	public int idx;
 	public bool is_use;
 	public Vector3 offset;
 
@@ -66,5 +101,20 @@ public struct OffsetStruct
 	{
 		is_use = use;
 		offset = v;
+		idx = -1;
+	}
+	
+	public void Initialize(bool use, Vector3 v)
+	{
+		is_use = use;
+		offset = v;
+		idx = -1;
+	}
+
+	public void Initialize()
+	{
+		is_use = false;
+		offset = Vector3.zero;
+		idx = -1;
 	}
 }

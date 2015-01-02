@@ -260,7 +260,16 @@ public class DataToFile : MonoBehaviour
 
 		//path node offset setting...
 		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(10);
-
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
+		offset_data.setOffsetPos (0, 0, 0);
 	}
 }
 
