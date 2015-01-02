@@ -220,52 +220,43 @@ public class Hero : GameEntity {
 
 			helper.angle_calculation_rate = 0;
 			
-//			int dir = helper.Current_Right_orLeft ();
+			int dir = helper.Current_Right_orLeft ();
+			dir = helper.isGesture() == true ? 0 : dir;
+
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
-//			string sp_name = "";
-//			if(getLayer() == Layer.Automart) sp_name = "Franscis_Type1_";
-//			else if(getLayer() == Layer.Trovant) sp_name = "Comma_";
-			
-//			if(dir == -1)
-//			{
-//				transform.localScale = new Vector3(-1, 1, 1); //left
-//				health_bar_body.localScale = new Vector3(-1, 1, 1);
-//			}
-//			else if(dir == 1)
-//			{
-//				transform.localScale = new Vector3(1, 1, 1);  //right
-//				health_bar_body.localScale = new Vector3(1, 1, 1);
-//			}
+			if(dir == -1)
+			{
+				transform.localScale = new Vector3(-1, 1, 1); //left
+				health_bar_body.localScale = new Vector3(-1, 1, 1);
+			}
+			else if(dir == 1)
+			{
+				transform.localScale = new Vector3(1, 1, 1);  //right
+				health_bar_body.localScale = new Vector3(1, 1, 1);
+			}
 			
 			if(a < -45 && a > -135) //down
 			{
 				anim.Play(p_name+model.StateName+"Downwards_");
-                //Debug.Log("down");
-				//		transform.localRotation = Quaternion.Euler(0,0,0);
+				//transform.localRotation = Quaternion.Euler(0,0,0);
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
-				transform.localScale = new Vector3(1, 1, 1); //left
-				health_bar_body.localScale = new Vector3(1, 1, 1);
+//				transform.localScale = new Vector3(1, 1, 1); //left
+//				health_bar_body.localScale = new Vector3(1, 1, 1);
 				anim.Play(p_name+model.StateName+"Normal_");
-//                Debug.Log("right");
-				//		transform.localRotation = Quaternion.Euler(0,0,a);
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
-				transform.localScale = new Vector3(-1, 1, 1); //left
-				health_bar_body.localScale = new Vector3(-1, 1, 1);
+//				transform.localScale = new Vector3(-1, 1, 1); //left
+//				health_bar_body.localScale = new Vector3(-1, 1, 1);
 				anim.Play(p_name+model.StateName+"Normal_");
-//                Debug.Log("left");
-				//		transform.localRotation = Quaternion.Euler(0,0,a + 180);
 			}
 //			else if(a > 45 && a < 135) //up
 //			{
 //				anim.Play("Python_Moving_Upwards_");
-//				Debug.Log("up");
-//				transform.localRotation = Quaternion.Euler(0,0,0);
 //			}
 		}
 	}
