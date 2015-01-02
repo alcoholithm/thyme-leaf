@@ -133,6 +133,8 @@ public class Helper
 			start_pt = getPos();
 			Random.seed = 1;
 			int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
+            Debug.Log("RANDOM INDEX :: "+rand_idx);
+
 			end_pt = tempFunc.getPosTurnoffList(rand_idx);
 
 			current_hero.helper.gesture_startpoint = start_pt;
