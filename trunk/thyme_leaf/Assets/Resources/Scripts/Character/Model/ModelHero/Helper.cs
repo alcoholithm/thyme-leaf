@@ -131,6 +131,7 @@ public class Helper
 		if(option == Layer.Trovant || default_auto == FindingNodeDefaultOption.RANDOM_NODE)
 		{
 			start_pt = getPos();
+			Random.seed = 1;
 			int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
 			end_pt = tempFunc.getPosTurnoffList(rand_idx);
 
