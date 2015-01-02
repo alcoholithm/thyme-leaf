@@ -153,11 +153,13 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
     private void SubGesture(Vector3 startPt, Vector3 endPt, Layer my_layer)
     {
         int mLayer = (int)my_layer;
-        if (Network.peerType == NetworkPeerType.Disconnected)
+        if (Network.peerType == NetworkPeerType.Disconnected){
+            Debug.Log("DISCONNECTED");
             NetworkGesture(startPt, endPt, mLayer);
+        }
         else
         {
-            Debug.Log("JLKDSJKLFJDSLKJFLKDSJFLKDJSLKFJDSLKJFLKDSJfl ");
+            Debug.Log("CONNECTED");
             networkView.RPC("NetworkGesture", RPCMode.All, startPt, endPt, mLayer);
         }
     }
@@ -169,6 +171,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         {
             controller.setMoveTrigger(true);
         }
+
+        if ((Layer)my_layer == Layer.Trovant) return;
+
         if (helper.getMusterTrigger())
         {
             Debug.Log("command move");
@@ -210,11 +215,12 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		case Layer.Trovant:
 			if(controller.isGesture())
 			{
+                SubGesture(helper.gesture_startpoint, helper.gesture_endpoint, my_layer);
 				//automatic direction finding...
-				if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
-				{
-					controller.setMoveTrigger(true);
-				}
+                //if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
+                //{
+                //    controller.setMoveTrigger(true);
+                //}
 			}
 			break;
 		}
