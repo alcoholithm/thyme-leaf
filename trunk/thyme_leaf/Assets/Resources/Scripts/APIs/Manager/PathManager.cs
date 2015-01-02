@@ -11,6 +11,7 @@ public class PathManager : Manager<PathManager> {
 
 	void Awake()
 	{
+		Define.PathDataDispose ();
 		DataToFile.LoadData(StageNumber, PathNode);
 		UnitNameGetter.GetInstance ().Initialize ();
 		UnitMusterController.GetInstance ().Initialize ();

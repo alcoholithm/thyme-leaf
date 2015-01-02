@@ -83,12 +83,9 @@ public class Hero : GameEntity {
 		controller.setSpeed (speed / 10.0f);
 		controller.setMaxHp (MaxHP);
 		controller.setHp (MaxHP);
-		float range_value = 0;
-		controller.setMoveOffset (Random.Range (-range_value, range_value), Random.Range (-range_value, range_value));
+		controller.setMoveTrigger (false);
 
-		helper.setMoveTrigger (false);
 		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
-
         health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
 		health_bar_body = transform.GetChild (0);
 	}
@@ -201,7 +198,7 @@ public class Hero : GameEntity {
 		case Layer.Trovant:
 			if(controller.isGesture())
 			{
-                //Debug.Log("gesture trovant");
+				//automatic direction finding...
 				if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, my_layer))
 				{
 					controller.setMoveTrigger(true);

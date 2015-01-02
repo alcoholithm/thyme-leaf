@@ -145,7 +145,7 @@ public class HeroState_Moving : State<Hero> {
 			float ldx = d.x > 0 ? d.x : -d.x;
 			float ldy = d.y > 0 ? d.y : -d.y;
 			if((ldx <= 1 || ldy <= 1) && owner.helper.selectTurnoffRoot)
-				sp = 0;
+				sp = 2;
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
 		}
 	}
