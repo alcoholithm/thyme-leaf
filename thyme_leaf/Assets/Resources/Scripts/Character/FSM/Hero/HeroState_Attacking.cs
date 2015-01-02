@@ -65,13 +65,8 @@ public class HeroState_Attacking : State<Hero>
 			}
 		}
 
-        // attack_target = trovant or projectile , projectile
-        // owner = automat or trovant , trovant
-
-        if (owner.helper.attack_target == null)
-        {
-
-        }
+        // attack_target = trovant or projectile
+        // owner = automat or trovant
 
 		if(owner.helper.attack_target != null)
 		{
@@ -89,7 +84,9 @@ public class HeroState_Attacking : State<Hero>
 			owner.helper.attack_delay_counter += Time.deltaTime;
 			if (owner.helper.attack_delay_counter >= 1)
 			{
-				Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, new HeroDamageCommand(owner.helper.attack_target));
+				Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, new HeroDamageCommand(owner.helper.attack_target, (int)owner.model.AttackDamage));
+                //msg.arg1 = (int) owner.model.AttackDamage;
+
 				owner.DispatchMessage(msg);
 				owner.helper.attack_delay_counter = 0;
 			}
@@ -109,8 +106,16 @@ public class HeroState_Attacking : State<Hero>
         switch (msg.what)
         {
             case MessageTypes.MSG_MOVE_HERO:
-            //case MessageTypes.MSG_DAMAGE:
+            case MessageTypes.MSG_DAMAGE:
+                //return false;
+                //Debug.Log("MSG_DAMAGE : " + msg.GetHashCode() + ", " + msg.receiver + " , " + msg.arg1 + " , " + msg.arg2);
+                //return false;
+                //msg.command.Execute();
+                //Debug.LogError("Hello?" + msg.receiver + ", " + msg.arg1 + ", " + msg.arg2);
+                //(msg.receiver as Hero).TakeDamage(msg.arg1);
+                //return false;
             case MessageTypes.MSG_MISSING:
+                Debug.Log(msg.what + ", "+ msg.GetHashCode() + ", " + msg.receiver + " , " + msg.arg1 + " , " + msg.arg2);
                 msg.command.Execute();
                 return true;
         }

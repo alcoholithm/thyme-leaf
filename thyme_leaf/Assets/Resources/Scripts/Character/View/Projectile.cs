@@ -84,6 +84,7 @@ public class Projectile : MonoBehaviour
         fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
 
         Message msg = other.GetComponent<Hero>().ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
+        msg.arg2 = 999999;
         owner.DispatchMessage(msg);
     }
 

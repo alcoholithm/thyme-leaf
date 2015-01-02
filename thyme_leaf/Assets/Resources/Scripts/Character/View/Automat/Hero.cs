@@ -18,6 +18,7 @@ public class Hero : GameEntity {
 	public int MaxHP = 100;
 	public int CurrentHP = 100;
 	public float speed = 10;
+    public float AttackDamage = 20; 
 	//=====================
 
 	private NGUISpriteAnimation anim;	
@@ -86,6 +87,7 @@ public class Hero : GameEntity {
 		controller.setMaxHp (MaxHP);
 		controller.setHp (MaxHP);
 		controller.setMoveTrigger (false);
+        controller.setAttackDamage(AttackDamage);
 
 		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
         health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
