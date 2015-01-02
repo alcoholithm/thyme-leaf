@@ -419,10 +419,14 @@ public class Spawner : Manager<Spawner>
             gameObject.SetActive(false);
         else
         {
-            if (gameObject.networkView.isMine)
+            if (gameObject.networkView.isMine){
+                Debug.Log("Network Free to ALL Users");
                 networkView.RPC("NetworkFree", RPCMode.All, gameObject.networkView.viewID);
+            }
             else
+            {
                 gameObject.SetActive(false);
+            }
         }
     }
 
