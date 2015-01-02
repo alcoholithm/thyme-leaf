@@ -469,6 +469,7 @@ public class Spawner : Manager<Spawner>
 		Hero hero = go.GetComponent<Hero>();
 		Debug.Log("character init");
 
+        hero.GetComponent<UISprite>().MakePixelPerfect();
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 		
