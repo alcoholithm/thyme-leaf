@@ -452,60 +452,19 @@ public class Spawner : Manager<Spawner>
 
     private void InitHero(ref GameObject go)
     {
-        Hero hero = go.GetComponent<Hero>();
-        Debug.Log("character init");
-
-		hero.transform.localScale = Vector3.one;
-		hero.transform.localPosition = new Vector3 (0, 0, 0);
-		
-		hero.controller.StartPointSetting(StartPoint.AUTOMAT_POINT);
-		hero.CollisionSetting (true);
-		
-		hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
-		hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
-		
-		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
-		hero.controller.setMoveTrigger(true);
-		hero.HealthUpdate ();
-		hero.my_name = hero.model.Name;
-		
-		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
-		UnitPoolController.GetInstance ().AddUnit (u_obj);
+		InitUint (ref go, StartPoint.AUTOMAT_POINT);
     }
 
     private void InitTrovant(ref GameObject go)
     {
-		Hero hero = go.GetComponent<Hero> ();
-		Debug.Log ("character init");
-		
-		hero.transform.localScale = Vector3.one;
-		hero.transform.localPosition = new Vector3 (0, 0, 0);
-		hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
-		hero.CollisionSetting (true);
-		
-		hero.controller.setType (UnitType.TROVANT_CHARACTER);
-		hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
-		
-		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
-		hero.controller.setMoveTrigger(true);
-		hero.HealthUpdate ();
-		
-		hero.my_name = hero.model.Name;
-		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
-		UnitPoolController.GetInstance ().AddUnit (u_obj);
+		InitUint (ref go, StartPoint.TROVANT_POINT);
     }
 
 	private void InitUint(ref GameObject go, StartPoint type)
 	{
-		//Transform temp = GameObject.Find ("AutomatUnits").transform;
 		Hero hero = go.GetComponent<Hero>();
 		Debug.Log("character init");
-		
-		//active...
-		//go.SetActive (true);
-		
-		//main setting...
-		//hero.transform.parent = temp;
+
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 		
