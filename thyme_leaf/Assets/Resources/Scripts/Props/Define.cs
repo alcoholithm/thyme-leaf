@@ -7,8 +7,11 @@ public class Define
 	public static List<MapDataStruct> pathNode;
 	public static void PathDataDispose()
 	{
-		pathNode.Clear ();
-		pathNode = null;
+		if(pathNode != null)
+		{
+			pathNode.Clear ();
+			pathNode = null;
+		}
 	}
 
 	public static float RadianToAngle()
