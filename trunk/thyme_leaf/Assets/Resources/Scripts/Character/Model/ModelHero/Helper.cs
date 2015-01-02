@@ -115,6 +115,7 @@ public class Helper
 //			SelectNodeFinding(startPt, endPt);
 //			return true;
 //		}
+        Debug.Log("HERE ??");
 
 		Vector3 start_pt = startPt;
 		Vector3 end_pt = endPt;
