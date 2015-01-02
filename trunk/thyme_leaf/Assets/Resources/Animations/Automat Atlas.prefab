@@ -315,7 +315,7 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 7
   - name: Falstaff_Type1_Attacking_Downwards_3
-    x: 1196
+    x: 1478
     y: 1758
     width: 140
     height: 131
@@ -328,19 +328,6 @@ MonoBehaviour:
     paddingTop: 32
     paddingBottom: 7
   - name: Falstaff_Type1_Attacking_Downwards_4
-    x: 1478
-    y: 1758
-    width: 140
-    height: 131
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 18
-    paddingRight: 17
-    paddingTop: 32
-    paddingBottom: 7
-  - name: Falstaff_Type1_Attacking_Downwards_5
     x: 1337
     y: 1758
     width: 140
@@ -353,8 +340,21 @@ MonoBehaviour:
     paddingRight: 17
     paddingTop: 32
     paddingBottom: 7
+  - name: Falstaff_Type1_Attacking_Downwards_5
+    x: 1196
+    y: 1758
+    width: 140
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 17
+    paddingTop: 32
+    paddingBottom: 7
   - name: Falstaff_Type1_Attacking_Downwards_6
-    x: 1279
+    x: 1135
     y: 1482
     width: 136
     height: 137
@@ -367,7 +367,7 @@ MonoBehaviour:
     paddingTop: 32
     paddingBottom: 1
   - name: Falstaff_Type1_Attacking_Downwards_7
-    x: 867
+    x: 723
     y: 1482
     width: 137
     height: 137
@@ -406,7 +406,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 13
   - name: Falstaff_Type1_Attacking_Normal_2
-    x: 1416
+    x: 1272
     y: 1484
     width: 138
     height: 135
@@ -419,7 +419,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 13
   - name: Falstaff_Type1_Attacking_Normal_3
-    x: 1690
+    x: 1681
     y: 1485
     width: 134
     height: 134
@@ -459,7 +459,7 @@ MonoBehaviour:
     paddingBottom: 13
   - name: Falstaff_Type1_Attacking_Normal_6
     x: 431
-    y: 248
+    y: 382
     width: 122
     height: 133
     borderLeft: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
     paddingBottom: 13
   - name: Falstaff_Type1_Attacking_Normal_7
     x: 431
-    y: 382
+    y: 248
     width: 122
     height: 133
     borderLeft: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 11
   - name: Falstaff_Type1_Dying_3
-    x: 1766
+    x: 1617
     y: 1622
     width: 144
     height: 134
@@ -588,7 +588,7 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 4
   - name: Falstaff_Type1_Moving_Downwards_0
-    x: 1825
+    x: 1816
     y: 1483
     width: 132
     height: 136
@@ -614,7 +614,7 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 14
   - name: Falstaff_Type1_Moving_Downwards_2
-    x: 1555
+    x: 1546
     y: 1483
     width: 134
     height: 136
@@ -627,7 +627,7 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 8
   - name: Falstaff_Type1_Moving_Downwards_3
-    x: 1142
+    x: 861
     y: 1482
     width: 136
     height: 137
@@ -653,7 +653,7 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 1
   - name: Falstaff_Type1_Moving_Downwards_5
-    x: 1005
+    x: 998
     y: 1482
     width: 136
     height: 137
@@ -666,8 +666,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 4
   - name: Falstaff_Type1_Moving_Downwards_6
-    x: 1911
-    y: 1620
+    x: 1411
+    y: 1483
     width: 134
     height: 136
     borderLeft: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: Falstaff_Type1_Moving_Normal_3
     x: 289
-    y: 22
+    y: 168
     width: 130
     height: 145
     borderLeft: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
     paddingBottom: 4
   - name: Falstaff_Type1_Moving_Normal_5
     x: 289
-    y: 168
+    y: 22
     width: 130
     height: 145
     borderLeft: 0
@@ -901,7 +901,7 @@ MonoBehaviour:
     paddingBottom: 6
   - name: Franscis_Type1_Attacking_Normal_0
     x: 0
-    y: 1436
+    y: 1581
     width: 138
     height: 144
     borderLeft: 0
@@ -953,7 +953,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Normal_4
     x: 0
-    y: 1581
+    y: 1436
     width: 138
     height: 144
     borderLeft: 0
@@ -1005,7 +1005,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: Franscis_Type1_Attacking_Upwards_0
     x: 140
-    y: 584
+    y: 445
     width: 148
     height: 138
     borderLeft: 0
@@ -1017,7 +1017,7 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_1
-    x: 580
+    x: 1027
     y: 1620
     width: 148
     height: 136
@@ -1043,7 +1043,7 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_3
-    x: 1027
+    x: 878
     y: 1620
     width: 148
     height: 136
@@ -1057,7 +1057,7 @@ MonoBehaviour:
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_4
     x: 140
-    y: 445
+    y: 584
     width: 148
     height: 138
     borderLeft: 0
@@ -1069,7 +1069,7 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_5
-    x: 878
+    x: 729
     y: 1620
     width: 148
     height: 136
@@ -1082,7 +1082,7 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_6
-    x: 1472
+    x: 1906
     y: 1622
     width: 140
     height: 134
@@ -1095,7 +1095,7 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 15
   - name: Franscis_Type1_Attacking_Upwards_7
-    x: 729
+    x: 580
     y: 1620
     width: 148
     height: 136
@@ -1109,7 +1109,7 @@ MonoBehaviour:
     paddingBottom: 15
   - name: Franscis_Type1_Dying_0
     x: 140
-    y: 1011
+    y: 868
     width: 142
     height: 147
     borderLeft: 0
@@ -1213,7 +1213,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_0
     x: 289
-    y: 1325
+    y: 1182
     width: 141
     height: 142
     borderLeft: 0
@@ -1291,7 +1291,7 @@ MonoBehaviour:
     paddingBottom: 7
   - name: Franscis_Type1_Moving_Downwards_6
     x: 140
-    y: 868
+    y: 1016
     width: 147
     height: 142
     borderLeft: 0
@@ -1304,7 +1304,7 @@ MonoBehaviour:
     paddingBottom: 9
   - name: Franscis_Type1_Moving_Downwards_7
     x: 289
-    y: 1182
+    y: 1325
     width: 141
     height: 142
     borderLeft: 0
@@ -1433,7 +1433,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 22
   - name: Franscis_Type1_Moving_Upwards_1
-    x: 1621
+    x: 1472
     y: 1621
     width: 144
     height: 135
@@ -1511,8 +1511,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 22
   - name: Franscis_Type1_Moving_Upwards_7
-    x: 723
-    y: 1485
+    x: 1762
+    y: 1622
     width: 143
     height: 134
     borderLeft: 0
