@@ -102,21 +102,6 @@ public class Helper
 	
 	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option, FindingNodeDefaultOption default_auto)
 	{
-		//default_auto = normal //normal...
-		//default_auto = random_node //the same team case.... push other muster...
-		//default_auto = muster_command //muster command...
-		//~ = other...
-
-		//turnoffRoot = nodestoke  <all like>
-		//select path node ... when unit arrive at turnoff point
-		//searching node
-//		if(default_auto == FindingNodeDefaultOption.OTHER)
-//		{
-//			SelectNodeFinding(startPt, endPt);
-//			return true;
-//		}
-        Debug.Log("HERE ??");
-
 		Vector3 start_pt = startPt;
 		Vector3 end_pt = endPt;
 		
@@ -128,8 +113,6 @@ public class Helper
 			return false;
 		}
 		Vector3 centerPoint = nodeStock.transform.localPosition;
-
-        Debug.Log("kdsjflkjsdalkjflk "+option);
 
 		if(option == Layer.Trovant || default_auto == FindingNodeDefaultOption.RANDOM_NODE)
 		{
