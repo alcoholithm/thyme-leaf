@@ -35,6 +35,7 @@ public class HeroState_Hitting : State<Hero>
             case MessageTypes.MSG_MOVE_HERO:
 				//msg.command.Execute();
             case MessageTypes.MSG_DAMAGE:
+                //Debug.LogError("MSG_DAMAGE : "+msg.what + " , " + msg.arg1 + " , " + msg.arg2);
 				(msg.receiver as Hero).TakeDamage(msg.arg1);
                 return true;
         }

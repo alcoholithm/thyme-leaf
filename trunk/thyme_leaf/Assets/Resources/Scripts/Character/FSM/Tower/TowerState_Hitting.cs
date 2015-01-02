@@ -49,8 +49,12 @@ public class TowerState_Hitting : State<Agt_Type1>
         switch (msg.what)
         {
             case MessageTypes.MSG_DAMAGE:
+                Debug.LogError("MSG_DAMAGE : "+msg);
                 (msg.receiver as Agt_Type1).TakeDamage(msg.arg1);
                 return true;
+            default:
+                Debug.LogError("MSG_ERROR : "+msg);
+                break;
         }
 
         return false;

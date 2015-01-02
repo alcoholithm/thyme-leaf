@@ -42,7 +42,7 @@ public class Weapon
 
     public void InitBuildedProjectile(ref Projectile projectile, ref GameEntity target)
     {
-        Debug.Log("Tower Owner : "+owner);
+        //Debug.Log("Tower Owner : "+owner);
         //GameEntity projectileGameEntity = projectile.GetComponent<GameEntity>();
         projectile.transform.position = owner.transform.position;
         projectile.transform.localScale = Vector3.one;
