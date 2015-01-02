@@ -107,15 +107,7 @@ public class HeroState_Attacking : State<Hero>
         {
             case MessageTypes.MSG_MOVE_HERO:
             case MessageTypes.MSG_DAMAGE:
-                //return false;
-                //Debug.Log("MSG_DAMAGE : " + msg.GetHashCode() + ", " + msg.receiver + " , " + msg.arg1 + " , " + msg.arg2);
-                //return false;
-                //msg.command.Execute();
-                //Debug.LogError("Hello?" + msg.receiver + ", " + msg.arg1 + ", " + msg.arg2);
-                //(msg.receiver as Hero).TakeDamage(msg.arg1);
-                //return false;
             case MessageTypes.MSG_MISSING:
-                Debug.Log(msg.what + ", "+ msg.GetHashCode() + ", " + msg.receiver + " , " + msg.arg1 + " , " + msg.arg2);
                 msg.command.Execute();
                 return true;
         }
