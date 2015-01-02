@@ -354,6 +354,7 @@ MonoBehaviour:
   MaxHP: 100
   CurrentHP: 100
   speed: 15
+  AttackDamage: 20
   target: {fileID: 0}
   my_name: 
   state_name: 
@@ -408,7 +409,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
-  mSpriteName: Comma_Moving_Downwards_0
+  mSpriteName: Python_Moving_Downwards_0
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:
