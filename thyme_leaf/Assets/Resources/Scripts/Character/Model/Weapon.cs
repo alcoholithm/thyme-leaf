@@ -31,6 +31,7 @@ public class Weapon
         // owner 없애야 한다. 이 부분은 옵저버를 둬서 애니메이션이 다 끝나면 옵저버로 컨트롤러에게 연락을 취해서
         // 컨트롤러에서 밑의 코드를 실행해야한다.
         Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.POISON);
+        if (projectile == null) return;
 
         if (Network.peerType == NetworkPeerType.Disconnected) 
             InitBuildedProjectile(ref projectile, ref target); // Single mode

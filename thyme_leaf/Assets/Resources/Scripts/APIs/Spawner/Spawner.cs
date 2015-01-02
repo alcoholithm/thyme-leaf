@@ -375,6 +375,8 @@ public class Spawner : Manager<Spawner>
             return GetProjectile((int)type);
         else
         {
+            if (Network.isClient) return null;
+
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type);
             GameObject go = NetworkView.Find(viewID).gameObject;
@@ -433,8 +435,7 @@ public class Spawner : Manager<Spawner>
     [RPC]
     void NetworkFree(NetworkViewID viewID)
     {
-        if (!NetworkView.Find(viewID))
-            return;
+        if (!viewID.isMine) return;
         GameObject go = NetworkView.Find(viewID).gameObject;
         Destroy(go);
     }
