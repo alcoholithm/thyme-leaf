@@ -65,6 +65,14 @@ public class HeroState_Attacking : State<Hero>
 			}
 		}
 
+        // attack_target = trovant or projectile , projectile
+        // owner = automat or trovant , trovant
+
+        if (owner.helper.attack_target == null)
+        {
+
+        }
+
 		if(owner.helper.attack_target != null)
 		{
 			if(!isCharacter && owner.helper.attack_target.model.HP <= 0)
@@ -101,7 +109,7 @@ public class HeroState_Attacking : State<Hero>
         switch (msg.what)
         {
             case MessageTypes.MSG_MOVE_HERO:
-            case MessageTypes.MSG_DAMAGE:
+            //case MessageTypes.MSG_DAMAGE:
             case MessageTypes.MSG_MISSING:
                 msg.command.Execute();
                 return true;

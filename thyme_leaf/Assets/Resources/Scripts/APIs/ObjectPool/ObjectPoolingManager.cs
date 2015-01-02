@@ -42,7 +42,7 @@ public class ObjectPoolingManager
         else
         {
             ObjectPool nPool = new ObjectPool(spawner, objToPool, initialPoolSize, maxPoolSize, shouldShrink);
-			Debug.Log("Dictionaly Name : " + objToPool.name);
+            //Debug.Log("Dictionaly Name : " + objToPool.name);
             ObjectPoolingManager.Instance.objectPools.Add(objToPool.name, nPool);
             return true;
         }
@@ -50,7 +50,7 @@ public class ObjectPoolingManager
 
     public GameObject GetObject(string objName)
     {
-        Debug.Log("Dictionaly Name : "+objName);
+        //Debug.Log("Dictionaly Name : "+objName);
         return ObjectPoolingManager.Instance.objectPools[objName].GetObject();
     }
 }
