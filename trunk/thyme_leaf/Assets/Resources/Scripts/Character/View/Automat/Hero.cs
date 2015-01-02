@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Hero : GameEntity {
+public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
+{
 	public new const string TAG = "[Hero]";
 
     private StateMachine<Hero> stateMachine;
@@ -76,7 +77,7 @@ public class Hero : GameEntity {
 		//mvc setting...
 		helper = new Helper (this.gameObject);
 		model = new MHero (helper);
-		controller = new ControllerHero (model, helper); 
+		controller = new ControllerHero (model, helper);
 
 		//other reference...
 		target = null;
@@ -432,7 +433,10 @@ public class Hero : GameEntity {
 	{
 		controller.addHp (-damage_range);
 		CurrentHP = model.HP;  //test code...
-		HealthUpdate ();
+        HealthUpdate();
+
+        //model.HP -= damage_range;
+
 		if(model.HP <= 0)
 		{
 			Debug.Log(model.Name + " die");
@@ -466,15 +470,45 @@ public class Hero : GameEntity {
 
 	public void Initialize()
 	{
+        // state machine
 		this.stateMachine = new StateMachine<Hero>(this);
 		this.stateMachine.CurrentState = HeroState_None.Instance;
 		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
-		
+
+        //this.Add(health_bar_controller);
+
 		this.anim = GetComponent<NGUISpriteAnimation>();
 		this.anim.Pause();
 		transform.localPosition = new Vector3(1000,1000);
 	}
 
+    /*
+    * followings are implemented methods of "IStateMachineControllable"
+    */
+    public void ChangeState(State<Hero> newState)
+    {
+        stateMachine.ChangeState(newState);
+    }
+
+    public void RevertToPreviousState()
+    {
+        stateMachine.RevertToPreviousState();
+    }
+
+    /*
+    * followings are implemented methods of "IObserver"
+    */
+    public void Refresh(ObserverTypes field)
+    {
+        if (field == ObserverTypes.Health)
+        {
+            UpdateUI();
+        }
+    }
+
+    /*
+     * Followings are attributes.
+     */ 
     public override IHandler Successor
     {
         get { return stateMachine; }
