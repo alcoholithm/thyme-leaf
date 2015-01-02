@@ -251,7 +251,7 @@ public class DataToFile : MonoBehaviour
 			else if(tempFunc.trovantPoint) tempFunc.ChangeIMG(SpriteList.TROVANT);
 			else if(tempFunc.TurnoffRoot) tempFunc.ChangeIMG(SpriteList.TURNOFF);
 
-			tempFunc.SetVisialbe(true);
+			tempFunc.SetVisialbe(false);
 
 			MapDataStruct mapdata = Define.pathNode[c];
 			mapdata.obj = tempsetting;
