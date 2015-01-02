@@ -155,8 +155,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         int mLayer = (int)my_layer;
         if (Network.peerType == NetworkPeerType.Disconnected)
             NetworkGesture(startPt, endPt, mLayer);
-        else 
+        else
+        {
+            Debug.Log("JLKDSJKLFJDSLKJFLKDSJFLKDJSLKFJDSLKJFLKDSJfl ");
             networkView.RPC("NetworkGesture", RPCMode.All, startPt, endPt, mLayer);
+        }
     }
 
     [RPC]
