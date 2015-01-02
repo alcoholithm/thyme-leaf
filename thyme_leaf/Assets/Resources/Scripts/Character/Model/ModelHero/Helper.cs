@@ -69,7 +69,7 @@ public class Helper
 	{
 		//-1 = left, 1 = right
 		float d = getPos ().x - oldpos.x;
-		if(d < 7 && d > -7) return 0;
+		if(d < 3 && d > -3) return 0;
 		else return d <= 0 ? -1 : 1;
 	}
 	
