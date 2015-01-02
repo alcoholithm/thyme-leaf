@@ -22,13 +22,15 @@ public class Hero : GameEntity {
 
 	private NGUISpriteAnimation anim;	
 	private HealthBar health_bar_controller;
+
+	private UISprite my_uisprite; //test code...
 	
 	public Hero target;
 	public string my_name;  //test code...
 	public string state_name; //test code...
 	public string muster_name; //test code...
 
-	public string p_name;
+	public string p_name;  //test code...
 
 	//extra...
 	private bool onlyfirst;
@@ -88,6 +90,8 @@ public class Hero : GameEntity {
 		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
         health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
 		health_bar_body = transform.GetChild (0);
+
+		my_uisprite = gameObject.GetComponent<UISprite> (); //test code...
 	}
 
 	void OnTriggerEnter2D(Collider2D coll)
@@ -122,13 +126,15 @@ public class Hero : GameEntity {
 		Layer type = getLayer();
 		switch (type) {
 		case Layer.Automart:
-			if(Layer.Trovant == (Layer) gObj.layer)
+			if((Layer.Trovant == (Layer) gObj.layer) && 
+			   !gObj.CompareTag(Tag.TagProjectile) && !gObj.CompareTag(Tag.TagTower) && !gObj.CompareTag(Tag.TagTowerSpot))
 			{
 				return true;
 			}
 			break;
 		case Layer.Trovant:
-			if(Layer.Automart == (Layer) gObj.layer)
+			if(Layer.Automart == (Layer) gObj.layer &&
+			   !gObj.CompareTag(Tag.TagProjectile) && !gObj.CompareTag(Tag.TagTower) && !gObj.CompareTag(Tag.TagTowerSpot))
 			{
 				return true;
 			}
@@ -210,6 +216,9 @@ public class Hero : GameEntity {
 	
 	public void ChangingAnimationAngle()
 	{
+//		my_uisprite.height = 50;
+//		my_uisprite.width = 50;
+
 		helper.angle_calculation_rate += Time.deltaTime;
 		if(helper.angle_calculation_rate >= 0.1f)
 		{

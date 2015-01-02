@@ -142,10 +142,10 @@ public class HeroState_Moving : State<Hero> {
 			//move module
 			float sp = owner.model.MovingSpeed * Define.FrameControl();
 			float rt = Mathf.Atan2(d.y, d.x);
-			float ldx = d.x > 0 ? d.x : -d.x;
-			float ldy = d.y > 0 ? d.y : -d.y;
-			if((ldx <= 1 || ldy <= 1) && owner.helper.selectTurnoffRoot)
-				sp = 2;
+			if(owner.helper.isGesture())
+			{
+				sp = 1;
+			}
 			owner.controller.addPos(Mathf.Cos(rt) * sp, Mathf.Sin(rt) * sp);
 		}
 	}
