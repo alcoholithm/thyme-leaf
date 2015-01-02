@@ -261,7 +261,6 @@ public class DataToFile : MonoBehaviour
 		//path node offset setting...
 		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(10);
 
-
 	}
 }
 

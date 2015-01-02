@@ -62,4 +62,10 @@ public class ControllerHero
 	public void setType(UnitType option) { _model.Type = option; }
 
 	public void setStateName(string state_name) { _model.StateName = state_name; }
+
+	public void setAttackDelay(float v) { _model.AttackDelay = v; }
+
+	public void setAttackDamage(float v) { _model.AttackDamage = v; }
+
+	public void setAttackRange(float v) { _model.AttackRange = v; }
 }

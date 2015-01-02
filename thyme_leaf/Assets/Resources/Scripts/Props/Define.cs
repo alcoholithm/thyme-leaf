@@ -43,6 +43,7 @@ public struct PathNodeOffsetStruct
 {
 	public int size;
 	public Vector3[] offset;
+//	public OffsetStruct[] 
 
 	public PathNodeOffsetStruct(int size)
 	{
@@ -53,5 +54,17 @@ public struct PathNodeOffsetStruct
 	{
 		size = 0;
 		offset = null;
+	}
+}
+
+public struct OffsetStruct
+{
+	public bool is_use;
+	public Vector3 offset;
+
+	public OffsetStruct(bool use, Vector3 v)
+	{
+		is_use = use;
+		offset = v;
 	}
 }
