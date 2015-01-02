@@ -6,13 +6,14 @@ public class PathManager : Manager<PathManager> {
 
 	public GameObject PathNode;
 	public int StageNumber = 1;
+	public bool node_visible;
 
 	public new const string TAG = "[PathManager]";
 
 	void Awake()
 	{
 		Define.PathDataDispose ();
-		DataToFile.LoadData(StageNumber, PathNode);
+		DataToFile.LoadData(StageNumber, PathNode, node_visible);
 		UnitNameGetter.GetInstance ().Initialize ();
 		UnitMusterController.GetInstance ().Initialize ();
 		UnitPoolController.GetInstance ().Initialize ();

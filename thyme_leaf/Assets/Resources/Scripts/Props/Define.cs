@@ -43,32 +43,41 @@ public struct PathNodeOffsetStruct
 {
 	public int size;
 	public OffsetStruct[] offset_st;
+	public int count_num;
 
 	public PathNodeOffsetStruct(int size)
 	{
 		this.size = size;
 		offset_st = new OffsetStruct[size];
 		for (int i=0; i<size; i++) offset_st [i].Initialize ();
+		count_num = 0;
 	}
 	public void Dispose()
 	{
 		size = 0;
 		for (int i=0; i<size; i++) offset_st [i].Initialize ();
+		count_num = 0;
 	}
 
 	public OffsetStruct getNodeOffset()
 	{
 		OffsetStruct data = new OffsetStruct ();
-		for(int i=0;i<size;i++)
-		{
-			if(!offset_st[i].is_use) 
-			{
-				offset_st[i].is_use = true;
-				offset_st[i].idx = i;
-				data = offset_st[i];
-				break;
-			}
-		}
+
+		int i = size % count_num; 
+		offset_st[i].is_use = true;
+		offset_st[i].idx = i;
+		data = offset_st[i];
+		count_num++;
+//		for(int i=0;i<size;i++)
+//		{
+//			if(!offset_st[i].is_use) 
+//			{
+//				offset_st[i].is_use = true;
+//				offset_st[i].idx = i;
+//				data = offset_st[i];
+//				break;
+//			}
+//		}
 		return data;
 	}
 

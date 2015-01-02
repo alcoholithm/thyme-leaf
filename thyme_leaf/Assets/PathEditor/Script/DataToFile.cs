@@ -92,7 +92,7 @@ public class DataToFile : MonoBehaviour
 		textWriter.Close();
 	}
 
-	public static void LoadData(int stageNumber, GameObject nodePref)
+	public static void LoadData(int stageNumber, GameObject nodePref, bool visible)
 	{
 		if(stageNumber <= 0) return;
 
@@ -251,7 +251,7 @@ public class DataToFile : MonoBehaviour
 			else if(tempFunc.trovantPoint) tempFunc.ChangeIMG(SpriteList.TROVANT);
 			else if(tempFunc.TurnoffRoot) tempFunc.ChangeIMG(SpriteList.TURNOFF);
 
-			tempFunc.SetVisialbe(false);
+			tempFunc.SetVisialbe(visible);
 
 			MapDataStruct mapdata = Define.pathNode[c];
 			mapdata.obj = tempsetting;
@@ -259,17 +259,15 @@ public class DataToFile : MonoBehaviour
 		}
 
 		//path node offset setting...
-		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(10);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
-		offset_data.setOffsetPos (0, 0, 0);
+		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(8);
+		offset_data.setOffsetPos (0, -15, -15);
+		offset_data.setOffsetPos (1, -20, 0);
+		offset_data.setOffsetPos (2, 15, -15);
+		offset_data.setOffsetPos (3, 0, -20);
+		offset_data.setOffsetPos (4, 15, 15);
+		offset_data.setOffsetPos (5, 20, 0);
+		offset_data.setOffsetPos (6, -15, 15);
+		offset_data.setOffsetPos (7, 0, 20);
 	}
 }
 
