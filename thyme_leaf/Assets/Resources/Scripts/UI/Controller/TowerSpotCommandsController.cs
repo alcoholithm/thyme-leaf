@@ -28,6 +28,8 @@ public class TowerSpotCommandsController
         Agt_Type1 tower = Spawner.Instance.GetTower(TowerType.APT);
         if(Network.peerType == NetworkPeerType.Disconnected) InitBuildedTower(ref tower); // Single mode
         else tower.gameObject.GetComponent<SyncStateScript>().NetworkInitTower(model, view.gameObject); // Multi mode
+
+        view.gameObject.SetActive(false);
     }
 
     public void InitBuildedTower(ref Agt_Type1 tower)
@@ -36,7 +38,6 @@ public class TowerSpotCommandsController
         tower.transform.localScale = Vector3.one;
         tower.transform.position = model.SelectedObject.transform.position;
         tower.StateMachine.ChangeState(TowerState_Building.Instance);
-        view.gameObject.SetActive(false);
     }
 
     public void Cancel()

@@ -38,18 +38,19 @@ public class SyncStateScript : MonoBehaviour
     public void NetworkInitTower(BattleModel model, GameObject view)
     {
         if (gameObject.networkView.isMine)
-            networkView.RPC("OnNetworkInitTower", RPCMode.All, model.SelectedObject.networkView.viewID, view.networkView.viewID);
+        {
+            networkView.RPC("OnNetworkInitTower", RPCMode.All, model.SelectedObject.networkView.viewID);
+        }
     }
 
     [RPC]
-    void OnNetworkInitTower(NetworkViewID parentViewID, NetworkViewID viewViewID)
+    void OnNetworkInitTower(NetworkViewID parentViewID)
     {
         Transform parentTransform = NetworkView.Find(parentViewID).transform;
         gameObject.transform.parent = parentTransform;
         gameObject.transform.localScale = Vector3.one;
         gameObject.transform.position = parentTransform.position;
         gameObject.GetComponent<Agt_Type1>().StateMachine.ChangeState(TowerState_Building.Instance);
-        NetworkView.Find(viewViewID).gameObject.SetActive(false);
     }
 
     /****************************************************************************************************/
