@@ -408,7 +408,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: Franscis_Type1_Attacking_Downwards_0
+  mSpriteName: Franscis_Type1_Attacking_Upwards_3
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:

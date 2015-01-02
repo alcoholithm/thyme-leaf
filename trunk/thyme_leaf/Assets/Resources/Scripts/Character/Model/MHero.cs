@@ -15,6 +15,10 @@ public class MHero : Unit
 	private bool muster_leader;
 	private Vector3 node_offset;
 
+	private float attack_delay;
+	private float attack_range;
+	private float attack_damage;
+
 	private string state_name;
 	
 	public MHero(Helper helper)
@@ -61,6 +65,24 @@ public class MHero : Unit
 		get { return state_name; }
 		set { state_name = value; }
 	}
-	
+
+	public float AttackDelay
+	{
+		get { return attack_delay; }
+		set { attack_delay = value; }
+	}
+
+	public float AttackDamage
+	{
+		get { return attack_damage; }
+		set { attack_damage = value; }
+	}
+
+	public float AttackRange
+	{
+		get { return attack_range; }
+		set { attack_range = value; }
+	}
+
 	public new const string TAG = "[MHero]";
 }
