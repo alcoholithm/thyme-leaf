@@ -31,15 +31,24 @@ public class Define
 		return Time.deltaTime * 60;
 	}
 
-	private static UnitType myType;
-	public static void SetUnitType(UnitType option)
-	{
-		myType = option;
-	}
-	public static UnitType GetUnitType()
-	{
-		return myType;
-	}
+	public static PathNodeOffsetStruct path_node_off;
 
 	public static int Select_Hero = 0;
+}
+
+public struct PathNodeOffsetStruct
+{
+	public int size;
+	public Vector3[] offset;
+
+	public PathNodeOffsetStruct(int size)
+	{
+		this.size = size;
+		offset = new Vector3[size];
+	}
+	public void Dispose()
+	{
+		size = 0;
+		offset = null;
+	}
 }

@@ -485,7 +485,9 @@ public class Spawner : Manager<Spawner>
 			hero.controller.setType (UnitType.TROVANT_CHARACTER);
 			hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
 		}
-		//move trigger & unit pool manager setting <add>...
+		float range_value = 80;
+		hero.controller.setMoveOffset (Random.Range (-range_value, range_value), 
+		                               Random.Range (-range_value, range_value));
 		//moving state...
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
 		//moveing enable...

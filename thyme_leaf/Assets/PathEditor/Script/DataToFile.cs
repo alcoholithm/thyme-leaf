@@ -258,6 +258,10 @@ public class DataToFile : MonoBehaviour
 			Define.pathNode[c] = mapdata;
 		}
 
+		//path node offset setting...
+		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(10);
+
+
 	}
 }
 
