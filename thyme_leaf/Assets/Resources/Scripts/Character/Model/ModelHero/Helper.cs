@@ -127,7 +127,9 @@ public class Helper
 			return false;
 		}
 		Vector3 centerPoint = nodeStock.transform.localPosition;
-		
+
+        Debug.Log("kdsjflkjsdalkjflk "+option);
+
 		if(option == Layer.Trovant || default_auto == FindingNodeDefaultOption.RANDOM_NODE)
 		{
 			start_pt = getPos();
