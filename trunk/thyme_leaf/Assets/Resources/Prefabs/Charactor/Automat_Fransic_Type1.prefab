@@ -391,8 +391,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 160
-  mHeight: 160
+  mWidth: 50
+  mHeight: 50
   mDepth: 4
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
