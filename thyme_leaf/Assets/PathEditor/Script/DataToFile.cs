@@ -273,7 +273,7 @@ public class DataToFile : MonoBehaviour
 		Define.path_node_off = offset_data;
 
 		//random table setting...
-		Define.random_index_table = new RandomTableStruct (10, 0, 3);
+		Define.random_index_table = new RandomTableStruct (30, 0, 3);
 	}
 }
 
