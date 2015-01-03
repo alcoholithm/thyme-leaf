@@ -25,7 +25,7 @@ public class ConnectScript : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         networkView.group = 1;
     }
 
