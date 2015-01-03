@@ -69,31 +69,32 @@ public class HeroState_Attacking : State<Hero>
         // owner = automat or trovant
 
 
-        if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
-        {
-            owner.networkView.RPC("NetworkChangeStateAndSendAttackMessage",RPCMode.All,owner.networkView.viewID, isCharacter);
-        }
-        else
-        {
+        //if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
+        //{
+        //    owner.networkView.RPC("NetworkChangeStateAndSendAttackMessage",RPCMode.All,owner.networkView.viewID, isCharacter);
+        //}
+        //else
+        //{
             ChangeStateIntoMoving(owner, isCharacter);
             SendAttackMessage(owner);
-        }
+        //}
     }
 
-    [RPC]
-    void NetworkChangeStateAndSendAttackMessage(NetworkViewID ownerID, bool isCharacter)
-    {
-        Hero owner = NetworkView.Find(ownerID).GetComponent<Hero>();
-        ChangeStateIntoMoving(owner, isCharacter);
-        SendAttackMessage(owner);
-    }
+    
 
     private void ChangeStateIntoMoving(Hero owner, bool isCharacter)
     {
         if (owner.helper.attack_target == null || (!isCharacter && owner.helper.attack_target.model.HP <= 0))
         {
             owner.target = null;
-            owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+            if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
+            {
+                owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
+            }
+            else
+            {
+                owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+            }
             Debug.Log("Enemy is died or disappeared");
         }
 
