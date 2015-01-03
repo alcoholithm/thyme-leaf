@@ -15,7 +15,7 @@ public class DataToFile : MonoBehaviour
 
 		string fileName = "mData" + stageNum + ".txt";
 		string dataPath = Application.dataPath;
-		string fullPath = dataPath + "/Resources/MapFile/" + fileName;
+		string fullPath = dataPath + "/Resources/Props/MapFile/" + fileName;
 
 		FileStream fs = new FileStream(fullPath, FileMode.Create);
 		TextWriter textWriter = new StreamWriter(fs);

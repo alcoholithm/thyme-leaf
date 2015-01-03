@@ -1,13 +1,13 @@
-numofdata 40
+numofdata 50
 name node0
 id 0
 current_pos
--964 -167 0
-next node21
+-871 657 0
+next node1
 prev null
 turnoffBridge null
-startpoint true
-endpoint false
+automatpoint true
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -15,12 +15,12 @@ null null null null
 name node1
 id 1
 current_pos
--80 386 0
-next node22
-prev node2
+-797 569 0
+next node2
+prev node0
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -28,12 +28,12 @@ null null null null
 name node2
 id 2
 current_pos
--175 346 0
-next node1
-prev node4
+-737 473 0
+next node3
+prev node1
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -41,25 +41,25 @@ null null null null
 name node3
 id 3
 current_pos
--48 43 0
-next null
-prev null
+-677 365 0
+next node4
+prev node2
 turnoffBridge null
-startpoint false
-endpoint false
-turnoffRoot true
-turnoffidx 3
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
 turnoffList
-node7 node29 node6 null 
+null null null null 
 name node4
 id 4
 current_pos
--243 269 0
-next node2
-prev node5
+-649 264 0
+next node5
+prev node3
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -67,12 +67,12 @@ null null null null
 name node5
 id 5
 current_pos
--235 172 0
-next node4
-prev node6
+-723 191 0
+next node6
+prev node4
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -80,12 +80,12 @@ null null null null
 name node6
 id 6
 current_pos
--157 97 0
-next node5
-prev null
-turnoffBridge node3
-startpoint false
-endpoint false
+-805 127 0
+next node7
+prev node5
+turnoffBridge null
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -93,12 +93,12 @@ null null null null
 name node7
 id 7
 current_pos
-76 -18 0
-next null
-prev node8
-turnoffBridge node3
-startpoint false
-endpoint false
+-859 41 0
+next node8
+prev node6
+turnoffBridge null
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -106,12 +106,12 @@ null null null null
 name node8
 id 8
 current_pos
-190 -71 0
-next node7
-prev node9
+-857 -56 0
+next node9
+prev node7
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -119,12 +119,12 @@ null null null null
 name node9
 id 9
 current_pos
-298 -107 0
-next node8
-prev node10
+-759 -113 0
+next node10
+prev node8
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -132,12 +132,12 @@ null null null null
 name node10
 id 10
 current_pos
-398 -152 0
-next node9
-prev null
-turnoffBridge node11
-startpoint false
-endpoint false
+-619 -124 0
+next null
+prev node9
+turnoffBridge node16
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -145,25 +145,25 @@ null null null null
 name node11
 id 11
 current_pos
-439 -245 0
-next null
-prev null
+212 -438 0
+next node12
+prev node36
 turnoffBridge null
-startpoint false
-endpoint false
-turnoffRoot true
-turnoffidx 3
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
 turnoffList
-node12 node39 node10 null 
+null null null null 
 name node12
 id 12
 current_pos
-381 -334 0
-next null
-prev node13
-turnoffBridge node11
-startpoint false
-endpoint false
+306 -369 0
+next node13
+prev node11
+turnoffBridge null
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -171,12 +171,12 @@ null null null null
 name node13
 id 13
 current_pos
-265 -374 0
-next node12
-prev node14
-turnoffBridge null
-startpoint false
-endpoint false
+382 -269 0
+next null
+prev node12
+turnoffBridge node29
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -184,12 +184,12 @@ null null null null
 name node14
 id 14
 current_pos
-142 -362 0
-next node13
-prev node15
-turnoffBridge null
-startpoint false
-endpoint false
+558 -147 0
+next node15
+prev null
+turnoffBridge node29
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -197,12 +197,12 @@ null null null null
 name node15
 id 15
 current_pos
-15 -334 0
-next node14
-prev node16
+677 -119 0
+next node37
+prev node14
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -210,25 +210,25 @@ null null null null
 name node16
 id 16
 current_pos
--108 -290 0
-next node15
-prev node17
+-469 -119 0
+next null
+prev null
 turnoffBridge null
-startpoint false
-endpoint false
-turnoffRoot false
-turnoffidx 0
+automatpoint false
+trovantpoint false
+turnoffRoot true
+turnoffidx 3
 turnoffList
-null null null null 
+node10 node17 node30 null 
 name node17
 id 17
 current_pos
--231 -242 0
-next node16
-prev node18
-turnoffBridge null
-startpoint false
-endpoint false
+-417 -10 0
+next node18
+prev null
+turnoffBridge node16
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -236,12 +236,12 @@ null null null null
 name node18
 id 18
 current_pos
--365 -188 0
-next node17
-prev node19
+-368 85 0
+next node19
+prev node17
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -249,12 +249,12 @@ null null null null
 name node19
 id 19
 current_pos
--485 -161 0
-next node18
-prev node20
+-310 172 0
+next node20
+prev node18
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -262,12 +262,12 @@ null null null null
 name node20
 id 20
 current_pos
--639 -152 0
-next node19
-prev node21
+-241 256 0
+next node21
+prev node19
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -275,12 +275,12 @@ null null null null
 name node21
 id 21
 current_pos
--810 -161 0
-next node20
-prev node0
+-158 339 0
+next node22
+prev node20
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -288,12 +288,12 @@ null null null null
 name node22
 id 22
 current_pos
-29 406 0
+-58 397 0
 next node23
-prev node1
+prev node21
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -301,12 +301,12 @@ null null null null
 name node23
 id 23
 current_pos
-147 419 0
+40 376 0
 next node24
 prev node22
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -314,12 +314,12 @@ null null null null
 name node24
 id 24
 current_pos
-288 427 0
+126 316 0
 next node25
 prev node23
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -327,12 +327,12 @@ null null null null
 name node25
 id 25
 current_pos
-442 427 0
+211 251 0
 next node26
 prev node24
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -340,12 +340,12 @@ null null null null
 name node26
 id 26
 current_pos
-588 413 0
+254 157 0
 next node27
 prev node25
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -353,12 +353,12 @@ null null null null
 name node27
 id 27
 current_pos
-756 395 0
+306 54 0
 next node28
 prev node26
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -366,12 +366,12 @@ null null null null
 name node28
 id 28
 current_pos
-954 371 0
+362 -53 0
 next null
 prev node27
-turnoffBridge null
-startpoint false
-endpoint true
+turnoffBridge node29
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -379,25 +379,25 @@ null null null null
 name node29
 id 29
 current_pos
-50 104 0
+431 -159 0
 next null
-prev node30
-turnoffBridge node3
-startpoint false
-endpoint false
-turnoffRoot false
-turnoffidx 0
+prev null
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot true
+turnoffidx 3
 turnoffList
-null null null null 
+node13 node28 node14 null 
 name node30
 id 30
 current_pos
-165 143 0
-next node29
-prev node31
-turnoffBridge null
-startpoint false
-endpoint false
+-450 -223 0
+next node31
+prev null
+turnoffBridge node16
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -405,12 +405,12 @@ null null null null
 name node31
 id 31
 current_pos
-292 161 0
-next node30
-prev node32
+-417 -325 0
+next node32
+prev node30
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -418,12 +418,12 @@ null null null null
 name node32
 id 32
 current_pos
-424 146 0
-next node31
-prev node33
+-363 -419 0
+next node33
+prev node31
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -431,12 +431,12 @@ null null null null
 name node33
 id 33
 current_pos
-554 126 0
-next node32
-prev node34
+-261 -479 0
+next node34
+prev node32
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -444,12 +444,12 @@ null null null null
 name node34
 id 34
 current_pos
-696 104 0
-next node33
-prev node35
+-137 -511 0
+next node35
+prev node33
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -457,12 +457,12 @@ null null null null
 name node35
 id 35
 current_pos
-783 12 0
-next node34
-prev node36
+-11 -513 0
+next node36
+prev node34
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -470,12 +470,12 @@ null null null null
 name node36
 id 36
 current_pos
-795 -92 0
-next node35
-prev node37
+103 -488 0
+next node11
+prev node35
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -483,12 +483,12 @@ null null null null
 name node37
 id 37
 current_pos
-739 -185 0
-next node36
-prev node38
+788 -79 0
+next node38
+prev node15
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -496,12 +496,12 @@ null null null null
 name node38
 id 38
 current_pos
-646 -242 0
-next node37
-prev node39
+867 -10 0
+next node39
+prev node37
 turnoffBridge null
-startpoint false
-endpoint false
+automatpoint false
+trovantpoint false
 turnoffRoot false
 turnoffidx 0
 turnoffList
@@ -509,12 +509,142 @@ null null null null
 name node39
 id 39
 current_pos
-541 -251 0
-next node38
-prev null
-turnoffBridge node11
-startpoint false
-endpoint false
+882 84 0
+next node40
+prev node38
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node40
+id 40
+current_pos
+823 154 0
+next node41
+prev node39
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node41
+id 41
+current_pos
+727 187 0
+next node42
+prev node40
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node42
+id 42
+current_pos
+627 216 0
+next node43
+prev node41
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node43
+id 43
+current_pos
+540 264 0
+next node44
+prev node42
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node44
+id 44
+current_pos
+498 339 0
+next node45
+prev node43
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node45
+id 45
+current_pos
+513 425 0
+next node46
+prev node44
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node46
+id 46
+current_pos
+608 463 0
+next node47
+prev node45
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node47
+id 47
+current_pos
+715 496 0
+next node48
+prev node46
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node48
+id 48
+current_pos
+820 543 0
+next node49
+prev node47
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node49
+id 49
+current_pos
+885 655 0
+next null
+prev node48
+turnoffBridge null
+automatpoint false
+trovantpoint true
 turnoffRoot false
 turnoffidx 0
 turnoffList
