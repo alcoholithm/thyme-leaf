@@ -131,7 +131,7 @@ public class Helper
 			{
 				int idx = Define.random_index_table.getRandomIndex();
 //				Debug.Log(idx);
-				if(idx > tempFunc.CountTurnOffList()) continue;
+				if(idx >= tempFunc.CountTurnOffList()) continue;
 				
 				Vector3 i_dir = tempFunc.getPosTurnoffList(idx) - nodeInfor.getPos(PosParamOption.CURRENT);
 				float dot = Vector3.Dot(my_dir, i_dir);

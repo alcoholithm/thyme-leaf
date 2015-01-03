@@ -52,7 +52,7 @@ public struct RandomTableStruct
 		this.size = size;
 		rand_table = new RandomIdxStruct[size];
 		for(int i=0;i<size;i++)
-			rand_table[i].Initialize(Random.Range(min_n, max_n), false);
+			rand_table[i].Initialize(Random.Range(min_n, max_n+1), false);
 		count_rand = 0;
 	}
 
@@ -61,7 +61,7 @@ public struct RandomTableStruct
 		this.size = size;
 		rand_table = new RandomIdxStruct[size];
 		for(int i=0;i<size;i++)
-			rand_table[i].Initialize(Random.Range(min_n, max_n), false);
+			rand_table[i].Initialize(Random.Range(min_n, max_n+1), false);
 		count_rand = 0;
 	}
 
