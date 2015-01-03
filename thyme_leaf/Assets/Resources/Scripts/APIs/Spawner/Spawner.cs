@@ -485,11 +485,14 @@ public class Spawner : Manager<Spawner>
 		{
 			hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
 			hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
+			hero.Particle = GameObject.Find("Automat_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
+
 		}
 		else
 		{
 			hero.controller.setType (UnitType.TROVANT_CHARACTER);
 			hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
+			hero.Particle = GameObject.Find("Trovant_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
 		}
 //		float range_value = 80;
 //		hero.controller.setMoveOffset (Random.Range (-range_value, range_value), 

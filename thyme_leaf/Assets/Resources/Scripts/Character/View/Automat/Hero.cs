@@ -25,6 +25,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	private NGUISpriteAnimation anim;	
 	private HealthBar health_bar_controller;
+	private ParticleSystem particle_sys;
 	
 	public Hero target;
 	public string my_name;  //test code...
@@ -211,6 +212,15 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				if(Input.GetMouseButtonDown(0))
 				{
 					helper.gesture_startpoint = Input.mousePosition;
+
+					//test code...
+					if(helper.getMusterTrigger())
+					{
+						Vector3 screen_v = UICamera.mainCamera.WorldToScreenPoint(UnitMusterController.GetInstance().FirstObj(model.MusterID).helper.getPos());
+						helper.gesture_startpoint = screen_v;
+						Debug.Log(screen_v);
+					}
+
 					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
 					if(collider == null) return;
 					Hero obj = collider.gameObject.GetComponent<Hero>();
@@ -456,6 +466,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		CurrentHP = model.HP;  //test code...
         HealthUpdate();
 
+		particle_sys.transform.localPosition = helper.getPos () + new Vector3 (0, 55, 0);
+		particle_sys.Play ();
+
 		if(model.HP <= 0)
 		{
 			Debug.Log(model.Name + " die");
@@ -472,6 +485,12 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	public void Die(){ helper.setPos (1000, 1000, 0); CollisionSetting (false); }
 	
 	public UISpriteAnimation GetAnim() { return anim; }
+
+	public ParticleSystem Particle
+	{
+		get { return particle_sys; }
+		set { particle_sys = value; }
+	}
 	//==============================================
 	/*
      * followings are member functions
