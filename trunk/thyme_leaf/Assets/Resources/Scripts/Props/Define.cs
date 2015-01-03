@@ -41,7 +41,7 @@ public class Define
 
 public struct PathNodeOffsetStruct
 {
-	public int size;
+	private int size;
 	public OffsetStruct[] offset_st;
 	public int count_num;
 
@@ -53,7 +53,7 @@ public struct PathNodeOffsetStruct
 		count_num = 0;
 	}
 	public void Dispose()
-	{
+	{	
 		size = 0;
 		for (int i=0; i<size; i++) offset_st [i].Initialize ();
 		count_num = 0;
@@ -63,7 +63,8 @@ public struct PathNodeOffsetStruct
 	{
 		OffsetStruct data = new OffsetStruct ();
 
-		int i = size % count_num; 
+		Debug.Log (size);
+		int i = (count_num + size) % size; 
 		offset_st[i].is_use = true;
 		offset_st[i].idx = i;
 		data = offset_st[i];

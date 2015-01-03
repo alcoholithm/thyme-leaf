@@ -94,6 +94,10 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
 		health_bar_body = transform.GetChild (0);
 
+//		this.health_bar_controller.Model = this.model;
+//		this.Add(health_bar_controller);
+//		model.RegisterObserver (this, ObserverTypes.Health);
+		
 		my_uisprite = gameObject.GetComponent<UISprite> (); //test code...
 	}
 
@@ -443,8 +447,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		controller.addHp (-damage_range);
 		CurrentHP = model.HP;  //test code...
         HealthUpdate();
-
-        //model.HP -= damage_range;
 
 		if(model.HP <= 0)
 		{

@@ -14,6 +14,7 @@ public class MHero : Unit
 	private string musterID;
 	private bool muster_leader;
 	private Vector3 node_offset;
+	private OffsetStruct offset_struct;
 
 	private float attack_delay;
 	private float attack_range;
@@ -82,6 +83,12 @@ public class MHero : Unit
 	{
 		get { return attack_range; }
 		set { attack_range = value; }
+	}
+
+	public OffsetStruct NodeOffsetStruct
+	{
+		get { return offset_struct; }
+		set { offset_struct = value; }
 	}
 
 	public new const string TAG = "[MHero]";
