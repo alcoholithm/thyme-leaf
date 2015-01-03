@@ -74,7 +74,7 @@ public class UnitMusterController
 		Hero leader = unitMusters [idx].getElement (unit_idx);
 
 		//lock on system setting...
-		Debug.Log ("command attack");
+//		Debug.Log ("command attack");
 		for(int i=0;i<MaxMusterUnitCount;i++)
 		{
 			Hero hero = unitMusters[idx].getElement(i);
@@ -82,7 +82,7 @@ public class UnitMusterController
 			{
 				if(hero.target == null && hero.StateMachine.CurrentState == HeroState_Moving.Instance)
 				{
-					Debug.Log("i : " + i);
+//					Debug.Log("i : " + i);
 					//lock on system...
 					hero.target = leader.helper.attack_target;
 					hero.controller.setMoveTrigger(false);
@@ -116,7 +116,7 @@ public class UnitMusterController
 		}
 		if(unit_idx < 0) return;
 		Hero leader = unitMusters [idx].getElement (unit_idx);
-		Debug.Log ("leader : "+leader.model.Name);
+//		Debug.Log ("leader : "+leader.model.Name);
 
 		Vector3 d = (leader.helper.gesture_endpoint - leader.helper.gesture_startpoint);
 		d.Normalize ();
@@ -137,6 +137,33 @@ public class UnitMusterController
 				}
 			}
 		}
+	}
+
+	public bool isUnitCountCheck(string m1, string m2)
+	{
+		int idx1 = -1, idx2 = -1;
+		for(int i=0;i<MaxMusterCount;i++)
+		{
+			if(unitMusters[i].getName() == m1)
+			{
+				idx1 = i;
+			}
+			if(unitMusters[i].getName() == m2)
+			{
+				idx2 = i;
+			}
+		}
+
+		if(m1 == "null" && m2 == "null") return true;
+
+		if(m1 == "null" && unitMusters[idx2].CountUnit() >= 5) return false;
+		if(m2 == "null" && unitMusters[idx1].CountUnit() >= 5) return false;
+
+		if(idx1 < 0 || idx2 < 0) return true;
+
+		if(unitMusters[idx1].CountUnit() + unitMusters[idx2].CountUnit() > 5) return false;
+
+		return true;
 	}
 	
 	public bool canMakeMuster()
