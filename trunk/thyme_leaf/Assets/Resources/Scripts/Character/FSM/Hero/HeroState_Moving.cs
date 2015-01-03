@@ -88,6 +88,7 @@ public class HeroState_Moving : State<Hero> {
 				{
 					if(owner.helper.nodeInfor.Next != null)
 					{
+						owner.helper.nodeOld = owner.helper.nodeStock;
 						owner.helper.nodeStock = owner.helper.nodeInfor.Next;
 					}
 					else
@@ -98,10 +99,14 @@ public class HeroState_Moving : State<Hero> {
 						{
 							//Debug.Log("turnoff null");
 							if(owner.helper.nodeInfor.automatPoint || owner.helper.nodeInfor.trovantPoint) owner.controller.MoveReverse();
-							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
+							else
+							{
+								owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
+							}
 						}
 						else
 						{
+							owner.helper.nodeOld = owner.helper.nodeStock;
 							owner.helper.nodeStock = owner.helper.nodeInfor.turnoffBridge;
 						}
 					}
@@ -110,6 +115,7 @@ public class HeroState_Moving : State<Hero> {
 				{
 					if(owner.helper.nodeInfor.Prev != null) 
 					{
+						owner.helper.nodeOld = owner.helper.nodeStock;
 						owner.helper.nodeStock = owner.helper.nodeInfor.Prev;
 					}
 					else
@@ -120,10 +126,14 @@ public class HeroState_Moving : State<Hero> {
 						{
 							//Debug.Log("turnoff null");
 							if(owner.helper.nodeInfor.automatPoint || owner.helper.nodeInfor.trovantPoint) owner.controller.MoveReverse();
-							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
+							else
+							{
+								owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
+							}
 						}
 						else
 						{
+							owner.helper.nodeOld = owner.helper.nodeStock;
 							owner.helper.nodeStock = owner.helper.nodeInfor.turnoffBridge;
 						}
 					}

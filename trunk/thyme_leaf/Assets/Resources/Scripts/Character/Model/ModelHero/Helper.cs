@@ -9,6 +9,7 @@ public class Helper
 	//moving value
 	private MoveModeState moveMode;
 	public GameObject nodeStock;
+	public GameObject nodeOld;
 	public scriptPathNode nodeInfor;
 //	private string current_node_name;
 	
@@ -21,8 +22,7 @@ public class Helper
 	//==================================
 	//extra
 	public bool selectTurnoffRoot;
-	
-	public string old_name;
+
 	public Vector3 gesture_startpoint;
 	public Vector3 gesture_endpoint;
 	public Vector3 oldpos;
@@ -62,6 +62,7 @@ public class Helper
 	{
 		Vector3 d = getPos () - oldpos;
 		oldpos = getPos ();
+
 		return Mathf.Atan2 (d.y, d.x) * Define.RadianToAngle ();
 	}
 	
@@ -87,6 +88,7 @@ public class Helper
 				if(tempFunc.trovantPoint) nodeStock = Define.pathNode[i].obj;
 			}
 		}
+		nodeOld = nodeStock;
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 		
 		setPos (nodeInfor.getPos (PosParamOption.CURRENT));
@@ -118,24 +120,32 @@ public class Helper
 		{
 			start_pt = getPos();
 			Random.seed = 1; //test code...
-			int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
-            Debug.Log("RANDOM INDEX :: "+rand_idx);
+//			int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
+ //           Debug.Log("RANDOM INDEX :: "+rand_idx);
 
-			//Re edit...
-//			Vector3 my_dir = 0;
-//			while(true)
-//			{
-//				int idx = Define.random_index_table.getRandomIndex();
-//				if(idx > tempFunc.CountTurnOffList()) continue;
-//				if(Vector3.Dot(start_pt, tempFunc.getPosTurnoffList(idx)) < 0) continue;
-//				else
-//				{
-//					end_pt = tempFunc.getPosTurnoffList(idx);
-//					break;
-//				}
-//			}
+			//asdasd
+			Vector3 my_dir = nodeInfor.getPos(PosParamOption.CURRENT) - nodeOld.transform.localPosition;
+			//Debug.Log(nodeOld.name);
+			int i = 10;
+			while(i-- > 0)
+			{
+				int idx = Define.random_index_table.getRandomIndex();
+//				Debug.Log(idx);
+				if(idx > tempFunc.CountTurnOffList()) continue;
+				
+				Vector3 i_dir = tempFunc.getPosTurnoffList(idx) - nodeInfor.getPos(PosParamOption.CURRENT);
+				float dot = Vector3.Dot(my_dir, i_dir);
+//				Debug.Log("dot = "+dot);
+				if(dot <= 0) continue;
+				else
+				{
+					Debug.Log("find node !!!");
+					end_pt = tempFunc.getPosTurnoffList(idx);
+					break;
+				}
+			}
 
-			end_pt = tempFunc.getPosTurnoffList(rand_idx);
+//			end_pt = tempFunc.getPosTurnoffList(rand_idx);
 
 			current_hero.helper.gesture_startpoint = start_pt;
 			current_hero.helper.gesture_endpoint = end_pt;
