@@ -21,6 +21,9 @@ public class HeroState_Moving : State<Hero> {
 
 	public override void Execute (Hero owner)
 	{
+        if (Network.peerType != NetworkPeerType.Disconnected && !owner.gameObject.networkView.isMine) 
+            return;
+
 		Vector3 d = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT) + owner.model.NodeOffsetStruct.offset) - owner.helper.getPos ();
 
 		//checking...

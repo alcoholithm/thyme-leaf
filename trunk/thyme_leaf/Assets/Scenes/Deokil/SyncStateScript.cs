@@ -4,45 +4,30 @@ using System.Collections;
 public class SyncStateScript : MonoBehaviour
 {
     private Vector3 lastPosition;
-    private bool networkMode;
-    float minimumMovement;
-    Transform body;
-
-    private Vector3 currPos;
+    private float minimumMovement;
     private Hero hero;
 
     // Use this for initialization
     void Start()
     {
+        // Prevent game object from synchronizing when connected to network
         if (Network.peerType == NetworkPeerType.Disconnected)
             Destroy(this.gameObject);
 
         minimumMovement = 1.5f;
-        currPos = transform.position;
         if (hero == null)
+        {
             hero = gameObject.GetComponent<Hero>();
+            
+        }
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Network.peerType != NetworkPeerType.Disconnected)
-    //        if (hero != null && hero.controller.isGesture() && networkView.isMine)
-    //        {
-    //            networkView.RPC("OnArriveBranch", RPCMode.Others, transform.position);
-    //        }
-    //}
-
 
     void Update()
     {
-        if (networkView.isMine)
+        if (networkView.isMine && Vector3.Distance(transform.localPosition, lastPosition) >= minimumMovement)
         {
-            if (Vector3.Distance(transform.localPosition, lastPosition) >= minimumMovement)
-            {
-                lastPosition = transform.localPosition;
-                networkView.RPC("SyncPosition", RPCMode.Others, transform.localPosition);
-            }
+            lastPosition = transform.localPosition;
+            networkView.RPC("SyncPosition", RPCMode.Others, transform.localPosition);
         }
     }
 
@@ -50,19 +35,7 @@ public class SyncStateScript : MonoBehaviour
     void SyncPosition(Vector3 newPos)
     {
         transform.localPosition = newPos;
-        //		transform.rotation = newRot;
-        //if (body == null)
-        //{
-        //    transform.rotation = newRot;
-        //}
-        //else
-        //{
-        //    body.rotation = newRot;
-        //}
-        //		Debug.Log ("Rotation : "+newRot);
     }
-
-
 
     [RPC]
     void OnArriveBranch(Vector3 position)
