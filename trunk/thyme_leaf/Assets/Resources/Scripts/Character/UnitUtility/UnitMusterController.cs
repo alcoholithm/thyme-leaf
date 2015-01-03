@@ -172,7 +172,7 @@ public class UnitMusterController
 		return true;
 	}
 	
-	public Hero LeaderObj(string muster_name)
+	public Hero FirstObj(string muster_name)
 	{
 		int idx = -1;
 		for(int i=0;i<MaxMusterCount;i++)
