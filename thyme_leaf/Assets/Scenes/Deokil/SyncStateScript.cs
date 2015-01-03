@@ -12,7 +12,7 @@ public class SyncStateScript : MonoBehaviour
     {
         // Prevent game object from synchronizing when connected to network
         if (Network.peerType == NetworkPeerType.Disconnected)
-            Destroy(this.gameObject);
+            Destroy(this);
 
         minimumMovement = 1.5f;
         if (hero == null)

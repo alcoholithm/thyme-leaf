@@ -68,30 +68,62 @@ public class HeroState_Attacking : State<Hero>
         // attack_target = trovant or projectile
         // owner = automat or trovant
 
-		if(owner.helper.attack_target != null)
-		{
-			if(!isCharacter && owner.helper.attack_target.model.HP <= 0)
-			{
-				owner.target = null;
-				owner.StateMachine.ChangeState(HeroState_Moving.Instance);
-				Debug.Log("nothing emy~");
-			}
-		}
 
-		if(owner.helper.attack_target != null)
-		{
-			//attack...
-			owner.helper.attack_delay_counter += Time.deltaTime;
-			if (owner.helper.attack_delay_counter >= owner.model.AttackDelay)
-			{
-				Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, new HeroDamageCommand(owner.helper.attack_target, (int)owner.model.AttackDamage));
+        if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
+        {
+            owner.networkView.RPC("NetworkChangeStateAndSendAttackMessage",RPCMode.All,owner.networkView.viewID, isCharacter);
+        }
+        else
+        {
+            ChangeStateIntoMoving(owner, isCharacter);
+            SendAttackMessage(owner);
+        }
+    }
+
+    [RPC]
+    void NetworkChangeStateAndSendAttackMessage(NetworkViewID ownerID, bool isCharacter)
+    {
+        Hero owner = NetworkView.Find(ownerID).GetComponent<Hero>();
+        ChangeStateIntoMoving(owner, isCharacter);
+        SendAttackMessage(owner);
+    }
+
+    private void ChangeStateIntoMoving(Hero owner, bool isCharacter)
+    {
+        if (owner.helper.attack_target == null || (!isCharacter && owner.helper.attack_target.model.HP <= 0))
+        {
+            owner.target = null;
+            owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+            Debug.Log("Enemy is died or disappeared");
+        }
+
+            //if (owner.helper.attack_target != null)
+            //{
+            //    if (!isCharacter && owner.helper.attack_target.model.HP <= 0)
+            //    {
+            //        owner.target = null;
+            //        owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+            //        Debug.Log("nothing emy~");
+            //    }
+            //}
+    }
+
+    private void SendAttackMessage(Hero owner)
+    {
+        if (owner.helper.attack_target != null)
+        {
+            //attack...
+            owner.helper.attack_delay_counter += Time.deltaTime;
+            if (owner.helper.attack_delay_counter >= owner.model.AttackDelay)
+            {
+                Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE, 
+                    new HeroDamageCommand(owner.helper.attack_target, (int)owner.model.AttackDamage));
                 //msg.arg1 = (int) owner.model.AttackDamage;
 
-				owner.DispatchMessage(msg);
-				owner.helper.attack_delay_counter = 0;
-			}
-		}
-
+                owner.DispatchMessage(msg);
+                owner.helper.attack_delay_counter = 0;
+            }
+        }
     }
 
     public override void Exit(Hero owner)
