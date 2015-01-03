@@ -50,6 +50,13 @@ public class StateMachine<TGameEntity> : IHandler
         //currentState.Enter(owner);
     }
 
+    [RPC]
+    void SyncState()
+    {
+
+    }
+
+
     public void RevertToPreviousState()
     {
         ChangeState(previousState);
