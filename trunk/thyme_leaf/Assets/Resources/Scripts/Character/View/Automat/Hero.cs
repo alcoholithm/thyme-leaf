@@ -114,6 +114,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			}
 			else
 			{
+				if(coll.CompareTag(Tag.TagProjectile) || coll.CompareTag(Tag.TagTower) || coll.CompareTag(Tag.TagTowerSpot)) return;
+				
 				Hero other_hero = coll.gameObject.GetComponent<Hero>();
 				if(!other_hero.helper.isGesture() || other_hero.model.MusterID == model.MusterID) return;
 				if(UnitMusterController.GetInstance().isUnitCountCheck(other_hero.model.MusterID, model.MusterID)) return;

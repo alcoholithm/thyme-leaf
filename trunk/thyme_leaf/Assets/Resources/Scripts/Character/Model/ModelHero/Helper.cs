@@ -117,9 +117,23 @@ public class Helper
 		if(option == Layer.Trovant || default_auto == FindingNodeDefaultOption.RANDOM_NODE)
 		{
 			start_pt = getPos();
-			Random.seed = 1;
+			Random.seed = 1; //test code...
 			int rand_idx = Random.Range(0, tempFunc.CountTurnOffList());
             Debug.Log("RANDOM INDEX :: "+rand_idx);
+
+			//Re edit...
+//			Vector3 my_dir = 0;
+//			while(true)
+//			{
+//				int idx = Define.random_index_table.getRandomIndex();
+//				if(idx > tempFunc.CountTurnOffList()) continue;
+//				if(Vector3.Dot(start_pt, tempFunc.getPosTurnoffList(idx)) < 0) continue;
+//				else
+//				{
+//					end_pt = tempFunc.getPosTurnoffList(idx);
+//					break;
+//				}
+//			}
 
 			end_pt = tempFunc.getPosTurnoffList(rand_idx);
 
