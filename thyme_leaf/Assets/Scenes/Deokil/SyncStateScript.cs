@@ -43,6 +43,36 @@ public class SyncStateScript : MonoBehaviour
         transform.position = position;
     }
 
+    /****************************************************************************************************/
+    // Network methods for changing state
+
+    [RPC]
+    void NetworkChangeStateAndSendAttackMessage(NetworkViewID ownerID, bool isCharacter)
+    {
+        Hero owner = NetworkView.Find(ownerID).GetComponent<Hero>();
+        if (owner.helper.attack_target == null || (!isCharacter && owner.helper.attack_target.model.HP <= 0))
+        {
+            owner.target = null;
+            owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+            Debug.Log("Enemy is died or disappeared");
+        }
+
+        if (owner.helper.attack_target != null)
+        {
+            //attack...
+            owner.helper.attack_delay_counter += Time.deltaTime;
+            if (owner.helper.attack_delay_counter >= owner.model.AttackDelay)
+            {
+                Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE,
+                    new HeroDamageCommand(owner.helper.attack_target, (int)owner.model.AttackDamage));
+                //msg.arg1 = (int) owner.model.AttackDamage;
+
+                owner.DispatchMessage(msg);
+                owner.helper.attack_delay_counter = 0;
+            }
+        }
+    }
+
 
     /****************************************************************************************************/
     // Network methods for tower
