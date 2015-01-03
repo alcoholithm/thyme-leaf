@@ -68,4 +68,6 @@ public class ControllerHero
 	public void setAttackDamage(float v) { _model.AttackDamage = v; }
 
 	public void setAttackRange(float v) { _model.AttackRange = v; }
+
+	public void setNodeOffsetStruct(OffsetStruct v) { _model.NodeOffsetStruct = v; }
 }

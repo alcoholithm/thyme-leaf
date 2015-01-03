@@ -259,15 +259,18 @@ public class DataToFile : MonoBehaviour
 		}
 
 		//path node offset setting...
-		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(8);
-		offset_data.setOffsetPos (0, -15, -15);
-		offset_data.setOffsetPos (1, -20, 0);
-		offset_data.setOffsetPos (2, 15, -15);
-		offset_data.setOffsetPos (3, 0, -20);
-		offset_data.setOffsetPos (4, 15, 15);
-		offset_data.setOffsetPos (5, 20, 0);
-		offset_data.setOffsetPos (6, -15, 15);
-		offset_data.setOffsetPos (7, 0, 20);
+		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(9);
+		offset_data.setOffsetPos (0, -65, -65);
+		offset_data.setOffsetPos (1, -80, 0);
+		offset_data.setOffsetPos (2, 65, -65);
+		offset_data.setOffsetPos (3, 0, -80);
+		offset_data.setOffsetPos (4, 65, 65);
+		offset_data.setOffsetPos (5, 80, 0);
+		offset_data.setOffsetPos (6, -65, 65);
+		offset_data.setOffsetPos (7, 0, 80);
+		offset_data.setOffsetPos (8, 0, 0);
+		
+		Define.path_node_off = offset_data;
 	}
 }
 

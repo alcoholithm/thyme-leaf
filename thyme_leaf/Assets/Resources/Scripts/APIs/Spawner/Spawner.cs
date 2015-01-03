@@ -491,15 +491,17 @@ public class Spawner : Manager<Spawner>
 			hero.controller.setType (UnitType.TROVANT_CHARACTER);
 			hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
 		}
-		float range_value = 80;
-		hero.controller.setMoveOffset (Random.Range (-range_value, range_value), 
-		                               Random.Range (-range_value, range_value));
+//		float range_value = 80;
+//		hero.controller.setMoveOffset (Random.Range (-range_value, range_value), 
+//		                               Random.Range (-range_value, range_value));
+		hero.controller.setNodeOffsetStruct (Define.path_node_off.getNodeOffset ());
+
 		//moving state...
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
 		//moveing enable...
 		hero.controller.setMoveTrigger(true);
 		//hp bar setting...
-		hero.HealthUpdate ();
+		//hero.HealthUpdate ();
 		
 		//test...
 		hero.my_name = hero.model.Name;

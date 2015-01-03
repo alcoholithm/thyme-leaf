@@ -21,7 +21,7 @@ public class HeroState_Moving : State<Hero> {
 
 	public override void Execute (Hero owner)
 	{
-		Vector3 d = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT) + owner.model.Node_offset) - owner.helper.getPos ();
+		Vector3 d = (owner.helper.nodeInfor.getPos (PosParamOption.CURRENT) + owner.model.NodeOffsetStruct.offset) - owner.helper.getPos ();
 
 		//checking...
 		Vector3 me = owner.helper.getPos(); // this character position...
