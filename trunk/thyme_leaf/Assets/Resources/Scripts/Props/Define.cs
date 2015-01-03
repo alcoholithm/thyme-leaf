@@ -36,7 +36,65 @@ public class Define
 
 	public static PathNodeOffsetStruct path_node_off;
 
+	public static RandomTableStruct random_index_table;
+
 	public static int Select_Hero = 0;
+}
+
+public struct RandomTableStruct
+{
+	public RandomIdxStruct[] rand_table;
+	public int size;
+	public int count_rand;
+
+	public RandomTableStruct(int size, int min_n, int max_n)
+	{
+		this.size = size;
+		rand_table = new RandomIdxStruct[size];
+		for(int i=0;i<size;i++)
+			rand_table[i].Initialize(Random.Range(min_n, max_n), false);
+		count_rand = 0;
+	}
+
+	public void Initialize(int size, int min_n, int max_n)
+	{
+		this.size = size;
+		rand_table = new RandomIdxStruct[size];
+		for(int i=0;i<size;i++)
+			rand_table[i].Initialize(Random.Range(min_n, max_n), false);
+		count_rand = 0;
+	}
+
+	public int getRandomIndex()
+	{
+		int idx = (size + count_rand) % size;
+		int R = rand_table [idx].idx;
+		count_rand++;
+		return R;
+	}
+}
+
+public struct RandomIdxStruct
+{
+	public int idx;
+	public bool isUse;
+
+	public RandomIdxStruct(int idx, bool use)
+	{
+		this.idx = idx;
+		isUse = use;
+	}
+	public void Initialize(int idx, bool use)
+	{
+		this.idx = idx;
+		isUse = use;
+	}
+
+	public void Initialize()
+	{
+		idx = -1;
+		isUse = false;
+	}
 }
 
 public struct PathNodeOffsetStruct
