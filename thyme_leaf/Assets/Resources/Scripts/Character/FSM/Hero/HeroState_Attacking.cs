@@ -65,19 +65,8 @@ public class HeroState_Attacking : State<Hero>
 			}
 		}
 
-        // attack_target = trovant or projectile
-        // owner = automat or trovant
-
-
-        //if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
-        //{
-        //    owner.networkView.RPC("NetworkChangeStateAndSendAttackMessage",RPCMode.All,owner.networkView.viewID, isCharacter);
-        //}
-        //else
-        //{
-            ChangeStateIntoMoving(owner, isCharacter);
-            SendAttackMessage(owner);
-        //}
+        ChangeStateIntoMoving(owner, isCharacter);
+        SendAttackMessage(owner);
     }
 
     
@@ -97,16 +86,6 @@ public class HeroState_Attacking : State<Hero>
             }
             Debug.Log("Enemy is died or disappeared");
         }
-
-            //if (owner.helper.attack_target != null)
-            //{
-            //    if (!isCharacter && owner.helper.attack_target.model.HP <= 0)
-            //    {
-            //        owner.target = null;
-            //        owner.StateMachine.ChangeState(HeroState_Moving.Instance);
-            //        Debug.Log("nothing emy~");
-            //    }
-            //}
     }
 
     private void SendAttackMessage(Hero owner)
