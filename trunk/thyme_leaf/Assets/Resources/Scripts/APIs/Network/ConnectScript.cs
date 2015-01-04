@@ -1,6 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+class HostInfo
+{
+    private string roomName 
+    { 
+        get 
+        {
+            return roomName;
+        }
+    }
+
+
+    public HostInfo()
+    {
+
+    }
+}
+
+
+
 public class ConnectScript : MonoBehaviour
 {
 
@@ -23,14 +43,9 @@ public class ConnectScript : MonoBehaviour
     // Var. for Testing
     public Transform prefab;
 
-    void Awake()
-    {
-        //DontDestroyOnLoad(this);
-        networkView.group = 1;
-    }
-
     void Start()
     {
+        networkView.group = 1;
         MasterServer.ipAddress = masterSeverIP;
         MasterServer.port = masterServerPort;
         Network.natFacilitatorIP = facilitatorIP;
@@ -73,8 +88,7 @@ public class ConnectScript : MonoBehaviour
         {
             if (GUI.Button(new Rect(0, 0, 100, 50), "Start Server"))
             {
-                Network.InitializeServer(1, 25005, !Network.HavePublicAddress());
-                MasterServer.RegisterHost(typeName, gameName);
+                MakeRoom();
             }
 
             if (GUI.Button(new Rect(0, 50 + 10, 100, 50), "Refresh Hosts"))
@@ -95,6 +109,23 @@ public class ConnectScript : MonoBehaviour
                 //Debug.Log("Host List is NULL");
             }
         }
+    }
+
+
+    private void MakeRoom()
+    {
+        MakeRoom(gameName);
+    }
+
+    public void MakeRoom(string gameName)
+    {
+        Network.InitializeServer(1, 25005, !Network.HavePublicAddress());
+        MasterServer.RegisterHost(typeName, gameName);
+    }
+
+    public void RequestRoomInfos()
+    {
+        MasterServer.RequestHostList(typeName);
     }
 
     // Client Side
