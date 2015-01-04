@@ -47,6 +47,54 @@ public class UnitMusterController
 	}	
 
 	//command...
+	public void CommandSearchRangeValue(string muster_name, string current_unit_name, float v)
+	{
+		int idx = -1;
+		for(int i=0;i<MaxMusterCount;i++)
+		{
+			if(unitMusters[i].getName() == muster_name)
+			{
+				idx = i;
+				break;
+			}
+		}
+		if(idx < 0) return;
+
+		int unit_idx = -1;
+		for(int i=0;i<MaxMusterUnitCount;i++)
+		{
+			Hero hero = unitMusters[idx].getElement(i);
+			if(hero != null && hero.model.Name == current_unit_name)
+			{
+				unit_idx = i;
+				break;
+			}
+		}
+		if(unit_idx < 0) return;
+
+		Hero first_hero = unitMusters [idx].getElement (unit_idx);
+		if(first_hero.helper.collision_object.center.x == 0 && first_hero.helper.collision_object.center.y == 0)
+		{
+			if(unitMusters[idx].CommandRange) return;
+			unitMusters[idx].CommandRange = true;
+			Debug.Log(first_hero.helper.collision_object.center);
+			first_hero.helper.collision_object.radius = v;
+			first_hero.helper.collision_object.center = -first_hero.model.NodeOffsetStruct.offset;
+		}
+		else
+		{
+			for(int i=0;i<MaxMusterUnitCount;i++)
+			{
+				Hero hero = unitMusters[idx].getElement(i);
+				if(hero == null) continue;
+				hero.helper.collision_object.radius = v;
+				hero.helper.collision_object.center = Vector2.zero;
+				unitMusters[i].CommandRange = false;
+			}
+		}
+	}
+
+	//command...
 	public void CommandAttack(string muster_name, string current_unit_name)
 	{
 		int idx = -1;
@@ -322,12 +370,16 @@ public class UnitMusterController
 		Hero leader;
 		
 		string name;
+
+		bool command_range_edit;
 		
 		public void Initialize()
 		{
 			obj = new Hero[MaxMusterUnitCount]; //max count
 			for(int i=0;i<MaxMusterUnitCount;i++) obj[i] = null;
 			CurrentSize = 0;
+
+			command_range_edit = false;
 		}
 		
 		public void freeMuster()
@@ -339,10 +391,10 @@ public class UnitMusterController
 				obj[i].controller.setMusterID("null");
 				obj[i].controller.setMusterLeaderTrigger(false);
 				obj[i].controller.setMusterTrigger(false);
-				
 				obj[i] = null;
 				CurrentSize = 0;
 			}
+			command_range_edit = false;
 		}
 		
 		public void addUnit(Hero gobj)
@@ -356,6 +408,7 @@ public class UnitMusterController
 					obj[i] = gobj;
 					obj[i].muster_name = name;
 					if(obj[i].model.MusterLeader) leader = obj[i];
+
 					CurrentSize++;
 					break;
 				}
@@ -380,6 +433,7 @@ public class UnitMusterController
 						obj[i].controller.setMusterID("null");
 						obj[i].controller.setMusterLeaderTrigger(false);
 						obj[i].controller.setMusterTrigger(false);
+
 						obj[i] = null;
 						break;
 					}
@@ -410,6 +464,12 @@ public class UnitMusterController
 		public string getName()
 		{
 			return name;
+		}
+
+		public bool CommandRange
+		{
+			get { return command_range_edit; }
+			set { command_range_edit = value; }
 		}
 		
 	}

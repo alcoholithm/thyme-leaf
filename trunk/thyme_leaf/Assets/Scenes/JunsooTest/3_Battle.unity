@@ -3308,7 +3308,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 586361403}
   - 114: {fileID: 586361404}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Trovant_Ouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3371,7 +3371,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 13
+  mDepth: 30
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!1 &599465950
@@ -7076,7 +7076,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1357975902}
   - 114: {fileID: 1357975903}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Automat_Ouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7139,7 +7139,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 13
+  mDepth: 30
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!1 &1363733183
@@ -8077,7 +8077,7 @@ GameObject:
   - 4: {fileID: 1492531579}
   - 198: {fileID: 1492531581}
   - 199: {fileID: 1492531580}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9830,7 +9830,7 @@ GameObject:
   - 4: {fileID: 1545903487}
   - 198: {fileID: 1545903489}
   - 199: {fileID: 1545903488}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

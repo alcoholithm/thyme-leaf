@@ -353,7 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 100
   CurrentHP: 100
-  speed: 30
+  speed: 15
   AttackDamage: 20
   AttackDelay: 1
   target: {fileID: 0}
