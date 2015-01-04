@@ -97,7 +97,7 @@ public abstract class Unit : IObservable
         get { return _currHp; }
         set
         {
-            if (_currHp > _maxHp)
+            if (value > _maxHp)
                 _currHp = _maxHp;
             else
                 _currHp = value;
