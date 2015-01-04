@@ -16,7 +16,7 @@ public class Naming : Singleton<Naming> {
     public const string TYPE = "Type";
     public const int TYPE_NUM = 5;
 
-    public const string FALSTAFF = "Falstaf";
+    public const string FALSTAFF = "Falstaff";
     public const string FRANSIS = "Fransis";
     public const string FORTINBRAS = "Fortinbras";
     public const string VICTOR = "Victor";
@@ -104,7 +104,6 @@ public class Naming : Singleton<Naming> {
                             continue;
 
                         if (trovantNames.Contains(BuildTrovantName(names[i][j],stateNames[l]))) {
-
                             nameDictionary.Add(BuildTrovantName(names[i][j], stateNames[l]),BuildTrovantName(names[i][j], stateNames[l]).GetHashCode());
                             Debug.Log(BuildTrovantName(names[i][j], stateNames[l]));
                         }
