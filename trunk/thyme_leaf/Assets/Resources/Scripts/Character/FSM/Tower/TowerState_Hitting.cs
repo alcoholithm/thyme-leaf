@@ -46,14 +46,12 @@ public class TowerState_Hitting : State<Agt_Type1>
 
     public override bool HandleMessage(Message msg)
     {
-        
-        //switch (msg.what)
-        //{
-        //    case MessageTypes.MSG_DAMAGE:
-        //        Debug.LogError("MSG_DAMAGE : "+msg);
-        //        (msg.receiver as Agt_Type1).TakeDamage(msg.arg1);
-        //        return true;            
-        //}
+        switch (msg.what)
+        {
+            case MessageTypes.MSG_DAMAGE:
+                (msg.receiver as Agt_Type1).TakeDamage(msg.arg1);
+                return true;
+        }
         
         return false;
     }

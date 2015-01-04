@@ -79,14 +79,21 @@ public class Projectile : MonoBehaviour
         if (!target.collider2D.Equals(other))
             return;
 
+        if (target == null)
+            return;
+
         movingSpeed = 0;
 
         fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
 
-        Hero damageTarget = other.GetComponent<Hero>(); if (damageTarget == null) return;
-        Message msg = other.GetComponent<Hero>().ObtainMessage(MessageTypes.MSG_DAMAGE, 
-            new HeroDamageCommand(damageTarget, attackDamage));
-        owner.DispatchMessage(msg);
+        GameEntity entity = target.GetComponent<GameEntity>();
+        //GameEntity entity = owner.GetComponent<GameEntity>();
+
+        //Message msg = entity.ObtainMessage(MessageTypes.MSG_DAMAGE,
+        //    new HeroDamageCommand(entity as Hero, attackDamage));
+        Message msg = entity.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
+
+        entity.DispatchMessage(msg);
     }
 
     public void FireProcess(GameEntity owner, GameEntity target)

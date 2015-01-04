@@ -103,14 +103,15 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(Tag.TagProjectile) 
+        if (other.CompareTag(Tag.TagProjectile)
             || other.CompareTag(Tag.TagArcherAutomart())
             || other.CompareTag(Tag.TagBarrierAutomart())
             || other.CompareTag(Tag.TagHealerAutomart())
             || other.CompareTag(Tag.TagSupporterAutomart())
             || other.CompareTag(Tag.TagWarriorAutomart())
             || other.CompareTag(Tag.TagCommandCenter)
-            || other.CompareTag(Tag.TagTower))
+            || other.CompareTag(Tag.TagTower)
+        )
             return;
 
         controller.EnemyEnter(other.GetComponent<GameEntity>()); // 모든 상태에서 적은 계속 리스트에 넣어야 함. 셀링상태에서도 사용자가 취소를 누를 경우 대비

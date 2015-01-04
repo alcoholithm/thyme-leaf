@@ -55,7 +55,6 @@ public class HealthBar : View
      */
     public override void UpdateUI()
     {
-		Debug.Log ("health bar update ui");
         gameObject.SetActive(true);
         StopCoroutine("HideDelayed");
         Paint();

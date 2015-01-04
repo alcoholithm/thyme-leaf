@@ -24,6 +24,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	//=====================
 
 	private NGUISpriteAnimation anim;	
+    [SerializeField]
 	private HealthBar health_bar_controller;
 	private ParticleSystem particle_sys;
 	
@@ -57,6 +58,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	void OnEnable()
 	{
 		SettingInitialize ();
+        health_bar_controller.gameObject.SetActive(false);
 	}
 	
 	void Update()
@@ -94,8 +96,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
 		helper.collision_range_normal = helper.collision_object.radius;
 		helper.collision_range_muster = 180;
-        health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
-		health_bar_body = transform.GetChild (0);
+        //health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
+        //health_bar_body = transform.GetChild(0);
+        health_bar_body = health_bar_controller.transform;
 
 		this.health_bar_controller.Model = this.model;
 		this.Add(health_bar_controller);
@@ -459,24 +462,15 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		}
 	}
 
-	//test code...
-//    public void HealthUpdate()
-//    {
-//        float ratio = model.HP / (float)model.MaxHP;
-//        Color color = Color.Lerp(Color.red, Color.green, ratio);
-//
-//        health_bar_controller.getSlider().value = ratio;
-//        health_bar_controller.getSlider().foregroundWidget.color = color;
-//    }
-
 	public void TakeDamage(int damage_range)
 	{
-		controller.addHp (-damage_range);
-		CurrentHP = model.HP;  //test code...
-//        HealthUpdate();
+        //controller.addHp(-damage_range);
+        //CurrentHP = model.HP;  //test code...
 
-		particle_sys.transform.localPosition = helper.getPos () + new Vector3 (0, 55, 0);
-		particle_sys.Play ();
+        model.HP -= damage_range;
+
+        particle_sys.transform.localPosition = helper.getPos() + new Vector3(0, 55, 0);
+        particle_sys.Play();
 
 		if(model.HP <= 0)
 		{
@@ -549,7 +543,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
     {
         if (field == ObserverTypes.Health)
         {
-			Debug.Log("health bar!!!!!");
             UpdateUI();
         }
     }
