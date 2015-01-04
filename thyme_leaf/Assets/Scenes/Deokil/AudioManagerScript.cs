@@ -50,6 +50,7 @@ public class AudioManagerScript : Manager<AudioManagerScript>
     {
         UpdateValues();
         string levelName = Application.loadedLevelName;
+        Debug.Log("CURRENT LEVEL SCENE : " + levelName);
 
         if (levelName.Equals("1_Lobby")) audioPlayer.clip = music[(int)MusicType.LOBBY];
         else if (levelName.Equals("3_Battle")) audioPlayer.clip = music[(int)MusicType.BATTLE_1];
