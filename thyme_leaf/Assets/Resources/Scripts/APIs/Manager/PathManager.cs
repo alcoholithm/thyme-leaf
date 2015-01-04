@@ -8,8 +8,6 @@ public class PathManager : Manager<PathManager> {
 	public int StageNumber = 1;
 	public bool node_visible;
 
-	public new const string TAG = "[PathManager]";
-
 	void Awake()
 	{
 		Define.PathDataDispose ();
@@ -32,12 +30,11 @@ public class PathManager : Manager<PathManager> {
 				map_data.isUse = true;
 				map_data.automat_center = true;
 				Define.pathNode[i] = map_data;
-//				W_Chat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
-				W_Chat w = GameObject.Find ("W-Chat").GetComponent<W_Chat>();
+                W_Chat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
 				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-				w.transform.localScale = Vector3.one;
 				w.PositionNode = Define.pathNode[i].obj;
-				w.ChangeState(CCState_Idling.Instance);
+
+                w.ChangeState(CCState_Idling.Instance);
 
 				i = 0;
 				continue;
@@ -48,10 +45,12 @@ public class PathManager : Manager<PathManager> {
 				MapDataStruct map_data = Define.pathNode[i];
 				map_data.isUse = true;
 				map_data.trovant_center = true;
-				Define.pathNode[i] = map_data; 
-				W_Chat w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
-				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-				w.PositionNode = Define.pathNode[i].obj;
+				Define.pathNode[i] = map_data;
+                W_Chat w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
+                w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
+                w.PositionNode = Define.pathNode[i].obj;
+
+                w.ChangeState(CCState_Idling.Instance);
 				
 				i = 0;
 				continue;
@@ -59,4 +58,5 @@ public class PathManager : Manager<PathManager> {
 		}
 	}
 
+	public new const string TAG = "[PathManager]";
 }
