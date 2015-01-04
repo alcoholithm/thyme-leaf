@@ -103,10 +103,11 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
         this.stateMachine.CurrentState = CCState_None.Instance;
         this.stateMachine.GlobalState = CCState_Hitting.Instance;
 
-        this.anim = GetComponent<NGUISpriteAnimation>();
-        //this.anim.Pause();
-
         this._model.RegisterObserver(this, ObserverTypes.Health);
+
+        this.anim = GetComponent<NGUISpriteAnimation>();
+        this.anim.Pause();
+
     }
 
     /*
