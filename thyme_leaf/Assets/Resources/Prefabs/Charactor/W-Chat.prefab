@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 1 - [1-2] Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 2_Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400010}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 2_Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400016}
   - 148: {fileID: 14800000}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: W-Chat
   m_TagString: TagCommandCenter
   m_Icon: {fileID: 0}
@@ -400,13 +400,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 0}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 100008}
-      field: 
-    oneShot: 0
+  onClick: []
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1

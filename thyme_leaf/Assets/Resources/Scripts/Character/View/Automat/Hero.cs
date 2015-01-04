@@ -91,7 +91,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         controller.setAttackDamage(AttackDamage);
 		controller.setAttackDelay (AttackDelay);
 
-		helper.collision_range = gameObject.GetComponent<CircleCollider2D>().radius;
+		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
+		helper.collision_range_normal = helper.collision_object.radius;
+		helper.collision_range_muster = 125;
         health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
 		health_bar_body = transform.GetChild (0);
 
@@ -103,7 +105,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	void OnTriggerEnter2D(Collider2D coll)
 	{
 		//coll return checking...
-		if(coll == null) return;
+		if(coll == null || helper.collision_object.radius == helper.collision_range_muster) return;
 
 		if(stateMachine.CurrentState == HeroState_Moving.Instance)
 		{
@@ -214,12 +216,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 					helper.gesture_startpoint = Input.mousePosition;
 
 					//test code...
-					if(helper.getMusterTrigger())
-					{
-						Vector3 screen_v = UICamera.mainCamera.WorldToScreenPoint(UnitMusterController.GetInstance().FirstObj(model.MusterID).helper.getPos());
-						helper.gesture_startpoint = screen_v;
-						Debug.Log(screen_v);
-					}
+//					if(helper.getMusterTrigger())
+//					{
+//						Debug.Log("muster range edit");
+//						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_muster);
+//					}
 
 					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
 					if(collider == null) return;
@@ -228,8 +229,12 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				}
 				else if(Input.GetMouseButtonUp(0))
 				{
+//					if(helper.getMusterTrigger())
+//						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_normal);
+
 					if(hit_unit != model.Name) return;
 					hit_unit = "null";  //initailize...
+					
 					helper.gesture_endpoint = Input.mousePosition;
 
                     // Don't touch this method that is for network
@@ -482,7 +487,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	public void CollisionSetting(bool trigger) { gameObject.GetComponent<CircleCollider2D>().enabled = trigger; }
 
-	public void Die(){ helper.setPos (1000, 1000, 0); CollisionSetting (false); }
+	public void Die()
+	{
+		helper.setPos (1000, 1000, 0);
+		CollisionSetting (false); 
+	}
 	
 	public UISpriteAnimation GetAnim() { return anim; }
 

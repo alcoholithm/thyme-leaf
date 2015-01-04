@@ -13,7 +13,6 @@ public class MHero : Unit
 	private float angle;
 	private string musterID;
 	private bool muster_leader;
-	private Vector3 node_offset;
 	private OffsetStruct offset_struct;
 
 	private float attack_delay;
@@ -49,12 +48,7 @@ public class MHero : Unit
 		get { return musterID; }
 		set { musterID = value; }
 	}
-	
-	public Vector3 Node_offset
-	{
-		get { return node_offset; }
-		set { node_offset = value; }
-	}
+
 	public bool MusterLeader
 	{
 		get { return muster_leader; }

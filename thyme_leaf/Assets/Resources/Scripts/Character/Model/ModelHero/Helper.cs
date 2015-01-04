@@ -31,7 +31,9 @@ public class Helper
 	//==================================
 	
 	//collision range
-	public float collision_range;
+	public CircleCollider2D collision_object;
+	public float collision_range_normal;
+	public float collision_range_muster;
 	//==================================
 	
 	public Helper(GameObject obj)
