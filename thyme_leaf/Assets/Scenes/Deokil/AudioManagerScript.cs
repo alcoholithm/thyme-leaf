@@ -27,13 +27,14 @@ public class AudioManagerScript : Manager<AudioManagerScript>
     void Awake()
     {
         sound = new AudioClip[100];
+        music = new AudioClip[100];
         audioPlayer = GetComponent<AudioSource>();
 
         // insert music into manager
         music[(int)MusicType.LOBBY] = LOBBY;
         music[(int)MusicType.BATTLE_1] = BATTLE_1;
 
-        // insert sound into manager
+        // insert sounds into manager
         sound[(int)SoundType.AUTOMAT_APT_TYPE1_ATTACKING] = AT_APT_1_ATTACKING;
         sound[(int)SoundType.AUTOMAT_APT_TYPE1_DYING] = AT_APT_1_DYING;
         sound[(int)SoundType.AUTOMAT_FALSTAFF_TYPE1_ATTACKING] = AT_FALSTAFF_1_ATTACKING;
@@ -48,7 +49,7 @@ public class AudioManagerScript : Manager<AudioManagerScript>
 
     void Start()
     {
-        UpdateValues();
+        InitValues();
         string levelName = Application.loadedLevelName;
         Debug.Log("CURRENT LEVEL SCENE : " + levelName);
 
@@ -58,10 +59,28 @@ public class AudioManagerScript : Manager<AudioManagerScript>
         StartAudio();
     }
 
-    void UpdateValues()
+    void OnLevelWasLoaded(int level)
     {
-        audioPlayer.volume = Settings.MusicVolume;
-        audioPlayer.mute = !Settings.MusicEnabled;        
+        switch (level)
+        {
+            case 0: // lobby
+                audioPlayer.clip = music[(int)MusicType.LOBBY];
+                break;
+            case 2: // battle
+                audioPlayer.clip = music[(int)MusicType.BATTLE_1];
+                break;
+            default:
+                return;
+        }
+        StartAudio();
+    }
+
+    void InitValues()
+    {
+        audioPlayer.volume = 0.5f;
+        
+        //audioPlayer.volume = Settings.MusicVolume;
+        //audioPlayer.mute = !Settings.MusicEnabled;        
     }
 
     public void StartAudio()
@@ -83,6 +102,19 @@ public class AudioManagerScript : Manager<AudioManagerScript>
     {
         audioPlayer.clip = clip;
         audioPlayer.Play();
+    }
+
+    
+
+    public void PlayClip(string name)
+    {
+        switch (name)
+        {
+            case "asd":
+                break;
+            default:
+                break;
+        }
     }
 
     public void PlayClipAtPoint(SoundType type, Vector3 pos)

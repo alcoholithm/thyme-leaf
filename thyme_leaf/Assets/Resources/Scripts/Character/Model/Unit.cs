@@ -5,8 +5,10 @@ using System.Collections.Generic;
 [System.Serializable]
 public abstract class Unit : IObservable
 {
+    // 종족의 이름이 필요하다고?
     protected string name;
     protected string description;
+
     [SerializeField]
     protected int _maxHp;
     [SerializeField]
