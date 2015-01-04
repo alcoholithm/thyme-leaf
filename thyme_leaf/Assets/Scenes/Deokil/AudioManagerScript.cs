@@ -104,17 +104,57 @@ public class AudioManagerScript : Manager<AudioManagerScript>
         audioPlayer.Play();
     }
 
-    
-
-    public void PlayClip(string name)
+    public void PlayClip(string name, Vector3 pos)
     {
-        switch (name)
+        Naming naming = Naming.Instance;
+        SoundType soundType;
+        if (name.Equals(naming.BuildAutomatName(Naming.FALSTAFF, 1, Naming.ATTACKING)))
         {
-            case "asd":
-                break;
-            default:
-                break;
+            soundType = SoundType.AUTOMAT_FALSTAFF_TYPE1_ATTACKING;
         }
+        else if (name.Equals(naming.BuildAutomatName(Naming.FALSTAFF, 1, Naming.DYING)))
+        {
+            soundType = SoundType.AUTOMAT_FALSTAFF_TYPE1_DYING;
+        }
+        else if (name.Equals(naming.BuildAutomatName(Naming.FRANSIS, 1, Naming.ATTACKING)))
+        {
+            soundType = SoundType.AUTOMAT_FRANSIS_TYPE1_ATTACKING;
+        }
+        else if (name.Equals(naming.BuildAutomatName(Naming.FRANSIS, 1, Naming.DYING)))
+        {
+            soundType = SoundType.AUTOMAT_FRANSIS_TYPE1_DYING;
+        }
+        else if (name.Equals(naming.BuildAutomatName(Naming.COMMA, 1, Naming.ATTACKING)))
+        {
+            soundType = SoundType.TROVANT_COMMA_ATTACKING;
+        }
+        else if (name.Equals(naming.BuildTrovantName(Naming.COMMA, Naming.DYING)))
+        {
+            soundType = SoundType.TROVANT_COMMA_DYING;
+        }
+        else if (name.Equals(naming.BuildTrovantName(Naming.PYTHON, Naming.ATTACKING)))
+        {
+            soundType = SoundType.TROVANT_PYTHON_ATTACKING;
+        }
+        else if (name.Equals(naming.BuildTrovantName(Naming.PYTHON, Naming.DYING)))
+        {
+            soundType = SoundType.TROVANT_PYTHON_DYING;
+        }
+        else if (name.Equals(naming.BuildAutomatName(Naming.APT, 1, Naming.BUILDING)))
+        {
+            soundType = SoundType.AUTOMAT_APT_TYPE1_ATTACKING;
+        }
+        else if (name.Equals(naming.BuildAutomatName(Naming.APT, 1, Naming.DYING)))
+        {
+            soundType = SoundType.AUTOMAT_APT_TYPE1_DYING;
+        }
+        else
+        {
+            Debug.Log("NOT FOUND AUDIO " + name);
+            return;
+        }
+
+        PlayClipAtPoint(soundType, pos);
     }
 
     public void PlayClipAtPoint(SoundType type, Vector3 pos)
