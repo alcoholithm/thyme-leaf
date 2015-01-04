@@ -15,7 +15,6 @@ public abstract class Unit : IObservable
     protected int _currHp;
     protected int defense;
     protected UnitType type;
-	protected string species_name;
 
     private Dictionary<ObserverTypes, List<IObserver>> observers =
         new Dictionary<ObserverTypes, List<IObserver>>();
@@ -26,6 +25,9 @@ public abstract class Unit : IObservable
      */
     public Unit()
     {
+
+        Naming naming = Naming.Instance;
+        naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.ATTACKING);
         _maxHp = 100;
         _currHp = _maxHp;
     }
