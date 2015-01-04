@@ -7536,7 +7536,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 11.3999996
+  aspectRatio: 57
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -11811,6 +11811,14 @@ Prefab:
     - target: {fileID: 400004, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
       propertyPath: m_LocalPosition.y
       value: -72
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: mHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: aspectRatio
+      value: 57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
