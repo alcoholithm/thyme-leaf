@@ -9,6 +9,8 @@ public abstract class Unit : IObservable
     protected string name;
     protected string description;
 
+    protected string species_name;
+
     [SerializeField]
     protected int _maxHp;
     [SerializeField]

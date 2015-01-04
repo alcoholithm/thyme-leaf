@@ -45,6 +45,7 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     [SerializeField]
     private CommandCenter _model;
     private W_Chat_Controller controller;
+
     //---------------------
 	private GameObject position_node;
 
@@ -153,6 +154,17 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     {
         get { return anim; }
         set { anim = value; }
+    }
+    public CommandCenter Model
+    {
+        get { return _model; }
+        set { _model = value; }
+    }
+
+    public W_Chat_Controller Controller
+    {
+        get { return controller; }
+        set { controller = value; }
     }
 
     public GameObject PositionNode

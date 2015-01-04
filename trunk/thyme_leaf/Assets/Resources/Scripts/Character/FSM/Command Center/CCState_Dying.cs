@@ -27,7 +27,11 @@ public class CCState_Dying : State<W_Chat>
     public override void Exit(W_Chat owner)
     {
         Debug.Log(TAG + "Exit");
-        //TowerSpawner.Instance.Free(owner.gameObject);
+
+        // 오토마트측에서 얘가 부서진 것만 알면 된다.
+        // 모델은 오토마트가 되어야 하며 오토마트 모델에서 타워라든지 기타 등등을 관리한다.
+
+        Spawner.Instance.Free(owner.gameObject);
     }
 
     public override bool HandleMessage(Message msg)
