@@ -108,43 +108,43 @@ public class AudioManagerScript : Manager<AudioManagerScript>
     {
         Naming naming = Naming.Instance;
         SoundType soundType;
-        if (name.Equals(naming.BuildAutomatName(Naming.FALSTAFF, 1, Naming.ATTACKING)))
+        if (name.Equals(naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.ATTACKING)))
         {
             soundType = SoundType.AUTOMAT_FALSTAFF_TYPE1_ATTACKING;
         }
-        else if (name.Equals(naming.BuildAutomatName(Naming.FALSTAFF, 1, Naming.DYING)))
+        else if (name.Equals(naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.DYING)))
         {
             soundType = SoundType.AUTOMAT_FALSTAFF_TYPE1_DYING;
         }
-        else if (name.Equals(naming.BuildAutomatName(Naming.FRANSIS, 1, Naming.ATTACKING)))
+        else if (name.Equals(naming.BuildAutomatNameWithState(Naming.FRANSIS, 1, Naming.ATTACKING)))
         {
             soundType = SoundType.AUTOMAT_FRANSIS_TYPE1_ATTACKING;
         }
-        else if (name.Equals(naming.BuildAutomatName(Naming.FRANSIS, 1, Naming.DYING)))
+        else if (name.Equals(naming.BuildAutomatNameWithState(Naming.FRANSIS, 1, Naming.DYING)))
         {
             soundType = SoundType.AUTOMAT_FRANSIS_TYPE1_DYING;
         }
-        else if (name.Equals(naming.BuildAutomatName(Naming.COMMA, 1, Naming.ATTACKING)))
+        else if (name.Equals(naming.BuildAutomatNameWithState(Naming.COMMA, 1, Naming.ATTACKING)))
         {
             soundType = SoundType.TROVANT_COMMA_ATTACKING;
         }
-        else if (name.Equals(naming.BuildTrovantName(Naming.COMMA, Naming.DYING)))
+        else if (name.Equals(naming.BuildTrovantNameWithState(Naming.COMMA, Naming.DYING)))
         {
             soundType = SoundType.TROVANT_COMMA_DYING;
         }
-        else if (name.Equals(naming.BuildTrovantName(Naming.PYTHON, Naming.ATTACKING)))
+        else if (name.Equals(naming.BuildTrovantNameWithState(Naming.PYTHON, Naming.ATTACKING)))
         {
             soundType = SoundType.TROVANT_PYTHON_ATTACKING;
         }
-        else if (name.Equals(naming.BuildTrovantName(Naming.PYTHON, Naming.DYING)))
+        else if (name.Equals(naming.BuildTrovantNameWithState(Naming.PYTHON, Naming.DYING)))
         {
             soundType = SoundType.TROVANT_PYTHON_DYING;
         }
-        else if (name.Equals(naming.BuildAutomatName(Naming.APT, 1, Naming.BUILDING)))
+        else if (name.Equals(naming.BuildAutomatNameWithState(Naming.APT, 1, Naming.BUILDING)))
         {
             soundType = SoundType.AUTOMAT_APT_TYPE1_ATTACKING;
         }
-        else if (name.Equals(naming.BuildAutomatName(Naming.APT, 1, Naming.DYING)))
+        else if (name.Equals(naming.BuildAutomatNameWithState(Naming.APT, 1, Naming.DYING)))
         {
             soundType = SoundType.AUTOMAT_APT_TYPE1_DYING;
         }

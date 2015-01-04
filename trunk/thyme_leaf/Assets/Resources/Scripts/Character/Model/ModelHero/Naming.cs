@@ -45,12 +45,22 @@ public class Naming : Singleton<Naming> {
         Init();
     }
 
-    public string BuildAutomatName(string name, int typeNum, string state)
+    public string BuildAutomatName(string name, int typeNum)
     {
-        return name+"_"+TYPE+(typeNum+"")+"_"+state;
+        return name + "_" + TYPE + (typeNum + "");
     }
 
-    public string BuildTrovantName(string name, string state)
+    public string BuildTrovantName(string name)
+    {
+        return name;
+    }
+
+    public string BuildAutomatNameWithState(string name, int typeNum, string state)
+    {
+        return BuildAutomatName(name,typeNum) + "_" + state;
+    }
+
+    public string BuildTrovantNameWithState(string name, string state)
     {
         return name + "_" + state;
     }
@@ -99,19 +109,17 @@ public class Naming : Singleton<Naming> {
                 {
                     for (int l = 0; l < stateNames.Count; l++)
                     {
-                        if (nameDictionary.ContainsKey(BuildTrovantName(names[i][j], stateNames[l]))
-                            || nameDictionary.ContainsKey(BuildAutomatName(names[i][j], k, stateNames[l])))
+                        if (nameDictionary.ContainsKey(BuildTrovantNameWithState(names[i][j], stateNames[l]))
+                            || nameDictionary.ContainsKey(BuildAutomatNameWithState(names[i][j], k, stateNames[l])))
                             continue;
 
-                        if (trovantNames.Contains(BuildTrovantName(names[i][j],stateNames[l]))) {
-                            nameDictionary.Add(BuildTrovantName(names[i][j], stateNames[l]),BuildTrovantName(names[i][j], stateNames[l]).GetHashCode());
-                            Debug.Log(BuildTrovantName(names[i][j], stateNames[l]));
+                        if (trovantNames.Contains(BuildTrovantNameWithState(names[i][j],stateNames[l]))) {
+                            nameDictionary.Add(BuildTrovantNameWithState(names[i][j], stateNames[l]),BuildTrovantNameWithState(names[i][j], stateNames[l]).GetHashCode());
                         }
                         else
                         {
                             
-                            nameDictionary.Add(BuildAutomatName(names[i][j], k, stateNames[l]),BuildAutomatName(names[i][j], k, stateNames[l]).GetHashCode());
-                            Debug.Log(BuildAutomatName(names[i][j], k, stateNames[l]));
+                            nameDictionary.Add(BuildAutomatNameWithState(names[i][j], k, stateNames[l]),BuildAutomatNameWithState(names[i][j], k, stateNames[l]).GetHashCode());
                         }
                     }
                 }
