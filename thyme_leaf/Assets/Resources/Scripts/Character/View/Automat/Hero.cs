@@ -58,7 +58,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	void OnEnable()
 	{
 		SettingInitialize ();
-        health_bar_controller.gameObject.SetActive(false);
 	}
 	
 	void Update()
@@ -96,8 +95,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
 		helper.collision_range_normal = helper.collision_object.radius;
 		helper.collision_range_muster = 180;
-        //health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
-        //health_bar_body = transform.GetChild(0);
+
+        health_bar_controller = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
         health_bar_body = health_bar_controller.transform;
 
 		this.health_bar_controller.Model = this.model;
@@ -120,19 +119,19 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			}
 			else
 			{
-				if(coll.CompareTag(Tag.TagProjectile) || coll.CompareTag(Tag.TagTower) || coll.CompareTag(Tag.TagTowerSpot)) return;
-				
-				Hero other_hero = coll.gameObject.GetComponent<Hero>();
-				if(!other_hero.helper.isGesture() || other_hero.model.MusterID == model.MusterID) return;
-				if(UnitMusterController.GetInstance().isUnitCountCheck(other_hero.model.MusterID, model.MusterID)) return;
-				//push action...
-				if(other_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
-				{
-					other_hero.controller.setMoveTrigger(true);
-					if(other_hero.helper.getMusterTrigger())
-						UnitMusterController.GetInstance().CommandMove(other_hero.model.MusterID, other_hero.model.Name);
-				}
-				Debug.Log("push muster or a unit");
+//				if(coll.CompareTag(Tag.TagProjectile) || coll.CompareTag(Tag.TagTower) || coll.CompareTag(Tag.TagTowerSpot)) return;
+//				
+//				Hero other_hero = coll.gameObject.GetComponent<Hero>();
+//				if(!other_hero.helper.isGesture() || other_hero.model.MusterID == model.MusterID) return;
+//				if(UnitMusterController.GetInstance().isUnitCountCheck(other_hero.model.MusterID, model.MusterID)) return;
+//				//push action...
+//				if(other_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+//				{
+//					other_hero.controller.setMoveTrigger(true);
+//					if(other_hero.helper.getMusterTrigger())
+//						UnitMusterController.GetInstance().CommandMove(other_hero.model.MusterID, other_hero.model.Name);
+//				}
+//				Debug.Log("push muster or a unit");
 			}
 		}
 		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
@@ -355,11 +354,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 							//push other muster...
 							//Debug.Log("other current muster full : "+muster_id);
 							//push action...
-//							if(other.infor_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other.infor_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
-//							{
-//								other.infor_hero.controller.setMoveTrigger(true);
-//								UnitMusterController.GetInstance().CommandMove(other.infor_hero.model.MusterID, other.nameID);
-//							}
+							if(other.infor_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other.infor_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+							{
+								other.infor_hero.controller.setMoveTrigger(true);
+								UnitMusterController.GetInstance().CommandMove(other.infor_hero.model.MusterID, other.nameID);
+							}
 						}
 						else
 						{
@@ -384,11 +383,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 						{
 							//Debug.Log("i && u musters full");
 							//push action...
-//							if(other.infor_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other.infor_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
-//							{
-//								other.infor_hero.controller.setMoveTrigger(true);
-//								UnitMusterController.GetInstance().CommandMove(other.infor_hero.model.MusterID, other.nameID);
-//							}
+							if(other.infor_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other.infor_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+							{
+								other.infor_hero.controller.setMoveTrigger(true);
+								UnitMusterController.GetInstance().CommandMove(other.infor_hero.model.MusterID, other.nameID);
+							}
 						}
 						else
 						{
@@ -407,11 +406,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 						{
 							//Debug.Log("i current muster full : "+muster_id);
 							//push action...
-//							if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
-//							{
-//								controller.setMoveTrigger(true);
-//								UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
-//							}
+							if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+							{
+								controller.setMoveTrigger(true);
+								UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
+							}
 						}
 						else
 						{
@@ -489,6 +488,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	{
 		helper.setPos (1000, 1000, 0);
 		CollisionSetting (false); 
+		health_bar_controller.gameObject.SetActive(false);
 	}
 	
 	public UISpriteAnimation GetAnim() { return anim; }

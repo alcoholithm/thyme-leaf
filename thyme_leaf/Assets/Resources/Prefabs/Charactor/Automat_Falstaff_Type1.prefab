@@ -227,7 +227,7 @@ MonoBehaviour:
   my_name: 
   state_name: 
   muster_name: 
-  p_name: Franscis_Type1_
+  p_name: Falstaff_Type1_
   health_bar_body: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:

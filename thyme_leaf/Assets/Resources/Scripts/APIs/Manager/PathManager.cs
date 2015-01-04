@@ -27,14 +27,18 @@ public class PathManager : Manager<PathManager> {
 			scriptPathNode tempFunc = Define.pathNode[i].obj.GetComponent<scriptPathNode>();
 			if(tempFunc.automatPoint && !Define.pathNode[i].isUse)
 			{
+				//one time...
 				MapDataStruct map_data = Define.pathNode[i];
 				map_data.isUse = true;
 				map_data.automat_center = true;
 				Define.pathNode[i] = map_data;
-				W_Chat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
+//				W_Chat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
+				W_Chat w = GameObject.Find ("W-Chat").GetComponent<W_Chat>();
 				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
+				w.transform.localScale = Vector3.one;
 				w.PositionNode = Define.pathNode[i].obj;
-				
+				w.ChangeState(CCState_Idling.Instance);
+
 				i = 0;
 				continue;
 			}
