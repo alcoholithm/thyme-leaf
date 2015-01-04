@@ -224,7 +224,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
 					if(collider == null) return;
+					if(collider.CompareTag(Tag.TagTower) || collider.CompareTag(Tag.TagTowerSpot)) return;
+
 					Hero obj = collider.gameObject.GetComponent<Hero>();
+					if(obj == null) return;  //if...null never case...
+
 					hit_unit = obj.model.Name;
 				}
 				else if(Input.GetMouseButtonUp(0))
