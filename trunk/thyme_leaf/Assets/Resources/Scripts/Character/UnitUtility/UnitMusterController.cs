@@ -73,15 +73,15 @@ public class UnitMusterController
 		if(unit_idx < 0) return;
 
 		Hero first_hero = unitMusters [idx].getElement (unit_idx);
-		if(first_hero.helper.collision_object.center.x == 0 && first_hero.helper.collision_object.center.y == 0)
+		if(v == first_hero.helper.collision_range_muster)
 		{
 			if(unitMusters[idx].CommandRange) return;
 			unitMusters[idx].CommandRange = true;
 			Debug.Log(first_hero.helper.collision_object.center);
 			first_hero.helper.collision_object.radius = v;
-			first_hero.helper.collision_object.center = -first_hero.model.NodeOffsetStruct.offset;
 		}
 		else
+//		if(v != first_hero.helper.collision_range_muster)
 		{
 			for(int i=0;i<MaxMusterUnitCount;i++)
 			{

@@ -120,23 +120,11 @@ public struct PathNodeOffsetStruct
 	public OffsetStruct getNodeOffset()
 	{
 		OffsetStruct data = new OffsetStruct ();
-
-		Debug.Log (size);
 		int i = (count_num + size) % size; 
 		offset_st[i].is_use = true;
 		offset_st[i].idx = i;
 		data = offset_st[i];
 		count_num++;
-//		for(int i=0;i<size;i++)
-//		{
-//			if(!offset_st[i].is_use) 
-//			{
-//				offset_st[i].is_use = true;
-//				offset_st[i].idx = i;
-//				data = offset_st[i];
-//				break;
-//			}
-//		}
 		return data;
 	}
 
