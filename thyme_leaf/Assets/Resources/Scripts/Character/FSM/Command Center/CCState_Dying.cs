@@ -32,7 +32,7 @@ public class CCState_Dying : State<W_Chat>
 
     public override bool HandleMessage(Message msg)
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 
     /*
