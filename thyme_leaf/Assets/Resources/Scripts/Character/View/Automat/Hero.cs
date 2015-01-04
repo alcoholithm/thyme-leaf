@@ -97,9 +97,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
 		health_bar_body = transform.GetChild (0);
 
-//		this.health_bar_controller.Model = this.model;
-//		this.Add(health_bar_controller);
-//		model.RegisterObserver (this, ObserverTypes.Health);
+		this.health_bar_controller.Model = this.model;
+		this.Add(health_bar_controller);
+		model.RegisterObserver (this, ObserverTypes.Health);
 	}
 
 	void OnTriggerEnter2D(Collider2D coll)
@@ -214,8 +214,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				if(Input.GetMouseButtonDown(0))
 				{
 					helper.gesture_startpoint = Input.mousePosition;
-
-					//test code...
+//					if(Time.timeScale != 0) Time.timeScale = 0;
+//					else if(Time.timeScale == 0) Time.timeScale = 1;
 					if(helper.getMusterTrigger())
 					{
 						Debug.Log("muster range edit");
@@ -460,20 +460,20 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	}
 
 	//test code...
-    public void HealthUpdate()
-    {
-        float ratio = model.HP / (float)model.MaxHP;
-        Color color = Color.Lerp(Color.red, Color.green, ratio);
-
-        health_bar_controller.getSlider().value = ratio;
-        health_bar_controller.getSlider().foregroundWidget.color = color;
-    }
+//    public void HealthUpdate()
+//    {
+//        float ratio = model.HP / (float)model.MaxHP;
+//        Color color = Color.Lerp(Color.red, Color.green, ratio);
+//
+//        health_bar_controller.getSlider().value = ratio;
+//        health_bar_controller.getSlider().foregroundWidget.color = color;
+//    }
 
 	public void TakeDamage(int damage_range)
 	{
 		controller.addHp (-damage_range);
 		CurrentHP = model.HP;  //test code...
-        HealthUpdate();
+//        HealthUpdate();
 
 		particle_sys.transform.localPosition = helper.getPos () + new Vector3 (0, 55, 0);
 		particle_sys.Play ();
@@ -549,6 +549,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
     {
         if (field == ObserverTypes.Health)
         {
+			Debug.Log("health bar!!!!!");
             UpdateUI();
         }
     }

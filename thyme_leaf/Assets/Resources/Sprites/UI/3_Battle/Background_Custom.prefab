@@ -40,20 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 89308eab54d784a268e131d1aab9ecf8, type: 2}
-  mSprites:
-  - name: Map
-    x: 0
-    y: 1280
-    width: 1024
-    height: 768
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+  mSprites: []
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0
