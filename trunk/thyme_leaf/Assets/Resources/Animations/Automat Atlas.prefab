@@ -43,81 +43,81 @@ MonoBehaviour:
   mSprites:
   - name: APT_Poison_0
     x: 59
-    y: 37
-    width: 6
-    height: 10
+    y: 41
+    width: 12
+    height: 20
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 12
-    paddingRight: 12
-    paddingTop: 10
-    paddingBottom: 10
-  - name: APT_Poison_1
-    x: 0
-    y: 1
-    width: 10
-    height: 6
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 10
-    paddingRight: 10
-    paddingTop: 12
-    paddingBottom: 12
-  - name: APT_Poison_2
-    x: 66
-    y: 37
-    width: 6
-    height: 10
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 12
-    paddingRight: 12
-    paddingTop: 10
-    paddingBottom: 10
-  - name: APT_PoisonFX_0
-    x: 994
-    y: 493
-    width: 23
-    height: 19
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 3
-    paddingTop: 6
+    paddingLeft: 9
+    paddingRight: 9
+    paddingTop: 5
     paddingBottom: 5
-  - name: APT_PoisonFX_1
+  - name: APT_Poison_1
     x: 433
-    y: 2
-    width: 30
-    height: 28
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 1
-    paddingBottom: 1
-  - name: APT_PoisonFX_2
-    x: 464
     y: 7
-    width: 30
-    height: 23
+    width: 20
+    height: 12
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 6
+    paddingLeft: 5
+    paddingRight: 5
+    paddingTop: 9
+    paddingBottom: 9
+  - name: APT_Poison_2
+    x: 59
+    y: 20
+    width: 12
+    height: 20
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 9
+    paddingTop: 5
+    paddingBottom: 5
+  - name: APT_PoisonFX_0
+    x: 433
+    y: 20
+    width: 24
+    height: 10
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 3
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 18
+  - name: APT_PoisonFX_1
+    x: 266
+    y: 2
+    width: 26
+    height: 10
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 9
+    paddingBottom: 11
+  - name: APT_PoisonFX_2
+    x: 237
+    y: 1
+    width: 28
+    height: 11
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 18
     paddingBottom: 1
   - name: APT_Type1_Attacking_0
     x: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: APT_Type1_Idling_1
-    x: 237
-    y: 221
+    x: 158
+    y: 73
     width: 78
     height: 145
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 0
   - name: APT_Type1_Idling_4
-    x: 158
-    y: 73
+    x: 237
+    y: 221
     width: 78
     height: 145
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_0
-    x: 378
-    y: 449
+    x: 316
+    y: 55
     width: 54
     height: 63
     borderLeft: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_4
     x: 378
-    y: 108
+    y: 55
     width: 52
     height: 52
     borderLeft: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_5
     x: 378
-    y: 55
+    y: 108
     width: 52
     height: 52
     borderLeft: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_1
     x: 433
-    y: 272
+    y: 221
     width: 54
     height: 50
     borderLeft: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_2
     x: 502
-    y: 411
+    y: 360
     width: 50
     height: 50
     borderLeft: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_3
     x: 553
-    y: 262
+    y: 313
     width: 46
     height: 50
     borderLeft: 0
@@ -406,19 +406,6 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_4
-    x: 602
-    y: 412
-    width: 46
-    height: 49
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 7
-    paddingRight: 7
-    paddingTop: 18
-    paddingBottom: 3
-  - name: Falstaff_Type1_Attacking_Normal_5
     x: 553
     y: 11
     width: 46
@@ -431,9 +418,22 @@ MonoBehaviour:
     paddingRight: 7
     paddingTop: 18
     paddingBottom: 3
-  - name: Falstaff_Type1_Dying_0
+  - name: Falstaff_Type1_Attacking_Normal_5
     x: 553
-    y: 462
+    y: 61
+    width: 46
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 7
+    paddingTop: 18
+    paddingBottom: 3
+  - name: Falstaff_Type1_Dying_0
+    x: 502
+    y: 58
     width: 48
     height: 50
     borderLeft: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: Falstaff_Type1_Dying_1
     x: 433
-    y: 221
+    y: 272
     width: 54
     height: 50
     borderLeft: 0
@@ -601,8 +601,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 9
   - name: Falstaff_Type1_Moving_Normal_1
-    x: 316
-    y: 55
+    x: 378
+    y: 449
     width: 54
     height: 63
     borderLeft: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
     paddingBottom: 7
   - name: Franscis_Type1_Attacking_Downwards_0
     x: 553
-    y: 211
+    y: 262
     width: 46
     height: 50
     borderLeft: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_1
     x: 553
-    y: 61
+    y: 161
     width: 46
     height: 49
     borderLeft: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_4
     x: 553
-    y: 313
+    y: 211
     width: 46
     height: 50
     borderLeft: 0
@@ -731,8 +731,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_5
-    x: 553
-    y: 161
+    x: 602
+    y: 412
     width: 46
     height: 49
     borderLeft: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_0
-    x: 749
+    x: 700
     y: 462
     width: 48
     height: 50
@@ -757,7 +757,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_1
-    x: 651
+    x: 602
     y: 462
     width: 48
     height: 50
@@ -770,7 +770,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_2
-    x: 945
+    x: 896
     y: 463
     width: 48
     height: 49
@@ -783,8 +783,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_3
-    x: 502
-    y: 7
+    x: 651
+    y: 462
     width: 48
     height: 50
     borderLeft: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_4
-    x: 798
+    x: 749
     y: 462
     width: 48
     height: 50
@@ -809,7 +809,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_5
-    x: 700
+    x: 553
     y: 462
     width: 48
     height: 50
@@ -823,7 +823,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Dying_0
     x: 502
-    y: 58
+    y: 7
     width: 48
     height: 50
     borderLeft: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: Franscis_Type1_Dying_1
     x: 502
-    y: 259
+    y: 159
     width: 50
     height: 49
     borderLeft: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_0
-    x: 602
+    x: 798
     y: 462
     width: 48
     height: 50
@@ -927,45 +927,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_2
     x: 502
-    y: 209
-    width: 50
-    height: 49
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 1
-  - name: Franscis_Type1_Moving_Downwards_3
-    x: 502
-    y: 462
-    width: 50
-    height: 50
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Franscis_Type1_Moving_Downwards_4
-    x: 502
-    y: 159
-    width: 50
-    height: 49
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 1
-  - name: Franscis_Type1_Moving_Downwards_5
-    x: 502
     y: 109
     width: 50
     height: 49
@@ -977,46 +938,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 1
-  - name: Franscis_Type1_Moving_Normal_0
-    x: 553
-    y: 364
-    width: 48
-    height: 48
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 1
-    paddingTop: 2
-    paddingBottom: 0
-  - name: Franscis_Type1_Moving_Normal_1
-    x: 553
-    y: 413
-    width: 48
-    height: 48
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 1
-    paddingTop: 2
-    paddingBottom: 0
-  - name: Franscis_Type1_Moving_Normal_2
-    x: 896
-    y: 463
-    width: 48
-    height: 49
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 0
-  - name: Franscis_Type1_Moving_Normal_3
+  - name: Franscis_Type1_Moving_Downwards_3
     x: 433
     y: 82
     width: 50
@@ -1029,9 +951,87 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Franscis_Type1_Moving_Downwards_4
+    x: 502
+    y: 259
+    width: 50
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: Franscis_Type1_Moving_Downwards_5
+    x: 502
+    y: 209
+    width: 50
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: Franscis_Type1_Moving_Normal_0
+    x: 553
+    y: 413
+    width: 48
+    height: 48
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 2
+    paddingBottom: 0
+  - name: Franscis_Type1_Moving_Normal_1
+    x: 553
+    y: 364
+    width: 48
+    height: 48
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 2
+    paddingBottom: 0
+  - name: Franscis_Type1_Moving_Normal_2
+    x: 945
+    y: 463
+    width: 48
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 0
+  - name: Franscis_Type1_Moving_Normal_3
+    x: 502
+    y: 309
+    width: 50
+    height: 50
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_4
-    x: 433
-    y: 31
+    x: 502
+    y: 411
     width: 50
     height: 50
     borderLeft: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_5
     x: 502
-    y: 360
+    y: 462
     width: 50
     height: 50
     borderLeft: 0
@@ -1056,8 +1056,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Glow - outer
-    x: 502
-    y: 309
+    x: 433
+    y: 31
     width: 50
     height: 50
     borderLeft: 22
@@ -1200,7 +1200,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: White
     x: 59
-    y: 48
+    y: 6
     width: 13
     height: 13
     borderLeft: 1
