@@ -93,7 +93,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
 		helper.collision_range_normal = helper.collision_object.radius;
-		helper.collision_range_muster = 125;
+		helper.collision_range_muster = 180;
         health_bar_controller = transform.GetChild(0).GetChild(0).gameObject.GetComponent<HealthBar>();
 		health_bar_body = transform.GetChild (0);
 
@@ -216,11 +216,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 					helper.gesture_startpoint = Input.mousePosition;
 
 					//test code...
-//					if(helper.getMusterTrigger())
-//					{
-//						Debug.Log("muster range edit");
-//						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_muster);
-//					}
+					if(helper.getMusterTrigger())
+					{
+						Debug.Log("muster range edit");
+						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_muster);
+					}
 
 					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
 					if(collider == null) return;
@@ -229,8 +229,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				}
 				else if(Input.GetMouseButtonUp(0))
 				{
-//					if(helper.getMusterTrigger())
-//						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_normal);
+					if(helper.getMusterTrigger())
+						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_normal);
 
 					if(hit_unit != model.Name) return;
 					hit_unit = "null";  //initailize...

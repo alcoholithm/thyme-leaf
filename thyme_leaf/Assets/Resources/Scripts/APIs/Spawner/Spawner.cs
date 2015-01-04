@@ -486,7 +486,6 @@ public class Spawner : Manager<Spawner>
 			hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
 			hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
 			hero.Particle = GameObject.Find("Automat_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
-
 		}
 		else
 		{
