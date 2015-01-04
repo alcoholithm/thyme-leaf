@@ -79,12 +79,32 @@ public enum WChatType // Walkalbe Commanding Headquater Against Trovant
     WCHAT_TYPE1 = 0,
 }
 
+public enum MusicType
+{
+    LOBBY = 0,
+    BATTLE_1 = 1,
+}
+
+public enum SoundType
+{
+    AUTOMAT_FRANSIS_TYPE1_ATTACKING = 0,
+    AUTOMAT_FRANSIS_TYPE1_DYING,
+
+    AUTOMAT_FALSTAFF_TYPE1_ATTACKING,
+    AUTOMAT_FALSTAFF_TYPE1_DYING,
+
+    AUTOMAT_APT_TYPE1_ATTACKING,
+    AUTOMAT_APT_TYPE1_DYING,
+
+    TROVANT_COMMA_ATTACKING,
+    TROVANT_COMMA_DYING,
+
+    TROVANT_PYTHON_ATTACKING,
+    TROVANT_PYTHON_DYING,
+}
+
 public enum FindingNodeDefaultOption
 {
 	NORMAL = 0, RANDOM_NODE, MUSTER_COMMAND, OTHER
 }
 
-public class RPCMethod
-{
-    public const string INIT_SPAWNED_OBJECT = "INIT_SPAWNED_OBJECT";
-}
