@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class Naming : Singleton<Naming> {
+public class Naming : MonoBehaviour{// Singleton<Naming> {
 
     private Dictionary<string, int> nameDictionary;
 
@@ -125,5 +125,11 @@ public class Naming : Singleton<Naming> {
                 }
             }
         }
+    }
+
+    public static Naming instance = new Naming();
+    public static Naming Instance
+    {
+        get {return instance;}
     }
 }
