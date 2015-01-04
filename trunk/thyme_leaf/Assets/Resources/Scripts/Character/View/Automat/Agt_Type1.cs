@@ -58,7 +58,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     //--------------------- MVC
     [SerializeField]
-    private Tower model;
+    private Tower _model;
     private Agt_Controller controller;
     //---------------------
 
@@ -84,10 +84,10 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     void OnDisable()
     {
-        this.model.RemoveObserver(this, ObserverTypes.Health);
+        this._model.RemoveObserver(this, ObserverTypes.Health);
 
         // MVC
-        this.model = null;
+        this._model = null;
         this.controller = null;
 
         // set children
@@ -131,11 +131,11 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
     private void Initialize()
     {
         // MVC
-        this.model = new Tower(this);
-        this.controller = new Agt_Controller(this, model);
+        this._model = new Tower(this);
+        this.controller = new Agt_Controller(this, _model);
 
         // set children
-        this.healthbar.Model = this.model;
+        this.healthbar.Model = this._model;
         this.Add(healthbar);
 
         // set state machine
@@ -146,7 +146,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         this.anim = GetComponent<NGUISpriteAnimation>();
         this.anim.Pause();
 
-        this.model.RegisterObserver(this, ObserverTypes.Health);
+        this._model.RegisterObserver(this, ObserverTypes.Health);
     }
 
     /*
@@ -214,8 +214,8 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     public Tower Model
     {
-        get { return model; }
-        set { model = value; }
+        get { return _model; }
+        set { _model = value; }
     }
     public Agt_Controller Controller
     {

@@ -3,17 +3,20 @@ using System.Collections;
 
 public class CCState_Idling : State<W_Chat>
 {
-    //private string animName = "Comma_Attacking_Normal_";
+    private string animName = "Tower_Hitting_";
 
     private CCState_Idling()
     {
         Successor = CCState_Hitting.Instance;
     }
 
+    /*
+     * followings are overrided methods of "State"
+     */
     public override void Enter(W_Chat owner)
     {
         Debug.Log(TAG + " Enter");
-        //owner.Anim.Play(animName);
+        owner.Anim.Play(animName);
     }
 
     public override void Execute(W_Chat owner)
@@ -28,7 +31,7 @@ public class CCState_Idling : State<W_Chat>
 
     public override bool HandleMessage(Message msg)
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 
     private static CCState_Idling instance = new CCState_Idling();

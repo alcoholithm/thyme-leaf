@@ -56,9 +56,33 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
         Initialize();
     }
 
+    void OnEnable()
+    {
+        Initialize(); // 귀찮아서 이렇게 한다. 원래는 Reset을 만들고 다시 new 로 인스턴시에이션 할 필요없이 각 클래스의 초기화루틴을 호출한다.
+        healthbar.gameObject.SetActive(false);
+    }
+
     void Update()
     {
         stateMachine.Update();
+    }
+
+    void OnDisable()
+    {
+        this._model.RemoveObserver(this, ObserverTypes.Health);
+
+        // MVC
+        this._model = null;
+        this.controller = null;
+
+        // set children
+        this.healthbar.Model = null;
+        this.Remove(healthbar);
+
+        // set state machine
+        this.stateMachine = null;
+
+        this.anim = null;
     }
 
     /*
@@ -98,12 +122,12 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
      */
     public void ChangeState(State<W_Chat> newState)
     {
-        throw new System.NotImplementedException();
+        stateMachine.ChangeState(newState);
     }
 
     public void RevertToPreviousState()
     {
-        throw new System.NotImplementedException();
+        stateMachine.RevertToPreviousState();
     }
 
     /*
@@ -120,12 +144,6 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     /*
      * Followings are attributes
      */ 
-	public GameObject PositionNode
-	{
-		get { return position_node; }
-		set { position_node = value; }
-	}
-
     public override IHandler Successor
     {
         get { return stateMachine; }
@@ -134,6 +152,12 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     {
         get { return anim; }
         set { anim = value; }
+    }
+
+    public GameObject PositionNode
+    {
+        get { return position_node; }
+        set { position_node = value; }
     }
 
     public new const string TAG = "[W_Chat]";
