@@ -57,6 +57,7 @@ public class Naming : Singleton<Naming> {
 
     private void Init()
     {
+        nameDictionary = new Dictionary<string, int>();
         towerNames = new List<string>(); 
         automatNames = new List<string>();
         trovantNames = new List<string>();
@@ -96,16 +97,22 @@ public class Naming : Singleton<Naming> {
             {
                 for (int k = 1; k <= TYPE_NUM; k++)
                 {
-                    for (int l = 1; l <= stateNames.Count; l++)
+                    for (int l = 0; l < stateNames.Count; l++)
                     {
+                        if (nameDictionary.ContainsKey(BuildTrovantName(names[i][j], stateNames[l]))
+                            || nameDictionary.ContainsKey(BuildAutomatName(names[i][j], k, stateNames[l])))
+                            continue;
+
                         if (trovantNames.Contains(BuildTrovantName(names[i][j],stateNames[l]))) {
-                            nameDictionary.Add(BuildTrovantName(names[i][j], stateNames[l]),
-                                BuildTrovantName(names[i][j], stateNames[l]).GetHashCode());
+
+                            nameDictionary.Add(BuildTrovantName(names[i][j], stateNames[l]),BuildTrovantName(names[i][j], stateNames[l]).GetHashCode());
+                            Debug.Log(BuildTrovantName(names[i][j], stateNames[l]));
                         }
                         else
                         {
-                            nameDictionary.Add(BuildAutomatName(names[i][j], k, stateNames[l]),
-                                BuildAutomatName(names[i][j], k, stateNames[l]).GetHashCode());
+                            
+                            nameDictionary.Add(BuildAutomatName(names[i][j], k, stateNames[l]),BuildAutomatName(names[i][j], k, stateNames[l]).GetHashCode());
+                            Debug.Log(BuildAutomatName(names[i][j], k, stateNames[l]));
                         }
                     }
                 }
