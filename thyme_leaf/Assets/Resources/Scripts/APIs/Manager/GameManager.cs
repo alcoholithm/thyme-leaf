@@ -1,23 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-
-
 public class GameManager : Manager<GameManager>
 {
     //[SerializeField]
-    //private GameEntityManager _automatManager;
+    //private GameEntityManager _automat;
+
     //[SerializeField]
-    //private GameEntityManagerr _trovantManager;
+    //private GameEntityManager _trovant;
 
     //void Awake()
     //{
-    //    _automatManager = ScriptableObject.CreateInstance<GameEntityManager>();
-    //    //_trovantManager = ScriptableObject.CreateInstance<GameEntityManager>();
-
-    //    _trovantManager = new GameEntityManagerr();
-
-    //    //Debug.Log(_automatManager.Ss);
-    //    //Debug.Log(_trovantManager.Ss);
+    //    _automat = new GameEntityManager();
+    //    _trovant = new GameEntityManager();
     //}
 }
