@@ -28,6 +28,11 @@ public class HealthBar : View
         this.slider = GetComponent<UISlider>();
     }
 
+    private void Reset()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void UpdateHealthBar()
     {
         float ratio = (float)model.HP / model.MaxHP;
@@ -53,6 +58,11 @@ public class HealthBar : View
     /*
      * followings are overrided methods of "View"
      */
+    public override void PrepareUI()
+    {
+        Reset();
+    }
+
     public override void UpdateUI()
     {
         gameObject.SetActive(true);
@@ -61,7 +71,6 @@ public class HealthBar : View
         if (gameObject.activeInHierarchy)
             StartCoroutine("HideDelayed");
     }
-
 
     /*
      * followings are attributes

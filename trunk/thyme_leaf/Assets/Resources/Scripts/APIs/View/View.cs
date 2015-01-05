@@ -35,6 +35,14 @@ public abstract class View : MonoBehaviour, IView
         return null;
     }
 
+    public virtual void PrepareUI()
+    {
+        if (views != null)
+            views.ForEach(v => v.PrepareUI());
+        else
+            Debug.LogError(new System.NotSupportedException());
+    }
+
     public virtual void UpdateUI()
     {
         if (views != null)
