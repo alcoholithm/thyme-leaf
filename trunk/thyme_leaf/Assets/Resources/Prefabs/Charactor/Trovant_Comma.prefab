@@ -325,7 +325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
-  CurrentHP: 100
   speed: 15
   AttackDamage: 20
   AttackDelay: 1
@@ -397,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 0
+  audioUnitType: 12
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
