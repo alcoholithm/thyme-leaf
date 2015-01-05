@@ -2,14 +2,12 @@
 using System.Collections;
 
 /// <summary>
-/// Facade of MessageDialog
+/// Facade of InputDialog
 /// </summary>
-public class ConfirmDialog : MonoBehaviour
+public class InputDialog : MonoBehaviour
 {
     [SerializeField]
     private UILabel _title;
-    [SerializeField]
-    private UILabel _message;
 
     void OnEnable()
     {
@@ -18,11 +16,6 @@ public class ConfirmDialog : MonoBehaviour
 
     private void Initialize()
     {
-    }
-
-    public void SetMessage(string message)
-    {
-        _message.text = message;
     }
 
     public void Close()

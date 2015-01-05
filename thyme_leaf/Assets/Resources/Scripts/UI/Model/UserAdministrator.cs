@@ -74,7 +74,7 @@ public class UserAdministrator : IUserAdministrator, IObservable
         
     }
 
-    public bool RenameUser(string oldOne, string newOne, int clickFlag)
+    public bool RenameUser(string newOne, int clickFlag)
     {
         if(newOne != null
            && newOne.Length > 0

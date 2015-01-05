@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400000}
-  - 65: {fileID: 6523688}
+  - 65: {fileID: 6578948}
   m_Layer: 8
   m_Name: Control - Simple Button
   m_TagString: Untagged
@@ -18,15 +18,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &123688
+--- !u!1 &178948
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 423688}
-  - 114: {fileID: 11423688}
+  - 4: {fileID: 478948}
+  - 114: {fileID: 11478948}
   m_Layer: 8
   m_Name: 2_Label
   m_TagString: Untagged
@@ -41,25 +41,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -395.005371, y: -600.593018, z: 0}
+  m_LocalPosition: {x: -478.205566, y: -650.787842, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 423688}
+  - {fileID: 478948}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &423688
+--- !u!4 &478948
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123688}
+  m_GameObject: {fileID: 178948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 0
---- !u!65 &6523688
+--- !u!65 &6578948
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -99,8 +99,8 @@ MonoBehaviour:
   - mTarget: {fileID: 0}
     mMethodName: ActionPerformed
     mParameters:
-    - obj: {fileID: 400002}
-      field: name
+    - obj: {fileID: 100002}
+      field: 
     oneShot: 0
 --- !u!114 &11400004
 MonoBehaviour:
@@ -149,15 +149,15 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
-  mSpriteName: Button
+  mAtlas: {fileID: 11400000, guid: 41763982415a360449baa8d590ed7007, type: 2}
+  mSpriteName: BtnMultiplay
   mFillCenter: 1
---- !u!114 &11423688
+--- !u!114 &11478948
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123688}
+  m_GameObject: {fileID: 178948}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
@@ -192,7 +192,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
-  mText: T
+  mText: 
   mFontSize: 130
   mFontStyle: 0
   mAlignment: 0
