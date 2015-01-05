@@ -17,7 +17,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	//=====================
 	//unit identity value
 	public int MaxHP = 100;
-	public int CurrentHP = 100;
 	public float speed = 10;
     public float AttackDamage = 20; 
 	public float AttackDelay = 1;
@@ -37,7 +36,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	//extra...
 	private bool onlyfirst;
-	private string hit_unit;
+	private int hit_unit_id;
 
 	[HideInInspector]
 	public MHero model;
@@ -74,7 +73,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	//unit detail initialize...
 	public void SettingInitialize()
 	{
-        //Debug.Log ("SettingInitialize");
 		//mvc setting...
 		helper = new Helper (this.gameObject);
 		model = new MHero (helper);
@@ -99,6 +97,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         health_bar_controller = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
         health_bar_body = health_bar_controller.transform;
 
+		//hp bar setting...
 		this.health_bar_controller.Model = this.model;
 		this.Add(health_bar_controller);
 		model.RegisterObserver (this, ObserverTypes.Health);
@@ -197,7 +196,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         if (helper.getMusterTrigger())
         {
             Debug.Log("command move");
-            UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
+            UnitMusterController.GetInstance().CommandMove(model.MusterID, model.ID);
         }
     }
 
@@ -221,7 +220,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 					if(helper.getMusterTrigger())
 					{
 						Debug.Log("muster range edit");
-						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_muster);
+						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.ID, helper.collision_range_muster);
 					}
 
 					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
@@ -231,15 +230,15 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 					Hero obj = collider.gameObject.GetComponent<Hero>();
 					if(obj == null) return;  //if...null never case...
 
-					hit_unit = obj.model.Name;
+					hit_unit_id = obj.model.ID;
 				}
 				else if(Input.GetMouseButtonUp(0))
 				{
 					if(helper.getMusterTrigger())
-						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.Name, helper.collision_range_normal);
+						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.ID, helper.collision_range_normal);
 
-					if(hit_unit != model.Name) return;
-					hit_unit = "null";  //initailize...
+					if(hit_unit_id != model.ID) return;
+					hit_unit_id = -1;  //initailize...
 					
 					helper.gesture_endpoint = Input.mousePosition;
 
@@ -329,7 +328,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			{
 				UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
 				
-				if(model.Name == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
+				if(model.ID == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
 				
 				//okay unit...
 				isCount = true;
@@ -409,7 +408,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 							if(helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
 							{
 								controller.setMoveTrigger(true);
-								UnitMusterController.GetInstance().CommandMove(model.MusterID, model.Name);
+								UnitMusterController.GetInstance().CommandMove(model.MusterID, model.ID);
 							}
 						}
 						else
@@ -432,7 +431,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 					{
 						UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
 						
-						if(model.Name == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
+						if(model.ID == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
 						if(helper.getCurrentNodeName() == "null" && other.infor_hero.helper.getCurrentNodeName() == "null")
 							continue;
 						if(other.infor_hero.controller.isGesture() &&
@@ -463,9 +462,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	public void TakeDamage(int damage_range)
 	{
-        //controller.addHp(-damage_range);
-        //CurrentHP = model.HP;  //test code...
-
         model.HP -= damage_range;
 
         particle_sys.transform.localPosition = helper.getPos() + new Vector3(0, 55, 0);

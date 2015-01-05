@@ -386,13 +386,11 @@ public class Spawner : Manager<Spawner>
 		if(type == StartPoint.AUTOMAT_POINT)
 		{
 			hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
-			hero.controller.setName (UnitNameGetter.GetInstance ().getNameAutomart ());
 			hero.Particle = GameObject.Find("Automat_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
 		}
 		else
 		{
 			hero.controller.setType (UnitType.TROVANT_CHARACTER);
-			hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
 			hero.Particle = GameObject.Find("Trovant_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
 		}
 		hero.controller.setNodeOffsetStruct (Define.path_node_off.getNodeOffset ());
@@ -400,8 +398,8 @@ public class Spawner : Manager<Spawner>
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
 		hero.controller.setMoveTrigger(true);
 
-		hero.my_name = hero.model.Name;
-		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
+		hero.my_name = hero.model.ID.ToString ();
+		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.ID, hero.model.Type);
 		UnitPoolController.GetInstance ().AddUnit (u_obj);
 	}
 

@@ -84,10 +84,10 @@ public abstract class Unit : IObservable
         get { return name; }
         set { name = value; }
     }
-	public string SpecieName
+	public int ID
 	{
-		get { return species_name; }
-		set { species_name = value; }
+		get { return id; }
+		set { id = value; }
 	}
     public string Description
     {

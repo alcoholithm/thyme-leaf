@@ -42,10 +42,10 @@ public class UnitPoolController
 	
 	public void RemoveUnit(GameObject uObj)
 	{
-		string str1 = "";
+		int id1 = -1;
 		if(uObj.layer == (int)Layer.Automart || uObj.layer == (int)Layer.Trovant)
 		{
-			str1 = uObj.GetComponent<Hero>().model.Name;
+			id1 = uObj.GetComponent<Hero>().model.ID;
 		}
 		else if(uObj.layer == (int)Layer.Tower)
 		{
@@ -54,7 +54,7 @@ public class UnitPoolController
 		
 		for(int i=0;i<unitPool.Count;i++)
 		{
-			if(str1 == unitPool[i].nameID)
+			if(id1 == unitPool[i].nameID)
 			{
 				unitPool.RemoveAt(i);
 				break;
@@ -76,10 +76,10 @@ public class UnitPoolController
 	
 	public bool isUnit(ref UnitObject uObj)
 	{
-		string str1 = uObj.nameID;
+		int id1 = uObj.nameID;
 		for(int i=0;i<unitPool.Count;i++)
 		{
-			if(str1 == unitPool[i].nameID) return true;
+			if(id1 == unitPool[i].nameID) return true;
 		}
 		return false;
 	}
@@ -94,15 +94,15 @@ public class UnitPoolController
 public struct UnitObject
 {
 	public GameObject obj;
-	public string nameID;
+	public int nameID;
 	public UnitType type;
 	public Tower infor_tower;
 	public Hero infor_hero;
 	
-	public UnitObject(GameObject obj, string name, UnitType type)
+	public UnitObject(GameObject obj, int id, UnitType type)
 	{
 		this.obj = obj;
-		nameID = name;
+		nameID = id;
 		this.type = type;
 		
 		if(type != UnitType.AUTOMAT_TOWER)
@@ -120,7 +120,7 @@ public struct UnitObject
 	public UnitObject(int null_)
 	{
 		obj = null;
-		nameID = "";
+		nameID = -1;
 		this.type = UnitType.AUTOMAT_CHARACTER;
 		infor_hero = null;
 		infor_tower = null;

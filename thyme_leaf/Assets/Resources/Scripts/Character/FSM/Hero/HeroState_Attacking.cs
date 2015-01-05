@@ -24,7 +24,7 @@ public class HeroState_Attacking : State<Hero>
         owner.helper.attack_delay_counter = 0;  //attack delay setting...
 
 		if(owner.helper.getMusterTrigger())
-			UnitMusterController.GetInstance().CommandAttack(owner.model.MusterID, owner.model.Name);
+			UnitMusterController.GetInstance().CommandAttack(owner.model.MusterID, owner.model.ID);
     }
 
     public override void Execute(Hero owner)
@@ -35,7 +35,7 @@ public class HeroState_Attacking : State<Hero>
 		{
 			UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
 
-			if(owner.model.Name == other.nameID) continue;
+			if(owner.model.ID == other.nameID) continue;
 			
 			bool check = false;
 			switch(owner.getLayer())
@@ -58,7 +58,7 @@ public class HeroState_Attacking : State<Hero>
 				{
 					isCharacter = true;
 					Hero other_infor = other.obj.GetComponent<Hero>();
-					if(owner.helper.attack_target.model.Name != other_infor.model.Name)
+					if(owner.helper.attack_target.model.ID != other_infor.model.ID)
 						owner.helper.attack_target = other.obj.GetComponent<Hero>();
 					break;
 				}

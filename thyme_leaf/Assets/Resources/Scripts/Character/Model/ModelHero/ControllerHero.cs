@@ -50,8 +50,8 @@ public class ControllerHero
 	}
 	
 	public void setName(string v) { _model.Name = v; }
-	
-	public void setSpeciesName(string v) { _model.SpecieName = v; }
+
+	public void setId(int v) { _model.ID = v; }
 	
 	public void setMusterID(string v) { _model.MusterID = v; }
 	
