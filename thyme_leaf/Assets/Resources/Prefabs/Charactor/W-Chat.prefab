@@ -63,6 +63,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400018}
+  - 114: {fileID: 11400010}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
@@ -282,6 +283,18 @@ MonoBehaviour:
   _model:
     _maxHp: 100
     _currHp: 100
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioUnitType: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,13 +319,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 0}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 100008}
-      field: 
-    oneShot: 0
+  onClick: []
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
