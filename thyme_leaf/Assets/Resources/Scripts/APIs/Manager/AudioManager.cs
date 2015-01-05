@@ -102,31 +102,108 @@ public class AudioManager : Manager<AudioManager>
         if (audioPlayer.isPlaying) audioPlayer.Stop();
     }
 
-    //public void PlayClip(GameObject go)
-    //{
-    //    //PlayClip(Naming.Instance.GetName(go), go.transform.position);
-    //}
-
-    public void PlayClipWithState(GameObject go, string state)
+    private SoundType BuildSoundType(AudioUnitType unitType, StateType stateType)
     {
-        string name = Naming.Instance.GetName(go, state);
-        Debug.Log("NAME : "+name);
-        PlayClip(name, go.transform.position);
-        //PlayClipAtPoint(SoundType.AUTOMAT_APT_TYPE1_ATTACKING, go.gameObject.transform.position);
+        SoundType resultSoundType;
+        
+        // Automats
+            // Falstaff
+                // Type1
+        if(unitType == AudioUnitType.FALSTAFF_TYPE1
+            && stateType == StateType.ATTACKING)
+        {
+            resultSoundType = SoundType.AUTOMAT_FALSTAFF_TYPE1_ATTACKING;
+        }
+        else if (unitType == AudioUnitType.FALSTAFF_TYPE1
+            && stateType == StateType.DYING)
+        {
+            resultSoundType = SoundType.AUTOMAT_FALSTAFF_TYPE1_DYING;
+        }
+            // Franscis
+                // Type1
+        else if (unitType == AudioUnitType.FRANSCIS_TYPE1
+            && stateType == StateType.ATTACKING)
+        {
+            resultSoundType = SoundType.AUTOMAT_FRANSIS_TYPE1_ATTACKING;
+        }
+        else if (unitType == AudioUnitType.FRANSCIS_TYPE1
+            && stateType == StateType.DYING)
+        {
+            resultSoundType = SoundType.AUTOMAT_FRANSIS_TYPE1_DYING;
+        }
+        // towers
+            // APT
+                // Type1
+        else if (unitType == AudioUnitType.APT_TYPE1
+            && stateType == StateType.ATTACKING)
+        {
+            resultSoundType = SoundType.AUTOMAT_APT_TYPE1_ATTACKING;
+        }
+        else if (unitType == AudioUnitType.FRANSCIS_TYPE1
+            && stateType == StateType.DYING)
+        {
+            resultSoundType = SoundType.AUTOMAT_APT_TYPE1_DYING;
+        }
+        // Trovants
+            // Comma
+        else if (unitType == AudioUnitType.COMMA
+        && stateType == StateType.ATTACKING)
+        {
+            resultSoundType = SoundType.TROVANT_COMMA_ATTACKING;
+        }
+        else if (unitType == AudioUnitType.COMMA
+            && stateType == StateType.DYING)
+        {
+            resultSoundType = SoundType.TROVANT_COMMA_DYING;
+        }
+            // Python
+        else if (unitType == AudioUnitType.PYTHON
+            && stateType == StateType.ATTACKING)
+        {
+            resultSoundType = SoundType.TROVANT_COMMA_ATTACKING;
+        }
+        else if (unitType == AudioUnitType.PYTHON
+            && stateType == StateType.DYING)
+        {
+            resultSoundType = SoundType.TROVANT_COMMA_DYING;
+        }
+        // WChat
+            // Type1
+        //else if (unitType == AudioUnitType.WCHAT_TYPE1
+        //&& stateType == StateType.ATTACKING)
+        //{
+        //}
+        //else if (unitType == AudioUnitType.WCHAT_TYPE1
+        //    && stateType == StateType.DYING)
+        //{
+        //}
+
+        else
+        {
+            resultSoundType = SoundType.NOTHING;
+            Debug.Log("NOT FOUND SOUND TYPE : " + unitType + " , " + stateType);
+        }
+
+        return resultSoundType;
     }
 
-    private void PlayClip(string name, Vector3 pos)
+    public void PlayClipWithState(GameObject go, StateType stateType)
     {
         
-
-        //PlayClipAtPoint(soundType, pos);
+        AudioUnitType aut = go.GetComponent<AudioType>().audioUnitType;
+        SoundType soundType  = BuildSoundType(aut, stateType);
+        Debug.Log("SOUND NAME : " + soundType);
+        PlayClipAtPoint(soundType, go.gameObject.transform.position);
     }
+
 
     private void PlayClipAtPoint(SoundType type, Vector3 pos)
     {
         if (sound[(int)type] == null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
 
         //if (Settings.SoundEffectsEnabled && sound[(int)type] != null)
-            AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.SoundEffectsVolume);
+            //AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.SoundEffectsVolume);
+
+        AudioSource.PlayClipAtPoint(sound[(int)type], pos, 0.5f);
     }
 }
