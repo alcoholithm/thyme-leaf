@@ -58,6 +58,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	void OnEnable()
 	{
 		SettingInitialize ();
+
+        _whapFX.Reset();
 	}
 	
 	void Update()
@@ -466,6 +468,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         _whapFX.Play();
 
         model.HP -= damage_range;
+
 
 		if(model.HP <= 0)
 		{

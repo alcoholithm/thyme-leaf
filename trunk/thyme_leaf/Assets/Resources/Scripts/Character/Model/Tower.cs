@@ -19,9 +19,9 @@ public class Tower : Unit, IAttackable
     }
 
     /*
-    * followings are member functions
+    * followings are public member functions
     */
-    private GameEntity FindBestTarget()
+    public GameEntity FindBestTarget()
     {
         // 초기에 이애가 죽었는지 살았는지 판단해야함.
         // 다른 놈에 의해 제거될 가능성도 있으므로
