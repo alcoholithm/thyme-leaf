@@ -46,6 +46,10 @@ public class BattleView : View, IActionListener
     private GameObject _towerSpotCommands;
     [SerializeField]
     private GameObject _towerCommands;
+    [SerializeField]
+    private GameObject _victoryFrame;
+    [SerializeField]
+    private GameObject _defeatFrame;
 
 
 
@@ -56,6 +60,9 @@ public class BattleView : View, IActionListener
      */
     void Awake()
     {
+        // singleton
+        instance = this;
+
         // MVC
         this.controller = new BattleController(this);
 
@@ -74,9 +81,15 @@ public class BattleView : View, IActionListener
         views.ForEach(v => { (v as View).gameObject.SetActive(false); });
     }
 
+    public void ShowVictoryFrame()
+    {
+        _victoryFrame.SetActive(true);
+    }
 
-
-
+    public void ShowDefeatFrame()
+    {
+        _defeatFrame.SetActive(true);
+    }
 
 
     /*
@@ -120,5 +133,13 @@ public class BattleView : View, IActionListener
         set { _towerCommands = value; }
     }
 
+    private static BattleView instance;
+    public static BattleView Instance
+    {
+        get { return instance; }
+    }
+
     public const string TAG = "[BattleView]";
+
+
 }

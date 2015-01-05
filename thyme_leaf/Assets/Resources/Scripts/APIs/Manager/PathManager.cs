@@ -30,11 +30,11 @@ public class PathManager : Manager<PathManager> {
 				map_data.isUse = true;
 				map_data.automat_center = true;
 				Define.pathNode[i] = map_data;
-                W_Chat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
+                WChat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
 				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
 				w.PositionNode = Define.pathNode[i].obj;
 
-                w.ChangeState(CCState_Idling.Instance);
+                w.ChangeState(WChatState_Idling.Instance);
 
 				i = 0;
 				continue;
@@ -46,11 +46,11 @@ public class PathManager : Manager<PathManager> {
 				map_data.isUse = true;
 				map_data.trovant_center = true;
 				Define.pathNode[i] = map_data;
-                W_Chat w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
+                THouse w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
                 w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
                 w.PositionNode = Define.pathNode[i].obj;
 
-                w.ChangeState(CCState_Idling.Instance);
+                w.ChangeState(THouseState_Idling.Instance);
 				
 				i = 0;
 				continue;

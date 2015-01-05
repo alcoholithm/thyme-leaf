@@ -64,6 +64,7 @@ public class NGUISpriteAnimation : UISpriteAnimation
 
     public void Play(string animName)
     {
+        Pause();
         namePrefix = animName;
         mLoop = true;
         oneShot = false;
@@ -72,12 +73,14 @@ public class NGUISpriteAnimation : UISpriteAnimation
 
     public void Play(string animName, ICommand command)
     {
+        Pause();
         this.command = command;
         Play(animName);
     }
 
     public void PlayOneShot(string animName)
     {
+        Pause();
         namePrefix = animName;
         mLoop = false;
         oneShot = true;
@@ -86,6 +89,7 @@ public class NGUISpriteAnimation : UISpriteAnimation
 
     public void PlayOneShot(string animName, ICommand command)
     {
+        Pause();
         this.command = command;
         PlayOneShot(animName);
     }
