@@ -3,7 +3,8 @@ using System.Collections;
 
 public class TowerState_Attacking : State<Agt_Type1>
 {
-    private string animName = "APT_Type1_Attacking_";
+    private string animName = "Tower_Attacking_";
+    //private string animName = "APT_Type1_Attacking_";
 
     private TowerState_Attacking()
     {
@@ -27,6 +28,8 @@ public class TowerState_Attacking : State<Agt_Type1>
     public override void Execute(Agt_Type1 owner)
     {
         // if there are no enemies anymore.
+        owner.Model.FindBestTarget();
+
         if (owner.Model.Enemies.Count == 0)
         {
             owner.ChangeState(TowerState_Idling.Instance);
