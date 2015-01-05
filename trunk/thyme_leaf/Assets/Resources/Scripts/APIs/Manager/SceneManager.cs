@@ -11,6 +11,7 @@ public class SceneManager : Manager<SceneManager>
     public const string LOBBY = "1_Lobby";
     public const string WORLD_MAP = "2_WorldMap";
     public const string BATTLE = "3_Battle";
+	public const string BATTLE_MULTI = "3_BattleMultiplay";
     public const string TOWER = "4_TowerSet";
     public const string AUTO = "5_AutomartSet";
     public const string MULTI = "MultiplayScene";

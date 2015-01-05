@@ -96,7 +96,7 @@ public class NetworkConnector : MonoBehaviour
         if (Network.peerType == NetworkPeerType.Disconnected)
             Debug.Log("NOT CONNECTED NETWORK ERROR : You should check if network is connected correctly");
         else if(Network.isServer)
-			networkView.RPC("LoadLevel", RPCMode.All, loadLevel);
+			networkView.RPC("OnNetworkLoadLevel", RPCMode.All, loadLevel);
     }
 
 	// Step 5
@@ -116,7 +116,7 @@ public class NetworkConnector : MonoBehaviour
 		switch (result)
 		{
 		case NetworkResult.SUCCESS_TO_CONNECT:
-			NetworkConnector.Instance.NetworkLoadLevel("MultiplayScene");
+			NetworkConnector.Instance.NetworkLoadLevel(SceneManager.BATTLE_MULTI);
 			break;
 		case NetworkResult.EMPTY_ROOM:
 			Debug.Log("Nobody made room");
@@ -250,7 +250,7 @@ public class NetworkConnector : MonoBehaviour
 
    
     [RPC]
-    void LoadLevel(string level)
+    void OnNetworkLoadLevel(string level)
     {
         Network.SetSendingEnabled(0, false);
         Network.isMessageQueueRunning = false;
