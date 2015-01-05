@@ -36,9 +36,9 @@ public class TowerSpotCommandsController
             else tower.gameObject.GetComponent<SyncStateScript>().NetworkInitTower(model, view.gameObject); // Multi mode
 
             EntityManager.Instance.RegisterEntity(tower);
-
-            view.gameObject.SetActive(false);
         }
+
+        view.gameObject.SetActive(false);
     }
 
     public void InitBuildedTower(ref Agt_Type1 tower)

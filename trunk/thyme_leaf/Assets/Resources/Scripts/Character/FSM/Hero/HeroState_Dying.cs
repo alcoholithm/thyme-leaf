@@ -41,6 +41,8 @@ public class HeroState_Dying : State<Hero> {
 
         Spawner.Instance.Free(owner.gameObject);
 
+        UserAdministrator.Instance.CurrentUser.Gold += 100;
+
 		//throw new System.NotImplementedException ();
 	}
 
