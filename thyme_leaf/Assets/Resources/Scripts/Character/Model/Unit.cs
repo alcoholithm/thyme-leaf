@@ -6,7 +6,8 @@ using System.Collections.Generic;
 public abstract class Unit : IObservable
 {
     // 종족의 이름이 필요하다고?
-    protected string name;
+    protected int id;
+    protected string name; 
     protected string description;
 
     protected string species_name;
@@ -27,9 +28,9 @@ public abstract class Unit : IObservable
      */
     public Unit()
     {
-
-        Naming naming = Naming.Instance;
-        naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.ATTACKING);
+        //Naming naming = Naming.Instance;
+        //naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.ATTACKING);
+        id = Naming.maxId++;
         _maxHp = 100;
         _currHp = _maxHp;
     }

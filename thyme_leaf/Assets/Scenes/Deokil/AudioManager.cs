@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AudioManagerScript : Manager<AudioManagerScript>
+public class AudioManager : Manager<AudioManager>
 {
     // list of music
     public AudioClip LOBBY;
@@ -51,11 +51,8 @@ public class AudioManagerScript : Manager<AudioManagerScript>
     {
         InitValues();
         string levelName = Application.loadedLevelName;
-        Debug.Log("CURRENT LEVEL SCENE : " + levelName);
-
         if (levelName.Equals("1_Lobby")) audioPlayer.clip = music[(int)MusicType.LOBBY];
         else if (levelName.Equals("3_Battle")) audioPlayer.clip = music[(int)MusicType.BATTLE_1];
-
         StartAudio();
     }
 
@@ -65,6 +62,8 @@ public class AudioManagerScript : Manager<AudioManagerScript>
         {
             case 0: // lobby
                 audioPlayer.clip = music[(int)MusicType.LOBBY];
+                break;
+            case 1: // world map
                 break;
             case 2: // battle
                 audioPlayer.clip = music[(int)MusicType.BATTLE_1];
@@ -98,15 +97,16 @@ public class AudioManagerScript : Manager<AudioManagerScript>
         if (audioPlayer.isPlaying) audioPlayer.Stop();
     }
 
-    public void PlayClip(AudioClip clip)
+    public void PlayClip(GameObject go)
     {
-        audioPlayer.clip = clip;
-        audioPlayer.Play();
+        PlayClip(Naming.Instance.GetName(go), go.transform.position);
     }
 
-    public void PlayClip(string name, Vector3 pos)
+    private void PlayClip(string name, Vector3 pos)
     {
         Naming naming = Naming.Instance;
+        if (!naming.CheckNaming(name)) return;
+
         SoundType soundType;
         if (name.Equals(naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.ATTACKING)))
         {
@@ -157,7 +157,7 @@ public class AudioManagerScript : Manager<AudioManagerScript>
         PlayClipAtPoint(soundType, pos);
     }
 
-    public void PlayClipAtPoint(SoundType type, Vector3 pos)
+    private void PlayClipAtPoint(SoundType type, Vector3 pos)
     {
         if (sound[(int)type] != null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
 

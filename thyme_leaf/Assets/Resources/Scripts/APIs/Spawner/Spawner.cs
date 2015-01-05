@@ -6,42 +6,20 @@ public class Spawner : Manager<Spawner>
 {
     public new const string TAG = "[Spawner]";
 
-    [SerializeField]
-    private GameObject[] automats;
-    [SerializeField]
-    private GameObject[] towers;
-    [SerializeField]
-    private GameObject[] projectiles;
-    [SerializeField]
-    private GameObject[] trovants;
-    [SerializeField]
-    private GameObject[] wchats;
-    [SerializeField]
-    private GameObject[] thouses;
+    [SerializeField] private GameObject[] automats;
+    [SerializeField] private GameObject[] towers;
+    [SerializeField] private GameObject[] projectiles;
+    [SerializeField] private GameObject[] trovants;
+    [SerializeField] private GameObject[] wchats;
+    [SerializeField] private GameObject[] thouses;
 
-    [SerializeField]
-    private int initPoolSize = 100;
-    [SerializeField]
-    private int maxPoolSize = 200;
+    [SerializeField] private int initPoolSize = 100;
+    [SerializeField] private int maxPoolSize = 200;
 
     private GameObject automatPool;
     private GameObject trovantPool;
     private GameObject automatBuildingPool;
     private GameObject trovantBuildingPool;
-
-
-    /**********************************/
-    
-    public void OnNetworkLoadedLevel()
-    {
-        //Debug.Log("Start Object Pool");
-        //foreach (GameObject automat in automats)
-        //{
-        //    ObjectPoolingManager.Instance.CreatePool(gameObject, automat, initPoolSize, maxPoolSize, false);
-        //}
-    }
-
-    /**********************************/
 
     void Start()
     {
@@ -100,7 +78,6 @@ public class Spawner : Manager<Spawner>
 
     /**********************************/
 
-
     public THouse DynamicGetThouse(THouseType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -134,26 +111,13 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    [RPC]
-    void NetworkGetThouse(NetworkViewID viewID, int type)
-    {
-        GameObject go = GameObject.Instantiate(thouses[type], Vector3.zero, Quaternion.identity) as GameObject;
-        go.SetActive(false);
-        go.transform.parent = trovantBuildingPool.transform;
-        go.SetActive(true);
-        go.networkView.viewID = viewID;
-		InitThouse(ref go);
-    }
-
-    [System.Obsolete("GetThouse(int type) is deprecated, please use GetThouse(THouseType type) instead.")]
-    public THouse GetThouse(int type)
+    private THouse GetThouse(int type)
     {
 		Debug.Log ("GetThouse : " + (THouseType) type);
         GameObject go = ObjectPoolingManager.Instance.GetObject(thouses[type].name);
 		InitThouse(ref go);
         return go.GetComponent<THouse>();
     }
-
 
     /**********************************/
 
@@ -188,26 +152,12 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    [RPC]
-    void NetworkGetWChat(NetworkViewID viewID, int type)
-    {
-        GameObject go = GameObject.Instantiate(wchats[type], Vector3.zero, Quaternion.identity) as GameObject;
-        go.SetActive(false);
-        go.transform.parent = automatBuildingPool.transform;
-        go.SetActive(true);
-        go.networkView.viewID = viewID;
-        InitWChat(ref go);
-    }
-
-    [System.Obsolete("GetWChat(int type) is deprecated, please use GetWChat(WChatType type) instead.")]
-    public WChat GetWChat(int type)
+    private WChat GetWChat(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(wchats[type].name);
         InitWChat(ref go);
         return go.GetComponent<WChat>();
     }
-
-
 
     /**********************************/
 
@@ -241,20 +191,8 @@ public class Spawner : Manager<Spawner>
             return go.GetComponent<Hero>();
         }
     }
-
-    [RPC]
-    void NetworkGetHero(NetworkViewID viewID, int type)
-    {
-        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
-        go.SetActive(false);
-        go.transform.parent = automatPool.transform;
-        go.SetActive(true);
-        go.networkView.viewID = viewID;
-        InitHero(ref go);
-    }
     
-    [System.Obsolete("GetHero(int type) is deprecated, please use GetHero(AutomatType type) instead.")]
-    public Hero GetHero(int type)
+    private Hero GetHero(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(automats[type].name);
         InitHero(ref go);
@@ -289,19 +227,7 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    [RPC]
-    void NetworkGetTrovant(NetworkViewID viewID, int type)
-    {
-        GameObject go = GameObject.Instantiate(trovants[type], Vector3.zero, Quaternion.identity) as GameObject;
-        go.SetActive(false);
-        go.transform.parent = trovantPool.transform;
-        go.SetActive(true);
-        go.networkView.viewID = viewID;
-        InitTrovant(ref go);
-    }
-
-    [System.Obsolete("GetTrovant(int type) is deprecated, please use GetTrovant(TrovantType type) instead.")]
-    public Hero GetTrovant(int type)
+    private Hero GetTrovant(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(trovants[type].name);
         InitTrovant(ref go);
@@ -336,19 +262,7 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    [RPC]
-    void NetworkGetTower(NetworkViewID viewID, int type)
-    {
-        GameObject go = GameObject.Instantiate(towers[type], Vector3.zero, Quaternion.identity) as GameObject;
-        go.SetActive(false);
-        go.transform.parent = automatBuildingPool.transform;
-        go.SetActive(true);
-        go.networkView.viewID = viewID;
-        InitTower(ref go);
-    }
-
-    [System.Obsolete("GetTower(int type) is deprecated, please use GetTower(TowerType type) instead.")]
-    public Agt_Type1 GetTower(int type)
+    private Agt_Type1 GetTower(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(towers[type].name);
         InitTower(ref go);
@@ -386,19 +300,7 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    [RPC]
-    void NetworkGetProjectile(NetworkViewID viewID, int type)
-    {
-        GameObject go = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
-        go.SetActive(false);
-        go.transform.parent = automatBuildingPool.transform;
-        go.SetActive(true);
-        go.networkView.viewID = viewID;
-        InitProjectile(ref go);
-    }
-
-    [System.Obsolete("GetProjectile(int type) is deprecated, please use GetProjectile(ProjectileType type) instead.")]
-    public Projectile GetProjectile(int type)
+    private Projectile GetProjectile(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(projectiles[type].name);
         InitProjectile(ref go);
@@ -437,13 +339,7 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    [RPC]
-    void NetworkFree(NetworkViewID viewID)
-    {
-        if (!viewID.isMine) return;
-        GameObject go = NetworkView.Find(viewID).gameObject;
-        Destroy(go);
-    }
+    
 
     /**********************************/
     // Initializing Methods
@@ -479,7 +375,6 @@ public class Spawner : Manager<Spawner>
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 		
-		//unit detail setting...
 		if(type == StartPoint.AUTOMAT_POINT)
 			hero.controller.StartPointSetting(StartPoint.AUTOMAT_POINT);
 		else
@@ -498,22 +393,12 @@ public class Spawner : Manager<Spawner>
 			hero.controller.setName (UnitNameGetter.GetInstance ().getNameTrovant ());
 			hero.Particle = GameObject.Find("Trovant_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
 		}
-//		float range_value = 80;
-//		hero.controller.setMoveOffset (Random.Range (-range_value, range_value), 
-//		                               Random.Range (-range_value, range_value));
 		hero.controller.setNodeOffsetStruct (Define.path_node_off.getNodeOffset ());
 
-		//moving state...
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
-		//moveing enable...
 		hero.controller.setMoveTrigger(true);
-		//hp bar setting...
-	//	hero.HealthUpdate ();
-		
-		//test...
+
 		hero.my_name = hero.model.Name;
-		
-		//unit pool insert...
 		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.Name, hero.model.Type);
 		UnitPoolController.GetInstance ().AddUnit (u_obj);
 	}
@@ -534,57 +419,78 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // RPC Methods
 
-
-    /*
     [RPC]
-    void INIT_SPAWNED_OBJECT(NetworkViewID spawnerID, NetworkViewID bornerID)
+    void NetworkGetThouse(NetworkViewID viewID, int type)
     {
-        //if (pool == null)
-        //    pool = GameObject.Find("Pool").gameObject;
-        Debug.Log("INIT_SPAWNED_OBJECT " + bornerID + " FROM " + spawnerID);
-        GameObject borner = NetworkView.Find(bornerID).gameObject;
-        GameObject spawner = NetworkView.Find(spawnerID).gameObject;
-
-        borner.transform.parent = spawner.transform;
-        borner.SetActive(false);
+        GameObject go = GameObject.Instantiate(thouses[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = trovantBuildingPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitThouse(ref go);
     }
 
     [RPC]
-    void ACTIVE_OBJECT(NetworkViewID id)
+    void NetworkGetWChat(NetworkViewID viewID, int type)
     {
-        GameObject baby = NetworkView.Find(id).gameObject;
-        baby.SetActive(true);
-        Debug.Log("ACTIVE_OBJECT " + id);
+        GameObject go = GameObject.Instantiate(wchats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitWChat(ref go);
     }
 
     [RPC]
-    void TEST(NetworkViewID spawnerID, NetworkViewID viewID, int unitTypeNum, int type)
+    void NetworkGetHero(NetworkViewID viewID, int type)
     {
-        GameObject nObj = null;
-        GameObject spawner = NetworkView.Find(spawnerID).gameObject;
-        UnitType unitType = (UnitType)unitTypeNum;
-
-        switch (unitType)
-        {
-            case UnitType.AUTOMART_CHARACTER:
-                nObj = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
-                break;
-            case UnitType.AUTOMART_TOWER:
-                nObj = GameObject.Instantiate(towers[type], Vector3.zero, Quaternion.identity) as GameObject;
-                break;
-            case UnitType.AUTOMAT_PROJECTILE:
-                nObj = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
-                break;
-            case UnitType.TROVANT_CHARACTER:
-                nObj = GameObject.Instantiate(trovants[type], Vector3.zero, Quaternion.identity) as GameObject;
-                break;
-
-            default:
-                Debug.LogError("Not found Unit Type : " + unitType);
-                break;
-        }
-        nObj.networkView.viewID = viewID;
+        GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = automatPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitHero(ref go);
     }
-    */
+
+    [RPC]
+    void NetworkGetTrovant(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(trovants[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = trovantPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitTrovant(ref go);
+    }
+
+    [RPC]
+    void NetworkGetTower(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(towers[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitTower(ref go);
+    }
+
+    [RPC]
+    void NetworkGetProjectile(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitProjectile(ref go);
+    }
+
+    [RPC]
+    void NetworkFree(NetworkViewID viewID)
+    {
+        if (!viewID.isMine) return;
+        GameObject go = NetworkView.Find(viewID).gameObject;
+        Destroy(go);
+    }
 }
 

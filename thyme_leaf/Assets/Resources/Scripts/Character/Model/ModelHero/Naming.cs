@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class Naming : MonoBehaviour{// Singleton<Naming> {
+public class Naming : MonoBehaviour
+{
+    public static int maxId;
 
     private Dictionary<string, int> nameDictionary;
 
@@ -40,9 +42,16 @@ public class Naming : MonoBehaviour{// Singleton<Naming> {
     public List<string> stateNames;
     public List<List<string>> names;
 
-    void Awake()
+    private static Naming instance = new Naming();
+
+    private Naming()
     {
         Init();
+    }
+
+    public static Naming Instance
+    {
+        get { return instance; }
     }
 
     public string BuildAutomatName(string name, int typeNum)
@@ -65,8 +74,47 @@ public class Naming : MonoBehaviour{// Singleton<Naming> {
         return name + "_" + state;
     }
 
+    public bool CheckNaming(string name)
+    {
+        return nameDictionary.ContainsKey(name);
+    }
+
+    public string GetName(GameObject go)
+    {
+        string goName = go.name;
+        string name = null;
+
+        if (goName.Contains("(Clone)"))
+        {
+            int idx = goName.IndexOf("(Clone)");
+            //Debug.Log(goName + " : "+idx +", " + goName.Length);
+            goName = goName.Substring(0, idx);
+        }
+
+        if (goName.Equals("Automat_Falstaff_Type1"))
+        {
+            name = BuildAutomatName(Naming.FALSTAFF, 1);
+        }
+        else if(goName.Equals("Automat_Fransic_Type1"))
+        {
+            name = BuildAutomatName(Naming.FRANSIS, 1);
+        }
+        else if (goName.Equals("Trovant_Comma"))
+        {
+            name = BuildTrovantName(Naming.COMMA);
+        }
+        else if (goName.Equals("Trovant_Python"))
+        {
+            name = BuildTrovantName(Naming.PYTHON);
+        }
+
+        if (name == null) Debug.LogError("NOT FOUND NAME : " + goName);
+        return name;
+    }
+
     private void Init()
     {
+        maxId = 1;
         nameDictionary = new Dictionary<string, int>();
         towerNames = new List<string>(); 
         automatNames = new List<string>();
@@ -127,9 +175,5 @@ public class Naming : MonoBehaviour{// Singleton<Naming> {
         }
     }
 
-    public static Naming instance = new Naming();
-    public static Naming Instance
-    {
-        get {return instance;}
-    }
+    
 }
