@@ -76,6 +76,13 @@ public class Naming : MonoBehaviour
 
     public bool CheckNaming(string name)
     {
+        //IDictionaryEnumerator ie = nameDictionary.GetEnumerator();
+        //while (ie.MoveNext())
+        //{
+        //    string cName = (string) ie.Current;
+        //    Debug.Log("Dictionary Name : "+cName);
+        //}
+        //Debug.LogError("END");
         return nameDictionary.ContainsKey(name);
     }
 
@@ -162,12 +169,14 @@ public class Naming : MonoBehaviour
                             continue;
 
                         if (trovantNames.Contains(BuildTrovantNameWithState(names[i][j],stateNames[l]))) {
-                            nameDictionary.Add(BuildTrovantNameWithState(names[i][j], stateNames[l]),BuildTrovantNameWithState(names[i][j], stateNames[l]).GetHashCode());
+                            nameDictionary.Add(BuildTrovantNameWithState(names[i][j], stateNames[l]),
+                                BuildTrovantNameWithState(names[i][j], stateNames[l]).GetHashCode());
                         }
                         else
                         {
                             
-                            nameDictionary.Add(BuildAutomatNameWithState(names[i][j], k, stateNames[l]),BuildAutomatNameWithState(names[i][j], k, stateNames[l]).GetHashCode());
+                            nameDictionary.Add(BuildAutomatNameWithState(names[i][j], k, stateNames[l]),
+                                BuildAutomatNameWithState(names[i][j], k, stateNames[l]).GetHashCode());
                         }
                     }
                 }

@@ -44,6 +44,36 @@ public enum UnitType
     TROVANT_THOUSE = 13, 
 }
 
+public enum AudioUnitType
+{
+    //automats
+    FRANSCIS_TYPE1,
+    FALSTAFF_TYPE1,
+    FOLTINBRAS_TYPE1,
+    VICTOR_TYPE1,
+    MARIEN_TYPE1,
+
+    //towers
+    APT,
+    AGT,
+    AST,
+    ASPT,
+    ATT,
+
+    //projectiles
+    POISON,
+
+    //wchats
+    WCHAT_TYPE1,
+
+    //trovants
+    COMMA,
+    PYTHON,
+
+    //thouse
+    THOUSE_TYPE1,
+}
+
 public enum AutomatType
 {
     FRANSIS_TYPE1 = 0,

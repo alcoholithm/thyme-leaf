@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3073518f80373248a0198da00cae00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioUnitType: 1
   MaxHP: 100
   CurrentHP: 100
   speed: 30
