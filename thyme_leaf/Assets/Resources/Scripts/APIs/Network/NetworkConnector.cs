@@ -165,12 +165,12 @@ public class NetworkConnector : Singleton<NetworkConnector>
     {
         if (!Network.isClient && !Network.isServer)
         {
-            if (GUI.Button(new Rect(0, 0, 100, 50), "Step 1 : Make Room"))
+            if (GUI.Button(new Rect(0, 0, 300, 50), "Step 1 : Make Room"))
             {
                 MakeRoom();
             }
 
-            if (GUI.Button(new Rect(0, 50 + 10, 100, 50), "Step 2 : Join Room"))
+            if (GUI.Button(new Rect(0, 50 + 10, 300, 50), "Step 2 : Join Room"))
             {
                 JoinRoom(TestNetworkActionPerform);
             }
