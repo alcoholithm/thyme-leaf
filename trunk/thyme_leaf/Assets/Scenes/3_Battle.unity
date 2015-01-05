@@ -9755,6 +9755,7 @@ GameObject:
   - 65: {fileID: 1304133903}
   - 148: {fileID: 1304133902}
   - 114: {fileID: 1304133901}
+  - 114: {fileID: 1304133907}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
@@ -9846,13 +9847,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 1514178745}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 1304133899}
-      field: 
-    oneShot: 0
+  onClick: []
 --- !u!114 &1304133905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9916,11 +9911,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166bed3a16cc20042a390306a251f198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 0
   healthbar: {fileID: 218799333}
   _model:
     _maxHp: 100
     _currHp: 100
+--- !u!114 &1304133907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 29cbf384dd633b143bdb02d735a18569,
+    type: 2}
+  m_PrefabInternal: {fileID: 1167391093}
+  m_GameObject: {fileID: 1304133899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioUnitType: 0
 --- !u!1 &1304800672
 GameObject:
   m_ObjectHideFlags: 0
@@ -11391,6 +11398,7 @@ GameObject:
   - 65: {fileID: 1604846127}
   - 148: {fileID: 1604846126}
   - 114: {fileID: 1604846125}
+  - 114: {fileID: 1604846131}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
@@ -11482,13 +11490,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 1514178745}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 1604846123}
-      field: 
-    oneShot: 0
+  onClick: []
 --- !u!114 &1604846129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11552,11 +11554,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166bed3a16cc20042a390306a251f198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 0
   healthbar: {fileID: 699500601}
   _model:
     _maxHp: 100
     _currHp: 100
+--- !u!114 &1604846131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: 29cbf384dd633b143bdb02d735a18569,
+    type: 2}
+  m_PrefabInternal: {fileID: 1109582202}
+  m_GameObject: {fileID: 1604846123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioUnitType: 0
 --- !u!1 &1610001905
 GameObject:
   m_ObjectHideFlags: 0
