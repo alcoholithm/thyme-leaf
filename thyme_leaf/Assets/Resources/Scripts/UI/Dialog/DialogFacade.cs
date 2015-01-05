@@ -34,17 +34,21 @@ public class DialogFacade : Singleton<DialogFacade>
         _messageDialog.GetComponent<MessageDialog>().SetMessage(message);
         _messageDialog.SetActive(true);
     }
+    
     public void ShowConfirmDialog(string message)
     {
         _confirmDialog.GetComponent<ConfirmDialog>().SetMessage(message);
         _confirmDialog.SetActive(true);
+    }
+    public void CloseConfirmDialog()
+    {
+        _confirmDialog.SetActive(false);
     }
 
     public void ShowInputDialog()
     {
         _inputDialog.SetActive(true);
     }
-
     public void CloseInputDialog()
     {
         _inputDialog.SetActive(false);

@@ -93,6 +93,23 @@ public class PlayerSelectFrame : View, IActionListener
         DialogFacade.Instance.CloseInputDialog();
     }
 
+    public void DeleteClick()
+    {
+        if (view.Controller.DeleteNameFunc(_playerSlots[ClickFlag].GetComponentInChildren<UILabel>().text))
+        {
+            DialogFacade.Instance.CloseConfirmDialog();
+            DialogFacade.Instance.ShowMessageDialog("Success Delete");
+
+            _playerSlots[ClickFlag].GetComponentInChildren<UILabel>().text = "EMPTY";
+            initialize();
+        }
+        else
+        {
+            DialogFacade.Instance.CloseConfirmDialog();
+            DialogFacade.Instance.ShowMessageDialog("Fail, Try again");
+        }
+    }
+
 
     /*
      * following are overrided methods
@@ -120,7 +137,7 @@ public class PlayerSelectFrame : View, IActionListener
         }
         else if (source.name.Equals(_deleteButton.name))
         {
-            DialogFacade.Instance.ShowMessageDialog("Really Delete?");
+            DialogFacade.Instance.ShowConfirmDialog("Really Delete?");
         }
         else if (source.name.Equals(_closeButton.name))
         {
