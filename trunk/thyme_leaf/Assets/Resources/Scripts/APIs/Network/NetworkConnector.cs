@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public delegate void NetworkActionPerform(NetworkResult result);
+public delegate void OnConnectedActionDelegate(NetworkResult result);
+public delegate void OnDisconnectedActionDelegate();
 
 public class NetworkConnector : MonoBehaviour
 {
@@ -10,108 +11,190 @@ public class NetworkConnector : MonoBehaviour
     private const int masterServerPort = 23466;
     private const string facilitatorIP = "210.118.69.150";
     private const int facilitatorPort = 50005;
+	private const int allocatableViewIDs = 4096;
 
-    private static NetworkActionPerform networkActionDel;
-    private const string typeName = "Thyme Leaf";
-    private string gameName = "Custom Room Name";
+	// Listeners
+    private static OnConnectedActionDelegate onConnectedActionListener;
+	private static OnDisconnectedActionDelegate onDisconnectedActionListener;
 
+	private const string typeName = "Thyme Leaf";
+	private string gameName = "Time Leap";
     private HostData[] hostList;
+	private static object syncRoot = new System.Object();
+	private static NetworkConnector instance;
 
+
+	// ??? 
     // Var. for Testing
     public Transform prefab;
 
-    private static NetworkConnector instance;
 
-    private NetworkConnector(NetworkActionPerform nap)
+	private NetworkConnector() {}
+	public static NetworkConnector Instance
     {
-        NetworkConnector.networkActionDel = nap;
+		get
+		{
+			if (instance == null) 
+			{
+				lock(syncRoot)
+				{
+					instance = new NetworkConnector();
+				}
+			}
+			return instance;
+		}
     }
 
-    public static NetworkConnector Instance(NetworkActionPerform nap)
+	void Awake()
+	{
+		networkView.group = 1;
+		MasterServer.ipAddress = masterSeverIP;
+		MasterServer.port = masterServerPort;
+		Network.natFacilitatorIP = facilitatorIP;
+		Network.natFacilitatorPort = facilitatorPort;
+		Network.minimumAllocatableViewIDs = allocatableViewIDs;  
+	}
+
+    // Public Network API Methods
+
+	// Step 1 : Attach Listeners
+	public NetworkConnector SetOnNetworkConnectedListener(OnConnectedActionDelegate networkActionListener)
+	{
+		NetworkConnector.onConnectedActionListener = networkActionListener;
+		return NetworkConnector.Instance;
+	}
+
+	public NetworkConnector SetOnNetworkDisconnectedListener(OnDisconnectedActionDelegate networkActionListener)
+	{
+		NetworkConnector.onDisconnectedActionListener = networkActionListener;
+		return NetworkConnector.Instance;
+	}
+
+    // Step 2 
+    public void CreateRoom()
     {
-        if (instance == null) 
-            instance = new NetworkConnector(nap);
-        return instance;
+		Debug.Log("... Creating Room");
+		if (IsAttachedListener ())
+			CreateRoom (gameName);
+		else
+			Debug.LogError("NullPointerException : NetworkActionListener");
     }
 
-    public static NetworkConnector Instance()
-    {
-        if (NetworkConnector.networkActionDel == null || instance == null)
-            return null;
-        return instance;
-    }
-
-
-    void Awake()
-    {
-        networkView.group = 1;
-        MasterServer.ipAddress = masterSeverIP;
-        MasterServer.port = masterServerPort;
-        Network.natFacilitatorIP = facilitatorIP;
-        Network.natFacilitatorPort = facilitatorPort;
-        Network.minimumAllocatableViewIDs = 10000;        
-    }
-
-    // Public API Methods
-    // step 1
-    public void MakeRoom()
-    {
-        MakeRoom(gameName);
-    }
-
-    // step 2
+    // Step 3
     public void JoinRoom()
     {
-        //NetworkConnector.networkActionDel = networkAction;
-        if (NetworkConnector.networkActionDel == null)
-            Debug.Log("NetworkConnector.networkActionDel is null");
-        RequestRoomInfos();
+		Debug.Log("... Joining Room");
+        if (IsAttachedListener ())
+        	RequestRoomInfo();	
+		else
+			Debug.LogError("NullPointerException : NetworkActionListener");
     }
 
-    // step 3
-    public void NetworkLoadLevel()
+    // Step 4
+    public void NetworkLoadLevel(string loadLevel)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
-        {
             Debug.Log("NOT CONNECTED NETWORK ERROR : You should check if network is connected correctly");
-            return;
-        }
-        else
-        {
-            networkView.RPC("LoadLevel", RPCMode.All);
-        }
+        else if(Network.isServer)
+			networkView.RPC("LoadLevel", RPCMode.All, loadLevel);
     }
 
+	// Step 5
+	public void ExitRoom()
+	{
+		Debug.Log ("... Exiting Room");
+		Network.Disconnect();
+		MasterServer.UnregisterHost();
+	}
+
+
+	/*******************************************************************/
+	// Tutorial 
+	
+	void TestOnConnectedActionPerform(NetworkResult result)
+	{
+		switch (result)
+		{
+		case NetworkResult.SUCCESS_TO_CONNECT:
+			NetworkConnector.Instance.NetworkLoadLevel("MultiplayScene");
+			break;
+		case NetworkResult.EMPTY_ROOM:
+			Debug.Log("Nobody made room");
+			break;
+		case NetworkResult.FAIL:
+			Debug.Log("Fail to connect to server");
+			break;
+		default:
+			Debug.Log("NETWORK RESULT ERROR : " + result);
+			break;
+		}
+	}
+	
+	void TestOnDisconnectedActionPerform(){
+		Debug.Log ("Network Disconnected");
+	}
+	
+	void OnGUI()
+	{
+		if (!Network.isClient && !Network.isServer)
+		{
+			if (GUI.Button(new Rect(0, 0, 250, 50), "Step 1 : Make Room"))
+			{
+				// Use this code on Room Maker
+				NetworkConnector.Instance
+					.SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
+						.SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
+						.CreateRoom();
+			}
+			
+			if (GUI.Button(new Rect(0, 50 + 10, 250, 50), "Step 2 : Join Room"))
+			{
+				// Use this Code on Room Joiner
+				NetworkConnector.Instance
+					.SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
+						.SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
+						.JoinRoom();
+			}
+		}
+	}
+	
+	/*******************************************************************/
 
 
 
-    // Private API Methods
-    private void MakeRoom(string gameName)
+
+
+    // Private Network API Methods
+    private void CreateRoom(string gameName)
     {
         Network.InitializeServer(1, 25005, !Network.HavePublicAddress());
         MasterServer.RegisterHost(typeName, gameName);
     }
 
-    private void RequestRoomInfos()
+    private void RequestRoomInfo()
     {
         MasterServer.RequestHostList(typeName);
     }
 
     private void JoinServer(HostData hostData)
     {
-        Debug.Log("...Connecting to Server");
         Network.Connect(hostData);
     }
 
+	private bool IsAttachedListener()
+	{
+		return NetworkConnector.onConnectedActionListener != null;
+	}
 
-    // Unity API Methods
+
+
+
+    // Unity Network API Methods
 
     // Client Side
     void OnConnectedToServer()
     {
         Debug.Log("Client(Me) Joined Server");
-        //Network.Instantiate(prefab, transform.position, transform.rotation, 0);
-        //Application.LoadLevel("MultiplayScene");
     }
 
     void OnMasterServerEvent(MasterServerEvent msEvent)
@@ -119,43 +202,61 @@ public class NetworkConnector : MonoBehaviour
         if (msEvent == MasterServerEvent.HostListReceived)
         {
             hostList = MasterServer.PollHostList();
-            if (NetworkConnector.networkActionDel != null && hostList[0] != null)
-                JoinServer(hostList[0]);
+            if (NetworkConnector.onConnectedActionListener == null)
+				Debug.LogError("You must attach the delegate when connected to network");
+			else if(hostList == null || hostList.Length == 0)
+				onConnectedActionListener(NetworkResult.EMPTY_ROOM);
             else
-                networkActionDel(NetworkResult.EMPTY_ROOM);
+				JoinServer(hostList[0]);
         }
     }
 
-    void OnDisconnectedFromServer()
-    {
-        Application.LoadLevel("MultiplayInitScene");
-    }
+	void OnDisconnectedFromServer(NetworkDisconnection info) {
+		Debug.Log ("OnDisconnectedFromServer INFO : " + info);
+		if (onDisconnectedActionListener != null)
+			onDisconnectedActionListener ();
+		else
+			Debug.LogError("You must attach the delegate when disconnected from network");
+	}
 
 
     // Server Side
+	void OnServerInitialized()
+	{
+		Debug.Log("OnServerInitialized()");        
+	}
+
     void OnPlayerConnected()
     {
         Debug.Log("Player Joined to Server(Me)");
-        if (NetworkConnector.networkActionDel != null)
-            networkActionDel(NetworkResult.SUCCESS_FOUND);
+        if (NetworkConnector.onConnectedActionListener != null)
+            onConnectedActionListener(NetworkResult.SUCCESS_TO_CONNECT);
         else
-            Debug.Log("You must attach the delegate for networking");
+			Debug.LogError("You must attach the delegate when connected to network");
     }
 
-    void OnServerInitialized()
-    {
-        Debug.Log("OnServerInitialized()");        
-    }
+	void OnPlayerDisconnected(NetworkPlayer player) {
+		Debug.Log("Clean up after player " + player);
+		Network.RemoveRPCs(player);
+		Network.DestroyPlayerObjects(player);
+
+		Debug.Log ("OnPlayerDisconnected INFO : " + player);
+
+		if (onDisconnectedActionListener != null)
+			onDisconnectedActionListener ();
+		else
+			Debug.LogError("You must attach the delegate when disconnected from network");
+	}
 
    
     [RPC]
-    void LoadLevel()
+    void LoadLevel(string level)
     {
         Network.SetSendingEnabled(0, false);
         Network.isMessageQueueRunning = false;
 
-        Network.SetLevelPrefix(5);        
-        Application.LoadLevel("MultiplayScene");
+//        Network.SetLevelPrefix(5);        
+        Application.LoadLevel(level);
         StartCoroutine(Fade());
         StartCoroutine(Fade());
 
@@ -169,60 +270,6 @@ public class NetworkConnector : MonoBehaviour
     }
 
 
-    // Method for Tutorial 
-    void TestNetworkActionPerform(NetworkResult result)
-    {
-        Debug.Log("Let's perform network");
-        switch (result)
-        {
-            case NetworkResult.SUCCESS_FOUND:
-                break;
-            case NetworkResult.EMPTY_ROOM:
-                break;
-            case NetworkResult.FAIL:
-                break;
-            default:
-                Debug.Log("FAIL TO HANDLE NETWORK RESULT : " + result);
-                break;
-        }
-        Debug.Log(result);
-    }
-
-    void OnGUI()
-    {
-        if (!Network.isClient && !Network.isServer)
-        {
-            if (GUI.Button(new Rect(0, 0, 300, 50), "Step 1 : Make Room"))
-            {
-                NetworkConnector nc = NetworkConnector.Instance(TestNetworkActionPerform);
-                nc.MakeRoom();
-            }
-
-            if (GUI.Button(new Rect(0, 50 + 10, 300, 50), "Step 2 : Join Room"))
-            {
-                Debug.Log("...Joining Room");
-                NetworkConnector nc = NetworkConnector.Instance(TestNetworkActionPerform);
-                nc.JoinRoom();
-            }
 
 
-            //if (GUI.Button(new Rect(0, 50 + 10, 100, 50), "Refresh Hosts"))
-            //{
-            //    MasterServer.RequestHostList(typeName);
-            //}
-
-            //if (hostList != null)
-            //{
-            //    for (int i = 0; i < hostList.Length; i++)
-            //    {
-            //        if (GUI.Button(new Rect(0, 130 + (110 * i), 100, 50), hostList[i].gameName))
-            //            JoinServer(hostList[i]);
-            //    }
-            //}
-            //else
-            //{
-
-            //}
-        }
-    }
 }
