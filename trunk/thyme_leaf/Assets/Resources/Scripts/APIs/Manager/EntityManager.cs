@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public interface IEntityManager
 {
-    void Register(GameEntity entity);
-    void Remove(GameEntity entity);
+    void RegisterEntity(GameEntity entity);
+    void RemoveEntity(GameEntity entity);
 }
 
 [System.Serializable]
@@ -32,7 +32,7 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
      * Followings are implemented mehtods of "IEntityManager"
      */
 
-    public void Register(GameEntity entity)
+    public void RegisterEntity(GameEntity entity)
     {
         if (entity is WChat)
         {
@@ -42,9 +42,13 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
         {
             _entityMap[UnitType.TROVANT_THOUSE].Add(entity);
         }
+        else if (entity is Agt_Type1)
+        {
+            _entityMap[UnitType.AUTOMAT_TOWER].Add(entity);
+        }
     }
 
-    public void Remove(GameEntity entity)
+    public void RemoveEntity(GameEntity entity)
     {
         if (entity is WChat)
         {
@@ -59,6 +63,10 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
 
             if (_entityMap[UnitType.AUTOMAT_WCHAT].Count <= 0)
                 GameRuler.Instance.Judge(true);
+        }
+        else if (entity is Agt_Type1)
+        {
+            _entityMap[UnitType.AUTOMAT_TOWER].Remove(entity);
         }
     }
 }

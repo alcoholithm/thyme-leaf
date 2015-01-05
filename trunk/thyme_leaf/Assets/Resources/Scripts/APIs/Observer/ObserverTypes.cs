@@ -4,5 +4,5 @@ using System.Collections;
 public enum ObserverTypes
 {
     Health,
-    Lobby
+    Gold
 }

@@ -16,7 +16,14 @@ public class CommandCenterCommandsController
 
     public void SpawnHero(AutomatType type)
     {
-        Spawner.Instance.GetHero(type);
+        User currUser = UserAdministrator.Instance.CurrentUser;
+        if (currUser.HasEnoughMoney())
+        {
+            currUser.Gold -= 100;
+
+            Hero hero = Spawner.Instance.GetHero(type);
+            EntityManager.Instance.RegisterEntity(hero);
+        }
     }
 
     public void Cancel()
