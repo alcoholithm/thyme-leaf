@@ -98,6 +98,7 @@ public class Projectile : MonoBehaviour
         this.owner = owner;
         this.target = target;
         gameObject.SetActive(true);
+        AudioManager.Instance.PlayClipWithState(owner.gameObject, StateType.ATTACKING);
     }
 
     /*
