@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WorldMapController : MonoBehaviour {
+public class WorldMapController {
 
     private WorldMapView view;
-    private IUserAdministrator model;
+    private UserAdministrator model;
 
-    public WorldMapController(WorldMapView view, IUserAdministrator model)
+    public WorldMapController(WorldMapView view, UserAdministrator model)
     {
         this.view = view;
         this.model = model;
     }
+
 
 
 }

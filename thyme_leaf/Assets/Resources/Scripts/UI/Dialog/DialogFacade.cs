@@ -42,11 +42,6 @@ public class DialogFacade : Singleton<DialogFacade>
         gameObject.SetActive(active);
     }
 
-    public void DeleteTemp()
-    {
-        Debug.Log("click!");
-        //controller.DeleteNameFunc("A");
-    }
 
     public new const string TAG = "[DialogFacade]";
 }

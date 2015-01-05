@@ -28,6 +28,9 @@ public class LobbyView : View, IActionListener
     [SerializeField]
     private UILabel _userName;
 
+    // 처음 접속하는 것인지 확인하는 변수, 초기값: false
+    public static bool isGameReturn = false;
+
     /*
      * followings are unity callback methods
      */
@@ -36,6 +39,7 @@ public class LobbyView : View, IActionListener
         // mvc
         this.model = UserAdministrator.Instance;
         this.controller = new LobbyController(this, this.model);
+
         //this.model.RegisterObserver(this, ObserverTypes.Lobby);
 
         // set children
@@ -43,11 +47,20 @@ public class LobbyView : View, IActionListener
         this.Add(_welcomeFrame.GetComponent<WelcomeFrame>());
     }
 
+    void OnEnable()
+    {
+        if(isGameReturn)
+        {
+            controller.BackLobby();
+        }
+    }
+
     /*
      * followings are public member functions
      */
     public void PrepareLobby()
     {
+        SetVisible(StartButton, false);
         SetVisible(SettingsButton, true);
         SetVisible(GoToWorldMapButton, true);
         WelcomeRefresh();
@@ -79,6 +92,7 @@ public class LobbyView : View, IActionListener
     {
         if (source.Equals(_startButton))
         {
+            isGameReturn = true;
             controller.Start();
         }
         else if (source.Equals(_registerButton))
@@ -144,4 +158,6 @@ public class LobbyView : View, IActionListener
     }
 
     public const string TAG = "[LobbyView]";
+
+
 }

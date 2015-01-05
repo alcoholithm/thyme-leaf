@@ -4,7 +4,7 @@ using System.Collections;
 public class WorldMapView : View, IActionListener
 {
     private WorldMapController controller;
-    private IUserAdministrator model;
+    private UserAdministrator model;
 
     [SerializeField]
     GameObject _getToTheFight;
@@ -20,6 +20,16 @@ public class WorldMapView : View, IActionListener
 
     [SerializeField]
     GameObject _storyBtn;
+
+    void Awake() {
+        this.model = UserAdministrator.Instance;
+        this.controller = new WorldMapController(this, this.model);
+    }
+
+    void Start()
+    {
+
+    }
 
     public void ActionPerformed(GameObject source)
     {
@@ -39,13 +49,11 @@ public class WorldMapView : View, IActionListener
         {
             SceneManager.Instance.CurrentScene = SceneManager.AUTO;
         }
+        else if (source.Equals(_storyBtn))
+        {
+            SceneManager.Instance.CurrentScene = SceneManager.MULTI;
+        }
     }
-
-    public override void UpdateUI()
-    {
-        throw new System.NotImplementedException();
-    }
-
 
     /*
      * 
