@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class LobbyController
 {
     private UserAdministrator model;
@@ -22,6 +23,7 @@ public class LobbyController
     public void Start()
     {
         view.SetVisible(view.StartButton, false);
+        
         if (model.IsEmpty())
             view.SetVisible(view.RegisterUserFrame, true);
         else
@@ -62,6 +64,11 @@ public class LobbyController
             view.HideLobby();
             view.SetVisible(view.RegisterUserFrame, true);
         }
+    }
+
+    public void BackLobby()
+    {
+        view.PrepareLobby();
     }
 
     public void RenameFunc(string origName, int flag)

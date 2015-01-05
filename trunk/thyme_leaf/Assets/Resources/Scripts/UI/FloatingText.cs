@@ -4,8 +4,10 @@ using System.Collections;
 public class FloatingText : MonoBehaviour
 {
     [SerializeField]
-    float step = 0.4f;
+    float step = 0.6f;
+    
     private UILabel temp;
+    private int plusFlag = 0;
 
     void Awake()
     {
@@ -19,11 +21,16 @@ public class FloatingText : MonoBehaviour
 
     void BlinkLabel()
     {
-        if (temp.alpha < 0.2f || temp.alpha > 0.9f)
-        {
-            step = -step;
-        }
+        if (temp.alpha < 0)
+            plusFlag = 0;
+        else if (temp.alpha > 1)
+            plusFlag = 1;
 
-        temp.alpha += step * Time.deltaTime;
+        if (plusFlag == 0)
+            temp.alpha += step * Time.deltaTime;
+        else if (plusFlag == 1)
+            temp.alpha -= step * Time.deltaTime;
+
+        Debug.Log(temp.alpha);
     }
 }
