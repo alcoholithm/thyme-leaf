@@ -99,7 +99,7 @@ public class Spawner : Manager<Spawner>
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
             THouse entity = GetThouse((int)type);
-            EntityManager.Instance.Register(entity);
+            EntityManager.Instance.RegisterEntity(entity);
             return entity;
         }
         else
@@ -141,7 +141,9 @@ public class Spawner : Manager<Spawner>
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            return GetWChat((int)type);
+            WChat entity = GetWChat((int)type);
+            EntityManager.Instance.RegisterEntity(entity);
+            return entity;
         }
         else
         {
@@ -323,7 +325,7 @@ public class Spawner : Manager<Spawner>
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            EntityManager.Instance.Remove(gameObject.GetComponent<GameEntity>());
+            EntityManager.Instance.RemoveEntity(gameObject.GetComponent<GameEntity>());
             gameObject.SetActive(false);
         }
         else
