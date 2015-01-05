@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface IW_Chat
+public interface ITHouse
 {
     void TakeDamage(int damage);
 }
 
-public class W_Chat_Controller
+public class THouse_Controller
 {
-    private W_Chat view;
+    private THouse view;
     private CommandCenter model;
 
-    public W_Chat_Controller(W_Chat view, CommandCenter model)
+    public THouse_Controller(THouse view, CommandCenter model)
     {
         this.view = view;
         this.model = model;
@@ -24,13 +24,13 @@ public class W_Chat_Controller
 
         if (model.IsDead())
         {
-            view.ChangeState(CCState_Dying.Instance);
+            view.ChangeState(THouseState_Dying.Instance);
         }
     }
 }
 
 
-public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IObserver
+public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IObserver
 {
     //-------------------- Children
     [SerializeField]
@@ -39,12 +39,12 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
 
     private NGUISpriteAnimation anim;
 
-    private StateMachine<W_Chat> stateMachine;
+    private StateMachine<THouse> stateMachine;
 
     //--------------------- MVC
     [SerializeField]
     private CommandCenter _model;
-    private W_Chat_Controller controller;
+    private THouse_Controller controller;
 
     //---------------------
 	private GameObject position_node;
@@ -93,16 +93,16 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     {
         // MVC
         this._model = new CommandCenter();
-        this.controller = new W_Chat_Controller(this, _model);
+        this.controller = new THouse_Controller(this, _model);
 
         // set children
         this.healthbar.Model = this._model;
         this.Add(healthbar);
 
         // set state machine
-        this.stateMachine = new StateMachine<W_Chat>(this);
-        this.stateMachine.CurrentState = CCState_None.Instance;
-        this.stateMachine.GlobalState = CCState_Hitting.Instance;
+        this.stateMachine = new StateMachine<THouse>(this);
+        this.stateMachine.CurrentState = THouseState_None.Instance;
+        this.stateMachine.GlobalState = THouseState_Hitting.Instance;
 
         this._model.RegisterObserver(this, ObserverTypes.Health);
 
@@ -122,7 +122,7 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
     /*
      * Followings are implemented methods of "IStateMachineControllable"
      */
-    public void ChangeState(State<W_Chat> newState)
+    public void ChangeState(State<THouse> newState)
     {
         stateMachine.ChangeState(newState);
     }
@@ -161,7 +161,7 @@ public class W_Chat : GameEntity, IW_Chat, IStateMachineControllable<W_Chat>, IO
         set { _model = value; }
     }
 
-    public W_Chat_Controller Controller
+    public THouse_Controller Controller
     {
         get { return controller; }
         set { controller = value; }

@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
 {
     private NGUISpriteAnimation fx;
     private UISprite sprite;
-    string animName = "APT_PoisonFX_";
+    private string animName;
 
     private GameEntity owner; // temp
     private GameEntity target;
@@ -24,7 +24,6 @@ public class Projectile : MonoBehaviour
 
     void Awake()
     {
-        gameObject.SetActive(false);
         fx = GetComponent<NGUISpriteAnimation>();
         sprite = GetComponent<UISprite>();
     }
@@ -36,8 +35,12 @@ public class Projectile : MonoBehaviour
         //fx.Pause();
 
         movingSpeed = 0.7f;
+
         sprite.spriteName = "APT_Poison_0";
         sprite.MakePixelPerfect();
+
+        this.animName = "APT_Poison_";
+        fx.Play(this.animName);
     }
 
     void Update()
@@ -79,18 +82,12 @@ public class Projectile : MonoBehaviour
         if (!target.collider2D.Equals(other))
             return;
 
-        if (target == null)
-            return;
-
         movingSpeed = 0;
 
+        this.animName = "APT_PoisonFX_";
         fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
 
         GameEntity entity = target.GetComponent<GameEntity>();
-        //GameEntity entity = owner.GetComponent<GameEntity>();
-
-        //Message msg = entity.ObtainMessage(MessageTypes.MSG_DAMAGE,
-        //    new HeroDamageCommand(entity as Hero, attackDamage));
         Message msg = entity.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
 
         entity.DispatchMessage(msg);

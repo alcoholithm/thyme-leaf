@@ -1,30 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CCState_Dying : State<W_Chat>
+public class THouseState_Dying : State<THouse>
 {
     private string animName = "Tower_Dying_";
 
-    private CCState_Dying()
+    private THouseState_Dying()
     {
-        Successor = CCState_Hitting.Instance;
+        Successor = WChatState_Hitting.Instance;
     }
 
 
     /*
      * followings are overrided methods of "State"
      */
-    public override void Enter(W_Chat owner)
+    public override void Enter(THouse owner)
     {
         Debug.Log(TAG + "Enter");
-        owner.Anim.PlayOneShot(animName, new VoidFunction2<W_Chat>(x => x.ChangeState(CCState_None.Instance), owner));
+        owner.Anim.PlayOneShot(animName, new VoidFunction2<THouse>(x => x.ChangeState(THouseState_None.Instance), owner));
     }
 
-    public override void Execute(W_Chat owner)
+    public override void Execute(THouse owner)
     {
     }
 
-    public override void Exit(W_Chat owner)
+    public override void Exit(THouse owner)
     {
         Debug.Log(TAG + "Exit");
 
@@ -42,11 +42,11 @@ public class CCState_Dying : State<W_Chat>
     /*
      * for singleton
      */
-    private static CCState_Dying instance = new CCState_Dying(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
-    public static CCState_Dying Instance
+    private static THouseState_Dying instance = new THouseState_Dying(); // lazy 하게 생성해준다고 한다. 믿어 봐야지 뭐
+    public static THouseState_Dying Instance
     {
-        get { return CCState_Dying.instance; }
+        get { return THouseState_Dying.instance; }
     }
 
-    public new const string TAG = "[CCState_Dying]";
+    public new const string TAG = "[THouseState_Dying]";
 }

@@ -101,7 +101,7 @@ public class Spawner : Manager<Spawner>
     /**********************************/
 
 
-    public W_Chat DynamicGetThouse(THouseType type)
+    public THouse DynamicGetThouse(THouseType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
@@ -109,7 +109,7 @@ public class Spawner : Manager<Spawner>
             go.SetActive(false);
             go.transform.parent = trovantBuildingPool.transform;
             go.SetActive(true);
-            return go.GetComponent<W_Chat>();
+            return go.GetComponent<THouse>();
         }
         else
         {
@@ -117,18 +117,20 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    public W_Chat GetThouse(THouseType type)
+    public THouse GetThouse(THouseType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            return GetThouse((int)type);
+            THouse entity = GetThouse((int)type);
+            EntityManager.Instance.Register(entity);
+            return entity;
         }
         else
         {
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetThouse", RPCMode.All, viewID, (int)type);
             GameObject go = NetworkView.Find(viewID).gameObject;
-            return go.GetComponent<W_Chat>();
+            return go.GetComponent<THouse>();
         }
     }
 
@@ -143,19 +145,19 @@ public class Spawner : Manager<Spawner>
 		InitThouse(ref go);
     }
 
-    [System.Obsolete("GetWChat(int type) is deprecated, please use GetWChat(WChatType type) instead.")]
-    public W_Chat GetThouse(int type)
+    [System.Obsolete("GetThouse(int type) is deprecated, please use GetThouse(THouseType type) instead.")]
+    public THouse GetThouse(int type)
     {
 		Debug.Log ("GetThouse : " + (THouseType) type);
         GameObject go = ObjectPoolingManager.Instance.GetObject(thouses[type].name);
 		InitThouse(ref go);
-        return go.GetComponent<W_Chat>();
+        return go.GetComponent<THouse>();
     }
 
 
     /**********************************/
 
-    public W_Chat DynamicGetWChat(WChatType type)
+    public WChat DynamicGetWChat(WChatType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
@@ -163,7 +165,7 @@ public class Spawner : Manager<Spawner>
             go.SetActive(false);
             go.transform.parent = automatBuildingPool.transform;
             go.SetActive(true);
-            return go.GetComponent<W_Chat>();
+            return go.GetComponent<WChat>();
         }
         else
         {
@@ -171,7 +173,7 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    public W_Chat GetWChat(WChatType type)
+    public WChat GetWChat(WChatType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
@@ -182,7 +184,7 @@ public class Spawner : Manager<Spawner>
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetWChat", RPCMode.All, viewID, (int)type);
             GameObject go = NetworkView.Find(viewID).gameObject;
-            return go.GetComponent<W_Chat>();
+            return go.GetComponent<WChat>();
         }
     }
 
@@ -198,11 +200,11 @@ public class Spawner : Manager<Spawner>
     }
 
     [System.Obsolete("GetWChat(int type) is deprecated, please use GetWChat(WChatType type) instead.")]
-    public W_Chat GetWChat(int type)
+    public WChat GetWChat(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(wchats[type].name);
         InitWChat(ref go);
-        return go.GetComponent<W_Chat>();
+        return go.GetComponent<WChat>();
     }
 
 
@@ -418,7 +420,10 @@ public class Spawner : Manager<Spawner>
     public void Free(GameObject gameObject)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            EntityManager.Instance.Remove(gameObject.GetComponent<GameEntity>());
             gameObject.SetActive(false);
+        }
         else
         {
             if (gameObject.networkView.isMine){

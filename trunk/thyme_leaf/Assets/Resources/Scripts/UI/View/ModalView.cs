@@ -28,7 +28,6 @@ public class ModalView : View, IActionListener
     [SerializeField]
     GameObject _settings;
 
-
     /*
      * followings are unity callback methods.
      */ 
