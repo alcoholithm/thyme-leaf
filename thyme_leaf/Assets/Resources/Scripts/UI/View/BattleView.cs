@@ -30,13 +30,12 @@ public class BattleController
     }
 }
 
-public class BattleView : View, IActionListener
+public class BattleView : View, IActionListener, IObserver
 {
     //-------------------- MVC
     private BattleController controller;
 
     //--------------------
-
 
 
     // children
@@ -50,6 +49,8 @@ public class BattleView : View, IActionListener
     private GameObject _victoryFrame;
     [SerializeField]
     private GameObject _defeatFrame;
+    [SerializeField]
+    private GameObject _goldFrame;
 
 
 
@@ -66,10 +67,15 @@ public class BattleView : View, IActionListener
         // MVC
         this.controller = new BattleController(this);
 
-        // Set children
-        this.Add(_commandCenterCommands.GetComponent<CommandCenterCommands>());
-        this.Add(_towerSpotCommands.GetComponent<TowerSpotCommands>());
-        this.Add(_towerCommands.GetComponent<TowerCommands>());
+        // set children
+        this.Add(_goldFrame.GetComponent<GoldFrame>());
+
+    }
+
+    void Start()
+    {
+        UserAdministrator.Instance.CurrentUser.RegisterObserver(this, ObserverTypes.Gold);
+        UpdateUI();
     }
 
 
@@ -78,7 +84,9 @@ public class BattleView : View, IActionListener
     */
     public void HideAllCommands()
     {
-        views.ForEach(v => { (v as View).gameObject.SetActive(false); });
+        _commandCenterCommands.SetActive(false);
+        _towerSpotCommands.SetActive(false);
+        _towerCommands.SetActive(false);
     }
 
     public void ShowVictoryFrame()
@@ -90,7 +98,6 @@ public class BattleView : View, IActionListener
     {
         _defeatFrame.SetActive(true);
     }
-
 
     /*
     * Followings are implemented methods of "IActionListener"
@@ -111,6 +118,16 @@ public class BattleView : View, IActionListener
         }
     }
 
+    /*
+    * Followings are implemented methods of "IObserver"
+    */
+    public void Refresh(ObserverTypes field)
+    {
+        if (field == ObserverTypes.Gold)
+        {
+            UpdateUI();
+        }
+    }
 
     /*
      * Followings are attributes
@@ -140,6 +157,5 @@ public class BattleView : View, IActionListener
     }
 
     public const string TAG = "[BattleView]";
-
 
 }

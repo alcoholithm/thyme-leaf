@@ -22,14 +22,23 @@ public class TowerSpotCommandsController
     // 타워의 관리자가 필요한 상황이 생기면 그때 정의하도록 하고 지금은 인스턴트코드로 갈음
     public void BuildTower()
     {
-        // 모델에 대한 조작 // AddTower
-        model.SelectedObject.tag = Tag.TagTower;
-        // view에 대한 조작
-        Agt_Type1 tower = Spawner.Instance.GetTower(TowerType.APT);
-        if(Network.peerType == NetworkPeerType.Disconnected) InitBuildedTower(ref tower); // Single mode
-        else tower.gameObject.GetComponent<SyncStateScript>().NetworkInitTower(model, view.gameObject); // Multi mode
+        User currUser = UserAdministrator.Instance.CurrentUser;
 
-        view.gameObject.SetActive(false);
+        if (currUser.HasEnoughMoney())
+        {
+            currUser.Gold -= 100;
+
+            // model
+            model.SelectedObject.tag = Tag.TagTower;
+
+            Agt_Type1 tower = Spawner.Instance.GetTower(TowerType.APT);
+            if(Network.peerType == NetworkPeerType.Disconnected) InitBuildedTower(ref tower); // Single mode
+            else tower.gameObject.GetComponent<SyncStateScript>().NetworkInitTower(model, view.gameObject); // Multi mode
+
+            EntityManager.Instance.RegisterEntity(tower);
+
+            view.gameObject.SetActive(false);
+        }
     }
 
     public void InitBuildedTower(ref Agt_Type1 tower)
