@@ -9916,6 +9916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166bed3a16cc20042a390306a251f198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioUnitType: 0
   healthbar: {fileID: 218799333}
   _model:
     _maxHp: 100
@@ -11551,6 +11552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166bed3a16cc20042a390306a251f198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioUnitType: 0
   healthbar: {fileID: 699500601}
   _model:
     _maxHp: 100
