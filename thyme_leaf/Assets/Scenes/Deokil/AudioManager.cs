@@ -53,6 +53,7 @@ public class AudioManager : Manager<AudioManager>
         string levelName = Application.loadedLevelName;
         if (levelName.Equals("1_Lobby")) audioPlayer.clip = music[(int)MusicType.LOBBY];
         else if (levelName.Equals("3_Battle")) audioPlayer.clip = music[(int)MusicType.BATTLE_1];
+        
         StartAudio();
     }
 
@@ -64,6 +65,7 @@ public class AudioManager : Manager<AudioManager>
                 audioPlayer.clip = music[(int)MusicType.LOBBY];
                 break;
             case 1: // world map
+                Debug.Log("Sound Not Found for World Map");
                 break;
             case 2: // battle
                 audioPlayer.clip = music[(int)MusicType.BATTLE_1];
@@ -84,7 +86,13 @@ public class AudioManager : Manager<AudioManager>
 
     public void StartAudio()
     {
-        if (!audioPlayer.isPlaying) audioPlayer.Play();
+        if (!audioPlayer.isPlaying)
+        {
+            audioPlayer.Play();
+            Debug.Log("HERE");
+        }
+
+        audioPlayer.Play();
     }
 
     public void PauseAudio()
