@@ -47,7 +47,7 @@ public class UnitMusterController
 	}	
 
 	//command...
-	public void CommandSearchRangeValue(string muster_name, string current_unit_name, float v)
+	public void CommandSearchRangeValue(string muster_name, int current_unit_id, float v)
 	{
 		int idx = -1;
 		for(int i=0;i<MaxMusterCount;i++)
@@ -64,7 +64,7 @@ public class UnitMusterController
 		for(int i=0;i<MaxMusterUnitCount;i++)
 		{
 			Hero hero = unitMusters[idx].getElement(i);
-			if(hero != null && hero.model.Name == current_unit_name)
+			if(hero != null && hero.model.ID == current_unit_id)
 			{
 				unit_idx = i;
 				break;
@@ -95,7 +95,7 @@ public class UnitMusterController
 	}
 
 	//command...
-	public void CommandAttack(string muster_name, string current_unit_name)
+	public void CommandAttack(string muster_name, int current_unit_id)
 	{
 		int idx = -1;
 		for(int i=0;i<MaxMusterCount;i++)
@@ -112,7 +112,7 @@ public class UnitMusterController
 		for(int i=0;i<MaxMusterUnitCount;i++)
 		{
 			Hero hero = unitMusters[idx].getElement(i);
-			if(hero != null && hero.model.Name == current_unit_name)
+			if(hero != null && hero.model.ID == current_unit_id)
 			{
 				unit_idx = i;
 				break;
@@ -126,7 +126,7 @@ public class UnitMusterController
 		for(int i=0;i<MaxMusterUnitCount;i++)
 		{
 			Hero hero = unitMusters[idx].getElement(i);
-			if(hero != null && hero.model.Name != current_unit_name)
+			if(hero != null && hero.model.ID != current_unit_id)
 			{
 				if(hero.target == null && hero.StateMachine.CurrentState == HeroState_Moving.Instance)
 				{
@@ -139,7 +139,7 @@ public class UnitMusterController
 		}
 	}
 
-	public void CommandMove(string muster_name, string current_unit_name)
+	public void CommandMove(string muster_name, int current_unit_id)
 	{
 		int idx = -1;
 		for(int i=0;i<MaxMusterCount;i++)
@@ -156,7 +156,7 @@ public class UnitMusterController
 		for(int i=0;i<MaxMusterUnitCount;i++)
 		{
 			Hero hero = unitMusters[idx].getElement(i);
-			if(hero != null && hero.model.Name == current_unit_name)
+			if(hero != null && hero.model.ID == current_unit_id)
 			{
 				unit_idx = i;
 				break;
@@ -172,7 +172,7 @@ public class UnitMusterController
 		for(int i=0;i<MaxMusterUnitCount;i++)
 		{
 			Hero hero = unitMusters[idx].getElement(i);
-			if(hero != null && hero.model.Name != current_unit_name &&
+			if(hero != null && hero.model.ID != current_unit_id &&
 			   hero.StateMachine.CurrentState == HeroState_Moving.Instance)
 			{
 //				Debug.Log("ohter : "+hero.model.Name);
@@ -322,7 +322,7 @@ public class UnitMusterController
 		return false;
 	}
 	
-	public void removeUnit(string muster_name, string unit_nameID)
+	public void removeUnit(string muster_name, int unit_nameID)
 	{
 		for(int i=0;i<MaxMusterCount;i++)
 		{
@@ -415,7 +415,7 @@ public class UnitMusterController
 			}
 		}
 		
-		public void removeUnit(string nameID)
+		public void removeUnit(int nameID)
 		{
 			if(CurrentSize <= 1) return;
 			
@@ -424,7 +424,7 @@ public class UnitMusterController
 				if(obj[i] != null)
 				{
 					//search nameID
-					if(obj[i].model.Name == nameID)
+					if(obj[i].model.ID == nameID)
 					{
 						//change parent or remove
 						//...

@@ -34,7 +34,7 @@ public class HeroState_Moving : State<Hero> {
 			{
 				UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
 
-				if(owner.model.Name == other.nameID) continue;
+				if(owner.model.ID == other.nameID) continue;
 
 				bool check = false;
 				switch(owner.getLayer())
