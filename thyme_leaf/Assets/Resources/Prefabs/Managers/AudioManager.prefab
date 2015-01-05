@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .108496256, y: -.0246815514, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LOBBY: {fileID: 8300000, guid: 37b336420650fb648ad393167aefd30f, type: 3}
-  BATTLE_1: {fileID: 8300000, guid: 0dfb04d9535dc6648acf45f8aed04fd0, type: 3}
+  BATTLE_1: {fileID: 8300000, guid: 6d2893f5ad3b55247810b3d7068402e8, type: 3}
   AT_FRANSIS_1_ATTACKING: {fileID: 8300000, guid: 181a4e9de32af29499c3f687161d282c,
     type: 3}
   AT_FRANSIS_1_DYING: {fileID: 8300000, guid: 181a4e9de32af29499c3f687161d282c, type: 3}
