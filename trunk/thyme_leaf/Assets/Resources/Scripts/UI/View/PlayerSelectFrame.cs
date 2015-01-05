@@ -20,6 +20,9 @@ public class PlayerSelectFrame : View, IActionListener
     [SerializeField]
     private UIButton _closeButton;
 
+    [SerializeField]
+    private UILabel _newName;
+
     /*
      * followings are unity callback methods
      */
@@ -45,18 +48,20 @@ public class PlayerSelectFrame : View, IActionListener
     {
         List<User> users = view.Model.Users;
 
+        Debug.Log(users.Count);
+
         for (int i = 0; i < users.Count; i++)
         {
             _playerSlots[i].GetComponentInChildren<UILabel>().text = users[i].Name;
         }
     }
 
-    public void Close()
+    private void Close()
     {
         this.gameObject.SetActive(false);
     }
 
-    public void isClick(int num)
+    private void isClick(int num)
     {
         ClickFlag = num;
         for (int i = 0; i < 3; i++ )
@@ -68,7 +73,7 @@ public class PlayerSelectFrame : View, IActionListener
         }
     }
 
-    public void isEmpty(int num)
+    private void isEmpty(int num)
     {
         string slotText;
         slotText = _playerSlots[num].GetComponentInChildren<UILabel>().text;
@@ -78,7 +83,14 @@ public class PlayerSelectFrame : View, IActionListener
         {
             view.Controller.PrepareLobby(_playerSlots[num].GetComponentInChildren<UILabel>().text);
         }
-        
+    }
+
+    public void RenameClick()
+    {
+        if (!(string.IsNullOrEmpty(_newName.text)))
+            view.Controller.RenameFunc(_newName.text, ClickFlag);
+
+        DialogFacade.Instance.CloseInputDialog();
     }
 
 
@@ -102,17 +114,21 @@ public class PlayerSelectFrame : View, IActionListener
             isClick(2);
             isEmpty(2);
         }
-        else if (source.Equals(_renameButton))
+        else if (source.name.Equals(_renameButton.name))
         {
-            view.Controller.RenameFunc(_playerSlots[ClickFlag].GetComponentInChildren<UILabel>().text,ClickFlag);
+            DialogFacade.Instance.ShowInputDialog();
         }
-        else if (source.Equals(_deleteButton))
+        else if (source.name.Equals(_deleteButton.name))
         {
             DialogFacade.Instance.ShowMessageDialog("Really Delete?");
         }
         else if (source.name.Equals(_closeButton.name))
         {
             Close();
+        }
+        else
+        {
+            Debug.Log("같지않다");
         }
     }
 

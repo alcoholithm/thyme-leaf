@@ -85,6 +85,12 @@ public class LobbyView : View, IActionListener
         SetVisible(WelcomeFrame, true);
     }
 
+    public void CloseRegister()
+    {
+        SetVisible(RegisterUserFrame, false);
+        SetVisible(StartButton, true);
+    }
+
     /*
     * followings are implemented methods of "IActionListener"
     */

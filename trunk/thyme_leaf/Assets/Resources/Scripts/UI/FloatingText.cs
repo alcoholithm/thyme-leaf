@@ -4,7 +4,7 @@ using System.Collections;
 public class FloatingText : MonoBehaviour
 {
     [SerializeField]
-    float step = 0.6f;
+    float step = 0.7f;
     
     private UILabel temp;
     private int plusFlag = 0;
@@ -31,6 +31,5 @@ public class FloatingText : MonoBehaviour
         else if (plusFlag == 1)
             temp.alpha -= step * Time.deltaTime;
 
-        Debug.Log(temp.alpha);
     }
 }

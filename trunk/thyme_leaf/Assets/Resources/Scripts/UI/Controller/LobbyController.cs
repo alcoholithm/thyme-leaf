@@ -71,11 +71,12 @@ public class LobbyController
         view.PrepareLobby();
     }
 
-    public void RenameFunc(string origName, int flag)
-    {
-        model.RenameUser(origName, "test123", flag);
 
-        User currUser = model.Users.Find(user => user.Name.Equals("test123"));
+    public void RenameFunc(string newName, int flag)
+    {
+        model.RenameUser(newName, flag);
+
+        User currUser = model.Users.Find(user => user.Name.Equals(newName));
         model.CurrentUser = currUser;
 
         view.SetVisible(view.PlayerSelectFrame, false);

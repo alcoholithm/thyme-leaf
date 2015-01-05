@@ -16,6 +16,9 @@ public class DialogFacade : Singleton<DialogFacade>
     [SerializeField]
     private GameObject _confirmDialog;
 
+    [SerializeField]
+    private GameObject _inputDialog;
+
     void Awake()
     {
         Initialize();
@@ -35,6 +38,16 @@ public class DialogFacade : Singleton<DialogFacade>
     {
         _confirmDialog.GetComponent<ConfirmDialog>().SetMessage(message);
         _confirmDialog.SetActive(true);
+    }
+
+    public void ShowInputDialog()
+    {
+        _inputDialog.SetActive(true);
+    }
+
+    public void CloseInputDialog()
+    {
+        _inputDialog.SetActive(false);
     }
 
     public void SetVisible(GameObject gameObject, bool active)
