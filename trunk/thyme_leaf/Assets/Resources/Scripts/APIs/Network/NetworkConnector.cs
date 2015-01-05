@@ -11,7 +11,7 @@ public class NetworkConnector : Singleton<NetworkConnector>
     private const string facilitatorIP = "210.118.69.150";
     private const int facilitatorPort = 50005;
 
-    private NetworkActionPerform networkActionDel;
+    private static NetworkActionPerform networkActionDel;
     private const string typeName = "Thyme Leaf";
     private string gameName = "Custom Room Name";
 
@@ -40,8 +40,10 @@ public class NetworkConnector : Singleton<NetworkConnector>
     // step 2
     public void JoinRoom(NetworkActionPerform networkAction)
     {
+        NetworkConnector.networkActionDel = networkAction;
+        if (NetworkConnector.networkActionDel == null)
+            Debug.Log("NetworkConnector.networkActionDel is null");
         RequestRoomInfos();
-        this.networkActionDel = networkAction;
     }
 
     // step 3
@@ -95,7 +97,7 @@ public class NetworkConnector : Singleton<NetworkConnector>
         if (msEvent == MasterServerEvent.HostListReceived)
         {
             hostList = MasterServer.PollHostList();
-            if (this.networkActionDel != null && hostList[0] != null)
+            if (NetworkConnector.networkActionDel != null && hostList[0] != null)
                 JoinServer(hostList[0]);
             else
                 networkActionDel(NetworkResult.EMPTY_ROOM);
@@ -112,8 +114,10 @@ public class NetworkConnector : Singleton<NetworkConnector>
     void OnPlayerConnected()
     {
         Debug.Log("Player Joined to Server(Me)");
-        if (this.networkActionDel != null)
+        if (NetworkConnector.networkActionDel != null)
             networkActionDel(NetworkResult.SUCCESS_FOUND);
+        else
+            Debug.Log("You must attach the delegate for networking");
     }
 
     void OnServerInitialized()
@@ -146,6 +150,7 @@ public class NetworkConnector : Singleton<NetworkConnector>
     // Method for Tutorial 
     void TestNetworkActionPerform(NetworkResult result)
     {
+        Debug.Log("Let's perform network");
         switch (result)
         {
             case NetworkResult.SUCCESS_FOUND:
@@ -167,12 +172,14 @@ public class NetworkConnector : Singleton<NetworkConnector>
         {
             if (GUI.Button(new Rect(0, 0, 300, 50), "Step 1 : Make Room"))
             {
-                MakeRoom();
+                NetworkConnector.Instance.MakeRoom();
             }
 
             if (GUI.Button(new Rect(0, 50 + 10, 300, 50), "Step 2 : Join Room"))
             {
-                JoinRoom(TestNetworkActionPerform);
+                Debug.Log("...Joining Room");
+                NetworkActionPerform nap = TestNetworkActionPerform;
+                NetworkConnector.Instance.JoinRoom(nap);
             }
 
 
