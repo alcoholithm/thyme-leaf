@@ -8,7 +8,7 @@ public class TowerState_Building : State<Agt_Type1>
 {
     private string animName = "Tower_Building_";
 
-    private float buildingTime = 1.5f;
+    private float buildingTime = 2f;
 
     private TowerState_Building()
     {
