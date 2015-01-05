@@ -11489,6 +11489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _messageDialog: {fileID: 1282011442}
   _confirmDialog: {fileID: 744077}
+  _inputDialog: {fileID: 0}
 --- !u!114 &1491667437
 MonoBehaviour:
   m_ObjectHideFlags: 0
