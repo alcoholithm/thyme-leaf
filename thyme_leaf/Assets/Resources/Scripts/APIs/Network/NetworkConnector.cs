@@ -3,7 +3,7 @@ using System.Collections;
 
 public delegate void NetworkActionPerform(NetworkResult result);
 
-public class NetworkConnector : Singleton<NetworkConnector>
+public class NetworkConnector : MonoBehaviour
 {
     // Server IP & Port
     private const string masterSeverIP = "210.118.69.150";
@@ -19,6 +19,27 @@ public class NetworkConnector : Singleton<NetworkConnector>
 
     // Var. for Testing
     public Transform prefab;
+
+    private static NetworkConnector instance;
+
+    private NetworkConnector(NetworkActionPerform nap)
+    {
+        NetworkConnector.networkActionDel = nap;
+    }
+
+    public static NetworkConnector Instance(NetworkActionPerform nap)
+    {
+        if (instance != null) instance = new NetworkConnector(nap);
+        return instance;
+    }
+
+    public static NetworkConnector Instance()
+    {
+        if (NetworkConnector.networkActionDel == null || instance == null)
+            return null;
+        return instance;
+    }
+
 
     void Awake()
     {
@@ -38,9 +59,9 @@ public class NetworkConnector : Singleton<NetworkConnector>
     }
 
     // step 2
-    public void JoinRoom(NetworkActionPerform networkAction)
+    public void JoinRoom()
     {
-        NetworkConnector.networkActionDel = networkAction;
+        //NetworkConnector.networkActionDel = networkAction;
         if (NetworkConnector.networkActionDel == null)
             Debug.Log("NetworkConnector.networkActionDel is null");
         RequestRoomInfos();
@@ -172,14 +193,15 @@ public class NetworkConnector : Singleton<NetworkConnector>
         {
             if (GUI.Button(new Rect(0, 0, 300, 50), "Step 1 : Make Room"))
             {
-                NetworkConnector.Instance.MakeRoom();
+                NetworkConnector nc = NetworkConnector.Instance(TestNetworkActionPerform);
+                nc.MakeRoom();
             }
 
             if (GUI.Button(new Rect(0, 50 + 10, 300, 50), "Step 2 : Join Room"))
             {
                 Debug.Log("...Joining Room");
-                NetworkActionPerform nap = TestNetworkActionPerform;
-                NetworkConnector.Instance.JoinRoom(nap);
+                NetworkConnector nc = NetworkConnector.Instance(TestNetworkActionPerform);
+                nc.JoinRoom();
             }
 
 
