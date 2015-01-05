@@ -100,6 +100,7 @@ public class HeroState_Attacking : State<Hero>
 
                 owner.helper.attack_target.DispatchMessage(msg);
                 owner.helper.attack_delay_counter = 0;
+                AudioManager.Instance.PlayClip(owner.gameObject);
             }
         }
     }
