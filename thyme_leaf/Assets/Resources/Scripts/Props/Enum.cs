@@ -157,7 +157,7 @@ public enum FindingNodeDefaultOption
 
 public enum NetworkResult
 {
-    SUCCESS_FOUND,
+    SUCCESS_TO_CONNECT,
     EMPTY_ROOM,
     FAIL,
 }
