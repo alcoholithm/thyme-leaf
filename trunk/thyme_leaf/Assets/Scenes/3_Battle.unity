@@ -7609,6 +7609,7 @@ GameObject:
   - 4: {fileID: 1007261002}
   - 20: {fileID: 1007261004}
   - 114: {fileID: 1007261003}
+  - 81: {fileID: 1007261005}
   m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
@@ -7700,6 +7701,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!81 &1007261005
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007261001}
+  m_Enabled: 1
 --- !u!1 &1008718100
 GameObject:
   m_ObjectHideFlags: 0
