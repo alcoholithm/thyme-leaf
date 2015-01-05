@@ -25,7 +25,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	private NGUISpriteAnimation anim;	
     [SerializeField]
 	private HealthBar health_bar_controller;
-	private ParticleSystem particle_sys;
+    [SerializeField]
+	private WhapFX _whapFX;
 	
 	public Hero target;
 	public string my_name;  //test code...
@@ -462,10 +463,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	public void TakeDamage(int damage_range)
 	{
-        model.HP -= damage_range;
+        _whapFX.Play();
 
-        particle_sys.transform.localPosition = helper.getPos() + new Vector3(0, 55, 0);
-        particle_sys.Play();
+        model.HP -= damage_range;
 
 		if(model.HP <= 0)
 		{
@@ -489,10 +489,10 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	
 	public UISpriteAnimation GetAnim() { return anim; }
 
-	public ParticleSystem Particle
+    public WhapFX WhapFX
 	{
-		get { return particle_sys; }
-		set { particle_sys = value; }
+		get { return _whapFX; }
+		set { _whapFX = value; }
 	}
 	//==============================================
 	/*

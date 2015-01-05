@@ -386,12 +386,10 @@ public class Spawner : Manager<Spawner>
 		if(type == StartPoint.AUTOMAT_POINT)
 		{
 			hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
-			hero.Particle = GameObject.Find("Automat_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
 		}
 		else
 		{
 			hero.controller.setType (UnitType.TROVANT_CHARACTER);
-			hero.Particle = GameObject.Find("Trovant_Ouch").transform.GetChild(0).GetComponent<ParticleSystem>();
 		}
 		hero.controller.setNodeOffsetStruct (Define.path_node_off.getNodeOffset ());
 

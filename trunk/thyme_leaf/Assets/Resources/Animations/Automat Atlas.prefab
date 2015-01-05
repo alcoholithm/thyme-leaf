@@ -41,48 +41,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: d1ef65dbec0e7414e817fd1522630da7, type: 2}
   mSprites:
-  - name: APT_Poison_0
-    x: 59
-    y: 41
-    width: 12
-    height: 20
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 9
-    paddingRight: 9
-    paddingTop: 5
-    paddingBottom: 5
-  - name: APT_Poison_1
-    x: 433
-    y: 7
-    width: 20
-    height: 12
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 5
-    paddingRight: 5
-    paddingTop: 9
-    paddingBottom: 9
-  - name: APT_Poison_2
-    x: 59
-    y: 20
-    width: 12
-    height: 20
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 9
-    paddingRight: 9
-    paddingTop: 5
-    paddingBottom: 5
   - name: APT_PoisonFX_0
-    x: 433
-    y: 20
+    x: 435
+    y: 1605
     width: 24
     height: 10
     borderLeft: 0
@@ -94,8 +55,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 18
   - name: APT_PoisonFX_1
-    x: 266
-    y: 2
+    x: 435
+    y: 1616
     width: 26
     height: 10
     borderLeft: 0
@@ -107,8 +68,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 11
   - name: APT_PoisonFX_2
-    x: 237
-    y: 1
+    x: 435
+    y: 1627
     width: 28
     height: 11
     borderLeft: 0
@@ -120,8 +81,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 1
   - name: APT_Type1_Attacking_0
-    x: 0
-    y: 362
+    x: 793
+    y: 335
     width: 78
     height: 150
     borderLeft: 0
@@ -133,8 +94,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: APT_Type1_Attacking_1
-    x: 0
-    y: 62
+    x: 794
+    y: 19
     width: 78
     height: 149
     borderLeft: 0
@@ -146,8 +107,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: APT_Type1_Attacking_2
-    x: 79
-    y: 364
+    x: 1245
+    y: 1114
     width: 78
     height: 148
     borderLeft: 0
@@ -159,8 +120,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: APT_Type1_Attacking_3
-    x: 79
-    y: 68
+    x: 1255
+    y: 829
     width: 78
     height: 147
     borderLeft: 0
@@ -172,8 +133,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: APT_Type1_Attacking_4
-    x: 158
-    y: 366
+    x: 1738
+    y: 528
     width: 78
     height: 146
     borderLeft: 0
@@ -185,8 +146,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 0
   - name: APT_Type1_Attacking_5
-    x: 79
-    y: 216
+    x: 1324
+    y: 1115
     width: 78
     height: 147
     borderLeft: 0
@@ -198,8 +159,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 2
   - name: APT_Type1_Idling_0
-    x: 0
-    y: 212
+    x: 794
+    y: 169
     width: 78
     height: 149
     borderLeft: 0
@@ -211,8 +172,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: APT_Type1_Idling_1
-    x: 158
-    y: 73
+    x: 1615
+    y: 19
     width: 78
     height: 145
     borderLeft: 0
@@ -224,8 +185,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: APT_Type1_Idling_2
-    x: 237
-    y: 367
+    x: 1492
+    y: 7
     width: 78
     height: 145
     borderLeft: 0
@@ -237,8 +198,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: APT_Type1_Idling_3
-    x: 237
-    y: 80
+    x: 1694
+    y: 24
     width: 78
     height: 140
     borderLeft: 0
@@ -250,8 +211,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 0
   - name: APT_Type1_Idling_4
-    x: 237
-    y: 221
+    x: 1413
+    y: 7
     width: 78
     height: 145
     borderLeft: 0
@@ -263,8 +224,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: APT_Type1_Idling_5
-    x: 158
-    y: 219
+    x: 1334
+    y: 830
     width: 78
     height: 146
     borderLeft: 0
@@ -276,8 +237,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_0
-    x: 316
-    y: 55
+    x: 873
+    y: 191
     width: 54
     height: 63
     borderLeft: 0
@@ -289,8 +250,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_1
-    x: 378
-    y: 266
+    x: 1334
+    y: 772
     width: 54
     height: 56
     borderLeft: 0
@@ -302,8 +263,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_2
-    x: 433
-    y: 323
+    x: 1048
+    y: 4
     width: 54
     height: 50
     borderLeft: 0
@@ -315,7 +276,7 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_3
-    x: 378
+    x: 993
     y: 4
     width: 54
     height: 50
@@ -328,8 +289,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_4
-    x: 378
-    y: 55
+    x: 1360
+    y: 1061
     width: 52
     height: 52
     borderLeft: 0
@@ -341,8 +302,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_5
-    x: 378
-    y: 108
+    x: 1360
+    y: 1008
     width: 52
     height: 52
     borderLeft: 0
@@ -354,8 +315,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Normal_0
-    x: 378
-    y: 161
+    x: 1337
+    y: 519
     width: 54
     height: 51
     borderLeft: 0
@@ -367,8 +328,8 @@ MonoBehaviour:
     paddingTop: 16
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_1
-    x: 433
-    y: 221
+    x: 1317
+    y: 261
     width: 54
     height: 50
     borderLeft: 0
@@ -380,8 +341,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_2
-    x: 502
-    y: 360
+    x: 1309
+    y: 4
     width: 50
     height: 50
     borderLeft: 0
@@ -393,8 +354,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_3
-    x: 553
-    y: 313
+    x: 890
+    y: 1305
     width: 46
     height: 50
     borderLeft: 0
@@ -406,8 +367,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_4
-    x: 553
-    y: 11
+    x: 1817
+    y: 625
     width: 46
     height: 49
     borderLeft: 0
@@ -419,8 +380,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_5
-    x: 553
-    y: 61
+    x: 890
+    y: 1154
     width: 46
     height: 49
     borderLeft: 0
@@ -432,8 +393,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 3
   - name: Falstaff_Type1_Dying_0
-    x: 502
-    y: 58
+    x: 1814
+    y: 952
     width: 48
     height: 50
     borderLeft: 0
@@ -445,8 +406,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 10
   - name: Falstaff_Type1_Dying_1
-    x: 433
-    y: 272
+    x: 938
+    y: 4
     width: 54
     height: 50
     borderLeft: 0
@@ -458,8 +419,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 7
   - name: Falstaff_Type1_Dying_2
-    x: 433
-    y: 374
+    x: 1337
+    y: 624
     width: 58
     height: 49
     borderLeft: 0
@@ -471,8 +432,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 6
   - name: Falstaff_Type1_Dying_3
-    x: 433
-    y: 424
+    x: 1337
+    y: 674
     width: 66
     height: 44
     borderLeft: 0
@@ -484,8 +445,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 7
   - name: Falstaff_Type1_Dying_4
-    x: 433
-    y: 469
+    x: 1334
+    y: 728
     width: 68
     height: 43
     borderLeft: 0
@@ -497,8 +458,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 6
   - name: Falstaff_Type1_Dying_5
-    x: 433
-    y: 133
+    x: 468
+    y: 4
     width: 68
     height: 37
     borderLeft: 0
@@ -510,8 +471,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 6
   - name: Falstaff_Type1_Moving_Downwards_0
-    x: 316
-    y: 447
+    x: 870
+    y: 800
     width: 61
     height: 65
     borderLeft: 0
@@ -523,8 +484,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 5
   - name: Falstaff_Type1_Moving_Downwards_1
-    x: 316
-    y: 382
+    x: 870
+    y: 735
     width: 61
     height: 64
     borderLeft: 0
@@ -536,8 +497,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: Falstaff_Type1_Moving_Downwards_2
-    x: 79
-    y: 3
+    x: 872
+    y: 997
     width: 63
     height: 64
     borderLeft: 0
@@ -549,8 +510,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 0
   - name: Falstaff_Type1_Moving_Downwards_3
-    x: 316
-    y: 318
+    x: 872
+    y: 866
     width: 61
     height: 63
     borderLeft: 0
@@ -562,8 +523,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 1
   - name: Falstaff_Type1_Moving_Downwards_4
-    x: 237
-    y: 13
+    x: 872
+    y: 930
     width: 61
     height: 66
     borderLeft: 0
@@ -575,8 +536,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 1
   - name: Falstaff_Type1_Moving_Downwards_5
-    x: 158
-    y: 3
+    x: 872
+    y: 1062
     width: 61
     height: 69
     borderLeft: 0
@@ -588,8 +549,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Falstaff_Type1_Moving_Normal_0
-    x: 378
-    y: 323
+    x: 873
+    y: 107
     width: 54
     height: 61
     borderLeft: 0
@@ -601,8 +562,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 9
   - name: Falstaff_Type1_Moving_Normal_1
-    x: 378
-    y: 449
+    x: 873
+    y: 255
     width: 54
     height: 63
     borderLeft: 0
@@ -614,8 +575,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 7
   - name: Falstaff_Type1_Moving_Normal_2
-    x: 316
-    y: 185
+    x: 872
+    y: 420
     width: 56
     height: 65
     borderLeft: 0
@@ -627,8 +588,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 5
   - name: Falstaff_Type1_Moving_Normal_3
-    x: 316
-    y: 251
+    x: 870
+    y: 668
     width: 56
     height: 66
     borderLeft: 0
@@ -640,8 +601,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 4
   - name: Falstaff_Type1_Moving_Normal_4
-    x: 316
-    y: 119
+    x: 872
+    y: 354
     width: 54
     height: 65
     borderLeft: 0
@@ -653,8 +614,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 5
   - name: Falstaff_Type1_Moving_Normal_5
-    x: 378
-    y: 385
+    x: 870
+    y: 604
     width: 54
     height: 63
     borderLeft: 0
@@ -665,9 +626,464 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 0
     paddingBottom: 7
+  - name: Flame_0
+    x: 1614
+    y: 676
+    width: 199
+    height: 326
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 167
+    paddingRight: 146
+    paddingTop: 43
+    paddingBottom: 143
+  - name: Flame_1
+    x: 1615
+    y: 165
+    width: 204
+    height: 307
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 159
+    paddingRight: 149
+    paddingTop: 58
+    paddingBottom: 147
+  - name: Flame_2
+    x: 1413
+    y: 153
+    width: 201
+    height: 319
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 159
+    paddingRight: 152
+    paddingTop: 51
+    paddingBottom: 142
+  - name: Flame_3
+    x: 1413
+    y: 675
+    width: 200
+    height: 327
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 161
+    paddingRight: 151
+    paddingTop: 43
+    paddingBottom: 142
+  - name: Flame_4
+    x: 1892
+    y: 1135
+    width: 184
+    height: 332
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 165
+    paddingRight: 163
+    paddingTop: 41
+    paddingBottom: 139
+  - name: Flame_5
+    x: 1892
+    y: 807
+    width: 178
+    height: 327
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 164
+    paddingRight: 170
+    paddingTop: 45
+    paddingBottom: 140
+  - name: FlameThrower_0
+    x: 240
+    y: 6
+    width: 167
+    height: 38
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 329
+    paddingTop: 250
+    paddingBottom: 224
+  - name: FlameThrower_1
+    x: 1217
+    y: 312
+    width: 185
+    height: 57
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 310
+    paddingTop: 237
+    paddingBottom: 218
+  - name: FlameThrower_10
+    x: 468
+    y: 1688
+    width: 469
+    height: 360
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 29
+    paddingTop: 33
+    paddingBottom: 119
+  - name: FlameThrower_11
+    x: 0
+    y: 1666
+    width: 467
+    height: 382
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 32
+    paddingTop: 33
+    paddingBottom: 97
+  - name: FlameThrower_12
+    x: 0
+    y: 407
+    width: 456
+    height: 291
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 42
+    paddingTop: 31
+    paddingBottom: 190
+  - name: FlameThrower_13
+    x: 0
+    y: 699
+    width: 458
+    height: 303
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 38
+    paddingTop: 30
+    paddingBottom: 179
+  - name: FlameThrower_14
+    x: 0
+    y: 1003
+    width: 455
+    height: 319
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 42
+    paddingTop: 26
+    paddingBottom: 167
+  - name: FlameThrower_15
+    x: 0
+    y: 1323
+    width: 434
+    height: 342
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 17
+    paddingRight: 61
+    paddingTop: 23
+    paddingBottom: 147
+  - name: FlameThrower_16
+    x: 468
+    y: 1407
+    width: 438
+    height: 280
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 56
+    paddingTop: 94
+    paddingBottom: 138
+  - name: FlameThrower_17
+    x: 0
+    y: 107
+    width: 424
+    height: 299
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 32
+    paddingRight: 56
+    paddingTop: 91
+    paddingBottom: 122
+  - name: FlameThrower_18
+    x: 468
+    y: 1132
+    width: 421
+    height: 274
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 38
+    paddingRight: 53
+    paddingTop: 82
+    paddingBottom: 156
+  - name: FlameThrower_19
+    x: 468
+    y: 603
+    width: 401
+    height: 262
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 43
+    paddingRight: 68
+    paddingTop: 101
+    paddingBottom: 149
+  - name: FlameThrower_2
+    x: 240
+    y: 45
+    width: 203
+    height: 61
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 295
+    paddingTop: 232
+    paddingBottom: 219
+  - name: FlameThrower_20
+    x: 468
+    y: 866
+    width: 403
+    height: 265
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 51
+    paddingRight: 58
+    paddingTop: 106
+    paddingBottom: 141
+  - name: FlameThrower_21
+    x: 938
+    y: 515
+    width: 398
+    height: 203
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 57
+    paddingRight: 57
+    paddingTop: 170
+    paddingBottom: 139
+  - name: FlameThrower_22
+    x: 1413
+    y: 473
+    width: 324
+    height: 201
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 137
+    paddingRight: 51
+    paddingTop: 161
+    paddingBottom: 150
+  - name: FlameThrower_23
+    x: 1892
+    y: 1657
+    width: 325
+    height: 197
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 138
+    paddingRight: 49
+    paddingTop: 148
+    paddingBottom: 167
+  - name: FlameThrower_24
+    x: 1892
+    y: 1468
+    width: 328
+    height: 188
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 135
+    paddingRight: 49
+    paddingTop: 146
+    paddingBottom: 178
+  - name: FlameThrower_25
+    x: 1892
+    y: 1855
+    width: 332
+    height: 193
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 132
+    paddingRight: 48
+    paddingTop: 136
+    paddingBottom: 183
+  - name: FlameThrower_26
+    x: 1669
+    y: 1321
+    width: 205
+    height: 186
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 260
+    paddingRight: 47
+    paddingTop: 136
+    paddingBottom: 190
+  - name: FlameThrower_27
+    x: 1217
+    y: 370
+    width: 176
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 263
+    paddingRight: 73
+    paddingTop: 135
+    paddingBottom: 233
+  - name: FlameThrower_28
+    x: 435
+    y: 1639
+    width: 17
+    height: 26
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 421
+    paddingRight: 74
+    paddingTop: 242
+    paddingBottom: 244
+  - name: FlameThrower_3
+    x: 0
+    y: 14
+    width: 239
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 259
+    paddingTop: 199
+    paddingBottom: 221
+  - name: FlameThrower_4
+    x: 2225
+    y: 1920
+    width: 397
+    height: 128
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 103
+    paddingTop: 181
+    paddingBottom: 203
+  - name: FlameThrower_5
+    x: 938
+    y: 55
+    width: 431
+    height: 178
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 69
+    paddingTop: 155
+    paddingBottom: 179
+  - name: FlameThrower_6
+    x: 938
+    y: 1263
+    width: 472
+    height: 203
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 27
+    paddingTop: 110
+    paddingBottom: 199
+  - name: FlameThrower_7
+    x: 938
+    y: 1467
+    width: 471
+    height: 251
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 27
+    paddingTop: 83
+    paddingBottom: 178
+  - name: FlameThrower_8
+    x: 1413
+    y: 1751
+    width: 478
+    height: 297
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 22
+    paddingTop: 58
+    paddingBottom: 157
+  - name: FlameThrower_9
+    x: 938
+    y: 1719
+    width: 474
+    height: 329
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 14
+    paddingRight: 24
+    paddingTop: 43
+    paddingBottom: 140
   - name: Franscis_Type1_Attacking_Downwards_0
-    x: 553
-    y: 262
+    x: 890
+    y: 1254
     width: 46
     height: 50
     borderLeft: 0
@@ -679,8 +1095,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_1
-    x: 553
-    y: 161
+    x: 1817
+    y: 475
     width: 46
     height: 49
     borderLeft: 0
@@ -692,8 +1108,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_2
-    x: 553
-    y: 111
+    x: 1817
+    y: 525
     width: 46
     height: 49
     borderLeft: 0
@@ -705,8 +1121,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_3
-    x: 649
-    y: 412
+    x: 1817
+    y: 575
     width: 46
     height: 49
     borderLeft: 0
@@ -718,8 +1134,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_4
-    x: 553
-    y: 211
+    x: 890
+    y: 1356
     width: 46
     height: 50
     borderLeft: 0
@@ -731,8 +1147,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_5
-    x: 602
-    y: 412
+    x: 890
+    y: 1204
     width: 46
     height: 49
     borderLeft: 0
@@ -744,8 +1160,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_0
-    x: 700
-    y: 462
+    x: 1771
+    y: 1270
     width: 48
     height: 50
     borderLeft: 0
@@ -757,8 +1173,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_1
-    x: 602
-    y: 462
+    x: 1814
+    y: 850
     width: 48
     height: 50
     borderLeft: 0
@@ -770,8 +1186,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_2
-    x: 896
-    y: 463
+    x: 1814
+    y: 750
     width: 48
     height: 49
     borderLeft: 0
@@ -783,8 +1199,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_3
-    x: 651
-    y: 462
+    x: 1694
+    y: 1045
     width: 48
     height: 50
     borderLeft: 0
@@ -796,8 +1212,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_4
-    x: 749
-    y: 462
+    x: 1820
+    y: 1270
     width: 48
     height: 50
     borderLeft: 0
@@ -809,8 +1225,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_5
-    x: 553
-    y: 462
+    x: 1814
+    y: 901
     width: 48
     height: 50
     borderLeft: 0
@@ -822,8 +1238,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Dying_0
-    x: 502
-    y: 7
+    x: 1841
+    y: 1045
     width: 48
     height: 50
     borderLeft: 0
@@ -835,8 +1251,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 10
   - name: Franscis_Type1_Dying_1
-    x: 502
-    y: 159
+    x: 1669
+    y: 1271
     width: 50
     height: 49
     borderLeft: 0
@@ -848,8 +1264,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 9
   - name: Franscis_Type1_Dying_2
-    x: 433
-    y: 171
+    x: 1103
+    y: 5
     width: 52
     height: 49
     borderLeft: 0
@@ -861,8 +1277,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 8
   - name: Franscis_Type1_Dying_3
-    x: 378
-    y: 213
+    x: 1337
+    y: 571
     width: 54
     height: 52
     borderLeft: 0
@@ -874,8 +1290,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 3
   - name: Franscis_Type1_Dying_4
-    x: 0
-    y: 8
+    x: 873
+    y: 53
     width: 58
     height: 53
     borderLeft: 0
@@ -887,8 +1303,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: Franscis_Type1_Dying_5
-    x: 316
-    y: 5
+    x: 873
+    y: 3
     width: 60
     height: 49
     borderLeft: 0
@@ -900,8 +1316,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_0
-    x: 798
-    y: 462
+    x: 1743
+    y: 1045
     width: 48
     height: 50
     borderLeft: 0
@@ -913,8 +1329,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_1
-    x: 847
-    y: 462
+    x: 1792
+    y: 1045
     width: 48
     height: 50
     borderLeft: 0
@@ -926,8 +1342,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_2
-    x: 502
-    y: 109
+    x: 1765
+    y: 1555
     width: 50
     height: 49
     borderLeft: 0
@@ -939,8 +1355,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Franscis_Type1_Moving_Downwards_3
-    x: 433
-    y: 82
+    x: 1258
+    y: 4
     width: 50
     height: 50
     borderLeft: 0
@@ -952,8 +1368,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_4
-    x: 502
-    y: 259
+    x: 1816
+    y: 1555
     width: 50
     height: 49
     borderLeft: 0
@@ -965,8 +1381,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Franscis_Type1_Moving_Downwards_5
-    x: 502
-    y: 209
+    x: 1720
+    y: 1271
     width: 50
     height: 49
     borderLeft: 0
@@ -978,8 +1394,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Franscis_Type1_Moving_Normal_0
-    x: 553
-    y: 413
+    x: 1814
+    y: 701
     width: 48
     height: 48
     borderLeft: 0
@@ -991,8 +1407,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_1
-    x: 553
-    y: 364
+    x: 1738
+    y: 479
     width: 48
     height: 48
     borderLeft: 0
@@ -1004,8 +1420,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_2
-    x: 945
-    y: 463
+    x: 1814
+    y: 800
     width: 48
     height: 49
     borderLeft: 0
@@ -1017,8 +1433,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_3
-    x: 502
-    y: 309
+    x: 1360
+    y: 4
     width: 50
     height: 50
     borderLeft: 0
@@ -1030,8 +1446,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_4
-    x: 502
-    y: 411
+    x: 1714
+    y: 1554
     width: 50
     height: 50
     borderLeft: 0
@@ -1043,8 +1459,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_5
-    x: 502
-    y: 462
+    x: 1207
+    y: 4
     width: 50
     height: 50
     borderLeft: 0
@@ -1056,8 +1472,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Glow - outer
-    x: 433
-    y: 31
+    x: 1156
+    y: 4
     width: 50
     height: 50
     borderLeft: 22
@@ -1068,9 +1484,152 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: PoisonDrop_0
+    x: 453
+    y: 1645
+    width: 12
+    height: 20
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 9
+    paddingTop: 5
+    paddingBottom: 5
+  - name: PoisonDrop_1
+    x: 435
+    y: 1592
+    width: 20
+    height: 12
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 5
+    paddingTop: 9
+    paddingBottom: 9
+  - name: PoisonDrop_2
+    x: 435
+    y: 1571
+    width: 12
+    height: 20
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 9
+    paddingTop: 5
+    paddingBottom: 5
+  - name: PoisonGas_0
+    x: 1255
+    y: 760
+    width: 78
+    height: 68
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 71
+    paddingRight: 71
+    paddingTop: 48
+    paddingBottom: 48
+  - name: PoisonGas_1
+    x: 1245
+    y: 1015
+    width: 114
+    height: 98
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 53
+    paddingRight: 53
+    paddingTop: 33
+    paddingBottom: 33
+  - name: PoisonGas_2
+    x: 793
+    y: 486
+    width: 136
+    height: 116
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 42
+    paddingRight: 42
+    paddingTop: 24
+    paddingBottom: 24
+  - name: PoisonGas_3
+    x: 1714
+    y: 1605
+    width: 170
+    height: 145
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 25
+    paddingRight: 25
+    paddingTop: 10
+    paddingBottom: 9
+  - name: PoisonGas_4
+    x: 1892
+    y: 37
+    width: 205
+    height: 164
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 7
+    paddingTop: 0
+    paddingBottom: 0
+  - name: PoisonGas_5
+    x: 1892
+    y: 202
+    width: 206
+    height: 164
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 7
+    paddingRight: 7
+    paddingTop: 0
+    paddingBottom: 0
+  - name: PoisonGas_6
+    x: 2225
+    y: 1755
+    width: 205
+    height: 164
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 7
+    paddingTop: 0
+    paddingBottom: 0
+  - name: PoisonGas_7
+    x: 1694
+    y: 1096
+    width: 170
+    height: 145
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 25
+    paddingRight: 25
+    paddingTop: 10
+    paddingBottom: 9
   - name: Tower_Attacking_0
-    x: 696
-    y: 421
+    x: 425
+    y: 325
     width: 39
     height: 40
     borderLeft: 0
@@ -1082,8 +1641,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Attacking_1
-    x: 736
-    y: 421
+    x: 425
+    y: 366
     width: 39
     height: 40
     borderLeft: 0
@@ -1095,34 +1654,138 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Building_0
-    x: 776
-    y: 421
-    width: 39
-    height: 40
+    x: 1892
+    y: 367
+    width: 243
+    height: 209
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: 128
+    paddingRight: 141
+    paddingTop: 134
+    paddingBottom: 169
   - name: Tower_Building_1
-    x: 816
-    y: 421
-    width: 39
-    height: 40
+    x: 1413
+    y: 1003
+    width: 280
+    height: 238
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: 116
+    paddingRight: 116
+    paddingTop: 112
+    paddingBottom: 162
+  - name: Tower_Building_2
+    x: 1413
+    y: 1508
+    width: 300
+    height: 242
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 108
+    paddingRight: 104
+    paddingTop: 104
+    paddingBottom: 166
+  - name: Tower_Building_3
+    x: 938
+    y: 719
+    width: 316
+    height: 257
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 103
+    paddingRight: 93
+    paddingTop: 89
+    paddingBottom: 166
+  - name: Tower_Building_4
+    x: 468
+    y: 42
+    width: 325
+    height: 276
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 103
+    paddingRight: 84
+    paddingTop: 85
+    paddingBottom: 151
+  - name: Tower_Building_5
+    x: 468
+    y: 319
+    width: 324
+    height: 283
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 106
+    paddingRight: 82
+    paddingTop: 83
+    paddingBottom: 146
+  - name: Tower_Building_6
+    x: 938
+    y: 977
+    width: 306
+    height: 285
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 109
+    paddingRight: 97
+    paddingTop: 79
+    paddingBottom: 148
+  - name: Tower_Building_7
+    x: 938
+    y: 234
+    width: 278
+    height: 280
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 138
+    paddingRight: 96
+    paddingTop: 80
+    paddingBottom: 152
+  - name: Tower_Building_8
+    x: 1413
+    y: 1242
+    width: 255
+    height: 265
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 162
+    paddingRight: 95
+    paddingTop: 89
+    paddingBottom: 158
+  - name: Tower_Building_9
+    x: 1892
+    y: 577
+    width: 244
+    height: 229
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 165
+    paddingRight: 103
+    paddingTop: 94
+    paddingBottom: 189
   - name: Tower_Dying_0
-    x: 856
-    y: 421
+    x: 425
+    y: 284
     width: 39
     height: 40
     borderLeft: 0
@@ -1134,8 +1797,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Dying_1
-    x: 896
-    y: 421
+    x: 425
+    y: 243
     width: 39
     height: 40
     borderLeft: 0
@@ -1147,8 +1810,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Hitting_0
-    x: 936
-    y: 421
+    x: 425
+    y: 202
     width: 39
     height: 40
     borderLeft: 0
@@ -1160,8 +1823,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Hitting_1
-    x: 976
-    y: 421
+    x: 425
+    y: 161
     width: 39
     height: 40
     borderLeft: 0
@@ -1173,8 +1836,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Idling_0
-    x: 602
-    y: 371
+    x: 425
+    y: 120
     width: 39
     height: 40
     borderLeft: 0
@@ -1186,8 +1849,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Idling_1
-    x: 602
-    y: 330
+    x: 408
+    y: 4
     width: 39
     height: 40
     borderLeft: 0
@@ -1198,9 +1861,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Whap Blue
+    x: 1217
+    y: 261
+    width: 99
+    height: 50
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 0
+    paddingTop: 25
+    paddingBottom: 25
   - name: White
-    x: 59
-    y: 6
+    x: 448
+    y: 1578
     width: 13
     height: 13
     borderLeft: 1

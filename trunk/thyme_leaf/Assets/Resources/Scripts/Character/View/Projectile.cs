@@ -36,10 +36,10 @@ public class Projectile : MonoBehaviour
 
         movingSpeed = 0.7f;
 
-        sprite.spriteName = "APT_Poison_0";
+        sprite.spriteName = "PoisonDrop_0";
         sprite.MakePixelPerfect();
 
-        this.animName = "APT_Poison_";
+        this.animName = "PoisonDrop_";
         fx.Play(this.animName);
     }
 
@@ -84,7 +84,7 @@ public class Projectile : MonoBehaviour
 
         movingSpeed = 0;
 
-        this.animName = "APT_PoisonFX_";
+        this.animName = "PoisonGas_";
         fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
 
         GameEntity entity = target.GetComponent<GameEntity>();

@@ -93,7 +93,7 @@ MonoBehaviour:
   _framerate: 5
   _namePrefix: APT_Poison_
   _loop: 1
-  _pixelSnap: 1
+  _pixelSnap: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
