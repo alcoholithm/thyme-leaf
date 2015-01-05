@@ -74,7 +74,8 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
     void OnEnable()
     {
         Initialize(); // 귀찮아서 이렇게 한다. 원래는 Reset을 만들고 다시 new 로 인스턴시에이션 할 필요없이 각 클래스의 초기화루틴을 호출한다.
-        healthbar.gameObject.SetActive(false);
+
+        this.PrepareUI();
     }
 
     void Update()

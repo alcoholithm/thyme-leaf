@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 4ce7b2482a9b89e4993c81320b2dcb87, type: 2}
   mSprites:
   - name: Comma_Attacking_Downwards_0
-    x: 425
-    y: 233
+    x: 380
+    y: 227
     width: 30
     height: 27
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 0
   - name: Comma_Attacking_Downwards_1
-    x: 425
-    y: 269
+    x: 380
+    y: 309
     width: 30
     height: 32
     borderLeft: 0
@@ -68,8 +68,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Attacking_Downwards_2
-    x: 344
-    y: 178
+    x: 907
+    y: 557
     width: 32
     height: 42
     borderLeft: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 0
   - name: Comma_Attacking_Downwards_3
-    x: 378
-    y: 47
+    x: 986
+    y: 809
     width: 36
     height: 50
     borderLeft: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Comma_Attacking_Downwards_4
-    x: 344
-    y: 135
+    x: 779
+    y: 726
     width: 32
     height: 42
     borderLeft: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 0
   - name: Comma_Attacking_Downwards_5
-    x: 425
-    y: 311
+    x: 380
+    y: 342
     width: 30
     height: 32
     borderLeft: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Attacking_Normal_0
-    x: 344
-    y: 107
+    x: 380
+    y: 281
     width: 32
     height: 27
     borderLeft: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 0
   - name: Comma_Attacking_Normal_1
-    x: 557
-    y: 92
+    x: 380
+    y: 375
     width: 32
     height: 32
     borderLeft: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Attacking_Normal_2
-    x: 424
-    y: 4
+    x: 907
+    y: 600
     width: 32
     height: 42
     borderLeft: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 0
   - name: Comma_Attacking_Normal_3
-    x: 415
-    y: 47
+    x: 986
+    y: 758
     width: 36
     height: 50
     borderLeft: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Comma_Attacking_Normal_4
-    x: 557
-    y: 302
+    x: 866
+    y: 544
     width: 32
     height: 42
     borderLeft: 0
@@ -185,8 +185,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 0
   - name: Comma_Attacking_Normal_5
-    x: 557
-    y: 59
+    x: 380
+    y: 408
     width: 32
     height: 32
     borderLeft: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Dying_0
-    x: 425
-    y: 356
+    x: 249
+    y: 4
     width: 30
     height: 36
     borderLeft: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 0
   - name: Comma_Dying_1
-    x: 425
-    y: 402
+    x: 977
+    y: 562
     width: 30
     height: 41
     borderLeft: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 0
   - name: Comma_Dying_2
-    x: 457
-    y: 3
+    x: 779
+    y: 813
     width: 35
     height: 46
     borderLeft: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 0
   - name: Comma_Dying_3
-    x: 378
-    y: 393
+    x: 280
+    y: 59
     width: 46
     height: 50
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Comma_Dying_4
-    x: 322
-    y: 53
+    x: 201
+    y: 41
     width: 50
     height: 50
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Comma_Dying_5
-    x: 322
-    y: 2
+    x: 316
+    y: 209
     width: 50
     height: 50
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Comma_Moving_Downwards_0
-    x: 557
-    y: 428
+    x: 986
+    y: 714
     width: 36
     height: 43
     borderLeft: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: Comma_Moving_Downwards_1
-    x: 959
-    y: 474
+    x: 987
+    y: 666
     width: 36
     height: 38
     borderLeft: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 0
   - name: Comma_Moving_Downwards_2
-    x: 512
-    y: 350
+    x: 380
+    y: 507
     width: 36
     height: 32
     borderLeft: 0
@@ -315,8 +315,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Moving_Downwards_3
-    x: 557
-    y: 31
+    x: 940
+    y: 540
     width: 36
     height: 27
     borderLeft: 0
@@ -328,8 +328,8 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 0
   - name: Comma_Moving_Downwards_4
-    x: 557
-    y: 191
+    x: 338
+    y: 262
     width: 36
     height: 32
     borderLeft: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Moving_Downwards_5
-    x: 557
-    y: 345
+    x: 866
+    y: 587
     width: 36
     height: 38
     borderLeft: 0
@@ -354,8 +354,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 0
   - name: Comma_Moving_Normal_0
-    x: 557
-    y: 384
+    x: 779
+    y: 769
     width: 34
     height: 43
     borderLeft: 0
@@ -367,8 +367,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 0
   - name: Comma_Moving_Normal_1
-    x: 557
-    y: 224
+    x: 975
+    y: 604
     width: 34
     height: 38
     borderLeft: 0
@@ -380,8 +380,8 @@ MonoBehaviour:
     paddingTop: 12
     paddingBottom: 0
   - name: Comma_Moving_Normal_2
-    x: 557
-    y: 125
+    x: 380
+    y: 441
     width: 34
     height: 32
     borderLeft: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Moving_Normal_3
-    x: 557
-    y: 5
+    x: 380
+    y: 255
     width: 34
     height: 25
     borderLeft: 0
@@ -406,8 +406,8 @@ MonoBehaviour:
     paddingTop: 25
     paddingBottom: 0
   - name: Comma_Moving_Normal_4
-    x: 557
-    y: 158
+    x: 380
+    y: 474
     width: 34
     height: 32
     borderLeft: 0
@@ -419,8 +419,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Comma_Moving_Normal_5
-    x: 557
-    y: 263
+    x: 940
+    y: 604
     width: 34
     height: 38
     borderLeft: 0
@@ -431,9 +431,87 @@ MonoBehaviour:
     paddingRight: 8
     paddingTop: 12
     paddingBottom: 0
+  - name: Flame_0
+    x: 0
+    y: 370
+    width: 199
+    height: 326
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 167
+    paddingRight: 146
+    paddingTop: 43
+    paddingBottom: 143
+  - name: Flame_1
+    x: 403
+    y: 717
+    width: 204
+    height: 307
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 159
+    paddingRight: 149
+    paddingTop: 58
+    paddingBottom: 147
+  - name: Flame_2
+    x: 201
+    y: 705
+    width: 201
+    height: 319
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 159
+    paddingRight: 152
+    paddingTop: 51
+    paddingBottom: 142
+  - name: Flame_3
+    x: 0
+    y: 697
+    width: 200
+    height: 327
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 161
+    paddingRight: 151
+    paddingTop: 43
+    paddingBottom: 142
+  - name: Flame_4
+    x: 0
+    y: 37
+    width: 184
+    height: 332
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 165
+    paddingRight: 163
+    paddingTop: 41
+    paddingBottom: 139
+  - name: Flame_5
+    x: 201
+    y: 377
+    width: 178
+    height: 327
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 164
+    paddingRight: 170
+    paddingTop: 45
+    paddingBottom: 140
   - name: Python_Attacking_Downwards_0
-    x: 378
-    y: 138
+    x: 280
+    y: 18
     width: 46
     height: 40
     borderLeft: 0
@@ -445,8 +523,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_Attacking_Downwards_1
-    x: 500
-    y: 128
+    x: 728
+    y: 548
     width: 42
     height: 39
     borderLeft: 0
@@ -458,8 +536,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_Attacking_Downwards_2
-    x: 918
-    y: 475
+    x: 866
+    y: 626
     width: 40
     height: 37
     borderLeft: 0
@@ -471,8 +549,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: Python_Attacking_Downwards_3
-    x: 506
-    y: 207
+    x: 940
+    y: 568
     width: 36
     height: 35
     borderLeft: 0
@@ -484,8 +562,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: Python_Attacking_Downwards_4
-    x: 877
-    y: 475
+    x: 946
+    y: 667
     width: 40
     height: 37
     borderLeft: 0
@@ -497,8 +575,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: Python_Attacking_Downwards_5
-    x: 457
-    y: 128
+    x: 778
+    y: 665
     width: 42
     height: 39
     borderLeft: 0
@@ -510,8 +588,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_Attacking_Normal_0
-    x: 378
-    y: 261
+    x: 327
+    y: 18
     width: 46
     height: 40
     borderLeft: 0
@@ -523,8 +601,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_Attacking_Normal_1
-    x: 457
-    y: 88
+    x: 728
+    y: 628
     width: 42
     height: 39
     borderLeft: 0
@@ -536,8 +614,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_Attacking_Normal_2
-    x: 502
-    y: 245
+    x: 680
+    y: 628
     width: 46
     height: 37
     borderLeft: 0
@@ -549,8 +627,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: Python_Attacking_Normal_3
-    x: 457
-    y: 207
+    x: 122
+    y: 1
     width: 48
     height: 35
     borderLeft: 0
@@ -562,8 +640,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: Python_Attacking_Normal_4
-    x: 504
-    y: 311
+    x: 633
+    y: 548
     width: 46
     height: 37
     borderLeft: 0
@@ -575,8 +653,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: Python_Attacking_Normal_5
-    x: 500
-    y: 88
+    x: 728
+    y: 588
     width: 42
     height: 39
     borderLeft: 0
@@ -588,8 +666,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_Dying_0
-    x: 378
-    y: 344
+    x: 327
+    y: 61
     width: 46
     height: 48
     borderLeft: 0
@@ -601,8 +679,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Python_Dying_1
-    x: 378
-    y: 302
+    x: 316
+    y: 167
     width: 46
     height: 41
     borderLeft: 0
@@ -614,8 +692,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 0
   - name: Python_Dying_2
-    x: 505
-    y: 385
+    x: 728
+    y: 668
     width: 49
     height: 36
     borderLeft: 0
@@ -627,8 +705,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 0
   - name: Python_Dying_3
-    x: 457
-    y: 349
+    x: 0
+    y: 3
     width: 54
     height: 33
     borderLeft: 0
@@ -640,8 +718,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 0
   - name: Python_Dying_4
-    x: 457
-    y: 283
+    x: 55
+    y: 10
     width: 66
     height: 26
     borderLeft: 0
@@ -653,8 +731,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 0
   - name: Python_Dying_5
-    x: 594
-    y: 451
+    x: 907
+    y: 643
     width: 70
     height: 20
     borderLeft: 0
@@ -666,8 +744,8 @@ MonoBehaviour:
     paddingTop: 30
     paddingBottom: 0
   - name: Python_Moving_Downwards_0
-    x: 378
-    y: 179
+    x: 586
+    y: 623
     width: 46
     height: 40
     borderLeft: 0
@@ -679,8 +757,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_Moving_Downwards_1
-    x: 504
-    y: 422
+    x: 586
+    y: 542
     width: 46
     height: 39
     borderLeft: 0
@@ -692,8 +770,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_Moving_Downwards_2
-    x: 457
-    y: 383
+    x: 680
+    y: 666
     width: 47
     height: 38
     borderLeft: 0
@@ -705,8 +783,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Python_Moving_Downwards_3
-    x: 457
-    y: 310
+    x: 633
+    y: 626
     width: 46
     height: 38
     borderLeft: 0
@@ -718,8 +796,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Python_Moving_Downwards_4
-    x: 378
-    y: 98
+    x: 201
+    y: 1
     width: 47
     height: 39
     borderLeft: 0
@@ -731,8 +809,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_Moving_Downwards_5
-    x: 378
-    y: 6
+    x: 586
+    y: 582
     width: 45
     height: 40
     borderLeft: 0
@@ -744,8 +822,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_Moving_Normal_0
-    x: 378
-    y: 220
+    x: 586
+    y: 664
     width: 46
     height: 40
     borderLeft: 0
@@ -757,8 +835,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_Moving_Normal_1
-    x: 457
-    y: 422
+    x: 633
+    y: 665
     width: 46
     height: 39
     borderLeft: 0
@@ -770,8 +848,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_Moving_Normal_2
-    x: 457
-    y: 168
+    x: 680
+    y: 589
     width: 44
     height: 38
     borderLeft: 0
@@ -783,8 +861,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Python_Moving_Normal_3
-    x: 457
-    y: 50
+    x: 821
+    y: 667
     width: 44
     height: 37
     borderLeft: 0
@@ -796,8 +874,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: Python_Moving_Normal_4
-    x: 502
-    y: 168
+    x: 680
+    y: 550
     width: 44
     height: 38
     borderLeft: 0
@@ -809,8 +887,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Python_Moving_Normal_5
-    x: 457
-    y: 243
+    x: 633
+    y: 586
     width: 44
     height: 39
     borderLeft: 0
@@ -822,8 +900,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Python_PoisonGas_0
-    x: 378
-    y: 444
+    x: 201
+    y: 92
     width: 78
     height: 68
     borderLeft: 0
@@ -835,8 +913,8 @@ MonoBehaviour:
     paddingTop: 48
     paddingBottom: 48
   - name: Python_PoisonGas_1
-    x: 207
-    y: 5
+    x: 201
+    y: 161
     width: 114
     height: 98
     borderLeft: 0
@@ -848,8 +926,8 @@ MonoBehaviour:
     paddingTop: 33
     paddingBottom: 33
   - name: Python_PoisonGas_2
-    x: 207
-    y: 104
+    x: 201
+    y: 260
     width: 136
     height: 116
     borderLeft: 0
@@ -861,8 +939,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 24
   - name: Python_PoisonGas_3
-    x: 207
-    y: 221
+    x: 608
+    y: 714
     width: 170
     height: 145
     borderLeft: 0
@@ -874,8 +952,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 9
   - name: Python_PoisonGas_4
-    x: 0
-    y: 18
+    x: 815
+    y: 860
     width: 205
     height: 164
     borderLeft: 0
@@ -887,8 +965,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_PoisonGas_5
-    x: 0
-    y: 348
+    x: 608
+    y: 860
     width: 206
     height: 164
     borderLeft: 0
@@ -900,8 +978,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_PoisonGas_6
-    x: 0
-    y: 183
+    x: 380
+    y: 540
     width: 205
     height: 164
     borderLeft: 0
@@ -913,8 +991,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Python_PoisonGas_7
-    x: 207
-    y: 367
+    x: 815
+    y: 714
     width: 170
     height: 145
     borderLeft: 0
@@ -926,8 +1004,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 9
   - name: Tower_Attacking_0
-    x: 502
-    y: 6
+    x: 338
+    y: 336
     width: 39
     height: 40
     borderLeft: 0
@@ -939,8 +1017,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Attacking_1
-    x: 557
-    y: 472
+    x: 906
+    y: 664
     width: 39
     height: 40
     borderLeft: 0
@@ -952,8 +1030,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Building_0
-    x: 597
-    y: 472
+    x: 338
+    y: 295
     width: 39
     height: 40
     borderLeft: 0
@@ -965,8 +1043,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Building_1
-    x: 637
-    y: 472
+    x: 778
+    y: 624
     width: 39
     height: 40
     borderLeft: 0
@@ -978,8 +1056,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Dying_0
-    x: 677
-    y: 472
+    x: 778
+    y: 583
     width: 39
     height: 40
     borderLeft: 0
@@ -991,8 +1069,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Dying_1
-    x: 502
-    y: 47
+    x: 778
+    y: 542
     width: 39
     height: 40
     borderLeft: 0
@@ -1004,8 +1082,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Hitting_0
-    x: 717
-    y: 472
+    x: 821
+    y: 626
     width: 39
     height: 40
     borderLeft: 0
@@ -1017,8 +1095,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Hitting_1
-    x: 757
-    y: 472
+    x: 821
+    y: 585
     width: 39
     height: 40
     borderLeft: 0
@@ -1030,8 +1108,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Idling_0
-    x: 797
-    y: 472
+    x: 821
+    y: 544
     width: 39
     height: 40
     borderLeft: 0
@@ -1043,8 +1121,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Idling_1
-    x: 837
-    y: 472
+    x: 866
+    y: 664
     width: 39
     height: 40
     borderLeft: 0
@@ -1056,8 +1134,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Whap Red
-    x: 457
-    y: 462
+    x: 280
+    y: 110
     width: 99
     height: 50
     borderLeft: 0
@@ -1069,8 +1147,8 @@ MonoBehaviour:
     paddingTop: 25
     paddingBottom: 25
   - name: White
-    x: 0
-    y: 4
+    x: 185
+    y: 356
     width: 13
     height: 13
     borderLeft: 0

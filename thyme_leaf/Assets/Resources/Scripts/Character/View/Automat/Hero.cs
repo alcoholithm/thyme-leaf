@@ -59,7 +59,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	{
 		SettingInitialize ();
 
-        _whapFX.Reset();
+        this.PrepareUI();
 	}
 	
 	void Update()
@@ -102,7 +102,10 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 		//hp bar setting...
 		this.health_bar_controller.Model = this.model;
-		this.Add(health_bar_controller);
+        this.Add(health_bar_controller);
+        this.Add(_whapFX);
+
+        // observer
 		model.RegisterObserver (this, ObserverTypes.Health);
 	}
 
@@ -465,10 +468,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	public void TakeDamage(int damage_range)
 	{
-        _whapFX.Play();
-
         model.HP -= damage_range;
-
 
 		if(model.HP <= 0)
 		{
