@@ -155,3 +155,9 @@ public enum FindingNodeDefaultOption
 	NORMAL = 0, RANDOM_NODE, MUSTER_COMMAND, OTHER
 }
 
+public enum NetworkResult
+{
+    SUCCESS_FOUND,
+    EMPTY_ROOM,
+    FAIL,
+}
