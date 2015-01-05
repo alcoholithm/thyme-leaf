@@ -7,7 +7,7 @@ public class WorldMapView : View, IActionListener
     private UserAdministrator model;
 
     [SerializeField]
-    GameObject _getToTheFight;
+    GameObject _starDale;
 
     [SerializeField]
     GameObject _backBtn;
@@ -19,7 +19,7 @@ public class WorldMapView : View, IActionListener
     GameObject _towerSettingBtn;
 
     [SerializeField]
-    GameObject _storyBtn;
+    GameObject _multiPlayBtn;
 
     void Awake() {
         this.model = UserAdministrator.Instance;
@@ -33,7 +33,7 @@ public class WorldMapView : View, IActionListener
 
     public void ActionPerformed(GameObject source)
     {
-        if (source.Equals(_getToTheFight))
+        if (source.Equals(_starDale))
         {
             SceneManager.Instance.CurrentScene = SceneManager.BATTLE;
         }
@@ -49,7 +49,7 @@ public class WorldMapView : View, IActionListener
         {
             SceneManager.Instance.CurrentScene = SceneManager.AUTO;
         }
-        else if (source.Equals(_storyBtn))
+        else if (source.Equals(_multiPlayBtn))
         {
             SceneManager.Instance.CurrentScene = SceneManager.MULTI;
         }
@@ -76,15 +76,15 @@ public class WorldMapView : View, IActionListener
         set { _towerSettingBtn = value; }
     }
 
-    public GameObject StoryButton
+    public GameObject MultiPlayBtn
     {
-        get { return _storyBtn; }
-        set { _storyBtn = value; }
+        get { return _multiPlayBtn; }
+        set { _multiPlayBtn = value; }
     }
 
-    public GameObject GetToTheFight
+    public GameObject StarDale
     {
-        get { return _getToTheFight; }
-        set { _getToTheFight = value; }
+        get { return _starDale; }
+        set { _starDale = value; }
     }
 }

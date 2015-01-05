@@ -87,26 +87,26 @@ public class PlayerSelectFrame : View, IActionListener
      */
     public void ActionPerformed(GameObject source)
     {
-        if (source.name.Equals(_playerSlots[0].name))
+        if (source.Equals(_playerSlots[0]))
         {
             isClick(0);
             isEmpty(0);
         }
-        else if (source.name.Equals(_playerSlots[1].name))
+        else if (source.Equals(_playerSlots[1]))
         {
             isClick(1);
             isEmpty(1);
         }
-        else if (source.name.Equals(_playerSlots[2].name))
+        else if (source.Equals(_playerSlots[2]))
         {
             isClick(2);
             isEmpty(2);
         }
-        else if (source.name.Equals(_renameButton.name))
+        else if (source.Equals(_renameButton))
         {
             view.Controller.RenameFunc(_playerSlots[ClickFlag].GetComponentInChildren<UILabel>().text,ClickFlag);
         }
-        else if (source.name.Equals(_deleteButton.name))
+        else if (source.Equals(_deleteButton))
         {
             DialogFacade.Instance.ShowMessageDialog("Really Delete?");
         }
