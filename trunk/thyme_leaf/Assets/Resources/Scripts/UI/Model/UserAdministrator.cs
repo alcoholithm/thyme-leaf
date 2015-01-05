@@ -60,7 +60,7 @@ public class UserAdministrator : IUserAdministrator, IObservable
         if( users.Find(user => user.Name.Equals(userName)) != null)
         {
             int posIndex;
-            posIndex = users.FindIndex(user => user.Name.Equals(nUserMax));
+            posIndex = users.FindIndex(user => user.Name.Equals(userName));
             users.RemoveAt(posIndex);
 
             Debug.Log("Pass");

@@ -2597,7 +2597,7 @@ GameObject:
   - 114: {fileID: 544295013}
   - 65: {fileID: 544295012}
   m_Layer: 8
-  m_Name: 3 - [2-3] Delete button
+  m_Name: 4 - [2-3] Delete button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2656,7 +2656,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 400168822}
-    mMethodName: DeleteTemp
+    mMethodName: CloseConfirmDialog
     mParameters: []
     oneShot: 0
 --- !u!114 &544295014
@@ -4143,7 +4143,7 @@ GameObject:
   - 114: {fileID: 830827373}
   - 65: {fileID: 830827372}
   m_Layer: 8
-  m_Name: 3 - [2-3] Confirm button
+  m_Name: 3 - [2-3] Yes button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4201,8 +4201,8 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
-  - mTarget: {fileID: 0}
-    mMethodName: Close
+  - mTarget: {fileID: 1128416535}
+    mMethodName: DeleteClick
     mParameters: []
     oneShot: 0
 --- !u!114 &830827374
@@ -6281,7 +6281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f076ba849c7ce42a87f8318326c2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _title: {fileID: 0}
 --- !u!114 &1285624650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7391,7 +7390,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
-  mText: delete
+  mText: No
   mFontSize: 40
   mFontStyle: 0
   mAlignment: 0
@@ -9003,7 +9002,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
-  mText: confirm
+  mText: Yes
   mFontSize: 40
   mFontStyle: 0
   mAlignment: 0

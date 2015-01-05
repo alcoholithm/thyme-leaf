@@ -6,9 +6,6 @@ using System.Collections;
 /// </summary>
 public class InputDialog : MonoBehaviour
 {
-    [SerializeField]
-    private UILabel _title;
-
     void OnEnable()
     {
         Initialize();

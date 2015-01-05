@@ -83,10 +83,12 @@ public class LobbyController
         view.PrepareLobby();
     }
 
-    public void DeleteNameFunc(string userName)
+    public bool DeleteNameFunc(string userName)
     {
-        Debug.Log("Here");
-        model.RemoveUser(userName);
+        if (model.RemoveUser(userName))
+            return true;
+        else
+            return false;
     }
 
     public const string TAG = "[LoginController]";
