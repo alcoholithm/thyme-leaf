@@ -54,14 +54,14 @@ public enum AudioUnitType
     MARIEN_TYPE1,
 
     //towers
-    APT,
-    AGT,
-    AST,
-    ASPT,
-    ATT,
+    APT_TYPE1,
+    AGT_TYPE1,
+    AST_TYPE1,
+    ASPT_TYPE1,
+    ATT_TYPE1,
 
     //projectiles
-    POISON,
+    PROJECTILE_POISON,
 
     //wchats
     WCHAT_TYPE1,
@@ -132,6 +132,22 @@ public enum SoundType
 
     TROVANT_PYTHON_ATTACKING,
     TROVANT_PYTHON_DYING,
+
+    NOTHING,
+}
+
+public enum StateType
+{
+    ATTACKING,
+    CHASING,
+    DYING,
+    HITTING,
+    IDLING,
+    MOVING,
+    NONE,
+    WAVING,
+    BUILDING,
+    SELLING,
 }
 
 public enum FindingNodeDefaultOption

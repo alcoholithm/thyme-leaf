@@ -54,6 +54,8 @@ public class Naming : MonoBehaviour
         get { return instance; }
     }
 
+    
+
     public string BuildAutomatName(string name, int typeNum)
     {
         return name + "_" + TYPE + (typeNum + "");
@@ -72,51 +74,6 @@ public class Naming : MonoBehaviour
     public string BuildTrovantNameWithState(string name, string state)
     {
         return name + "_" + state;
-    }
-
-    public bool CheckNaming(string name)
-    {
-        //IDictionaryEnumerator ie = nameDictionary.GetEnumerator();
-        //while (ie.MoveNext())
-        //{
-        //    string cName = (string) ie.Current;
-        //    Debug.Log("Dictionary Name : "+cName);
-        //}
-        //Debug.LogError("END");
-        return nameDictionary.ContainsKey(name);
-    }
-
-    public string GetName(GameObject go, string state)
-    {
-        string goName = go.name;
-        string name = null;
-
-        if (goName.Contains("(Clone)"))
-        {
-            int idx = goName.IndexOf("(Clone)");
-            //Debug.Log(goName + " : "+idx +", " + goName.Length);
-            goName = goName.Substring(0, idx);
-        }
-
-        if (goName.Equals("Automat_Falstaff_Type1"))
-        {
-            name = BuildAutomatNameWithState(Naming.FALSTAFF, 1, state);
-        }
-        else if(goName.Equals("Automat_Fransic_Type1"))
-        {
-            name = BuildAutomatNameWithState(Naming.FRANSIS, 1, state);
-        }
-        else if (goName.Equals("Trovant_Comma"))
-        {
-            name = BuildTrovantNameWithState(Naming.COMMA,state);
-        }
-        else if (goName.Equals("Trovant_Python"))
-        {
-            name = BuildTrovantNameWithState(Naming.PYTHON, state);
-        }
-
-        if (name == null) Debug.LogError("NOT FOUND NAME : " + goName);
-        return name;
     }
 
     private void Init()
