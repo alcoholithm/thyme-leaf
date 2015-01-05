@@ -29,7 +29,8 @@ public class NetworkConnector : MonoBehaviour
 
     public static NetworkConnector Instance(NetworkActionPerform nap)
     {
-        if (instance != null) instance = new NetworkConnector(nap);
+        if (instance == null) 
+            instance = new NetworkConnector(nap);
         return instance;
     }
 
