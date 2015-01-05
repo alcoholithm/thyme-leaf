@@ -89,10 +89,7 @@ public class AudioManager : Manager<AudioManager>
         if (!audioPlayer.isPlaying)
         {
             audioPlayer.Play();
-            Debug.Log("HERE");
         }
-
-        audioPlayer.Play();
     }
 
     public void PauseAudio()
@@ -105,16 +102,23 @@ public class AudioManager : Manager<AudioManager>
         if (audioPlayer.isPlaying) audioPlayer.Stop();
     }
 
-    public void PlayClip(GameObject go)
+    //public void PlayClip(GameObject go)
+    //{
+    //    //PlayClip(Naming.Instance.GetName(go), go.transform.position);
+    //}
+
+    public void PlayClipWithState(GameObject go, string state)
     {
-        PlayClip(Naming.Instance.GetName(go), go.transform.position);
+        PlayClipAtPoint(SoundType.AUTOMAT_APT_TYPE1_ATTACKING, go.gameObject.transform.position);
     }
 
     private void PlayClip(string name, Vector3 pos)
     {
         Naming naming = Naming.Instance;
-        if (!naming.CheckNaming(name)) return;
-
+        Debug.Log("GET NAME : " + name + ", " + naming.CheckNaming(name));
+        if (!naming.CheckNaming(name)) 
+            return;
+ 
         SoundType soundType;
         if (name.Equals(naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.ATTACKING)))
         {
@@ -167,9 +171,9 @@ public class AudioManager : Manager<AudioManager>
 
     private void PlayClipAtPoint(SoundType type, Vector3 pos)
     {
-        if (sound[(int)type] != null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
+        if (sound[(int)type] == null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
 
-        if (Settings.SoundEffectsEnabled && sound[(int)type] != null)
+        //if (Settings.SoundEffectsEnabled && sound[(int)type] != null)
             AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.SoundEffectsVolume);
     }
 }

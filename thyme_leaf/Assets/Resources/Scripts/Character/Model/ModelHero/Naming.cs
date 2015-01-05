@@ -79,7 +79,7 @@ public class Naming : MonoBehaviour
         return nameDictionary.ContainsKey(name);
     }
 
-    public string GetName(GameObject go)
+    public string GetName(GameObject go, string state)
     {
         string goName = go.name;
         string name = null;
@@ -93,19 +93,19 @@ public class Naming : MonoBehaviour
 
         if (goName.Equals("Automat_Falstaff_Type1"))
         {
-            name = BuildAutomatName(Naming.FALSTAFF, 1);
+            name = BuildAutomatNameWithState(Naming.FALSTAFF, 1, state);
         }
         else if(goName.Equals("Automat_Fransic_Type1"))
         {
-            name = BuildAutomatName(Naming.FRANSIS, 1);
+            name = BuildAutomatNameWithState(Naming.FRANSIS, 1, state);
         }
         else if (goName.Equals("Trovant_Comma"))
         {
-            name = BuildTrovantName(Naming.COMMA);
+            name = BuildTrovantNameWithState(Naming.COMMA,state);
         }
         else if (goName.Equals("Trovant_Python"))
         {
-            name = BuildTrovantName(Naming.PYTHON);
+            name = BuildTrovantNameWithState(Naming.PYTHON, state);
         }
 
         if (name == null) Debug.LogError("NOT FOUND NAME : " + goName);
