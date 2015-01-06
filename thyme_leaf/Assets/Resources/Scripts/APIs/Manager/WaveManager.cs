@@ -16,14 +16,15 @@ public class WaveManager : Manager<WaveManager>
 
 	public void WaveSystemEnable()
 	{
-//		Debug.Log ("wave system setting");
-//		for(int i=0,k=0;i<Define.center_list.Count;i++)
-//		{
-//			THouse t_data = Define.center_list[i].GetComponent<THouse>(); //only trovant center...
-//			if(t_data == null || t_data.gameObject.layer != (int)Layer.Trovant) continue;
-//			CenterWaveStruct data = Define.stage_wave_sys_setting[Define.current_stage_number-1].center_set[k];
-//			t_data.WaveSystemStart(data);
-//		}
+		Debug.Log ("wave system setting");
+		Debug.Log (Define.THouse_list.Count);
+		for(int i=0,k=0;i<Define.THouse_list.Count;i++)
+		{
+			THouse t_data = Define.THouse_list[i].GetComponent<THouse>(); //only trovant center...
+			if(t_data == null || t_data.gameObject.layer != (int)Layer.Trovant) continue;
+			CenterWaveStruct data = Define.stage_wave_sys_setting[Define.current_stage_number-1].center_set[k];
+			t_data.WaveSystemStart(data);
+		}
 	}
 
 }

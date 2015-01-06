@@ -14,20 +14,20 @@ public class Define
 		}
 	}
 
-	public static List<GameObject> center_list = null;
+	public static List<GameObject> THouse_list = null;
 	public static void CenterListDisPose()
 	{
-		if(center_list != null)
+		if(THouse_list != null)
 		{
-			center_list.Clear();
-			center_list = null;
+			THouse_list.Clear();
+			THouse_list = null;
 		}
 	}
 
 	public static Vector3 selected_center;
 
-	public static List<GameObject> automat_center = null;  //exception procc ~...
-	public static List<GameObject> trovant_center = null;
+	public static List<GameObject> automat_center_node = null;  //exception procc ~...
+	public static List<GameObject> trovant_center_node = null;
 
 	public static float RadianToAngle()
 	{

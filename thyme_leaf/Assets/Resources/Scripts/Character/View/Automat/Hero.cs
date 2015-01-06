@@ -143,12 +143,14 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 					helper.attack_target = coll.gameObject.GetComponent<Hero>();
 				else 
 				{
-					Layer other_center_layer = (Layer)coll.gameObject.layer;
+//					Layer other_center_layer = (Layer)coll.gameObject.layer;
 //					switch(other_center_layer)
 //					{
+//					case Layer.Automart:
 //
+//						break;
 //					}
-				//	helper.attack_target = coll.transform.parent.gameObject.GetComponent
+//					helper.attack_target = coll.transform.parent.gameObject.GetComponent
 				}
 				Debug.Log(helper.attack_target.name);
 				//my state is attaking...
