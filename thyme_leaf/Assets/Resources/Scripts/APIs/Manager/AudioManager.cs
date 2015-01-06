@@ -26,6 +26,8 @@ public class AudioManager : Manager<AudioManager>
 
     void Awake()
     {
+        base.Awake();
+
         sound = new AudioClip[100];
         music = new AudioClip[100];
         audioPlayer = GetComponent<AudioSource>();

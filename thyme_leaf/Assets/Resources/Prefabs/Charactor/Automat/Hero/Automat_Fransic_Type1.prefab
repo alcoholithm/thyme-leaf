@@ -256,19 +256,19 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 400004}
     relative: 0
-    absolute: 2
+    absolute: 0
   rightAnchor:
     target: {fileID: 400004}
     relative: 1
-    absolute: -2
+    absolute: 0
   bottomAnchor:
     target: {fileID: 400004}
     relative: 0
-    absolute: 2
+    absolute: 0
   topAnchor:
     target: {fileID: 400004}
     relative: 1
-    absolute: -2
+    absolute: 0
   updateAnchors: 1
   mColor: {r: .415618718, g: 1, b: .0147058964, a: 1}
   mPivot: 4
@@ -421,7 +421,6 @@ MonoBehaviour:
   _FxWhap: {fileID: 11400018}
   _FxBurn: {fileID: 11400034}
   _FxPoisoning: {fileID: 11400032}
-  target: {fileID: 0}
   my_name: 
   state_name: 
   muster_name: 

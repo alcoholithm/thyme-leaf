@@ -26,7 +26,9 @@ public class TowerState_Building : State<AutomatTower>
     {
         Debug.Log(TAG + " Enter");
 
+        //animName = Naming.Instance.BuildAnimationName(owner.gameObject, Naming.BUILDING) + "_";
         owner.Anim.Play(animName);
+
         Message msg = owner.ObtainMessage(MessageTypes.MSG_TOWER_READY, new TowerReadyCommand(owner));
         owner.DispatchMessageDelayed(msg, buildingTime);
     }

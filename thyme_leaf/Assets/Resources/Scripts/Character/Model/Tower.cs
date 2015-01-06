@@ -10,6 +10,7 @@ public class Tower : Unit
     [SerializeField]
     private GameEntity currentTarget;
 
+    [SerializeField]
     private float reloadingTime = 2f; // 재장전시간
 
 

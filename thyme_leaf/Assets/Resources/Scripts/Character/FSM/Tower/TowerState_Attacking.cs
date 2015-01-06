@@ -18,6 +18,9 @@ public class TowerState_Attacking : State<AutomatTower>
     {
         Debug.Log(TAG + " Enter");
 
+        animName = Naming.Instance.BuildAnimationName(owner.gameObject, Naming.ATTACKING) + "_";
+        Debug.Log(animName);
+
         owner.Anim.Pause();
         owner.Anim.namePrefix = animName;
         owner.Anim.framesPerSecond = (int)((owner.Anim.frames / owner.Model.ReloadingTime) + 0.5f); // 반올림
