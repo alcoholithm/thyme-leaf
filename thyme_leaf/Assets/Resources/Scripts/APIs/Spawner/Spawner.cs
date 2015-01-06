@@ -100,7 +100,6 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // Effects
     // Poison Cloud
-
     public GameObject GetPoisonCloud(EffectType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)

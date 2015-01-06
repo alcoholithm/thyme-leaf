@@ -62,6 +62,7 @@ public enum AudioUnitType
 
     //projectiles
     PROJECTILE_POISON,
+    PROJECTILE_FLAME,
 
     //wchats
     WCHAT_TYPE1,
@@ -95,6 +96,7 @@ public enum ProjectileType
 public enum EffectType
 {
     POISON_CLOUD,
+    BOLT_BULLET,
 }
 
 public enum TowerType

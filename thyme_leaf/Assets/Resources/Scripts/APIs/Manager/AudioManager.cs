@@ -141,12 +141,16 @@ public class AudioManager : Manager<AudioManager>
         {
             resultSoundType = SoundType.AUTOMAT_APT_TYPE1_ATTACKING;
         }
-       
-        // Projectiles
         else if (unitType == AudioUnitType.PROJECTILE_POISON
             && stateType == StateType.ATTACKING)
         {
             resultSoundType = SoundType.AUTOMAT_APT_TYPE1_ATTACKING;
+        }
+
+        else if (unitType == AudioUnitType.ASPT_TYPE1
+            && stateType == StateType.ATTACKING)
+        {
+            resultSoundType = SoundType.AUTOMAT_FRANSIS_TYPE1_ATTACKING;
         }
 
         // Trovants
