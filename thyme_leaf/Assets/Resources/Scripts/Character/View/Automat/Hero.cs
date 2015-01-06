@@ -132,6 +132,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
+		Debug.Log (coll.name);
 		//coll return checking...
 		if(coll == null || helper.collision_object.radius == helper.collision_range_muster) return;
 	
