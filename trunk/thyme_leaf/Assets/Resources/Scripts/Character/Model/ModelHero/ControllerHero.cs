@@ -19,6 +19,7 @@ public class ControllerHero
 	
 	public bool isGesture() { return _helper.isGesture(); }
 	
+	public void StartPointSetting(GameObject obj) { _helper.StartPointSetting(obj); }
 	public void StartPointSetting(StartPoint option) { _helper.StartPointSetting(option); }
 	
 	public void MoveReverse() { _helper.MoveReverse(); }

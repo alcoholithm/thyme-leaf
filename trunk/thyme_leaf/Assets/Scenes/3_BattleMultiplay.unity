@@ -2699,11 +2699,11 @@ MonoBehaviour:
         unit_type: 1
         unit_delay_time: 1
       - first_delay_time: 10
-        unit_num: 20
+        unit_num: 10
         unit_type: 0
         unit_delay_time: 1
       - first_delay_time: 15
-        unit_num: 30
+        unit_num: 10
         unit_type: 1
         unit_delay_time: 1
 --- !u!1 &371425672

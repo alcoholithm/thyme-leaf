@@ -24,7 +24,7 @@ public class Define
 		}
 	}
 
-	public static WChat selected_center = null;
+	public static GameObject selected_center = null;
 
 	public static float RadianToAngle()
 	{

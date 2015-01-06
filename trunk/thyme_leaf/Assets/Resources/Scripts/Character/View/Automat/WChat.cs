@@ -163,6 +163,13 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
 		}
 		Debug.Log ("Automat Emergency Spawn Exit");
 	}
+
+	void OnClick()
+	{
+		//my selected center position
+		Define.selected_center = position_node;
+		Debug.Log ("center : " + position_node.name);
+	}
 	
     /*
      * Followings are attributes

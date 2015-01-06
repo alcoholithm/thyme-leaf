@@ -177,7 +177,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		for (int i = 0; i < wave_table.wave_setting_value_set[idx].unit_num; i++)
 		{
 			Hero obj = Spawner.Instance.GetTrovant (wave_table.wave_setting_value_set[idx].unit_type);
-			obj.helper.setPos(position_node.transform.localPosition);
+			obj.controller.StartPointSetting(position_node);
 			for (float timer = 0; timer < wave_table.wave_setting_value_set[idx].unit_delay_time; timer += Time.deltaTime)
 			{
 				yield return null;
@@ -187,6 +187,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		wave_count++;
 		
 		stateMachine.ChangeState (THouseState_Idling.Instance);  //change idling state~~!!!...
+
 		StartCoroutine ("WaveRoutine", wave_count);
 	}
 	
@@ -201,7 +202,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		for (int i = 0; i < 5; i++)
 		{
 			Hero obj = Spawner.Instance.GetTrovant (TrovantType.COMMA);
-			obj.helper.setPos(position_node.transform.localPosition);  //my center position okay...
+			obj.controller.StartPointSetting(position_node);  //my center position okay...
 			for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
 			{
 				yield return null;
