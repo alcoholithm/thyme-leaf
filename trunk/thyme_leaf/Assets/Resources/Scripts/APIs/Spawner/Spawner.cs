@@ -85,8 +85,9 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    public void CreateWChats() // Get EnumValue for Stage
+    public void CreateWChats() 
     {
+        Debug.Log("CREATE WCHATS");
         WChat wchat = null;
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
@@ -171,6 +172,9 @@ public class Spawner : Manager<Spawner>
         else
         {
             NetworkViewID viewID = Network.AllocateViewID();
+
+            Debug.Log("CREATE WCHAT NETWORK VIEW " + viewID);
+
             networkView.RPC("NetworkGetWChat", RPCMode.All, viewID, (int)type, pos);
             GameObject go = NetworkView.Find(viewID).gameObject;
             entity = go.GetComponent<WChat>();
@@ -375,6 +379,7 @@ public class Spawner : Manager<Spawner>
 
     private void InitWChat(ref GameObject go, Vector3 pos)
     {
+        Debug.Log("InitWChat pos : " + pos);
         go.transform.parent = GameObject.Find("AutomatBuildings").transform;
         go.transform.localScale = new Vector3(1, 1, 1);
         go.transform.localPosition = pos;
@@ -471,6 +476,7 @@ public class Spawner : Manager<Spawner>
     [RPC]
     void NetworkGetWChat(NetworkViewID viewID, int type, Vector3 pos)
     {
+        Debug.Log("NetworkGetWChat");
         GameObject go = GameObject.Instantiate(wchats[type], Vector3.zero, Quaternion.identity) as GameObject;
         go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
