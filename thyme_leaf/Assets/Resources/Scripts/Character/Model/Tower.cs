@@ -10,12 +10,13 @@ public class Tower : Unit, IAttackable
     private List<GameEntity> enemies;
     private GameEntity currentTarget;
 
-    private float reloadingTime = 2f; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
+    private float reloadingTime = 2f; // 재장전시간
 
-    public Tower(GameEntity owner)
+
+    public Tower(GameEntity owner, Weapon weapon)
     {
         this.enemies = new List<GameEntity>();
-        this.weapon = new Weapon(owner);
+        this.weapon = weapon;
     }
 
     /*
@@ -25,7 +26,7 @@ public class Tower : Unit, IAttackable
     {
         // 초기에 이애가 죽었는지 살았는지 판단해야함.
         // 다른 놈에 의해 제거될 가능성도 있으므로
-
+        
         enemies.ForEach(e => { if (!e.gameObject.activeInHierarchy) enemies.Remove(e); });
 
         if (Enemies.Count > 0)
@@ -54,19 +55,13 @@ public class Tower : Unit, IAttackable
     /*
      * followings are implemented methods of "IAttackable"
      */
-    public IEnumerator Attack()
+    public void Attack()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(reloadingTime);
-            //yield return StartCoroutine(weapon.Fire(this));
-
-            weapon.Fire(FindBestTarget());
-        }
+        weapon.Fire(FindBestTarget());
     }
 
     /*
-     * 
+     * Followings are attributes
      */ 
     public List<GameEntity> Enemies
     {
@@ -78,9 +73,11 @@ public class Tower : Unit, IAttackable
         get { return currentTarget; }
         set { currentTarget = value; }
     }
+    public float ReloadingTime
+    {
+        get { return reloadingTime; }
+        set { reloadingTime = value; }
+    }
+
     public new const string TAG = "[Tower]";
-
-
-
-   
 }

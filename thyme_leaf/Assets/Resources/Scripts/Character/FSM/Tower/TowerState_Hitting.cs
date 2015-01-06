@@ -46,12 +46,12 @@ public class TowerState_Hitting : State<AutomatTower>
 
     public override bool HandleMessage(Message msg)
     {
-        switch (msg.what)
-        {
-            case MessageTypes.MSG_NORMAL_DAMAGE:
-                (msg.receiver as AutomatTower).TakeDamage(msg.arg1);
-                return true;
-        }
+        //switch (msg.what)
+        //{
+        //    case MessageTypes.MSG_NORMAL_DAMAGE:
+        //        (msg.receiver as AutomatTower).TakeDamage(msg.arg1);
+        //        return true;
+        //}
         
         return false;
     }

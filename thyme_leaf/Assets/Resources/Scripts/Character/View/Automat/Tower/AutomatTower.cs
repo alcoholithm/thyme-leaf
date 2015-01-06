@@ -18,21 +18,22 @@ public class AutomatTower_Controller
         this.model = model;
     }
 
-    public IEnumerator Attack()
+    public void Attack()
     {
-        return model.Attack();
+        model.Attack();
+        view.FlameThrower.Repaint();
     }
 
-    public void TakeDamage(int damage)
-    {
-        //Debug.Log("HP : " + model.HP + " / " + model.MaxHP);
-        model.HP -= damage;
+    //public void TakeDamage(int damage)
+    //{
+    //    //Debug.Log("HP : " + model.HP + " / " + model.MaxHP);
+    //    model.HP -= damage;
 
-        if (model.IsDead())
-        {
-            view.ChangeState(TowerState_Dying.Instance);
-        }
-    }
+    //    if (model.IsDead())
+    //    {
+    //        view.ChangeState(TowerState_Dying.Instance);
+    //    }
+    //}
 
     public void EnemyEnter(GameEntity enemy)
     {
@@ -45,11 +46,17 @@ public class AutomatTower_Controller
     }
 }
 
-public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>, IObserver
+public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable<AutomatTower>//, IObserver
 {
     //-------------------- Children
     [SerializeField]
-    private HealthBar healthbar;
+    private FlameThrower _flameThrower;
+
+    public FlameThrower FlameThrower
+    {
+        get { return _flameThrower; }
+        set { _flameThrower = value; }
+    }
     //--------------------
 
     private NGUISpriteAnimation anim;
@@ -63,11 +70,17 @@ public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>,
     //---------------------
 
 
+    ////--------------------- model에 넣을 것들..
+    //[SerializeField]
+    //private Weapon _weapon;
+    ////--------------------- ScriptableObject를 상속하기 전까지만 쓴다.
+
     /*
     * followings are unity callback methods
     */
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Initialize();
     }
 
@@ -75,7 +88,7 @@ public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>,
     {
         Initialize(); // 귀찮아서 이렇게 한다. 원래는 Reset을 만들고 다시 new 로 인스턴시에이션 할 필요없이 각 클래스의 초기화루틴을 호출한다.
 
-        this.PrepareUI();
+        //this.PrepareUI();
     }
 
     void Update()
@@ -85,15 +98,15 @@ public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>,
 
     void OnDisable()
     {
-        this._model.RemoveObserver(this, ObserverTypes.Health);
+        //this._model.RemoveObserver(this, ObserverTypes.Health);
 
         // MVC
         this._model = null;
         this.controller = null;
 
-        // set children
-        this.healthbar.Model = null;
-        this.Remove(healthbar);
+        //// set children
+        //this.healthbar.Model = null;
+        //this.Remove(healthbar);
 
         // set state machine
         this.stateMachine = null;
@@ -140,12 +153,12 @@ public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>,
     private void Initialize()
     {
         // MVC
-        this._model = new Tower(this);
+        this._model = new Tower(this, new Flamer(this));
         this.controller = new AutomatTower_Controller(this, _model);
 
-        // set children
-        this.healthbar.Model = this._model;
-        this.Add(healthbar);
+        //// set children
+        //this.healthbar.Model = this._model;
+        //this.Add(healthbar);
 
         // set state machine
         this.stateMachine = new StateMachine<AutomatTower>(this);
@@ -155,29 +168,29 @@ public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>,
         this.anim = GetComponent<NGUISpriteAnimation>();
         this.anim.Pause();
 
-        this._model.RegisterObserver(this, ObserverTypes.Health);
+        //this._model.RegisterObserver(this, ObserverTypes.Health);
     }
 
     /*
-    * followings are implemented methods of "IAgt"
+    * followings are implemented methods of "IAutomatTower"
     */
-    public void TakeDamage(int damage)
+    //public void TakeDamage(int damage)
+    //{
+    //    controller.TakeDamage(damage);
+    //}
+
+    public void Attack()
     {
-        controller.TakeDamage(damage);
+        controller.Attack();
     }
 
-    public IEnumerator Attack() //  controller 안에 들어가야한다.
-    {
-        return controller.Attack();
-    }
-
-    public void SetAttackable(bool active)
-    {
-        if (active)
-            StartCoroutine("Attack");
-        else
-            StopCoroutine("Attack");
-    }
+    //public void SetAttackable(bool active)
+    //{
+    //    if (active)
+    //        StartCoroutine("Attack");
+    //    else
+    //        StopCoroutine("Attack");
+    //}
 
     /*
      * followings are implemented methods of "IStateMachineControllable"
@@ -195,17 +208,17 @@ public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>,
     /*
     * followings are implemented methods of "IObserver"
     */
-    public void Refresh(ObserverTypes field)
-    {
-        if (field == ObserverTypes.Health)
-        {
-            UpdateUI();
-        }
-    }
+    //public void Refresh(ObserverTypes field)
+    //{
+    //    if (field == ObserverTypes.Health)
+    //    {
+    //        UpdateUI();
+    //    }
+    //}
 
 
     /*
-     * followings are attributes
+     * Followings are attributes
      */
     public override IHandler Successor
     {
@@ -232,5 +245,5 @@ public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>,
         set { controller = value; }
     }
 
-    public new const string TAG = "[Agt_Type1]";
+    public new const string TAG = "[AutomatTower]";
 }
