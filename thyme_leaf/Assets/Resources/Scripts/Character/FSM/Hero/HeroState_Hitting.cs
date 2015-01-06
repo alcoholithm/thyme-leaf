@@ -3,12 +3,14 @@ using System.Collections;
 
 public class HeroState_Hitting : State<Hero>
 {
-
     private HeroState_Hitting()
     {
         Successor = null;
     }
 
+    /*
+     * Followings are overrided methods of "State"
+     */ 
     public override void Enter(Hero owner)
     {
         Debug.Log("Hitting Enter *********************");
@@ -31,7 +33,6 @@ public class HeroState_Hitting : State<Hero>
 		//ok...
         switch (msg.what)
         { 
-            case MessageTypes.MSG_MOVE_HERO:
             case MessageTypes.MSG_DAMAGE:
                 (msg.receiver as Hero).TakeDamage(msg.arg1);
                 return true;

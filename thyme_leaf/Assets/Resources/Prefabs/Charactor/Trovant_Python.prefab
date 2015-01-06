@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bee3942f45bef41a02c18b8df7ed34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 1
+  _displayTime: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3073518f80373248a0198da00cae00d, type: 3}
   m_Name: 
@@ -354,7 +354,9 @@ MonoBehaviour:
   AttackDamage: 20
   AttackDelay: 1
   health_bar_controller: {fileID: 11400002}
-  _whapFX: {fileID: 11400022}
+  _FxWhap: {fileID: 11400022}
+  _FxBurn: {fileID: 0}
+  _FxPoisoning: {fileID: 0}
   target: {fileID: 0}
   my_name: 
   state_name: 

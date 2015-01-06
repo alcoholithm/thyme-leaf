@@ -6,7 +6,7 @@ public class HealthBar : View
     private UISlider slider;
 
     [SerializeField]
-    private float displayTime;
+    private float _displayTime = 1f;
 
     //------------------ MVC
     private Unit model;
@@ -49,11 +49,9 @@ public class HealthBar : View
 
     private IEnumerator HideDelayed()
     {
-        yield return new WaitForSeconds(displayTime);
+        yield return new WaitForSeconds(_displayTime);
         gameObject.SetActive(false);
     }
-
-    public UISlider getSlider() { return slider; }
 
     /*
      * followings are overrided methods of "View"

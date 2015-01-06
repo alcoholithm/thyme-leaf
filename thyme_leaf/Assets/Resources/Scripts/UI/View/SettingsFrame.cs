@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-using UnityEngine;
-using System.Collections;
-
 public class Settings
 {
     //login properties
