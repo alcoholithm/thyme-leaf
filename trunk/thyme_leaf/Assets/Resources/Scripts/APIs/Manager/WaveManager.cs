@@ -16,7 +16,7 @@ public class WaveManager : Manager<WaveManager>
 
 	public void WaveSystemEnable()
 	{
-		Debug.Log ("wave system setting");
+//		Debug.Log ("wave system setting");
 //		for(int i=0,k=0;i<Define.center_list.Count;i++)
 //		{
 //			THouse t_data = Define.center_list[i].GetComponent<THouse>(); //only trovant center...
