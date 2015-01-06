@@ -259,19 +259,6 @@ public class Spawner : Manager<Spawner>
 
     //
 
-    public AutomatTower DynamicGetTower(TowerType type)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            GameObject go = GameObject.Instantiate(towers[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            return go.GetComponent<AutomatTower>();
-        }
-        else
-        {
-            return GetTower(type);
-        }
-    }
-
     public AutomatTower GetTower(TowerType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)

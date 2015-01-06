@@ -38,7 +38,7 @@ public class TowerSpotCommandsController
             EntityManager.Instance.RegisterEntity(tower);
         }
 
-        view.gameObject.SetActive(false);
+        view.gameObject.SetActive(false);        
     }
 
     public void InitBuildedTower(ref AutomatTower tower)
