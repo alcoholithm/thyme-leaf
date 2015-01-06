@@ -104,13 +104,14 @@ public class Helper
 		GameObject posOB = null;
 		for (int i=0; i<Define.pathNode.Count; i++) 
 		{
-			if (Define.pathNode [i].obj.transform.localPosition == pos_obj) 
+			if (Define.pathNode [i].obj.transform.localPosition.Equals(pos_obj)) 
 			{
 				posOB = Define.pathNode [i].obj;
 				break;
 			}
 		}
 		Debug.Log (posOB == null ? "start point = null" : posOB.name);
+		if(posOB == null) return;
 		nodeStock = posOB;
 		nodeOld = nodeStock;
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
