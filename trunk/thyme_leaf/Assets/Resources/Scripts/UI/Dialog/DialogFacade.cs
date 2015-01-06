@@ -34,6 +34,10 @@ public class DialogFacade : Singleton<DialogFacade>
         _messageDialog.GetComponent<MessageDialog>().SetMessage(message);
         _messageDialog.SetActive(true);
     }
+    public void CloseMessageDialog()
+    {
+        _messageDialog.SetActive(false);
+    }
     
     public void ShowConfirmDialog(string message)
     {
