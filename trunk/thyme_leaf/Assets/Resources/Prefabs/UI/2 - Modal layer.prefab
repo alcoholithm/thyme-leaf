@@ -1510,6 +1510,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 11400076}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 100022}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 11400004}
     mMethodName: SetCurrentPercent
     mParameters: []
@@ -1808,6 +1814,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 11400076}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 100034}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 11400062}
     mMethodName: SetCurrentPercent
     mParameters: []
@@ -2364,9 +2376,9 @@ MonoBehaviour:
   _closeButton: {fileID: 100032}
   _okayButton: {fileID: 100068}
   _musicCheckBox: {fileID: 100016}
-  _musicSlider: {fileID: 0}
+  _musicSlider: {fileID: 100022}
   _soundFXCheckBox: {fileID: 100018}
-  _soundFXSlider: {fileID: 0}
+  _soundFXSlider: {fileID: 100034}
 --- !u!114 &11400082
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -60,8 +60,9 @@ public class Settings
     {
         if (PlayerPrefs.GetInt(INIT_SETTING) == 0)
             InitValues();
-        else
-            ImportValues();
+
+        ImportValues();
+        ExportValues();
         //DontDestroy(this.gameObject);
     }
 
@@ -96,6 +97,7 @@ public class Settings
 
         PlayerPrefs.SetInt(SOUNDEFFECTS_ENABLED, SoundEffectsEnabled ? 1 : 0);
         PlayerPrefs.SetFloat(SOUNDEFFECTS_VOLUME, SoundEffectsVolume);
+        AudioManager.Instance.ImportValues();
     }
 }
 
