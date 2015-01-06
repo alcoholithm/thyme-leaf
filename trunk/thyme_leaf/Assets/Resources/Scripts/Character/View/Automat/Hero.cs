@@ -143,20 +143,22 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				if(!coll.CompareTag(Tag.TagCommandCenter))
 				{
 					helper.attack_target = coll.gameObject.GetComponent<Hero>().MyUnit;
-					Debug.Log("checking");
 				}
-//				else 
-//				{
-//					Layer other_center_layer = (Layer)coll.gameObject.layer;
-//					switch(other_center_layer)
-//					{
-//					case Layer.Automart:
-//						helper.attack_target = coll.gameObject.GetComponent<WChat>();
-//						break;
-//					}
-//				}
-//				Debug.Log(helper.attack_target.name);
-				//my state is attaking...
+				else 
+				{
+					Layer other_center_layer = (Layer)coll.gameObject.layer;
+					switch(other_center_layer)
+					{
+					case Layer.Automart:
+						helper.attack_target = coll.gameObject.transform.parent.GetComponent<WChat>().MyUnit;
+						break;
+					case Layer.Trovant:
+						helper.attack_target = coll.gameObject.transform.parent.GetComponent<THouse>().MyUnit;
+						Debug.Log(helper.attack_target.obj.name);
+						break;
+					}
+				}
+//				my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
 			}
 			else

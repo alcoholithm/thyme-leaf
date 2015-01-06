@@ -323,8 +323,12 @@ public class Spawner : Manager<Spawner>
 		go.transform.parent = GameObject.Find("TrovantBuildings").transform;
 		go.transform.localScale = new Vector3(1, 1, 1);
 
+		THouse thouse = go.GetComponent<THouse> ();
+		thouse.MyUnit = new UnitObject (go, UnitNameGetter.GetInstance ().getNameTrovantCenter (), UnitType.TROVANT_THOUSE);
+		thouse.ChangeState (THouseState_Idling.Instance);
+
 		Define.THouse_list.Add (go);
-		UnitPoolController.GetInstance ().AddUnit (new UnitObject (go, UnitNameGetter.GetInstance ().getNameTrovantCenter (), UnitType.TROVANT_THOUSE)); 
+		UnitPoolController.GetInstance ().AddUnit (thouse.MyUnit); 
 	}
 
     private void InitWChat(ref GameObject go, Vector3 pos)
@@ -336,10 +340,11 @@ public class Spawner : Manager<Spawner>
 
         WChat wchat = go.GetComponent<WChat>();
         wchat.PositionNode = pos;
+		wchat.MyUnit = new UnitObject (go, UnitNameGetter.GetInstance ().getNameAutomartCenter (), UnitType.AUTOMAT_WCHAT);
         wchat.ChangeState(WChatState_Idling.Instance);
         
 		Define.THouse_list.Add (go);
-		UnitPoolController.GetInstance ().AddUnit (new UnitObject (go, UnitNameGetter.GetInstance ().getNameAutomartCenter (), UnitType.AUTOMAT_WCHAT));
+		UnitPoolController.GetInstance ().AddUnit (wchat.MyUnit);
     }
 
     private void InitHero(ref GameObject go)

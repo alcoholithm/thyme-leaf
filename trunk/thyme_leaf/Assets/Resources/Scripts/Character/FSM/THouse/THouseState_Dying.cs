@@ -18,6 +18,7 @@ public class THouseState_Dying : State<THouse>
     {
         Debug.Log(TAG + "Enter");
         owner.Anim.PlayOneShot(animName, new VoidFunction2<THouse>(x => x.ChangeState(THouseState_None.Instance), owner));
+		UnitPoolController.GetInstance ().RemoveUnit (owner.MyUnit);
     }
 
     public override void Execute(THouse owner)

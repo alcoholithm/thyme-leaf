@@ -19,7 +19,7 @@ public class THouse_Controller
 
     public void TakeDamage(int damage)
     {
-        //Debug.Log("HP : " + model.HP + " / " + model.MaxHP);
+        Debug.Log("HP : " + model.HP + " / " + model.MaxHP);
         model.HP -= damage;
 
         if (model.IsDead())
@@ -47,6 +47,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
     private THouse_Controller controller;
 
     //---------------------
+	private UnitObject my_unit;
 	private Vector3 position_node;
 	private CenterWaveStruct wave_table;
 	private int wave_count = -1;
@@ -240,6 +241,11 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
         get { return position_node; }
         set { position_node = value; }
     }
+	public UnitObject MyUnit
+	{
+		get { return my_unit; }
+		set { my_unit = value; }
+	}
 
     public new const string TAG = "[W_Chat]";
 }
