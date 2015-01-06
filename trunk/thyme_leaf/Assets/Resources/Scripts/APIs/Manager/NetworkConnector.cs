@@ -131,20 +131,20 @@ public class NetworkConnector : Manager<NetworkConnector>
     //void TestOnDisconnectedActionPerform(){
     //    Debug.Log ("Network Disconnected");
     //}
-	
-    //void OnGUI()
-    //{
-    //    if (!Network.isClient && !Network.isServer)
-    //    {
-    //        if (GUI.Button(new Rect(0, 0, 250, 50), "Start"))
-    //        {
-    //            NetworkConnector.Instance
-    //                .SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
-    //                    .SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
-    //                    .JoinRoom();
-    //        }
-    //    }
-    //}
+
+    void OnGUI()
+    {
+        if (!Network.isClient && !Network.isServer)
+        {
+            if (GUI.Button(new Rect(0, 0, 250, 50), "Start"))
+            {
+                NetworkConnector.Instance
+                    .SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
+                        .SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
+                        .JoinRoom();
+            }
+        }
+    }
 	
 	/*******************************************************************/
 	
