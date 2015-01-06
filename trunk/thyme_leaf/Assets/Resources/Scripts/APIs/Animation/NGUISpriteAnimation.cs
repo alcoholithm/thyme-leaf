@@ -23,9 +23,9 @@ public class NGUISpriteAnimation : UISpriteAnimation
 
     void Awake()
     {
-        mFPS = _framerate;
-        mPrefix = _namePrefix;
-        mLoop = _loop;
+        framesPerSecond = _framerate;
+        namePrefix = _namePrefix;
+        loop = _loop;
         mSnap = _pixelSnap;
     }
 
@@ -92,5 +92,10 @@ public class NGUISpriteAnimation : UISpriteAnimation
         Pause();
         this.command = command;
         PlayOneShot(animName);
+    }
+
+    public void ClearCommand()
+    {
+        this.command = null;
     }
 }

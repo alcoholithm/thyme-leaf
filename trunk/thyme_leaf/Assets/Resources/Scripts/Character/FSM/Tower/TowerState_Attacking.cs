@@ -4,14 +4,12 @@ using System.Collections;
 public class TowerState_Attacking : State<AutomatTower>
 {
     private string animName = "Tower_Attacking_";
-    //private string animName = "APT_Type1_Attacking_";
 
     private TowerState_Attacking()
     {
         Successor = TowerState_Hitting.Instance;
     }
 
-   
 
     /*
      * followings are overrided methods
@@ -20,9 +18,12 @@ public class TowerState_Attacking : State<AutomatTower>
     {
         Debug.Log(TAG + " Enter");
 
-        owner.Anim.Play(animName);
+        owner.Anim.Pause();
+        owner.Anim.namePrefix = animName;
+        owner.Anim.framesPerSecond = (int)((owner.Anim.frames / owner.Model.ReloadingTime) + 0.5f); // 반올림
+        owner.Anim.Play(animName, new VoidFunction(() => owner.Controller.Attack()));
 
-        owner.SetAttackable(true);
+        //owner.SetAttackable(true);
     }
 
     public override void Execute(AutomatTower owner)
@@ -40,8 +41,10 @@ public class TowerState_Attacking : State<AutomatTower>
     public override void Exit(AutomatTower owner)
     {
         Debug.Log(TAG + " Exit");
+        owner.Anim.Pause();
+        owner.Anim.ClearCommand();
 
-        owner.SetAttackable(false);
+        //owner.SetAttackable(false);
     }
 
     public override bool HandleMessage(Message msg)
