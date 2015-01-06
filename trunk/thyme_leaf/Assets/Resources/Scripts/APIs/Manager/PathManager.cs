@@ -48,7 +48,7 @@ public class PathManager : Manager<PathManager> {
 		//random table setting...
 		Define.random_index_table = new RandomTableStruct (30, 0, 3);
 		//center data...
-		Define.center_list = new List<GameObject> ();
+		Define.THouse_list = new List<GameObject> ();
 	}
 
 	public void ShootMap()
@@ -86,8 +86,8 @@ public class PathManager : Manager<PathManager> {
 			}
 		}
 
-		//wave setting...
-//		GameObject.Find ("WaveManager").GetComponent<WaveManager> ().WaveSystemEnable ();
+//		wave setting...
+		GameObject.Find ("WaveManager").GetComponent<WaveManager> ().WaveSystemEnable ();
 	}
 
 	public new const string TAG = "[PathManager]";

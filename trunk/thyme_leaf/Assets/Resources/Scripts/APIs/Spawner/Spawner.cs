@@ -366,7 +366,7 @@ public class Spawner : Manager<Spawner>
 		go.transform.parent = GameObject.Find("TrovantBuildings").transform;
 		go.transform.localScale = new Vector3(1, 1, 1);
 
-		Define.center_list.Add (go);
+		Define.THouse_list.Add (go);
 	}
 
     private void InitWChat(ref GameObject go, Vector3 pos)
@@ -380,7 +380,7 @@ public class Spawner : Manager<Spawner>
         wchat.PositionNode = pos;
         wchat.ChangeState(WChatState_Idling.Instance);
         
-		Define.center_list.Add (go);
+		Define.THouse_list.Add (go);
     }
 
     private void InitHero(ref GameObject go)
