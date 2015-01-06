@@ -166,3 +166,9 @@ public enum NetworkResult
     EMPTY_ROOM,
     FAIL,
 }
+
+public enum MultiplayType
+{
+    SERVER,
+    CLIENT,
+}
