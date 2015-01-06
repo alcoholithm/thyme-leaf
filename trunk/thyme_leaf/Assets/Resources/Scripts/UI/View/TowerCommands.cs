@@ -16,21 +16,13 @@ public class TowerCommandsController
 
     public void UpgradeTower()
     {
-        Debug.Log("AAAAAAAA");
-
-        AutomatTower tower = model.SelectedObject.transform.GetComponentInChildren<AutomatTower>();
-
-        Debug.Log(tower.ToString());
-        Debug.Log(tower.StateMachine.ToString());
-        Debug.Log(tower.StateMachine.CurrentState.ToString());
-
-        tower.ChangeState(TowerState_Building.Instance);
-
         //model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>().ChangeState(TowerState_Idling.Instance);
         //Message msg = tower.ObtainMessage(MessageTypes.MSG_TOWER_READY, new TowerReadyCommand(model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>()));
         //tower.DispatchMessageDelayed(msg, 1.5f);
         //throw new System.NotImplementedException();
         //model.SelectedObject.GetComponent<Agt_Type1>().Upgrade();
+
+        throw new System.NotImplementedException();
     }
 
     public void SellTower()

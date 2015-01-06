@@ -20,7 +20,7 @@ public class TowerSpotCommandsController
     // 나중에 완벽하게 잡히면 모델로 빼야됨.
     // 일단 지금 단계에서는 모델이 필요하지 않은 것 같다.
     // 타워의 관리자가 필요한 상황이 생기면 그때 정의하도록 하고 지금은 인스턴트코드로 갈음
-    public void BuildTower()
+    public void BuildTower(TowerType type)
     {
         User currUser = UserAdministrator.Instance.CurrentUser;
 
@@ -31,7 +31,7 @@ public class TowerSpotCommandsController
             // model
             model.SelectedObject.tag = Tag.TagTower;
 
-            AutomatTower tower = Spawner.Instance.GetTower(TowerType.APT);
+            AutomatTower tower = Spawner.Instance.GetTower(type);
             if(Network.peerType == NetworkPeerType.Disconnected) InitBuildedTower(ref tower); // Single mode
             else tower.gameObject.GetComponent<SyncStateScript>().NetworkInitTower(model, view.gameObject); // Multi mode
 

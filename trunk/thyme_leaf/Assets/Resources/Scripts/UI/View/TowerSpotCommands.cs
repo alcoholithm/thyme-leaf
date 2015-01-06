@@ -29,7 +29,11 @@ public class TowerSpotCommands : View, IActionListener
 
     // children
     [SerializeField]
-    GameObject _buildTower1;
+    GameObject _buildAGT;
+    [SerializeField]
+    GameObject _buildASPT;
+    [SerializeField]
+    GameObject _buildAPT;
     [SerializeField]
     GameObject _cancelButton;
 
@@ -50,9 +54,17 @@ public class TowerSpotCommands : View, IActionListener
      */
     public void ActionPerformed(GameObject source)
     {
-        if (source.Equals(_buildTower1))
+        if (source.Equals(_buildAGT))
         {
-            controller.BuildTower();
+            controller.BuildTower(TowerType.AGT);
+        }
+        else if (source.Equals(_buildASPT))
+        {
+            controller.BuildTower(TowerType.ASPT);
+        }
+        else if (source.Equals(_buildAPT))
+        {
+            controller.BuildTower(TowerType.APT);
         }
         else if (source.Equals(_cancelButton))
         {
