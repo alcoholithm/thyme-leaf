@@ -7,12 +7,12 @@ using System.Collections.Generic;
 /// 
 /// </summary>
 
-public class Agt_Controller
+public class AutomatTower_Controller
 {
-    private Agt_Type1 view;
+    private AutomatTower view;
     private Tower model;
 
-    public Agt_Controller(Agt_Type1 view, Tower model)
+    public AutomatTower_Controller(AutomatTower view, Tower model)
     {
         this.view = view;
         this.model = model;
@@ -45,7 +45,7 @@ public class Agt_Controller
     }
 }
 
-public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>, IObserver
+public class AutomatTower : GameEntity, IStateMachineControllable<AutomatTower>, IObserver
 {
     //-------------------- Children
     [SerializeField]
@@ -54,12 +54,12 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     private NGUISpriteAnimation anim;
 
-    private StateMachine<Agt_Type1> stateMachine;
+    private StateMachine<AutomatTower> stateMachine;
 
     //--------------------- MVC
     [SerializeField]
     private Tower _model;
-    private Agt_Controller controller;
+    private AutomatTower_Controller controller;
     //---------------------
 
 
@@ -141,14 +141,14 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
     {
         // MVC
         this._model = new Tower(this);
-        this.controller = new Agt_Controller(this, _model);
+        this.controller = new AutomatTower_Controller(this, _model);
 
         // set children
         this.healthbar.Model = this._model;
         this.Add(healthbar);
 
         // set state machine
-        this.stateMachine = new StateMachine<Agt_Type1>(this);
+        this.stateMachine = new StateMachine<AutomatTower>(this);
         this.stateMachine.CurrentState = TowerState_None.Instance;
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
@@ -182,7 +182,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
     /*
      * followings are implemented methods of "IStateMachineControllable"
     */
-    public void ChangeState(State<Agt_Type1> newState)
+    public void ChangeState(State<AutomatTower> newState)
     {
         stateMachine.ChangeState(newState);
     }
@@ -211,7 +211,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
     {
         get { return stateMachine; }
     }
-    public StateMachine<Agt_Type1> StateMachine
+    public StateMachine<AutomatTower> StateMachine
     {
         get { return stateMachine; }
     }
@@ -226,7 +226,7 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
         get { return _model; }
         set { _model = value; }
     }
-    public Agt_Controller Controller
+    public AutomatTower_Controller Controller
     {
         get { return controller; }
         set { controller = value; }

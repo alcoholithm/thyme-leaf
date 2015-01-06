@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_None : State<Agt_Type1>
+public class TowerState_None : State<AutomatTower>
 {
     private TowerState_None()
     {
@@ -11,9 +11,9 @@ public class TowerState_None : State<Agt_Type1>
     /*
      * Followings are overrided methods of "State"
      */
-    public override void Enter(Agt_Type1 owner){}
-    public override void Execute(Agt_Type1 owner){}
-    public override void Exit(Agt_Type1 owner) { }
+    public override void Enter(AutomatTower owner){}
+    public override void Execute(AutomatTower owner){}
+    public override void Exit(AutomatTower owner) { }
     public override bool HandleMessage(Message msg) {return false;}
 
     /*

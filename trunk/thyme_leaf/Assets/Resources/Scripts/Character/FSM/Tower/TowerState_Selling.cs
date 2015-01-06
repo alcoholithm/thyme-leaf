@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_Selling : State<Agt_Type1>
+public class TowerState_Selling : State<AutomatTower>
 {
     private TowerState_Selling()
     {
@@ -11,17 +11,17 @@ public class TowerState_Selling : State<Agt_Type1>
     /// <summary>
     /// 
     /// </summary>
-    public override void Enter(Agt_Type1 owner)
+    public override void Enter(AutomatTower owner)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void Execute(Agt_Type1 owner)
+    public override void Execute(AutomatTower owner)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void Exit(Agt_Type1 owner)
+    public override void Exit(AutomatTower owner)
     {
         throw new System.NotImplementedException();
     }

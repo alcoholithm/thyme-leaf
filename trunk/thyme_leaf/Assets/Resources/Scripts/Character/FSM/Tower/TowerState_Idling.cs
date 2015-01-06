@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_Idling : State<Agt_Type1>
+public class TowerState_Idling : State<AutomatTower>
 {
     private string animName = "APT_Type1_Idling_";
 
@@ -10,13 +10,13 @@ public class TowerState_Idling : State<Agt_Type1>
         Successor = TowerState_Hitting.Instance;
     }
 
-    public override void Enter(Agt_Type1 owner)
+    public override void Enter(AutomatTower owner)
     {
         Debug.Log(TAG + " Enter");
         owner.Anim.Play(animName);
     }
 
-    public override void Execute(Agt_Type1 owner)
+    public override void Execute(AutomatTower owner)
     {
         // 매 프레임마다 주변에 적이 있는지 아닌지 검사를 해 주어야 한다.
         // 마찬가지로 아군에게 죽어서 없어진 경우도 체크해줘야 한다.
@@ -27,7 +27,7 @@ public class TowerState_Idling : State<Agt_Type1>
         }
     }
 
-    public override void Exit(Agt_Type1 owner)
+    public override void Exit(AutomatTower owner)
     {
         Debug.Log(TAG + " Exit");
     }

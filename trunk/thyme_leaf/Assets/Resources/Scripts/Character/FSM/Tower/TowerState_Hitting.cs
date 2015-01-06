@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_Hitting : State<Agt_Type1>
+public class TowerState_Hitting : State<AutomatTower>
 {
     //private string animName = "Tower_Hitting_";
 
@@ -15,13 +15,13 @@ public class TowerState_Hitting : State<Agt_Type1>
      */
 
     // 여긴 불리지 않을꺼야
-    public override void Enter(Agt_Type1 owner)
+    public override void Enter(AutomatTower owner)
     {
         Debug.Log(TAG + " Enter");
     }
 
     // -주의- 전역상태이기 때문에 계속 실행된다.
-    public override void Execute(Agt_Type1 owner)
+    public override void Execute(AutomatTower owner)
     {
         //Debug.Log(TAG);
         
@@ -39,7 +39,7 @@ public class TowerState_Hitting : State<Agt_Type1>
         //owner.CheckDeath();
     }
 
-    public override void Exit(Agt_Type1 owner)
+    public override void Exit(AutomatTower owner)
     {
         Debug.Log(TAG + " Exit");
     }
@@ -49,7 +49,7 @@ public class TowerState_Hitting : State<Agt_Type1>
         switch (msg.what)
         {
             case MessageTypes.MSG_NORMAL_DAMAGE:
-                (msg.receiver as Agt_Type1).TakeDamage(msg.arg1);
+                (msg.receiver as AutomatTower).TakeDamage(msg.arg1);
                 return true;
         }
         

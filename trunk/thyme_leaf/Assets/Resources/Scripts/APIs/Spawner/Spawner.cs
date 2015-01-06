@@ -289,12 +289,12 @@ public class Spawner : Manager<Spawner>
 
     //
 
-    public Agt_Type1 DynamicGetTower(TowerType type)
+    public AutomatTower DynamicGetTower(TowerType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
             GameObject go = GameObject.Instantiate(towers[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            return go.GetComponent<Agt_Type1>();
+            return go.GetComponent<AutomatTower>();
         }
         else
         {
@@ -302,7 +302,7 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    public Agt_Type1 GetTower(TowerType type)
+    public AutomatTower GetTower(TowerType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
             return GetTower((int)type);
@@ -311,15 +311,15 @@ public class Spawner : Manager<Spawner>
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetTower", RPCMode.All, viewID, (int)type);
             GameObject go = NetworkView.Find(viewID).gameObject;
-            return go.GetComponent<Agt_Type1>();
+            return go.GetComponent<AutomatTower>();
         }
     }
 
-    private Agt_Type1 GetTower(int type)
+    private AutomatTower GetTower(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(towers[type].name);
         InitTower(ref go);
-        return go.GetComponent<Agt_Type1>();
+        return go.GetComponent<AutomatTower>();
     }
 
 
