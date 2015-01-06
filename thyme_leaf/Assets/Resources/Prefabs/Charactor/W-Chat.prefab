@@ -64,13 +64,14 @@ GameObject:
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400010}
+  - 114: {fileID: 11400016}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bee3942f45bef41a02c18b8df7ed34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 0
+  _displayTime: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,8 +357,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 40
-  mHeight: 40
+  mWidth: 270
+  mHeight: 304
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -376,6 +377,18 @@ MonoBehaviour:
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
   mSpriteName: Tower_Building_0
   mFillCenter: 1
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d2c950e8349b64389c7dc339a0bbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplayType: 0
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
