@@ -12,6 +12,7 @@ public class Spawner : Manager<Spawner>
     [SerializeField] private GameObject[] trovants;
     [SerializeField] private GameObject[] wchats;
     [SerializeField] private GameObject[] thouses;
+    [SerializeField] private GameObject[] effects;
 
     [SerializeField] private int initPoolSize = 100;
     [SerializeField] private int maxPoolSize = 200;
@@ -71,10 +72,60 @@ public class Spawner : Manager<Spawner>
                     GameObject go = thouses[i];
                     ObjectPoolingManager.Instance.CreatePool(trovantBuildingPool, go, 5, maxPoolSize, false);
                 }
-			
-			PathManager.Instance.ShootMap();
+
+            if (effects != null)
+                for (int i = 0; i < effects.Length; i++)
+                {
+                    GameObject go = effects[i];
+                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
+                }
+
+            PathManager.Instance.ShootMap();
         }
     }
+
+    /**********************************/
+    // Effects
+    // Poison Cloud
+    public GameObject DynamicGetPoisonCloud(EffectType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            GameObject go = GameObject.Instantiate(effects[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
+            go.SetActive(false);
+            go.transform.parent = automatBuildingPool.transform;
+            go.SetActive(true);
+            return go;
+        }
+        else
+        {
+            return GetPoisonCloud(type);
+        }
+    }
+
+    public GameObject GetPoisonCloud(EffectType type)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            return GetPoisonCloud((int)type);
+        }
+        else
+        {
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetPoisonCloud", RPCMode.All, viewID, (int)type);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go;
+        }
+    }
+
+    private GameObject GetPoisonCloud(int type)
+    {
+        GameObject go = ObjectPoolingManager.Instance.GetObject(effects[type].name);
+        InitPoisonCloud(ref go);
+        return go;
+    }
+    
+
 
     /**********************************/
 
@@ -345,6 +396,14 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // Initializing Methods
 
+
+    private void InitPoisonCloud(ref GameObject go)
+    {
+        go.transform.parent = GameObject.Find("AutomatBuildings").transform;
+        go.transform.position = Vector3.zero;
+        go.transform.localScale = Vector3.one;
+    }
+
 	private void InitThouse(ref GameObject go)
 	{
 		go.transform.parent = GameObject.Find("TrovantBuildings").transform;
@@ -419,6 +478,17 @@ public class Spawner : Manager<Spawner>
 
     /**********************************/
     // RPC Methods
+
+    [RPC]
+    void NetworkGetPoisonCloud(NetworkViewID viewID, int type)
+    {
+        GameObject go = GameObject.Instantiate(effects[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
+        go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
+        go.networkView.viewID = viewID;
+        InitPoisonCloud(ref go);
+    }
 
     [RPC]
     void NetworkGetThouse(NetworkViewID viewID, int type)
