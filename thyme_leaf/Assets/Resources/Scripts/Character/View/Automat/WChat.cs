@@ -72,7 +72,6 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
     void OnDisable()
     {
         this._model.RemoveObserver(this, ObserverTypes.Health);
-
         // MVC
         this._model = null;
         this.controller = null;

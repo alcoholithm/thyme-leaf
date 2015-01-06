@@ -6,6 +6,8 @@ public class WaveManager : Manager<WaveManager>
 {
 	public StageCenterSetStruct[] stage_set;  //stage num
 
+	public bool WaveSystemTrigger = false;
+
 	void Awake()
 	{
 		//wave system setting value input...
@@ -16,6 +18,8 @@ public class WaveManager : Manager<WaveManager>
 
 	public void WaveSystemEnable()
 	{
+		if(!WaveSystemTrigger) return;
+
 		Debug.Log ("wave system setting");
 		Debug.Log (Define.THouse_list.Count);
 		int stage_num = Define.current_stage_number >= 99999 ? 1 : Define.current_stage_number;
