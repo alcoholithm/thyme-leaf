@@ -20,8 +20,7 @@ public class AutomatTower_Controller
 
     public void Attack()
     {
-        model.Attack();
-        view.FlameThrower.Repaint();
+        model.FindBestTarget();
     }
 
     //public void TakeDamage(int damage)
@@ -46,17 +45,11 @@ public class AutomatTower_Controller
     }
 }
 
-public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable<AutomatTower>//, IObserver
+public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable<AutomatTower>, IObserver
 {
     //-------------------- Children
     [SerializeField]
-    private FlameThrower _flameThrower;
-
-    public FlameThrower FlameThrower
-    {
-        get { return _flameThrower; }
-        set { _flameThrower = value; }
-    }
+    private Weapon _weapon;
     //--------------------
 
     private NGUISpriteAnimation anim;
@@ -86,8 +79,7 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
 
     void OnEnable()
     {
-        Initialize(); // 귀찮아서 이렇게 한다. 원래는 Reset을 만들고 다시 new 로 인스턴시에이션 할 필요없이 각 클래스의 초기화루틴을 호출한다.
-
+        Reset();
         //this.PrepareUI();
     }
 
@@ -98,21 +90,15 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
 
     void OnDisable()
     {
-        //this._model.RemoveObserver(this, ObserverTypes.Health);
-
+        Debug.Log("OnDisable");
         // MVC
         this._model = null;
         this.controller = null;
-
-        //// set children
-        //this.healthbar.Model = null;
-        //this.Remove(healthbar);
 
         // set state machine
         this.stateMachine = null;
 
         this.anim.Pause();
-        this.anim = null;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -153,12 +139,12 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
     private void Initialize()
     {
         // MVC
-        this._model = new Tower(this, new Flamer(this));
+        this._model = new Tower(this);
+        this._model.RegisterObserver(this, ObserverTypes.Enemy);
         this.controller = new AutomatTower_Controller(this, _model);
 
-        //// set children
-        //this.healthbar.Model = this._model;
-        //this.Add(healthbar);
+        // set children
+        this.Add(_weapon);
 
         // set state machine
         this.stateMachine = new StateMachine<AutomatTower>(this);
@@ -166,9 +152,22 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.anim = GetComponent<NGUISpriteAnimation>();
-        this.anim.Pause();
 
-        //this._model.RegisterObserver(this, ObserverTypes.Health);
+    }
+
+    private void Reset()
+    {
+        // MVC
+        this._model = new Tower(this);
+        this._model.RegisterObserver(this, ObserverTypes.Enemy);
+        this.controller = new AutomatTower_Controller(this, _model);
+
+        // set state machine
+        this.stateMachine = new StateMachine<AutomatTower>(this);
+        this.stateMachine.CurrentState = TowerState_None.Instance;
+        this.stateMachine.GlobalState = TowerState_Hitting.Instance;
+
+        this.anim.Pause();
     }
 
     /*
@@ -183,14 +182,6 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
     {
         controller.Attack();
     }
-
-    //public void SetAttackable(bool active)
-    //{
-    //    if (active)
-    //        StartCoroutine("Attack");
-    //    else
-    //        StopCoroutine("Attack");
-    //}
 
     /*
      * followings are implemented methods of "IStateMachineControllable"
@@ -208,13 +199,13 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
     /*
     * followings are implemented methods of "IObserver"
     */
-    //public void Refresh(ObserverTypes field)
-    //{
-    //    if (field == ObserverTypes.Health)
-    //    {
-    //        UpdateUI();
-    //    }
-    //}
+    public void Refresh(ObserverTypes field)
+    {
+        if (field == ObserverTypes.Enemy)
+        {
+            UpdateUI();
+        }
+    }
 
 
     /*
@@ -232,6 +223,12 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
     {
         get { return anim; }
         set { anim = value; }
+    }
+
+    public Weapon FlameThrower
+    {
+        get { return _weapon; }
+        set { _weapon = value; }
     }
 
     public Tower Model

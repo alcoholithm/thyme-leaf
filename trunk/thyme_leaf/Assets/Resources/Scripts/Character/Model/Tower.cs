@@ -3,31 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class Tower : Unit, IAttackable
+public class Tower : Unit
 {
-    [SerializeField]
-    private Weapon weapon;
     private List<GameEntity> enemies;
+
+    [SerializeField]
     private GameEntity currentTarget;
 
     private float reloadingTime = 2f; // 재장전시간
 
 
-    public Tower(GameEntity owner, Weapon weapon)
+    public Tower(GameEntity owner)
     {
-        this.enemies = new List<GameEntity>();
-        this.weapon = weapon;
+        Initialize();
     }
 
     /*
     * followings are public member functions
     */
-    public GameEntity FindBestTarget()
+    private void Initialize()
+    {
+        this.enemies = new List<GameEntity>();
+    }
+
+    /*
+    * followings are public member functions
+    */
+    public void FindBestTarget()
     {
         // 초기에 이애가 죽었는지 살았는지 판단해야함.
         // 다른 놈에 의해 제거될 가능성도 있으므로
         
         enemies.ForEach(e => { if (e == null || !e.gameObject.activeInHierarchy) enemies.Remove(e); });
+
+        TrimEnemies();
 
         if (Enemies.Count > 0)
         {
@@ -36,7 +45,17 @@ public class Tower : Unit, IAttackable
         else
             CurrentTarget = null;
 
-        return CurrentTarget;
+        NotifyObservers(ObserverTypes.Enemy);
+    }
+
+    public void TrimEnemies()
+    {
+        enemies.ForEach(e => { if (!e.gameObject.activeInHierarchy) enemies.Remove(e); });
+    }
+
+    public bool HasMoreEnemies()
+    {
+        return enemies.Count > 0;
     }
 
     /*
@@ -55,10 +74,10 @@ public class Tower : Unit, IAttackable
     /*
      * followings are implemented methods of "IAttackable"
      */
-    public void Attack()
-    {
-        weapon.Fire(FindBestTarget());
-    }
+    //public void Attack()
+    //{
+    //    weapon.Fire(FindBestTarget());
+    //}
 
     /*
      * Followings are attributes

@@ -89,6 +89,7 @@ public enum TrovantType
 public enum ProjectileType
 {
     POISON = 0,
+    BULLET,
 }
 
 public enum EffectType

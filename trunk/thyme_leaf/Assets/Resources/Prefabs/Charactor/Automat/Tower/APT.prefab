@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400016}
   m_Layer: 10
-  m_Name: ASPT
+  m_Name: APT
   m_TagString: TagTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,14 +79,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400008}
-  - 114: {fileID: 11400020}
-  - 114: {fileID: 11400024}
   - 148: {fileID: 14800002}
   - 114: {fileID: 11400022}
-  - 114: {fileID: 11400018}
   - 61: {fileID: 6100000}
+  - 114: {fileID: 11400024}
   m_Layer: 10
-  m_Name: Flame thrower
+  m_Name: Poison Launcher
   m_TagString: TagProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,8 +174,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 512, y: 512}
-  m_Center: {x: 256, y: 0}
+  m_Size: {x: 40, y: 40}
+  m_Center: {x: 20, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,10 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b56b6b5623f3b0438a8b2eabf69bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flameThrower: {fileID: 11400018}
+  _weapon: {fileID: 11400024}
   _model:
     _maxHp: 0
     _currHp: 0
+    currentTarget: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,10 +402,6 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
-  _framerate: 5
-  _namePrefix: 
-  _loop: 1
-  _pixelSnap: 1
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -419,69 +414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioUnitType: 5
---- !u!114 &11400018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9047b277586d052478edae634bcb5ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeTime: 1
-  _attackDamage: 1
---- !u!114 &11400020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 3
-  mWidth: 512
-  mHeight: 512
-  mDepth: 2
-  autoResizeBoxCollider: 1
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: FlameThrower_06
-  mFillCenter: 1
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,17 +433,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeba56312861fe946bf7f352f6a51225, type: 3}
+  m_Script: {fileID: 11500000, guid: 9abe62bc0d758af4cb82fde23b6366ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mFPS: 15
-  mPrefix: FlameThrower_
-  mLoop: 0
-  mSnap: 0
-  _framerate: 15
-  _namePrefix: FlameThrower_
-  _loop: 0
-  _pixelSnap: 0
+  criticalDamage: 0
+  criticalProbability: 0
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
