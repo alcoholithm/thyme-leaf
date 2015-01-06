@@ -17,7 +17,7 @@ public class HeroState_Dying : State<Hero> {
 			owner.Anim.PlayOneShot(owner.p_name+"Dying_");
 		}
 
-		owner.controller.setStateName("Dying_");
+		owner.controller.setStateName(Naming.DYING);
 		owner.state_name = owner.model.StateName;
 	}
 	
@@ -30,6 +30,8 @@ public class HeroState_Dying : State<Hero> {
 	public override void Exit (Hero owner)
 	{
 		if(owner == null) return;
+
+		AudioManager.Instance.PlayClipWithState(owner.gameObject, StateType.DYING);  
 
 		//current unit muster release...
 		if(owner.helper.getMusterTrigger())

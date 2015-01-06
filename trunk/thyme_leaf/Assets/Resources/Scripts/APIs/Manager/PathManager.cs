@@ -10,11 +10,40 @@ public class PathManager : Manager<PathManager> {
 
 	void Awake()
 	{
+		//current stage number setting...
+		Define.current_stage_number = StageNumber;
+
+		//initialize...
 		Define.PathDataDispose ();
-		DataToFile.LoadData(StageNumber, PathNode, node_visible);
+		Define.CenterListDisPose ();
 		UnitNameGetter.GetInstance ().Initialize ();
 		UnitMusterController.GetInstance ().Initialize ();
 		UnitPoolController.GetInstance ().Initialize ();
+
+		DataToFile.LoadData(StageNumber, PathNode, node_visible);
+
+		//define setting...
+		
+		//path node offset setting...
+		Define.path_node_off.Dispose ();
+		
+		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(9);
+		offset_data.setOffsetPos (0, -65, -65);
+		offset_data.setOffsetPos (1, -80, 0);
+		offset_data.setOffsetPos (2, 65, -65);
+		offset_data.setOffsetPos (3, 0, -80);
+		offset_data.setOffsetPos (4, 65, 65);
+		offset_data.setOffsetPos (5, 80, 0);
+		offset_data.setOffsetPos (6, -65, 65);
+		offset_data.setOffsetPos (7, 0, 80);
+		offset_data.setOffsetPos (8, 0, 0);
+		
+		Define.path_node_off = offset_data;
+		
+		//random table setting...
+		Define.random_index_table = new RandomTableStruct (30, 0, 3);
+		//center data...
+		Define.center_list = new List<GameObject> ();
 	}
 
 	public void ShootMap()
@@ -56,6 +85,9 @@ public class PathManager : Manager<PathManager> {
 				continue;
 			}
 		}
+
+		//wave setting...
+//		GameObject.Find ("WaveManager").GetComponent<WaveManager> ().WaveSystemEnable ();
 	}
 
 	public new const string TAG = "[PathManager]";

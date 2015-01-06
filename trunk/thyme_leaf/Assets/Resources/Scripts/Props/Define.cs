@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Define
 {
-	public static List<MapDataStruct> pathNode;
+	public static List<MapDataStruct> pathNode = null;
 	public static void PathDataDispose()
 	{
 		if(pathNode != null)
@@ -13,6 +13,18 @@ public class Define
 			pathNode = null;
 		}
 	}
+
+	public static List<GameObject> center_list = null;
+	public static void CenterListDisPose()
+	{
+		if(center_list != null)
+		{
+			center_list.Clear();
+			center_list = null;
+		}
+	}
+
+	public static WChat selected_center = null;
 
 	public static float RadianToAngle()
 	{
@@ -38,7 +50,11 @@ public class Define
 
 	public static RandomTableStruct random_index_table;
 
+	public static StageCenterSetStruct[] stage_wave_sys_setting;
+
 	public static int Select_Hero = 0;
+
+	public static int current_stage_number;
 }
 
 public struct RandomTableStruct
@@ -143,8 +159,6 @@ public struct PathNodeOffsetStruct
 	{
 		offset_st [idx].Initialize (false, new Vector3 (x, y, 0));
 	}
-
-
 }
 
 public struct OffsetStruct
@@ -174,3 +188,5 @@ public struct OffsetStruct
 		idx = -1;
 	}
 }
+
+

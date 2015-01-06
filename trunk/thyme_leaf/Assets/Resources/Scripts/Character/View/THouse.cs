@@ -48,6 +48,8 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 
     //---------------------
 	private GameObject position_node;
+	private CenterWaveStruct wave_table;
+	private int wave_count = -1;
 
     /*
     * followings are unity callback methods
@@ -142,6 +144,49 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
             UpdateUI();
         }
     }
+
+	//wave system setting...
+	public void WaveSystemStart(CenterWaveStruct v)
+	{
+		wave_table = v;
+		wave_count = 0;
+		Debug.Log ("wave okay call!!");
+		StartCoroutine ("WaveRoutine", wave_count);
+	}
+	
+	IEnumerator WaveRoutine(int idx)
+	{
+		if(idx >= wave_table.wave_setting_value_set.Length)
+		{
+			Debug.Log("wave exit");
+			yield return null;
+		}
+		else
+		{
+			Debug.Log ("wave start!!");
+			yield return new WaitForSeconds(wave_table.wave_setting_value_set[idx].first_delay_time);
+			StartCoroutine ("WaveSpawnUnit", idx);
+		}
+	}
+	
+	IEnumerator WaveSpawnUnit(int idx)
+	{
+		//product...
+		for (int i = 0; i < wave_table.wave_setting_value_set[idx].unit_num; i++)
+		{
+			Hero obj = Spawner.Instance.GetTrovant (wave_table.wave_setting_value_set[idx].unit_type);
+			obj.helper.setPos(position_node.transform.localPosition);
+			Debug.Log("id : " + i);
+			for (float timer = 0; timer < wave_table.wave_setting_value_set[idx].unit_delay_time; timer += Time.deltaTime)
+			{
+				yield return null;
+			}
+		}
+		Debug.Log ((wave_count+1) + " wave exit");
+		wave_count++;
+		StartCoroutine ("WaveRoutine", wave_count);
+	}
+
 
     /*
      * Followings are attributes

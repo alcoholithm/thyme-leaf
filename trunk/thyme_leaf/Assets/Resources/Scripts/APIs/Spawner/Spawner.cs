@@ -342,7 +342,6 @@ public class Spawner : Manager<Spawner>
     }
 
     
-
     /**********************************/
     // Initializing Methods
 
@@ -350,12 +349,16 @@ public class Spawner : Manager<Spawner>
 	{
 		go.transform.parent = GameObject.Find("TrovantBuildings").transform;
 		go.transform.localScale = new Vector3(1, 1, 1);
+
+		Define.center_list.Add (go);
 	}
 
     private void InitWChat(ref GameObject go)
     {
         go.transform.parent = GameObject.Find("AutomatBuildings").transform;
         go.transform.localScale = new Vector3(1, 1, 1);
+
+		Define.center_list.Add (go);
     }
 
     private void InitHero(ref GameObject go)

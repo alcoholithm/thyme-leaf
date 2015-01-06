@@ -15,7 +15,7 @@ public class HeroState_Moving : State<Hero> {
 //			owner.Anim.Play("Python_Moving_Normal_");
 //		}
 
-		owner.controller.setStateName ("Moving_");
+		owner.controller.setStateName (Naming.MOVING);
 		owner.state_name = owner.model.StateName;
 	}
 
@@ -99,10 +99,7 @@ public class HeroState_Moving : State<Hero> {
 						{
 							//Debug.Log("turnoff null");
 							if(owner.helper.nodeInfor.automatPoint || owner.helper.nodeInfor.trovantPoint) owner.controller.MoveReverse();
-							else
-							{
-								owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
-							}
+							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
 						else
 						{
@@ -126,10 +123,7 @@ public class HeroState_Moving : State<Hero> {
 						{
 							//Debug.Log("turnoff null");
 							if(owner.helper.nodeInfor.automatPoint || owner.helper.nodeInfor.trovantPoint) owner.controller.MoveReverse();
-							else
-							{
-								owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
-							}
+							else owner.helper.nodeStock = owner.helper.nodeInfor.turnoffList[0].GetComponent<scriptPathNode>().turnoffBridge;
 						}
 						else
 						{

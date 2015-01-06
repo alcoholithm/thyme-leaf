@@ -47,10 +47,6 @@ public class UnitPoolController
 		{
 			id1 = uObj.GetComponent<Hero>().model.ID;
 		}
-		else if(uObj.layer == (int)Layer.Tower)
-		{
-			//add...
-		}
 		
 		for(int i=0;i<unitPool.Count;i++)
 		{

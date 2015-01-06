@@ -119,14 +119,16 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
+		Debug.Log (coll.name);
 		//coll return checking...
 		if(coll == null || helper.collision_object.radius == helper.collision_range_muster) return;
-
+	
 		if(stateMachine.CurrentState == HeroState_Moving.Instance)
 		{
 			if(IsAttackCase(coll.gameObject))  //state compare okay...
 		    {
 				helper.attack_target = coll.gameObject.GetComponent<Hero>();
+				Debug.Log(helper.attack_target.name);
 				//my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
 			}
@@ -149,10 +151,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		}
 		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
 		{
-//			if(IsAttackCase(coll.gameObject)) 
-//			{
-//				helper.attack_target = coll.gameObject.GetComponent<Hero>();
-//			}
+
 		}
 	}
 
@@ -290,6 +289,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
+	//		string anim_name = Naming.Instance.
+
 			if(dir == -1)
 			{
 				transform.localScale = new Vector3(-1, 1, 1); //left
@@ -303,20 +304,20 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			
 			if(a < -45 && a > -135) //down
 			{
-				anim.Play(p_name+model.StateName+"Downwards_");
+				anim.Play(p_name+model.StateName+"_Downwards_");
 				//transform.localRotation = Quaternion.Euler(0,0,0);
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
 //				transform.localScale = new Vector3(1, 1, 1); //left
 //				health_bar_body.localScale = new Vector3(1, 1, 1);
-				anim.Play(p_name+model.StateName+"Normal_");
+				anim.Play(p_name+model.StateName+"_Normal_");
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
 //				transform.localScale = new Vector3(-1, 1, 1); //left
 //				health_bar_body.localScale = new Vector3(-1, 1, 1);
-				anim.Play(p_name+model.StateName+"Normal_");
+				anim.Play(p_name+model.StateName+"_Normal_");
 			}
 //			else if(a > 45 && a < 135) //up
 //			{

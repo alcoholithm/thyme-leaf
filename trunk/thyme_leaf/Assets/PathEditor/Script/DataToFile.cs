@@ -247,8 +247,16 @@ public class DataToFile : MonoBehaviour
 			for(int i=0;i<Define.TurnOffMaxCount();i++)
 				tempFunc.turnoffList[i] = turnList[i];
 
-			if(tempFunc.automatPoint) tempFunc.ChangeIMG(SpriteList.AUTOMAT);
-			else if(tempFunc.trovantPoint) tempFunc.ChangeIMG(SpriteList.TROVANT);
+			if(tempFunc.automatPoint)
+			{
+				tempFunc.ChangeIMG(SpriteList.AUTOMAT);
+//				tempFunc.center_name = "automat_center_" + tempFunc.center_num;
+			}
+			else if(tempFunc.trovantPoint)
+			{
+				tempFunc.ChangeIMG(SpriteList.TROVANT);
+//				tempFunc.center_name = "trovant_center_" + tempFunc.center_num;
+			}
 			else if(tempFunc.TurnoffRoot) tempFunc.ChangeIMG(SpriteList.TURNOFF);
 
 			tempFunc.SetVisialbe(visible);
@@ -258,22 +266,6 @@ public class DataToFile : MonoBehaviour
 			Define.pathNode[c] = mapdata;
 		}
 
-		//path node offset setting...
-		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(9);
-		offset_data.setOffsetPos (0, -65, -65);
-		offset_data.setOffsetPos (1, -80, 0);
-		offset_data.setOffsetPos (2, 65, -65);
-		offset_data.setOffsetPos (3, 0, -80);
-		offset_data.setOffsetPos (4, 65, 65);
-		offset_data.setOffsetPos (5, 80, 0);
-		offset_data.setOffsetPos (6, -65, 65);
-		offset_data.setOffsetPos (7, 0, 80);
-		offset_data.setOffsetPos (8, 0, 0);
-		
-		Define.path_node_off = offset_data;
-
-		//random table setting...
-		Define.random_index_table = new RandomTableStruct (30, 0, 3);
 	}
 }
 
