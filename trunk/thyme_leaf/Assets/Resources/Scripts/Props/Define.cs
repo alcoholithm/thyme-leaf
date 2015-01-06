@@ -24,7 +24,10 @@ public class Define
 		}
 	}
 
-	public static GameObject selected_center = null;
+	public static Vector3 selected_center;
+
+	public static List<GameObject> automat_center = null;  //exception procc ~...
+	public static List<GameObject> trovant_center = null;
 
 	public static float RadianToAngle()
 	{

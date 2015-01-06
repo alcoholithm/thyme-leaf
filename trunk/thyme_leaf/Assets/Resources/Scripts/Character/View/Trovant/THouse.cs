@@ -47,7 +47,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
     private THouse_Controller controller;
 
     //---------------------
-	private GameObject position_node;
+	private Vector3 position_node;
 	private CenterWaveStruct wave_table;
 	private int wave_count = -1;
 
@@ -235,7 +235,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
         set { controller = value; }
     }
 
-    public GameObject PositionNode
+    public Vector3 PositionNode
     {
         get { return position_node; }
         set { position_node = value; }

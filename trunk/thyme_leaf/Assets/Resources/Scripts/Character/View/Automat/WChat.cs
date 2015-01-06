@@ -47,7 +47,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
     private WChat_Controller controller;
 
     //---------------------
-	private GameObject position_node;
+	private Vector3 position_node;
     /*
     * followings are unity callback methods
     */
@@ -155,7 +155,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
 		for (int i = 0; i < 5; i++)
 		{
 			Hero obj = Spawner.Instance.GetHero(AutomatType.FRANSIS_TYPE1);
-			obj.helper.setPos(position_node.transform.localPosition);
+			obj.helper.setPos(position_node);
 			for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
 			{
 				yield return null;
@@ -168,7 +168,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
 	{
 		//my selected center position
 		Define.selected_center = position_node;
-		Debug.Log ("center : " + position_node.name);
+		Debug.Log ("center : " + position_node);
 	}
 	
     /*
@@ -195,7 +195,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
         set { controller = value; }
     }
 
-    public GameObject PositionNode
+    public Vector3 PositionNode
     {
         get { return position_node; }
         set { position_node = value; }
