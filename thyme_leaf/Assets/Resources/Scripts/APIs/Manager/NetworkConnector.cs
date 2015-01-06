@@ -108,43 +108,43 @@ public class NetworkConnector : Manager<NetworkConnector>
 	/*******************************************************************/
 	// Tutorial 
 	
-	void TestOnConnectedActionPerform(NetworkResult result)
-	{
-		switch (result)
-		{
-		case NetworkResult.SUCCESS_TO_CONNECT:
-			NetworkConnector.Instance.NetworkLoadLevel(SceneManager.BATTLE_MULTI);
-			break;
-		case NetworkResult.EMPTY_ROOM:
-			Debug.Log("Create room because there is no room");
-            NetworkConnector.Instance.CreateRoom();
-			break;
-		case NetworkResult.FAIL:
-			Debug.Log("Fail to connect to server");
-			break;
-		default:
-			Debug.Log("NETWORK RESULT ERROR : " + result);
-			break;
-		}
-	}
+    //void TestOnConnectedActionPerform(NetworkResult result)
+    //{
+    //    switch (result)
+    //    {
+    //    case NetworkResult.SUCCESS_TO_CONNECT:
+    //        NetworkConnector.Instance.NetworkLoadLevel(SceneManager.BATTLE_MULTI);
+    //        break;
+    //    case NetworkResult.EMPTY_ROOM:
+    //        Debug.Log("Create room because there is no room");
+    //        NetworkConnector.Instance.CreateRoom();
+    //        break;
+    //    case NetworkResult.FAIL:
+    //        Debug.Log("Fail to connect to server");
+    //        break;
+    //    default:
+    //        Debug.Log("NETWORK RESULT ERROR : " + result);
+    //        break;
+    //    }
+    //}
 	
-	void TestOnDisconnectedActionPerform(){
-		Debug.Log ("Network Disconnected");
-	}
+    //void TestOnDisconnectedActionPerform(){
+    //    Debug.Log ("Network Disconnected");
+    //}
 	
-	void OnGUI()
-	{
-        if (!Network.isClient && !Network.isServer)
-        {
-            if (GUI.Button(new Rect(0, 0, 250, 50), "Start"))
-            {
-                NetworkConnector.Instance
-                    .SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
-                        .SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
-                        .JoinRoom();
-            }
-        }
-	}
+    //void OnGUI()
+    //{
+    //    if (!Network.isClient && !Network.isServer)
+    //    {
+    //        if (GUI.Button(new Rect(0, 0, 250, 50), "Start"))
+    //        {
+    //            NetworkConnector.Instance
+    //                .SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
+    //                    .SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
+    //                    .JoinRoom();
+    //        }
+    //    }
+    //}
 	
 	/*******************************************************************/
 	
