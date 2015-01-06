@@ -94,22 +94,31 @@ public struct UnitObject
 	public UnitType type;
 	public Tower infor_tower;
 	public Hero infor_hero;
+	public WChat infor_automat_center;
+	public THouse infor_trovant_center;
 	
 	public UnitObject(GameObject obj, int id, UnitType type)
 	{
 		this.obj = obj;
 		nameID = id;
 		this.type = type;
-		
-		if(type != UnitType.AUTOMAT_TOWER)
+
+		infor_hero = null;
+		infor_tower = null;
+		infor_automat_center = null;
+		infor_trovant_center = null;
+		switch(type)
 		{
+		case UnitType.AUTOMAT_CHARACTER:
+		case UnitType.TROVANT_CHARACTER:
 			infor_hero = obj.GetComponent<Hero>();
-			infor_tower = null;
-		}
-		else
-		{
-			infor_hero = null;
-			infor_tower = null;
+			break;
+		case UnitType.AUTOMAT_WCHAT:
+			infor_automat_center = obj.GetComponent<WChat>();
+			break;
+		case UnitType.TROVANT_THOUSE:
+			infor_trovant_center = obj.GetComponent<THouse>();
+			break;
 		}
 	}
 	
@@ -120,5 +129,18 @@ public struct UnitObject
 		this.type = UnitType.AUTOMAT_CHARACTER;
 		infor_hero = null;
 		infor_tower = null;
+		infor_automat_center = null;
+		infor_trovant_center = null;
+	}
+
+	public void DataInit()
+	{
+		obj = null;
+		nameID = -1;
+		this.type = UnitType.AUTOMAT_CHARACTER;
+		infor_hero = null;
+		infor_tower = null;
+		infor_automat_center = null;
+		infor_trovant_center = null;
 	}
 }

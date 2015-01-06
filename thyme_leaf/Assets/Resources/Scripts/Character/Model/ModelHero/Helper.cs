@@ -11,14 +11,13 @@ public class Helper
 	public GameObject nodeStock;
 	public GameObject nodeOld;
 	public scriptPathNode nodeInfor;
-//	private string current_node_name;
 	
 	private bool enableMove;
 	private bool enalbeMuster;
 	
 	//attacking value
 	public float attack_delay_counter;
-	public Hero attack_target;
+	public UnitObject attack_target;
 	//==================================
 	//extra
 	public bool selectTurnoffRoot;
@@ -53,7 +52,7 @@ public class Helper
 		
 		gesture_startpoint = gesture_endpoint = Vector3.zero;
 		
-		attack_target = null;
+		attack_target.DataInit ();
 		//=======================
 		
 		attack_delay_counter = 0;

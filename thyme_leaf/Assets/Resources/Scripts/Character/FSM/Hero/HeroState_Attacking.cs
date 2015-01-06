@@ -57,9 +57,10 @@ public class HeroState_Attacking : State<Hero>
 				if(Vector3.SqrMagnitude(other.obj.transform.localPosition - owner.helper.getPos()) < range * range)
 				{
 					isCharacter = true;
-					Hero other_infor = other.obj.GetComponent<Hero>();
-					if(owner.helper.attack_target.model.ID != other_infor.model.ID)
-						owner.helper.attack_target = other.obj.GetComponent<Hero>();
+					if(owner.helper.attack_target.nameID != GetId(ref other))
+					{
+						owner.helper.attack_target = other;
+					}
 					break;
 				}
 			}
@@ -69,13 +70,13 @@ public class HeroState_Attacking : State<Hero>
         SendAttackMessage(owner);
     }
 
-    
-
     private void ChangeStateIntoMoving(Hero owner, bool isCharacter)
     {
-        if (owner.helper.attack_target == null || (!isCharacter && owner.helper.attack_target.model.HP <= 0))
+		int hp = GetHp (ref owner.helper.attack_target);
+		bool check = MissingChecking (ref owner.helper.attack_target);
+		if (!check && hp <= 0 && !isCharacter)
         {
-            owner.target = null;
+			owner.target.DataInit();
             if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
             {
                 owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
@@ -90,15 +91,14 @@ public class HeroState_Attacking : State<Hero>
 
     private void SendAttackMessage(Hero owner)
     {
-        if (owner.helper.attack_target != null)
+        if (owner.helper.attack_target.obj != null)
         {
             //attack...
             owner.helper.attack_delay_counter += Time.deltaTime;
             if (owner.helper.attack_delay_counter >= owner.model.AttackDelay)
             {
-                Message msg = owner.helper.attack_target.ObtainMessage(MessageTypes.MSG_NORMAL_DAMAGE, (int)owner.model.AttackDamage);
+				SendMessageAttack(ref owner, MessageTypes.MSG_NORMAL_DAMAGE, (int)owner.model.AttackDamage);
 
-                owner.helper.attack_target.DispatchMessage(msg);
                 owner.helper.attack_delay_counter = 0;
                 AudioManager.Instance.PlayClipWithState(owner.gameObject, StateType.ATTACKING);                
             }
@@ -109,8 +109,73 @@ public class HeroState_Attacking : State<Hero>
     {
         //Debug.Log("Attack  Exit ************************");
         //throw new System.NotImplementedException ();
-		owner.helper.attack_target = null;
+		owner.helper.attack_target.DataInit ();
     }
+
+	private bool MissingChecking(ref UnitObject obj)
+	{
+		switch(obj.type)
+		{
+		case UnitType.AUTOMAT_CHARACTER:
+		case UnitType.TROVANT_CHARACTER:
+			return obj.infor_hero == null ? true : false;
+		case UnitType.AUTOMAT_WCHAT:
+			return obj.infor_automat_center == null ? true : false;
+		case UnitType.TROVANT_THOUSE:
+			return obj.infor_trovant_center == null ? true :  false;
+		}
+		return false;
+	}
+	
+	private int GetHp(ref UnitObject obj)
+	{
+		switch(obj.type)
+		{
+		case UnitType.AUTOMAT_CHARACTER:
+		case UnitType.TROVANT_CHARACTER:
+			return obj.infor_hero.model.HP;
+		case UnitType.AUTOMAT_WCHAT:
+			return obj.infor_automat_center.Model.HP;
+		case UnitType.TROVANT_THOUSE:
+			return obj.infor_trovant_center.Model.HP;
+		}
+		return -1;
+	}
+
+	private int GetId(ref UnitObject obj)
+	{
+		switch(obj.type)
+		{
+		case UnitType.AUTOMAT_CHARACTER:
+		case UnitType.TROVANT_CHARACTER:
+			return obj.infor_hero.model.ID;
+		case UnitType.AUTOMAT_WCHAT:
+			return obj.infor_automat_center.Model.ID;
+		case UnitType.TROVANT_THOUSE:
+			return obj.infor_trovant_center.Model.ID;
+		}
+		return -1;
+	}
+
+	private void SendMessageAttack(ref Hero obj, MessageTypes option, int v)
+	{
+		GameEntity game_entity = null;
+		switch(obj.helper.attack_target.type)
+		{
+		case UnitType.AUTOMAT_CHARACTER:
+		case UnitType.TROVANT_CHARACTER:
+			game_entity = obj.helper.attack_target.infor_hero;
+			break;
+		case UnitType.AUTOMAT_WCHAT:
+			game_entity = obj.helper.attack_target.infor_automat_center;
+			break;
+		case UnitType.TROVANT_THOUSE:
+			game_entity = obj.helper.attack_target.infor_trovant_center;
+			break;
+		}
+		Message msg = game_entity.ObtainMessage(option, v);
+		game_entity.DispatchMessage(msg);
+	}
 
     public override bool HandleMessage(Message msg)
     {

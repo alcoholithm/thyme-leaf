@@ -370,19 +370,21 @@ public class Spawner : Manager<Spawner>
 		if(type == StartPoint.AUTOMAT_POINT)
 		{
 			hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
+			hero.controller.setId (UnitNameGetter.GetInstance ().getNameAutomart ());
 		}
 		else
 		{
 			hero.controller.setType (UnitType.TROVANT_CHARACTER);
+			hero.controller.setId (UnitNameGetter.GetInstance ().getNameTrovant());
 		}
 		hero.controller.setNodeOffsetStruct (Define.path_node_off.getNodeOffset ());
 
 		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
 		hero.controller.setMoveTrigger(true);
 
-		hero.my_name = hero.model.ID.ToString ();
-		UnitObject u_obj = new UnitObject (hero.gameObject, hero.model.ID, hero.model.Type);
-		UnitPoolController.GetInstance ().AddUnit (u_obj);
+		hero.my_name = hero.model.ID.ToString (); //test code...
+		hero.MyUnit = new UnitObject (hero.gameObject, hero.model.ID, hero.model.Type);
+		UnitPoolController.GetInstance ().AddUnit (hero.MyUnit);
 	}
 
     private void InitTower(ref GameObject go)
