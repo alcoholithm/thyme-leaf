@@ -29,16 +29,22 @@ public class DialogFacade : Singleton<DialogFacade>
         //this.controller = _view.Controller;
     }
 
+    /* MessageDialog */
     public void ShowMessageDialog(string message)
     {
         _messageDialog.GetComponent<MessageDialog>().SetMessage(message);
         _messageDialog.SetActive(true);
     }
+    public void ChangeMsgDialogTitle(string title)
+    {
+        _messageDialog.GetComponent<MessageDialog>().SetTitle(title);
+    }
     public void CloseMessageDialog()
     {
         _messageDialog.SetActive(false);
     }
-    
+
+    /* ConfirmDialog */
     public void ShowConfirmDialog(string message)
     {
         _confirmDialog.GetComponent<ConfirmDialog>().SetMessage(message);
@@ -49,6 +55,7 @@ public class DialogFacade : Singleton<DialogFacade>
         _confirmDialog.SetActive(false);
     }
 
+    /* InputDialog */
     public void ShowInputDialog()
     {
         _inputDialog.SetActive(true);
@@ -57,6 +64,7 @@ public class DialogFacade : Singleton<DialogFacade>
     {
         _inputDialog.SetActive(false);
     }
+
 
     public void SetVisible(GameObject gameObject, bool active)
     {

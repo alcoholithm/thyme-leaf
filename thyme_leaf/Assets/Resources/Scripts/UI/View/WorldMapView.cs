@@ -51,8 +51,36 @@ public class WorldMapView : View, IActionListener
         }
         else if (source.Equals(_multiPlayBtn))
         {
-            SceneManager.Instance.CurrentScene = SceneManager.MULTI;
+            DialogFacade.Instance.ChangeMsgDialogTitle("Multi Play Mode");
+            DialogFacade.Instance.ShowMessageDialog("Waiting for minuate....");
+
+            NetworkConnector.Instance.SetOnNetworkConnectedListener(OnonnectedActionDelegate).
+                SetOnNetworkDisconnectedListener(OnisconnectedActionDelegate).JoinRoom();
+
         }
+    }
+
+    void OnonnectedActionDelegate(NetworkResult result){
+        switch (result)
+        {
+            case NetworkResult.SUCCESS_TO_CONNECT:
+                NetworkConnector.Instance.NetworkLoadLevel(SceneManager.BATTLE_MULTI);
+                break;
+            case NetworkResult.EMPTY_ROOM:
+                Debug.Log("Create room because there is no room");
+                NetworkConnector.Instance.CreateRoom();
+                break;
+            case NetworkResult.FAIL:
+                Debug.Log("Fail to connect to server");
+                break;
+            default:
+                Debug.Log("NETWORK RESULT ERROR : " + result);
+                break;
+        }
+    }
+
+    void OnisconnectedActionDelegate(){
+        Debug.Log("Disconnected");
     }
 
     /*

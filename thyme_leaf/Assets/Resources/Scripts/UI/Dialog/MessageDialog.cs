@@ -25,6 +25,11 @@ public class MessageDialog : MonoBehaviour
         _message.text = message;
     }
 
+    public void SetTitle(string title)
+    {
+        _title.text = title;
+    }
+
     public void Close()
     {
         gameObject.SetActive(false);
