@@ -79,10 +79,9 @@ public class Spawner : Manager<Spawner>
                     GameObject go = effects[i];
                     ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
                 }
-
-            PathManager.Instance.ShootMap();
-            CreateWChats();
         }
+        PathManager.Instance.ShootMap();
+        CreateWChats();
     }
 
     public void CreateWChats() 
