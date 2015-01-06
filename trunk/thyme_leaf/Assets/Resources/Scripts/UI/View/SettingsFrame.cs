@@ -8,6 +8,7 @@ public class Settings
     public const string USERNAME = "UserName";
 
     //music properties
+    public const string INIT_SETTING = "INIT";
     public const string MUSIC_ENABLED = "MusicEnabled";
     public const string MUSIC_VOLUME = "MusicVolume";
     public const string SOUNDEFFECTS_ENABLED = "SoundEffectsEnabled";
@@ -57,9 +58,20 @@ public class Settings
 
     void Awake() // 프로그램이 실행되면 세팅값대로 세팅되어야하니까 전의 세팅을 불러와야됨 그래서 넣어줌 프로그램 매니저에서 세팅을 관리할수도잇을듯
     {
-        ImportValues();
-
+        if (PlayerPrefs.GetInt(INIT_SETTING) == 0)
+            InitValues();
+        else
+            ImportValues();
         //DontDestroy(this.gameObject);
+    }
+
+    public static void InitValues()
+    {
+        PlayerPrefs.SetInt(INIT_SETTING, 1);
+        PlayerPrefs.SetInt(MUSIC_ENABLED, 1);
+        PlayerPrefs.SetFloat(MUSIC_VOLUME, 1.0f);
+        PlayerPrefs.SetInt(SOUNDEFFECTS_ENABLED, 1);
+        PlayerPrefs.SetFloat(SOUNDEFFECTS_VOLUME, 1.0f);
     }
 
     public static void ImportValues()
@@ -112,19 +124,14 @@ public class SettingsFrame : View, IActionListener
     private SettingsController controller;
 
     // children
-    [SerializeField]
-    private GameObject _closeButton;
-    [SerializeField]
-    private GameObject _okayButton;
+    [SerializeField] private GameObject _closeButton;
+    [SerializeField] private GameObject _okayButton;
 
-    [SerializeField]
-    private GameObject _musicCheckBox;
-    [SerializeField]
-    private GameObject _musicSlider;
-    [SerializeField]
-    private GameObject _soundFXCheckBox;
-    [SerializeField]
-    private GameObject _soundFXSlider;
+    [SerializeField] private GameObject _musicCheckBox;
+    [SerializeField] private GameObject _musicSlider;
+
+    [SerializeField] private GameObject _soundFXCheckBox;
+    [SerializeField] private GameObject _soundFXSlider;
 
     /*
      * Followings are unity callback methods
@@ -149,26 +156,38 @@ public class SettingsFrame : View, IActionListener
      */ 
     public void ActionPerformed(GameObject source)
     {
-        if (source.Equals(_closeButton) 
-            || source.Equals(_okayButton))
+        bool MusicEnabled = Settings.MusicEnabled;
+        bool SoundEffectsEnabled = Settings.SoundEffectsEnabled;
+        float MusicVolume = Settings.MusicVolume;
+        float SoundEffectsVolume = Settings.SoundEffectsVolume;
+
+        if (source.Equals(_closeButton)){
+            Debug.Log("Canceled Setting");
+            controller.Okay();
+            return;
+        }
+        else if(source.Equals(_okayButton))
         {
+            Debug.Log("Saved Setting");
+            Settings.MusicEnabled = MusicEnabled;
+            Settings.ExportValues();            
             controller.Okay();
         }
         else if (source.Equals(_musicCheckBox))
         {
-            Debug.Log("asdf");
+            MusicEnabled = !MusicEnabled;
         }
         else if (source.Equals(_musicSlider))
         {
-
+            MusicVolume = source.GetComponent<UISlider>().value;
         }
         else if (source.Equals(_soundFXCheckBox))
         {
-
+            SoundEffectsEnabled = !SoundEffectsEnabled;
         }
         else if (source.Equals(_soundFXSlider))
         {
-
+            SoundEffectsVolume = source.GetComponent<UISlider>().value;
         }
     }
 }
