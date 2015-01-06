@@ -92,7 +92,7 @@ public class DataToFile : MonoBehaviour
 		textWriter.Close();
 	}
 
-	public static void LoadData(int stageNumber, GameObject nodePref, bool visible)
+	public static void LoadData(int stageNumber, GameObject nodePref, bool visible, GameMode option)
 	{
 		if(stageNumber <= 0) return;
 
@@ -110,6 +110,8 @@ public class DataToFile : MonoBehaviour
 		StreamReader textReader = new StreamReader(strm);
 
 		Define.pathNode = new List<MapDataStruct> ();
+		Define.automat_center = new List<GameObject> ();
+		Define.trovant_center = new List<GameObject> ();
 		//parsing start
 
 		string str = textReader.ReadLine();
@@ -249,11 +251,13 @@ public class DataToFile : MonoBehaviour
 
 			if(tempFunc.automatPoint)
 			{
+				Define.automat_center.Add(tempsetting);
 				tempFunc.ChangeIMG(SpriteList.AUTOMAT);
 //				tempFunc.center_name = "automat_center_" + tempFunc.center_num;
 			}
 			else if(tempFunc.trovantPoint)
 			{
+				Define.trovant_center.Add(tempsetting);
 				tempFunc.ChangeIMG(SpriteList.TROVANT);
 //				tempFunc.center_name = "trovant_center_" + tempFunc.center_num;
 			}
@@ -265,7 +269,15 @@ public class DataToFile : MonoBehaviour
 			mapdata.obj = tempsetting;
 			Define.pathNode[c] = mapdata;
 		}
-
+		if(option == GameMode.MULTI_PLAY)
+		{
+			PathManager.server_position = Define.automat_center[0].transform.localPosition;
+			PathManager.client_position = Define.automat_center[1].transform.localPosition;
+		}
+		else
+		{
+			PathManager.single_position = Define.automat_center[0].transform.localPosition;
+		}
 	}
 }
 

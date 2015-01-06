@@ -99,10 +99,19 @@ public class Helper
 		else if(nodeInfor.Next != null) SetMoveMode(MoveModeState.FORWARD);
 	}
 
-	public void StartPointSetting(GameObject pos_obj)
+	public void StartPointSetting(Vector3 pos_obj)
 	{
-		Debug.Log (pos_obj.name);
-		nodeStock = pos_obj;
+		GameObject posOB = null;
+		for (int i=0; i<Define.pathNode.Count; i++) 
+		{
+			if (Define.pathNode [i].obj.transform.localPosition == pos_obj) 
+			{
+				posOB = Define.pathNode [i].obj;
+				break;
+			}
+		}
+		Debug.Log (posOB == null ? "start point = null" : posOB.name);
+		nodeStock = posOB;
 		nodeOld = nodeStock;
 		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
 

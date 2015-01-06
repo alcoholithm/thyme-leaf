@@ -8,6 +8,9 @@ public class PathManager : Manager<PathManager> {
 	public int StageNumber = 1;
 	public bool node_visible;
 	public GameMode game_mode;
+	public static Vector3 client_position;
+	public static Vector3 server_position;
+	public static Vector3 single_position;
 
 	void Awake()
 	{
@@ -21,7 +24,7 @@ public class PathManager : Manager<PathManager> {
 		UnitMusterController.GetInstance ().Initialize ();
 		UnitPoolController.GetInstance ().Initialize ();
 
-		DataToFile.LoadData(Define.current_stage_number, PathNode, node_visible);
+		DataToFile.LoadData(Define.current_stage_number, PathNode, node_visible, game_mode);
 
 		//define setting...
 		
@@ -63,7 +66,7 @@ public class PathManager : Manager<PathManager> {
 				Define.pathNode[i] = map_data;
                 WChat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
 				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-				w.PositionNode = Define.pathNode[i].obj;
+				w.PositionNode = Define.pathNode[i].obj.transform.localPosition;
 
                 w.ChangeState(WChatState_Idling.Instance);
 
@@ -79,7 +82,7 @@ public class PathManager : Manager<PathManager> {
 				Define.pathNode[i] = map_data;
                 THouse w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
                 w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-                w.PositionNode = Define.pathNode[i].obj;
+				w.PositionNode = Define.pathNode[i].obj.transform.localPosition;
 
                 w.ChangeState(THouseState_Idling.Instance);
 				
