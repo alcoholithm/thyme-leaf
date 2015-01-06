@@ -102,22 +102,22 @@ public class Naming : MonoBehaviour
         return result;
     }
 
-    public string BuildAutomatName(string name, int typeNum)
+    private string BuildAutomatName(string name, int typeNum)
     {
         return name + "_" + TYPE + (typeNum + "");
     }
 
-    public string BuildTrovantName(string name)
+    private string BuildTrovantName(string name)
     {
         return name;
     }
 
-    public string BuildAutomatNameWithState(string name, int typeNum, string state)
+    private string BuildAutomatNameWithState(string name, int typeNum, string state)
     {
         return BuildAutomatName(name,typeNum) + "_" + state;
     }
 
-    public string BuildTrovantNameWithState(string name, string state)
+    private string BuildTrovantNameWithState(string name, string state)
     {
         return name + "_" + state;
     }
