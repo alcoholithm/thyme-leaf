@@ -143,6 +143,26 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
             UpdateUI();
         }
     }
+
+	public void Emergency()
+	{
+		Debug.Log ("Automat Emergency Spawn!!");
+		StartCoroutine ("EmergencySpawnUnit");
+	}
+	
+	IEnumerator EmergencySpawnUnit()
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			Hero obj = Spawner.Instance.GetHero(AutomatType.FRANSIS_TYPE1);
+			obj.helper.setPos(position_node.transform.localPosition);
+			for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
+			{
+				yield return null;
+			}
+		}
+		Debug.Log ("Automat Emergency Spawn Exit");
+	}
 	
     /*
      * Followings are attributes

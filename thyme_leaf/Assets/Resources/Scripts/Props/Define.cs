@@ -155,9 +155,9 @@ public struct PathNodeOffsetStruct
 		return offset_st [idx].offset;
 	}
 
-	public void setOffsetPos(int idx, float x, float y)
+	public void setOffsetPos(int idx, float x, float y, float scale)
 	{
-		offset_st [idx].Initialize (false, new Vector3 (x, y, 0));
+		offset_st [idx].Initialize (false, (new Vector3 (x, y, 0) * scale));
 	}
 }
 
