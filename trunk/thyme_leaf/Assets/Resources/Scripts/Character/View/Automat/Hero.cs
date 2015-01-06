@@ -48,10 +48,10 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	private UnitObject my_unit;
 	public UnitObject target;
+
 	public string my_name;  //test code...
 	public string state_name; //test code...
 	public string muster_name; //test code...
-
 	public string p_name;  //test code...
 
 	//extra...
@@ -255,8 +255,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				if(Input.GetMouseButtonDown(0))
 				{
 					helper.gesture_startpoint = Input.mousePosition;
-//					if(Time.timeScale != 0) Time.timeScale = 0;
-//					else if(Time.timeScale == 0) Time.timeScale = 1;
 					if(helper.getMusterTrigger())
 					{
 						Debug.Log("muster range edit");
