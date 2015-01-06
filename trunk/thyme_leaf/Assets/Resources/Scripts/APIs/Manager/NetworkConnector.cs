@@ -71,16 +71,6 @@ public class NetworkConnector : MonoBehaviour
 	}
 	
 	// Step 2 
-	public void CreateRoom()
-	{
-		Debug.Log("... Creating Room");
-		if (IsAttachedListener ())
-			CreateRoom (gameName);
-		else
-			Debug.LogError("NullPointerException : NetworkActionListener");
-	}
-	
-	// Step 3
 	public void JoinRoom()
 	{
 		Debug.Log("... Joining Room");
@@ -90,16 +80,22 @@ public class NetworkConnector : MonoBehaviour
 			Debug.LogError("NullPointerException : NetworkActionListener");
 	}
 	
-	// Step 4
+	// Step 3
 	public void NetworkLoadLevel(string loadLevel)
 	{
 		if (Network.peerType == NetworkPeerType.Disconnected)
+        {
 			Debug.Log("NOT CONNECTED NETWORK ERROR : You should check if network is connected correctly");
-		else if(Network.isServer)
-			networkView.RPC("OnNetworkLoadLevel", RPCMode.All, loadLevel);
+        }
+        else if (Network.isServer)
+        {
+            if (GetComponent<NetworkView>().networkView == null)
+                Debug.Log("network view is null");
+			else networkView.RPC("OnNetworkLoadLevel", RPCMode.All, loadLevel);
+        }
 	}
 	
-	// Step 5
+	// Step 4
 	public void ExitRoom()
 	{
 		Debug.Log ("... Exiting Room");
@@ -137,26 +133,16 @@ public class NetworkConnector : MonoBehaviour
 	
 	void OnGUI()
 	{
-		if (!Network.isClient && !Network.isServer)
-		{
-			if (GUI.Button(new Rect(0, 0, 250, 50), "Step 1 : Make Room"))
-			{
-				// Use this code on Room Maker
-				NetworkConnector.Instance
-					.SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
-						.SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
-						.CreateRoom();
-			}
-			
-			if (GUI.Button(new Rect(0, 50 + 10, 250, 50), "Step 2 : Join Room"))
-			{
-				// Use this Code on Room Joiner
-				NetworkConnector.Instance
-					.SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
-						.SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
-						.JoinRoom();
-			}
-		}
+        if (!Network.isClient && !Network.isServer)
+        {
+            if (GUI.Button(new Rect(0, 0, 250, 50), "Start"))
+            {
+                NetworkConnector.Instance
+                    .SetOnNetworkConnectedListener(TestOnConnectedActionPerform)
+                        .SetOnNetworkDisconnectedListener(TestOnDisconnectedActionPerform)
+                        .JoinRoom();
+            }
+        }
 	}
 	
 	/*******************************************************************/
@@ -166,6 +152,15 @@ public class NetworkConnector : MonoBehaviour
 	
 	
 	// Private Network API Methods
+    private void CreateRoom()
+    {
+        Debug.Log("... Creating Room");
+        if (IsAttachedListener())
+            CreateRoom(gameName);
+        else
+            Debug.LogError("NullPointerException : NetworkActionListener");
+    }
+
 	private void CreateRoom(string gameName)
 	{
 		Network.InitializeServer(1, 25005, !Network.HavePublicAddress());
@@ -185,7 +180,8 @@ public class NetworkConnector : MonoBehaviour
 	
 	private bool IsAttachedListener()
 	{
-		return NetworkConnector.onConnectedActionListener != null;
+		return NetworkConnector.onConnectedActionListener != null 
+            || NetworkConnector.onDisconnectedActionListener == null;
 	}
 	
 	
