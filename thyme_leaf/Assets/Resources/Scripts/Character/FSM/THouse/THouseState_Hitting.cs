@@ -31,10 +31,11 @@ public class THouseState_Hitting : State<THouse>
 
     public override bool HandleMessage(Message msg)
     {
+		Debug.Log ("aaaaaaaaa : " + msg.arg1);
         switch (msg.what)
         {
             case MessageTypes.MSG_NORMAL_DAMAGE:
-                (msg.receiver as WChat).TakeDamage(msg.arg1);
+                (msg.receiver as THouse).TakeDamage(msg.arg1);
                 return true;
         }
         return false;

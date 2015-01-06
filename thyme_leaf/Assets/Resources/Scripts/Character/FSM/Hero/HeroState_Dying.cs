@@ -39,7 +39,7 @@ public class HeroState_Dying : State<Hero> {
 		//collision module exit...
 		owner.Die ();
 		//remove character in unit pool...
-		UnitPoolController.GetInstance ().RemoveUnit (owner.gameObject);
+		UnitPoolController.GetInstance ().RemoveUnit (owner.MyUnit);
 
         Spawner.Instance.Free(owner.gameObject);
 

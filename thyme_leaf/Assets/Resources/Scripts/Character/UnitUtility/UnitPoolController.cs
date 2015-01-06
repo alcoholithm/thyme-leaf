@@ -40,13 +40,11 @@ public class UnitPoolController
 		}
 	}
 	
-	public void RemoveUnit(GameObject uObj)
+	public void RemoveUnit(UnitObject uObj)
 	{
 		int id1 = -1;
-		if(uObj.layer == (int)Layer.Automart || uObj.layer == (int)Layer.Trovant)
-		{
-			id1 = uObj.GetComponent<Hero>().model.ID;
-		}
+	
+		id1 = uObj.nameID;
 		
 		for(int i=0;i<unitPool.Count;i++)
 		{

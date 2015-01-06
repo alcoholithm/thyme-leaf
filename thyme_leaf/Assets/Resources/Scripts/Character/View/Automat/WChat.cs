@@ -47,6 +47,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
     private WChat_Controller controller;
 
     //---------------------
+	private UnitObject my_unit;
 	private Vector3 position_node;
     /*
     * followings are unity callback methods
@@ -199,6 +200,12 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
         get { return position_node; }
         set { position_node = value; }
     }
+
+	public UnitObject MyUnit
+	{
+		get { return my_unit; }
+		set { my_unit = value; }
+	}
 
     public new const string TAG = "[W_Chat]";
 }

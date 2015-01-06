@@ -175,11 +175,11 @@ public class HeroState_Moving : State<Hero> {
 		{
 		case UnitType.AUTOMAT_CHARACTER:
 		case UnitType.TROVANT_CHARACTER:
-			return obj.infor_hero.model.HP;
+			return obj.infor_hero == null ? -1 : obj.infor_hero.model.HP;
 		case UnitType.AUTOMAT_WCHAT:
-			return obj.infor_automat_center.Model.HP;
+			return obj.infor_automat_center == null ? -1 : obj.infor_automat_center.Model.HP;
 		case UnitType.TROVANT_THOUSE:
-			return obj.infor_trovant_center.Model.HP;
+			return obj.infor_trovant_center == null ? -1 : obj.infor_trovant_center.Model.HP;
 		}
 		return -1;
 	}
