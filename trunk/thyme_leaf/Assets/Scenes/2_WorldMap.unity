@@ -871,7 +871,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121174386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -478.205566, y: -650.787842, z: 0}
+  m_LocalPosition: {x: -899, y: -651, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 742973800}
@@ -888,7 +888,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 120, y: 120, z: 0}
+  m_Size: {x: 108, y: 110, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &121174389
 MonoBehaviour:
@@ -953,13 +953,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 120
-  mHeight: 120
+  mWidth: 108
+  mHeight: 110
   mDepth: 1
-  autoResizeBoxCollider: 1
+  autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .981818199
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -1186,7 +1186,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 291819619}
-    mMethodName: DeleteTemp
+    mMethodName: CloseMessageDialog
     mParameters: []
     oneShot: 0
 --- !u!114 &194360873
@@ -2080,6 +2080,30 @@ Prefab:
     - target: {fileID: 400006, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400060, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: mWidth
+      value: 609
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400060, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: aspectRatio
+      value: 3.64670658
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400060, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: mHeight
+      value: 167
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400060, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: mFontSize
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400038, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: onClick.Array.data[0].mMethodName
+      value: CloseMessageDialog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
@@ -3534,18 +3558,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 330
-  mHeight: 40
+  mWidth: 609
+  mHeight: 167
   mDepth: 2
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 8.25
+  aspectRatio: 3.64670658
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
   mText: Contents
-  mFontSize: 40
+  mFontSize: 42
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1

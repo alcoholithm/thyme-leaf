@@ -153,7 +153,7 @@ public class NetworkConnector : Manager<NetworkConnector>
 	
 	
 	// Private Network API Methods
-    private void CreateRoom()
+    public void CreateRoom()
     {
         Debug.Log("... Creating Room");
         if (IsAttachedListener())
