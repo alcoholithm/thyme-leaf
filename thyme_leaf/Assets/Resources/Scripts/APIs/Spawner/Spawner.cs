@@ -81,8 +81,7 @@ public class Spawner : Manager<Spawner>
                 }
 
             PathManager.Instance.ShootMap();
-
-            
+            CreateWChats();
         }
     }
 
@@ -92,17 +91,14 @@ public class Spawner : Manager<Spawner>
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
             wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
-            //wchat.gameObject.transform.position = PathManager.single_position;
         }
         else if (Network.isServer)
         {
             wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.server_position);
-            //networkView.RPC("NetworkInitWChat",RPCMode.All,PathManager.server_position);            
         }
         else if (Network.isClient)
         {
             wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.client_position);
-            //networkView.RPC("NetworkInitWChat", RPCMode.All, PathManager.client_position);
         }
     }
 
