@@ -9249,7 +9249,6 @@ GameObject:
   - 4: {fileID: 1081107209}
   - 114: {fileID: 1081107208}
   - 148: {fileID: 1081107207}
-  - 114: {fileID: 1081107206}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -9257,18 +9256,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1081107206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 967e6aef147ef644189aaa903fc1d3dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 715379833}
-  m_GameObject: {fileID: 1081107205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db45feb961a05554187d17d7631d4bfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!148 &1081107207
 NetworkView:
   m_ObjectHideFlags: 0
@@ -9308,6 +9295,8 @@ MonoBehaviour:
   - {fileID: 905565700}
   thouses:
   - {fileID: 100002, guid: 510c01b18835d2b4f80f7564591ece58, type: 2}
+  effects:
+  - {fileID: 100002, guid: cba6d29995e80304493dea95e898f275, type: 2}
   initPoolSize: 100
   maxPoolSize: 200
 --- !u!4 &1081107209

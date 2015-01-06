@@ -91,6 +91,11 @@ public enum ProjectileType
     POISON = 0,
 }
 
+public enum EffectType
+{
+    POISON_CLOUD,
+}
+
 public enum TowerType
 {
     APT = 0,
