@@ -3,7 +3,8 @@ using System.Collections;
 
 public class THouseState_Waving : State<THouse>
 {
-    private string animName = "Tower_Attacking_";
+    //private string animName = "Tower_Attacking_";
+    private string animName = "Trovant_House";
 
     private THouseState_Waving()
     {
