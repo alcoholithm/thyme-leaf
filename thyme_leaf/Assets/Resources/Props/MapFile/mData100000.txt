@@ -1,0 +1,768 @@
+numofdata 59
+name node0
+id 0
+current_pos
+-885 664 0
+next node19
+prev null
+turnoffBridge null
+automatpoint true
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node1
+id 1
+current_pos
+424 -156 0
+next null
+prev null
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot true
+turnoffidx 3
+turnoffList
+node43 node17 node16 null 
+name node2
+id 2
+current_pos
+-444 -24 0
+next node3
+prev null
+turnoffBridge node30
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node3
+id 3
+current_pos
+-395 67 0
+next node4
+prev node2
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node4
+id 4
+current_pos
+-347 160 0
+next node5
+prev node3
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node5
+id 5
+current_pos
+-289 247 0
+next node6
+prev node4
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node6
+id 6
+current_pos
+-209 322 0
+next node7
+prev node5
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node7
+id 7
+current_pos
+-105 382 0
+next node8
+prev node6
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node8
+id 8
+current_pos
+11 382 0
+next node9
+prev node7
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node9
+id 9
+current_pos
+107 349 0
+next node11
+prev node8
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node10
+id 10
+current_pos
+-692 -627 0
+next node32
+prev node31
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node11
+id 11
+current_pos
+187 289 0
+next node12
+prev node9
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node12
+id 12
+current_pos
+247 202 0
+next node13
+prev node11
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node13
+id 13
+current_pos
+304 100 0
+next node14
+prev node12
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node14
+id 14
+current_pos
+333 7 0
+next node16
+prev node13
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node15
+id 15
+current_pos
+-764 521 0
+next node20
+prev node19
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node16
+id 16
+current_pos
+370 -82 0
+next null
+prev node14
+turnoffBridge node1
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node17
+id 17
+current_pos
+539 -143 0
+next node18
+prev null
+turnoffBridge node1
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node18
+id 18
+current_pos
+648 -121 0
+next node44
+prev node17
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node19
+id 19
+current_pos
+-825 594 0
+next node15
+prev node0
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node20
+id 20
+current_pos
+-717 442 0
+next node21
+prev node15
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node21
+id 21
+current_pos
+-673 360 0
+next node22
+prev node20
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node22
+id 22
+current_pos
+-663 285 0
+next node23
+prev node21
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node23
+id 23
+current_pos
+-696 219 0
+next node58
+prev node22
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node24
+id 24
+current_pos
+-826 111 0
+next node25
+prev node58
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node25
+id 25
+current_pos
+-863 47 0
+next node26
+prev node24
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node26
+id 26
+current_pos
+-859 -17 0
+next node27
+prev node25
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node27
+id 27
+current_pos
+-823 -72 0
+next node28
+prev node26
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node28
+id 28
+current_pos
+-722 -108 0
+next node29
+prev node27
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node29
+id 29
+current_pos
+-603 -121 0
+next null
+prev node28
+turnoffBridge node30
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node30
+id 30
+current_pos
+-472 -121 0
+next null
+prev null
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot true
+turnoffidx 3
+turnoffList
+node29 node2 node36 null 
+name node31
+id 31
+current_pos
+-812 -658 0
+next node10
+prev null
+turnoffBridge null
+automatpoint true
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node32
+id 32
+current_pos
+-584 -596 0
+next node33
+prev node10
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node33
+id 33
+current_pos
+-496 -538 0
+next null
+prev node32
+turnoffBridge node34
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node34
+id 34
+current_pos
+-412 -455 0
+next null
+prev null
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot true
+turnoffidx 3
+turnoffList
+node33 node35 node37 null 
+name node35
+id 35
+current_pos
+-412 -331 0
+next null
+prev node36
+turnoffBridge node34
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node36
+id 36
+current_pos
+-437 -226 0
+next node35
+prev null
+turnoffBridge node30
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node37
+id 37
+current_pos
+-292 -456 0
+next node38
+prev null
+turnoffBridge node34
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node38
+id 38
+current_pos
+-178 -485 0
+next node39
+prev node37
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node39
+id 39
+current_pos
+-55 -493 0
+next node40
+prev node38
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node40
+id 40
+current_pos
+69 -477 0
+next node41
+prev node39
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node41
+id 41
+current_pos
+187 -434 0
+next node42
+prev node40
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node42
+id 42
+current_pos
+282 -343 0
+next node43
+prev node41
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node43
+id 43
+current_pos
+364 -256 0
+next null
+prev node42
+turnoffBridge node1
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node44
+id 44
+current_pos
+750 -84 0
+next node45
+prev node18
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node45
+id 45
+current_pos
+844 -26 0
+next node46
+prev node44
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node46
+id 46
+current_pos
+875 36 0
+next node47
+prev node45
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node47
+id 47
+current_pos
+869 103 0
+next node48
+prev node46
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node48
+id 48
+current_pos
+822 158 0
+next node49
+prev node47
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node49
+id 49
+current_pos
+726 193 0
+next node50
+prev node48
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node50
+id 50
+current_pos
+620 234 0
+next node51
+prev node49
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node51
+id 51
+current_pos
+522 294 0
+next node52
+prev node50
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node52
+id 52
+current_pos
+496 396 0
+next node53
+prev node51
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node53
+id 53
+current_pos
+534 458 0
+next node54
+prev node52
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node54
+id 54
+current_pos
+607 484 0
+next node55
+prev node53
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node55
+id 55
+current_pos
+696 507 0
+next node56
+prev node54
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node56
+id 56
+current_pos
+793 553 0
+next node57
+prev node55
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node57
+id 57
+current_pos
+892 645 0
+next null
+prev node56
+turnoffBridge null
+automatpoint false
+trovantpoint true
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 
+name node58
+id 58
+current_pos
+-757 168 0
+next node24
+prev node23
+turnoffBridge null
+automatpoint false
+trovantpoint false
+turnoffRoot false
+turnoffidx 0
+turnoffList
+null null null null 

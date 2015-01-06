@@ -172,3 +172,9 @@ public enum MultiplayType
     SERVER,
     CLIENT,
 }
+
+public enum GameMode
+{
+	SINGLE_PLAY = 0,
+	MULTI_PLAY
+}
