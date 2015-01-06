@@ -438,9 +438,11 @@ public class Spawner : Manager<Spawner>
         hero.GetComponent<UISprite>().MakePixelPerfect();
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
-		
+
+		//selected center node input...
+		//trovant is not input value...
 		if(type == StartPoint.AUTOMAT_POINT) hero.controller.StartPointSetting (Define.selected_center);
-		else hero.controller.StartPointSetting ( StartPoint.TROVANT_POINT);   //test code...
+		else hero.controller.StartPointSetting ( StartPoint.TROVANT_POINT);   //test code...after..remove code...
 
 		hero.CollisionSetting (true);
 

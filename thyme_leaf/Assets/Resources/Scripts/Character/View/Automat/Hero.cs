@@ -301,7 +301,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
-	//		string anim_name = Naming.Instance.
+//			string anim_name = Naming
 
 			if(dir == -1)
 			{

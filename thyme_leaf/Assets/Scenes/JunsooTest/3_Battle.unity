@@ -811,7 +811,12 @@ Prefab:
       propertyPath: onClick.Array.data[0].mParameters.Array.data[0].obj
       value: 
       objectReference: {fileID: 1014386085}
-    m_RemovedComponents: []
+    - target: {fileID: 100008, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6500000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
   m_RootGameObject: {fileID: 1014386085}
   m_IsPrefabParent: 0
@@ -3997,6 +4002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4f9b9a8e128f24cb813680c25a6211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flame: {fileID: 0}
 --- !u!1001 &329814338
 Prefab:
   m_ObjectHideFlags: 0
@@ -5236,7 +5242,7 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-  m_PrefabInternal: {fileID: 1491447619}
+  m_PrefabInternal: {fileID: 1248244115}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 509210483}
@@ -5252,7 +5258,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-  m_PrefabInternal: {fileID: 1491447619}
+  m_PrefabInternal: {fileID: 1248244115}
   m_GameObject: {fileID: 509210482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -5265,7 +5271,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 9f408a03f01224b0a8da5bb326202234,
     type: 2}
-  m_PrefabInternal: {fileID: 1491447619}
+  m_PrefabInternal: {fileID: 1248244115}
   m_GameObject: {fileID: 509210482}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -5275,6 +5281,7 @@ MonoBehaviour:
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
   node_visible: 0
+  game_mode: 0
 --- !u!1 &517907552
 GameObject:
   m_ObjectHideFlags: 0
@@ -5712,6 +5719,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 2047035592}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 545286434}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 275084557}
     mMethodName: SetCurrentPercent
     mParameters: []
@@ -9918,11 +9931,11 @@ GameObject:
   - 114: {fileID: 1014386093}
   - 114: {fileID: 1014386092}
   - 114: {fileID: 1014386091}
-  - 65: {fileID: 1014386090}
   - 148: {fileID: 1014386089}
   - 114: {fileID: 1014386088}
   - 114: {fileID: 1014386087}
   - 114: {fileID: 1014386094}
+  - 65: {fileID: 1014386090}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
@@ -9992,15 +10005,14 @@ NetworkView:
 --- !u!65 &1014386090
 BoxCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: 29cbf384dd633b143bdb02d735a18569,
-    type: 2}
-  m_PrefabInternal: {fileID: 89064568}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1014386085}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 40, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1014386091
 MonoBehaviour:
@@ -11655,6 +11667,58 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!1001 &1248244115
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1643324154}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: game_mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: node_visible
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+  m_RootGameObject: {fileID: 509210482}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1251309166
 GameObject:
   m_ObjectHideFlags: 0
@@ -13473,50 +13537,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1001 &1491447619
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1643324154}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
-  m_RootGameObject: {fileID: 509210482}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1495882675
 GameObject:
   m_ObjectHideFlags: 0
@@ -15089,6 +15109,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 2047035592}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 1793089250}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1905763665}
     mMethodName: SetCurrentPercent
     mParameters: []
@@ -16232,9 +16258,9 @@ MonoBehaviour:
   _closeButton: {fileID: 747321481}
   _okayButton: {fileID: 483039868}
   _musicCheckBox: {fileID: 893273549}
-  _musicSlider: {fileID: 0}
+  _musicSlider: {fileID: 1793089250}
   _soundFXCheckBox: {fileID: 1428639994}
-  _soundFXSlider: {fileID: 0}
+  _soundFXSlider: {fileID: 545286434}
 --- !u!1 &2051876529
 GameObject:
   m_ObjectHideFlags: 0

@@ -2529,8 +2529,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 72a6e888df3a949aaa62953252a81154, type: 2}
-  mSpriteName: Background
+  mAtlas: {fileID: 11400000, guid: 6aa41bba7756a4e6787edaed7208a594, type: 2}
+  mSpriteName: multi_map
   mFillCenter: 1
 --- !u!1 &358058074
 GameObject:
@@ -2839,6 +2839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4f9b9a8e128f24cb813680c25a6211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flame: {fileID: 0}
 --- !u!1 &381627345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,6 +3525,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 752181671}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 603533714}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1430670144}
     mMethodName: SetCurrentPercent
     mParameters: []
@@ -5567,9 +5574,9 @@ MonoBehaviour:
   _closeButton: {fileID: 932628346}
   _okayButton: {fileID: 1765369950}
   _musicCheckBox: {fileID: 1872192994}
-  _musicSlider: {fileID: 0}
+  _musicSlider: {fileID: 603533714}
   _soundFXCheckBox: {fileID: 736788976}
-  _soundFXSlider: {fileID: 0}
+  _soundFXSlider: {fileID: 966147013}
 --- !u!1 &773874051
 GameObject:
   m_ObjectHideFlags: 0
@@ -6248,7 +6255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
-  node_visible: 0
+  node_visible: 1
+  game_mode: 1
 --- !u!1 &824971641
 GameObject:
   m_ObjectHideFlags: 0
@@ -6550,6 +6558,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2109084884}
     m_Modifications:
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.data[0].mParameters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6594,6 +6610,14 @@ Prefab:
       propertyPath: onClick.Array.data[0].mTarget
       value: 
       objectReference: {fileID: 146251032}
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.data[0].mMethodName
+      value: ActionPerformed
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.data[0].mParameters.Array.data[0].obj
+      value: 
+      objectReference: {fileID: 1645749043}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
   m_RootGameObject: {fileID: 1645749043}
@@ -7170,6 +7194,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 752181671}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 966147013}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1335454348}
     mMethodName: SetCurrentPercent
     mParameters: []
@@ -10325,6 +10355,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
+      propertyPath: game_mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f408a03f01224b0a8da5bb326202234, type: 2}
   m_RootGameObject: {fileID: 803627224}
@@ -12371,7 +12405,7 @@ MonoBehaviour:
   - {fileID: 100008, guid: 49ec784fbb4614d03bacd3338c0f83e0, type: 2}
   - {fileID: 100008, guid: 11282234ffd414b3eab30ca3d86bfdb0, type: 2}
   towers:
-  - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
+  - {fileID: 100002, guid: f1b8e0f3dff46884287f346ddf737af0, type: 2}
   projectiles:
   - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
   trovants:
@@ -12613,7 +12647,13 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 146251032}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 1645749043}
+      field: 
+    oneShot: 0
 --- !u!114 &1645749050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14261,6 +14301,10 @@ Prefab:
       propertyPath: thouses.Array.data[0]
       value: 
       objectReference: {fileID: 100002, guid: 510c01b18835d2b4f80f7564591ece58, type: 2}
+    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: towers.Array.data[0]
+      value: 
+      objectReference: {fileID: 100002, guid: f1b8e0f3dff46884287f346ddf737af0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
   m_RootGameObject: {fileID: 1599547515}
