@@ -81,27 +81,36 @@ public class Spawner : Manager<Spawner>
                 }
 
             PathManager.Instance.ShootMap();
+
+            
         }
     }
+
+    public void CreateWChats() // Get EnumValue for Stage
+    {
+        WChat wchat = null;
+        if (Network.peerType == NetworkPeerType.Disconnected)
+        {
+            wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
+            //wchat.gameObject.transform.position = PathManager.single_position;
+        }
+        else if (Network.isServer)
+        {
+            wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.server_position);
+            //networkView.RPC("NetworkInitWChat",RPCMode.All,PathManager.server_position);            
+        }
+        else if (Network.isClient)
+        {
+            wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.client_position);
+            //networkView.RPC("NetworkInitWChat", RPCMode.All, PathManager.client_position);
+        }
+    }
+
+    
 
     /**********************************/
     // Effects
     // Poison Cloud
-    public GameObject DynamicGetPoisonCloud(EffectType type)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            GameObject go = GameObject.Instantiate(effects[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            go.SetActive(false);
-            go.transform.parent = automatBuildingPool.transform;
-            go.SetActive(true);
-            return go;
-        }
-        else
-        {
-            return GetPoisonCloud(type);
-        }
-    }
 
     public GameObject GetPoisonCloud(EffectType type)
     {
@@ -128,22 +137,6 @@ public class Spawner : Manager<Spawner>
 
 
     /**********************************/
-
-    public THouse DynamicGetThouse(THouseType type)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            GameObject go = GameObject.Instantiate(thouses[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            go.SetActive(false);
-            go.transform.parent = trovantBuildingPool.transform;
-            go.SetActive(true);
-            return go.GetComponent<THouse>();
-        }
-        else
-        {
-            return GetThouse(type);
-        }
-    }
 
     public THouse GetThouse(THouseType type)
     {
@@ -172,43 +165,28 @@ public class Spawner : Manager<Spawner>
 
     /**********************************/
 
-    public WChat DynamicGetWChat(WChatType type)
+    public WChat GetWChat(WChatType type, Vector3 pos)
     {
+        WChat entity = null;
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            GameObject go = GameObject.Instantiate(wchats[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            go.SetActive(false);
-            go.transform.parent = automatBuildingPool.transform;
-            go.SetActive(true);
-            return go.GetComponent<WChat>();
-        }
-        else
-        {
-            return GetWChat(type);
-        }
-    }
-
-    public WChat GetWChat(WChatType type)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            WChat entity = GetWChat((int)type);
-            EntityManager.Instance.RegisterEntity(entity);
-            return entity;
+            entity = GetWChat((int)type, pos);
         }
         else
         {
             NetworkViewID viewID = Network.AllocateViewID();
-            networkView.RPC("NetworkGetWChat", RPCMode.All, viewID, (int)type);
+            networkView.RPC("NetworkGetWChat", RPCMode.All, viewID, (int)type, pos);
             GameObject go = NetworkView.Find(viewID).gameObject;
-            return go.GetComponent<WChat>();
+            entity = go.GetComponent<WChat>();
         }
+        EntityManager.Instance.RegisterEntity(entity);
+        return entity;
     }
 
-    private WChat GetWChat(int type)
+    private WChat GetWChat(int type, Vector3 pos)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(wchats[type].name);
-        InitWChat(ref go);
+        InitWChat(ref go, pos);
         return go.GetComponent<WChat>();
     }
 
@@ -324,20 +302,7 @@ public class Spawner : Manager<Spawner>
 
 
     //
-
-    public Projectile DynamicGetProjectile(ProjectileType type)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            GameObject go = GameObject.Instantiate(projectiles[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            return go.GetComponent<Projectile>();
-        }
-        else
-        {
-            return GetProjectile(type);
-        }
-    }
-
+    
     public Projectile GetProjectile(ProjectileType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -412,11 +377,16 @@ public class Spawner : Manager<Spawner>
 		Define.center_list.Add (go);
 	}
 
-    private void InitWChat(ref GameObject go)
+    private void InitWChat(ref GameObject go, Vector3 pos)
     {
         go.transform.parent = GameObject.Find("AutomatBuildings").transform;
         go.transform.localScale = new Vector3(1, 1, 1);
+        go.transform.localPosition = pos;
 
+        WChat wchat = go.GetComponent<WChat>();
+        wchat.PositionNode = pos;
+        wchat.ChangeState(WChatState_Idling.Instance);
+        
 		Define.center_list.Add (go);
     }
 
@@ -503,14 +473,14 @@ public class Spawner : Manager<Spawner>
     }
 
     [RPC]
-    void NetworkGetWChat(NetworkViewID viewID, int type)
+    void NetworkGetWChat(NetworkViewID viewID, int type, Vector3 pos)
     {
         GameObject go = GameObject.Instantiate(wchats[type], Vector3.zero, Quaternion.identity) as GameObject;
         go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-        InitWChat(ref go);
+        InitWChat(ref go, pos);
     }
 
     [RPC]
