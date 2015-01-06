@@ -3,7 +3,7 @@ using System.Collections;
 
 public class THouseState_Idling : State<THouse>
 {
-    private string animName = "Tower_Attacking_";
+    private string animName = "Trovant_House";
 
     private THouseState_Idling()
     {
