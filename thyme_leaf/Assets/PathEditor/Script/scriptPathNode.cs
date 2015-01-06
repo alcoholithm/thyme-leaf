@@ -19,6 +19,9 @@ public class scriptPathNode : MonoBehaviour
 
 	private UISprite uiSprite;
 
+	public int center_num;
+	public string center_name;
+
 	public void DataInit()
 	{
 		pos = Vector3.zero;
@@ -39,6 +42,9 @@ public class scriptPathNode : MonoBehaviour
 		Next = Prev = turnoffBridge = null;
 
 		uiSprite = gameObject.GetComponent<UISprite> ();
+
+		center_num = -1;
+		center_name = "null";
 	}
 	
 	public void AddTurnOffList(GameObject obj)

@@ -48,7 +48,6 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
 
     //---------------------
 	private GameObject position_node;
-
     /*
     * followings are unity callback methods
     */
@@ -144,7 +143,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
             UpdateUI();
         }
     }
-
+	
     /*
      * Followings are attributes
      */ 

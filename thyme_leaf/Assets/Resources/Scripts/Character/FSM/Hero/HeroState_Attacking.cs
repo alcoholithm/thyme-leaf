@@ -19,7 +19,7 @@ public class HeroState_Attacking : State<Hero>
 //			owner.Anim.Play("Python_Attacking_Normal_");
 //		}
 
-		owner.controller.setStateName ("Attacking_");
+		owner.controller.setStateName (Naming.ATTACKING);
 		owner.state_name = owner.model.StateName;
         owner.helper.attack_delay_counter = 0;  //attack delay setting...
 
