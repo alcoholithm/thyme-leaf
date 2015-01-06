@@ -166,7 +166,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 			Debug.Log ("wave start!!");
 			yield return new WaitForSeconds(wave_table.wave_setting_value_set[idx].first_delay_time);
 			
-			stateMachine.ChangeState(THouseState_Waving);  //change wave state~~!!!...
+			stateMachine.ChangeState(THouseState_Waving.Instance);  //change wave state~~!!!...
 			
 			StartCoroutine ("WaveSpawnUnit", idx);
 		}
@@ -186,7 +186,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		Debug.Log ((wave_count+1) + " wave exit");
 		wave_count++;
 		
-		stateMachine.ChangeState (THouseState_Idling);  //change idling state~~!!!...
+		stateMachine.ChangeState (THouseState_Idling.Instance);  //change idling state~~!!!...
 		StartCoroutine ("WaveRoutine", wave_count);
 	}
 	
