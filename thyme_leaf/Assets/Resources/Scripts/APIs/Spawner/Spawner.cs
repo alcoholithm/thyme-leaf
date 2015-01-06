@@ -325,6 +325,7 @@ public class Spawner : Manager<Spawner>
 		go.transform.localScale = new Vector3(1, 1, 1);
 
 		Define.THouse_list.Add (go);
+		UnitPoolController.GetInstance ().AddUnit (new UnitObject (go, UnitNameGetter.GetInstance ().getNameTrovantCenter (), UnitType.TROVANT_THOUSE)); 
 	}
 
     private void InitWChat(ref GameObject go, Vector3 pos)
@@ -339,6 +340,7 @@ public class Spawner : Manager<Spawner>
         wchat.ChangeState(WChatState_Idling.Instance);
         
 		Define.THouse_list.Add (go);
+		UnitPoolController.GetInstance ().AddUnit (new UnitObject (go, UnitNameGetter.GetInstance ().getNameAutomartCenter (), UnitType.AUTOMAT_WCHAT));
     }
 
     private void InitHero(ref GameObject go)
