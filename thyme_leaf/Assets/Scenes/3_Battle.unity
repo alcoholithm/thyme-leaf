@@ -12213,8 +12213,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 5cf69b9a9a9674c2cb5723ccf147b5a7, type: 2}
-  mSpriteName: Map-01
+  mAtlas: {fileID: 11400000, guid: 72a6e888df3a949aaa62953252a81154, type: 2}
+  mSpriteName: Background
   mFillCenter: 1
 --- !u!1 &1419726584
 GameObject:

@@ -65,7 +65,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	public Helper helper;
 
 	[HideInInspector]
-	public Transform health_bar_body;
+	private UISprite ui_sprite;
 	//=====================
 
 	void Awake()
@@ -116,7 +116,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		helper.collision_range_muster = 180;
 
         health_bar_controller = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
-        health_bar_body = health_bar_controller.transform;
+		ui_sprite = gameObject.GetComponent<UISprite> ();
 
 		//hp bar setting...
 		(this.health_bar_controller as HealthBar).Model = this.model;
@@ -131,7 +131,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		Debug.Log (coll.name);
 		//coll return checking...
 		if(coll == null || helper.collision_object.radius == helper.collision_range_muster) return;
 	
@@ -305,30 +304,23 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 			if(dir == -1)
 			{
-				transform.localScale = new Vector3(-1, 1, 1); //left
-				health_bar_body.localScale = new Vector3(-1, 1, 1);
+				ui_sprite.flip = UIBasicSprite.Flip.Horizontally;
 			}
 			else if(dir == 1)
 			{
-				transform.localScale = new Vector3(1, 1, 1);  //right
-				health_bar_body.localScale = new Vector3(1, 1, 1);
+				ui_sprite.flip = UIBasicSprite.Flip.Nothing;
 			}
 			
 			if(a < -45 && a > -135) //down
 			{
 				anim.Play(p_name+model.StateName+"_Downwards_");
-				//transform.localRotation = Quaternion.Euler(0,0,0);
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
-//				transform.localScale = new Vector3(1, 1, 1); //left
-//				health_bar_body.localScale = new Vector3(1, 1, 1);
 				anim.Play(p_name+model.StateName+"_Normal_");
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
-//				transform.localScale = new Vector3(-1, 1, 1); //left
-//				health_bar_body.localScale = new Vector3(-1, 1, 1);
 				anim.Play(p_name+model.StateName+"_Normal_");
 			}
 //			else if(a > 45 && a < 135) //up
