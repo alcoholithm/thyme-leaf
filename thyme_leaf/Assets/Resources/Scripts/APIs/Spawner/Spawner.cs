@@ -87,19 +87,12 @@ public class Spawner : Manager<Spawner>
     public void CreateWChats() 
     {
         Debug.Log("CREATE WCHATS");
-        WChat wchat = null;
         if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
-        }
+            GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
         else if (Network.isServer)
-        {
-            wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.server_position);
-        }
+            GetWChat(WChatType.WCHAT_TYPE1, PathManager.server_position);
         else if (Network.isClient)
-        {
-            wchat = GetWChat(WChatType.WCHAT_TYPE1, PathManager.client_position);
-        }
+            GetWChat(WChatType.WCHAT_TYPE1, PathManager.client_position);
     }
 
     
@@ -533,6 +526,7 @@ public class Spawner : Manager<Spawner>
     {
         if (!viewID.isMine) return;
         GameObject go = NetworkView.Find(viewID).gameObject;
+        EntityManager.Instance.RemoveEntity(go.GetComponent<GameEntity>());
         Destroy(go);
     }
 }
