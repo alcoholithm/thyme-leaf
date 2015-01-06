@@ -90,7 +90,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		//animation control...
 		ChangingAnimationAngle ();
 		//muster control...
-	//	MusterControl ();
+		MusterControl ();
 	}
 
 	//unit detail initialize...
@@ -151,7 +151,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 //					switch(other_center_layer)
 //					{
 //					case Layer.Automart:
-//						helper.attack_target = coll.gameObject.GetComponent<Hero>();
+//						helper.attack_target = coll.gameObject.GetComponent<WChat>();
 //						break;
 //					}
 //				}
@@ -361,7 +361,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			{
 				UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
 				
-				if(model.ID == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
+				if(model.ID == other.nameID || other.obj.layer != (int)Layer.Automart ||
+				   other.infor_hero == null) continue;
 				
 				//okay unit...
 				isCount = true;
@@ -464,7 +465,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 					{
 						UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
 						
-						if(model.ID == other.nameID || other.obj.layer != (int)Layer.Automart) continue;
+						if(model.ID == other.nameID || other.obj.layer != (int)Layer.Automart ||
+						   other.infor_hero == null) continue;
 						if(helper.getCurrentNodeName() == "null" && other.infor_hero.helper.getCurrentNodeName() == "null")
 							continue;
 						if(other.infor_hero.controller.isGesture() &&
