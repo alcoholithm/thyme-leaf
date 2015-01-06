@@ -18,11 +18,13 @@ public class WaveManager : Manager<WaveManager>
 	{
 		Debug.Log ("wave system setting");
 		Debug.Log (Define.THouse_list.Count);
+		int stage_num = Define.current_stage_number >= 99999 ? 1 : Define.current_stage_number;
+		Debug.Log (stage_num);
 		for(int i=0,k=0;i<Define.THouse_list.Count;i++)
 		{
 			THouse t_data = Define.THouse_list[i].GetComponent<THouse>(); //only trovant center...
 			if(t_data == null || t_data.gameObject.layer != (int)Layer.Trovant) continue;
-			CenterWaveStruct data = Define.stage_wave_sys_setting[Define.current_stage_number-1].center_set[k];
+			CenterWaveStruct data = Define.stage_wave_sys_setting[stage_num - 1].center_set[k];
 			t_data.WaveSystemStart(data);
 		}
 	}
