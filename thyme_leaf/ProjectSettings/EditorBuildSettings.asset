@@ -14,10 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3_BattleMultiplay.unity
   - enabled: 1
-    path: Assets/Scenes/4_TowerSet.unity
-  - enabled: 1
-    path: Assets/Scenes/5_AutomartSet.unity
-  - enabled: 1
     path: Assets/Scenes/Deokil/MultiplayInitScene.unity
   - enabled: 1
     path: Assets/Scenes/Deokil/MultiplayScene.unity

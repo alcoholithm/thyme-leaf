@@ -628,8 +628,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 41763982415a360449baa8d590ed7007, type: 2}
-  mSpriteName: BtnAccept
+  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mSpriteName: Checkmark
   mFillCenter: 1
 --- !u!1 &186237483
 GameObject:
@@ -3407,8 +3407,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 41763982415a360449baa8d590ed7007, type: 2}
-  mSpriteName: BtnAccept
+  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mSpriteName: Checkmark
   mFillCenter: 1
 --- !u!1 &668147078
 GameObject:
@@ -6804,8 +6804,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 41763982415a360449baa8d590ed7007, type: 2}
-  mSpriteName: BtnAccept
+  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mSpriteName: Checkmark
   mFillCenter: 1
 --- !u!4 &1416208217
 Transform:
@@ -7970,6 +7970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 366047597}
   _message: {fileID: 1394434346}
+  _btnText: {fileID: 0}
 --- !u!114 &1642466321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9784,6 +9785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 342196033}
   _message: {fileID: 21140051}
+  _btnText: {fileID: 0}
 --- !u!114 &1993505686
 MonoBehaviour:
   m_ObjectHideFlags: 0

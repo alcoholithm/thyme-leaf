@@ -51,13 +51,25 @@ public class WorldMapView : View, IActionListener
         }
         else if (source.Equals(_multiPlayBtn))
         {
-            DialogFacade.Instance.ChangeMsgDialogTitle("Multi Play Mode");
-            DialogFacade.Instance.ShowMessageDialog("Waiting for minuate....");
+            
 
-            NetworkConnector.Instance.SetOnNetworkConnectedListener(OnonnectedActionDelegate).
-                SetOnNetworkDisconnectedListener(OnisconnectedActionDelegate).JoinRoom();
-
+            JoinRoom();  
         }
+    }
+
+    private void JoinRoom() {
+        DialogFacade.Instance.ChangeMsgDialogTitle("Multi Play Mode");
+        DialogFacade.Instance.ChangeMsgDialogBtnText("Cancle");
+        DialogFacade.Instance.ShowMessageDialog("Waiting for minuate....");
+
+        NetworkConnector.Instance.SetOnNetworkConnectedListener(OnonnectedActionDelegate).
+                SetOnNetworkDisconnectedListener(OnisconnectedActionDelegate).JoinRoom();
+    }
+
+    private void FailConnect()
+    {
+        DialogFacade.Instance.CloseMessageDialog();
+        DialogFacade.Instance.ShowMessageDialog("Fail to connect to Server");
     }
 
     void OnonnectedActionDelegate(NetworkResult result){
@@ -72,6 +84,7 @@ public class WorldMapView : View, IActionListener
                 break;
             case NetworkResult.FAIL:
                 Debug.Log("Fail to connect to server");
+                FailConnect();
                 break;
             default:
                 Debug.Log("NETWORK RESULT ERROR : " + result);
@@ -81,6 +94,8 @@ public class WorldMapView : View, IActionListener
 
     void OnisconnectedActionDelegate(){
         Debug.Log("Disconnected");
+        DialogFacade.Instance.CloseMessageDialog();
+        DialogFacade.Instance.ShowMessageDialog("Disconnected to Server");
     }
 
     /*

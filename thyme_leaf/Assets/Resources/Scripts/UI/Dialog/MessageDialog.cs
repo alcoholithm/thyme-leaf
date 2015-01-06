@@ -10,6 +10,8 @@ public class MessageDialog : MonoBehaviour
     private UILabel _title;
     [SerializeField]
     private UILabel _message;
+    [SerializeField]
+    private UILabel _btnText;
 
     void OnEnable()
     {
@@ -28,6 +30,11 @@ public class MessageDialog : MonoBehaviour
     public void SetTitle(string title)
     {
         _title.text = title;
+    }
+
+    public void SetBtnText(string btnText)
+    {
+        _btnText.text = btnText;
     }
 
     public void Close()
