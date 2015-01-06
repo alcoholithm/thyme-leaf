@@ -173,6 +173,9 @@ public class SettingsFrame : View, IActionListener
     [SerializeField] private GameObject _soundFXCheckBox;
     [SerializeField] private GameObject _soundFXSlider;
 
+    [SerializeField] private GameObject _exitButton;
+    [SerializeField] private GameObject _exitMultiButton;
+
     private bool MusicEnabled;
     private bool SoundEffectsEnabled;
     private float MusicVolume;
@@ -233,6 +236,15 @@ public class SettingsFrame : View, IActionListener
         else if (source.Equals(_soundFXSlider))
         {
             Settings.CurrentSettingData.SoundEffectsVolume = source.GetComponent<UISlider>().value;
+        }
+        else if(source.Equals(_exitButton))
+        {
+            SceneManager.Instance.CurrentScene = SceneManager.WORLD_MAP;
+        }
+        else if(source.Equals(_exitMultiButton))
+        {
+            NetworkConnector.Instance.ExitRoom();
+            SceneManager.Instance.CurrentScene = SceneManager.WORLD_MAP;
         }
         AudioManager.Instance.UpdateValues();
     }

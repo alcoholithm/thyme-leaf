@@ -39,6 +39,10 @@ public class DialogFacade : Singleton<DialogFacade>
     {
         _messageDialog.GetComponent<MessageDialog>().SetTitle(title);
     }
+    public void ChangeMsgDialogBtnText(string btnText)
+    {
+        _messageDialog.GetComponent<MessageDialog>().SetBtnText(btnText);
+    }
     public void CloseMessageDialog()
     {
         _messageDialog.SetActive(false);
