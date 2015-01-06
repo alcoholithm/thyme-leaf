@@ -4,7 +4,7 @@ using System.Collections;
 public delegate void OnConnectedActionDelegate(NetworkResult result);
 public delegate void OnDisconnectedActionDelegate();
 
-public class NetworkConnector : MonoBehaviour
+public class NetworkConnector : Manager<NetworkConnector>
 {
 	// Server IP & Port
 	private const string masterSeverIP = "210.118.69.150";
@@ -20,8 +20,8 @@ public class NetworkConnector : MonoBehaviour
 	private const string typeName = "Thyme Leaf";
 	private string gameName = "Time Leap";
 	private HostData[] hostList;
-	private static object syncRoot = new System.Object();
-	private static NetworkConnector instance;
+    //private static object syncRoot = new System.Object();
+    //private static NetworkConnector instance;
 	
 	
 	// ??? 
@@ -29,21 +29,21 @@ public class NetworkConnector : MonoBehaviour
 	public Transform prefab;
 	
 	
-	private NetworkConnector() {}
-	public static NetworkConnector Instance
-	{
-		get
-		{
-			if (instance == null) 
-			{
-				lock(syncRoot)
-				{
-					instance = new NetworkConnector();
-				}
-			}
-			return instance;
-		}
-	}
+    //private NetworkConnector() {}
+    //public static NetworkConnector Instance
+    //{
+    //    get
+    //    {
+    //        if (instance == null) 
+    //        {
+    //            lock(syncRoot)
+    //            {
+    //                instance = new NetworkConnector();
+    //            }
+    //        }
+    //        return instance;
+    //    }
+    //}
 	
 	void Awake()
 	{
@@ -89,9 +89,10 @@ public class NetworkConnector : MonoBehaviour
         }
         else if (Network.isServer)
         {
-            if (GetComponent<NetworkView>().networkView == null)
-                Debug.Log("network view is null");
-			else networkView.RPC("OnNetworkLoadLevel", RPCMode.All, loadLevel);
+            //if (GetComponent<NetworkView>().networkView == null)
+            //    Debug.Log("network view is null");
+            //else 
+            NetworkConnector.Instance.networkView.RPC("OnNetworkLoadLevel", RPCMode.All, loadLevel);
         }
 	}
 	
