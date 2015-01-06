@@ -12,7 +12,6 @@ GameObject:
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
   - 148: {fileID: 14800000}
-  - 114: {fileID: 11400004}
   m_Layer: 10
   m_Name: Tower spot
   m_TagString: TagTowerSpot
@@ -27,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -206, y: -52, z: 0}
+  m_LocalPosition: {x: -232, y: -159, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,18 +118,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioUnitType: 0
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
