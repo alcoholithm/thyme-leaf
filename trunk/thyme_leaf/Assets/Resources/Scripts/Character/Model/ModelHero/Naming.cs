@@ -19,7 +19,7 @@ public class Naming : MonoBehaviour
     public const int TYPE_NUM = 5;
 
     public const string FALSTAFF = "Falstaff";
-    public const string FRANSIS = "Fransis";
+    public const string FRANSCIS = "Fransis";
     public const string FORTINBRAS = "Fortinbras";
     public const string VICTOR = "Victor";
     public const string MARIEN = "Marien";
@@ -42,8 +42,8 @@ public class Naming : MonoBehaviour
     public List<string> stateNames;
     public List<List<string>> names;
 
-    private static Naming instance = new Naming();
-
+    private static object syncRoot = new System.Object();
+    private static Naming instance;
     private Naming()
     {
         Init();
@@ -51,10 +51,56 @@ public class Naming : MonoBehaviour
 
     public static Naming Instance
     {
-        get { return instance; }
+        get {
+            if (instance == null)
+            {
+                lock (syncRoot)
+                {
+                    instance = new Naming();
+                }
+            }
+            return instance; 
+        }
     }
 
-    
+    public string BuildAnimationName(GameObject go, string state)
+    {
+        AudioUnitType type = go.GetComponent<AudioType>().audioUnitType;
+        string result = null;
+        switch(type)
+        {
+            case AudioUnitType.FALSTAFF_TYPE1:
+                result = BuildAutomatNameWithState(Naming.FALSTAFF, 1, state);
+                break;
+            case AudioUnitType.FOLTINBRAS_TYPE1:
+                result = BuildAutomatNameWithState(Naming.FORTINBRAS, 1, state);
+                break;
+            case AudioUnitType.FRANSCIS_TYPE1:
+                result = BuildAutomatNameWithState(Naming.FRANSCIS, 1, state);
+                break;
+            case AudioUnitType.VICTOR_TYPE1:
+                result = BuildAutomatNameWithState(Naming.VICTOR, 1, state);
+                break;
+            case AudioUnitType.MARIEN_TYPE1:
+                result = BuildAutomatNameWithState(Naming.MARIEN, 1, state);
+                break;
+
+            case AudioUnitType.APT_TYPE1:
+                result = BuildAutomatNameWithState(Naming.APT, 1, state);
+                break;
+
+            case AudioUnitType.COMMA:
+                result = BuildTrovantNameWithState(Naming.COMMA, state);
+                break;
+            case AudioUnitType.PYTHON:
+                result = BuildTrovantNameWithState(Naming.PYTHON, state);
+                break;
+            default:
+                Debug.Log("Not Registered Animation Name");
+                break;
+        }
+        return result;
+    }
 
     public string BuildAutomatName(string name, int typeNum)
     {
@@ -93,7 +139,7 @@ public class Naming : MonoBehaviour
         towerNames.Add(ATT);
 
         automatNames.Add(FALSTAFF); 
-        automatNames.Add(FRANSIS); 
+        automatNames.Add(FRANSCIS); 
         automatNames.Add(FORTINBRAS);
         automatNames.Add(VICTOR); 
         automatNames.Add(MARIEN);

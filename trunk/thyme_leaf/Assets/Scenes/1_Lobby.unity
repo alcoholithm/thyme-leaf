@@ -3647,6 +3647,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 615504170}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 681380746}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 238531287}
     mMethodName: SetCurrentPercent
     mParameters: []
@@ -4686,6 +4692,12 @@ MonoBehaviour:
   mFill: 0
   numberOfSteps: 0
   onChange:
+  - mTarget: {fileID: 615504170}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 958506662}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1560480187}
     mMethodName: SetCurrentPercent
     mParameters: []
