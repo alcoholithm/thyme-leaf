@@ -183,23 +183,7 @@ public class Spawner : Manager<Spawner>
     }
 
     /**********************************/
-
-    public Hero DynamicGetHero(AutomatType type)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            GameObject go = GameObject.Instantiate(automats[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            go.SetActive(false);
-            go.transform.parent = automatPool.transform;
-            go.SetActive(true);
-            return go.GetComponent<Hero>();
-        }
-        else
-        {
-            return GetHero(type);
-        }
-    }
-
+    
     public Hero GetHero(AutomatType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -223,19 +207,6 @@ public class Spawner : Manager<Spawner>
     }
 
     //
-
-    public Hero DynamicGetTrovant(TrovantType type)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-        {
-            GameObject go = GameObject.Instantiate(trovants[(int)type], Vector3.zero, Quaternion.identity) as GameObject;
-            return go.GetComponent<Hero>();
-        }
-        else
-        {
-            return GetTrovant(type);
-        }
-    }
 
     public Hero GetTrovant(TrovantType type)
     {
