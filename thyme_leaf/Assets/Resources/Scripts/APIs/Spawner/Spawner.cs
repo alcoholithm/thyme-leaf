@@ -439,10 +439,9 @@ public class Spawner : Manager<Spawner>
 		hero.transform.localScale = Vector3.one;
 		hero.transform.localPosition = new Vector3 (0, 0, 0);
 		
-		if(type == StartPoint.AUTOMAT_POINT)
-			hero.controller.StartPointSetting(StartPoint.AUTOMAT_POINT);
-		else
-			hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);
+		if(type == StartPoint.AUTOMAT_POINT) hero.controller.StartPointSetting (Define.selected_center);
+		else hero.controller.StartPointSetting ( StartPoint.TROVANT_POINT);   //test code...
+
 		hero.CollisionSetting (true);
 
 		if(type == StartPoint.AUTOMAT_POINT)

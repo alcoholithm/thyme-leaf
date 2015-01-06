@@ -98,6 +98,19 @@ public class Helper
 		if(nodeInfor.Prev != null) SetMoveMode(MoveModeState.BACKWARD);
 		else if(nodeInfor.Next != null) SetMoveMode(MoveModeState.FORWARD);
 	}
+
+	public void StartPointSetting(GameObject pos_obj)
+	{
+		Debug.Log (pos_obj.name);
+		nodeStock = pos_obj;
+		nodeOld = nodeStock;
+		nodeInfor = nodeStock.GetComponent<scriptPathNode>();
+
+		setPos (nodeInfor.getPos (PosParamOption.CURRENT));
+		
+		if(nodeInfor.Prev != null) SetMoveMode(MoveModeState.BACKWARD);
+		else if(nodeInfor.Next != null) SetMoveMode(MoveModeState.FORWARD);
+	}
 	
 	public bool SelectPathNode(Vector3 startPt, Vector3 endPt, Layer option)
 	{
