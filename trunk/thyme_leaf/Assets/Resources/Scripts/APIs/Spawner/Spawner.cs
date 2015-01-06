@@ -22,6 +22,11 @@ public class Spawner : Manager<Spawner>
     private GameObject automatBuildingPool;
     private GameObject trovantBuildingPool;
 
+    void Awake()
+    {
+        base.Awake();
+    }
+
     void Start()
     {
         if (automatPool == null) automatPool = GameObject.Find("AutomatPool");

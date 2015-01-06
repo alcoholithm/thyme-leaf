@@ -3,16 +3,23 @@ using System.Collections;
 
 public class TowerState_Idling : State<AutomatTower>
 {
-    private string animName = "APT_Type1_Idling_";
+    private string animName = "Tower_Idling_";
 
     private TowerState_Idling() 
     {
         Successor = TowerState_Hitting.Instance;
     }
 
+
+    /*
+     * Followings are overrided methods of "State"
+     */ 
     public override void Enter(AutomatTower owner)
     {
         Debug.Log(TAG + " Enter");
+
+        animName = Naming.Instance.BuildAnimationName(owner.gameObject, Naming.IDLING) + "_";
+        Debug.Log(animName);
         owner.Anim.Play(animName);
     }
 

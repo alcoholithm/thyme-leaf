@@ -287,7 +287,6 @@ MonoBehaviour:
   _FxWhap: {fileID: 11400018}
   _FxBurn: {fileID: 11400024}
   _FxPoisoning: {fileID: 11400026}
-  target: {fileID: 0}
   my_name: 
   state_name: 
   muster_name: 
@@ -390,24 +389,24 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 400000}
     relative: 0
-    absolute: 2
+    absolute: 0
   rightAnchor:
     target: {fileID: 400000}
     relative: 1
-    absolute: -2
+    absolute: 0
   bottomAnchor:
     target: {fileID: 400000}
     relative: 0
-    absolute: 2
+    absolute: 0
   topAnchor:
     target: {fileID: 400000}
     relative: 1
-    absolute: -2
+    absolute: 0
   updateAnchors: 1
   mColor: {r: .415618718, g: 1, b: .0147058964, a: 1}
   mPivot: 4
-  mWidth: 52
-  mHeight: 4
+  mWidth: 56
+  mHeight: 8
   mDepth: 2
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0

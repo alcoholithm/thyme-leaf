@@ -15,7 +15,7 @@ public class Gun : Weapon, ILauncher
 
         if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
         {
-            projectile.transform.position = Owner.transform.position;
+            projectile.transform.position = transform.position;
             projectile.transform.localScale = Vector3.one;
             projectile.Move(target);
         }

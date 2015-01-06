@@ -14,7 +14,7 @@ public class Manager<T> : Singleton<T> where T : MonoBehaviour
     protected virtual void Awake()
     {
         GameObject parent = SetParent("_Manager");
-        DontDestroyOnLoad(parent.gameObject);
+        //DontDestroyOnLoad(parent.gameObject);
     }
 
     public new const string TAG = "[Manager]";

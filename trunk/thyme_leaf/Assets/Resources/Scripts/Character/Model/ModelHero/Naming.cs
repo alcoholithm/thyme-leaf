@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class Naming : MonoBehaviour
+public class Naming : Manager<Naming> //MonoBehaviour
 {
     public static int maxId;
 
     private Dictionary<string, int> nameDictionary;
 
-    public const string AGT = "APT";
+    public const string AGT = "AGT";
     public const string AST = "AST";
     public const string APT = "APT";
     public const string ASPT = "ASPT";
@@ -44,24 +44,30 @@ public class Naming : MonoBehaviour
 
     private static object syncRoot = new System.Object();
     private static Naming instance;
-    private Naming()
+    //private Naming()
+    //{
+    //    Init();
+    //}
+
+    void Awake()
     {
+        base.Awake();
         Init();
     }
 
-    public static Naming Instance
-    {
-        get {
-            if (instance == null)
-            {
-                lock (syncRoot)
-                {
-                    instance = new Naming();
-                }
-            }
-            return instance; 
-        }
-    }
+    //public static Naming Instance
+    //{
+    //    get {
+    //        if (instance == null)
+    //        {
+    //            lock (syncRoot)
+    //            {
+    //                instance = new Naming();
+    //            }
+    //        }
+    //        return instance; 
+    //    }
+    //}
 
     public string BuildAnimationName(GameObject go, string state)
     {
@@ -85,6 +91,12 @@ public class Naming : MonoBehaviour
                 result = BuildAutomatNameWithState(Naming.MARIEN, 1, state);
                 break;
 
+            case AudioUnitType.AGT_TYPE1:
+                result = BuildAutomatNameWithState(Naming.AGT, 1, state);
+                break;
+            case AudioUnitType.ASPT_TYPE1:
+                result = BuildAutomatNameWithState(Naming.ASPT, 1, state);
+                break;
             case AudioUnitType.APT_TYPE1:
                 result = BuildAutomatNameWithState(Naming.APT, 1, state);
                 break;

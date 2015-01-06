@@ -16,7 +16,9 @@ public class TowerState_Dying : State<AutomatTower>
      */
     public override void Enter(AutomatTower owner)
     {
-        Debug.Log(TAG + "Enter");
+        Debug.Log(TAG + " Enter");
+
+        //animName = Naming.Instance.BuildAnimationName(owner.gameObject, Naming.DYING) +"_";
         owner.Anim.PlayOneShot(animName, new VoidFunction2<AutomatTower>(x => x.ChangeState(TowerState_None.Instance), owner));
     }
 
