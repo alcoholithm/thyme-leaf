@@ -64,11 +64,6 @@ public class PathManager : Manager<PathManager> {
 				map_data.isUse = true;
 				map_data.automat_center = true;
 				Define.pathNode[i] = map_data;
-                WChat w = Spawner.Instance.GetWChat(WChatType.WCHAT_TYPE1);
-				w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-				w.PositionNode = Define.pathNode[i].obj.transform.localPosition;
-
-                w.ChangeState(WChatState_Idling.Instance);
 
 				i = 0;
 				continue;
