@@ -116,17 +116,17 @@ public class PlayerSelectFrame : View, IActionListener
      */
     public void ActionPerformed(GameObject source)
     {
-        if (source.Equals(_playerSlots[0]))
+        if (source.name.Equals(_playerSlots[0].name))
         {
             isClick(0);
             isEmpty(0);
         }
-        else if (source.Equals(_playerSlots[1]))
+        else if (source.name.Equals(_playerSlots[1].name))
         {
             isClick(1);
             isEmpty(1);
         }
-        else if (source.Equals(_playerSlots[2]))
+        else if (source.name.Equals(_playerSlots[2].name))
         {
             isClick(2);
             isEmpty(2);
