@@ -95,7 +95,9 @@ public class SyncStateScript : MonoBehaviour
         gameObject.transform.localScale = Vector3.one;
         gameObject.transform.position = parentTransform.position;
         gameObject.GetComponent<AutomatTower>().StateMachine.ChangeState(TowerState_Building.Instance);
-        gameObject.transform.parent.GetComponent<UIButton>().enabled = false;
+
+        if(!networkView.isMine)
+            gameObject.transform.parent.GetComponent<UIButton>().enabled = false;
     }
 
     /****************************************************************************************************/
