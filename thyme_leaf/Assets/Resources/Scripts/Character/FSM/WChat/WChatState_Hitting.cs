@@ -33,7 +33,7 @@ public class WChatState_Hitting : State<WChat>
     {
         switch (msg.what)
         {
-            case MessageTypes.MSG_DAMAGE:
+            case MessageTypes.MSG_NORMAL_DAMAGE:
                 (msg.receiver as WChat).TakeDamage(msg.arg1);
                 return true;
         }

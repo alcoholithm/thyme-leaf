@@ -10,7 +10,7 @@ public class Tower : Unit, IAttackable
     private List<GameEntity> enemies;
     private GameEntity currentTarget;
 
-    private float reloadingTime = 0.5f; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
+    private float reloadingTime = 2f; // 재장전시간 // 재장전은 무기의 주인이 하는 것이니 여기에 정의
 
     public Tower(GameEntity owner)
     {

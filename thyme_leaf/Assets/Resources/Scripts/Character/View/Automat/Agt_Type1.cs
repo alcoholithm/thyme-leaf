@@ -120,7 +120,15 @@ public class Agt_Type1 : GameEntity, IAgt, IStateMachineControllable<Agt_Type1>,
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag(Tag.TagProjectile))
+        if (other.CompareTag(Tag.TagProjectile)
+            || other.CompareTag(Tag.TagArcherAutomart())
+            || other.CompareTag(Tag.TagBarrierAutomart())
+            || other.CompareTag(Tag.TagHealerAutomart())
+            || other.CompareTag(Tag.TagSupporterAutomart())
+            || other.CompareTag(Tag.TagWarriorAutomart())
+            || other.CompareTag(Tag.TagCommandCenter)
+            || other.CompareTag(Tag.TagTower)
+        )
             return;
 
         controller.EnemyLeave(other.GetComponent<GameEntity>());
