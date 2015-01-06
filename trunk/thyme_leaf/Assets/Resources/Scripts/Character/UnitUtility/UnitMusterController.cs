@@ -128,7 +128,7 @@ public class UnitMusterController
 			Hero hero = unitMusters[idx].getElement(i);
 			if(hero != null && hero.model.ID != current_unit_id)
 			{
-				if(hero.target == null && hero.StateMachine.CurrentState == HeroState_Moving.Instance)
+				if(hero.target.obj == null && hero.StateMachine.CurrentState == HeroState_Moving.Instance)
 				{
 //					Debug.Log("i : " + i);
 					//lock on system...

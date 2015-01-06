@@ -28,7 +28,7 @@ public class HeroState_Moving : State<Hero> {
 
 		//checking...
 		Vector3 me = owner.helper.getPos(); // this character position...
-		if(owner.target == null)
+		if(owner.target.obj == null)
 		{
 			for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
 			{
@@ -57,22 +57,22 @@ public class HeroState_Moving : State<Hero> {
 					if(dist < range * range)
 					{
 						owner.helper.setMoveTrigger(false);
-						owner.target = other.obj.GetComponent<Hero>();
+						owner.target = other;
 						break;
 					}
 				}
 			}
 		}
-		else if(owner.target != null)
+		else if(owner.target.obj != null)
 		{
-			if(owner.target.model.HP <= 0)
+			if(GetHp(ref owner.target) <= 0)
 			{
-				owner.target = null;
+				owner.target.DataInit();
 				owner.controller.setMoveTrigger(true);
 			}
 			else if(!owner.helper.getMoveTrigger())
 			{
-				Vector3 dd = owner.target.helper.getPos() - me;
+				Vector3 dd = owner.target.obj.transform.localPosition - me;
 				float r = Mathf.Atan2(dd.y, dd.x);
 				float speed_v = owner.model.MovingSpeed * Define.FrameControl();
 				owner.controller.addPos(speed_v * Mathf.Cos(r), speed_v * Mathf.Sin(r));
@@ -160,13 +160,28 @@ public class HeroState_Moving : State<Hero> {
 	public override void Exit (Hero owner)
 	{
 		//exit stage...
-		owner.target = null;
+		owner.target.DataInit();
 		owner.helper.setMoveTrigger(true);
 	}
 
 	public override bool HandleMessage (Message msg)
 	{
 		return false;
+	}
+
+	private int GetHp(ref UnitObject obj)
+	{
+		switch(obj.type)
+		{
+		case UnitType.AUTOMAT_CHARACTER:
+		case UnitType.TROVANT_CHARACTER:
+			return obj.infor_hero.model.HP;
+		case UnitType.AUTOMAT_WCHAT:
+			return obj.infor_automat_center.Model.HP;
+		case UnitType.TROVANT_THOUSE:
+			return obj.infor_trovant_center.Model.HP;
+		}
+		return -1;
 	}
 
 	public new const string TAG = "[HeroState_Moving]";

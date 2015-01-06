@@ -45,8 +45,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         get { return _FxPoisoning; }
         set { _FxPoisoning = value; }
     }
-	
-	public Hero target;
+
+	private UnitObject my_unit;
+	public UnitObject target;
 	public string my_name;  //test code...
 	public string state_name; //test code...
 	public string muster_name; //test code...
@@ -101,7 +102,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		controller = new ControllerHero (model, helper);
 
 		//other reference...
-		target = null;
+		target.DataInit();
 
 		onlyfirst = false;
 
@@ -140,19 +141,21 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			if(IsAttackCase(coll.gameObject))  //state compare okay...
 		    {
 				if(!coll.CompareTag(Tag.TagCommandCenter))
-					helper.attack_target = coll.gameObject.GetComponent<Hero>();
-				else 
 				{
+					helper.attack_target = coll.gameObject.GetComponent<Hero>().MyUnit;
+					Debug.Log("checking");
+				}
+//				else 
+//				{
 //					Layer other_center_layer = (Layer)coll.gameObject.layer;
 //					switch(other_center_layer)
 //					{
 //					case Layer.Automart:
-//
+//						helper.attack_target = coll.gameObject.GetComponent<Hero>();
 //						break;
 //					}
-//					helper.attack_target = coll.transform.parent.gameObject.GetComponent
-				}
-				Debug.Log(helper.attack_target.name);
+//				}
+//				Debug.Log(helper.attack_target.name);
 				//my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
 			}
@@ -574,4 +577,10 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
     {
         get { return stateMachine; }
     }
+
+	public UnitObject MyUnit
+	{
+		get { return my_unit; }
+		set { my_unit = value; }
+	}
 }
