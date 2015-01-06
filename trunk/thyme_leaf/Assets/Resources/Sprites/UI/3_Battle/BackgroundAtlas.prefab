@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Background
+  m_Name: BackgroundAtlas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,21 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 75d4b9f3a537c4eac9b0d2f9fd9dd0f7, type: 2}
-  mSprites:
-  - name: test_map
-    x: 0
-    y: 2560
-    width: 2048
-    height: 1536
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+  material: {fileID: 2100000, guid: 8ab0144b066af4f75986d768e2a17c75, type: 2}
+  mSprites: []
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

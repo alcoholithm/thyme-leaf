@@ -187,6 +187,25 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		StartCoroutine ("WaveRoutine", wave_count);
 	}
 
+	public void Emergency()
+	{
+		Debug.Log ("Trovant Emergency Spawn!!");
+		StartCoroutine ("EmergencySpawnUnit");
+	}
+
+	IEnumerator EmergencySpawnUnit()
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			Hero obj = Spawner.Instance.GetTrovant (TrovantType.COMMA);
+			obj.helper.setPos(position_node.transform.localPosition);
+			for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
+			{
+				yield return null;
+			}
+		}
+		Debug.Log ("Trovant Emergency Spawn Exit");
+	}
 
     /*
      * Followings are attributes

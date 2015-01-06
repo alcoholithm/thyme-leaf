@@ -28,15 +28,16 @@ public class PathManager : Manager<PathManager> {
 		Define.path_node_off.Dispose ();
 		
 		PathNodeOffsetStruct offset_data = new PathNodeOffsetStruct(9);
-		offset_data.setOffsetPos (0, -65, -65);
-		offset_data.setOffsetPos (1, -80, 0);
-		offset_data.setOffsetPos (2, 65, -65);
-		offset_data.setOffsetPos (3, 0, -80);
-		offset_data.setOffsetPos (4, 65, 65);
-		offset_data.setOffsetPos (5, 80, 0);
-		offset_data.setOffsetPos (6, -65, 65);
-		offset_data.setOffsetPos (7, 0, 80);
-		offset_data.setOffsetPos (8, 0, 0);
+		float scale = 0.7f;
+		offset_data.setOffsetPos (0, -65, -65, scale);
+		offset_data.setOffsetPos (1, -80, 0, scale);
+		offset_data.setOffsetPos (2, 65, -65, scale);
+		offset_data.setOffsetPos (3, 0, -80, scale);
+		offset_data.setOffsetPos (4, 65, 65, scale);
+		offset_data.setOffsetPos (5, 80, 0, scale);
+		offset_data.setOffsetPos (6, -65, 65, scale);
+		offset_data.setOffsetPos (7, 0, 80, scale);
+		offset_data.setOffsetPos (8, 0, 0, scale);
 		
 		Define.path_node_off = offset_data;
 		
