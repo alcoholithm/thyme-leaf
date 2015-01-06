@@ -7,12 +7,14 @@ public class PathManager : Manager<PathManager> {
 	public GameObject PathNode;
 	public int StageNumber = 1;
 	public bool node_visible;
+	public GameMode game_mode;
 
 	void Awake()
 	{
 		//current stage number setting...
 		Define.current_stage_number = StageNumber;
-
+		if(game_mode == GameMode.MULTI_PLAY) Define.current_stage_number = 100000;
+		Debug.Log(Define.current_stage_number);
 		//initialize...
 		Define.PathDataDispose ();
 		Define.CenterListDisPose ();
@@ -20,7 +22,7 @@ public class PathManager : Manager<PathManager> {
 		UnitMusterController.GetInstance ().Initialize ();
 		UnitPoolController.GetInstance ().Initialize ();
 
-		DataToFile.LoadData(StageNumber, PathNode, node_visible);
+		DataToFile.LoadData(Define.current_stage_number, PathNode, node_visible);
 
 		//define setting...
 		
