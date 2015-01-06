@@ -87,13 +87,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mFPS: 5
-  mPrefix: APT_Poison_
+  mPrefix: PoisonDrop_
   mLoop: 1
   mSnap: 1
   _framerate: 5
-  _namePrefix: APT_Poison_
+  _namePrefix: PoisonDrop_
   _loop: 1
-  _pixelSnap: 0
+  _pixelSnap: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: APT_Poison_0
+  mSpriteName: PoisonDrop_0
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:

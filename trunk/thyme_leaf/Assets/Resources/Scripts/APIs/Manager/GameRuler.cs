@@ -11,5 +11,5 @@ public class GameRuler : Manager<GameRuler>
             BattleView.Instance.ShowDefeatFrame();
     }
 
-    public const string TAG = "[GameRuler]";
+    public new const string TAG = "[GameRuler]";
 }

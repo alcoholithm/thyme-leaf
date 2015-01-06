@@ -23,10 +23,16 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	//=====================
 
 	private NGUISpriteAnimation anim;	
+
+    // set children
     [SerializeField]
-	private HealthBar health_bar_controller;
+    private View health_bar_controller;
     [SerializeField]
-	private WhapFX _whapFX;
+    private View _FxWhap;
+    [SerializeField]
+    private View _FxBurn;
+    [SerializeField]
+    private View _FxPoisoning;
 	
 	public Hero target;
 	public string my_name;  //test code...
@@ -101,9 +107,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         health_bar_body = health_bar_controller.transform;
 
 		//hp bar setting...
-		this.health_bar_controller.Model = this.model;
+		(this.health_bar_controller as HealthBar).Model = this.model;
         this.Add(health_bar_controller);
-        this.Add(_whapFX);
+        this.Add(_FxWhap);
+        //this.Add(_FxBurn);
+        //this.Add(_FxPoisoning);
 
         // observer
 		model.RegisterObserver (this, ObserverTypes.Health);
@@ -492,11 +500,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	
 	public UISpriteAnimation GetAnim() { return anim; }
 
-    public WhapFX WhapFX
-	{
-		get { return _whapFX; }
-		set { _whapFX = value; }
-	}
 	//==============================================
 	/*
      * followings are member functions

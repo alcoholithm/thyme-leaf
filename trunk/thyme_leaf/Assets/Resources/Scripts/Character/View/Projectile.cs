@@ -9,9 +9,9 @@ public class Projectile : MonoBehaviour
 
     private GameEntity owner; // temp
     private GameEntity target;
-    private Vector3 targetPosition;
+    //private Vector3 targetPosition;
 
-    private bool flag = false;
+    //private bool flag = false;
 
     [SerializeField]
     private int attackDamage;

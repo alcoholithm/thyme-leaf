@@ -16,7 +16,7 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
     /*
      * Followings are unity callback methods
      */ 
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
