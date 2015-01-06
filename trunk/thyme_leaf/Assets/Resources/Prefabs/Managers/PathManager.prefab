@@ -41,7 +41,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
-  node_visible: 0
+  node_visible: 1
+  game_mode: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

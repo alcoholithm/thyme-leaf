@@ -14,7 +14,6 @@ public class PathManager : Manager<PathManager> {
 		//current stage number setting...
 		Define.current_stage_number = StageNumber;
 		if(game_mode == GameMode.MULTI_PLAY) Define.current_stage_number = 100000;
-		Debug.Log(Define.current_stage_number);
 		//initialize...
 		Define.PathDataDispose ();
 		Define.CenterListDisPose ();
