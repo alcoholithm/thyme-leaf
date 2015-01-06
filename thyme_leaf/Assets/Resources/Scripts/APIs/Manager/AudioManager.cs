@@ -78,10 +78,9 @@ public class AudioManager : Manager<AudioManager>
 
     void InitValues()
     {
-        audioPlayer.volume = 0.5f;
-        
-        //audioPlayer.volume = Settings.MusicVolume;
-        //audioPlayer.mute = !Settings.MusicEnabled;        
+        //audioPlayer.volume = 0.5f;
+        audioPlayer.volume = Settings.MusicVolume;
+        audioPlayer.mute = !Settings.MusicEnabled;        
     }
 
     public void StartAudio()
@@ -204,9 +203,9 @@ public class AudioManager : Manager<AudioManager>
     {
         if (sound[(int)type] == null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
 
-        //if (Settings.SoundEffectsEnabled && sound[(int)type] != null)
-            //AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.SoundEffectsVolume);
+        if (Settings.SoundEffectsEnabled && sound[(int)type] != null)
+            AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.SoundEffectsVolume);
 
-        AudioSource.PlayClipAtPoint(sound[(int)type], pos, 0.5f);
+        //AudioSource.PlayClipAtPoint(sound[(int)type], pos, 0.5f);
     }
 }
