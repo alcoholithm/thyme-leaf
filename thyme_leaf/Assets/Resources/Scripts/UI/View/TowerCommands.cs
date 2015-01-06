@@ -18,7 +18,7 @@ public class TowerCommandsController
     {
         Debug.Log("AAAAAAAA");
 
-        Agt_Type1 tower = model.SelectedObject.transform.GetComponentInChildren<Agt_Type1>();
+        AutomatTower tower = model.SelectedObject.transform.GetComponentInChildren<AutomatTower>();
 
         Debug.Log(tower.ToString());
         Debug.Log(tower.StateMachine.ToString());

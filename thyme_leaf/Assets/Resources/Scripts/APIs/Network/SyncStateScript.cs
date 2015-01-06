@@ -94,7 +94,7 @@ public class SyncStateScript : MonoBehaviour
         gameObject.transform.parent = parentTransform;
         gameObject.transform.localScale = Vector3.one;
         gameObject.transform.position = parentTransform.position;
-        gameObject.GetComponent<Agt_Type1>().StateMachine.ChangeState(TowerState_Building.Instance);
+        gameObject.GetComponent<AutomatTower>().StateMachine.ChangeState(TowerState_Building.Instance);
     }
 
     /****************************************************************************************************/

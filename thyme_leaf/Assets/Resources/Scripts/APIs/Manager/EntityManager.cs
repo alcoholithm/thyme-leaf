@@ -42,7 +42,7 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
         {
             _entityMap[UnitType.TROVANT_THOUSE].Add(entity);
         }
-        else if (entity is Agt_Type1)
+        else if (entity is AutomatTower)
         {
             _entityMap[UnitType.AUTOMAT_TOWER].Add(entity);
         }
@@ -64,7 +64,7 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
             if (_entityMap[UnitType.AUTOMAT_WCHAT].Count <= 0)
                 GameRuler.Instance.Judge(true);
         }
-        else if (entity is Agt_Type1)
+        else if (entity is AutomatTower)
         {
             _entityMap[UnitType.AUTOMAT_TOWER].Remove(entity);
         }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_Attacking : State<Agt_Type1>
+public class TowerState_Attacking : State<AutomatTower>
 {
     private string animName = "Tower_Attacking_";
     //private string animName = "APT_Type1_Attacking_";
@@ -16,7 +16,7 @@ public class TowerState_Attacking : State<Agt_Type1>
     /*
      * followings are overrided methods
      */
-    public override void Enter(Agt_Type1 owner)
+    public override void Enter(AutomatTower owner)
     {
         Debug.Log(TAG + " Enter");
 
@@ -25,7 +25,7 @@ public class TowerState_Attacking : State<Agt_Type1>
         owner.SetAttackable(true);
     }
 
-    public override void Execute(Agt_Type1 owner)
+    public override void Execute(AutomatTower owner)
     {
         // if there are no enemies anymore.
         owner.Model.FindBestTarget();
@@ -37,7 +37,7 @@ public class TowerState_Attacking : State<Agt_Type1>
         }
     }
 
-    public override void Exit(Agt_Type1 owner)
+    public override void Exit(AutomatTower owner)
     {
         Debug.Log(TAG + " Exit");
 

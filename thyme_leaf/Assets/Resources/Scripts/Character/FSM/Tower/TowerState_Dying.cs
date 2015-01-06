@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerState_Dying : State<Agt_Type1>
+public class TowerState_Dying : State<AutomatTower>
 {
     private string animName = "Tower_Dying_";
 
@@ -14,17 +14,17 @@ public class TowerState_Dying : State<Agt_Type1>
     /*
      * followings are overrided methods of "State"
      */
-    public override void Enter(Agt_Type1 owner)
+    public override void Enter(AutomatTower owner)
     {
         Debug.Log(TAG + "Enter");
-        owner.Anim.PlayOneShot(animName, new VoidFunction2<Agt_Type1>(x => x.ChangeState(TowerState_None.Instance), owner));
+        owner.Anim.PlayOneShot(animName, new VoidFunction2<AutomatTower>(x => x.ChangeState(TowerState_None.Instance), owner));
     }
 
-    public override void Execute(Agt_Type1 owner)
+    public override void Execute(AutomatTower owner)
     {
     }
 
-    public override void Exit(Agt_Type1 owner)
+    public override void Exit(AutomatTower owner)
     {
         Debug.Log(TAG + "Exit");
 
