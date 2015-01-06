@@ -114,7 +114,7 @@ public class BattleView : View, IActionListener, IObserver
         }
         else if (source.tag.Equals(Tag.TagTower))
         {
-            controller.ShowTowerCommands();
+            //controller.ShowTowerCommands();
         }
     }
 

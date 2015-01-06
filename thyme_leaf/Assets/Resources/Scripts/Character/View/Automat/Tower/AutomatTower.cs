@@ -90,7 +90,6 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
 
     void OnDisable()
     {
-        Debug.Log("OnDisable");
         // MVC
         this._model = null;
         this.controller = null;
