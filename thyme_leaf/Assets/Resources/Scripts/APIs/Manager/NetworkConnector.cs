@@ -107,30 +107,31 @@ public class NetworkConnector : Manager<NetworkConnector>
 	
 	/*******************************************************************/
 	// Tutorial 
-	
-    //void TestOnConnectedActionPerform(NetworkResult result)
-    //{
-    //    switch (result)
-    //    {
-    //    case NetworkResult.SUCCESS_TO_CONNECT:
-    //        NetworkConnector.Instance.NetworkLoadLevel(SceneManager.BATTLE_MULTI);
-    //        break;
-    //    case NetworkResult.EMPTY_ROOM:
-    //        Debug.Log("Create room because there is no room");
-    //        NetworkConnector.Instance.CreateRoom();
-    //        break;
-    //    case NetworkResult.FAIL:
-    //        Debug.Log("Fail to connect to server");
-    //        break;
-    //    default:
-    //        Debug.Log("NETWORK RESULT ERROR : " + result);
-    //        break;
-    //    }
-    //}
-	
-    //void TestOnDisconnectedActionPerform(){
-    //    Debug.Log ("Network Disconnected");
-    //}
+
+    void TestOnConnectedActionPerform(NetworkResult result)
+    {
+        switch (result)
+        {
+            case NetworkResult.SUCCESS_TO_CONNECT:
+                NetworkConnector.Instance.NetworkLoadLevel(SceneManager.BATTLE_MULTI);
+                break;
+            case NetworkResult.EMPTY_ROOM:
+                Debug.Log("Create room because there is no room");
+                NetworkConnector.Instance.CreateRoom();
+                break;
+            case NetworkResult.FAIL:
+                Debug.Log("Fail to connect to server");
+                break;
+            default:
+                Debug.Log("NETWORK RESULT ERROR : " + result);
+                break;
+        }
+    }
+
+    void TestOnDisconnectedActionPerform()
+    {
+        Debug.Log("Network Disconnected");
+    }
 
     void OnGUI()
     {
