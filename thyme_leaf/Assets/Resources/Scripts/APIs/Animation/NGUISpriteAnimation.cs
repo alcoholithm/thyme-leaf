@@ -9,24 +9,24 @@ using System.Collections.Generic;
 
 public class NGUISpriteAnimation : UISpriteAnimation
 {
-    [SerializeField]
-    private int _framerate = 30;
-    [SerializeField]
-    private string _namePrefix = "";
-    [SerializeField]
-    private bool _loop = true;
-    [SerializeField]
-    private bool _pixelSnap = true;
+    //[SerializeField]
+    //private int _framerate = 30;
+    //[SerializeField]
+    //private string _namePrefix = "";
+    //[SerializeField]
+    //private bool _loop = true;
+    //[SerializeField]
+    //private bool _pixelSnap = true;
 
     private ICommand command;
     private bool oneShot = true;
 
     void Awake()
     {
-        framesPerSecond = _framerate;
-        namePrefix = _namePrefix;
-        loop = _loop;
-        mSnap = _pixelSnap;
+        //framesPerSecond = _framerate;
+        //namePrefix = _namePrefix;
+        //loop = _loop;
+        //mSnap = _pixelSnap;
     }
 
     protected override void Update()

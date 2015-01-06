@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400000}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 2_Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Thumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Health bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,11 +57,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400006}
+  - 114: {fileID: 11400022}
   - 114: {fileID: 11400020}
   - 114: {fileID: 11400018}
-  - 114: {fileID: 11400022}
-  m_Layer: 10
-  m_Name: FX Whap Blue
+  m_Layer: 9
+  m_Name: FX Whap Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,9 +83,9 @@ GameObject:
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400016}
-  m_Layer: 10
-  m_Name: Automat_Fransic_Type1
-  m_TagString: TagWarriorAutomart
+  m_Layer: 9
+  m_Name: Trovant_Comma
+  m_TagString: TagWarriorTrovant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ GameObject:
   - 114: {fileID: 11400026}
   - 114: {fileID: 11400034}
   m_Layer: 9
-  m_Name: FX Burn
+  m_Name: FX Poisoning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,11 +116,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400012}
-  - 114: {fileID: 11400028}
   - 114: {fileID: 11400030}
+  - 114: {fileID: 11400028}
   - 114: {fileID: 11400032}
   m_Layer: 9
-  m_Name: FX Poisoning
+  m_Name: FX Burn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26, y: 0, z: 0}
+  m_LocalPosition: {x: 28, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 34.9977417, z: 0}
+  m_LocalPosition: {x: -0, y: 35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -175,7 +175,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400008}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -187,9 +187,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
-  - {fileID: 400006}
   - {fileID: 400010}
   - {fileID: 400012}
+  - {fileID: 400006}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400010
@@ -199,11 +199,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -12, z: -.000289916992}
-  m_LocalScale: {x: .999935985, y: .999935985, z: .999935985}
+  m_LocalPosition: {x: 0, y: 0, z: -1.52587891e-05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400008}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &400012
 Transform:
   m_ObjectHideFlags: 1
@@ -211,11 +211,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.000289916992}
-  m_LocalScale: {x: .999935985, y: .999935985, z: .999935985}
+  m_LocalPosition: {x: 0, y: -12, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400008}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -240,7 +240,7 @@ CircleCollider2D:
   m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 35.0900002
+  m_Radius: 30
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -256,29 +256,29 @@ MonoBehaviour:
   leftAnchor:
     target: {fileID: 400004}
     relative: 0
-    absolute: 2
+    absolute: 0
   rightAnchor:
     target: {fileID: 400004}
     relative: 1
-    absolute: -2
+    absolute: 0
   bottomAnchor:
     target: {fileID: 400004}
     relative: 0
-    absolute: 2
+    absolute: 0
   topAnchor:
     target: {fileID: 400004}
     relative: 1
-    absolute: -2
+    absolute: 0
   updateAnchors: 1
   mColor: {r: .415618718, g: 1, b: .0147058964, a: 1}
   mPivot: 4
-  mWidth: 52
-  mHeight: 4
+  mWidth: 56
+  mHeight: 8
   mDepth: 2
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 13
+  aspectRatio: 7
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -289,7 +289,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
+  mAtlas: {fileID: 11400000, guid: d15aff9e43c98ea45b66172d893b2f1d, type: 2}
   mSpriteName: White
   mFillCenter: 1
 --- !u!114 &11400002
@@ -373,7 +373,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
+  mAtlas: {fileID: 11400000, guid: d15aff9e43c98ea45b66172d893b2f1d, type: 2}
   mSpriteName: White
   mFillCenter: 1
 --- !u!114 &11400008
@@ -391,10 +391,6 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
-  _framerate: 8
-  _namePrefix: 
-  _loop: 1
-  _pixelSnap: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,19 +414,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
-  speed: 30
+  speed: 15
   AttackDamage: 20
   AttackDelay: 1
   health_bar_controller: {fileID: 11400002}
-  _FxWhap: {fileID: 11400022}
-  _FxBurn: {fileID: 11400034}
-  _FxPoisoning: {fileID: 11400032}
+  _FxWhap: {fileID: 11400018}
+  _FxBurn: {fileID: 11400032}
+  _FxPoisoning: {fileID: 11400034}
   target: {fileID: 0}
   my_name: 
   state_name: 
   muster_name: 
-  p_name: Franscis_Type1_
-  health_bar_body: {fileID: 0}
+  p_name: Comma_
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -478,8 +473,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: Franscis_Type1_Moving_Downwards_0
+  mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
+  mSpriteName: Comma_Moving_Downwards_0
   mFillCenter: 1
 --- !u!114 &11400016
 MonoBehaviour:
@@ -492,8 +487,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 0
+  audioUnitType: 12
 --- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ed2c9789b808f459f826ec9369fbbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -531,13 +537,17 @@ MonoBehaviour:
   duration: 1
   steeperCurves: 0
   tweenGroup: 0
-  onFinished: []
+  onFinished:
+  - mTarget: {fileID: 11400018}
+    mMethodName: Reset
+    mParameters: []
+    oneShot: 0
   eventReceiver: {fileID: 0}
   callWhenFinished: 
   from: {x: 0, y: 0, z: 0}
   to: {x: 1, y: 1, z: 1}
   updateTable: 0
---- !u!114 &11400020
+--- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -584,95 +594,15 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: Whap Blue
+  mAtlas: {fileID: 11400000, guid: d15aff9e43c98ea45b66172d893b2f1d, type: 2}
+  mSpriteName: Whap Red
   mFillCenter: 1
---- !u!114 &11400022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ed2c9789b808f459f826ec9369fbbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  rightAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  bottomAnchor:
-    target: {fileID: 0}
-    relative: 0
-    absolute: 0
-  topAnchor:
-    target: {fileID: 0}
-    relative: 1
-    absolute: 0
-  updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mWidth: 45
-  mHeight: 45
-  mDepth: 2
-  autoResizeBoxCollider: 1
-  hideIfOffScreen: 0
-  keepAspectRatio: 0
-  aspectRatio: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
-  mFlip: 0
-  centerType: 1
-  leftType: 1
-  rightType: 1
-  bottomType: 1
-  topType: 1
-  mAtlas: {fileID: 11400000, guid: d15aff9e43c98ea45b66172d893b2f1d, type: 2}
-  mSpriteName: Fire_0
-  mFillCenter: 1
---- !u!114 &11400026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeba56312861fe946bf7f352f6a51225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mFPS: 8
-  mPrefix: Fire_
-  mLoop: 1
-  mSnap: 0
-  _framerate: 8
-  _namePrefix: Fire_
-  _loop: 1
-  _pixelSnap: 0
---- !u!114 &11400028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100012}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
@@ -717,7 +647,22 @@ MonoBehaviour:
   mAtlas: {fileID: 11400000, guid: d15aff9e43c98ea45b66172d893b2f1d, type: 2}
   mSpriteName: Poisoning_0
   mFillCenter: 1
---- !u!114 &11400030
+--- !u!114 &11400026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeba56312861fe946bf7f352f6a51225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mFPS: 8
+  mPrefix: Poisoning_
+  mLoop: 1
+  mSnap: 0
+--- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -729,13 +674,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mFPS: 8
-  mPrefix: Poisoning_
+  mPrefix: Fire_
   mLoop: 1
   mSnap: 0
-  _framerate: 8
-  _namePrefix: Poisoning_
-  _loop: 1
-  _pixelSnap: 0
+--- !u!114 &11400030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 45
+  mHeight: 45
+  mDepth: 2
+  autoResizeBoxCollider: 1
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11400000, guid: d15aff9e43c98ea45b66172d893b2f1d, type: 2}
+  mSpriteName: Fire_0
+  mFillCenter: 1
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -744,7 +735,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5edc4929c08b9da4c8fe3bd5e35cb55c, type: 3}
+  m_Script: {fileID: 11500000, guid: 481424b2fd400844bb784e3cf8f35a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _displayTime: 3
@@ -756,7 +747,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481424b2fd400844bb784e3cf8f35a86, type: 3}
+  m_Script: {fileID: 11500000, guid: 5edc4929c08b9da4c8fe3bd5e35cb55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _displayTime: 3

@@ -117,7 +117,8 @@ public class SyncStateScript : MonoBehaviour
 
         gameObject.transform.position = owner.transform.position;
         gameObject.transform.localScale = Vector3.one;
-        gameObject.GetComponent<Projectile>().FireProcess(owner.GetComponent<GameEntity>(), target.GetComponent<GameEntity>());
+        //gameObject.GetComponent<Projectile>().Move(owner.GetComponent<GameEntity>(), target.GetComponent<GameEntity>());
+        gameObject.GetComponent<Projectile>().Move(target.GetComponent<GameEntity>());
     }
 
 

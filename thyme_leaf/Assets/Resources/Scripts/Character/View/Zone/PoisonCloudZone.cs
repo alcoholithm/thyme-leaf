@@ -27,13 +27,19 @@ public class PoisonCloudZone : MonoBehaviour
 
     void OnEnable()
     {
-        sprite.spriteName = "PoisonCloud_0";
-        sprite.MakePixelPerfect();
+        this.sprite.spriteName = "PoisonCloud_0";
+        this.sprite.MakePixelPerfect();
+
+        anim.ResetToBeginning();
 
         StartCoroutine("HideDelayed");
         StartCoroutine("AttackProcess");
     }
 
+    void OnDisable()
+    {
+        enemies.Clear();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

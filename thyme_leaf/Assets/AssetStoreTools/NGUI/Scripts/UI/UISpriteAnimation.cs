@@ -15,10 +15,14 @@ using System.Collections.Generic;
 [AddComponentMenu("NGUI/UI/Sprite Animation")]
 public class UISpriteAnimation : MonoBehaviour
 {
-	[HideInInspector][SerializeField] protected int mFPS = 30;
-	[HideInInspector][SerializeField] protected string mPrefix = "";
-	[HideInInspector][SerializeField] protected bool mLoop = true;
-	[HideInInspector][SerializeField] protected bool mSnap = true;
+    //[HideInInspector]
+    [SerializeField] protected int mFPS = 30;
+    //[HideInInspector]
+    [SerializeField] protected string mPrefix = "";
+    //[HideInInspector]
+    [SerializeField] protected bool mLoop = true;
+    //[HideInInspector]
+    [SerializeField] protected bool mSnap = true;
 
 	protected UISprite mSprite;
 	protected float mDelta = 0f;

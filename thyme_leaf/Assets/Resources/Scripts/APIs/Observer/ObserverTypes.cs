@@ -4,5 +4,6 @@ using System.Collections;
 public enum ObserverTypes
 {
     Health,
-    Gold
+    Gold,
+    Enemy
 }
