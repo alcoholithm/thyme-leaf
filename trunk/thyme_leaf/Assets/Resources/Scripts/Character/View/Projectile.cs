@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour
 {
-    private NGUISpriteAnimation fx;
+    protected NGUISpriteAnimation fx;
     private UISprite sprite;
-    private string animName;
+    protected string animName;
 
     private GameEntity owner; // temp
-    private GameEntity target;
+    protected GameEntity target;
     //private Vector3 targetPosition;
 
     //private bool flag = false;
@@ -19,16 +19,16 @@ public class Projectile : MonoBehaviour
     private int attackRange;
 
     [SerializeField]
-    private float movingSpeed = 0.7f;
+    protected float movingSpeed = 0.7f;
     //private float rotationSpeed = 1f;
 
-    void Awake()
+    protected virtual void Awake()
     {
         fx = GetComponent<NGUISpriteAnimation>();
         sprite = GetComponent<UISprite>();
     }
 
-    void OnEnable()
+    protected virtual void OnEnable()
     {
         //transform.LookAt(target.transform.position);
 
@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
         fx.Play(this.animName);
     }
 
-    void Update()
+    protected virtual void Update()
     {
         //if (flag)
         //    return;
@@ -77,7 +77,7 @@ public class Projectile : MonoBehaviour
         //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction.normalized), rotationSpeed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (!target.collider2D.Equals(other))
             return;
@@ -88,7 +88,7 @@ public class Projectile : MonoBehaviour
         fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
 
         GameEntity entity = target.GetComponent<GameEntity>();
-        Message msg = entity.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
+        Message msg = entity.ObtainMessage(MessageTypes.MSG_NORMAL_DAMAGE, attackDamage);
 
         entity.DispatchMessage(msg);
     }

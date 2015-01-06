@@ -96,7 +96,7 @@ public class HeroState_Attacking : State<Hero>
             owner.helper.attack_delay_counter += Time.deltaTime;
             if (owner.helper.attack_delay_counter >= owner.model.AttackDelay)
             {
-                Message msg = owner.helper.attack_target.ObtainMessage(MessageTypes.MSG_DAMAGE, (int)owner.model.AttackDamage);
+                Message msg = owner.helper.attack_target.ObtainMessage(MessageTypes.MSG_NORMAL_DAMAGE, (int)owner.model.AttackDamage);
 
                 owner.helper.attack_target.DispatchMessage(msg);
                 owner.helper.attack_delay_counter = 0;

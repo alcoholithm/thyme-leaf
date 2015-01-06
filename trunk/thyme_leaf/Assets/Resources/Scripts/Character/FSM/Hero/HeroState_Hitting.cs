@@ -13,7 +13,7 @@ public class HeroState_Hitting : State<Hero>
      */ 
     public override void Enter(Hero owner)
     {
-        Debug.Log("Hitting Enter *********************");
+        //Debug.Log("Hitting Enter *********************");
         // throw new System.NotImplementedException ();
     }
 
@@ -32,9 +32,19 @@ public class HeroState_Hitting : State<Hero>
     {
 		//ok...
         switch (msg.what)
-        { 
-            case MessageTypes.MSG_DAMAGE:
+        {
+            case MessageTypes.MSG_NORMAL_DAMAGE:
                 (msg.receiver as Hero).TakeDamage(msg.arg1);
+                return true;
+            case MessageTypes.MSG_POISON_DAMAGE:
+                Hero receriver = msg.receiver as Hero;
+                receriver.Add(receriver.FxPoisoning);
+                receriver.TakeDamage(msg.arg1);
+                return true;
+            case MessageTypes.MSG_BURN_DAMAGE:
+                receriver = msg.receiver as Hero;
+                receriver.Add(receriver.FxBurn);
+                receriver.TakeDamage(msg.arg1);
                 return true;
         }
         return false;

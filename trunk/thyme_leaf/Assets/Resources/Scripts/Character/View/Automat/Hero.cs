@@ -31,8 +31,20 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
     private View _FxWhap;
     [SerializeField]
     private View _FxBurn;
+
+    public View FxBurn
+    {
+        get { return _FxBurn; }
+        set { _FxBurn = value; }
+    }
     [SerializeField]
     private View _FxPoisoning;
+
+    public View FxPoisoning
+    {
+        get { return _FxPoisoning; }
+        set { _FxPoisoning = value; }
+    }
 	
 	public Hero target;
 	public string my_name;  //test code...

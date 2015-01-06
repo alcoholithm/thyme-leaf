@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400016}
   m_Layer: 10
-  m_Name: Tower
+  m_Name: AGT
   m_TagString: TagTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bee3942f45bef41a02c18b8df7ed34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayTime: 11
+  _displayTime: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

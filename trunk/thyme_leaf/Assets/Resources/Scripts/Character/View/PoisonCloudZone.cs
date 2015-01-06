@@ -1,56 +1,95 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PoisonCloudZone : MonoBehaviour
 {
     private NGUISpriteAnimation anim;
     private UISprite sprite;
-    private string animName;
+
+    private string animName = "PoisonCloud_";
 
     [SerializeField]
-    private int attackDamage;
-    [SerializeField]
-    private int attackRange;
+    private float _activeTime = 7f;
 
+    [SerializeField]
+    private int _attackDamage = 5;
+
+    private List<GameEntity> enemies;
+
+    /*
+     * Followings are unity callback methods.
+     */ 
     void Awake()
     {
         this.sprite = GetComponent<UISprite>();
         this.anim = GetComponent<NGUISpriteAnimation>();
+        this.enemies = new List<GameEntity>();
     }
 
     void OnEnable()
     {
-        anim.Pause();
-
         sprite.spriteName = "PoisonCloud_0";
         sprite.MakePixelPerfect();
 
-        this.animName = "PoisonDrop_";
-        anim.Play(this.animName);
+        StartCoroutine("HideDelayed");
+        StartCoroutine("AttackProcess");
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag(Tag.TagProjectile)
+            || other.CompareTag(Tag.TagArcherAutomart())
+            || other.CompareTag(Tag.TagBarrierAutomart())
+            || other.CompareTag(Tag.TagHealerAutomart())
+            || other.CompareTag(Tag.TagSupporterAutomart())
+            || other.CompareTag(Tag.TagWarriorAutomart())
+            || other.CompareTag(Tag.TagCommandCenter)
+            || other.CompareTag(Tag.TagTower)
+        )
+            return;
 
-        //this.animName = "PoisonGas_";
-        //anim.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
-
-        //GameEntity entity = target.GetComponent<GameEntity>();
-        //Message msg = entity.ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
-
-        //entity.DispatchMessage(msg);
+        enemies.Add(other.GetComponent<GameEntity>());
     }
 
-    //public void FireProcess(GameEntity owner, GameEntity target)
-    //{
-    //    this.owner = owner;
-    //    this.target = target;
-    //    gameObject.SetActive(true);
-    //    AudioManager.Instance.PlayClipWithState(owner.gameObject, StateType.ATTACKING);
-    //}
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(Tag.TagProjectile)
+            || other.CompareTag(Tag.TagArcherAutomart())
+            || other.CompareTag(Tag.TagBarrierAutomart())
+            || other.CompareTag(Tag.TagHealerAutomart())
+            || other.CompareTag(Tag.TagSupporterAutomart())
+            || other.CompareTag(Tag.TagWarriorAutomart())
+            || other.CompareTag(Tag.TagCommandCenter)
+            || other.CompareTag(Tag.TagTower)
+        )
+            return;
+
+        enemies.Remove(other.GetComponent<GameEntity>());
+    }
 
     /*
-     * Attributes
+     * Followings are member functions
+     */ 
+    private IEnumerator HideDelayed()
+    {
+        yield return new WaitForSeconds(_activeTime);
+        Spawner.Instance.PerfectFree(this.gameObject);
+    }
+
+    private IEnumerator AttackProcess()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.6f);
+            enemies.ForEach(e => { if (!e.gameObject.activeInHierarchy) enemies.Remove(e); });
+            enemies.ForEach(e => { e.DispatchMessage(e.ObtainMessage(MessageTypes.MSG_POISON_DAMAGE, _attackDamage)); });
+        }
+    }
+
+    /*
+     * Followings are Attributes
      */
     public const string TAG = "[PoisonCloudZone]";
 }
