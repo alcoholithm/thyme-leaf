@@ -165,18 +165,19 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		{
 			Debug.Log ("wave start!!");
 			yield return new WaitForSeconds(wave_table.wave_setting_value_set[idx].first_delay_time);
+			
+			stateMachine.ChangeState(THouseState_Waving);  //change wave state~~!!!...
+			
 			StartCoroutine ("WaveSpawnUnit", idx);
 		}
 	}
 	
 	IEnumerator WaveSpawnUnit(int idx)
 	{
-		//product...
 		for (int i = 0; i < wave_table.wave_setting_value_set[idx].unit_num; i++)
 		{
 			Hero obj = Spawner.Instance.GetTrovant (wave_table.wave_setting_value_set[idx].unit_type);
 			obj.helper.setPos(position_node.transform.localPosition);
-			Debug.Log("id : " + i);
 			for (float timer = 0; timer < wave_table.wave_setting_value_set[idx].unit_delay_time; timer += Time.deltaTime)
 			{
 				yield return null;
@@ -184,21 +185,23 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		}
 		Debug.Log ((wave_count+1) + " wave exit");
 		wave_count++;
+		
+		stateMachine.ChangeState (THouseState_Idling);  //change idling state~~!!!...
 		StartCoroutine ("WaveRoutine", wave_count);
 	}
-
+	
 	public void Emergency()
 	{
 		Debug.Log ("Trovant Emergency Spawn!!");
 		StartCoroutine ("EmergencySpawnUnit");
 	}
-
+	
 	IEnumerator EmergencySpawnUnit()
 	{
 		for (int i = 0; i < 5; i++)
 		{
 			Hero obj = Spawner.Instance.GetTrovant (TrovantType.COMMA);
-			obj.helper.setPos(position_node.transform.localPosition);
+			obj.helper.setPos(position_node.transform.localPosition);  //my center position okay...
 			for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
 			{
 				yield return null;
