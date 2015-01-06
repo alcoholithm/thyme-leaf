@@ -49,7 +49,8 @@ public class AudioManager : Manager<AudioManager>
 
     void Start()
     {
-        ImportValues();
+        Settings.Awake();
+        UpdateValues();
         string levelName = Application.loadedLevelName;
         if (levelName.Equals("1_Lobby")) audioPlayer.clip = music[(int)MusicType.LOBBY];
         else if (levelName.Equals("3_Battle")) audioPlayer.clip = music[(int)MusicType.BATTLE_1];
@@ -76,11 +77,13 @@ public class AudioManager : Manager<AudioManager>
         StartAudio();
     }
 
-    public void ImportValues()
+    public void UpdateValues()
     {
         //audioPlayer.volume = 0.5f;
-        audioPlayer.volume = Settings.MusicVolume;
-        audioPlayer.mute = !Settings.MusicEnabled;        
+        //audioPlayer.volume = Settings.MusicVolume;
+        //audioPlayer.mute = !Settings.MusicEnabled;        
+        audioPlayer.volume = Settings.CurrentSettingData.MusicVolume;
+        audioPlayer.mute = !Settings.CurrentSettingData.MusicEnabled;
     }
 
     public void StartAudio()
@@ -203,8 +206,8 @@ public class AudioManager : Manager<AudioManager>
     {
         if (sound[(int)type] == null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
 
-        if (Settings.SoundEffectsEnabled && sound[(int)type] != null)
-            AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.SoundEffectsVolume);
+        if (Settings.CurrentSettingData.SoundEffectsEnabled && sound[(int)type] != null)
+            AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.CurrentSettingData.SoundEffectsVolume);
 
         //AudioSource.PlayClipAtPoint(sound[(int)type], pos, 0.5f);
     }
