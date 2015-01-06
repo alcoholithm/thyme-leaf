@@ -119,7 +119,8 @@ public class NetworkConnector : MonoBehaviour
 			NetworkConnector.Instance.NetworkLoadLevel(SceneManager.BATTLE_MULTI);
 			break;
 		case NetworkResult.EMPTY_ROOM:
-			Debug.Log("Nobody made room");
+			Debug.Log("Create room because there is no room");
+            NetworkConnector.Instance.CreateRoom();
 			break;
 		case NetworkResult.FAIL:
 			Debug.Log("Fail to connect to server");

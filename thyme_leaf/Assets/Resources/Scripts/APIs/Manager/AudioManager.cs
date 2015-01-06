@@ -49,7 +49,7 @@ public class AudioManager : Manager<AudioManager>
 
     void Start()
     {
-        InitValues();
+        ImportValues();
         string levelName = Application.loadedLevelName;
         if (levelName.Equals("1_Lobby")) audioPlayer.clip = music[(int)MusicType.LOBBY];
         else if (levelName.Equals("3_Battle")) audioPlayer.clip = music[(int)MusicType.BATTLE_1];
@@ -76,7 +76,7 @@ public class AudioManager : Manager<AudioManager>
         StartAudio();
     }
 
-    void InitValues()
+    public void ImportValues()
     {
         //audioPlayer.volume = 0.5f;
         audioPlayer.volume = Settings.MusicVolume;
