@@ -132,7 +132,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		Debug.Log (coll.name);
 		//coll return checking...
 		if(coll == null || helper.collision_object.radius == helper.collision_range_muster) return;
 	
@@ -140,7 +139,17 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		{
 			if(IsAttackCase(coll.gameObject))  //state compare okay...
 		    {
-				helper.attack_target = coll.gameObject.GetComponent<Hero>();
+				if(!coll.CompareTag(Tag.TagCommandCenter))
+					helper.attack_target = coll.gameObject.GetComponent<Hero>();
+				else 
+				{
+					Layer other_center_layer = (Layer)coll.gameObject.layer;
+//					switch(other_center_layer)
+//					{
+//
+//					}
+				//	helper.attack_target = coll.transform.parent.gameObject.GetComponent
+				}
 				Debug.Log(helper.attack_target.name);
 				//my state is attaking...
 				stateMachine.ChangeState(HeroState_Attacking.Instance);
