@@ -174,6 +174,7 @@ public class NetworkConnector : MonoBehaviour
 	
 	private void RequestRoomInfo()
 	{
+        Debug.Log("RequestHostList()");
 		MasterServer.RequestHostList(typeName);
 	}
 	
@@ -200,6 +201,7 @@ public class NetworkConnector : MonoBehaviour
 	
 	void OnMasterServerEvent(MasterServerEvent msEvent)
 	{
+        Debug.Log("OnMasterServerEvent : " + msEvent);
 		if (msEvent == MasterServerEvent.HostListReceived)
 		{
 			hostList = MasterServer.PollHostList();
