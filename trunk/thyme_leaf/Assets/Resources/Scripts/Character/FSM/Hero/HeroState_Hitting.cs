@@ -30,20 +30,25 @@ public class HeroState_Hitting : State<Hero>
 
     public override bool HandleMessage(Message msg)
     {
-		//ok...
+        
         switch (msg.what)
         {
             case MessageTypes.MSG_NORMAL_DAMAGE:
+                Debug.Log("MSG_NORMAL_DAMAGE");
                 (msg.receiver as Hero).TakeDamage(msg.arg1);
                 return true;
             case MessageTypes.MSG_POISON_DAMAGE:
                 Hero receriver = msg.receiver as Hero;
+                Debug.Log("MSG_POISON_DAMAGE");
+                Debug.Log(receriver.Views.Contains(receriver.FxPoisoning));
                 if (!receriver.Views.Contains(receriver.FxPoisoning))
                     receriver.Add(receriver.FxPoisoning);
                 receriver.TakeDamage(msg.arg1);
                 return true;
             case MessageTypes.MSG_BURN_DAMAGE:
                 receriver = msg.receiver as Hero;
+                Debug.Log("MSG_BURN_DAMAGE");
+                Debug.Log(receriver.Views.Contains(receriver.FxBurn));
                 if (!receriver.Views.Contains(receriver.FxBurn))
                     receriver.Add(receriver.FxBurn);
                 receriver.TakeDamage(msg.arg1);

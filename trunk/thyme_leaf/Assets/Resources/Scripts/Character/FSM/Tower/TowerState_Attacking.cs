@@ -19,7 +19,6 @@ public class TowerState_Attacking : State<AutomatTower>
         Debug.Log(TAG + " Enter");
 
         animName = Naming.Instance.BuildAnimationName(owner.gameObject, Naming.ATTACKING) + "_";
-        Debug.Log(animName);
 
         owner.Anim.Pause();
         owner.Anim.namePrefix = animName;

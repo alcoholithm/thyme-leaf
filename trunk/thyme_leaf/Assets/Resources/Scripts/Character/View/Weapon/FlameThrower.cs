@@ -7,17 +7,18 @@ public class FlameThrower : Weapon, ILauncher
     private NGUISpriteAnimation anim;
     private UISprite sprite;
 
-    private string animName = "FlameThrower_";
-
     [SerializeField]
     private float _activeTime = 1f;
 
     [SerializeField]
     private GameObject _flame;
 
+    private string animName = "FlameThrower_";
+    private bool doesAttack = false;
+
     /*
      * Followings are unity callback methods.
-     */ 
+     */
     void Awake()
     {
         Initialize();
@@ -34,9 +35,10 @@ public class FlameThrower : Weapon, ILauncher
 
     void Update()
     {
-        if (sprite.spriteName == "FlameThrower_04")
+        if (!doesAttack && sprite.spriteName == "FlameThrower_04")
         {
             _flame.GetComponent<Flame>().Attack();
+            doesAttack = true;
         }
     }
 
@@ -54,6 +56,10 @@ public class FlameThrower : Weapon, ILauncher
         this.anim.Pause();
     }
 
+    void Reset()
+    {
+        doesAttack = false;
+    }
     /*
     * Followings are implemented methods of "ILauncher"
     */
@@ -79,6 +85,7 @@ public class FlameThrower : Weapon, ILauncher
 
     public override void UpdateUI()
     {
+        Reset();
         Fire((Parent as AutomatTower).Model.CurrentTarget);
     }
 
