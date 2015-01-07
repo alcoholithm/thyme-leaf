@@ -82,6 +82,7 @@ public class Spawner : Manager<Spawner>
         }
         PathManager.Instance.ShootMap();
         CreateWChats();
+        CreateThouse();
     }
 
     public void CreateWChats() 
@@ -99,6 +100,7 @@ public class Spawner : Manager<Spawner>
 
     public void CreateThouse()
     {
+        Debug.Log("THOUSE COUNT : " + Define.trovant_center_node.Count);
         for(int i=0; i<Define.trovant_center_node.Count; i++)
         {
             Debug.Log(" i = " + i);
