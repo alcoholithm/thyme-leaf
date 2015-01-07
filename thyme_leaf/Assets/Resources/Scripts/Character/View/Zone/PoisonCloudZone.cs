@@ -100,7 +100,7 @@ public class PoisonCloudZone : MonoBehaviour
 
     private void Attack()
     {
-        enemies.ForEach(e => { if (!e.gameObject.activeInHierarchy) enemies.Remove(e); });
+        enemies.ForEach(e => { if (e == null || !e.gameObject.activeInHierarchy) enemies.Remove(e); });
         enemies.ForEach(e => { e.DispatchMessage(e.ObtainMessage(MessageTypes.MSG_POISON_DAMAGE, _attackDamage)); });
     }
 
