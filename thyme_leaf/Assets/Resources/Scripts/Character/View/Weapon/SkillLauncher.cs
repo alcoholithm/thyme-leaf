@@ -47,7 +47,7 @@ public class SkillLauncher : Weapon, ILauncher, IObservable
         if (target == null)
             return;
 
-        Projectile projectile = Spawner.Instance.GetProjectilsWithTarget(ProjectileType.METEO, transform.position, target.gameObject);
+        Spawner.Instance.GetProjectilsWithTarget(ProjectileType.METEO, transform.position, target.transform.position);
         //if (projectile == null)
         //{
         //    Debug.Log("PROJECTILE IS NULL");
