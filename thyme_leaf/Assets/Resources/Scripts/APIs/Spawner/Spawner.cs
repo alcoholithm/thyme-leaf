@@ -104,6 +104,9 @@ public class Spawner : Manager<Spawner>
             GetWChat(WChatType.WCHAT_TYPE1, Define.trovant_center_node[i].transform.localPosition);
         }
     }
+
+
+    
     
 
     /**********************************/
