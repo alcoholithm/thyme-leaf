@@ -2424,6 +2424,8 @@ MonoBehaviour:
   TV_COMMA_DYING: {fileID: 8300000, guid: 1b0e3686e525a3149927cf282a086e3c, type: 3}
   TV_PYTHON_ATTACKING: {fileID: 8300000, guid: 10ef1f607ee070e48bbb8fcbfa7a8875, type: 3}
   TV_PYTHON_DYING: {fileID: 8300000, guid: 1b0e3686e525a3149927cf282a086e3c, type: 3}
+  SKILL_FIREBALL_BOOMING: {fileID: 8300000, guid: 5090d2f43f6a30f4da00d2d152f6e61d,
+    type: 3}
 --- !u!82 &215400835
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12393,6 +12395,7 @@ MonoBehaviour:
   projectiles:
   - {fileID: 100002, guid: 840403e737c9fd446b248dde71c11c5e, type: 2}
   - {fileID: 100002, guid: 9c2364baa23402c428171988c388b5cd, type: 2}
+  - {fileID: 100002, guid: bfb45e2d3d9251848bef34c7589bbd59, type: 2}
   trovants:
   - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
   - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}

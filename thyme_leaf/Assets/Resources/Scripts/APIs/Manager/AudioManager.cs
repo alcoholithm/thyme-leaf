@@ -18,6 +18,7 @@ public class AudioManager : Manager<AudioManager>
     public AudioClip TV_COMMA_DYING;
     public AudioClip TV_PYTHON_ATTACKING;
     public AudioClip TV_PYTHON_DYING;
+    public AudioClip SKILL_FIREBALL_BOOMING;
 
     // objects for audoPlayer
     private AudioClip[] sound;
@@ -48,6 +49,8 @@ public class AudioManager : Manager<AudioManager>
         sound[(int)SoundType.TROVANT_COMMA_DYING] = TV_COMMA_DYING;
         sound[(int)SoundType.TROVANT_PYTHON_ATTACKING] = TV_PYTHON_ATTACKING;
         sound[(int)SoundType.TROVANT_PYTHON_DYING] = TV_PYTHON_DYING;
+        sound[(int)SoundType.SKILL_FIREBALL_BOOMING] = SKILL_FIREBALL_BOOMING;
+
     }
 
     void OnDestroy()
@@ -181,6 +184,13 @@ public class AudioManager : Manager<AudioManager>
             && stateType == StateType.DYING)
         {
             resultSoundType = SoundType.TROVANT_COMMA_DYING;
+        }
+
+            // Skills
+        else if(unitType == AudioUnitType.PROJECTILE_FIREBALL
+            && stateType == StateType.ATTACKING)
+        {
+            resultSoundType = SoundType.SKILL_FIREBALL_BOOMING;
         }
         // WChat
             // Type1

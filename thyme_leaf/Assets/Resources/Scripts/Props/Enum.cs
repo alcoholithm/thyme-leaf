@@ -63,6 +63,7 @@ public enum AudioUnitType
     //projectiles
     PROJECTILE_POISON,
     PROJECTILE_FLAME,
+    PROJECTILE_FIREBALL,
 
     //wchats
     WCHAT_TYPE1,
@@ -141,6 +142,8 @@ public enum SoundType
 
     TROVANT_PYTHON_ATTACKING,
     TROVANT_PYTHON_DYING,
+
+    SKILL_FIREBALL_BOOMING,
 
     NOTHING,
 }
