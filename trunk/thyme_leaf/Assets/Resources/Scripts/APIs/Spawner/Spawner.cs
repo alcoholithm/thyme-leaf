@@ -287,10 +287,10 @@ public class Spawner : Manager<Spawner>
             return GetProjectile((int)type, pos);
         else if (Network.isServer)
         {
-            NetworkViewID viewID = Network.AllocateViewID();
-            networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
-            GameObject go = NetworkView.Find(viewID).gameObject;
-            return go.GetComponent<Projectile>();
+                NetworkViewID viewID = Network.AllocateViewID();
+                networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
+                GameObject go = NetworkView.Find(viewID).gameObject;
+                return go.GetComponent<Projectile>();
         }
         return null;
     }
@@ -450,7 +450,9 @@ public class Spawner : Manager<Spawner>
     void NetworkGetPoisonCloud(NetworkViewID viewID, int type)
     {
         GameObject go = GameObject.Instantiate(effects[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitPoisonCloud(ref go);
     }
@@ -459,7 +461,9 @@ public class Spawner : Manager<Spawner>
     void NetworkGetThouse(NetworkViewID viewID, int type, Vector3 pos)
     {
         GameObject go = GameObject.Instantiate(thouses[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = trovantBuildingPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitThouse(ref go, pos);
     }
@@ -469,7 +473,9 @@ public class Spawner : Manager<Spawner>
     {
         Debug.Log("NetworkGetWChat");
         GameObject go = GameObject.Instantiate(wchats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitWChat(ref go, pos);
     }
@@ -478,7 +484,9 @@ public class Spawner : Manager<Spawner>
     void NetworkGetHero(NetworkViewID viewID, int type)
     {
         GameObject go = GameObject.Instantiate(automats[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = automatPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitHero(ref go);
     }
@@ -487,7 +495,9 @@ public class Spawner : Manager<Spawner>
     void NetworkGetTrovant(NetworkViewID viewID, int type)
     {
         GameObject go = GameObject.Instantiate(trovants[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = trovantPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitTrovant(ref go);
     }
@@ -496,7 +506,9 @@ public class Spawner : Manager<Spawner>
     void NetworkGetTower(NetworkViewID viewID, int type)
     {
         GameObject go = GameObject.Instantiate(towers[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitTower(ref go);
     }
@@ -505,7 +517,9 @@ public class Spawner : Manager<Spawner>
     void NetworkGetProjectileWithTarget(NetworkViewID viewID, int type, Vector3 pos, Vector3 targetPos)
     {
         GameObject go = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitProjectileWithTarget(ref go, pos, targetPos);
     }
@@ -514,7 +528,9 @@ public class Spawner : Manager<Spawner>
     void NetworkGetProjectile(NetworkViewID viewID, int type, Vector3 pos)
     {
         GameObject go = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
+        go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
+        go.SetActive(true);
         go.networkView.viewID = viewID;
         InitProjectile(ref go, pos);
     }
