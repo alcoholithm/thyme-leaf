@@ -62,8 +62,8 @@ public class WorldMapView : View, IActionListener
         DialogFacade.Instance.ChangeMsgDialogBtnText("Cancle");
         DialogFacade.Instance.ShowMessageDialog("Waiting for minuate....");
 
-        NetworkConnector.Instance.SetOnNetworkConnectedListener(OnonnectedActionDelegate).
-                SetOnNetworkDisconnectedListener(OnisconnectedActionDelegate).JoinRoom();
+        NetworkConnector.Instance.SetOnNetworkConnectedListener(OnConnectedActionDelegate).
+                SetOnNetworkDisconnectedListener(OnDisconnectedActionDelegate).JoinRoom();
     }
 
     private void FailConnect()
@@ -72,7 +72,7 @@ public class WorldMapView : View, IActionListener
         DialogFacade.Instance.ShowMessageDialog("Fail to connect to Server");
     }
 
-    void OnonnectedActionDelegate(NetworkResult result){
+    void OnConnectedActionDelegate(NetworkResult result){
         switch (result)
         {
             case NetworkResult.SUCCESS_TO_CONNECT:
@@ -92,7 +92,10 @@ public class WorldMapView : View, IActionListener
         }
     }
 
-    void OnisconnectedActionDelegate(){
+    void OnDisconnectedActionDelegate(){
+
+        Debug.Log(SceneManager.Instance.CurrentScene);
+
         Debug.Log("Disconnected");
         DialogFacade.Instance.CloseMessageDialog();
         DialogFacade.Instance.ShowMessageDialog("Disconnected to Server");
