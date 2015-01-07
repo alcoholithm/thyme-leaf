@@ -5625,6 +5625,8 @@ MonoBehaviour:
   TV_COMMA_DYING: {fileID: 8300000, guid: 1b0e3686e525a3149927cf282a086e3c, type: 3}
   TV_PYTHON_ATTACKING: {fileID: 8300000, guid: 10ef1f607ee070e48bbb8fcbfa7a8875, type: 3}
   TV_PYTHON_DYING: {fileID: 8300000, guid: 1b0e3686e525a3149927cf282a086e3c, type: 3}
+  SKILL_FIREBALL_BOOMING: {fileID: 8300000, guid: 5090d2f43f6a30f4da00d2d152f6e61d,
+    type: 3}
 --- !u!82 &1302280816
 AudioSource:
   m_ObjectHideFlags: 0
