@@ -70,8 +70,8 @@ public class HeroState_Attacking : State<Hero>
 		if (!check && hp <= 0 && !isCharacter)
         {
 			owner.target.DataInit();
-            //if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
-            if(Network.isServer && owner != null)
+            if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
+            //if(Network.isServer && owner != null)
             {
                 owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
             }
