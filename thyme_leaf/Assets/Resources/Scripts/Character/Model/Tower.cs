@@ -53,7 +53,7 @@ public class Tower : Unit
 
     public void TrimEnemies()
     {
-        enemies.ForEach(e => { if (!e.gameObject.activeInHierarchy) enemies.Remove(e); });
+        enemies.ForEach(e => { if (e == null||!e.gameObject.activeInHierarchy) enemies.Remove(e); });
     }
 
     public bool HasMoreEnemies()
