@@ -15,18 +15,24 @@ public class PoisonLauncher : Weapon, ILauncher
 
         if (projectile == null)
             return;
-
-
-        if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
+        else if (!Network.isClient)
         {
             projectile.transform.position = transform.position;
             projectile.transform.localScale = Vector3.one;
             projectile.Move(target);
         }
-        else if (projectile.gameObject.networkView.isMine)  // Multi mode
-        {
-            projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Parent as GameEntity, target.GetComponent<GameEntity>());
-        }
+
+
+        //if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
+        //{
+        //    projectile.transform.position = transform.position;
+        //    projectile.transform.localScale = Vector3.one;
+        //    projectile.Move(target);
+        //}
+        //else if (projectile.gameObject.networkView.isMine)  // Multi mode
+        //{
+        //    projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Parent as GameEntity, target.GetComponent<GameEntity>());
+        //}
     }
 
     /*
