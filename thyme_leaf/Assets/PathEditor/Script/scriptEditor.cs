@@ -14,5 +14,6 @@ public class scriptEditor : MonoBehaviour
 	public int selectedEventUP;
 	public int selectedRemove;
 	public scriptPathNode NodeNULL;
+	public GameMode mode;
 	//================================================
 }

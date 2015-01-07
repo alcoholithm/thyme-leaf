@@ -45,6 +45,11 @@ public class scriptPathNode : MonoBehaviour
 
 		center_num = -1;
 		center_name = "null";
+
+		DirectionMarkDisable (true);
+		DirectionMarkDisable (false);
+
+		ChangeIMG (SpriteList.NORMAL);
 	}
 	
 	public void AddTurnOffList(GameObject obj)

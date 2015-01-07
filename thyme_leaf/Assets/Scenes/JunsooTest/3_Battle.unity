@@ -4235,6 +4235,7 @@ MonoBehaviour:
         unit_num: 10
         unit_type: 1
         unit_delay_time: 1
+  WaveSystemTrigger: 0
 --- !u!4 &371846093
 Transform:
   m_ObjectHideFlags: 0
@@ -5225,8 +5226,10 @@ MonoBehaviour:
   - {fileID: 100008, guid: 11282234ffd414b3eab30ca3d86bfdb0, type: 2}
   towers:
   - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
+  - {fileID: 100002, guid: f1b8e0f3dff46884287f346ddf737af0, type: 2}
+  - {fileID: 100002, guid: d0378c24b28648743960f71211d1e1c5, type: 2}
   projectiles:
-  - {fileID: 100002, guid: 65d790f31b7fe6e489bc4cde31cbc5d1, type: 2}
+  - {fileID: 100002, guid: 840403e737c9fd446b248dde71c11c5e, type: 2}
   trovants:
   - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
   - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
@@ -8092,6 +8095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 2095620624}
   _message: {fileID: 339923865}
+  _btnText: {fileID: 0}
 --- !u!114 &934823848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9934,7 +9938,6 @@ GameObject:
   - 148: {fileID: 1014386089}
   - 114: {fileID: 1014386088}
   - 114: {fileID: 1014386087}
-  - 114: {fileID: 1014386094}
   - 65: {fileID: 1014386090}
   m_Layer: 10
   m_Name: W-Chat
@@ -9985,10 +9988,6 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
-  _framerate: 8
-  _namePrefix: 
-  _loop: 1
-  _pixelSnap: 1
 --- !u!148 &1014386089
 NetworkView:
   m_ObjectHideFlags: 0
@@ -10113,19 +10112,6 @@ MonoBehaviour:
   _model:
     _maxHp: 100
     _currHp: 100
---- !u!114 &1014386094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400016, guid: 29cbf384dd633b143bdb02d735a18569,
-    type: 2}
-  m_PrefabInternal: {fileID: 89064568}
-  m_GameObject: {fileID: 1014386085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d2c950e8349b64389c7dc339a0bbac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplayType: 0
 --- !u!1 &1015364117
 GameObject:
   m_ObjectHideFlags: 0
@@ -10173,6 +10159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 200241074}
   _message: {fileID: 939213201}
+  _btnText: {fileID: 0}
 --- !u!114 &1015364120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12471,6 +12458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 974233375}
   _message: {fileID: 1495882677}
+  _btnText: {fileID: 0}
 --- !u!114 &1383875077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12660,7 +12648,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc49a56e5f148424f833c0d71c449098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buildTower1: {fileID: 228071363}
+  _buildAGT: {fileID: 0}
+  _buildASPT: {fileID: 0}
+  _buildAPT: {fileID: 0}
   _cancelButton: {fileID: 1402744644}
 --- !u!114 &1399218589
 MonoBehaviour:
@@ -14533,7 +14523,6 @@ GameObject:
   - 148: {fileID: 1739692130}
   - 114: {fileID: 1739692129}
   - 114: {fileID: 1739692128}
-  - 114: {fileID: 1739692135}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
@@ -14583,10 +14572,6 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
-  _framerate: 8
-  _namePrefix: 
-  _loop: 1
-  _pixelSnap: 1
 --- !u!148 &1739692130
 NetworkView:
   m_ObjectHideFlags: 0
@@ -14706,19 +14691,6 @@ MonoBehaviour:
   _model:
     _maxHp: 100
     _currHp: 100
---- !u!114 &1739692135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400016, guid: 29cbf384dd633b143bdb02d735a18569,
-    type: 2}
-  m_PrefabInternal: {fileID: 2060998779}
-  m_GameObject: {fileID: 1739692126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d2c950e8349b64389c7dc339a0bbac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplayType: 0
 --- !u!1 &1745714194
 GameObject:
   m_ObjectHideFlags: 0
@@ -16183,6 +16155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _title: {fileID: 1172696328}
   _message: {fileID: 963848014}
+  _btnText: {fileID: 0}
 --- !u!114 &2025782145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16261,6 +16234,8 @@ MonoBehaviour:
   _musicSlider: {fileID: 1793089250}
   _soundFXCheckBox: {fileID: 1428639994}
   _soundFXSlider: {fileID: 545286434}
+  _exitButton: {fileID: 0}
+  _exitMultiButton: {fileID: 0}
 --- !u!1 &2051876529
 GameObject:
   m_ObjectHideFlags: 0
