@@ -83,7 +83,7 @@ public class SyncStateScript : MonoBehaviour
 
     public void NetworkInitProjectile(GameEntity owner, GameEntity target)
     {
-        if (owner.gameObject == null || target == null) return;
+        if (owner.gameObject == null || target.gameObject == null) return;
         if (gameObject.networkView.isMine)
             networkView.RPC("OnNetworkInitProjectile", RPCMode.All, owner.networkView.viewID, target.networkView.viewID);
     }
