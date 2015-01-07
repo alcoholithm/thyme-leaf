@@ -428,7 +428,7 @@ MonoBehaviour:
   _maxHp: 0
   _currHp: 0
   defense: 0
-  unit_type_name: 0
+  unit_type_name: 5
   currentTarget: {fileID: 0}
   reloadingTime: 2
 --- !u!114 &11400022
