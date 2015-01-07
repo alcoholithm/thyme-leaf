@@ -2668,6 +2668,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 342892562}
     mMethodName: 
     mParameters: []
@@ -2947,6 +2953,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 354235599}
     mMethodName: 
     mParameters: []
@@ -3746,6 +3758,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 413268622}
     mMethodName: 
     mParameters: []
@@ -3898,6 +3916,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 421037484}
     mMethodName: 
     mParameters: []
@@ -5331,6 +5355,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 737827805}
     mMethodName: 
     mParameters: []
@@ -5484,6 +5514,8 @@ MonoBehaviour:
   TV_COMMA_DYING: {fileID: 8300000, guid: 1b0e3686e525a3149927cf282a086e3c, type: 3}
   TV_PYTHON_ATTACKING: {fileID: 8300000, guid: 10ef1f607ee070e48bbb8fcbfa7a8875, type: 3}
   TV_PYTHON_DYING: {fileID: 8300000, guid: 1b0e3686e525a3149927cf282a086e3c, type: 3}
+  SKILL_FIREBALL_BOOMING: {fileID: 8300000, guid: 5090d2f43f6a30f4da00d2d152f6e61d,
+    type: 3}
 --- !u!82 &754726688
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7458,6 +7490,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 907836214}
     mMethodName: 
     mParameters: []
@@ -10314,6 +10352,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1224058495}
     mMethodName: 
     mParameters: []
@@ -11062,6 +11106,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1434129360}
     mMethodName: 
     mParameters: []
@@ -12357,6 +12407,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1569759025}
     mMethodName: 
     mParameters: []
@@ -12762,6 +12818,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1600552999}
     mMethodName: 
     mParameters: []
@@ -12914,6 +12976,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1615154848}
     mMethodName: 
     mParameters: []
@@ -13348,6 +13416,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1702420678}
     mMethodName: 
     mParameters: []
@@ -15936,6 +16010,12 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 0}
+      field: 
+    oneShot: 0
   - mTarget: {fileID: 1999081298}
     mMethodName: 
     mParameters: []
@@ -16050,7 +16130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2045214451
 Transform:
   m_ObjectHideFlags: 0
