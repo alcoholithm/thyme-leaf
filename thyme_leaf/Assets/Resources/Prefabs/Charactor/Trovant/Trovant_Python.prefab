@@ -83,6 +83,7 @@ GameObject:
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400016}
+  - 114: {fileID: 11400036}
   m_Layer: 9
   m_Name: Trovant_Python
   m_TagString: TagWarriorTrovant
@@ -386,6 +387,7 @@ MonoBehaviour:
   state_name: 
   muster_name: 
   p_name: Python_
+  model: {fileID: 0}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -750,6 +752,25 @@ MonoBehaviour:
   mPrefix: Poisoning_
   mLoop: 1
   mSnap: 0
+--- !u!114 &11400036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3735bd6b6ebbf45a5b3c52c07dbf20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  name: 
+  description: 
+  species_name: 
+  _maxHp: 0
+  _currHp: 0
+  defense: 0
+  type: 0
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
