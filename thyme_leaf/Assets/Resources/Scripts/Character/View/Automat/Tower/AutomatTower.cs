@@ -98,7 +98,7 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
             || other.CompareTag(Tag.TagHealerAutomart())
             || other.CompareTag(Tag.TagSupporterAutomart())
             || other.CompareTag(Tag.TagWarriorAutomart())
-            //|| other.CompareTag(Tag.TagCommandCenter)
+            || other.CompareTag(Tag.TagCommandCenter)
             || other.CompareTag(Tag.TagTower)
         )
             return;
@@ -114,7 +114,7 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
             || other.CompareTag(Tag.TagHealerAutomart())
             || other.CompareTag(Tag.TagSupporterAutomart())
             || other.CompareTag(Tag.TagWarriorAutomart())
-            //|| other.CompareTag(Tag.TagCommandCenter)
+            || other.CompareTag(Tag.TagCommandCenter)
             || other.CompareTag(Tag.TagTower)
         )
             return;
