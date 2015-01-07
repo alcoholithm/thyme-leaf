@@ -12,6 +12,8 @@ public class Gun : Weapon, ILauncher
             return;
 
         Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.BULLET, transform.position);
+        if (projectile == null)
+            return;
 
         if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
         {
