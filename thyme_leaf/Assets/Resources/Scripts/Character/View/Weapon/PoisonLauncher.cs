@@ -13,6 +13,10 @@ public class PoisonLauncher : Weapon, ILauncher
 
         Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.POISON, transform.position);
 
+        if (projectile == null)
+            return;
+
+
         if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
         {
             projectile.transform.position = transform.position;
