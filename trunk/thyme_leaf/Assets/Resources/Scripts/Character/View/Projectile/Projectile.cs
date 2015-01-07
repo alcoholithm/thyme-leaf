@@ -71,6 +71,9 @@ public abstract class Projectile : MonoBehaviour, IProjectile
         if (isTouched)
             return;
 
+        if (target == null)
+            return;
+
         if (!target.gameObject.activeInHierarchy)
             Spawner.Instance.Free(this.gameObject);
 
