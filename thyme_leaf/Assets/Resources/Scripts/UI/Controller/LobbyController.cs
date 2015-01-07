@@ -91,5 +91,11 @@ public class LobbyController
             return false;
     }
 
+    public void SetUserGold(string userName, int gold)
+    {
+        User currUser = model.Users.Find(user => user.Name.Equals(userName));
+        currUser.Gold = gold;
+    }
+
     public const string TAG = "[LoginController]";
 }
