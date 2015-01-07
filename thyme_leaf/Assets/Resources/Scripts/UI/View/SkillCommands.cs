@@ -43,7 +43,6 @@ public class SkillCommands : View, IActionListener, IObserver
 
     void Start()
     {
-        Debug.Log(this.model);
         this.model = SkillLauncher.Instance;
         model.RegisterObserver(this, ObserverTypes.Skill);
     }
