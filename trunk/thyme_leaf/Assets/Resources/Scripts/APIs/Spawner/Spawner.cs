@@ -94,8 +94,10 @@ public class Spawner : Manager<Spawner>
         Debug.Log("CREATE WCHATS");
         if (Network.peerType == NetworkPeerType.Disconnected)
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
-        else if (Network.isServer)
+        else if (Network.isServer){
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.server_position);
+            Debug.Log("Server position : "+PathManager.server_position);
+        }
         else if (Network.isClient)
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.client_position);
     }
