@@ -47,17 +47,17 @@ public class SkillLauncher : Weapon, ILauncher, IObservable
         if (target == null)
             return;
 
-        Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.METEO, transform.position);
-        if (projectile == null)
-        {
-            Debug.Log("PROJECTILE IS NULL");
-            return;
-        }
+        Projectile projectile = Spawner.Instance.GetProjectilsWithTarget(ProjectileType.METEO, transform.position, target.gameObject);
+        //if (projectile == null)
+        //{
+        //    Debug.Log("PROJECTILE IS NULL");
+        //    return;
+        //}
 
-        projectile.transform.position = transform.position;
-        projectile.transform.localPosition += new Vector3(0, 800, 0);
-        projectile.transform.localScale = Vector3.one;
-        projectile.Move(target);
+        //projectile.transform.position = transform.position;
+        //projectile.transform.localPosition += new Vector3(0, 800, 0);
+        //projectile.transform.localScale = Vector3.one;
+        //projectile.Move(target);
     }
 
     /*
