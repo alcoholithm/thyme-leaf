@@ -104,7 +104,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
 		helper.collision_3d = gameObject.transform.FindChild ("CollisionBag").gameObject.GetComponent<SphereCollider> ();
-		Debug.Log ("r = " + helper.collision_3d.radius);
 		helper.collision_range_normal = helper.collision_3d.radius;
 		helper.collision_range_muster = 180;
 
@@ -306,7 +305,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			controller.setAngle (a);
 
 			//string anim_name = Naming.Instance.BuildAnimationName(gameObject, model.StateName);
-			Debug.Log("@ = "+animation_name);
 			if(dir == -1)
 			{
 				ui_sprite.flip = UIBasicSprite.Flip.Horizontally;
