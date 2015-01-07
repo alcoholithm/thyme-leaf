@@ -5,10 +5,7 @@ public class PoisonDrop : Projectile
 {
     void OnEnable()
     {
-        //transform.LookAt(target.transform.position);
-        movingSpeed = 0.7f;
-
-        anim.Pause();
+        base.OnEnable();
 
         sprite.spriteName = "PoisonDrop_0";
         sprite.MakePixelPerfect();

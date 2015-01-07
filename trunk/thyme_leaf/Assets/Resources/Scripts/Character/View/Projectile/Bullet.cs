@@ -5,10 +5,7 @@ public class Bullet : Projectile
 {
     void OnEnable()
     {
-        //transform.LookAt(target.transform.position);
-        movingSpeed = 0.7f;
-
-        anim.Pause();
+        base.OnEnable();
 
         sprite.spriteName = "BoltBall_00";
         //sprite.MakePixelPerfect();
