@@ -101,7 +101,8 @@ public class Spawner : Manager<Spawner>
     {
         for(int i=0; i<Define.trovant_center_node.Count; i++)
         {
-            GetWChat(WChatType.WCHAT_TYPE1, Define.trovant_center_node[i].transform.localPosition);
+            Debug.Log(" i = " + i);
+            GetThouse(THouseType.THOUSE_TYPE1, Define.trovant_center_node[i].transform.localPosition);
         }
     }
 
@@ -138,28 +139,28 @@ public class Spawner : Manager<Spawner>
 
     /**********************************/
 
-    public THouse GetThouse(THouseType type)
+    public THouse GetThouse(THouseType type, Vector3 pos)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            THouse entity = GetThouse((int)type);
+            THouse entity = GetThouse((int)type, pos);
             EntityManager.Instance.RegisterEntity(entity);
             return entity;
         }
         else
         {
             NetworkViewID viewID = Network.AllocateViewID();
-            networkView.RPC("NetworkGetThouse", RPCMode.All, viewID, (int)type);
+            networkView.RPC("NetworkGetThouse", RPCMode.All, viewID, (int)type, pos);
             GameObject go = NetworkView.Find(viewID).gameObject;
             return go.GetComponent<THouse>();
         }
     }
 
-    private THouse GetThouse(int type)
+    private THouse GetThouse(int type, Vector3 pos)
     {
 		Debug.Log ("GetThouse : " + (THouseType) type);
         GameObject go = ObjectPoolingManager.Instance.GetObject(thouses[type].name);
-		InitThouse(ref go);
+        InitThouse(ref go, pos);
         return go.GetComponent<THouse>();
     }
 
@@ -332,14 +333,16 @@ public class Spawner : Manager<Spawner>
         go.transform.localScale = Vector3.one;
     }
 
-	private void InitThouse(ref GameObject go)
+	private void InitThouse(ref GameObject go, Vector3 pos)
 	{
 		go.transform.parent = GameObject.Find("TrovantBuildings").transform;
 		go.transform.localScale = new Vector3(1, 1, 1);
+        go.transform.localPosition = pos;
 
 		THouse thouse = go.GetComponent<THouse> ();
 		thouse.MyUnit = new UnitObject (go, UnitNameGetter.GetInstance ().getNameTrovantCenter (), UnitType.TROVANT_THOUSE);
 		thouse.ChangeState (THouseState_Idling.Instance);
+        thouse.PositionNode = pos;
 
 		Define.THouse_list.Add (go);
 		UnitPoolController.GetInstance ().AddUnit (thouse.MyUnit); 
@@ -434,14 +437,14 @@ public class Spawner : Manager<Spawner>
     }
 
     [RPC]
-    void NetworkGetThouse(NetworkViewID viewID, int type)
+    void NetworkGetThouse(NetworkViewID viewID, int type, Vector3 pos)
     {
         GameObject go = GameObject.Instantiate(thouses[type], Vector3.zero, Quaternion.identity) as GameObject;
         go.SetActive(false);
         go.transform.parent = trovantBuildingPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-        InitThouse(ref go);
+        InitThouse(ref go, pos);
     }
 
     [RPC]
