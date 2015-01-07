@@ -11,6 +11,7 @@ public class WaveManager : Manager<WaveManager>
 	void Awake()
 	{
         base.Awake();
+
 		//wave system setting value input...
 		Define.stage_wave_sys_setting = stage_set;
 

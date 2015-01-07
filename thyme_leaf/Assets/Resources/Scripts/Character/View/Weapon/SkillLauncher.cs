@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class SkillLauncher : Weapon, ILauncher, IObservable
+public class SkillLauncher : Manager<SkillLauncher>, ILauncher, IObservable
 {
     private bool doesFired;
 
@@ -11,6 +11,8 @@ public class SkillLauncher : Weapon, ILauncher, IObservable
 
     void Awake()
     {
+        base.Awake();
+
         instance = this;
         doesFired = true;
     }
@@ -58,18 +60,6 @@ public class SkillLauncher : Weapon, ILauncher, IObservable
         //projectile.transform.localPosition += new Vector3(0, 800, 0);
         //projectile.transform.localScale = Vector3.one;
         //projectile.Move(target);
-    }
-
-    /*
-    * Followings are overrided methods of "View"
-    */
-    public override void PrepareUI()
-    {
-    }
-
-    public override void UpdateUI()
-    {
-        Fire((Parent as AutomatTower).Model.CurrentTarget.transform);
     }
 
     /*

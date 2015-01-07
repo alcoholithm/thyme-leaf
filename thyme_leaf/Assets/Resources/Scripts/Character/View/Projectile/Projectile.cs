@@ -82,8 +82,8 @@ public abstract class Projectile : MonoBehaviour, IProjectile
 
         if (direction.magnitude < deltaThreshold)
         {
-            Debug.Log(target.position + " " + transform.position);
-            Debug.Log(direction.magnitude);
+            //Debug.Log(target.position + " " + transform.position);
+            //Debug.Log(direction.magnitude);
             Stop();
             Explode();
             Attack();

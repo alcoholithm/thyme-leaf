@@ -47,6 +47,8 @@ public class NetworkConnector : Manager<NetworkConnector>
 	
 	void Awake()
     {
+        base.Awake();
+
 		networkView.group = 1;
 		MasterServer.ipAddress = masterSeverIP;
 		MasterServer.port = masterServerPort;
