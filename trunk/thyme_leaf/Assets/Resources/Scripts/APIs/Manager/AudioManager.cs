@@ -27,6 +27,7 @@ public class AudioManager : Manager<AudioManager>
     void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject.transform.parent.gameObject);
 
         sound = new AudioClip[100];
         music = new AudioClip[100];
@@ -49,12 +50,17 @@ public class AudioManager : Manager<AudioManager>
         sound[(int)SoundType.TROVANT_PYTHON_DYING] = TV_PYTHON_DYING;
     }
 
+    void OnDestroy()
+    {
+        Debug.Log("DESTROYED AUDIO MANAGER");
+    }
+
     void Start()
     {
         Settings.Awake();
         UpdateValues();
         string levelName = Application.loadedLevelName;
-        if (levelName.Equals("1_Lobby")) audioPlayer.clip = music[(int)MusicType.LOBBY];
+        if (levelName.Equals("1_Lobby")) audioPlayer.clip = music[(int)MusicType.LOBBY];        
         else if (levelName.Equals("3_Battle")) audioPlayer.clip = music[(int)MusicType.BATTLE_1];
         
         StartAudio();
@@ -81,9 +87,6 @@ public class AudioManager : Manager<AudioManager>
 
     public void UpdateValues()
     {
-        //audioPlayer.volume = 0.5f;
-        //audioPlayer.volume = Settings.MusicVolume;
-        //audioPlayer.mute = !Settings.MusicEnabled;        
         audioPlayer.volume = Settings.CurrentSettingData.MusicVolume;
         audioPlayer.mute = !Settings.CurrentSettingData.MusicEnabled;
     }
@@ -200,7 +203,6 @@ public class AudioManager : Manager<AudioManager>
 
     public void PlayClipWithState(GameObject go, StateType stateType)
     {
-        
         AudioUnitType aut = go.GetComponent<AudioType>().audioUnitType;
         SoundType soundType  = BuildSoundType(aut, stateType);
         Debug.Log("SOUND NAME : " + soundType);
@@ -211,10 +213,7 @@ public class AudioManager : Manager<AudioManager>
     private void PlayClipAtPoint(SoundType type, Vector3 pos)
     {
         if (sound[(int)type] == null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
-
         if (Settings.CurrentSettingData.SoundEffectsEnabled && sound[(int)type] != null)
             AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.CurrentSettingData.SoundEffectsVolume);
-
-        //AudioSource.PlayClipAtPoint(sound[(int)type], pos, 0.5f);
     }
 }
