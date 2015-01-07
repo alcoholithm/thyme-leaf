@@ -72,12 +72,8 @@ MonoBehaviour:
   - mTarget: {fileID: 0}
     mMethodName: ActionPerformed
     mParameters:
-    - obj: {fileID: 0}
+    - obj: {fileID: 100000}
       field: 
-    oneShot: 0
-  - mTarget: {fileID: 11400002}
-    mMethodName: 
-    mParameters: []
     oneShot: 0
 --- !u!114 &11400002
 MonoBehaviour:
