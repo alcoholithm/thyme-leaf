@@ -77,21 +77,22 @@ public class UnitMusterController
 		{
 			if(unitMusters[idx].CommandRange) return;
 			unitMusters[idx].CommandRange = true;
-			Debug.Log(first_hero.helper.collision_object.center);
-			first_hero.helper.collision_object.radius = v;
+			Debug.Log(first_hero.helper.collision_3d.center);
+			first_hero.helper.collision_3d.radius = v;
 		}
 		else
-//		if(v != first_hero.helper.collision_range_muster)
 		{
 			for(int i=0;i<MaxMusterUnitCount;i++)
 			{
 				Hero hero = unitMusters[idx].getElement(i);
 				if(hero == null) continue;
-				hero.helper.collision_object.radius = v;
-				hero.helper.collision_object.center = Vector2.zero;
+				hero.helper.collision_3d.radius = v;
+				hero.helper.collision_3d.center = Vector2.zero;
 				unitMusters[i].CommandRange = false;
 			}
 		}
+		first_hero.helper.collision_3d.enabled = false;
+		first_hero.helper.collision_3d.enabled = true;
 	}
 
 	//command...

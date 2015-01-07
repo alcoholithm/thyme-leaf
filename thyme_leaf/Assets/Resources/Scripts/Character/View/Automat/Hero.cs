@@ -103,11 +103,14 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		controller.setAttackDelay (model.AttackDelay);
 
 		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
-		helper.collision_range_normal = helper.collision_object.radius;
+		helper.collision_3d = gameObject.transform.FindChild ("CollisionBag").gameObject.GetComponent<SphereCollider> ();
+		Debug.Log ("r = " + helper.collision_3d.radius);
+		helper.collision_range_normal = helper.collision_3d.radius;
 		helper.collision_range_muster = 180;
 
         health_bar_controller = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
 		ui_sprite = gameObject.GetComponent<UISprite> ();
+		ui_sprite.depth = 1;
 
         this.PrepareUI();
 	}
@@ -246,11 +249,14 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 						UnitMusterController.GetInstance().CommandSearchRangeValue(model.MusterID, model.ID, helper.collision_range_muster);
 					}
 
-					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
-					if(collider == null) return;
-					if(collider.CompareTag(Tag.TagTower) || collider.CompareTag(Tag.TagTowerSpot)) return;
+					GameObject coll_obj = helper.RaycastHittingObject3D(helper.gesture_startpoint);
+					if(coll_obj == null) return;
 
-					Hero obj = collider.gameObject.GetComponent<Hero>();
+					//					Collider2D collider = helper.RaycastHittingObject(helper.gesture_startpoint);
+					//					if(collider == null) return;
+					//					if(collider.CompareTag(Tag.TagTower) || collider.CompareTag(Tag.TagTowerSpot)) return;
+
+					Hero obj = coll_obj.GetComponent<Hero>();
 					if(obj == null) return;  //if...null never case...
 
 					hit_unit_id = obj.model.ID;

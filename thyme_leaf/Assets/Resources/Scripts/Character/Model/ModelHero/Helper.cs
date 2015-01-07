@@ -31,6 +31,7 @@ public class Helper
 	
 	//collision range
 	public CircleCollider2D collision_object;
+	public SphereCollider collision_3d;
 	public float collision_range_normal;
 	public float collision_range_muster;
 	//==================================
@@ -310,6 +311,20 @@ public class Helper
 		RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 		
 		return hit.collider;
+	}
+
+	public GameObject RaycastHittingObject3D(Vector3 mouse_position)
+	{
+		Ray wp = UICamera.mainCamera.ScreenPointToRay (mouse_position);
+		RaycastHit hit;
+		if(Physics.Raycast(wp, out hit))
+		{
+			GameObject obj = hit.collider.gameObject.transform.parent.gameObject;
+			Debug.Log (obj == null ? "null" : obj.name);
+			Debug.Log(hit.collider == null ? "null" : hit.collider.name);
+			return obj;
+		}
+		else return null;
 	}
 	
 	public void MoveReverse()
