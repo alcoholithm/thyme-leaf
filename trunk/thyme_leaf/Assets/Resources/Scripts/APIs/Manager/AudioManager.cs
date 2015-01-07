@@ -27,7 +27,7 @@ public class AudioManager : Manager<AudioManager>
     void Awake()
     {
         base.Awake();
-        DontDestroyOnLoad(gameObject.transform.parent.gameObject);
+        //DontDestroyOnLoad(gameObject.transform.parent.gameObject);
 
         sound = new AudioClip[100];
         music = new AudioClip[100];
@@ -74,7 +74,8 @@ public class AudioManager : Manager<AudioManager>
                 audioPlayer.clip = music[(int)MusicType.LOBBY];
                 break;
             case 1: // world map
-                Debug.Log("Sound Not Found for World Map");
+                //Debug.Log("Sound Not Found for World Map");
+                audioPlayer.clip = music[(int)MusicType.LOBBY];
                 break;
             case 2: // battle
                 audioPlayer.clip = music[(int)MusicType.BATTLE_1];
