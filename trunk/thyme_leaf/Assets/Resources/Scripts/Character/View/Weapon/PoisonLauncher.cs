@@ -15,7 +15,7 @@ public class PoisonLauncher : Weapon, ILauncher
 
         if (projectile == null)
             return;
-        else if (!Network.isClient)
+        else
         {
             projectile.transform.position = transform.position;
             projectile.transform.localScale = Vector3.one;
