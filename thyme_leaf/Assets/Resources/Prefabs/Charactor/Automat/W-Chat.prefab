@@ -88,7 +88,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -358,7 +358,13 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 0}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 100008}
+      field: 
+    oneShot: 0
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,7 +447,7 @@ MonoBehaviour:
   mFPS: 8
   mPrefix: 
   mLoop: 1
-  mSnap: 1
+  mSnap: 0
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
