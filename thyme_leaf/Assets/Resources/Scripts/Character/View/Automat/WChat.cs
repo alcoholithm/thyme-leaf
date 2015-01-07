@@ -72,22 +72,22 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
         stateMachine.Update();
     }
 
-    void OnDisable()
-    {
-        this.model.RemoveObserver(this, ObserverTypes.Health);
-        // MVC
-        this.model = null;
-        this.controller = null;
-
-        // set children
-        this.healthbar.Model = null;
-        this.Remove(healthbar);
-
-        // set state machine
-        this.stateMachine = null;
-
-        this.anim = null;
-    }
+//    void OnDisable()
+//    {
+//        this.model.RemoveObserver(this, ObserverTypes.Health);
+//        // MVC
+//        this.model = null;
+//        this.controller = null;
+//
+//        // set children
+//        this.healthbar.Model = null;
+//        this.Remove(healthbar);
+//
+//        // set state machine
+//        this.stateMachine = null;
+//
+//        this.anim = null;
+//    }
 
     /*
      * followings are member functions
@@ -120,9 +120,9 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
         //this.controller = new AutomatTower_Controller(this, model);
 
         // set state machine
-        this.stateMachine = new StateMachine<WChat>(this);
-        this.stateMachine.CurrentState = WChatState_None.Instance;
-        this.stateMachine.GlobalState = WChatState_Hitting.Instance;
+//        this.stateMachine = new StateMachine<WChat>(this);
+//        this.stateMachine.CurrentState = WChatState_None.Instance;
+//        this.stateMachine.GlobalState = WChatState_Hitting.Instance;
 
         this.anim = GetComponent<NGUISpriteAnimation>();
         this.anim.Pause();

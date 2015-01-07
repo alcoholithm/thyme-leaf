@@ -16,10 +16,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	//=====================
 	//unit identity value
-	public int MaxHP = 100;
-	public float speed = 10;
-    public float AttackDamage = 20; 
-	public float AttackDelay = 1;
 	//=====================
 
 	private NGUISpriteAnimation anim;	
@@ -46,6 +42,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         set { _FxPoisoning = value; }
     }
 
+	private string animation_name;
 	private UnitObject my_unit;
 	public UnitObject target;
 
@@ -95,24 +92,23 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	//unit detail initialize...
 	public void SettingInitialize()
 	{
-		//mvc setting...
-		helper = new Helper (this.gameObject);
-		model = gameObject.GetComponent<MHero> ();
-		Debug.Log (model == null ? "null" : "okay");
-		model.Helper = helper;
-		controller = new ControllerHero (model, helper);
-
 		//other reference...
 		target.DataInit();
 
 		onlyfirst = false;
 
-		controller.setSpeed (speed / 10.0f);
-		controller.setMaxHp (MaxHP);
-		controller.setHp (MaxHP);
+		//mvc setting...
+		helper = new Helper (this.gameObject);
+		model = gameObject.GetComponent<MHero> ();
+		model.Helper = helper;
+		controller = new ControllerHero (model, helper);
+
+		controller.setSpeed (model.MovingSpeed);
+		controller.setMaxHp (model.MaxHP);
+		controller.setHp (model.MaxHP);
 		controller.setMoveTrigger (false);
-        controller.setAttackDamage(AttackDamage);
-		controller.setAttackDelay (AttackDelay);
+        controller.setAttackDamage(model.AttackDamage);
+		controller.setAttackDelay (model.AttackDelay);
 
 		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
 		helper.collision_range_normal = helper.collision_object.radius;
@@ -147,6 +143,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				}
 				else 
 				{
+					Debug.Log("collision center");
 					Layer other_center_layer = (Layer)coll.gameObject.layer;
 					switch(other_center_layer)
 					{
@@ -154,6 +151,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 						helper.attack_target = coll.gameObject.transform.parent.GetComponent<WChat>().MyUnit;
 						break;
 					case Layer.Trovant:
+						Debug.Log("trovant center");
 						helper.attack_target = coll.gameObject.transform.parent.GetComponent<THouse>().MyUnit;
 						Debug.Log(helper.attack_target.obj.name);
 						break;
@@ -317,7 +315,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
-//			string anim_name = Naming
+			//string anim_name = Naming.Instance.BuildAnimationName(gameObject, model.StateName);
 
 			if(dir == -1)
 			{
@@ -330,15 +328,15 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			
 			if(a < -45 && a > -135) //down
 			{
-				anim.Play(p_name+model.StateName+"_Downwards_");
+				anim.Play(animation_name+"_Downwards_");
 			}
 			else if(a >= -45 && a <= 45)  //right
 			{
-				anim.Play(p_name+model.StateName+"_Normal_");
+				anim.Play(animation_name+"_Normal_");
 			}
 			else if(a <= -135 || a >= 135) //left
 			{
-				anim.Play(p_name+model.StateName+"_Normal_");
+				anim.Play(animation_name+"_Normal_");
 			}
 //			else if(a > 45 && a < 135) //up
 //			{
@@ -585,5 +583,11 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	{
 		get { return my_unit; }
 		set { my_unit = value; }
+	}
+
+	public string AnimationName
+	{
+		get { return animation_name; }
+		set { animation_name = value; }
 	}
 }

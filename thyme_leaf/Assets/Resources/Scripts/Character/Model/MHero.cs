@@ -16,18 +16,24 @@ public class MHero : Unit
 	}
 
 	//IMovable
+	[SerializeField]
 	private float movingSpeed;
 	
 	//extra... IGroupable
 	private float angle;
+
+	[SerializeField]
 	private string musterID;
+
 	private bool muster_leader;
 	private OffsetStruct offset_struct;
 
+	[SerializeField]
 	private float attack_delay;
 	private float attack_range;
+	[SerializeField]
 	private float attack_damage;
-
+	[SerializeField]
 	private string state_name;
 
 	void Awake()

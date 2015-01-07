@@ -19,7 +19,7 @@ public class Naming : Manager<Naming> //MonoBehaviour
     public const int TYPE_NUM = 5;
 
     public const string FALSTAFF = "Falstaff";
-    public const string FRANSCIS = "Fransis";
+    public const string FRANSCIS = "Franscis";
     public const string FORTINBRAS = "Fortinbras";
     public const string VICTOR = "Victor";
     public const string MARIEN = "Marien";

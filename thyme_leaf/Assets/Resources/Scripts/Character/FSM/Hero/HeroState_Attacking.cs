@@ -3,7 +3,6 @@ using System.Collections;
 
 public class HeroState_Attacking : State<Hero>
 {
-
     private string animationsName = "Comma_Attacking_Normal_";
 
     private HeroState_Attacking()
@@ -13,15 +12,9 @@ public class HeroState_Attacking : State<Hero>
 
     public override void Enter(Hero owner)
 	{
-//		if((owner.getLayer() == Layer.Automart)){
-//			owner.Anim.Play("Comma_Attacking_Normal_");
-//		}else if((owner.getLayer() == Layer.Trovant)) {
-//			owner.Anim.Play("Python_Attacking_Normal_");
-//		}
-
 		owner.controller.setStateName (Naming.ATTACKING);
-		owner.state_name = owner.model.StateName;
-        owner.helper.attack_delay_counter = 0;  //attack delay setting...
+		owner.AnimationName = Naming.Instance.BuildAnimationName(owner.gameObject, owner.model.StateName);
+        owner.helper.attack_delay_counter = 0;  //attack delay setting...  testcode...
 
 		if(owner.helper.getMusterTrigger())
 			UnitMusterController.GetInstance().CommandAttack(owner.model.MusterID, owner.model.ID);
@@ -73,6 +66,7 @@ public class HeroState_Attacking : State<Hero>
     private void ChangeStateIntoMoving(Hero owner, bool isCharacter)
     {
 		int hp = GetHp (ref owner.helper.attack_target);
+		Debug.Log (owner.helper.attack_target.obj.name);
 		bool check = MissingChecking (ref owner.helper.attack_target);
 		if (!check && hp <= 0 && !isCharacter)
         {
@@ -97,7 +91,7 @@ public class HeroState_Attacking : State<Hero>
             owner.helper.attack_delay_counter += Time.deltaTime;
             if (owner.helper.attack_delay_counter >= owner.model.AttackDelay)
             {
-				SendMessageAttack(ref owner, MessageTypes.MSG_NORMAL_DAMAGE, (int)owner.model.AttackDamage);
+				SendMessageAttack(ref owner, (int)owner.model.AttackDamage);
 
                 owner.helper.attack_delay_counter = 0;
                 AudioManager.Instance.PlayClipWithState(owner.gameObject, StateType.ATTACKING);                
@@ -133,11 +127,11 @@ public class HeroState_Attacking : State<Hero>
 		{
 		case UnitType.AUTOMAT_CHARACTER:
 		case UnitType.TROVANT_CHARACTER:
-			return obj.infor_hero.model.HP;
+			return obj.infor_hero == null ? -1 : obj.infor_hero.model.HP;
 		case UnitType.AUTOMAT_WCHAT:
-			return obj.infor_automat_center.Model.HP;
+			return obj.infor_automat_center.Model == null ? -1 : obj.infor_automat_center.Model.HP;
 		case UnitType.TROVANT_THOUSE:
-			return obj.infor_trovant_center.Model.HP;
+			return obj.infor_trovant_center.Model == null ? -1 : obj.infor_trovant_center.Model.HP;
 		}
 		return -1;
 	}
@@ -157,9 +151,10 @@ public class HeroState_Attacking : State<Hero>
 		return -1;
 	}
 
-	private void SendMessageAttack(ref Hero obj, MessageTypes option, int v)
+	private void SendMessageAttack(ref Hero obj, int v)
 	{
 		GameEntity game_entity = null;
+		MessageTypes option = MessageTypes.MSG_NORMAL_DAMAGE;
 		switch(obj.helper.attack_target.type)
 		{
 		case UnitType.AUTOMAT_CHARACTER:
@@ -173,6 +168,19 @@ public class HeroState_Attacking : State<Hero>
 			game_entity = obj.helper.attack_target.infor_trovant_center;
 			break;
 		}
+
+		switch(obj.model.UnitTypeName)
+		{
+		case AudioUnitType.FALSTAFF_TYPE1:
+		case AudioUnitType.COMMA:
+		case AudioUnitType.PYTHON:
+			option = MessageTypes.MSG_NORMAL_DAMAGE;
+			break;
+		case AudioUnitType.FRANSCIS_TYPE1:
+			option = MessageTypes.MSG_BURN_DAMAGE;
+			break;
+		}
+
 		Message msg = game_entity.ObtainMessage(option, v);
 		game_entity.DispatchMessage(msg);
 	}
