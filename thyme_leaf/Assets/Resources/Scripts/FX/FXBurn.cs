@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FXBurn : View
+public class FXBurn : View, IAttackable
 {
     [SerializeField]
-    private float _displayTime = 1f;
+    private float _displayTime = 2f;
+
+    [SerializeField]
+    private int _attackDamage = 1;
+
+    [SerializeField]
+    private float _attackDelay = 0.7f;
 
     private UISprite sprite;
     private NGUISpriteAnimation anim;
@@ -48,8 +54,18 @@ public class FXBurn : View
     private IEnumerator HideDelayed()
     {
         yield return new WaitForSeconds(_displayTime);
-        Parent.Remove(this);
+        StopAllCoroutines();
+
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator AttackProcess()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(_attackDelay);
+            Attack();
+        }
     }
 
     /*
@@ -62,10 +78,27 @@ public class FXBurn : View
 
     public override void UpdateUI()
     {
+        Parent.Remove(this);
+
+        Debug.Log(Parent.Views.Count);
+
         gameObject.SetActive(true);
         StopCoroutine("HideDelayed");
         Paint();
         if (gameObject.activeInHierarchy)
+        {
             StartCoroutine("HideDelayed");
+            StartCoroutine("AttackProcess");
+        }
     }
+
+    /*
+     * followings are overrided methods of "IAttackable"
+     */
+    public void Attack()
+    {
+        (Parent as GameEntity).DispatchMessage((Parent as GameEntity).ObtainMessage(MessageTypes.MSG_NORMAL_DAMAGE, _attackDamage));
+    }
+
+    public const string TAG = "[FXBurn]";
 }
