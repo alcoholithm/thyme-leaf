@@ -36,7 +36,9 @@ public class Gun : Weapon, ILauncher
 
     public override void UpdateUI()
     {
-        Fire((Parent as AutomatTower).Model.CurrentTarget.transform);
+        Transform transform = (Parent as AutomatTower).Model.CurrentTarget.transform;
+        if (transform == null) return;
+        Fire(transform);
     }
 
 

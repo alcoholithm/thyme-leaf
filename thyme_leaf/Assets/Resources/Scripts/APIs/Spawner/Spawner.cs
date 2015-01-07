@@ -290,13 +290,14 @@ public class Spawner : Manager<Spawner>
             return GetProjectile((int)type, pos);
         else
         {
-            if (Network.isClient)
-                return null;
-
-            NetworkViewID viewID = Network.AllocateViewID();
-            networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
-            GameObject go = NetworkView.Find(viewID).gameObject;
-            return go.GetComponent<Projectile>();
+            if (type == ProjectileType.METEO || Network.isServer)
+            {
+                NetworkViewID viewID = Network.AllocateViewID();
+                networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
+                GameObject go = NetworkView.Find(viewID).gameObject;
+                return go.GetComponent<Projectile>();
+            }
+            return null;
         }
     }
 
