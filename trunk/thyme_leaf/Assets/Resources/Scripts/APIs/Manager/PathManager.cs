@@ -14,6 +14,8 @@ public class PathManager : Manager<PathManager> {
 
 	void Awake()
 	{
+        base.Awake();
+
 //		UIRoot ui_root = GameObject.Find ("UI Root").GetComponent<UIRoot> ();
 //		ui_root.manualHeight = 768;
 //		ui_root.minimumHeight = 768;

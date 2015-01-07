@@ -38,12 +38,12 @@ public class SkillCommands : View, IActionListener, IObserver
      */
     void Awake()
     {
+        this.model = SkillLauncher.Instance;
         this.controller = new SkillCommandsController(this, this.model);
     }
 
     void Start()
     {
-        this.model = SkillLauncher.Instance;
         model.RegisterObserver(this, ObserverTypes.Skill);
     }
 

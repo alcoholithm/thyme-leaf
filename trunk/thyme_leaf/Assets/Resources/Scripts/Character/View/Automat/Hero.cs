@@ -4,21 +4,13 @@ using System.Collections.Generic;
 
 public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 {
-	public new const string TAG = "[Hero]";
-
-    private StateMachine<Hero> stateMachine;
-
-    public StateMachine<Hero> StateMachine
-    {
-        get { return stateMachine; }
-        set { stateMachine = value; }
-    }
-
 	//=====================
 	//unit identity value
 	//=====================
 
 	private NGUISpriteAnimation anim;	
+
+    private StateMachine<Hero> stateMachine;
 
     // set children
     [SerializeField]
@@ -27,20 +19,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
     private View _FxWhap;
     [SerializeField]
     private View _FxBurn;
-
-    public View FxBurn
-    {
-        get { return _FxBurn; }
-        set { _FxBurn = value; }
-    }
     [SerializeField]
     private View _FxPoisoning;
-
-    public View FxPoisoning
-    {
-        get { return _FxPoisoning; }
-        set { _FxPoisoning = value; }
-    }
 
 	private string animation_name;
 	private UnitObject my_unit;
@@ -110,6 +90,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         health_bar_controller = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
 		ui_sprite = gameObject.GetComponent<UISprite> ();
 		ui_sprite.depth = 1;
+
+        _FxBurn.PrepareUI();
+        _FxPoisoning.PrepareUI();
 
         this.PrepareUI();
 	}
@@ -598,4 +581,24 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		get { return animation_name; }
 		set { animation_name = value; }
 	}
+
+    public View FxBurn
+    {
+        get { return _FxBurn; }
+        set { _FxBurn = value; }
+    }
+
+    public View FxPoisoning
+    {
+        get { return _FxPoisoning; }
+        set { _FxPoisoning = value; }
+    }
+
+    public StateMachine<Hero> StateMachine
+    {
+        get { return stateMachine; }
+        set { stateMachine = value; }
+    }
+
+    public new const string TAG = "[Hero]";
 }
