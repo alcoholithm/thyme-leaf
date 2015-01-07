@@ -74,8 +74,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	void OnEnable()
 	{
 		SettingInitialize ();
-
-        this.PrepareUI();
 	}
 	
 	void Update()
@@ -97,12 +95,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 		onlyfirst = false;
 
-		//mvc setting...
-		helper = new Helper (this.gameObject);
-		model = gameObject.GetComponent<MHero> ();
-		model.Helper = helper;
-		controller = new ControllerHero (model, helper);
-
 		controller.setSpeed (model.MovingSpeed);
 		controller.setMaxHp (model.MaxHP);
 		controller.setHp (model.MaxHP);
@@ -117,15 +109,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         health_bar_controller = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
 		ui_sprite = gameObject.GetComponent<UISprite> ();
 
-		//hp bar setting...
-		(this.health_bar_controller as HealthBar).Model = this.model;
-        this.Add(health_bar_controller);
-        this.Add(_FxWhap);
-        //this.Add(_FxBurn);
-        //this.Add(_FxPoisoning);
-
-        // observer
-		model.RegisterObserver (this, ObserverTypes.Health);
+        this.PrepareUI();
 	}
 
 	void OnTriggerEnter2D(Collider2D coll)
@@ -535,12 +519,24 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	public void Initialize()
 	{
+        //mvc setting...
+        helper = new Helper(this.gameObject);
+        model = gameObject.GetComponent<MHero>();
+        model.Helper = helper;
+        controller = new ControllerHero(model, helper);
+
+        // observer
+        model.RegisterObserver(this, ObserverTypes.Health);
+
+        //hp bar setting...
+        (this.health_bar_controller as HealthBar).Model = this.model;
+        this.Add(health_bar_controller);
+        this.Add(_FxWhap);
+
         // state machine
 		this.stateMachine = new StateMachine<Hero>(this);
 		this.stateMachine.CurrentState = HeroState_None.Instance;
 		this.stateMachine.GlobalState = HeroState_Hitting.Instance;
-
-        //this.Add(health_bar_controller);
 
 		this.anim = GetComponent<NGUISpriteAnimation>();
 		this.anim.Pause();
