@@ -3103,13 +3103,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 926080617}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 444851723}
-      field: 
-    oneShot: 0
+  onClick: []
 --- !u!114 &444851730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3189,11 +3183,10 @@ MonoBehaviour:
   id: 0
   name: 
   description: 
-  species_name: 
-  _maxHp: 0
-  _currHp: 0
+  _maxHp: 100
+  _currHp: 100
   defense: 0
-  type: 0
+  unit_type_name: 12
 --- !u!1 &463089443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,7 +3467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
-  node_visible: 0
+  node_visible: 1
   game_mode: 0
 --- !u!4 &538857660
 Transform:
@@ -6202,11 +6195,10 @@ MonoBehaviour:
   id: 0
   name: 
   description: 
-  species_name: 
-  _maxHp: 0
-  _currHp: 0
+  _maxHp: 100
+  _currHp: 100
   defense: 0
-  type: 0
+  unit_type_name: 12
 --- !u!1 &906685862
 GameObject:
   m_ObjectHideFlags: 0
@@ -12685,6 +12677,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8c39cf3314f224afa80564d78aca9a4a, type: 2}
+      propertyPath: WaveSystemTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c39cf3314f224afa80564d78aca9a4a, type: 2}
   m_RootGameObject: {fileID: 1463139523}
@@ -15080,6 +15076,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 374637454}
     m_Modifications:
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.data[0].mParameters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15128,6 +15132,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.data[0].mMethodName
+      value: ActionPerformed
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
+      propertyPath: onClick.Array.data[0].mParameters.Array.data[0].obj
+      value: 
+      objectReference: {fileID: 905565700}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29cbf384dd633b143bdb02d735a18569, type: 2}
   m_RootGameObject: {fileID: 905565700}

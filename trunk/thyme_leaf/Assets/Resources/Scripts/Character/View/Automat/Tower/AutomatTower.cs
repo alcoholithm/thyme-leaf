@@ -142,6 +142,8 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.anim = GetComponent<NGUISpriteAnimation>();
+
+		GetComponent<UISprite> ().depth = 5;
     }
 
     private void Reset()
