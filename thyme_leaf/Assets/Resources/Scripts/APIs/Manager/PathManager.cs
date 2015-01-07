@@ -14,6 +14,16 @@ public class PathManager : Manager<PathManager> {
 
 	void Awake()
 	{
+//		UIRoot ui_root = GameObject.Find ("UI Root").GetComponent<UIRoot> ();
+//		ui_root.manualHeight = 768;
+//		ui_root.minimumHeight = 768;
+//		ui_root.maximumHeight = 768;
+//		Camera camera = GameObject.Find ("Camera").GetComponent<Camera> ();
+//		float perx = 1024.0f / Screen.width; 
+//		float pery = 768.0f / Screen.height; 
+//		float v = (perx > pery) ? perx : pery; 
+//		camera.orthographicSize = v;
+
 		//current stage number setting...
 		Define.current_stage_number = StageNumber;
 		if(game_mode == GameMode.MULTI_PLAY) Define.current_stage_number = 100000;
