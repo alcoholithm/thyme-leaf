@@ -14,7 +14,7 @@ public class Gun : Weapon, ILauncher
         Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.BULLET, transform.position);
         if (projectile == null)
             return;
-        else if (!Network.isClient)
+        else 
         {
             projectile.transform.position = transform.position;
             projectile.transform.localScale = Vector3.one;
