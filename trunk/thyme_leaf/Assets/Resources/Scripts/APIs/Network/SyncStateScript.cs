@@ -81,24 +81,24 @@ public class SyncStateScript : MonoBehaviour
     /****************************************************************************************************/
     // Network methods for projectile
 
-    public void NetworkInitProjectile(GameEntity owner, GameEntity target)
-    {
-        if (owner.gameObject == null || target.gameObject == null) return;
-        if (gameObject.networkView.isMine)
-            networkView.RPC("OnNetworkInitProjectile", RPCMode.All, owner.networkView.viewID, target.networkView.viewID);
-    }
+    //public void NetworkInitProjectile(GameEntity owner, GameEntity target)
+    //{
+    //    if (owner.gameObject == null || target.gameObject == null) return;
+    //    if (gameObject.networkView.isMine)
+    //        networkView.RPC("OnNetworkInitProjectile", RPCMode.All, owner.networkView.viewID, target.networkView.viewID);
+    //}
 
-    [RPC]
-    void OnNetworkInitProjectile(NetworkViewID ownerViewID, NetworkViewID targetViewID)
-    {
-        GameObject owner = NetworkView.Find(ownerViewID).gameObject;
-        GameObject target = NetworkView.Find(targetViewID).gameObject;
+    //[RPC]
+    //void OnNetworkInitProjectile(NetworkViewID ownerViewID, NetworkViewID targetViewID)
+    //{
+    //    GameObject owner = NetworkView.Find(ownerViewID).gameObject;
+    //    GameObject target = NetworkView.Find(targetViewID).gameObject;
 
-        gameObject.transform.position = owner.transform.position;
-        gameObject.transform.localScale = Vector3.one;
-        //gameObject.GetComponent<Projectile>().Move(owner.GetComponent<GameEntity>(), target.GetComponent<GameEntity>());
-        gameObject.GetComponent<Projectile>().Move(target.transform);
-    }
+    //    gameObject.transform.position = owner.transform.position;
+    //    gameObject.transform.localScale = Vector3.one;
+    //    //gameObject.GetComponent<Projectile>().Move(owner.GetComponent<GameEntity>(), target.GetComponent<GameEntity>());
+    //    gameObject.GetComponent<Projectile>().Move(target.transform);
+    //}
 
 
     /****************************************************************************************************/
