@@ -66,7 +66,6 @@ public class HeroState_Attacking : State<Hero>
     private void ChangeStateIntoMoving(Hero owner, bool isCharacter)
     {
 		int hp = GetHp (ref owner.helper.attack_target);
-		Debug.Log (owner.helper.attack_target.obj.name);
 		bool check = MissingChecking (ref owner.helper.attack_target);
 		if (!check && hp <= 0 && !isCharacter)
         {
