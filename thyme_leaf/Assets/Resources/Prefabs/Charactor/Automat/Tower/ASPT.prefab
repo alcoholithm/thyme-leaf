@@ -25,6 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400020}
   - 114: {fileID: 11400004}
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400014}
@@ -232,11 +233,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 11400018}
-  _model:
-    _maxHp: 0
-    _currHp: 0
-    currentTarget: {fileID: 0}
-    reloadingTime: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -463,6 +459,27 @@ MonoBehaviour:
   criticalProbability: 0
   _activeTime: 1
   _flame: {fileID: 100008}
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da8cfb5bd9ca24187aaf41a6e4eab7b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  name: 
+  description: 
+  species_name: 
+  _maxHp: 0
+  _currHp: 0
+  defense: 0
+  type: 0
+  currentTarget: {fileID: 0}
+  reloadingTime: .5
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,8 +576,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: FlameThrower_06
+  mAtlas: {fileID: 11400000, guid: e450a8eefdfaaca4f846747a3397c3ae, type: 2}
+  mSpriteName: FlameThrower_00
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:

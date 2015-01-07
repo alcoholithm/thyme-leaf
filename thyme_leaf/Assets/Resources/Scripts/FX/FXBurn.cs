@@ -48,6 +48,7 @@ public class FXBurn : View
     private IEnumerator HideDelayed()
     {
         yield return new WaitForSeconds(_displayTime);
+        Parent.Remove(this);
         gameObject.SetActive(false);
     }
 

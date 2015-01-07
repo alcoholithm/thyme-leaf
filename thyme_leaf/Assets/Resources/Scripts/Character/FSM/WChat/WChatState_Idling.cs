@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WChatState_Idling : State<WChat>
 {
-    private string animName = "Tower_Hitting_";
+    private string animName = "WChat";
 
     private WChatState_Idling()
     {

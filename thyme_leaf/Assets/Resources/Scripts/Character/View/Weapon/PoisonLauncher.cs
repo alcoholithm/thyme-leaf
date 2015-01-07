@@ -21,7 +21,7 @@ public class PoisonLauncher : Weapon, ILauncher
         }
         else if (projectile.gameObject.networkView.isMine)  // Multi mode
         {
-            projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Owner, target);
+            projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Parent as GameEntity, target);
         }
     }
 
@@ -34,7 +34,7 @@ public class PoisonLauncher : Weapon, ILauncher
 
     public override void UpdateUI()
     {
-        Fire((Owner as AutomatTower).Model.CurrentTarget);
+        Fire((Parent as AutomatTower).Model.CurrentTarget);
     }
 
 

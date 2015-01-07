@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WChatState_Dying : State<WChat>
 {
-    private string animName = "Tower_Dying_";
+    private string animName = "Automat_Dying_";
 
     private WChatState_Dying()
     {

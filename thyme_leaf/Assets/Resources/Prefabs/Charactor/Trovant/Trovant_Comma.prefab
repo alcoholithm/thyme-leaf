@@ -75,8 +75,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400008}
-  - 114: {fileID: 11400014}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400036}
+  - 114: {fileID: 11400014}
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400010}
@@ -421,11 +422,11 @@ MonoBehaviour:
   _FxWhap: {fileID: 11400018}
   _FxBurn: {fileID: 11400032}
   _FxPoisoning: {fileID: 11400034}
-  target: {fileID: 0}
   my_name: 
   state_name: 
   muster_name: 
   p_name: Comma_
+  model: {fileID: 0}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -751,6 +752,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayTime: 3
+--- !u!114 &11400036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3735bd6b6ebbf45a5b3c52c07dbf20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  name: 
+  description: 
+  species_name: 
+  _maxHp: 0
+  _currHp: 0
+  defense: 0
+  type: 0
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

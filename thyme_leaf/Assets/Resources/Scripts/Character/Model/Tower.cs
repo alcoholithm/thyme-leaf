@@ -11,10 +11,12 @@ public class Tower : Unit
     private GameEntity currentTarget;
 
     [SerializeField]
-    private float reloadingTime = 2f; // 재장전시간
+    private float reloadingTime;
 
-
-    public Tower(GameEntity owner)
+    /*
+    * followings are public member functions
+    */
+    protected override void Awake()
     {
         Initialize();
     }
@@ -71,14 +73,6 @@ public class Tower : Unit
     {
         enemies.Remove(enemy);
     }
-
-    /*
-     * followings are implemented methods of "IAttackable"
-     */
-    //public void Attack()
-    //{
-    //    weapon.Fire(FindBestTarget());
-    //}
 
     /*
      * Followings are attributes

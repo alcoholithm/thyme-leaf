@@ -10,10 +10,10 @@ public class Bullet : Projectile
 
         anim.Pause();
 
-        sprite.spriteName = "PoisonDrop_0";
-        sprite.MakePixelPerfect();
+        sprite.spriteName = "BoltBall_00";
+        //sprite.MakePixelPerfect();
 
-        this._animName = "PoisonDrop_";
+        this._animName = "BoltBall_";
         //anim.namePrefix = _animName;
         //anim.ResetToBeginning();
         anim.Play(this._animName);
@@ -24,7 +24,7 @@ public class Bullet : Projectile
     */
     public override void Explode()
     {
-        this._animName = "PoisonGas_";
+        this._animName = "BoltBall_";
         anim.PlayOneShot(_animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
     }
 

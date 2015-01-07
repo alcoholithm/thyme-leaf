@@ -7,13 +7,15 @@ using System.Collections.Generic;
 /// </summary>
 public abstract class View : MonoBehaviour, IView
 {
-    protected List<IView> views;
+    private View parent;
+    private List<IView> views;
 
     public void Add(IView view)
     {
         if (views == null)
             views = new List<IView>(1);
 
+        view.Parent = this;
         views.Add(view);
     }
 
@@ -49,5 +51,21 @@ public abstract class View : MonoBehaviour, IView
             views.ForEach(v => v.UpdateUI());
         else
             Debug.LogError(new System.NotSupportedException());
+    }
+
+
+    /*
+     * Followings are attributes
+     */ 
+    public View Parent
+    {
+        get { return parent; }
+        set { parent = value; }
+    }
+
+    public List<IView> Views
+    {
+        get { return views; }
+        set { views = value; }
     }
 }
