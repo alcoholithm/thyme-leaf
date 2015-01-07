@@ -149,13 +149,14 @@ public class Spawner : Manager<Spawner>
             EntityManager.Instance.RegisterEntity(entity);
             return entity;
         }
-        else
+        else if (Network.isServer)
         {
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetThouse", RPCMode.All, viewID, (int)type, pos);
             GameObject go = NetworkView.Find(viewID).gameObject;
             return go.GetComponent<THouse>();
         }
+        return null;
     }
 
     private THouse GetThouse(int type, Vector3 pos)
@@ -226,13 +227,14 @@ public class Spawner : Manager<Spawner>
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
             return GetTrovant((int)type);
-        else
+        else if(Network.isServer)
         {
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetTrovant", RPCMode.All, viewID, (int)type);
             GameObject go = NetworkView.Find(viewID).gameObject;
             return go.GetComponent<Hero>();
         }
+        return null;
     }
 
     private Hero GetTrovant(int type)

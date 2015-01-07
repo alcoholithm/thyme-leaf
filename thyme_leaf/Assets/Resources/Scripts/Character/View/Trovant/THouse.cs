@@ -192,6 +192,8 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		for (int i = 0; i < wave_table.wave_setting_value_set[idx].unit_num; i++)
 		{
 			Hero obj = Spawner.Instance.GetTrovant (wave_table.wave_setting_value_set[idx].unit_type);
+            if (obj == null)
+                continue;
 			obj.controller.StartPointSetting(position_node);
 			for (float timer = 0; timer < wave_table.wave_setting_value_set[idx].unit_delay_time; timer += Time.deltaTime)
 			{
@@ -217,6 +219,9 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 		for (int i = 0; i < 5; i++)
 		{
 			Hero obj = Spawner.Instance.GetTrovant (TrovantType.COMMA);
+            if (obj == null)
+                continue;
+
 			obj.controller.StartPointSetting(position_node);  //my center position okay...
 			for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
 			{
