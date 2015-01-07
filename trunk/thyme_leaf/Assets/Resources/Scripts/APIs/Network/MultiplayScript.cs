@@ -10,11 +10,6 @@ public class MultiplayScript : MonoBehaviour {
         {
             Destroy(this);
         }
-        //else if ((Network.isServer && multiplayType != MultiplayType.SERVER)
-        //    || (Network.isClient && multiplayType != MultiplayType.CLIENT))
-        //{
-        //    Destroy(gameObject.GetComponent<UIButton>());
-        //}
         else if (!networkView.isMine)
         {
             Destroy(gameObject.GetComponent<UIButton>());

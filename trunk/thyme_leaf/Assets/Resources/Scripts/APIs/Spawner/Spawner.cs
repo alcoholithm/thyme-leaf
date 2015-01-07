@@ -319,23 +319,23 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // Dying Methods
 
-    public void Free(GameObject gameObject)
+    public void Free(GameObject go)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
-            EntityManager.Instance.RemoveEntity(gameObject.GetComponent<GameEntity>());
-            gameObject.SetActive(false);
+            EntityManager.Instance.RemoveEntity(go.GetComponent<GameEntity>());
+            go.SetActive(false);
         }
         else
         {
-            if (gameObject.networkView.isMine){
+            if (go.networkView.isMine){
                 Debug.Log("ViewID ["+networkView.viewID+"] : Network Free to ALL Users");
-                networkView.RPC("NetworkFree", RPCMode.All, gameObject.networkView.viewID);
+                networkView.RPC("NetworkFree", RPCMode.All, go.networkView.viewID);
             }
-            //else
-            //{
-            //    gameObject.SetActive(false);
-            //}
+            else
+            {
+                go.SetActive(false);
+            }
         }
     }
 
