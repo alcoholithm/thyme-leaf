@@ -31,12 +31,15 @@ public class THouseState_Hitting : State<THouse>
 
     public override bool HandleMessage(Message msg)
     {
-		Debug.Log ("aaaaaaaaa : " + msg.arg1);
+		Debug.Log ("Thouse Damage : " + msg.arg1);
         switch (msg.what)
         {
             case MessageTypes.MSG_NORMAL_DAMAGE:
                 (msg.receiver as THouse).TakeDamage(msg.arg1);
                 return true;
+			case MessageTypes.MSG_BURN_DAMAGE:
+				(msg.receiver as THouse).TakeDamage(msg.arg1);
+				return true;
         }
         return false;
     }
