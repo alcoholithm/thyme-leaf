@@ -1,25 +1,42 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-public class SkillLauncher : Weapon, ILauncher
+public class SkillLauncher : Weapon, ILauncher, IObservable
 {
-    private bool isFired;
+    private bool doesFired;
+
+    // observer
+    private Dictionary<ObserverTypes, List<IObserver>> observers =
+    new Dictionary<ObserverTypes, List<IObserver>>();
+
+    void Awake()
+    {
+        instance = this;
+        doesFired = true;
+    }
 
     /*
      * Followings are unity callback methods
      */ 
-
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!doesFired && Input.GetMouseButtonDown(0))
         {
-            Debug.Log(Input.mousePosition);
-            Debug.Log("M " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
             this.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            
             Fire(this.transform);
+
+            doesFired = true;
+
+            NotifyObservers(ObserverTypes.Skill);
         }
+    }
+
+    /*
+     * Followings are public member functions.
+     */
+    public void Prepare()
+    {
+        doesFired = false;
     }
 
     /*
@@ -35,10 +52,9 @@ public class SkillLauncher : Weapon, ILauncher
         if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
         {
             projectile.transform.position = transform.position;
-            projectile.transform.localPosition += new Vector3(0, 500, 0);
+            projectile.transform.localPosition += new Vector3(0, 800, 0);
             projectile.transform.localScale = Vector3.one;
 
-            Debug.Log("D " + target.transform.position);
             projectile.Move(target);
         }
         else if (projectile.gameObject.networkView.isMine)  // Multi mode
@@ -60,7 +76,46 @@ public class SkillLauncher : Weapon, ILauncher
     }
 
     /*
+    * followings are implemented methods of "IObservable"
+    */
+    public void RegisterObserver(IObserver o, ObserverTypes field)
+    {
+        if (!observers.ContainsKey(field))
+        {
+            observers.Add(field, new List<IObserver>());
+        }
+        observers[field].Add(o);
+    }
+    public void RemoveObserver(IObserver o, ObserverTypes field)
+    {
+        if (observers[field].Count <= 1)
+            observers.Remove(field);
+        else
+            observers[field].Remove(o);
+    }
+    public void NotifyObservers(ObserverTypes field)
+    {
+        if (observers.ContainsKey(field))
+            observers[field].ForEach(o => o.Refresh(field));
+    }
+    public void HasChanged()
+    {
+        throw new System.NotImplementedException();
+    }
+    public void SetChanged()
+    {
+        throw new System.NotImplementedException();
+    }
+
+
+    /*
      * Followings are Attributes
      */
-    public new const string TAG = "[PoisonLauncher]";
+    private static SkillLauncher instance;
+    public static SkillLauncher Instance
+    {
+        get { return instance; }
+    }
+
+    public new const string TAG = "[SkillLauncher]";
 }

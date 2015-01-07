@@ -5,5 +5,6 @@ public enum ObserverTypes
 {
     Health,
     Gold,
-    Enemy
+    Enemy,
+    Skill
 }
