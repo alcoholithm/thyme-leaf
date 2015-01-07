@@ -75,11 +75,10 @@ public class PathManager : Manager<PathManager> {
 				map_data.isUse = true;
 				map_data.trovant_center = true;
 				Define.pathNode[i] = map_data;
-                THouse w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
-                w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
-				w.PositionNode = Define.pathNode[i].obj.transform.localPosition;
-
-                w.ChangeState(THouseState_Idling.Instance);
+                //THouse w = Spawner.Instance.GetThouse(THouseType.THOUSE_TYPE1);
+                //w.transform.localPosition = Define.pathNode[i].obj.transform.localPosition;
+                //w.PositionNode = Define.pathNode[i].obj.transform.localPosition;
+                //w.ChangeState(THouseState_Idling.Instance);
 				
 				i = 0;
 				continue;
