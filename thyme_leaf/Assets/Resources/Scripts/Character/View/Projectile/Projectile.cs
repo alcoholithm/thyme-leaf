@@ -28,6 +28,7 @@ public abstract class Projectile : MonoBehaviour, IProjectile
     protected string _animName;
     private bool isTouched;
 
+    private float deltaThreshold = 0.133f;
 
     /*
      * Followings are unity callback methods
@@ -75,7 +76,7 @@ public abstract class Projectile : MonoBehaviour, IProjectile
         Vector3 direction = target.transform.position - transform.position;
         //Vector3 direction = targetPosition - transform.position;
 
-        if (direction.magnitude < 0.134f)
+        if (direction.magnitude < deltaThreshold)
         {
             Stop();
             Explode();
