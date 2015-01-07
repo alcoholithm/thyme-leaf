@@ -823,6 +823,7 @@ GameObject:
   - 114: {fileID: 65734547}
   - 114: {fileID: 65734546}
   - 65: {fileID: 65734545}
+  - 114: {fileID: 65734553}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
@@ -869,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 11
+  audioUnitType: 13
 --- !u!114 &65734547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,7 +1001,7 @@ MonoBehaviour:
   _maxHp: 100
   _currHp: 100
   defense: 0
-  unit_type_name: 12
+  unit_type_name: 13
 --- !u!114 &65734552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,6 +1015,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1696759023}
+--- !u!114 &65734553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400020, guid: 29cbf384dd633b143bdb02d735a18569,
+    type: 2}
+  m_PrefabInternal: {fileID: 456460767}
+  m_GameObject: {fileID: 65734543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d2c950e8349b64389c7dc339a0bbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplayType: 0
 --- !u!1 &66506592
 GameObject:
   m_ObjectHideFlags: 0
