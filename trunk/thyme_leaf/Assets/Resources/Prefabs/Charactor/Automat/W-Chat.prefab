@@ -81,13 +81,14 @@ GameObject:
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400010}
   - 65: {fileID: 6500000}
+  - 114: {fileID: 11400020}
   m_Layer: 10
   m_Name: W-Chat
   m_TagString: TagCommandCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -357,13 +358,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 0}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 100008}
-      field: 
-    oneShot: 0
+  onClick: []
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,6 +442,18 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d2c950e8349b64389c7dc339a0bbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplayType: 0
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
