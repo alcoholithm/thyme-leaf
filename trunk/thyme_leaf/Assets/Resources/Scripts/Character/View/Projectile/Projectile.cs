@@ -118,10 +118,7 @@ public abstract class Projectile : MonoBehaviour, IProjectile
         AudioManager.Instance.PlayClipWithState(this.gameObject, StateType.ATTACKING);
     }
 
-    public virtual void Move(Vector3 targetPos)
-    {
-
-    }
+    public virtual void Move(Vector3 targetPos) { }
 
     public virtual void Attack()
     {
