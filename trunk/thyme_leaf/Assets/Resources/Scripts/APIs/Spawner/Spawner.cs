@@ -258,12 +258,10 @@ public class Spawner : Manager<Spawner>
         return go.GetComponent<AutomatTower>();
     }
 
-
-    //
-    //public Projectile GetProjectile(ProjectileType type)
-    //{
-    //    return GetProjectile(type, Vector3.zero);
-    //}
+    public Projectile GetProjectile(ProjectileType type)
+    {
+        return GetProjectile(type, Vector3.zero);
+    }
     
     public Projectile GetProjectile(ProjectileType type, Vector3 pos)
     {
@@ -291,13 +289,13 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // Dying Methods
 
-    //public void PerfectFree(GameObject gameObject)
-    //{
-    //    if (Network.peerType == NetworkPeerType.Disconnected)
-    //        Destroy(gameObject);
-    //    else
-    //        Free(gameObject);
-    //}
+    public void PerfectFree(GameObject gameObject)
+    {
+        if (Network.peerType == NetworkPeerType.Disconnected)
+            Destroy(gameObject);
+        else
+            Free(gameObject);
+    }
 
     public void Free(GameObject gameObject)
     {
