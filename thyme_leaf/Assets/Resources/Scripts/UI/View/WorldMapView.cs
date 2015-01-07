@@ -94,7 +94,7 @@ public class WorldMapView : View, IActionListener
 
     void OnDisconnectedActionDelegate(){
 
-        Debug.Log(SceneManager.Instance.CurrentScene);
+        Debug.Log(Application.loadedLevelName);
 
         Debug.Log("Disconnected");
         DialogFacade.Instance.CloseMessageDialog();

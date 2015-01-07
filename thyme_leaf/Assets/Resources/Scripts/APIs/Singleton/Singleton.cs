@@ -43,7 +43,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        //applicationIsQuitting = true;
+        applicationIsQuitting = true;
     }
 
     /*
@@ -95,7 +95,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         singleton.name = typeof(T).ToString();
                     }
 
-                    //DontDestroyOnLoad(_instance.gameObject);
+                    DontDestroyOnLoad(_instance.gameObject);
                 }
             }
 

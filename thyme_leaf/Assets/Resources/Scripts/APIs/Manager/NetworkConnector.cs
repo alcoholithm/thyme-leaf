@@ -46,7 +46,7 @@ public class NetworkConnector : Manager<NetworkConnector>
     //}
 	
 	void Awake()
-	{
+    {
 		networkView.group = 1;
 		MasterServer.ipAddress = masterSeverIP;
 		MasterServer.port = masterServerPort;
@@ -54,7 +54,7 @@ public class NetworkConnector : Manager<NetworkConnector>
 		Network.natFacilitatorPort = facilitatorPort;
 		Network.minimumAllocatableViewIDs = allocatableViewIDs;  
 	}
-	
+
 	// Public Network API Methods
 	
 	// Step 1 : Attach Listeners
