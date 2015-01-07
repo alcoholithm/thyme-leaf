@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 14
+  audioUnitType: 16
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
   _maxHp: 100
   _currHp: 100
   defense: 0
-  unit_type_name: 15
+  unit_type_name: 16
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

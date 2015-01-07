@@ -473,11 +473,10 @@ MonoBehaviour:
   id: 0
   name: 
   description: 
-  species_name: 
   _maxHp: 0
   _currHp: 0
   defense: 0
-  type: 0
+  unit_type_name: 8
   currentTarget: {fileID: 0}
   reloadingTime: 2
 --- !u!114 &11400022

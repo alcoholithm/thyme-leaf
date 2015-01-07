@@ -306,7 +306,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			controller.setAngle (a);
 
 			//string anim_name = Naming.Instance.BuildAnimationName(gameObject, model.StateName);
-
+			Debug.Log("@ = "+animation_name);
 			if(dir == -1)
 			{
 				ui_sprite.flip = UIBasicSprite.Flip.Horizontally;
