@@ -48,7 +48,11 @@ public class SkillLauncher : Weapon, ILauncher, IObservable
             return;
 
         Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.METEO, transform.position);
-        if (projectile == null) return;
+        if (projectile == null)
+        {
+            Debug.Log("PROJECTILE IS NULL");
+            return;
+        }
 
         projectile.transform.position = transform.position;
         projectile.transform.localPosition += new Vector3(0, 800, 0);
