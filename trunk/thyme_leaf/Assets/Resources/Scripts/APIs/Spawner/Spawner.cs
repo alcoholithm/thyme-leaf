@@ -332,10 +332,10 @@ public class Spawner : Manager<Spawner>
                 Debug.Log("ViewID ["+networkView.viewID+"] : Network Free to ALL Users");
                 networkView.RPC("NetworkFree", RPCMode.All, go.networkView.viewID);
             }
-            else
-            {
-                go.SetActive(false);
-            }
+            //else
+            //{
+            //    go.SetActive(false);
+            //}
         }
     }
 
