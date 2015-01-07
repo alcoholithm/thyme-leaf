@@ -102,6 +102,13 @@ public class Spawner : Manager<Spawner>
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.client_position);
     }
 
+    public void CreateThouse()
+    {
+        for(int i=0; i<Define.trovant_center_node.Count; i++)
+        {
+            GetWChat(WChatType.WCHAT_TYPE1, Define.trovant_center_node[i].transform.localPosition);
+        }
+    }
     
 
     /**********************************/
@@ -258,26 +265,30 @@ public class Spawner : Manager<Spawner>
 
 
     //
-    
     public Projectile GetProjectile(ProjectileType type)
     {
+        return GetProjectile(type, Vector3.zero);
+    }
+    
+    public Projectile GetProjectile(ProjectileType type, Vector3 pos)
+    {
         if (Network.peerType == NetworkPeerType.Disconnected)
-            return GetProjectile((int)type);
+            return GetProjectile((int)type, pos);
         else
         {
             if (Network.isClient) return null;
 
             NetworkViewID viewID = Network.AllocateViewID();
-            networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type);
+            networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
             GameObject go = NetworkView.Find(viewID).gameObject;
             return go.GetComponent<Projectile>();
         }
     }
 
-    private Projectile GetProjectile(int type)
+    private Projectile GetProjectile(int type, Vector3 pos)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(projectiles[type].name);
-        InitProjectile(ref go);
+        InitProjectile(ref go, pos);
         return go.GetComponent<Projectile>();
     }
 
@@ -405,9 +416,9 @@ public class Spawner : Manager<Spawner>
         go.transform.localScale = Vector3.one;
     }
 
-    private void InitProjectile(ref GameObject go)
+    private void InitProjectile(ref GameObject go, Vector3 pos)
     {
-        go.transform.position = Vector3.zero;
+        go.transform.position = pos;
         go.transform.localScale = Vector3.one;
     }
 
@@ -483,14 +494,14 @@ public class Spawner : Manager<Spawner>
     }
 
     [RPC]
-    void NetworkGetProjectile(NetworkViewID viewID, int type)
+    void NetworkGetProjectile(NetworkViewID viewID, int type, Vector3 pos)
     {
         GameObject go = GameObject.Instantiate(projectiles[type], Vector3.zero, Quaternion.identity) as GameObject;
         go.SetActive(false);
         go.transform.parent = automatBuildingPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-        InitProjectile(ref go);
+        InitProjectile(ref go, pos);
     }
 
     [RPC]
