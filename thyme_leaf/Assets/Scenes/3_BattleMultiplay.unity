@@ -5120,7 +5120,7 @@ MonoBehaviour:
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
   node_visible: 0
-  game_mode: 0
+  game_mode: 1
 --- !u!4 &538857660
 Transform:
   m_ObjectHideFlags: 0
