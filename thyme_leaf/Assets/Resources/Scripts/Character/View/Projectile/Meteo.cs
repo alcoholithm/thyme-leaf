@@ -81,7 +81,7 @@ public class Meteo : Projectile
 
     public override void Move(Vector3 targetPos)
     {
-        this.targetPosition = new Vector3(target.position.x, target.position.y, target.position.z);
+        this.targetPosition = targetPos;
         gameObject.SetActive(true);
         AudioManager.Instance.PlayClipWithState(this.gameObject, StateType.ATTACKING);
     }
