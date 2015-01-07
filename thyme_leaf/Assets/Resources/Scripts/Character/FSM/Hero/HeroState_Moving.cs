@@ -36,6 +36,9 @@ public class HeroState_Moving : State<Hero> {
 
 				if(owner.model.ID == other.nameID) continue;
 
+                if (other.obj == null)
+                    continue;
+
 				bool check = false;
 				switch(owner.getLayer())
 				{ 
