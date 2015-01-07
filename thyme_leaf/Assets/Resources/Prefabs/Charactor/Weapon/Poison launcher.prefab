@@ -8,11 +8,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
   - 148: {fileID: 14800000}
-  m_Layer: 0
-  m_Name: Spawner
-  m_TagString: Untagged
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  m_Layer: 10
+  m_Name: Poison launcher
+  m_TagString: TagProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,31 +38,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9ca4ba3d63b7a48827893c01d60858, type: 3}
+  m_Script: {fileID: 11500000, guid: 238bf2e161b4df14990387204805934d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  automats:
-  - {fileID: 100008, guid: 49ec784fbb4614d03bacd3338c0f83e0, type: 2}
-  - {fileID: 100008, guid: 11282234ffd414b3eab30ca3d86bfdb0, type: 2}
-  towers:
-  - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
-  - {fileID: 100002, guid: f1b8e0f3dff46884287f346ddf737af0, type: 2}
-  - {fileID: 100002, guid: d0378c24b28648743960f71211d1e1c5, type: 2}
-  projectiles:
-  - {fileID: 100002, guid: 840403e737c9fd446b248dde71c11c5e, type: 2}
-  - {fileID: 100002, guid: 9c2364baa23402c428171988c388b5cd, type: 2}
-  - {fileID: 100002, guid: bfb45e2d3d9251848bef34c7589bbd59, type: 2}
-  trovants:
-  - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
-  - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
-  wchats:
-  - {fileID: 0}
-  thouses:
-  - {fileID: 100002, guid: 510c01b18835d2b4f80f7564591ece58, type: 2}
-  effects:
-  - {fileID: 100002, guid: cba6d29995e80304493dea95e898f275, type: 2}
-  initPoolSize: 100
-  maxPoolSize: 200
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abe62bc0d758af4cb82fde23b6366ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  criticalDamage: 0
+  criticalProbability: 0
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
