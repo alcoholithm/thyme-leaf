@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DialogFacade : Singleton<DialogFacade>
+public class DialogFacade : MonoBehaviour
 {
     //private LobbyController controller;
 
@@ -26,6 +26,7 @@ public class DialogFacade : Singleton<DialogFacade>
 
     private void Initialize()
     {
+        instance = this;
         //this.controller = _view.Controller;
     }
 
@@ -73,6 +74,13 @@ public class DialogFacade : Singleton<DialogFacade>
     public void SetVisible(GameObject gameObject, bool active)
     {
         gameObject.SetActive(active);
+    }
+
+    private static DialogFacade instance = new DialogFacade();
+    public static DialogFacade Instance
+    {
+        get { return DialogFacade.instance; }
+        set { DialogFacade.instance = value; }
     }
 
 
