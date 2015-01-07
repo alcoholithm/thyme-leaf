@@ -30,7 +30,8 @@ public class UserAdministrator : IUserAdministrator, IObservable
             && userName.Length > 0
             && users.Find(user => user.Name.Equals(userName)) == null)
         {
-            users.Add(new User(userName));
+            users.Add(new User(userName,1000));
+
             return true;
         }
         return false;
