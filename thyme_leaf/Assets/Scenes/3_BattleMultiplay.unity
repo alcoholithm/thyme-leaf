@@ -6894,7 +6894,7 @@ MonoBehaviour:
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
   node_visible: 0
-  game_mode: 0
+  game_mode: 1
 --- !u!1 &1069371897
 GameObject:
   m_ObjectHideFlags: 0
@@ -9328,6 +9328,10 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 1452579855}
       field: 
+    oneShot: 0
+  - mTarget: {fileID: 1452579861}
+    mMethodName: 
+    mParameters: []
     oneShot: 0
 --- !u!114 &1452579861
 MonoBehaviour:
@@ -12828,6 +12832,10 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 2053148939}
       field: 
+    oneShot: 0
+  - mTarget: {fileID: 2053148945}
+    mMethodName: 
+    mParameters: []
     oneShot: 0
 --- !u!114 &2053148945
 MonoBehaviour:
