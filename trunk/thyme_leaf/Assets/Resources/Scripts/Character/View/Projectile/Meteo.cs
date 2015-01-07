@@ -27,8 +27,8 @@ public class Meteo : Projectile
         if (isTouched)
             return;
 
-        if (!target.gameObject.activeInHierarchy)
-            Spawner.Instance.Free(this.gameObject);
+        //if (!target.gameObject.activeInHierarchy)
+        //    Spawner.Instance.Free(this.gameObject);
 
         //Vector3 direction = target.position - transform.position;
         Vector3 direction = targetPosition - transform.position;
