@@ -28,7 +28,7 @@ public class HeroState_Attacking : State<Hero>
 		{
 			UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
 
-			if(owner.model.ID == other.nameID) continue;
+			if(other.obj == null || owner.model.ID == other.nameID) continue;
 			
 			bool check = false;
 			switch(owner.getLayer())

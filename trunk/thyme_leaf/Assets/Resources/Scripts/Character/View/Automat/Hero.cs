@@ -502,6 +502,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		helper.setPos (1000, 1000, 0);
 		CollisionSetting (false); 
 		health_bar_controller.gameObject.SetActive(false);
+		UnitPoolController.GetInstance ().RemoveUnit (MyUnit);
 	}
 	
 	public UISpriteAnimation GetAnim() { return anim; }
