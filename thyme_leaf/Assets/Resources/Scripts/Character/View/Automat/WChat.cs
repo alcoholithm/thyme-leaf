@@ -124,6 +124,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
         this.stateMachine.CurrentState = WChatState_None.Instance;
         this.stateMachine.GlobalState = WChatState_Hitting.Instance;
 
+        this.anim = GetComponent<NGUISpriteAnimation>();
         this.anim.Pause();
 
         this.PrepareUI();
