@@ -22,7 +22,7 @@ public class User : IObservable
     }
 
     /*
-    * Followings are implemented methods of "IObservable"
+    * Followings are public member functions
     */
     public bool HasEnoughMoney()
     {

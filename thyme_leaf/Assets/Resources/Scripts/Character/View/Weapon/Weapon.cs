@@ -7,7 +7,7 @@ public abstract class Weapon : View
     [SerializeField]
     private int criticalDamage;
     [SerializeField]
-    private int criticalProbability;
+    private float criticalProbability;
 
     /*
      * Followings are attributes
