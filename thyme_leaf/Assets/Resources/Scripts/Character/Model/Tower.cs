@@ -22,7 +22,7 @@ public class Tower : Unit
     }
 
     /*
-    * followings are public member functions
+    * followings are member functions
     */
     private void Initialize()
     {

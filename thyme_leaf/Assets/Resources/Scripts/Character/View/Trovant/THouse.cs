@@ -69,23 +69,23 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
         stateMachine.Update();
     }
 
-    void OnDisable()
-    {
-        this.model.RemoveObserver(this, ObserverTypes.Health);
+    //void OnDisable()
+    //{
+    //    //this.model.RemoveObserver(this, ObserverTypes.Health);
 
-        // MVC
-        this.model = null;
-        this.controller = null;
+    //    // MVC
+    //    //this.model = null;
+    //    //this.controller = null;
 
-        // set children
-        this.healthbar.Model = null;
-        this.Remove(healthbar);
+    //    // set children
+    //    //this.healthbar.Model = null;
+    //    //this.Remove(healthbar);
 
-        // set state machine
-        this.stateMachine = null;
+    //    // set state machine
+    //    this.stateMachine = null;
 
-        this.anim = null;
-    }
+    //    //this.anim = null;
+    //}
 
     /*
      * followings are member functions
@@ -118,9 +118,9 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
         //this.controller = new AutomatTower_Controller(this, model);
 
         // set state machine
-        this.stateMachine = new StateMachine<THouse>(this);
-        this.stateMachine.CurrentState = THouseState_None.Instance;
-        this.stateMachine.GlobalState = THouseState_Hitting.Instance;
+        //this.stateMachine = new StateMachine<THouse>(this);
+        //this.stateMachine.CurrentState = THouseState_None.Instance;
+        //this.stateMachine.GlobalState = THouseState_Hitting.Instance;
 
         this.anim = GetComponent<NGUISpriteAnimation>();
         this.anim.Pause();

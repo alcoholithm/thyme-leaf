@@ -78,17 +78,17 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
         stateMachine.Update();
     }
 
-    void OnDisable()
-    {
-        // MVC
-        this.model = null;
-        this.controller = null;
+    //void OnDisable()
+    //{
+    //    // MVC
+    //    //this.model = null;
+    //    //this.controller = null;
 
-        // set state machine
-        this.stateMachine = null;
+    //    // set state machine
+    //    this.stateMachine = null;
 
-        this.anim.Pause();
-    }
+    //    this.anim.Pause();
+    //}
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -152,13 +152,13 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
         //this.controller = new AutomatTower_Controller(this, model);
 
         // set state machine
-        this.stateMachine = new StateMachine<AutomatTower>(this);
-        this.stateMachine.CurrentState = TowerState_None.Instance;
-        this.stateMachine.GlobalState = TowerState_Hitting.Instance;
+        //this.stateMachine = new StateMachine<AutomatTower>(this);
+        //this.stateMachine.CurrentState = TowerState_None.Instance;
+        //this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.anim.Pause();
 
-        //this.PrepareUI();
+        this.PrepareUI();
     }
 
     /*

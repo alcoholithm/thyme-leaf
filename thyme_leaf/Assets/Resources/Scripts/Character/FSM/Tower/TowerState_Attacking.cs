@@ -44,6 +44,7 @@ public class TowerState_Attacking : State<AutomatTower>
         Debug.Log(TAG + " Exit");
         owner.Anim.Pause();
         owner.Anim.ClearCommand();
+        owner.Anim.framesPerSecond = 5;
     }
 
     public override bool HandleMessage(Message msg)
