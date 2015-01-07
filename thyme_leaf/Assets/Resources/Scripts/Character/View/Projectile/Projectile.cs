@@ -8,10 +8,10 @@ public interface IProjectile : IAttackable, IMovable
 
 public abstract class Projectile : MonoBehaviour, IProjectile
 {
-    protected string _animName;
-
     protected NGUISpriteAnimation anim;
     protected UISprite sprite;
+
+    [SerializeField]
     protected GameEntity target;
 
     [SerializeField]
@@ -20,8 +20,13 @@ public abstract class Projectile : MonoBehaviour, IProjectile
     //private int attackRange;
 
     [SerializeField]
-    protected float movingSpeed = 0.7f;
+    protected float initMovingSpeed;
+    [SerializeField]
+    protected float movingSpeed;
     //private float rotationSpeed = 1f;
+
+    protected string _animName;
+    private bool isTouched;
 
 
     /*
@@ -33,56 +38,68 @@ public abstract class Projectile : MonoBehaviour, IProjectile
         sprite = GetComponent<UISprite>();
     }
 
+    protected virtual void OnEnable()
+    {
+        //transform.LookAt(target.transform.position);
+        isTouched = false;
+        movingSpeed = initMovingSpeed;
+        anim.Pause();
+    }
+
     protected virtual void Update()
     {
         MoveToTarget();
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!target.collider2D.Equals(other))
-            return;
+    //protected virtual void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (!target.collider2D.Equals(other))
+    //        return;
 
-        movingSpeed = 0;
-
-        Explode();
-        Attack();
-    }
+    //    Stop();
+    //    Explode();
+    //    Attack();
+    //}
 
     /*
      * Followings are member functions
      */
     protected virtual void MoveToTarget()
     {
-        //if (flag)
-        //    return;
+        if (isTouched)
+            return;
 
         if (!target.gameObject.activeInHierarchy)
             Spawner.Instance.Free(this.gameObject);
 
-        //Vector3 direction = targetPosition - transform.position;
         Vector3 direction = target.transform.position - transform.position;
-        direction.z = 0;
+        //Vector3 direction = targetPosition - transform.position;
 
-        //Debug.Log(direction.magnitude);
-        //if (direction.magnitude <= 0.05f)
-        //{
-        //    movingSpeed = 0;
-        //    flag = true;
+        if (direction.magnitude < 0.134f)
+        {
+            Stop();
+            Explode();
+            Attack();
+        }
+        else
+        {
+            direction.z = 0;
+            transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
+        }
 
-        //    if (target.gameObject.activeInHierarchy)
-        //    {
-        //        Message msg = target.GetComponent<Hero>().ObtainMessage(MessageTypes.MSG_DAMAGE, attackDamage);
-        //        owner.DispatchMessage(msg);
-        //    }
+        //if (!target.gameObject.activeInHierarchy)
+        //    Spawner.Instance.Free(this.gameObject);
 
-
-        //    fx.PlayOneShot(animName, new VoidFunction(() => Spawner.Instance.Free(this.gameObject)));
-        //}
-
-        transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
+        //Vector3 direction = target.transform.position - transform.position;
+        //direction.z = 0;
+        //transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
     }
 
+    private void Stop()
+    {
+        movingSpeed = 0;
+        isTouched = true;
+    }
 
     /*
     * Followings are implemented methods of "IProjectile"
@@ -106,6 +123,4 @@ public abstract class Projectile : MonoBehaviour, IProjectile
      * Followings are Attributes
      */
     public const string TAG = "[Projectile]";
-
-
 }
