@@ -24,7 +24,8 @@ public class SyncStateScript : MonoBehaviour
 
     void Update()
     {
-        if (networkView.isMine && Vector3.Distance(transform.localPosition, lastPosition) >= minimumMovement)
+        if (networkView.isMine && Vector3.Distance(transform.localPosition, lastPosition) >= minimumMovement
+            && gameObject != null)
         {
             lastPosition = transform.localPosition;
             networkView.RPC("SyncPosition", RPCMode.Others, transform.localPosition);
@@ -51,28 +52,6 @@ public class SyncStateScript : MonoBehaviour
     {
         Hero owner = NetworkView.Find(ownerID).GetComponent<Hero>();
         owner.StateMachine.ChangeState(HeroState_Moving.Instance);
-
-        //if (owner.helper.attack_target == null || (!isCharacter && owner.helper.attack_target.model.HP <= 0))
-        //{
-        //    owner.target = null;
-        //    owner.StateMachine.ChangeState(HeroState_Moving.Instance);
-        //    Debug.Log("Enemy is died or disappeared");
-        //}
-
-        //if (owner.helper.attack_target != null)
-        //{
-        //    //attack...
-        //    owner.helper.attack_delay_counter += Time.deltaTime;
-        //    if (owner.helper.attack_delay_counter >= owner.model.AttackDelay)
-        //    {
-        //        Message msg = owner.ObtainMessage(MessageTypes.MSG_DAMAGE,
-        //            new HeroDamageCommand(owner.helper.attack_target, (int)owner.model.AttackDamage));
-        //        //msg.arg1 = (int) owner.model.AttackDamage;
-
-        //        owner.DispatchMessage(msg);
-        //        owner.helper.attack_delay_counter = 0;
-        //    }
-        //}
     }
 
 
@@ -96,7 +75,7 @@ public class SyncStateScript : MonoBehaviour
         gameObject.transform.position = parentTransform.position;
         gameObject.GetComponent<AutomatTower>().StateMachine.ChangeState(TowerState_Building.Instance);
 
-        if(!networkView.isMine)
+        if (!networkView.isMine)
             gameObject.transform.parent.GetComponent<UIButton>().enabled = false;
     }
 
