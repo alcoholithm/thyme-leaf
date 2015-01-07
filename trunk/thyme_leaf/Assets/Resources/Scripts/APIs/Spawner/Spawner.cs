@@ -448,14 +448,19 @@ public class Spawner : Manager<Spawner>
 
     private void InitProjectileWithTarget(ref GameObject go, Vector3 pos, GameObject target)
     {
-        go.transform.position = pos;
-        go.transform.localScale = Vector3.one;
+        //go.transform.position = pos;
+        //go.transform.localScale = Vector3.one;
 
         Projectile projectile = go.GetComponent<Projectile>();
-        projectile.transform.position = transform.position;
+        projectile.transform.position = pos;
         projectile.transform.localPosition += new Vector3(0, 800, 0);
         projectile.transform.localScale = Vector3.one;
         projectile.Move(target.transform);
+
+
+        //projectile.transform.position = transform.position;
+        //projectile.transform.localPosition += new Vector3(0, 800, 0);
+        //projectile.transform.localScale = Vector3.one;
     }
 
 
@@ -539,6 +544,8 @@ public class Spawner : Manager<Spawner>
         go.networkView.viewID = viewID;
 
         GameObject target = NetworkView.Find(targetID).gameObject;
+
+        
 
         InitProjectileWithTarget(ref go, pos, target);
     }
