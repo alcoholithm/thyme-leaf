@@ -275,7 +275,8 @@ public class Spawner : Manager<Spawner>
             return GetProjectile((int)type, pos);
         else
         {
-            if (Network.isClient) return null;
+            //if (Network.isClient) 
+            //    return null;
 
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
