@@ -455,8 +455,12 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				{
 					for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
 					{
+
 						UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
-						
+
+                        if (other.obj == null)
+                            continue;
+
 						if(model.ID == other.nameID || other.obj.layer != (int)Layer.Automart ||
 						   other.infor_hero == null) continue;
 						if(helper.getCurrentNodeName() == "null" && other.infor_hero.helper.getCurrentNodeName() == "null")
