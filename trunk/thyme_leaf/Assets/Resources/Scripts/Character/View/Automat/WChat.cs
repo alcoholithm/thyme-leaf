@@ -20,7 +20,7 @@ public class WChat_Controller
     public void TakeDamage(int damage)
     {
         //Debug.Log("HP : " + model.HP + " / " + model.MaxHP);
-        model.HP -= damage;
+        model.TakeDamageWithDEF(damage);
 
         if (model.IsDead())
         {

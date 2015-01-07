@@ -6281,13 +6281,7 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick:
-  - mTarget: {fileID: 926080617}
-    mMethodName: ActionPerformed
-    mParameters:
-    - obj: {fileID: 905565700}
-      field: 
-    oneShot: 0
+  onClick: []
 --- !u!114 &905565706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6383,11 +6377,10 @@ MonoBehaviour:
   id: 0
   name: 
   description: 
-  species_name: 
-  _maxHp: 0
-  _currHp: 0
+  _maxHp: 100
+  _currHp: 100
   defense: 0
-  type: 0
+  unit_type_name: 12
 --- !u!1 &906685862
 GameObject:
   m_ObjectHideFlags: 0

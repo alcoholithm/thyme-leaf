@@ -3,17 +3,18 @@ using System.Collections;
 
 public class FXBurn : View, IAttackable
 {
-    [SerializeField]
-    private float _displayTime = 2f;
-
-    [SerializeField]
-    private int _attackDamage = 1;
-
-    [SerializeField]
-    private float _attackDelay = 0.7f;
-
     private UISprite sprite;
     private NGUISpriteAnimation anim;
+
+    [SerializeField]
+    private float _displayTime;
+
+    [SerializeField]
+    private int _attackDamage;
+
+    [SerializeField]
+    private float _attackDelay;
+
 
     /*
      * followings are unity callback methods
@@ -80,10 +81,8 @@ public class FXBurn : View, IAttackable
     {
         Parent.Remove(this);
 
-        Debug.Log(Parent.Views.Count);
-
         gameObject.SetActive(true);
-        StopCoroutine("HideDelayed");
+        StopAllCoroutines();
         Paint();
         if (gameObject.activeInHierarchy)
         {

@@ -482,7 +482,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	public void TakeDamage(int damage_range)
 	{
-        model.HP -= damage_range;
+        model.TakeDamageWithDEF(damage_range);
 
 		if(model.HP <= 0)
 		{
