@@ -190,6 +190,7 @@ public class AudioManager : Manager<AudioManager>
         else if(unitType == AudioUnitType.PROJECTILE_FIREBALL
             && stateType == StateType.ATTACKING)
         {
+            
             resultSoundType = SoundType.SKILL_FIREBALL_BOOMING;
         }
         // WChat
@@ -202,13 +203,12 @@ public class AudioManager : Manager<AudioManager>
         //    && stateType == StateType.DYING)
         //{
         //}
-
         else
         {
-            resultSoundType = SoundType.NOTHING;
             Debug.Log("NOT FOUND SOUND TYPE : " + unitType + " , " + stateType);
+            return resultSoundType = SoundType.NOTHING;
         }
-
+        Debug.Log("SOUND : " + resultSoundType);
         return resultSoundType;
     }
 
