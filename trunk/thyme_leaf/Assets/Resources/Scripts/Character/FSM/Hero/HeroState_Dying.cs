@@ -18,7 +18,7 @@ public class HeroState_Dying : State<Hero> {
 		}
 
 		owner.controller.setStateName(Naming.DYING);
-		owner.state_name = owner.model.StateName;
+		owner.AnimationName = Naming.Instance.BuildAnimationName(owner.gameObject, owner.model.StateName);
 	}
 	
 	public override void Execute (Hero owner)

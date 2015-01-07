@@ -16,7 +16,7 @@ public class HeroState_Moving : State<Hero> {
 //		}
 
 		owner.controller.setStateName (Naming.MOVING);
-		owner.state_name = owner.model.StateName;
+		owner.AnimationName = Naming.Instance.BuildAnimationName(owner.gameObject, owner.model.StateName);
 	}
 
 	public override void Execute (Hero owner)
@@ -177,9 +177,9 @@ public class HeroState_Moving : State<Hero> {
 		case UnitType.TROVANT_CHARACTER:
 			return obj.infor_hero == null ? -1 : obj.infor_hero.model.HP;
 		case UnitType.AUTOMAT_WCHAT:
-			return obj.infor_automat_center == null ? -1 : obj.infor_automat_center.Model.HP;
+			return obj.infor_automat_center.Model == null ? -1 : obj.infor_automat_center.Model.HP;
 		case UnitType.TROVANT_THOUSE:
-			return obj.infor_trovant_center == null ? -1 : obj.infor_trovant_center.Model.HP;
+			return obj.infor_trovant_center.Model == null ? -1 : obj.infor_trovant_center.Model.HP;
 		}
 		return -1;
 	}

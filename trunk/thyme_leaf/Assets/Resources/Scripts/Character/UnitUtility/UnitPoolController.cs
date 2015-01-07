@@ -116,6 +116,7 @@ public struct UnitObject
 			break;
 		case UnitType.TROVANT_THOUSE:
 			infor_trovant_center = obj.GetComponent<THouse>();
+			Debug.Log("hp - "+infor_trovant_center.Model.HP);
 			break;
 		}
 	}

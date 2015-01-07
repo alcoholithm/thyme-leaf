@@ -109,7 +109,6 @@ public class Helper
 				break;
 			}
 		}
-		Debug.Log (posOB == null ? "start point = null" : posOB.name);
 		if(posOB == null) return;
 		nodeStock = posOB;
 		nodeOld = nodeStock;

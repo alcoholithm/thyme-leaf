@@ -12,8 +12,6 @@ public abstract class Unit : MonoBehaviour, IObservable //ScriptableObject,
     protected string name;
     [SerializeField]
     protected string description;
-    [SerializeField]
-    protected string species_name;
 
     [SerializeField]
     protected int _maxHp;
@@ -21,8 +19,11 @@ public abstract class Unit : MonoBehaviour, IObservable //ScriptableObject,
     protected int _currHp;
     [SerializeField]
     protected int defense;
-    [SerializeField]
+
     protected UnitType type;
+
+	[SerializeField]
+	protected AudioUnitType unit_type_name;
 
     private Dictionary<ObserverTypes, List<IObserver>> observers =
         new Dictionary<ObserverTypes, List<IObserver>>();
@@ -127,6 +128,12 @@ public abstract class Unit : MonoBehaviour, IObservable //ScriptableObject,
         get { return type; }
         set { type = value; }
     }
+
+	public AudioUnitType UnitTypeName
+	{
+		get { return unit_type_name; }
+		set { unit_type_name = value; }
+	}
 
     public const string TAG = "[Unit]";
 }
