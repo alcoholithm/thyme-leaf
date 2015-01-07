@@ -5,7 +5,16 @@ public class MHero : Unit
 {
 	private Weapon weapon;
 	private Helper _helper;
-	
+
+	public Helper Helper {
+		get {
+			return _helper;
+		}
+		set {
+			_helper = value;
+		}
+	}
+
 	//IMovable
 	private float movingSpeed;
 	
@@ -20,15 +29,14 @@ public class MHero : Unit
 	private float attack_damage;
 
 	private string state_name;
-	
-	public MHero(Helper helper)
+
+	void Awake()
 	{
 		angle = 0;
 		muster_leader = false;
-		_helper = helper;
 		musterID = "null";
 	}
-	
+
 	/*
      * 
      */

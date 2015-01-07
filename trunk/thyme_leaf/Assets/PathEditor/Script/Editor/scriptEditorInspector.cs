@@ -13,6 +13,10 @@ public class scriptEditorInspector : Editor
 
 		editor.pathNodeObj = (GameObject)EditorGUILayout.ObjectField("Node Object", editor.pathNodeObj, typeof(GameObject), true);
 		editor.curentState = (EditorState)EditorGUILayout.EnumPopup("Work List",editor.curentState);
+
+		GUILayout.Space(10);
+		editor.mode = (GameMode)EditorGUILayout.EnumPopup ("Game Mode", editor.mode);
+
 		GUILayout.Space(10);
 		editor.StageNumber = EditorGUILayout.IntField("Stage Number", editor.StageNumber);
 
@@ -26,13 +30,19 @@ public class scriptEditorInspector : Editor
 			editor.selectedEventUP = -1;  //mouse up event
 			editor.selectedRemove = -1;
 		}
-		/*
+
+//		GUILayout.Space(25);
+//		if(GUILayout.Button("Done"))
+//		{
+//			pathComplete();
+//		}
+
 		GUILayout.Space(25);
-		if(GUILayout.Button("Done"))
+		if(GUILayout.Button("Scene Load Data"))
 		{
-			pathComplete();
+			LoadNode();
 		}
-		*/
+
 		GUILayout.Space(25);
 		if(GUILayout.Button("ToFile"))
 		{
@@ -43,8 +53,10 @@ public class scriptEditorInspector : Editor
 
 	public void dataToFile()
 	{
+		int n = editor.StageNumber;
 		if(editor.pathList.Count <= 0) return;
-		DataToFile.SavaData(ref editor.pathList, editor.StageNumber);
+		if(editor.mode == GameMode.MULTI_PLAY) n = editor.StageNumber + 99999;
+		DataToFile.SavaData(ref editor.pathList, n);
 	}
 
 	public void pathComplete()
@@ -72,6 +84,28 @@ public class scriptEditorInspector : Editor
 		}
 	}
 
+	public void LoadNode()
+	{
+		GameObject PathNodeRoot_obj = GameObject.Find ("PathNodeRoot");
+		int child_count = PathNodeRoot_obj.transform.childCount;
+		if(child_count <= 0)
+		{
+			Debug.Log("No Data");
+		}
+		for(int i=0;i<child_count;i++)
+		{
+			editor.productID++;
+			GameObject func_obj = PathNodeRoot_obj.transform.GetChild(i).gameObject;
+			scriptPathNode tempFunc = func_obj.GetComponent<scriptPathNode>();
+			Vector3 pos = func_obj.transform.localPosition;
+			tempFunc.DataInit();
+			tempFunc.setPos(pos.x, pos.y, 0);
+			tempFunc.setID(editor.productID);
+
+			editor.pathList.Add(func_obj);
+		}
+	}
+
 	public void AddNode(float x, float y, float z)  //활성화 되어있을때만 추가한다.
 	{
 		editor.productID++;
@@ -94,10 +128,10 @@ public class scriptEditorInspector : Editor
 	{
 		if(PickModule(ref e, false))
 		{
-		//	Debug.Log("node : " + editor.selectedID);
+			Debug.Log("node : " + editor.selectedID);
 			DestroyImmediate(GameObject.Find("node"+editor.selectedRemove));
 			editor.pathList.RemoveAt(editor.selectedID);
-		//	Debug.Log("count : " + editor.pathList.Count);
+			Debug.Log("count : " + editor.pathList.Count);
 		}
 	}
 	
@@ -109,6 +143,7 @@ public class scriptEditorInspector : Editor
 
 	public void SearchNode(int compareID, bool connectMode)
 	{
+		Debug.Log ("id = " + compareID);
 		int id = compareID;
 		for(int i=0;i<editor.pathList.Count;i++)
 		{

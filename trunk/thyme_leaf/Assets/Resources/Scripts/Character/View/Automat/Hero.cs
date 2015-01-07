@@ -97,7 +97,9 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	{
 		//mvc setting...
 		helper = new Helper (this.gameObject);
-		model = new MHero (helper);
+		model = gameObject.GetComponent<MHero> ();
+		Debug.Log (model == null ? "null" : "okay");
+		model.Helper = helper;
 		controller = new ControllerHero (model, helper);
 
 		//other reference...
