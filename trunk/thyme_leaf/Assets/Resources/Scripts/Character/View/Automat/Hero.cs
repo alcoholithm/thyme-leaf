@@ -69,9 +69,8 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	private UISprite ui_sprite;
 	//=====================
 
-	protected override void Awake()
+	void Awake()
 	{
-        base.Awake();
 		Initialize();
 	}
 

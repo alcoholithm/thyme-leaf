@@ -24,7 +24,7 @@ public class PoisonDrop : Projectile
     */
     public override void Explode()
     {
-        this._animName = "PoisonGas_";
+        this._animName = "PoisonExplosion_";
         anim.PlayOneShot(_animName, new VoidFunction(() =>
         {
             GameObject zone = Spawner.Instance.GetPoisonCloud(EffectType.POISON_CLOUD);

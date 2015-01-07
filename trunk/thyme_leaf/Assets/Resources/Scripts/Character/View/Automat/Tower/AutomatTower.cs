@@ -53,34 +53,24 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
     //--------------------
 
     private NGUISpriteAnimation anim;
-
     private StateMachine<AutomatTower> stateMachine;
 
     //--------------------- MVC
-    [SerializeField]
-    private Tower _model;
+    private Tower model;
     private AutomatTower_Controller controller;
     //---------------------
-
-
-    ////--------------------- model에 넣을 것들..
-    //[SerializeField]
-    //private Weapon _weapon;
-    ////--------------------- ScriptableObject를 상속하기 전까지만 쓴다.
 
     /*
     * followings are unity callback methods
     */
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         Initialize();
     }
 
     void OnEnable()
     {
         Reset();
-        //this.PrepareUI();
     }
 
     void Update()
@@ -91,7 +81,7 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
     void OnDisable()
     {
         // MVC
-        this._model = null;
+        this.model = null;
         this.controller = null;
 
         // set state machine
@@ -138,9 +128,10 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
     private void Initialize()
     {
         // MVC
-        this._model = new Tower(this);
-        this._model.RegisterObserver(this, ObserverTypes.Enemy);
-        this.controller = new AutomatTower_Controller(this, _model);
+        this.model = GetComponent<Tower>();
+        this.controller = new AutomatTower_Controller(this, model);
+
+        this.model.RegisterObserver(this, ObserverTypes.Enemy);
 
         // set children
         this.Add(_weapon);
@@ -151,15 +142,14 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.anim = GetComponent<NGUISpriteAnimation>();
-
     }
 
     private void Reset()
     {
         // MVC
-        this._model = new Tower(this);
-        this._model.RegisterObserver(this, ObserverTypes.Enemy);
-        this.controller = new AutomatTower_Controller(this, _model);
+        //this.model = new Tower(this);
+        //this.model.RegisterObserver(this, ObserverTypes.Enemy);
+        //this.controller = new AutomatTower_Controller(this, model);
 
         // set state machine
         this.stateMachine = new StateMachine<AutomatTower>(this);
@@ -167,6 +157,8 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
         this.stateMachine.GlobalState = TowerState_Hitting.Instance;
 
         this.anim.Pause();
+
+        //this.PrepareUI();
     }
 
     /*
@@ -232,8 +224,8 @@ public class AutomatTower : GameEntity, IAutomatTower, IStateMachineControllable
 
     public Tower Model
     {
-        get { return _model; }
-        set { _model = value; }
+        get { return model; }
+        set { model = value; }
     }
     public AutomatTower_Controller Controller
     {

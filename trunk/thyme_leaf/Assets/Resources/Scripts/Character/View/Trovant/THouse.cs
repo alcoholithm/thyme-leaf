@@ -42,8 +42,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
     private StateMachine<THouse> stateMachine;
 
     //--------------------- MVC
-    [SerializeField]
-    private CommandCenter _model;
+    private CommandCenter model;
     private THouse_Controller controller;
 
     //---------------------
@@ -62,8 +61,7 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 
     void OnEnable()
     {
-        Initialize(); // 귀찮아서 이렇게 한다. 원래는 Reset을 만들고 다시 new 로 인스턴시에이션 할 필요없이 각 클래스의 초기화루틴을 호출한다.
-        healthbar.gameObject.SetActive(false);
+        Reset();
     }
 
     void Update()
@@ -73,10 +71,10 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
 
     void OnDisable()
     {
-        this._model.RemoveObserver(this, ObserverTypes.Health);
+        this.model.RemoveObserver(this, ObserverTypes.Health);
 
         // MVC
-        this._model = null;
+        this.model = null;
         this.controller = null;
 
         // set children
@@ -92,14 +90,16 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
     /*
      * followings are member functions
      */
-    void Initialize()
+    private void Initialize()
     {
         // MVC
-        this._model = new CommandCenter();
-        this.controller = new THouse_Controller(this, _model);
+        this.model = GetComponent<CommandCenter>();
+        this.controller = new THouse_Controller(this, model);
+
+        this.model.RegisterObserver(this, ObserverTypes.Health);
 
         // set children
-        this.healthbar.Model = this._model;
+        this.healthbar.Model = this.model;
         this.Add(healthbar);
 
         // set state machine
@@ -107,11 +107,24 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
         this.stateMachine.CurrentState = THouseState_None.Instance;
         this.stateMachine.GlobalState = THouseState_Hitting.Instance;
 
-        this._model.RegisterObserver(this, ObserverTypes.Health);
+        this.anim = GetComponent<NGUISpriteAnimation>();
+    }
+
+    private void Reset()
+    {
+        // MVC
+        //this.model = new Tower(this);
+        //this.model.RegisterObserver(this, ObserverTypes.Enemy);
+        //this.controller = new AutomatTower_Controller(this, model);
+
+        // set state machine
+        this.stateMachine = new StateMachine<THouse>(this);
+        this.stateMachine.CurrentState = THouseState_None.Instance;
+        this.stateMachine.GlobalState = THouseState_Hitting.Instance;
 
         this.anim = GetComponent<NGUISpriteAnimation>();
         this.anim.Pause();
-
+        this.PrepareUI();
     }
 
     /*
@@ -226,8 +239,8 @@ public class THouse : GameEntity, ITHouse, IStateMachineControllable<THouse>, IO
     }
     public CommandCenter Model
     {
-        get { return _model; }
-        set { _model = value; }
+        get { return model; }
+        set { model = value; }
     }
 
     public THouse_Controller Controller

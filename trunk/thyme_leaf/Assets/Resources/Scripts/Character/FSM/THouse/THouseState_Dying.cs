@@ -3,7 +3,7 @@ using System.Collections;
 
 public class THouseState_Dying : State<THouse>
 {
-    private string animName = "Tower_Dying_";
+    private string animName = "Automat_Dying_";
 
     private THouseState_Dying()
     {

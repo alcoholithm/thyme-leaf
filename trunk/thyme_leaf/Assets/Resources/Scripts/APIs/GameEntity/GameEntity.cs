@@ -7,17 +7,6 @@ using System.Collections.Generic;
 /// </summary>
 public abstract class GameEntity : View, IHandler
 {
-    private static int nextID = 0;
-    private int id;
-
-    /*
-    * followings are unity callback methods
-    */
-    protected virtual void Awake()
-    {
-        id = nextID++;
-    }
-
     /*
     * followings are public member functions
     */
@@ -94,12 +83,6 @@ public abstract class GameEntity : View, IHandler
     public abstract IHandler Successor
     {
         get;
-    }
-
-    public int ID
-    {
-        get { return id; }
-        set { id = value; }
     }
 
     public const string TAG = "[GameEntity]";

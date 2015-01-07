@@ -38,12 +38,14 @@ public class HeroState_Hitting : State<Hero>
                 return true;
             case MessageTypes.MSG_POISON_DAMAGE:
                 Hero receriver = msg.receiver as Hero;
-                receriver.Add(receriver.FxPoisoning);
+                if (!receriver.Views.Contains(receriver.FxPoisoning))
+                    receriver.Add(receriver.FxPoisoning);
                 receriver.TakeDamage(msg.arg1);
                 return true;
             case MessageTypes.MSG_BURN_DAMAGE:
                 receriver = msg.receiver as Hero;
-                receriver.Add(receriver.FxBurn);
+                if (!receriver.Views.Contains(receriver.FxBurn))
+                    receriver.Add(receriver.FxBurn);
                 receriver.TakeDamage(msg.arg1);
                 return true;
         }

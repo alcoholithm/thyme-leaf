@@ -142,8 +142,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 30
-  mHeight: 30
+  mWidth: 50
+  mHeight: 50
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: PoisonDrop_0
+  mAtlas: {fileID: 11400000, guid: e450a8eefdfaaca4f846747a3397c3ae, type: 2}
+  mSpriteName: BoltBall_00
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:

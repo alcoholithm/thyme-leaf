@@ -1,39 +1,44 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
-public abstract class Unit : IObservable
+public abstract class Unit : MonoBehaviour, IObservable //ScriptableObject, 
 {
-    // 종족의 이름이 필요하다고?
+    [SerializeField]
     protected int id;
-    protected string name; 
+    [SerializeField]
+    protected string name;
+    [SerializeField]
     protected string description;
-
+    [SerializeField]
     protected string species_name;
 
     [SerializeField]
     protected int _maxHp;
     [SerializeField]
     protected int _currHp;
+    [SerializeField]
     protected int defense;
+    [SerializeField]
     protected UnitType type;
 
     private Dictionary<ObserverTypes, List<IObserver>> observers =
         new Dictionary<ObserverTypes, List<IObserver>>();
 
-
-    /*
-     * Followings are unity callback methods
-     */
-    public Unit()
+    protected virtual void Awake()
     {
         //Naming naming = Naming.Instance;
         //naming.BuildAutomatNameWithState(Naming.FALSTAFF, 1, Naming.ATTACKING);
+
         id = Naming.maxId++;
-        _maxHp = 100;
         _currHp = _maxHp;
     }
+    /*
+     * Followings are unity callback methods
+     */
+
 
     /*
      * Followings are public member functions
@@ -84,11 +89,11 @@ public abstract class Unit : IObservable
         get { return name; }
         set { name = value; }
     }
-	public int ID
-	{
-		get { return id; }
-		set { id = value; }
-	}
+    public int ID
+    {
+        get { return id; }
+        set { id = value; }
+    }
     public string Description
     {
         get { return description; }

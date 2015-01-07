@@ -159,7 +159,7 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 24
   - name: PoisonCloud_3
-    x: 608
+    x: 815
     y: 714
     width: 170
     height: 145
@@ -172,8 +172,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 9
   - name: PoisonCloud_4
-    x: 815
-    y: 860
+    x: 380
+    y: 540
     width: 205
     height: 164
     borderLeft: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonCloud_6
-    x: 380
-    y: 540
+    x: 815
+    y: 860
     width: 205
     height: 164
     borderLeft: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonCloud_7
-    x: 815
+    x: 608
     y: 714
     width: 170
     height: 145

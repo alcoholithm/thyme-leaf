@@ -20,7 +20,6 @@ public class FlameThrower : Weapon, ILauncher
      */ 
     void Awake()
     {
-        base.Awake();
         Initialize();
     }
 
@@ -80,9 +79,8 @@ public class FlameThrower : Weapon, ILauncher
 
     public override void UpdateUI()
     {
-        Fire((Owner as AutomatTower).Model.CurrentTarget);
+        Fire((Parent as AutomatTower).Model.CurrentTarget);
     }
-
 
     /*
      * Followings are Attributes
