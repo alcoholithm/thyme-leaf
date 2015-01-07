@@ -50,17 +50,17 @@ public class SkillLauncher : Weapon, ILauncher, IObservable
         Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.METEO, transform.position);
         if (projectile == null) return;
 
-        if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
-        {
             projectile.transform.position = transform.position;
             projectile.transform.localPosition += new Vector3(0, 800, 0);
             projectile.transform.localScale = Vector3.one;
 
             projectile.Move(target);
+        if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
+        {
         }
         else if (projectile.gameObject.networkView.isMine)  // Multi mode
         {
-            projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Parent as GameEntity, target.GetComponent<GameEntity>());
+            //projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Parent as GameEntity, target.GetComponent<GameEntity>());
         }
     }
 
