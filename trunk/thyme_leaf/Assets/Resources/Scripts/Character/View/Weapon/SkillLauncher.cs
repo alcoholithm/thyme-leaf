@@ -47,7 +47,7 @@ public class SkillLauncher : Weapon, ILauncher, IObservable
         if (target == null)
             return;
 
-        Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.METEO);
+        Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.METEO, transform.position);
 
         if (Network.peerType == NetworkPeerType.Disconnected) // Single mode
         {
