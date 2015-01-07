@@ -31,7 +31,6 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
     /*
      * Followings are implemented mehtods of "IEntityManager"
      */
-
     public void RegisterEntity(GameEntity entity)
     {
         if (entity is WChat)
@@ -61,7 +60,7 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
         {
             _entityMap[UnitType.TROVANT_THOUSE].Remove(entity);
 
-            if (_entityMap[UnitType.AUTOMAT_WCHAT].Count <= 0)
+            if (_entityMap[UnitType.TROVANT_THOUSE].Count <= 0)
                 GameRuler.Instance.Judge(true);
         }
         else if (entity is AutomatTower)

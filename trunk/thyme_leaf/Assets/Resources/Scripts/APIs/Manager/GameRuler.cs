@@ -9,6 +9,8 @@ public class GameRuler : Manager<GameRuler>
             BattleView.Instance.ShowVictoryFrame();
         else
             BattleView.Instance.ShowDefeatFrame();
+
+        Time.timeScale = 0;
     }
 
     public new const string TAG = "[GameRuler]";
