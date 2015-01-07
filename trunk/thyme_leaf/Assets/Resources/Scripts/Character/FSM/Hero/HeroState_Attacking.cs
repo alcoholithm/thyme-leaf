@@ -70,14 +70,13 @@ public class HeroState_Attacking : State<Hero>
 		if (!check && hp <= 0 && !isCharacter)
         {
 			owner.target.DataInit();
-            if (Network.peerType != NetworkPeerType.Disconnected && owner.networkView.isMine)
-            //if(Network.isServer && owner != null)
-            {
-                owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
-            }
-            else
+            if (Network.peerType == NetworkPeerType.Disconnected)
             {
                 owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+            }
+            else if (owner.networkView.isMine)
+            {
+                owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
             }
             Debug.Log("Enemy is died or disappeared");
         }
