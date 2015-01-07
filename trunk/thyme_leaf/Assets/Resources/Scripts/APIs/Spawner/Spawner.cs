@@ -544,7 +544,7 @@ public class Spawner : Manager<Spawner>
     [RPC]
     void NetworkFree(NetworkViewID viewID)
     {
-        if (!viewID.isMine) return;
+        //if (!viewID.isMine) return;
         GameObject go = NetworkView.Find(viewID).gameObject;
         EntityManager.Instance.RemoveEntity(go.GetComponent<GameEntity>());
         Destroy(go);
