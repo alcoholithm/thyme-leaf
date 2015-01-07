@@ -214,17 +214,21 @@ public class AudioManager : Manager<AudioManager>
 
     public void PlayClipWithState(GameObject go, StateType stateType)
     {
+
         AudioUnitType aut = go.GetComponent<AudioType>().audioUnitType;
         SoundType soundType  = BuildSoundType(aut, stateType);
-        Debug.Log("SOUND NAME : " + soundType);
+        Debug.Log("SOUND NAME : [" + go + "] " + soundType);
         PlayClipAtPoint(soundType, go.gameObject.transform.position);
     }
 
 
     private void PlayClipAtPoint(SoundType type, Vector3 pos)
     {
-        if (sound[(int)type] == null) Debug.Log("SOUND ERROR : NOT FOUND " + type);
-        if (Settings.CurrentSettingData.SoundEffectsEnabled && sound[(int)type] != null)
+        if (type == SoundType.NOTHING)
+            Debug.Log("NO SOUND");
+        else if (sound[(int)type] == null) 
+            Debug.Log("SOUND ERROR : NOT FOUND " + type);
+        else if (Settings.CurrentSettingData.SoundEffectsEnabled && sound[(int)type] != null)
             AudioSource.PlayClipAtPoint(sound[(int)type], pos, Settings.CurrentSettingData.SoundEffectsVolume);
     }
 }
