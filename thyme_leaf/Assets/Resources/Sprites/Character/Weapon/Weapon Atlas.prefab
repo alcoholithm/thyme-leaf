@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 59
   - name: Automat_Dying_06
-    x: 0
-    y: 274
+    x: 866
+    y: 858
     width: 377
     height: 413
     borderLeft: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 123
   - name: BoltBall_00
-    x: 2942
+    x: 3293
     y: 1563
     width: 351
     height: 219
@@ -186,7 +186,7 @@ MonoBehaviour:
     paddingBottom: 141
   - name: BoltBall_01
     x: 0
-    y: 35
+    y: 15
     width: 349
     height: 238
     borderLeft: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
     paddingTop: 133
     paddingBottom: 141
   - name: BoltBall_02
-    x: 2597
+    x: 2948
     y: 1558
     width: 344
     height: 224
@@ -224,8 +224,8 @@ MonoBehaviour:
     paddingTop: 131
     paddingBottom: 171
   - name: BoltBall_04
-    x: 3629
-    y: 1345
+    x: 2597
+    y: 1111
     width: 337
     height: 212
     borderLeft: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
     paddingBottom: 170
   - name: BoltBall_05
     x: 2597
-    y: 1325
+    y: 1324
     width: 330
     height: 232
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 131
     paddingBottom: 149
   - name: BoltBall_06
-    x: 3569
-    y: 1823
+    x: 2597
+    y: 1557
     width: 350
     height: 225
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 136
     paddingBottom: 151
   - name: BoltBall_07
-    x: 2928
-    y: 1344
+    x: 3295
+    y: 1343
     width: 346
     height: 213
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 143
     paddingBottom: 156
   - name: BoltBall_08
-    x: 3726
-    y: 1574
+    x: 2928
+    y: 1348
     width: 366
     height: 208
     borderLeft: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     paddingTop: 149
     paddingBottom: 155
   - name: BoltBall_09
-    x: 3275
-    y: 1349
+    x: 3642
+    y: 1348
     width: 353
     height: 208
     borderLeft: 0
@@ -303,85 +303,85 @@ MonoBehaviour:
     paddingBottom: 154
   - name: FireBall_0001
     x: 866
-    y: 583
-    width: 393
-    height: 374
+    y: 463
+    width: 374
+    height: 394
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 41
-    paddingRight: 78
-    paddingTop: 76
-    paddingBottom: 62
+    paddingLeft: 62
+    paddingRight: 76
+    paddingTop: 40
+    paddingBottom: 78
   - name: FireBall_0002
     x: 866
-    y: 1301
-    width: 414
-    height: 386
+    y: 1272
+    width: 386
+    height: 415
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 25
+    paddingLeft: 53
     paddingRight: 73
-    paddingTop: 73
-    paddingBottom: 53
+    paddingTop: 24
+    paddingBottom: 73
   - name: FireBall_0003
     x: 398
-    y: 498
-    width: 424
-    height: 390
+    y: 805
+    width: 390
+    height: 425
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 19
-    paddingRight: 69
-    paddingTop: 71
-    paddingBottom: 51
+    paddingLeft: 51
+    paddingRight: 71
+    paddingTop: 18
+    paddingBottom: 69
   - name: FireBall_0004
     x: 398
-    y: 106
-    width: 421
-    height: 391
+    y: 382
+    width: 391
+    height: 422
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 23
-    paddingRight: 68
-    paddingTop: 71
-    paddingBottom: 50
+    paddingLeft: 50
+    paddingRight: 71
+    paddingTop: 22
+    paddingBottom: 68
   - name: FireBall_0005
-    x: 398
-    y: 1276
-    width: 432
-    height: 389
+    x: 0
+    y: 254
+    width: 389
+    height: 433
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 10
-    paddingRight: 70
-    paddingTop: 73
-    paddingBottom: 50
+    paddingLeft: 50
+    paddingRight: 73
+    paddingTop: 9
+    paddingBottom: 70
   - name: FireBall_0006
     x: 398
-    y: 889
-    width: 433
-    height: 386
+    y: 1231
+    width: 386
+    height: 434
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 73
-    paddingTop: 75
-    paddingBottom: 51
+    paddingLeft: 51
+    paddingRight: 75
+    paddingTop: 5
+    paddingBottom: 73
   - name: FlameThrower_00
-    x: 638
-    y: 5
+    x: 2122
+    y: 502
     width: 167
     height: 38
     borderLeft: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
     paddingTop: 250
     paddingBottom: 224
   - name: FlameThrower_01
-    x: 866
-    y: 1
+    x: 3096
+    y: 1787
     width: 185
     height: 57
     borderLeft: 0
@@ -406,8 +406,8 @@ MonoBehaviour:
     paddingTop: 237
     paddingBottom: 218
   - name: FlameThrower_02
-    x: 638
-    y: 44
+    x: 1988
+    y: 20
     width: 203
     height: 61
     borderLeft: 0
@@ -419,8 +419,8 @@ MonoBehaviour:
     paddingTop: 232
     paddingBottom: 219
   - name: FlameThrower_03
-    x: 398
-    y: 13
+    x: 1988
+    y: 82
     width: 239
     height: 92
     borderLeft: 0
@@ -432,8 +432,8 @@ MonoBehaviour:
     paddingTop: 199
     paddingBottom: 221
   - name: FlameThrower_04
-    x: 1811
-    y: 46
+    x: 866
+    y: 14
     width: 397
     height: 128
     borderLeft: 0
@@ -445,7 +445,7 @@ MonoBehaviour:
     paddingTop: 181
     paddingBottom: 203
   - name: FlameThrower_05
-    x: 3294
+    x: 3645
     y: 1604
     width: 431
     height: 178
@@ -563,7 +563,7 @@ MonoBehaviour:
     paddingBottom: 179
   - name: FlameThrower_14
     x: 866
-    y: 263
+    y: 143
     width: 455
     height: 319
     borderLeft: 0
@@ -575,8 +575,8 @@ MonoBehaviour:
     paddingTop: 26
     paddingBottom: 167
   - name: FlameThrower_15
-    x: 866
-    y: 958
+    x: 398
+    y: 39
     width: 434
     height: 342
     borderLeft: 0
@@ -653,8 +653,8 @@ MonoBehaviour:
     paddingTop: 106
     paddingBottom: 141
   - name: FlameThrower_21
-    x: 866
-    y: 59
+    x: 3569
+    y: 1845
     width: 398
     height: 203
     borderLeft: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
     paddingBottom: 139
   - name: FlameThrower_22
     x: 2597
-    y: 1123
+    y: 909
     width: 324
     height: 201
     borderLeft: 0
@@ -679,8 +679,8 @@ MonoBehaviour:
     paddingTop: 161
     paddingBottom: 150
   - name: FlameThrower_23
-    x: 2922
-    y: 933
+    x: 2597
+    y: 517
     width: 325
     height: 197
     borderLeft: 0
@@ -692,8 +692,8 @@ MonoBehaviour:
     paddingTop: 148
     paddingBottom: 167
   - name: FlameThrower_24
-    x: 3255
-    y: 1136
+    x: 2597
+    y: 328
     width: 328
     height: 188
     borderLeft: 0
@@ -705,8 +705,8 @@ MonoBehaviour:
     paddingTop: 146
     paddingBottom: 178
   - name: FlameThrower_25
-    x: 2922
-    y: 1131
+    x: 2597
+    y: 715
     width: 332
     height: 193
     borderLeft: 0
@@ -731,8 +731,8 @@ MonoBehaviour:
     paddingTop: 136
     paddingBottom: 190
   - name: FlameThrower_27
-    x: 2290
-    y: 673
+    x: 1811
+    y: 30
     width: 176
     height: 144
     borderLeft: 0
@@ -770,8 +770,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: PoisonDrop_1
-    x: 32
-    y: 22
+    x: 0
+    y: 2
     width: 20
     height: 12
     borderLeft: 0
@@ -796,8 +796,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: PoisonExplosion_0
-    x: 0
-    y: 6
+    x: 350
+    y: 225
     width: 31
     height: 28
     borderLeft: 0
@@ -809,8 +809,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 11
   - name: PoisonExplosion_1
-    x: 1281
-    y: 1596
+    x: 785
+    y: 1421
     width: 50
     height: 44
     borderLeft: 0
@@ -822,8 +822,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: PoisonExplosion_2
-    x: 1260
-    y: 907
+    x: 785
+    y: 1615
     width: 70
     height: 50
     borderLeft: 0
@@ -835,8 +835,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonExplosion_3
-    x: 1260
-    y: 856
+    x: 785
+    y: 1564
     width: 70
     height: 50
     borderLeft: 0
@@ -848,8 +848,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonExplosion_4
-    x: 1260
-    y: 805
+    x: 785
+    y: 1513
     width: 60
     height: 50
     borderLeft: 0
@@ -861,8 +861,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonExplosion_5
-    x: 1281
-    y: 1641
+    x: 785
+    y: 1466
     width: 52
     height: 46
     borderLeft: 0

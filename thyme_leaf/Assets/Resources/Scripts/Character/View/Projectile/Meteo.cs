@@ -15,6 +15,7 @@ public class Meteo : Projectile
         this._animName = "FireBall_";
         //anim.namePrefix = _animName;
         //anim.ResetToBeginning();
+        anim.framesPerSecond = 30;
         anim.Play(this._animName);
     }
 
@@ -34,8 +35,6 @@ public class Meteo : Projectile
 
         if (direction.magnitude < deltaThreshold)
         {
-            Debug.Log(target.position + " " + transform.position);
-            Debug.Log(direction.magnitude);
             Stop();
             Explode();
             Attack();
@@ -60,6 +59,7 @@ public class Meteo : Projectile
     public override void Explode()
     {
         this._animName = "Automat_Dying_";
+        anim.framesPerSecond = 10;
         anim.PlayOneShot(_animName, new VoidFunction(() =>
         {
             GameObject zone = Spawner.Instance.GetPoisonCloud(EffectType.POISON_CLOUD);
@@ -78,12 +78,7 @@ public class Meteo : Projectile
         gameObject.SetActive(true);
         AudioManager.Instance.PlayClipWithState(this.gameObject, StateType.ATTACKING);
     }
-    public override void Attack()
-    {
-        Debug.Log("attack");
-        //GameEntity entity = target.GetComponent<GameEntity>();
-        //entity.DispatchMessage(entity.ObtainMessage(MessageTypes.MSG_NORMAL_DAMAGE, attackDamage));
-    }
+    public override void Attack() {}
 
     /*
      * Followings are Attributes
