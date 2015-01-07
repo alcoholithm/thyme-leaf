@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FXPoisoning: View
+public class FXPoisoning : View, IAttackable
 {
-    [SerializeField]
-    private float _displayTime = 1f;
-
     private UISprite sprite;
     private NGUISpriteAnimation anim;
+
+    [SerializeField]
+    private float _displayTime;
+
+    [SerializeField]
+    private int _attackDamage;
+
+    [SerializeField]
+    private float _attackDelay;
+
 
     /*
      * followings are unity callback methods
@@ -48,8 +55,18 @@ public class FXPoisoning: View
     private IEnumerator HideDelayed()
     {
         yield return new WaitForSeconds(_displayTime);
-        Parent.Remove(this);
+        StopAllCoroutines();
+
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator AttackProcess()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_attackDelay);
+            Attack();
+        }
     }
 
     /*
@@ -62,10 +79,25 @@ public class FXPoisoning: View
 
     public override void UpdateUI()
     {
+        Parent.Remove(this);
+
         gameObject.SetActive(true);
-        StopCoroutine("HideDelayed");
+        StopAllCoroutines();
         Paint();
         if (gameObject.activeInHierarchy)
+        {
             StartCoroutine("HideDelayed");
+            StartCoroutine("AttackProcess");
+        }
     }
+
+    /*
+     * followings are overrided methods of "IAttackable"
+     */
+    public void Attack()
+    {
+        (Parent as GameEntity).DispatchMessage((Parent as GameEntity).ObtainMessage(MessageTypes.MSG_NORMAL_DAMAGE, _attackDamage));
+    }
+
+    public const string TAG = "[FXPoisoning]";
 }

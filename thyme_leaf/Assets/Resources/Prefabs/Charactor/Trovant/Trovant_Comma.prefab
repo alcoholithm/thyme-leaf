@@ -736,6 +736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayTime: 3
+  _attackDamage: 1
+  _attackDelay: .699999988
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -748,6 +750,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayTime: 3
+  _attackDamage: 3
+  _attackDelay: 1
 --- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1

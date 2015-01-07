@@ -49,6 +49,13 @@ public abstract class Unit : MonoBehaviour, IObservable //ScriptableObject,
         return _currHp <= 0;
     }
 
+    public void TakeDamageWithDEF(int damage)
+    {
+        damage = (damage - DEF) > 0 ? damage - DEF : 0;
+
+        HP -= damage;
+    }
+
     /*
     * followings are implemented methods of "IObservable"
     */
