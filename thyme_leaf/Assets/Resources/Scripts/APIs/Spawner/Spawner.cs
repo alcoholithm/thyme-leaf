@@ -290,8 +290,8 @@ public class Spawner : Manager<Spawner>
             return GetProjectile((int)type, pos);
         else
         {
-            //if (Network.isClient) 
-            //    return null;
+            if (Network.isClient)
+                return null;
 
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
@@ -318,14 +318,6 @@ public class Spawner : Manager<Spawner>
     /**********************************/
     // Dying Methods
 
-    public void PerfectFree(GameObject gameObject)
-    {
-        if (Network.peerType == NetworkPeerType.Disconnected)
-            Destroy(gameObject);
-        else
-            Free(gameObject);
-    }
-
     public void Free(GameObject gameObject)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -336,7 +328,7 @@ public class Spawner : Manager<Spawner>
         else
         {
             if (gameObject.networkView.isMine){
-                Debug.Log("Network Free to ALL Users");
+                Debug.Log("ViewID ["+networkView.viewID+"] : Network Free to ALL Users");
                 networkView.RPC("NetworkFree", RPCMode.All, gameObject.networkView.viewID);
             }
             else
@@ -448,19 +440,11 @@ public class Spawner : Manager<Spawner>
 
     private void InitProjectileWithTarget(ref GameObject go, Vector3 pos, Vector3 targetPos)
     {
-        //go.transform.position = pos;
-        //go.transform.localScale = Vector3.one;
-
         Projectile projectile = go.GetComponent<Projectile>();
         projectile.transform.position = pos;
         projectile.transform.localPosition += new Vector3(0, 800, 0);
         projectile.transform.localScale = Vector3.one;
         projectile.Move(targetPos);
-
-
-        //projectile.transform.position = transform.position;
-        //projectile.transform.localPosition += new Vector3(0, 800, 0);
-        //projectile.transform.localScale = Vector3.one;
     }
 
 
@@ -542,11 +526,6 @@ public class Spawner : Manager<Spawner>
         go.transform.parent = automatBuildingPool.transform;
         go.SetActive(true);
         go.networkView.viewID = viewID;
-
-        //GameObject target = NetworkView.Find(targetID).gameObject;
-
-
-
         InitProjectileWithTarget(ref go, pos, targetPos);
     }
 
