@@ -24,8 +24,7 @@ public class SyncStateScript : MonoBehaviour
 
     void Update()
     {
-        if (networkView.isMine && Vector3.Distance(transform.localPosition, lastPosition) >= minimumMovement
-            && gameObject != null)
+        if (networkView.isMine && Vector3.Distance(transform.localPosition, lastPosition) >= minimumMovement)
         {
             lastPosition = transform.localPosition;
             networkView.RPC("SyncPosition", RPCMode.Others, transform.localPosition);
