@@ -12,7 +12,8 @@ public abstract class Projectile : MonoBehaviour, IProjectile
     protected UISprite sprite;
 
     [SerializeField]
-    protected GameEntity target;
+    protected Transform target;
+    protected Vector3 targetPosition;
 
     [SerializeField]
     private int attackDamage;
@@ -26,9 +27,9 @@ public abstract class Projectile : MonoBehaviour, IProjectile
     //private float rotationSpeed = 1f;
 
     protected string _animName;
-    private bool isTouched;
+    protected bool isTouched;
 
-    private float deltaThreshold = 0.133f;
+    protected float deltaThreshold = 0.133f;
 
     /*
      * Followings are unity callback methods
@@ -73,11 +74,13 @@ public abstract class Projectile : MonoBehaviour, IProjectile
         if (!target.gameObject.activeInHierarchy)
             Spawner.Instance.Free(this.gameObject);
 
-        Vector3 direction = target.transform.position - transform.position;
+        Vector3 direction = target.position - transform.position;
         //Vector3 direction = targetPosition - transform.position;
 
         if (direction.magnitude < deltaThreshold)
         {
+            Debug.Log(target.position + " " + transform.position);
+            Debug.Log(direction.magnitude);
             Stop();
             Explode();
             Attack();
@@ -96,7 +99,7 @@ public abstract class Projectile : MonoBehaviour, IProjectile
         //transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
     }
 
-    private void Stop()
+    protected void Stop()
     {
         movingSpeed = 0;
         isTouched = true;
@@ -105,14 +108,14 @@ public abstract class Projectile : MonoBehaviour, IProjectile
     /*
     * Followings are implemented methods of "IProjectile"
     */
-    public void Move(GameEntity target)
+    public virtual void Move(Transform target)
     {
         this.target = target;
         gameObject.SetActive(true);
         AudioManager.Instance.PlayClipWithState(this.gameObject, StateType.ATTACKING);
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         GameEntity entity = target.GetComponent<GameEntity>();
         entity.DispatchMessage(entity.ObtainMessage(MessageTypes.MSG_NORMAL_DAMAGE, attackDamage));

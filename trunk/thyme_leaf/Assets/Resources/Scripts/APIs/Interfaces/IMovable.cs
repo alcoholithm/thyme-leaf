@@ -3,5 +3,5 @@ using System.Collections;
 
 public interface IMovable
 {
-    void Move(GameEntity target);
+    void Move(Transform target);
 }

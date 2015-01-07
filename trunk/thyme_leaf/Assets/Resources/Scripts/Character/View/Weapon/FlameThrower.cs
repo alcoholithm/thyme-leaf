@@ -63,7 +63,7 @@ public class FlameThrower : Weapon, ILauncher
     /*
     * Followings are implemented methods of "ILauncher"
     */
-    public void Fire(GameEntity target)
+    public void Fire(Transform target)
     {
         if (target == null)
             return;
@@ -86,7 +86,7 @@ public class FlameThrower : Weapon, ILauncher
     public override void UpdateUI()
     {
         Reset();
-        Fire((Parent as AutomatTower).Model.CurrentTarget);
+        Fire((Parent as AutomatTower).Model.CurrentTarget.transform);
     }
 
     /*

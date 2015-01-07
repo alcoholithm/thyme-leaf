@@ -6,7 +6,7 @@ public class PoisonLauncher : Weapon, ILauncher
     /*
      * Followings are overrided methods of "IWeapon"
      */
-    public void Fire(GameEntity target)
+    public void Fire(Transform target)
     {
         if (target == null)
             return;
@@ -21,7 +21,7 @@ public class PoisonLauncher : Weapon, ILauncher
         }
         else if (projectile.gameObject.networkView.isMine)  // Multi mode
         {
-            projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Parent as GameEntity, target);
+            projectile.gameObject.GetComponent<SyncStateScript>().NetworkInitProjectile(Parent as GameEntity, target.GetComponent<GameEntity>());
         }
     }
 
@@ -34,7 +34,7 @@ public class PoisonLauncher : Weapon, ILauncher
 
     public override void UpdateUI()
     {
-        Fire((Parent as AutomatTower).Model.CurrentTarget);
+        Fire((Parent as AutomatTower).Model.CurrentTarget.transform);
     }
 
 

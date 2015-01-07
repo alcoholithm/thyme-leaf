@@ -91,6 +91,7 @@ public enum ProjectileType
 {
     POISON = 0,
     BULLET,
+    METEO,
 }
 
 public enum EffectType
