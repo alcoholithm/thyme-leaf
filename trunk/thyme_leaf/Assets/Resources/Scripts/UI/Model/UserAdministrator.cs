@@ -7,27 +7,8 @@ public class UserAdministrator : IUserAdministrator, IObservable
 {
     private Dictionary<ObserverTypes, List<IObserver>> observers;
     private List<User> users;
-
-    public List<User> Users
-    {
-        get { return users; }
-        set { users = value; }
-    }
-
-    private int nUserMax = 3;
-    public int NUserMax
-    {
-        get { return nUserMax; }
-        set { nUserMax = value; }
-    }
-
     private User currentUser;
-    public User CurrentUser
-    {
-        get { return currentUser; }
-        set { currentUser = value; }
-    }
-
+    private int nUserMax = 3;
     private string statusMessage;
 
     private UserAdministrator()
@@ -40,7 +21,7 @@ public class UserAdministrator : IUserAdministrator, IObservable
     // wwwscript같은 네트워크 클래스에게 요청을 위임한다.
 
     /*
-    * followings are implemented methods of interface
+    * followings are implemented methods of "IUserAdministrator"
     */
     public bool RegisterUser(string userName)
     {
@@ -88,8 +69,6 @@ public class UserAdministrator : IUserAdministrator, IObservable
         {
             return false;
         }
-
-        
     }
 
     public bool IsEmpty()
@@ -132,15 +111,32 @@ public class UserAdministrator : IUserAdministrator, IObservable
         throw new NotImplementedException();
     }
 
+
     /*
-     * 
-     */ 
-    public const string TAG = "[UserAdministrator]";
+     * Followings are attributes
+     */
+    public List<User> Users
+    {
+        get { return users; }
+        set { users = value; }
+    }
+
+    public int NUserMax
+    {
+        get { return nUserMax; }
+        set { nUserMax = value; }
+    }
+
+    public User CurrentUser
+    {
+        get { return currentUser; }
+        set { currentUser = value; }
+    }
+
     private static UserAdministrator instance = new UserAdministrator();
     public static UserAdministrator Instance
     {
         get { return instance; }
     }
-
-
+    public const string TAG = "[UserAdministrator]";
 }
