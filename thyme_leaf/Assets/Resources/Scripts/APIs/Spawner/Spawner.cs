@@ -266,11 +266,6 @@ public class Spawner : Manager<Spawner>
         return go.GetComponent<AutomatTower>();
     }
 
-    public Projectile GetProjectile(ProjectileType type)
-    {
-        return GetProjectile(type, Vector3.zero);
-    }
-
     public Projectile GetProjectilsWithTarget(ProjectileType type, Vector3 pos, Vector3 targetPos)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -290,17 +285,14 @@ public class Spawner : Manager<Spawner>
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
             return GetProjectile((int)type, pos);
-        else
+        else if (type == ProjectileType.METEO || Network.isServer)
         {
-            if (type == ProjectileType.METEO || Network.isServer)
-            {
                 NetworkViewID viewID = Network.AllocateViewID();
                 networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
                 GameObject go = NetworkView.Find(viewID).gameObject;
                 return go.GetComponent<Projectile>();
-            }
-            return null;
         }
+        return null;
     }
 
     private Projectile GetProjectile(int type, Vector3 pos)
