@@ -6,16 +6,25 @@ public class Spawner : Manager<Spawner>
 {
     public new const string TAG = "[Spawner]";
 
-    [SerializeField] private GameObject[] automats;
-    [SerializeField] private GameObject[] towers;
-    [SerializeField] private GameObject[] projectiles;
-    [SerializeField] private GameObject[] trovants;
-    [SerializeField] private GameObject[] wchats;
-    [SerializeField] private GameObject[] thouses;
-    [SerializeField] private GameObject[] effects;
+    [SerializeField]
+    private GameObject[] automats;
+    [SerializeField]
+    private GameObject[] towers;
+    [SerializeField]
+    private GameObject[] projectiles;
+    [SerializeField]
+    private GameObject[] trovants;
+    [SerializeField]
+    private GameObject[] wchats;
+    [SerializeField]
+    private GameObject[] thouses;
+    [SerializeField]
+    private GameObject[] effects;
 
-    [SerializeField] private int initPoolSize = 100;
-    [SerializeField] private int maxPoolSize = 200;
+    [SerializeField]
+    private int initPoolSize = 100;
+    [SerializeField]
+    private int maxPoolSize = 200;
 
     private GameObject automatPool;
     private GameObject trovantPool;
@@ -49,7 +58,7 @@ public class Spawner : Manager<Spawner>
                 for (int i = 0; i < projectiles.Length; i++)
                 {
                     GameObject go = projectiles[i];
-                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go,  initPoolSize, maxPoolSize, false);
+                    ObjectPoolingManager.Instance.CreatePool(automatBuildingPool, go, initPoolSize, maxPoolSize, false);
                 }
 
             if (trovants != null)
@@ -85,14 +94,15 @@ public class Spawner : Manager<Spawner>
         CreateThouse();
     }
 
-    public void CreateWChats() 
+    public void CreateWChats()
     {
         Debug.Log("CREATE WCHATS");
         if (Network.peerType == NetworkPeerType.Disconnected)
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
-        else if (Network.isServer){
+        else if (Network.isServer)
+        {
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.server_position);
-            Debug.Log("Server position : "+PathManager.server_position);
+            Debug.Log("Server position : " + PathManager.server_position);
         }
         else if (Network.isClient)
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.client_position);
@@ -101,7 +111,7 @@ public class Spawner : Manager<Spawner>
     public void CreateThouse()
     {
         Debug.Log("THOUSE COUNT : " + Define.trovant_center_node.Count);
-        for(int i=0; i<Define.trovant_center_node.Count; i++)
+        for (int i = 0; i < Define.trovant_center_node.Count; i++)
         {
             Debug.Log(" i = " + i);
             GetThouse(THouseType.THOUSE_TYPE1, Define.trovant_center_node[i].transform.localPosition);
@@ -109,8 +119,8 @@ public class Spawner : Manager<Spawner>
     }
 
 
-    
-    
+
+
 
     /**********************************/
     // Effects
@@ -136,7 +146,7 @@ public class Spawner : Manager<Spawner>
         InitPoisonCloud(ref go);
         return go;
     }
-    
+
 
 
     /**********************************/
@@ -161,7 +171,7 @@ public class Spawner : Manager<Spawner>
 
     private THouse GetThouse(int type, Vector3 pos)
     {
-		Debug.Log ("GetThouse : " + (THouseType) type);
+        Debug.Log("GetThouse : " + (THouseType)type);
         GameObject go = ObjectPoolingManager.Instance.GetObject(thouses[type].name);
         InitThouse(ref go, pos);
         return go.GetComponent<THouse>();
@@ -198,7 +208,7 @@ public class Spawner : Manager<Spawner>
     }
 
     /**********************************/
-    
+
     public Hero GetHero(AutomatType type)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
@@ -208,12 +218,12 @@ public class Spawner : Manager<Spawner>
         else
         {
             NetworkViewID viewID = Network.AllocateViewID();
-            networkView.RPC("NetworkGetHero", RPCMode.All, viewID, (int) type);
+            networkView.RPC("NetworkGetHero", RPCMode.All, viewID, (int)type);
             GameObject go = NetworkView.Find(viewID).gameObject;
             return go.GetComponent<Hero>();
         }
     }
-    
+
     private Hero GetHero(int type)
     {
         GameObject go = ObjectPoolingManager.Instance.GetObject(automats[type].name);
@@ -227,7 +237,7 @@ public class Spawner : Manager<Spawner>
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
             return GetTrovant((int)type);
-        else if(Network.isServer)
+        else if (Network.isServer)
         {
             NetworkViewID viewID = Network.AllocateViewID();
             networkView.RPC("NetworkGetTrovant", RPCMode.All, viewID, (int)type);
@@ -280,17 +290,17 @@ public class Spawner : Manager<Spawner>
             return go.GetComponent<Projectile>();
         }
     }
-    
+
     public Projectile GetProjectile(ProjectileType type, Vector3 pos)
     {
         if (Network.peerType == NetworkPeerType.Disconnected)
             return GetProjectile((int)type, pos);
         else if (Network.isServer)
         {
-                NetworkViewID viewID = Network.AllocateViewID();
-                networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
-                GameObject go = NetworkView.Find(viewID).gameObject;
-                return go.GetComponent<Projectile>();
+            NetworkViewID viewID = Network.AllocateViewID();
+            networkView.RPC("NetworkGetProjectile", RPCMode.All, viewID, (int)type, pos);
+            GameObject go = NetworkView.Find(viewID).gameObject;
+            return go.GetComponent<Projectile>();
         }
         return null;
     }
@@ -322,8 +332,9 @@ public class Spawner : Manager<Spawner>
         }
         else
         {
-            if (go.networkView.isMine){
-                Debug.Log("ViewID ["+networkView.viewID+"] : Network Free to ALL Users");
+            if (go.networkView.isMine)
+            {
+                Debug.Log("ViewID [" + networkView.viewID + "] : Network Free to ALL Users");
                 networkView.RPC("NetworkFree", RPCMode.All, go.networkView.viewID);
             }
             //else
@@ -333,7 +344,7 @@ public class Spawner : Manager<Spawner>
         }
     }
 
-    
+
     /**********************************/
     // Initializing Methods
 
@@ -345,20 +356,20 @@ public class Spawner : Manager<Spawner>
         go.transform.localScale = Vector3.one;
     }
 
-	private void InitThouse(ref GameObject go, Vector3 pos)
-	{
-		go.transform.parent = GameObject.Find("TrovantBuildings").transform;
-		go.transform.localScale = new Vector3(1, 1, 1);
+    private void InitThouse(ref GameObject go, Vector3 pos)
+    {
+        go.transform.parent = GameObject.Find("TrovantBuildings").transform;
+        go.transform.localScale = new Vector3(1, 1, 1);
         go.transform.localPosition = pos;
 
-		THouse thouse = go.GetComponent<THouse> ();
-		thouse.MyUnit = new UnitObject (go, UnitNameGetter.GetInstance ().getNameTrovantCenter (), UnitType.TROVANT_THOUSE);
-		thouse.ChangeState (THouseState_Idling.Instance);
+        THouse thouse = go.GetComponent<THouse>();
+        thouse.MyUnit = new UnitObject(go, UnitNameGetter.GetInstance().getNameTrovantCenter(), UnitType.TROVANT_THOUSE);
+        thouse.ChangeState(THouseState_Idling.Instance);
         thouse.PositionNode = pos;
 
-		Define.THouse_list.Add (go);
-		UnitPoolController.GetInstance ().AddUnit (thouse.MyUnit); 
-	}
+        Define.THouse_list.Add(go);
+        UnitPoolController.GetInstance().AddUnit(thouse.MyUnit);
+    }
 
     private void InitWChat(ref GameObject go, Vector3 pos)
     {
@@ -369,57 +380,57 @@ public class Spawner : Manager<Spawner>
 
         WChat wchat = go.GetComponent<WChat>();
         wchat.PositionNode = pos;
-		wchat.MyUnit = new UnitObject (go, UnitNameGetter.GetInstance ().getNameAutomartCenter (), UnitType.AUTOMAT_WCHAT);
+        wchat.MyUnit = new UnitObject(go, UnitNameGetter.GetInstance().getNameAutomartCenter(), UnitType.AUTOMAT_WCHAT);
         wchat.ChangeState(WChatState_Idling.Instance);
-        
-		UnitPoolController.GetInstance ().AddUnit (wchat.MyUnit);
+
+        UnitPoolController.GetInstance().AddUnit(wchat.MyUnit);
     }
 
     private void InitHero(ref GameObject go)
     {
-		InitUint (ref go, StartPoint.AUTOMAT_POINT);
+        InitUint(ref go, StartPoint.AUTOMAT_POINT);
     }
 
     private void InitTrovant(ref GameObject go)
     {
-		InitUint (ref go, StartPoint.TROVANT_POINT);
+        InitUint(ref go, StartPoint.TROVANT_POINT);
     }
 
-	private void InitUint(ref GameObject go, StartPoint type)
-	{
-		Hero hero = go.GetComponent<Hero>();
-		Debug.Log("character init");
+    private void InitUint(ref GameObject go, StartPoint type)
+    {
+        Hero hero = go.GetComponent<Hero>();
+        Debug.Log("character init");
 
         hero.GetComponent<UISprite>().MakePixelPerfect();
-		hero.transform.localScale = Vector3.one;
-		hero.transform.localPosition = new Vector3 (0, 0, 0);
+        hero.transform.localScale = Vector3.one;
+        hero.transform.localPosition = new Vector3(0, 0, 0);
 
-		//selected center node input...
-		//trovant is not input value...
-		if(type == StartPoint.AUTOMAT_POINT) hero.controller.StartPointSetting (Define.selected_center);
-		else hero.controller.StartPointSetting ( StartPoint.TROVANT_POINT);   //test code...after..remove code...
+        //selected center node input...
+        //trovant is not input value...
+        if (type == StartPoint.AUTOMAT_POINT) hero.controller.StartPointSetting(Define.selected_center);
+        else hero.controller.StartPointSetting(StartPoint.TROVANT_POINT);   //test code...after..remove code...
 
-		hero.CollisionSetting (true);
+        hero.CollisionSetting(true);
 
-		if(type == StartPoint.AUTOMAT_POINT)
-		{
-			hero.controller.setType (UnitType.AUTOMAT_CHARACTER);
-			hero.controller.setId (UnitNameGetter.GetInstance ().getNameAutomart ());
-		}
-		else
-		{
-			hero.controller.setType (UnitType.TROVANT_CHARACTER);
-			hero.controller.setId (UnitNameGetter.GetInstance ().getNameTrovant());
-		}
-		hero.controller.setNodeOffsetStruct (Define.path_node_off.getNodeOffset ());
+        if (type == StartPoint.AUTOMAT_POINT)
+        {
+            hero.controller.setType(UnitType.AUTOMAT_CHARACTER);
+            hero.controller.setId(UnitNameGetter.GetInstance().getNameAutomart());
+        }
+        else
+        {
+            hero.controller.setType(UnitType.TROVANT_CHARACTER);
+            hero.controller.setId(UnitNameGetter.GetInstance().getNameTrovant());
+        }
+        hero.controller.setNodeOffsetStruct(Define.path_node_off.getNodeOffset());
 
-		hero.StateMachine.ChangeState (HeroState_Moving.Instance);
-		hero.controller.setMoveTrigger(true);
+        hero.StateMachine.ChangeState(HeroState_Moving.Instance);
+        hero.controller.setMoveTrigger(true);
 
-		hero.my_name = hero.model.ID.ToString (); //test code...
-		hero.MyUnit = new UnitObject (hero.gameObject, hero.model.ID, hero.model.Type);
-		UnitPoolController.GetInstance ().AddUnit (hero.MyUnit);
-	}
+        hero.my_name = hero.model.ID.ToString(); //test code...
+        hero.MyUnit = new UnitObject(hero.gameObject, hero.model.ID, hero.model.Type);
+        UnitPoolController.GetInstance().AddUnit(hero.MyUnit);
+    }
 
     private void InitTower(ref GameObject go)
     {
