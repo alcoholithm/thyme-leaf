@@ -33,6 +33,9 @@ public class WorldMapView : View, IActionListener
     [SerializeField]
     GameObject _multiPlayBtn;
 
+    [SerializeField]
+    GameObject _networkClose;
+
     void Awake()
     {
         //this.model = UserAdministrator.Instance;
@@ -64,18 +67,32 @@ public class WorldMapView : View, IActionListener
         }
         else if (source.Equals(_multiPlayBtn))
         {
+            Debug.Log("join click");
             JoinRoom();
+        }
+        else if (source.Equals(_networkClose))
+        {
+            Debug.Log("close click");
+            networkClose();
         }
     }
 
     private void JoinRoom()
     {
+
         DialogFacade.Instance.ChangeMsgDialogTitle("Multi Play Mode");
         DialogFacade.Instance.ChangeMsgDialogBtnText("Cancle");
         DialogFacade.Instance.ShowMessageDialog("Waiting for minuate....");
 
         NetworkConnector.Instance.SetOnNetworkConnectedListener(OnConnectedActionDelegate).
                 SetOnNetworkDisconnectedListener(OnDisconnectedActionDelegate).JoinRoom();
+    }
+
+    private void networkClose()
+    {
+
+        NetworkConnector.Instance.ExitRoom();
+        DialogFacade.Instance.CloseMessageDialog();
     }
 
     private void FailConnect()
