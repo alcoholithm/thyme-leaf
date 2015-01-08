@@ -43,6 +43,8 @@ public class Spawner : Manager<Spawner>
         if (automatBuildingPool == null) automatBuildingPool = GameObject.Find("AutomatBuildingPool");
         if (trovantBuildingPool == null) trovantBuildingPool = GameObject.Find("TrovantBuildingPool");
 
+        ObjectPoolingManager.Instance.Init();
+
         if (Network.peerType == NetworkPeerType.Disconnected)
         {
             if (automats != null)
