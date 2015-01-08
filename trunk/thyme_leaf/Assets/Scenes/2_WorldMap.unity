@@ -1183,9 +1183,11 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
   onClick:
-  - mTarget: {fileID: 291819619}
-    mMethodName: CloseMessageDialog
-    mParameters: []
+  - mTarget: {fileID: 264203491}
+    mMethodName: ActionPerformed
+    mParameters:
+    - obj: {fileID: 1683055650}
+      field: 
     oneShot: 0
 --- !u!114 &194360873
 MonoBehaviour:
@@ -2040,6 +2042,7 @@ MonoBehaviour:
   _inventoryBtn: {fileID: 1044765813}
   _towerSettingBtn: {fileID: 1163840234}
   _multiPlayBtn: {fileID: 121174386}
+  _networkClose: {fileID: 1683055650}
 --- !u!1001 &283175940
 Prefab:
   m_ObjectHideFlags: 0
@@ -2047,6 +2050,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1138594627}
     m_Modifications:
+    - target: {fileID: 11400038, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: onClick.Array.data[0].mParameters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2101,7 +2108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400038, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
       propertyPath: onClick.Array.data[0].mMethodName
-      value: CloseMessageDialog
+      value: ActionPerformed
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
       propertyPath: _inputDialog
@@ -2119,6 +2126,14 @@ Prefab:
       propertyPath: _btnText
       value: 
       objectReference: {fileID: 97859439}
+    - target: {fileID: 11400038, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: onClick.Array.data[0].mTarget
+      value: 
+      objectReference: {fileID: 264203491}
+    - target: {fileID: 11400038, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
+      propertyPath: onClick.Array.data[0].mParameters.Array.data[0].obj
+      value: 
+      objectReference: {fileID: 1683055650}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3edd6dec810b452418cd90ac7b3ddf78, type: 2}
   m_RootGameObject: {fileID: 291819617}
@@ -8075,6 +8090,7 @@ MonoBehaviour:
   _inventoryBtn: {fileID: 0}
   _towerSettingBtn: {fileID: 0}
   _multiPlayBtn: {fileID: 0}
+  _networkClose: {fileID: 0}
 --- !u!114 &2039427157
 MonoBehaviour:
   m_ObjectHideFlags: 0
