@@ -61,7 +61,12 @@ public class EntityManager : Manager<EntityManager>, IEntityManager
             _entityMap[UnitType.TROVANT_THOUSE].Remove(entity);
 
             if (_entityMap[UnitType.TROVANT_THOUSE].Count <= 0)
-                GameRuler.Instance.Judge(true);
+            {
+                if (Network.peerType == NetworkPeerType.Disconnected)
+                    GameRuler.Instance.Judge(true);
+                else
+                    Spawner.Instance.Judge();
+            }
         }
         else if (entity is AutomatTower)
         {
