@@ -74,7 +74,8 @@ public class HeroState_Attacking : State<Hero>
             {
                 owner.StateMachine.ChangeState(HeroState_Moving.Instance);
             }
-            else if (owner.networkView.isMine)
+            //else if (owner.networkView.isMine)
+            else
             {
                 owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
             }
