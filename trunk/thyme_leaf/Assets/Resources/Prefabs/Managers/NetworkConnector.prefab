@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6284b9e20359b4171abd8014337d6a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 1
   prefab: {fileID: 0}
 --- !u!148 &14800000
 NetworkView:
