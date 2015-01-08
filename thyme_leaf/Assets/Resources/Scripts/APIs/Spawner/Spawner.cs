@@ -561,5 +561,17 @@ public class Spawner : Manager<Spawner>
         EntityManager.Instance.RemoveEntity(go.GetComponent<GameEntity>());
         Destroy(go);
     }
+
+
+    public void Judge()
+    {
+        networkView.RPC("NetworkJudge", RPCMode.All);
+    }
+
+    [RPC]
+    void NetworkJudge()
+    {
+        GameRuler.Instance.Judge(true);
+    }
 }
 
