@@ -11,10 +11,19 @@ using System.Collections;
 
 public class Manager<T> : Singleton<T> where T : MonoBehaviour
 {
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        GameObject parent = SetParent("_Manager");
-        DontDestroyOnLoad(parent.gameObject);
+        base.Awake();
+
+        if (IsGlobal)
+        {
+            GameObject parent = SetParent("_Manager");
+            DontDestroyOnLoad(parent.gameObject);
+        }
+        else
+        {
+            GameObject parent = SetParent("_LocalManager");
+        }
     }
 
     public new const string TAG = "[Manager]";

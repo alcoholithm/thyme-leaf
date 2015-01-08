@@ -3483,6 +3483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6284b9e20359b4171abd8014337d6a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 1
   prefab: {fileID: 0}
 --- !u!4 &815249641
 Transform:
@@ -5389,6 +5390,10 @@ Prefab:
       propertyPath: m_ViewID.m_Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: df780be151c718d4caf08f9bb29c21f2, type: 2}
+      propertyPath: isGlobal
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df780be151c718d4caf08f9bb29c21f2, type: 2}
   m_RootGameObject: {fileID: 815249638}
@@ -5611,6 +5616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0224ee225384f084ea40b0f91408589d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 1
   LOBBY: {fileID: 8300000, guid: 37b336420650fb648ad393167aefd30f, type: 3}
   BATTLE_1: {fileID: 8300000, guid: 6d2893f5ad3b55247810b3d7068402e8, type: 3}
   AT_FRANSIS_1_ATTACKING: {fileID: 8300000, guid: 181a4e9de32af29499c3f687161d282c,

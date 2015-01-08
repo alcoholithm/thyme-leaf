@@ -6,7 +6,28 @@ using System.Collections;
 /// </summary>
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
+    [SerializeField]
+    private bool isGlobal;
+
+    public bool IsGlobal
+    {
+        get { return isGlobal; }
+        set { isGlobal = value; }
+    }
+
     protected volatile static T _instance;
+
+    /*
+     * Followings are unity callback methods
+     */ 
+    protected virtual void Awake()
+    {
+        if (_instance == null)
+            _instance = GetComponent<T>();
+
+        if (isGlobal)
+            DontDestroyOnLoad(_instance.gameObject);
+    }
 
     /// <summary>
     /// parent this to another gameobject by string
@@ -43,13 +64,13 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        applicationIsQuitting = true;
+        if (isGlobal)
+            applicationIsQuitting = true;
     }
 
     /*
-     * Attributes
+     * Followings are Attributes
      */
-    public const string TAG = "[Singleton]";
     public static T Instance
     {
         get
@@ -94,12 +115,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         _instance = singleton.AddComponent<T>();
                         singleton.name = typeof(T).ToString();
                     }
-
-                    DontDestroyOnLoad(_instance.gameObject);
                 }
             }
 
             return _instance;
         }
     }
+    public const string TAG = "[Singleton]";
 }
