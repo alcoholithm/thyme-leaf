@@ -24,40 +24,40 @@ public class HeroState_Attacking : State<Hero>
     {
 		//area checking...
 		bool isCharacter = false;
-		for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
-		{
-			UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
-
-			if(other.obj == null || owner.model.ID == other.nameID) continue;
-			
-			bool check = false;
-			switch(owner.getLayer())
-			{
-			case Layer.Automart:  //automart
-				if(other.obj.layer == (int)Layer.Automart) check = true;
-				break;
-			case Layer.Trovant:  //trovant
-				if(other.obj.layer == (int)Layer.Trovant) check = true;
-				break;
-			default:
-				check = true;
-				break;
-			}
-			
-			if(!check)
-			{
-				float range = 100;//owner.helper.collision_range + 120;
-				if(Vector3.SqrMagnitude(other.obj.transform.localPosition - owner.helper.getPos()) < range * range)
-				{
-					isCharacter = true;
-					if(owner.helper.attack_target.nameID != GetId(ref other))
-					{
-						owner.helper.attack_target = other;
-					}
-					break;
-				}
-			}
-		}
+//		for(int i=0;i<UnitPoolController.GetInstance().CountUnit();i++)
+//		{
+//			UnitObject other = UnitPoolController.GetInstance().ElementUnit(i);
+//
+//			if(other.obj == null || owner.model.ID == other.nameID) continue;
+//			
+//			bool check = false;
+//			switch(owner.getLayer())
+//			{
+//			case Layer.Automart:  //automart
+//				if(other.obj.layer == (int)Layer.Automart) check = true;
+//				break;
+//			case Layer.Trovant:  //trovant
+//				if(other.obj.layer == (int)Layer.Trovant) check = true;
+//				break;
+//			default:
+//				check = true;
+//				break;
+//			}
+//			
+//			if(!check)
+//			{
+//				float range = 100;//owner.helper.collision_range + 120;
+//				if(Vector3.SqrMagnitude(other.obj.transform.localPosition - owner.helper.getPos()) < range * range)
+//				{
+//					isCharacter = true;
+//					if(owner.helper.attack_target.nameID != GetId(ref other))
+//					{
+//						owner.helper.attack_target = other;
+//					}
+//					break;
+//				}
+//			}
+//		}
 
         ChangeStateIntoMoving(owner, isCharacter);
         SendAttackMessage(owner);
@@ -65,22 +65,34 @@ public class HeroState_Attacking : State<Hero>
 
     private void ChangeStateIntoMoving(Hero owner, bool isCharacter)
     {
-		int hp = GetHp (ref owner.helper.attack_target);
-		bool check = MissingChecking (ref owner.helper.attack_target);
-		if (!check && hp <= 0 && !isCharacter)
-        {
+		if(owner.helper.attack_target.obj == null || GetHp(ref owner.helper.attack_target) <= 0)
+		{
 			owner.target.DataInit();
             if (Network.peerType == NetworkPeerType.Disconnected)
             {
                 owner.StateMachine.ChangeState(HeroState_Moving.Instance);
             }
-            //else if (owner.networkView.isMine)
-            else
+            else if (owner.networkView.isMine)
             {
-                owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
+				owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
             }
             Debug.Log("Enemy is died or disappeared");
-        }
+		}
+//		int hp = GetHp (ref owner.helper.attack_target);
+//		bool check = MissingChecking (ref owner.helper.attack_target);
+//		if (!check && hp <= 0 && !isCharacter)
+//        {
+//			owner.target.DataInit();
+//            if (Network.peerType == NetworkPeerType.Disconnected)
+//            {
+//                owner.StateMachine.ChangeState(HeroState_Moving.Instance);
+//            }
+//            else if (owner.networkView.isMine)
+//            {
+//				owner.networkView.RPC("NetworkChangeState", RPCMode.All, owner.networkView.viewID);
+//            }
+//            Debug.Log("Enemy is died or disappeared");
+//        }
     }
 
     private void SendAttackMessage(Hero owner)
@@ -103,6 +115,7 @@ public class HeroState_Attacking : State<Hero>
     {
         //Debug.Log("Attack  Exit ************************");
         //throw new System.NotImplementedException ();
+		owner.helper.collision_object.enabled = false;
 		owner.helper.attack_target.DataInit ();
     }
 
