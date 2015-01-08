@@ -7,7 +7,7 @@ public class PoisonCloudZone : MonoBehaviour
     private NGUISpriteAnimation anim;
     private UISprite sprite;
 
-    private string animName = "PoisonCloud_";
+    //private string animName = "PoisonCloud_";
 
     [SerializeField]
     private float _activeTime = 7f;

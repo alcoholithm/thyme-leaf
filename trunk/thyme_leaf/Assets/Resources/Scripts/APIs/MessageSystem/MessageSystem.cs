@@ -11,7 +11,7 @@ public class MessageSystem : Singleton<MessageSystem>
     /*
      * followings are unity callback methods
      */
-    void Awake()
+    protected override void Awake()
     {
         initialize();
     }

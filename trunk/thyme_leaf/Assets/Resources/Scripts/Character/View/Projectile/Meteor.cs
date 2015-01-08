@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Meteor : Projectile
 {
-    void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
 

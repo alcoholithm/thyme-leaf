@@ -19,11 +19,18 @@ public class DialogFacade : MonoBehaviour
     [SerializeField]
     private GameObject _inputDialog;
 
+
+    /*
+     * Followings are unity callback methods
+     */ 
     void Awake()
     {
         Initialize();
     }
 
+    /*
+     * Followings are member functions
+     */ 
     private void Initialize()
     {
         instance = this;
@@ -76,13 +83,15 @@ public class DialogFacade : MonoBehaviour
         gameObject.SetActive(active);
     }
 
-    private static DialogFacade instance = new DialogFacade();
+    /*
+     * Followings are attributes
+     */ 
+    private static DialogFacade instance;
     public static DialogFacade Instance
     {
         get { return DialogFacade.instance; }
         set { DialogFacade.instance = value; }
     }
 
-
-    public new const string TAG = "[DialogFacade]";
+    public const string TAG = "[DialogFacade]";
 }

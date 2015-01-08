@@ -3,13 +3,13 @@ using System.Collections;
 
 public class GoldFrameController
 {
-    private GoldFrame view;
-    private UserAdministrator model;
+    //private GoldFrame view;
+    //private UserAdministrator model;
 
     public GoldFrameController(GoldFrame view, UserAdministrator model)
     {
-        this.view = view;
-        this.model = model;
+        //this.view = view;
+        //this.model = model;
     }
 }
 

@@ -12,7 +12,7 @@ public class PathManager : Manager<PathManager> {
 	public static Vector3 server_position;
 	public static Vector3 single_position;
 
-	void Awake()
+    protected override void Awake()
 	{
         base.Awake();
 

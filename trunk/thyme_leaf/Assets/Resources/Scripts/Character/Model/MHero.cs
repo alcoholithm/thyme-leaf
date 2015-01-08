@@ -36,8 +36,10 @@ public class MHero : Unit
 	[SerializeField]
 	private string state_name;
 
-	void Awake()
+	protected override void Awake()
 	{
+        base.Awake();
+
 		angle = 0;
 		muster_leader = false;
 		musterID = "null";

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BattleLoader : Manager<BattleLoader>
 {
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
 

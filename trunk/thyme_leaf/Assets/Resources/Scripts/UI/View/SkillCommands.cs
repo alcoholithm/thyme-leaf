@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class SkillCommandsController
 {
     // mvc
@@ -19,7 +18,7 @@ public class SkillCommandsController
         if (UserAdministrator.Instance.CurrentUser.Gold >= 300)
         {
             view.SpawnSkillButton.GetComponent<UIButton>().normalSprite = "BtnAutomat";
-            SkillLauncher.Instance.Prepare();
+            model.Prepare();
         }
     }
 }
@@ -28,7 +27,6 @@ public class SkillCommands : View, IActionListener, IObserver
 {
     [SerializeField]
     GameObject _spawnSkillButton;
-
 
     private SkillCommandsController controller;
     private SkillLauncher model;

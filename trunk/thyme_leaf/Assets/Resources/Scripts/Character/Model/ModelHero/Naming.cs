@@ -42,32 +42,14 @@ public class Naming : Manager<Naming> //MonoBehaviour
     public List<string> stateNames;
     public List<List<string>> names;
 
-    private static object syncRoot = new System.Object();
+    //private static object syncRoot = new System.Object();
     private static Naming instance;
-    //private Naming()
-    //{
-    //    Init();
-    //}
 
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
         Init();
     }
-
-    //public static Naming Instance
-    //{
-    //    get {
-    //        if (instance == null)
-    //        {
-    //            lock (syncRoot)
-    //            {
-    //                instance = new Naming();
-    //            }
-    //        }
-    //        return instance; 
-    //    }
-    //}
 
     public string BuildAnimationName(GameObject go, string state)
     {

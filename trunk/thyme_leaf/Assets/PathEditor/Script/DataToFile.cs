@@ -145,7 +145,7 @@ public class DataToFile : MonoBehaviour
 		//rooping
 		for(int c=0;c<Define.pathNode.Count;c++)
 		{
-			string node_name = textReader.ReadLine().Split(' ')[1];
+            //string node_name = textReader.ReadLine().Split(' ')[1];
 			//Debug.Log(node_name);
 			int id = int.Parse(textReader.ReadLine().Split(' ')[1]);
 

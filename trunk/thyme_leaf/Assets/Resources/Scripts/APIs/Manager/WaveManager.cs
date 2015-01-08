@@ -8,7 +8,7 @@ public class WaveManager : Manager<WaveManager>
 
 	public bool WaveSystemTrigger = false;
 
-	void Awake()
+	protected override void Awake()
 	{
         base.Awake();
 

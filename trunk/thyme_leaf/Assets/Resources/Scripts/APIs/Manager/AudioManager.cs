@@ -25,7 +25,7 @@ public class AudioManager : Manager<AudioManager>
     private AudioClip[] music;
     private AudioSource audioPlayer;
 
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
@@ -52,7 +52,7 @@ public class AudioManager : Manager<AudioManager>
 
     }
 
-    void OnDestroy()
+    protected override void OnDestroy()
     {
         Debug.Log("DESTROYED AUDIO MANAGER");
     }

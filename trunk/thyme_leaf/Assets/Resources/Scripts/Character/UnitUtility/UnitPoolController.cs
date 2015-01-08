@@ -6,7 +6,7 @@ public class UnitPoolController
 {
 	private List<UnitObject> unitPool;
 	
-	public new const string TAG = "[UnitPoolController]";
+	public const string TAG = "[UnitPoolController]";
 	
 	//single tone
 	private static UnitPoolController instance;
