@@ -15,6 +15,11 @@ public class ObjectPoolingManager
         this.objectPools = new Dictionary<String, ObjectPool>();
     }
 
+    public void Init()
+    {
+        if(objectPools != null) objectPools.Clear();
+    }
+
     public static ObjectPoolingManager Instance
     {
         get
