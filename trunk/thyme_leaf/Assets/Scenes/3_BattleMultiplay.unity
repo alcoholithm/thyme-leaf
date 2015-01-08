@@ -12367,7 +12367,7 @@ MonoBehaviour:
         unit_num: 10
         unit_type: 1
         unit_delay_time: 1
-  WaveSystemTrigger: 0
+  WaveSystemTrigger: 1
 --- !u!4 &1463139525
 Transform:
   m_ObjectHideFlags: 0
@@ -13438,7 +13438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsButton: {fileID: 1796389465}
-  _settings: {fileID: 0}
+  _settings: {fileID: 471835715}
 --- !u!114 &1559059853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14544,6 +14544,10 @@ Prefab:
     - target: {fileID: 400000, guid: 8c39cf3314f224afa80564d78aca9a4a, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8c39cf3314f224afa80564d78aca9a4a, type: 2}
+      propertyPath: WaveSystemTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c39cf3314f224afa80564d78aca9a4a, type: 2}
