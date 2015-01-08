@@ -104,8 +104,10 @@ public class Spawner : Manager<Spawner>
     public void CreateWChats()
     {
         Debug.Log("CREATE WCHATS");
-        if (Network.peerType == NetworkPeerType.Disconnected)
-            GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
+        if (Network.peerType == NetworkPeerType.Disconnected) 
+		{
+			GetWChat(WChatType.WCHAT_TYPE1, PathManager.single_position);
+		}
         else if (Network.isServer)
         {
             GetWChat(WChatType.WCHAT_TYPE1, PathManager.server_position);
@@ -122,7 +124,11 @@ public class Spawner : Manager<Spawner>
         {
             Debug.Log(" i = " + i);
             GetThouse(THouseType.THOUSE_TYPE1, Define.trovant_center_node[i].transform.localPosition);
+			//		wave setting...
+
         }
+		if(Network.peerType == NetworkPeerType.Disconnected || Network.isServer)
+			GameObject.Find ("WaveManager").GetComponent<WaveManager> ().WaveSystemEnable ();
     }
 
 
@@ -375,6 +381,7 @@ public class Spawner : Manager<Spawner>
         thouse.PositionNode = pos;
 
         Define.THouse_list.Add(go);
+		Debug.Log ("asd"+Define.THouse_list.Count);
         UnitPoolController.GetInstance().AddUnit(thouse.MyUnit);
     }
 

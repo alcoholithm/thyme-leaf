@@ -11,7 +11,7 @@ public class HeroState_Listener_Trovant : MonoBehaviour
 
 	void OnClick()
 	{
-		if(wave_trigger) return;
+	//	if(wave_trigger) return;
 
 		Spawner.Instance.GetTrovant (TrovantType.COMMA);
 	}
