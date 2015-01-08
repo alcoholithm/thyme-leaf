@@ -78,6 +78,14 @@ public class Meteor : Projectile
         gameObject.SetActive(true);
         AudioManager.Instance.PlayClipWithState(this.gameObject, StateType.ATTACKING);
     }
+
+    public override void Move(Vector3 targetPos)
+    {
+        this.targetPosition = targetPos;
+        gameObject.SetActive(true);
+        AudioManager.Instance.PlayClipWithState(this.gameObject, StateType.ATTACKING);
+    }
+
     public override void Attack() {}
 
     /*

@@ -14,7 +14,9 @@ public class PoisonLauncher : Weapon, ILauncher
         Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.POISON, transform.position);
 
         if (projectile == null)
+        {
             return;
+        }
         else
         {
             projectile.transform.position = transform.position;
