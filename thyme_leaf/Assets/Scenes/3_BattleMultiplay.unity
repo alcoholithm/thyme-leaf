@@ -5117,6 +5117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f146a98db535a41849255d33299862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 0
   PathNode: {fileID: 100000, guid: 8b208a7de911e4a40a186a3b322a567d, type: 2}
   StageNumber: 1
   node_visible: 0
@@ -6251,7 +6252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &754726686
 Transform:
   m_ObjectHideFlags: 0
@@ -6276,6 +6277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0224ee225384f084ea40b0f91408589d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 1
   LOBBY: {fileID: 8300000, guid: 37b336420650fb648ad393167aefd30f, type: 3}
   BATTLE_1: {fileID: 8300000, guid: 6d2893f5ad3b55247810b3d7068402e8, type: 3}
   AT_FRANSIS_1_ATTACKING: {fileID: 8300000, guid: 181a4e9de32af29499c3f687161d282c,
@@ -7981,8 +7983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defb847adf8b9084eb7ca2382fabd454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  criticalDamage: 0
-  criticalProbability: 0
+  isGlobal: 0
 --- !u!114 &869135667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10448,6 +10449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9ca4ba3d63b7a48827893c01d60858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 0
   automats:
   - {fileID: 100008, guid: 49ec784fbb4614d03bacd3338c0f83e0, type: 2}
   - {fileID: 100008, guid: 11282234ffd414b3eab30ca3d86bfdb0, type: 2}
@@ -12119,6 +12121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb433702d9d943449018c9b4248b2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 0
   stage_set:
   - center_set:
     - center_obj: {fileID: 0}
@@ -14271,7 +14274,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 052d4485aa0182a4d879fa6851f7f78c, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 052d4485aa0182a4d879fa6851f7f78c, type: 2}
@@ -16606,6 +16609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4f9b9a8e128f24cb813680c25a6211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 0
 --- !u!1 &2050663629
 GameObject:
   m_ObjectHideFlags: 0
