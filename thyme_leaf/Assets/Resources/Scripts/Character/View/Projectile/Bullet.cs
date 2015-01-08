@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bullet : Projectile
 {
-    void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
 

@@ -45,7 +45,7 @@ public class NetworkConnector : Manager<NetworkConnector>
     //    }
     //}
 	
-	void Awake()
+	protected override void Awake()
     {
         base.Awake();
 

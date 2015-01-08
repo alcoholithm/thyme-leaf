@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UnitNameGetter 
 {
-	public new const string TAG = "[UnitNameGetter]";
+	public const string TAG = "[UnitNameGetter]";
 
 	//single tone
 	private static UnitNameGetter instance;

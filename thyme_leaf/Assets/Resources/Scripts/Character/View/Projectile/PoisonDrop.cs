@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PoisonDrop : Projectile
 {
-    void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
 

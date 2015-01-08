@@ -13,7 +13,7 @@ public class Looper : Singleton<Looper>
     /*
      * followings are unity callback methods
      */
-    void Awake()
+    protected override void Awake()
     {
         messageQueue = MessageQueue.Instance;
     }

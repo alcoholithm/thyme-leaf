@@ -143,12 +143,12 @@ public class Settings
 public class SettingsController
 {
     private SettingsFrame view;
-    private Settings model;
+    //private Settings model;
 
     public SettingsController(SettingsFrame view, Settings model)
     {
         this.view = view;
-        this.model = model;
+        //this.model = model;
     }
 
     public void Okay()

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class UnitMusterController
 {
-	public new const string TAG = "[UnitMusterController]";
+	public const string TAG = "[UnitMusterController]";
 	
 	private Musters[] unitMusters;
 	private MusterNames[] nameSet;

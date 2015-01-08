@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HeroState_Dying : State<Hero> {
 	
-	private string animationName = "Comma_Dying_";
+    //private string animationName = "Comma_Dying_";
 
 	private HeroState_Dying() {
 		Successor = null;

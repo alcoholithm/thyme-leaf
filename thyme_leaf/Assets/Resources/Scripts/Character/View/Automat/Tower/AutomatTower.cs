@@ -9,12 +9,12 @@ using System.Collections.Generic;
 
 public class AutomatTower_Controller
 {
-    private AutomatTower view;
+    //private AutomatTower view;
     private Tower model;
 
     public AutomatTower_Controller(AutomatTower view, Tower model)
     {
-        this.view = view;
+        //this.view = view;
         this.model = model;
     }
 

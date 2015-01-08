@@ -92,5 +92,5 @@ public class FlameThrower : Weapon, ILauncher
     /*
      * Followings are Attributes
      */
-    public const string TAG = "[FlameThrower]";
+    public new const string TAG = "[FlameThrower]";
 }

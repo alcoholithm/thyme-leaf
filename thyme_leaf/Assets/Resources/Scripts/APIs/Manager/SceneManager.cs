@@ -18,7 +18,7 @@ public class SceneManager : Manager<SceneManager>
     /*
      * Followings are unity callback methods
      */
-    void Awake()
+    protected override void Awake()
     {
         IsGlobal = true;
 

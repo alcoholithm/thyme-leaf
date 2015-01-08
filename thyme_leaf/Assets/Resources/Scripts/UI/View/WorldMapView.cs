@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//public class WorldMapController
+//{
+//    private WorldMapView view;
+//    private UserAdministrator model;
+
+//    public WorldMapController(WorldMapView view, UserAdministrator model)
+//    {
+//        this.view = view;
+//        this.model = model;
+//    }
+//}
+
 public class WorldMapView : View, IActionListener
 {
-    private WorldMapController controller;
-    private UserAdministrator model;
+    //private WorldMapController controller;
+    //private UserAdministrator model;
 
     [SerializeField]
     GameObject _starDale;
@@ -21,9 +33,10 @@ public class WorldMapView : View, IActionListener
     [SerializeField]
     GameObject _multiPlayBtn;
 
-    void Awake() {
-        this.model = UserAdministrator.Instance;
-        this.controller = new WorldMapController(this, this.model);
+    void Awake()
+    {
+        //this.model = UserAdministrator.Instance;
+        //this.controller = new WorldMapController(this, this.model);
     }
 
     void Start()
@@ -51,13 +64,12 @@ public class WorldMapView : View, IActionListener
         }
         else if (source.Equals(_multiPlayBtn))
         {
-            
-
-            JoinRoom();  
+            JoinRoom();
         }
     }
 
-    private void JoinRoom() {
+    private void JoinRoom()
+    {
         DialogFacade.Instance.ChangeMsgDialogTitle("Multi Play Mode");
         DialogFacade.Instance.ChangeMsgDialogBtnText("Cancle");
         DialogFacade.Instance.ShowMessageDialog("Waiting for minuate....");
@@ -72,7 +84,8 @@ public class WorldMapView : View, IActionListener
         DialogFacade.Instance.ShowMessageDialog("Fail to connect to Server");
     }
 
-    void OnConnectedActionDelegate(NetworkResult result){
+    void OnConnectedActionDelegate(NetworkResult result)
+    {
         switch (result)
         {
             case NetworkResult.SUCCESS_TO_CONNECT:
@@ -92,8 +105,8 @@ public class WorldMapView : View, IActionListener
         }
     }
 
-    void OnDisconnectedActionDelegate(){
-
+    void OnDisconnectedActionDelegate()
+    {
         Debug.Log(Application.loadedLevelName);
 
         Debug.Log("Disconnected");

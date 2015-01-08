@@ -8,7 +8,7 @@ public abstract class Unit : MonoBehaviour, IObservable //ScriptableObject,
     [SerializeField]
     protected int id;
     [SerializeField]
-    protected string name;
+    protected new string name;
     [SerializeField]
     protected string description;
 

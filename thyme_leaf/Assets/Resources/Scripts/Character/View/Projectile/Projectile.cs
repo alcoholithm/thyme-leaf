@@ -97,11 +97,6 @@ public abstract class Projectile : MonoBehaviour, IProjectile
         //transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
     }
 
-    protected void Stop()
-    {
-        movingSpeed = 0;
-        isTouched = true;
-    }
 
     /*
     * Followings are implemented methods of "IProjectile"
@@ -114,6 +109,12 @@ public abstract class Projectile : MonoBehaviour, IProjectile
     }
 
     public virtual void Move(Vector3 targetPos) { }
+
+    public void Stop()
+    {
+        movingSpeed = 0;
+        isTouched = true;
+    }
 
     public virtual void Attack()
     {

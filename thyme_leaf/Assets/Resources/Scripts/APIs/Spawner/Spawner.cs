@@ -31,7 +31,7 @@ public class Spawner : Manager<Spawner>
     private GameObject automatBuildingPool;
     private GameObject trovantBuildingPool;
 
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
     }

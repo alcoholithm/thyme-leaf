@@ -9,11 +9,10 @@ public class SkillLauncher : Manager<SkillLauncher>, ILauncher, IObservable
     private Dictionary<ObserverTypes, List<IObserver>> observers =
     new Dictionary<ObserverTypes, List<IObserver>>();
 
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
-        instance = this;
         doesFired = true;
     }
 
@@ -92,16 +91,6 @@ public class SkillLauncher : Manager<SkillLauncher>, ILauncher, IObservable
     public void SetChanged()
     {
         throw new System.NotImplementedException();
-    }
-
-
-    /*
-     * Followings are Attributes
-     */
-    private static SkillLauncher instance;
-    public static SkillLauncher Instance
-    {
-        get { return instance; }
     }
 
     public new const string TAG = "[SkillLauncher]";

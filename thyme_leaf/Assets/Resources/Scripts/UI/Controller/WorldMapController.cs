@@ -3,15 +3,12 @@ using System.Collections;
 
 public class WorldMapController {
 
-    private WorldMapView view;
-    private UserAdministrator model;
+    //private WorldMapView view;
+    //private UserAdministrator model;
 
-    public WorldMapController(WorldMapView view, UserAdministrator model)
-    {
-        this.view = view;
-        this.model = model;
-    }
-
-
-
+    //public WorldMapController(WorldMapView view, UserAdministrator model)
+    //{
+    //    this.view = view;
+    //    this.model = model;
+    //}
 }

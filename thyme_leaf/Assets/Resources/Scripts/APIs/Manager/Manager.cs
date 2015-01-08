@@ -22,7 +22,7 @@ public class Manager<T> : Singleton<T> where T : MonoBehaviour
         }
         else
         {
-            GameObject parent = SetParent("_LocalManager");
+            SetParent("_LocalManager");
         }
     }
 
