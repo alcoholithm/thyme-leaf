@@ -1,11 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface IProjectile : IAttackable, IMovable
-{
-    void Explode();
-}
-
 public abstract class Projectile : MonoBehaviour, IProjectile
 {
     protected NGUISpriteAnimation anim;

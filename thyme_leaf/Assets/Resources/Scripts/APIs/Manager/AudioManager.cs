@@ -28,7 +28,6 @@ public class AudioManager : Manager<AudioManager>
     void Awake()
     {
         base.Awake();
-        //DontDestroyOnLoad(gameObject.transform.parent.gameObject);
 
         sound = new AudioClip[100];
         music = new AudioClip[100];

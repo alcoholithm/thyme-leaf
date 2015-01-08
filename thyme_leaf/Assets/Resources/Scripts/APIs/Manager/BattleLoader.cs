@@ -6,6 +6,12 @@ public class BattleLoader : Manager<BattleLoader>
     void Awake()
     {
         base.Awake();
-        UserAdministrator.Instance.CurrentUser = new User("Test", 1000);
+
+        User user = UserAdministrator.Instance.CurrentUser;
+
+        if (user == null)
+            UserAdministrator.Instance.CurrentUser = new User("test", 1000);
+        else
+            UserAdministrator.Instance.CurrentUser = new User(user.Name, 1000);
     }
 }
