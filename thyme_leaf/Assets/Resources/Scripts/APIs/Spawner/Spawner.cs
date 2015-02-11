@@ -384,7 +384,6 @@ public class Spawner : Manager<Spawner>
 
     private void InitWChat(ref GameObject go, Vector3 pos)
     {
-        Debug.Log("InitWChat pos : " + pos);
         go.transform.parent = GameObject.Find("AutomatBuildings").transform;
         go.transform.localScale = new Vector3(1, 1, 1);
         go.transform.localPosition = pos;

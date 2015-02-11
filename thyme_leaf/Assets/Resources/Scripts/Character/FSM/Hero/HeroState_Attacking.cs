@@ -3,8 +3,6 @@ using System.Collections;
 
 public class HeroState_Attacking : State<Hero>
 {
-    //private string animationsName = "Comma_Attacking_Normal_";
-
     private HeroState_Attacking()
     {
         Successor = HeroState_Hitting.Instance;
