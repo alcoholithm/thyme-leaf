@@ -399,6 +399,7 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
+  _pixelSnap: 1
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1

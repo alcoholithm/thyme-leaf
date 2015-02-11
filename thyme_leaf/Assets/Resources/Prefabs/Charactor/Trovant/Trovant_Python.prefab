@@ -75,6 +75,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400008}
+  - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
@@ -382,6 +383,7 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
+  _pixelSnap: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,7 +459,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
-  mSpriteName: Python_Moving_Downwards_0
+  mSpriteName: Pi_Moving_Downwards_0
   mFillCenter: 1
 --- !u!114 &11400016
 MonoBehaviour:
@@ -698,6 +700,7 @@ MonoBehaviour:
   mPrefix: Fire_
   mLoop: 1
   mSnap: 0
+  _pixelSnap: 0
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -777,6 +780,7 @@ MonoBehaviour:
   mPrefix: Poisoning_
   mLoop: 1
   mSnap: 0
+  _pixelSnap: 0
 --- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1
