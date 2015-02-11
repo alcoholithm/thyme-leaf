@@ -51,5 +51,5 @@ public class Gun : Weapon, ILauncher
     /*
      * Followings are Attributes
      */
-    public new const string TAG = "[PoisonLauncher]";
+	public new const string TAG = "[Gun]";
 }

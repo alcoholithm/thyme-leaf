@@ -33,7 +33,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   m_Layer: 10
-  m_Name: Flame thrower
+  m_Name: Laser launcher
   m_TagString: TagProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: e450a8eefdfaaca4f846747a3397c3ae, type: 2}
-  mSpriteName: FlameThrower_00
+  mSpriteName: Laser_0
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:

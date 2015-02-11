@@ -54,10 +54,10 @@ public enum AudioUnitType
     MARIEN_TYPE1,
 
     //towers
+	AGT_TYPE1,
     APT_TYPE1,
-    AGT_TYPE1,
+	ASPT_TYPE1,
     AST_TYPE1,
-    ASPT_TYPE1,
     ATT_TYPE1,
 
     //projectiles

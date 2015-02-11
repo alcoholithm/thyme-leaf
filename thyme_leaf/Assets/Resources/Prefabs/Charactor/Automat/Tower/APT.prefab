@@ -399,6 +399,7 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
+  _pixelSnap: 1
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -410,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 5
+  audioUnitType: 6
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,7 +429,7 @@ MonoBehaviour:
   _maxHp: 0
   _currHp: 0
   defense: 0
-  unit_type_name: 5
+  unit_type_name: 6
   currentTarget: {fileID: 0}
   reloadingTime: 2
 --- !u!114 &11400022

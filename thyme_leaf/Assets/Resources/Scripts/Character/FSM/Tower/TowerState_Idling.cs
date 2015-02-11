@@ -19,6 +19,7 @@ public class TowerState_Idling : State<AutomatTower>
         Debug.Log(TAG + " Enter");
 
         animName = Naming.Instance.BuildAnimationName(owner.gameObject, Naming.IDLING) + "_";
+		Debug.Log(animName);
         owner.Anim.Play(animName);
     }
 

@@ -10,9 +10,9 @@ public class Naming : Manager<Naming> //MonoBehaviour
     private Dictionary<string, int> nameDictionary;
 
     public const string AGT = "AGT";
-    public const string AST = "AST";
-    public const string APT = "APT";
-    public const string ASPT = "ASPT";
+	public const string APT = "APT";
+	public const string ASPT = "ASPT";
+	public const string AST = "AST";
     public const string ATT = "ATT";
 
     public const string TYPE = "Type";
@@ -77,12 +77,18 @@ public class Naming : Manager<Naming> //MonoBehaviour
             case AudioUnitType.AGT_TYPE1:
                 result = BuildAutomatNameWithState(Naming.AGT, 1, state);
                 break;
-            case AudioUnitType.ASPT_TYPE1:
-                result = BuildAutomatNameWithState(Naming.ASPT, 1, state);
-                break;
             case AudioUnitType.APT_TYPE1:
                 result = BuildAutomatNameWithState(Naming.APT, 1, state);
                 break;
+			case AudioUnitType.ASPT_TYPE1:
+				result = BuildAutomatNameWithState(Naming.ASPT, 1, state);
+				break;
+			case AudioUnitType.AST_TYPE1:
+				result = BuildAutomatNameWithState(Naming.AST, 1, state);
+				break;
+			case AudioUnitType.ATT_TYPE1:
+				result = BuildAutomatNameWithState(Naming.ATT, 1, state);
+				break;
 
             case AudioUnitType.COMMA:
                 result = BuildTrovantNameWithState(Naming.COMMA, state);
@@ -131,9 +137,9 @@ public class Naming : Manager<Naming> //MonoBehaviour
         names = new List<List<string>>();
 
         towerNames.Add(AGT); 
-        towerNames.Add(AST); 
-        towerNames.Add(APT);
-        towerNames.Add(ASPT); 
+		towerNames.Add(APT);
+		towerNames.Add(ASPT); 
+		towerNames.Add(AST); 
         towerNames.Add(ATT);
 
         automatNames.Add(FALSTAFF); 
