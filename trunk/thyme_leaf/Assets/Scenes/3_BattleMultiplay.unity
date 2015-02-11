@@ -203,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 25909907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00130123622, y: .00130123622, z: .00130123622}
+  m_LocalScale: {x: .00130293157, y: .00130293157, z: .00130293157}
   m_Children:
   - {fileID: 1007261002}
   m_Father: {fileID: 0}
@@ -687,7 +687,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &53347382
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &145050875
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: ATT_Idling
+  mSpriteName: ATT_Type1_Idling_0
   mFillCenter: 1
 --- !u!1 &151796474
 GameObject:
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &234290000
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &240895975
@@ -3110,7 +3110,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &349306126
@@ -3456,7 +3456,7 @@ Transform:
   m_GameObject: {fileID: 354235593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -619, y: 112, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .999935985, y: .999935985, z: .999935985}
   m_Children: []
   m_Father: {fileID: 191131132}
   m_RootOrder: 0
@@ -3579,7 +3579,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &357058016
@@ -4216,7 +4216,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &374637453
@@ -4398,7 +4398,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &404616707
@@ -4786,7 +4786,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &452271113
@@ -5792,7 +5792,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &701231890
@@ -6953,7 +6953,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &803082338
@@ -7559,7 +7559,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &846758857
@@ -8981,82 +8981,6 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
---- !u!1001 &924574828
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 352121493}
-    m_Modifications:
-    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: towers.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 14800000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_ViewID.m_ID
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 14800000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: m_ViewID.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: wchats.Array.data[0]
-      value: 
-      objectReference: {fileID: 905565700}
-    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: towers.Array.data[3]
-      value: 
-      objectReference: {fileID: 100002, guid: 4e886da4382768541af7b0c7798f9ca4, type: 2}
-    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: towers.Array.data[4]
-      value: 
-      objectReference: {fileID: 100002, guid: 8dd5ac2a59dc47a408f1f55b69e8ab8b, type: 2}
-    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: towers.Array.data[1]
-      value: 
-      objectReference: {fileID: 100002, guid: d0378c24b28648743960f71211d1e1c5, type: 2}
-    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-      propertyPath: towers.Array.data[2]
-      value: 
-      objectReference: {fileID: 100002, guid: f1b8e0f3dff46884287f346ddf737af0, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-  m_RootGameObject: {fileID: 1081107205}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &926080616
 GameObject:
   m_ObjectHideFlags: 0
@@ -9279,6 +9203,62 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1001 &977011026
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 352121493}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_ViewID.m_ID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: m_ViewID.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+      propertyPath: wchats.Array.data[0]
+      value: 
+      objectReference: {fileID: 905565700}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
+  m_RootGameObject: {fileID: 1081107205}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &977076051
 GameObject:
   m_ObjectHideFlags: 0
@@ -10158,7 +10138,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: AST_Idling
+  mSpriteName: AST_Type1_Idling_0
   mFillCenter: 1
 --- !u!1 &1023084357
 GameObject:
@@ -10316,7 +10296,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: AGT_Idling
+  mSpriteName: AGT_Type1_Idling_0
   mFillCenter: 1
 --- !u!1 &1046508104
 GameObject:
@@ -10661,7 +10641,7 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-  m_PrefabInternal: {fileID: 924574828}
+  m_PrefabInternal: {fileID: 977011026}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1081107209}
@@ -10679,7 +10659,7 @@ NetworkView:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 14800000, guid: 967e6aef147ef644189aaa903fc1d3dd,
     type: 2}
-  m_PrefabInternal: {fileID: 924574828}
+  m_PrefabInternal: {fileID: 977011026}
   m_GameObject: {fileID: 1081107205}
   m_Enabled: 1
   m_StateSynchronization: 0
@@ -10692,7 +10672,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 967e6aef147ef644189aaa903fc1d3dd,
     type: 2}
-  m_PrefabInternal: {fileID: 924574828}
+  m_PrefabInternal: {fileID: 977011026}
   m_GameObject: {fileID: 1081107205}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -10716,6 +10696,7 @@ MonoBehaviour:
   trovants:
   - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
   - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
+  - {fileID: 0}
   wchats:
   - {fileID: 905565700}
   thouses:
@@ -10728,7 +10709,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 967e6aef147ef644189aaa903fc1d3dd, type: 2}
-  m_PrefabInternal: {fileID: 924574828}
+  m_PrefabInternal: {fileID: 977011026}
   m_GameObject: {fileID: 1081107205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -12357,7 +12338,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1001 &1372365860
@@ -12799,7 +12780,7 @@ MonoBehaviour:
         unit_delay_time: 1
       - first_delay_time: 15
         unit_num: 10
-        unit_type: 1
+        unit_type: 2
         unit_delay_time: 1
   WaveSystemTrigger: 1
 --- !u!4 &1463139525
@@ -15723,7 +15704,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &1802029839
@@ -17177,7 +17158,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
+  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
   mSpriteName: Glow - outer
   mFillCenter: 1
 --- !u!1 &2008896865

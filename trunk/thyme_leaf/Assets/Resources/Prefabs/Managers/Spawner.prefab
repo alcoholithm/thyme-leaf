@@ -46,8 +46,10 @@ MonoBehaviour:
   - {fileID: 100008, guid: 11282234ffd414b3eab30ca3d86bfdb0, type: 2}
   towers:
   - {fileID: 100002, guid: d2c539429e3cf814c9acc4bb9eef443f, type: 2}
-  - {fileID: 100002, guid: f1b8e0f3dff46884287f346ddf737af0, type: 2}
   - {fileID: 100002, guid: d0378c24b28648743960f71211d1e1c5, type: 2}
+  - {fileID: 100002, guid: f1b8e0f3dff46884287f346ddf737af0, type: 2}
+  - {fileID: 100002, guid: 4e886da4382768541af7b0c7798f9ca4, type: 2}
+  - {fileID: 100002, guid: 8dd5ac2a59dc47a408f1f55b69e8ab8b, type: 2}
   projectiles:
   - {fileID: 100002, guid: 840403e737c9fd446b248dde71c11c5e, type: 2}
   - {fileID: 100002, guid: 9c2364baa23402c428171988c388b5cd, type: 2}
@@ -55,7 +57,7 @@ MonoBehaviour:
   trovants:
   - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
   - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
-  - {fileID: 100008, guid: 076d4b2d79be34db9b7d9622f40e4ced, type: 2}
+  - {fileID: 0}
   wchats:
   - {fileID: 0}
   thouses:

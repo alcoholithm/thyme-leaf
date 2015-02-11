@@ -83,7 +83,7 @@ GameObject:
   - 148: {fileID: 14800002}
   - 114: {fileID: 11400022}
   - 61: {fileID: 6100000}
-  - 114: {fileID: 11400026}
+  - 114: {fileID: 11400018}
   m_Layer: 10
   m_Name: Flame
   m_TagString: TagProjectile
@@ -99,11 +99,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400010}
-  - 114: {fileID: 11400032}
   - 114: {fileID: 11400030}
-  - 148: {fileID: 14800004}
   - 114: {fileID: 11400028}
-  - 114: {fileID: 11400018}
+  - 148: {fileID: 14800004}
+  - 114: {fileID: 11400026}
+  - 114: {fileID: 11400024}
   m_Layer: 10
   m_Name: Flame thrower
   m_TagString: TagProjectile
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b56b6b5623f3b0438a8b2eabf69bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 11400018}
+  _weapon: {fileID: 11400024}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,6 +432,7 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
+  _pixelSnap: 1
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,22 +444,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d316091e73d3c4eb44851744bc243b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioUnitType: 8
+  audioUnitType: 7
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
+  m_GameObject: {fileID: 100008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9047b277586d052478edae634bcb5ad5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f1aea8b35b738b40b03135acbb64b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  criticalDamage: 0
-  criticalProbability: 0
-  _activeTime: 1
-  _flame: {fileID: 100008}
+  _attackDamage: 1
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -476,7 +474,7 @@ MonoBehaviour:
   _maxHp: 0
   _currHp: 0
   defense: 0
-  unit_type_name: 8
+  unit_type_name: 7
   currentTarget: {fileID: 0}
   reloadingTime: 2
 --- !u!114 &11400022
@@ -490,19 +488,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238bf2e161b4df14990387204805934d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400026
+--- !u!114 &11400024
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
+  m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f1aea8b35b738b40b03135acbb64b2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9047b277586d052478edae634bcb5ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDamage: 1
---- !u!114 &11400028
+  criticalDamage: 0
+  criticalProbability: 0
+  _activeTime: 1
+  _flame: {fileID: 100008}
+--- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -513,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238bf2e161b4df14990387204805934d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400030
+--- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -527,8 +528,9 @@ MonoBehaviour:
   mFPS: 15
   mPrefix: FlameThrower_
   mLoop: 0
-  mSnap: 0
---- !u!114 &11400032
+  mSnap: 1
+  _pixelSnap: 1
+--- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
