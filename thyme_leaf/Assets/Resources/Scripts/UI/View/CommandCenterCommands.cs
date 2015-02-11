@@ -64,7 +64,7 @@ public class CommandCenterCommands : View, IActionListener
     {
         if (source.Equals(_spawnHero1))
         {
-            controller.SpawnHero(AutomatType.FRANSIS_TYPE1);
+            controller.SpawnHero(AutomatType.FRANSCIS_TYPE1);
         }
         else if (source.Equals(_spawnHero2))
         {
