@@ -98,8 +98,6 @@ public class PathManager : Manager<PathManager> {
 			}
 		}
 
-//		wave setting...
-		GameObject.Find ("WaveManager").GetComponent<WaveManager> ().WaveSystemEnable ();
 	}
 
 	public new const string TAG = "[PathManager]";

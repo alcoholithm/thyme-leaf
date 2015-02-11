@@ -407,7 +407,7 @@ public class UnitMusterController
 				if(obj[i] == null)
 				{
 					obj[i] = gobj;
-					obj[i].muster_name = name;
+//					obj[i].muster_name = name;
 					if(obj[i].model.MusterLeader) leader = obj[i];
 
 					CurrentSize++;

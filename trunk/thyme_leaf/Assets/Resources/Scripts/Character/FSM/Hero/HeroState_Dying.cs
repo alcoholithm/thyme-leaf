@@ -11,19 +11,14 @@ public class HeroState_Dying : State<Hero> {
 	
 	public override void Enter (Hero owner)
 	{
-		if((owner.getLayer() == Layer.Automart)){
-			owner.Anim.PlayOneShot(owner.p_name+"Dying_");
-		}else if((owner.getLayer() == Layer.Trovant)) {
-			owner.Anim.PlayOneShot(owner.p_name+"Dying_");
-		}
-
 		owner.controller.setStateName(Naming.DYING);
 		owner.AnimationName = Naming.Instance.BuildAnimationName(owner.gameObject, owner.model.StateName);
+		owner.Anim.PlayOneShot(owner.AnimationName+"_");
 	}
 	
 	public override void Execute (Hero owner)
 	{
-		if( !owner.GetAnim().isPlaying)
+		if(!owner.GetAnim().isPlaying)
 			owner.StateMachine.ChangeState(HeroState_None.Instance);
 	}
 	

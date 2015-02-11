@@ -167,7 +167,6 @@ public class HeroState_Attacking : State<Hero>
 	private void SendMessageAttack(ref Hero obj, int v)
 	{
 		GameEntity game_entity = null;
-		MessageTypes option = MessageTypes.MSG_NORMAL_DAMAGE;
 		switch(obj.helper.attack_target.type)
 		{
 		case UnitType.AUTOMAT_CHARACTER:
@@ -182,19 +181,7 @@ public class HeroState_Attacking : State<Hero>
 			break;
 		}
 
-		switch(obj.model.UnitTypeName)
-		{
-		case AudioUnitType.FALSTAFF_TYPE1:
-		case AudioUnitType.COMMA:
-		case AudioUnitType.PYTHON:
-			option = MessageTypes.MSG_NORMAL_DAMAGE;
-			break;
-		case AudioUnitType.FRANSCIS_TYPE1:
-			option = MessageTypes.MSG_BURN_DAMAGE;
-			break;
-		}
-
-		Message msg = game_entity.ObtainMessage(option, v);
+		Message msg = game_entity.ObtainMessage(obj.AttackType , v);
 		game_entity.DispatchMessage(msg);
 	}
 
