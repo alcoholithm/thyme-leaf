@@ -10,7 +10,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	private NGUISpriteAnimation anim;	
 
-    private StateMachine<Hero> stateMachine;
+    protected StateMachine<Hero> stateMachine;
 
     // set children
     [SerializeField]
@@ -25,16 +25,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 	private string animation_name;
 	private UnitObject my_unit;
 	public UnitObject target;
-
-	public string my_name;  //test code...
-	public string state_name; //test code...
-	public string muster_name; //test code...
-	public string p_name;  //test code...
-
-	//extra...
-	private bool onlyfirst;
-	private int hit_unit_id;
-
+	
 	[HideInInspector]
 	public MHero model;
 	[HideInInspector]
@@ -44,28 +35,29 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 
 	[HideInInspector]
 	private UISprite ui_sprite;
+
+	//extra...
+	private bool onlyfirst;
+	private int hit_unit_id;
+
+	private MessageTypes attack_type;
 	//=====================
 
-	void Awake()
-	{
-		Initialize();
-	}
-
-	void OnEnable()
-	{
-		SettingInitialize ();
-	}
+//	void OnEnable()
+//	{
+//		SettingInitialize ();
+//	}
 	
-	void Update()
-	{
-		stateMachine.Update();
-		//=============================
-		Gesturing ();
-		//animation control...
-		ChangingAnimationAngle ();
-		//muster control...
-		MusterControl ();
-	}
+//	void Update()
+//	{
+//		stateMachine.Update();
+//		//=============================
+//		Gesturing ();
+//		//animation control...
+//		ChangingAnimationAngle ();
+//		//muster control...
+//		MusterControl ();
+//	}
 
 	//unit detail initialize...
 	public void SettingInitialize()
@@ -74,18 +66,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		target.DataInit();
 
 		onlyfirst = false;
-
-		controller.setSpeed (model.MovingSpeed);
-		controller.setMaxHp (model.MaxHP);
-		controller.setHp (model.MaxHP);
-		controller.setMoveTrigger (false);
-        controller.setAttackDamage(model.AttackDamage);
-		controller.setAttackDelay (model.AttackDelay);
-
-		helper.collision_object = gameObject.GetComponent<CircleCollider2D> ();
-		helper.collision_3d = gameObject.transform.FindChild ("CollisionBag").gameObject.GetComponent<SphereCollider> ();
-		helper.collision_range_normal = helper.collision_3d.radius;
-		helper.collision_range_muster = 180;
 
         health_bar_controller = transform.GetChild(0).gameObject.GetComponent<HealthBar>();
 		ui_sprite = gameObject.GetComponent<UISprite> ();
@@ -97,63 +77,51 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         this.PrepareUI();
 	}
 
-	void OnTriggerEnter2D(Collider2D coll)
-	{
-		//coll return checking...
-		if(coll == null || helper.collision_object.radius == helper.collision_range_muster) return;
-	
-		if(stateMachine.CurrentState == HeroState_Moving.Instance)
-		{
-			if(IsAttackCase(coll.gameObject))  //state compare okay...
-		    {
-				if(!coll.CompareTag(Tag.TagCommandCenter))
-				{
-					helper.attack_target = coll.gameObject.GetComponent<Hero>().MyUnit;
-				}
-				else 
-				{
-					Debug.Log("collision center");
-					Layer other_center_layer = (Layer)coll.gameObject.layer;
-					switch(other_center_layer)
-					{
-					case Layer.Automart:
-						helper.attack_target = coll.gameObject.transform.parent.GetComponent<WChat>().MyUnit;
-						break;
-					case Layer.Trovant:
-						Debug.Log("trovant center");
-						helper.attack_target = coll.gameObject.transform.parent.GetComponent<THouse>().MyUnit;
-						Debug.Log(helper.attack_target.obj.name);
-						break;
-					}
-				}
-//				my state is attaking...
-				stateMachine.ChangeState(HeroState_Attacking.Instance);
-			}
-			else
-			{
-//				if(coll.CompareTag(Tag.TagProjectile) || coll.CompareTag(Tag.TagTower) || coll.CompareTag(Tag.TagTowerSpot)) return;
-//				
-//				Hero other_hero = coll.gameObject.GetComponent<Hero>();
-//				if(!other_hero.helper.isGesture() || other_hero.model.MusterID == model.MusterID) return;
-//				if(UnitMusterController.GetInstance().isUnitCountCheck(other_hero.model.MusterID, model.MusterID)) return;
-//				//push action...
-//				if(other_hero.helper.SelectPathNode(helper.gesture_startpoint, helper.gesture_endpoint, other_hero.getLayer(), FindingNodeDefaultOption.RANDOM_NODE))
+//	void OnTriggerEnter2D(Collider2D coll)
+//	{
+//		//coll return checking...
+//		if(coll == null || helper.collision_object.radius == helper.collision_range_muster) return;
+//	
+//		if(stateMachine.CurrentState == HeroState_Moving.Instance)
+//		{
+//			if(IsAttackCase(coll.gameObject))  //state compare okay...
+//		    {
+//				if(!coll.CompareTag(Tag.TagCommandCenter))
 //				{
-//					other_hero.controller.setMoveTrigger(true);
-//					if(other_hero.helper.getMusterTrigger())
-//						UnitMusterController.GetInstance().CommandMove(other_hero.model.MusterID, other_hero.model.Name);
+//					helper.attack_target = coll.gameObject.GetComponent<Hero>().MyUnit;
 //				}
-//				Debug.Log("push muster or a unit");
-			}
-		}
-		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
-		{
-
-		}
-	}
+//				else 
+//				{
+//					Debug.Log("collision center");
+//					Layer other_center_layer = (Layer)coll.gameObject.layer;
+//					switch(other_center_layer)
+//					{
+//					case Layer.Automart:
+//						helper.attack_target = coll.gameObject.transform.parent.GetComponent<WChat>().MyUnit;
+//						break;
+//					case Layer.Trovant:
+//						Debug.Log("trovant center");
+//						helper.attack_target = coll.gameObject.transform.parent.GetComponent<THouse>().MyUnit;
+//						Debug.Log(helper.attack_target.obj.name);
+//						break;
+//					}
+//				}
+////				my state is attaking...
+//				stateMachine.ChangeState(HeroState_Attacking.Instance);
+//			}
+////			else
+////			{
+////
+////			}
+//		}
+//		else if(stateMachine.CurrentState == HeroState_Attacking.Instance)
+//		{
+//
+//		}
+//	}
 
 	//attack mode checking...
-	private bool IsAttackCase(GameObject gObj)
+	protected virtual bool IsAttackCase(GameObject gObj)
 	{
 		Layer type = getLayer();
 		switch (type) {
@@ -211,7 +179,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
     }
 
 	//gesturing function...
-	private void Gesturing()
+	protected void Gesturing()
 	{
         // when connected to network and this object is mine
         if (Network.peerType != NetworkPeerType.Disconnected && !networkView.isMine) return;
@@ -287,7 +255,6 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 			float a = helper.CurrentAngle ();
 			controller.setAngle (a);
 
-			//string anim_name = Naming.Instance.BuildAnimationName(gameObject, model.StateName);
 			if(dir == -1)
 			{
 				ui_sprite.flip = UIBasicSprite.Flip.Horizontally;
@@ -512,7 +479,7 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 		set { anim = value; }
 	}
 
-	public void Initialize()
+	protected void Initialize()
 	{
         //mvc setting...
         helper = new Helper(this.gameObject);
@@ -599,6 +566,12 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
         get { return stateMachine; }
         set { stateMachine = value; }
     }
+
+	public MessageTypes AttackType
+	{
+		get { return attack_type; }
+		set { attack_type = value; }
+	}
 
     public new const string TAG = "[Hero]";
 }

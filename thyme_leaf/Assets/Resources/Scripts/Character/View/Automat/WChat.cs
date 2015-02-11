@@ -186,7 +186,6 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
 	{
 		//my selected center position
 		Define.selected_center = position_node;
-		Debug.Log ("center : " + position_node);
 	}
 	
     /*

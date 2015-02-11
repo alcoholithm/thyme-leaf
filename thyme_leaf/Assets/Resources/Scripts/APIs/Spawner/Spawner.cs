@@ -122,10 +122,8 @@ public class Spawner : Manager<Spawner>
         Debug.Log("THOUSE COUNT : " + Define.trovant_center_node.Count);
         for (int i = 0; i < Define.trovant_center_node.Count; i++)
         {
-            Debug.Log(" i = " + i);
             GetThouse(THouseType.THOUSE_TYPE1, Define.trovant_center_node[i].transform.localPosition);
 			//		wave setting...
-
         }
 		if(Network.peerType == NetworkPeerType.Disconnected || Network.isServer)
 			GameObject.Find ("WaveManager").GetComponent<WaveManager> ().WaveSystemEnable ();
@@ -381,7 +379,6 @@ public class Spawner : Manager<Spawner>
         thouse.PositionNode = pos;
 
         Define.THouse_list.Add(go);
-		Debug.Log ("asd"+Define.THouse_list.Count);
         UnitPoolController.GetInstance().AddUnit(thouse.MyUnit);
     }
 
@@ -441,7 +438,6 @@ public class Spawner : Manager<Spawner>
         hero.StateMachine.ChangeState(HeroState_Moving.Instance);
         hero.controller.setMoveTrigger(true);
 
-        hero.my_name = hero.model.ID.ToString(); //test code...
         hero.MyUnit = new UnitObject(hero.gameObject, hero.model.ID, hero.model.Type);
         UnitPoolController.GetInstance().AddUnit(hero.MyUnit);
     }

@@ -320,8 +320,8 @@ public class Helper
 		if(Physics.Raycast(wp, out hit))
 		{
 			GameObject obj = hit.collider.gameObject.transform.parent.gameObject;
-			Debug.Log (obj == null ? "null" : obj.name);
-			Debug.Log(hit.collider == null ? "null" : hit.collider.name);
+//			Debug.Log (obj == null ? "null" : obj.name);
+//			Debug.Log(hit.collider == null ? "null" : hit.collider.name);
 			return obj;
 		}
 		else return null;
