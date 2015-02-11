@@ -26,6 +26,7 @@ public class Naming : Manager<Naming> //MonoBehaviour
 
     public const string COMMA = "Comma";
     public const string PYTHON = "Python";
+	public const string HADOOP = "Hadoop";
 
     public const string ATTACKING = "Attacking";
     public const string CHASING = "Chasing";
@@ -89,6 +90,9 @@ public class Naming : Manager<Naming> //MonoBehaviour
             case AudioUnitType.PYTHON:
                 result = BuildTrovantNameWithState(Naming.PYTHON, state);
                 break;
+			case AudioUnitType.HADOOP:
+				result = BuildTrovantNameWithState(Naming.HADOOP, state);
+				break;
             default:
                 Debug.Log("Not Registered Animation Name");
                 break;
