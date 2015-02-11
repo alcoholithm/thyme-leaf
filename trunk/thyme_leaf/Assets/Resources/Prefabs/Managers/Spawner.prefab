@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9ca4ba3d63b7a48827893c01d60858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGlobal: 0
   automats:
   - {fileID: 100008, guid: 49ec784fbb4614d03bacd3338c0f83e0, type: 2}
   - {fileID: 100008, guid: 11282234ffd414b3eab30ca3d86bfdb0, type: 2}
@@ -54,6 +55,7 @@ MonoBehaviour:
   trovants:
   - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
   - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
+  - {fileID: 100008, guid: 076d4b2d79be34db9b7d9622f40e4ced, type: 2}
   wchats:
   - {fileID: 0}
   thouses:
