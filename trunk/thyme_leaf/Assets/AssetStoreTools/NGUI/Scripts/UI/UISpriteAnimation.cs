@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
+// Copyright © 2011-2015 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -15,14 +15,10 @@ using System.Collections.Generic;
 [AddComponentMenu("NGUI/UI/Sprite Animation")]
 public class UISpriteAnimation : MonoBehaviour
 {
-    //[HideInInspector]
-    [SerializeField] protected int mFPS = 30;
-    //[HideInInspector]
-    [SerializeField] protected string mPrefix = "";
-    //[HideInInspector]
-    [SerializeField] protected bool mLoop = true;
-    //[HideInInspector]
-    [SerializeField] protected bool mSnap = true;
+	[HideInInspector][SerializeField] protected int mFPS = 30;
+	[HideInInspector][SerializeField] protected string mPrefix = "";
+	[HideInInspector][SerializeField] protected bool mLoop = true;
+	[HideInInspector][SerializeField] protected bool mSnap = true;
 
 	protected UISprite mSprite;
 	protected float mDelta = 0f;
@@ -79,7 +75,6 @@ public class UISpriteAnimation : MonoBehaviour
 
 			if (rate < mDelta)
 			{
-				
 				mDelta = (rate > 0f) ? mDelta - rate : 0f;
 
 				if (++mIndex >= mSpriteNames.Count)

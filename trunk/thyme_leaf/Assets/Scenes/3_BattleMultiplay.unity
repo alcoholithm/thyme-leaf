@@ -510,7 +510,7 @@ MonoBehaviour:
   aspectRatio: 8.76666641
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Defeat
   mFontSize: 60
   mFontStyle: 0
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   aspectRatio: 3.67272735
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: OK
   mFontSize: 40
   mFontStyle: 0
@@ -1739,7 +1739,7 @@ MonoBehaviour:
   aspectRatio: 3.67272735
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Exit
   mFontSize: 62
   mFontStyle: 0
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   aspectRatio: 1
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: U
   mFontSize: 40
   mFontStyle: 0
@@ -2440,7 +2440,7 @@ MonoBehaviour:
   aspectRatio: 4.24324322
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: OK
   mFontSize: 40
   mFontStyle: 0
@@ -2601,7 +2601,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3005
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -3102,7 +3102,7 @@ MonoBehaviour:
   aspectRatio: 8.76666641
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Settings
   mFontSize: 60
   mFontStyle: 0
@@ -3323,7 +3323,7 @@ MonoBehaviour:
   aspectRatio: 3.25
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: 100%
   mFontSize: 40
   mFontStyle: 0
@@ -3579,7 +3579,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1 &359825988
@@ -3774,7 +3774,7 @@ MonoBehaviour:
   aspectRatio: 3.67272735
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: OK
   mFontSize: 40
   mFontStyle: 0
@@ -5878,7 +5878,7 @@ MonoBehaviour:
   aspectRatio: 1.28985512
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Card
   mFontSize: 40
   mFontStyle: 0
@@ -6051,7 +6051,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1001 &754548671
@@ -6307,7 +6307,7 @@ MonoBehaviour:
   aspectRatio: 3.25
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: 100%
   mFontSize: 40
   mFontStyle: 0
@@ -7423,7 +7423,7 @@ MonoBehaviour:
   aspectRatio: 8.76666641
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Victory
   mFontSize: 60
   mFontStyle: 0
@@ -7516,7 +7516,7 @@ MonoBehaviour:
   aspectRatio: 1.28985512
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Gold
   mFontSize: 40
   mFontStyle: 0
@@ -9122,7 +9122,7 @@ MonoBehaviour:
   aspectRatio: 4.44444466
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Music
   mFontSize: 40
   mFontStyle: 0
@@ -9433,6 +9433,7 @@ MonoBehaviour:
   scrollAxisName: Mouse ScrollWheel
   verticalAxisName: Vertical
   horizontalAxisName: Horizontal
+  commandClick: 1
   submitKey0: 13
   submitKey1: 330
   cancelKey0: 27
@@ -9931,7 +9932,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1 &1023613959
@@ -10081,7 +10082,7 @@ MonoBehaviour:
   aspectRatio: 1
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: S
   mFontSize: 40
   mFontStyle: 0
@@ -10730,7 +10731,7 @@ MonoBehaviour:
   aspectRatio: 3.67272735
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Exit
   mFontSize: 62
   mFontStyle: 0
@@ -11280,7 +11281,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1 &1199447199
@@ -11350,7 +11351,7 @@ MonoBehaviour:
   aspectRatio: 1.28985512
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Machinery
   mFontSize: 40
   mFontStyle: 0
@@ -11601,7 +11602,7 @@ MonoBehaviour:
   aspectRatio: 8.76666641
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 16a2d4ace59bac64dbcf4085964b38eb, type: 2}
+  mFont: {fileID: 0}
   mText: Congratulations!!!
   mFontSize: 60
   mFontStyle: 0
@@ -12218,7 +12219,7 @@ MonoBehaviour:
   aspectRatio: 1.28985512
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Card
   mFontSize: 40
   mFontStyle: 0
@@ -12640,7 +12641,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1 &1485746132
@@ -12837,7 +12838,7 @@ MonoBehaviour:
   aspectRatio: 2.07692313
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: 0
   mFontSize: 50
   mFontStyle: 0
@@ -12948,7 +12949,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3006
+  startingRenderQueue: 3005
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -13093,7 +13094,7 @@ MonoBehaviour:
   aspectRatio: 1.28985512
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Machinery
   mFontSize: 40
   mFontStyle: 0
@@ -13476,7 +13477,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3005
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -13609,7 +13610,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1 &1571777115
@@ -14050,7 +14051,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1 &1622731279
@@ -14914,7 +14915,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: Button
   mFillCenter: 1
 --- !u!1 &1772193662
@@ -15482,7 +15483,7 @@ MonoBehaviour:
   aspectRatio: 1
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: 
   mFontSize: 40
   mFontStyle: 0
@@ -15825,7 +15826,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 62adb30369acbf943a67cee0f69267a3, type: 2}
+  mAtlas: {fileID: 0}
   mSpriteName: X Mark
   mFillCenter: 1
 --- !u!1 &1883879466
@@ -16143,7 +16144,7 @@ MonoBehaviour:
   aspectRatio: 1.28985512
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Gold
   mFontSize: 40
   mFontStyle: 0
@@ -16858,7 +16859,7 @@ MonoBehaviour:
   aspectRatio: 7.28070164
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 93e68f7902ba67545ba1e60502873fb5, type: 2}
+  mFont: {fileID: 0}
   mText: Sound FX
   mFontSize: 40
   mFontStyle: 0
@@ -17153,7 +17154,7 @@ MonoBehaviour:
   aspectRatio: 8.76666641
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
-  mFont: {fileID: 11400000, guid: 16a2d4ace59bac64dbcf4085964b38eb, type: 2}
+  mFont: {fileID: 0}
   mText: Sorry...
   mFontSize: 60
   mFontStyle: 0
