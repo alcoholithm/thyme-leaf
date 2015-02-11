@@ -421,6 +421,7 @@ MonoBehaviour:
   mPrefix: 
   mLoop: 1
   mSnap: 1
+  _pixelSnap: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -496,7 +497,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
-  mSpriteName: Comma_Moving_Downwards_0
+  mSpriteName: Comma_Attacking_Downwards_0
   mFillCenter: 1
 --- !u!114 &11400016
 MonoBehaviour:
@@ -684,6 +685,7 @@ MonoBehaviour:
   mPrefix: Poisoning_
   mLoop: 1
   mSnap: 0
+  _pixelSnap: 0
 --- !u!114 &11400028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -699,6 +701,7 @@ MonoBehaviour:
   mPrefix: Fire_
   mLoop: 1
   mSnap: 0
+  _pixelSnap: 0
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1

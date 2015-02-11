@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 01ec98e63ec48764781737580c3c70bc, type: 2}
   mSprites:
   - name: Automat_Dying_00
-    x: 2663
-    y: 585
+    x: 975
+    y: 5
     width: 293
     height: 248
     borderLeft: 0
@@ -171,136 +171,110 @@ MonoBehaviour:
     paddingRight: 98
     paddingTop: 24
     paddingBottom: 123
-  - name: BoltBall_00
-    x: 3666
-    y: 932
-    width: 351
-    height: 219
+  - name: Bullet_0
+    x: 470
+    y: 1153
+    width: 20
+    height: 20
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 24
-    paddingRight: 137
-    paddingTop: 152
-    paddingBottom: 141
-  - name: BoltBall_01
-    x: 975
-    y: 15
-    width: 349
-    height: 238
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Bullet_1
+    x: 470
+    y: 1090
+    width: 20
+    height: 20
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 14
-    paddingRight: 149
-    paddingTop: 133
-    paddingBottom: 141
-  - name: BoltBall_02
-    x: 3321
-    y: 927
-    width: 344
-    height: 224
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Bullet_2
+    x: 470
+    y: 1132
+    width: 20
+    height: 20
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 15
-    paddingRight: 153
-    paddingTop: 134
-    paddingBottom: 154
-  - name: BoltBall_03
-    x: 2663
-    y: 374
-    width: 272
-    height: 210
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Bullet_3
+    x: 470
+    y: 1111
+    width: 20
+    height: 20
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 76
-    paddingRight: 164
-    paddingTop: 131
-    paddingBottom: 171
-  - name: BoltBall_04
-    x: 3301
-    y: 111
-    width: 337
-    height: 212
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: BulletFX_0
+    x: 465
+    y: 671
+    width: 23
+    height: 20
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 36
-    paddingRight: 139
-    paddingTop: 130
-    paddingBottom: 170
-  - name: BoltBall_05
-    x: 2970
-    y: 514
-    width: 330
-    height: 232
+    paddingLeft: 7
+    paddingRight: 6
+    paddingTop: 5
+    paddingBottom: 5
+  - name: BulletFX_1
+    x: 1790
+    y: 1466
+    width: 29
+    height: 26
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 31
-    paddingRight: 151
-    paddingTop: 131
-    paddingBottom: 149
-  - name: BoltBall_06
-    x: 2970
-    y: 926
-    width: 350
-    height: 225
+    paddingLeft: 4
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 2
+  - name: BulletFX_2
+    x: 439
+    y: 6
+    width: 36
+    height: 30
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 22
-    paddingRight: 140
-    paddingTop: 136
-    paddingBottom: 151
-  - name: BoltBall_07
-    x: 3301
-    y: 324
-    width: 346
-    height: 213
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: BulletFX_3
+    x: 1330
+    y: 121
+    width: 36
+    height: 30
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 19
-    paddingRight: 147
-    paddingTop: 143
-    paddingBottom: 156
-  - name: BoltBall_08
-    x: 3301
-    y: 538
-    width: 366
-    height: 208
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 130
-    paddingTop: 149
-    paddingBottom: 155
-  - name: BoltBall_09
-    x: 3668
-    y: 538
-    width: 353
-    height: 208
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 16
-    paddingRight: 143
-    paddingTop: 150
-    paddingBottom: 154
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: FireBall_0001
     x: 1841
     y: 824
@@ -523,8 +497,8 @@ MonoBehaviour:
     paddingTop: 237
     paddingBottom: 218
   - name: FlameThrower_02
-    x: 3800
-    y: 771
+    x: 2663
+    y: 347
     width: 203
     height: 61
     borderLeft: 0
@@ -536,8 +510,8 @@ MonoBehaviour:
     paddingTop: 232
     paddingBottom: 219
   - name: FlameThrower_03
-    x: 3800
-    y: 833
+    x: 2663
+    y: 409
     width: 239
     height: 92
     borderLeft: 0
@@ -550,7 +524,7 @@ MonoBehaviour:
     paddingBottom: 221
   - name: FlameThrower_04
     x: 3402
-    y: 797
+    y: 1023
     width: 397
     height: 128
     borderLeft: 0
@@ -563,7 +537,7 @@ MonoBehaviour:
     paddingBottom: 203
   - name: FlameThrower_05
     x: 2970
-    y: 747
+    y: 973
     width: 431
     height: 178
     borderLeft: 0
@@ -784,7 +758,7 @@ MonoBehaviour:
     paddingBottom: 139
   - name: FlameThrower_22
     x: 2970
-    y: 312
+    y: 771
     width: 324
     height: 201
     borderLeft: 0
@@ -796,8 +770,8 @@ MonoBehaviour:
     paddingTop: 161
     paddingBottom: 150
   - name: FlameThrower_23
-    x: 2970
-    y: 114
+    x: 3295
+    y: 581
     width: 325
     height: 197
     borderLeft: 0
@@ -809,8 +783,8 @@ MonoBehaviour:
     paddingTop: 148
     paddingBottom: 167
   - name: FlameThrower_24
-    x: 3648
-    y: 155
+    x: 3628
+    y: 784
     width: 328
     height: 188
     borderLeft: 0
@@ -822,8 +796,8 @@ MonoBehaviour:
     paddingTop: 146
     paddingBottom: 178
   - name: FlameThrower_25
-    x: 3648
-    y: 344
+    x: 3295
+    y: 779
     width: 332
     height: 193
     borderLeft: 0
@@ -836,7 +810,7 @@ MonoBehaviour:
     paddingBottom: 183
   - name: FlameThrower_26
     x: 2663
-    y: 187
+    y: 647
     width: 205
     height: 186
     borderLeft: 0
@@ -849,7 +823,7 @@ MonoBehaviour:
     paddingBottom: 190
   - name: FlameThrower_27
     x: 2663
-    y: 42
+    y: 502
     width: 176
     height: 144
     borderLeft: 0
@@ -873,6 +847,266 @@ MonoBehaviour:
     paddingRight: 74
     paddingTop: 242
     paddingBottom: 244
+  - name: Laser_0
+    x: 943
+    y: 815
+    width: 30
+    height: 63
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 61
+  - name: Laser_1
+    x: 943
+    y: 879
+    width: 30
+    height: 83
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 40
+  - name: Laser_2
+    x: 943
+    y: 963
+    width: 30
+    height: 103
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 21
+  - name: Laser_3
+    x: 943
+    y: 1067
+    width: 30
+    height: 123
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: Laser_4
+    x: 439
+    y: 162
+    width: 30
+    height: 124
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Laser_5
+    x: 439
+    y: 37
+    width: 30
+    height: 124
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: LaserBody_0
+    x: 1791
+    y: 1602
+    width: 27
+    height: 33
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 13
+    paddingBottom: 14
+  - name: LaserBody_1
+    x: 1340
+    y: 207
+    width: 30
+    height: 46
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 7
+    paddingBottom: 7
+  - name: LaserBody_2
+    x: 1760
+    y: 1575
+    width: 30
+    height: 60
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: LaserBody_3
+    x: 943
+    y: 768
+    width: 30
+    height: 46
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 7
+    paddingBottom: 7
+  - name: LaserBody_4
+    x: 1340
+    y: 169
+    width: 27
+    height: 33
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 13
+    paddingBottom: 14
+  - name: LaserFX_0
+    x: 1791
+    y: 1581
+    width: 38
+    height: 20
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 16
+    paddingTop: 5
+    paddingBottom: 5
+  - name: LaserFX_1
+    x: 1760
+    y: 1547
+    width: 61
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 3
+  - name: LaserFX_2
+    x: 1760
+    y: 1636
+    width: 70
+    height: 29
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: LaserFX_3
+    x: 1760
+    y: 1522
+    width: 61
+    height: 24
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 9
+    paddingTop: 3
+    paddingBottom: 3
+  - name: LaserFX_4
+    x: 1792
+    y: 1501
+    width: 38
+    height: 20
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 16
+    paddingTop: 5
+    paddingBottom: 5
+  - name: Missile_0
+    x: 465
+    y: 692
+    width: 22
+    height: 38
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 5
+    paddingTop: 0
+    paddingBottom: 0
+  - name: MissileFX_0
+    x: 1760
+    y: 1466
+    width: 29
+    height: 26
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 11
+    paddingTop: 11
+    paddingBottom: 13
+  - name: MissileFX_1
+    x: 1320
+    y: 15
+    width: 46
+    height: 38
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 0
+    paddingTop: 5
+    paddingBottom: 7
+  - name: MissileFX_2
+    x: 1269
+    y: 51
+    width: 50
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
   - name: PoisonDrop_0
     x: 471
     y: 1569
@@ -888,7 +1122,7 @@ MonoBehaviour:
     paddingBottom: 5
   - name: PoisonDrop_1
     x: 470
-    y: 1161
+    y: 1077
     width: 20
     height: 12
     borderLeft: 0
@@ -913,8 +1147,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: PoisonExplosion_0
-    x: 439
-    y: 213
+    x: 1760
+    y: 1493
     width: 31
     height: 28
     borderLeft: 0
@@ -926,8 +1160,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 11
   - name: PoisonExplosion_1
-    x: 439
-    y: 242
+    x: 1269
+    y: 6
     width: 50
     height: 44
     borderLeft: 0
@@ -939,8 +1173,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: PoisonExplosion_2
-    x: 1760
-    y: 1615
+    x: 1269
+    y: 152
     width: 70
     height: 50
     borderLeft: 0
@@ -952,8 +1186,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonExplosion_3
-    x: 1760
-    y: 1564
+    x: 1269
+    y: 203
     width: 70
     height: 50
     borderLeft: 0
@@ -965,8 +1199,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonExplosion_4
-    x: 1760
-    y: 1513
+    x: 1269
+    y: 101
     width: 60
     height: 50
     borderLeft: 0
@@ -978,8 +1212,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PoisonExplosion_5
-    x: 1760
-    y: 1466
+    x: 1320
+    y: 54
     width: 52
     height: 46
     borderLeft: 0

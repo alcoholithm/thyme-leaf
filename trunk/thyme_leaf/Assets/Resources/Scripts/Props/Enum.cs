@@ -109,8 +109,8 @@ public enum EffectType
 public enum TowerType
 {
     AGT = 0, // Automat Gun Tower
+	APT, // Automat Poison Tower
     ASPT, // Automat Splash Tower
-    APT, // Automat Poison Tower
     AST, // Automat Slow Tower
     ATT, // Automat Turret Tower
 }

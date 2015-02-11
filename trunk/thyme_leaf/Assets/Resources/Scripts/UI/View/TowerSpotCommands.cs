@@ -27,13 +27,17 @@ public class TowerSpotCommands : View, IActionListener
 {
     // mvc
 
-    // children
+	// children
+	[SerializeField]
+	GameObject _buildAGT;	
+	[SerializeField]
+	GameObject _buildAPT;	
+	[SerializeField]
+	GameObject _buildASPT;
     [SerializeField]
-    GameObject _buildAGT;
+    GameObject _buildAST;
     [SerializeField]
-    GameObject _buildASPT;
-    [SerializeField]
-    GameObject _buildAPT;
+    GameObject _buildATT;
     [SerializeField]
     GameObject _cancelButton;
 
@@ -58,13 +62,21 @@ public class TowerSpotCommands : View, IActionListener
         {
             controller.BuildTower(TowerType.AGT);
         }
-        else if (source.Equals(_buildASPT))
+		else if (source.Equals(_buildAPT))
+		{
+			controller.BuildTower(TowerType.APT);
+		}
+		else if (source.Equals(_buildASPT))
+		{
+			controller.BuildTower(TowerType.ASPT);
+		}
+		else if (source.Equals(_buildAST))
+		{
+			controller.BuildTower(TowerType.AST);
+		}
+        else if (source.Equals(_buildATT))
         {
-            controller.BuildTower(TowerType.ASPT);
-        }
-        else if (source.Equals(_buildAPT))
-        {
-            controller.BuildTower(TowerType.APT);
+            controller.BuildTower(TowerType.ATT);
         }
         else if (source.Equals(_cancelButton))
         {

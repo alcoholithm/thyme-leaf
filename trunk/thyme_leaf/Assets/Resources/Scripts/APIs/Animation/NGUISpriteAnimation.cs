@@ -15,8 +15,8 @@ public class NGUISpriteAnimation : UISpriteAnimation
     //private string _namePrefix = "";
     //[SerializeField]
     //private bool _loop = true;
-    //[SerializeField]
-    //private bool _pixelSnap = true;
+    [SerializeField]
+    private bool _pixelSnap = true;
 
     private ICommand command;
     private bool oneShot = true;
@@ -26,7 +26,7 @@ public class NGUISpriteAnimation : UISpriteAnimation
         //framesPerSecond = _framerate;
         //namePrefix = _namePrefix;
         //loop = _loop;
-        //mSnap = _pixelSnap;
+        mSnap = _pixelSnap;
     }
 
     protected override void Update()

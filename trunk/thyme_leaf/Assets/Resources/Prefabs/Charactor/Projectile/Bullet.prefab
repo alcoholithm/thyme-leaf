@@ -8,12 +8,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
+  - 114: {fileID: 11400000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400002}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400006}
-  - 114: {fileID: 11400000}
   m_Layer: 10
   m_Name: Bullet
   m_TagString: TagProjectile
@@ -62,7 +62,8 @@ MonoBehaviour:
   mFPS: 5
   mPrefix: PoisonDrop_
   mLoop: 1
-  mSnap: 0
+  mSnap: 1
+  _pixelSnap: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,8 +117,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 50
-  mHeight: 50
+  mWidth: 20
+  mHeight: 20
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -134,7 +135,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: e450a8eefdfaaca4f846747a3397c3ae, type: 2}
-  mSpriteName: BoltBall_00
+  mSpriteName: Bullet_0
   mFillCenter: 1
 --- !u!148 &14800000
 NetworkView:
