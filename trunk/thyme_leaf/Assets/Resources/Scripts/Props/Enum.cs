@@ -71,6 +71,7 @@ public enum AudioUnitType
     //trovants
     COMMA,
     PYTHON,
+	HADOOP,
 
     //thouse
     THOUSE_TYPE1,
@@ -78,14 +79,18 @@ public enum AudioUnitType
 
 public enum AutomatType
 {
-    FRANSIS_TYPE1 = 0,
-    FALSTAFF_TYPE1,    
+	FRANSCIS_TYPE1 = 0,
+	FALSTAFF_TYPE1,
+	FOLTINBRAS_TYPE1,
+	VICTOR_TYPE1,
+	MARIEN_TYPE1 
 }
 
 public enum TrovantType
 {
     COMMA = 0,
     PYTHON,
+	HADOOP
 }
 
 public enum ProjectileType
@@ -142,6 +147,9 @@ public enum SoundType
 
     TROVANT_PYTHON_ATTACKING,
     TROVANT_PYTHON_DYING,
+
+	TROVANT_HADOOP_ATTACKING,
+	TROVANT_HADOOP_DYING,
 
     SKILL_FIREBALL_BOOMING,
 

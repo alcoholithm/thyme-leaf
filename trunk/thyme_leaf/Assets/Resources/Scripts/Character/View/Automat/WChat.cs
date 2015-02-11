@@ -172,7 +172,7 @@ public class WChat : GameEntity, IWChat, IStateMachineControllable<WChat>, IObse
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			Hero obj = Spawner.Instance.GetHero(AutomatType.FRANSIS_TYPE1);
+			Hero obj = Spawner.Instance.GetHero(AutomatType.FRANSCIS_TYPE1);
 			obj.helper.setPos(position_node);
 			for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
 			{
