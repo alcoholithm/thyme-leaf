@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Gun : Weapon, ILauncher
+public class MissileLauncher : Weapon, ILauncher
 {
     /*
      * Followings are overrided methods of "IWeapon"
@@ -11,7 +11,7 @@ public class Gun : Weapon, ILauncher
         if (target == null)
             return;
 
-        Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.BULLET, transform.position);
+        Projectile projectile = Spawner.Instance.GetProjectile(ProjectileType.MISSILE, transform.position);
         if (projectile == null)
             return;
         else 
@@ -51,5 +51,5 @@ public class Gun : Weapon, ILauncher
     /*
      * Followings are Attributes
      */
-	public new const string TAG = "[Gun]";
+    public new const string TAG = "[Missile]";
 }

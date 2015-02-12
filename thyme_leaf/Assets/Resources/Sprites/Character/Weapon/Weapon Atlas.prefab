@@ -173,7 +173,7 @@ MonoBehaviour:
     paddingBottom: 123
   - name: Bullet_0
     x: 470
-    y: 1153
+    y: 1111
     width: 20
     height: 20
     borderLeft: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Bullet_1
     x: 470
-    y: 1090
+    y: 1132
     width: 20
     height: 20
     borderLeft: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Bullet_2
     x: 470
-    y: 1132
+    y: 1153
     width: 20
     height: 20
     borderLeft: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Bullet_3
     x: 470
-    y: 1111
+    y: 1090
     width: 20
     height: 20
     borderLeft: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: BulletFX_0
     x: 465
-    y: 671
+    y: 632
     width: 23
     height: 20
     borderLeft: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 5
   - name: BulletFX_1
-    x: 1790
+    x: 1760
     y: 1466
     width: 29
     height: 26
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: BulletFX_2
-    x: 439
-    y: 6
+    x: 1330
+    y: 121
     width: 36
     height: 30
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BulletFX_3
-    x: 1330
-    y: 121
+    x: 439
+    y: 6
     width: 36
     height: 30
     borderLeft: 0
@@ -901,7 +901,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: Laser_4
     x: 439
-    y: 162
+    y: 37
     width: 30
     height: 124
     borderLeft: 0
@@ -914,7 +914,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Laser_5
     x: 439
-    y: 37
+    y: 162
     width: 30
     height: 124
     borderLeft: 0
@@ -991,8 +991,8 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 14
   - name: LaserFX_0
-    x: 1791
-    y: 1581
+    x: 1792
+    y: 1501
     width: 38
     height: 20
     borderLeft: 0
@@ -1043,8 +1043,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: LaserFX_4
-    x: 1792
-    y: 1501
+    x: 1791
+    y: 1581
     width: 38
     height: 20
     borderLeft: 0
@@ -1068,8 +1068,21 @@ MonoBehaviour:
     paddingRight: 5
     paddingTop: 0
     paddingBottom: 0
+  - name: Missile_1
+    x: 465
+    y: 653
+    width: 22
+    height: 38
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 5
+    paddingRight: 5
+    paddingTop: 0
+    paddingBottom: 0
   - name: MissileFX_0
-    x: 1760
+    x: 1790
     y: 1466
     width: 29
     height: 26
@@ -1174,7 +1187,7 @@ MonoBehaviour:
     paddingBottom: 3
   - name: PoisonExplosion_2
     x: 1269
-    y: 152
+    y: 203
     width: 70
     height: 50
     borderLeft: 0
@@ -1187,7 +1200,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: PoisonExplosion_3
     x: 1269
-    y: 203
+    y: 152
     width: 70
     height: 50
     borderLeft: 0
