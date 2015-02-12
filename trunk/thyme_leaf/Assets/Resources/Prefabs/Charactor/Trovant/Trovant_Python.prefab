@@ -75,7 +75,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400008}
-  - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
@@ -459,7 +458,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: ffa91594a2f963e4186342aa8f015028, type: 2}
-  mSpriteName: Pi_Moving_Downwards_0
+  mSpriteName: Pi_Attacking_Upwards_5
   mFillCenter: 1
 --- !u!114 &11400016
 MonoBehaviour:
@@ -700,7 +699,7 @@ MonoBehaviour:
   mPrefix: Fire_
   mLoop: 1
   mSnap: 0
-  _pixelSnap: 0
+  _pixelSnap: 1
 --- !u!114 &11400030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,7 +779,7 @@ MonoBehaviour:
   mPrefix: Poisoning_
   mLoop: 1
   mSnap: 0
-  _pixelSnap: 0
+  _pixelSnap: 1
 --- !u!114 &11400036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -799,10 +798,10 @@ MonoBehaviour:
   _currHp: 100
   defense: 0
   unit_type_name: 15
-  movingSpeed: 1.5
+  movingSpeed: 1.20000005
   musterID: 
   attack_delay: 1
-  attack_damage: 20
+  attack_damage: 25
   state_name: 
 --- !u!135 &13500000
 SphereCollider:
