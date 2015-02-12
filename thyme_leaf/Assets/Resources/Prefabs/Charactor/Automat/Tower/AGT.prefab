@@ -247,7 +247,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 98a49e2af03f54111963406dbbcc4f8c, type: 2}
+  mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
   mSpriteName: Tower_Building_0
   mFillCenter: 1
 --- !u!114 &11400006
