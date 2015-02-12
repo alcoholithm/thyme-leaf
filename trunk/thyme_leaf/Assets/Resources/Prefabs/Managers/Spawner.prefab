@@ -57,7 +57,7 @@ MonoBehaviour:
   trovants:
   - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
   - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
-  - {fileID: 0}
+  - {fileID: 100008, guid: 076d4b2d79be34db9b7d9622f40e4ced, type: 2}
   wchats:
   - {fileID: 0}
   thouses:

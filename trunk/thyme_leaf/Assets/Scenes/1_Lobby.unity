@@ -10104,7 +10104,7 @@ MonoBehaviour:
   minimumHeight: 320
   maximumHeight: 1536
   fitWidth: 1
-  fitHeight: 0
+  fitHeight: 1
   adjustByDPI: 0
   shrinkPortraitUI: 0
 --- !u!4 &2037686777
@@ -10115,7 +10115,7 @@ Transform:
   m_GameObject: {fileID: 2037686773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .0016129032, y: .0016129032, z: .0016129032}
+  m_LocalScale: {x: .00130208337, y: .00130208337, z: .00130208337}
   m_Children:
   - {fileID: 1068830332}
   m_Father: {fileID: 0}
