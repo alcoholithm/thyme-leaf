@@ -42,461 +42,19 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: d1ef65dbec0e7414e817fd1522630da7, type: 2}
   mSprites:
   - name: AGT_Type1_Attacking_0
-    x: 1923
-    y: 1475
-    width: 78
-    height: 149
+    x: 1949
+    y: 1230
+    width: 64
+    height: 110
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
+    paddingLeft: 3
+    paddingRight: 3
     paddingTop: 0
-    paddingBottom: 1
+    paddingBottom: 0
   - name: AGT_Type1_Attacking_1
-    x: 1252
-    y: 1192
-    width: 78
-    height: 148
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 2
-  - name: AGT_Type1_Attacking_2
-    x: 1726
-    y: 1193
-    width: 78
-    height: 147
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 3
-  - name: AGT_Type1_Attacking_3
-    x: 1884
-    y: 1194
-    width: 78
-    height: 146
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 4
-  - name: AGT_Type1_Attacking_4
-    x: 705
-    y: 283
-    width: 78
-    height: 145
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 5
-  - name: AGT_Type1_Attacking_5
-    x: 1805
-    y: 1193
-    width: 78
-    height: 147
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 3
-  - name: AGT_Type1_Idling_0
-    x: 317
-    y: 124
-    width: 78
-    height: 149
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 1
-  - name: AGT_Type1_Idling_1
-    x: 1489
-    y: 1192
-    width: 78
-    height: 148
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 2
-    paddingBottom: 0
-  - name: AGT_Type1_Idling_2
-    x: 784
-    y: 1017
-    width: 78
-    height: 143
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 7
-    paddingBottom: 0
-  - name: AGT_Type1_Idling_3
-    x: 784
-    y: 736
-    width: 78
-    height: 139
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 11
-    paddingBottom: 0
-  - name: AGT_Type1_Idling_4
-    x: 705
-    y: 139
-    width: 78
-    height: 143
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 7
-    paddingBottom: 0
-  - name: AGT_Type1_Idling_5
-    x: 1331
-    y: 1192
-    width: 78
-    height: 148
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 2
-    paddingBottom: 0
-  - name: APT_Type1_Attacking_0
-    x: 784
-    y: 292
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Attacking_1
-    x: 784
-    y: 403
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Attacking_2
-    x: 784
-    y: 514
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Attacking_3
-    x: 784
-    y: 625
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Attacking_4
-    x: 705
-    y: 28
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Attacking_5
-    x: 642
-    y: 209
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Idling_0
-    x: 863
-    y: 717
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Idling_1
-    x: 863
-    y: 828
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Idling_2
-    x: 863
-    y: 1050
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: APT_Type1_Idling_3
-    x: 784
-    y: 70
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: ASPT_Type1_Attacking_0
-    x: 1094
-    y: 1191
-    width: 78
-    height: 149
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 1
-  - name: ASPT_Type1_Attacking_1
-    x: 1410
-    y: 1192
-    width: 78
-    height: 148
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 1
-    paddingBottom: 1
-  - name: ASPT_Type1_Attacking_2
-    x: 1568
-    y: 1193
-    width: 78
-    height: 147
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 2
-    paddingBottom: 1
-  - name: ASPT_Type1_Attacking_3
-    x: 1963
-    y: 1194
-    width: 78
-    height: 146
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 3
-    paddingBottom: 1
-  - name: ASPT_Type1_Attacking_4
-    x: 705
-    y: 721
-    width: 78
-    height: 145
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 4
-    paddingBottom: 1
-  - name: ASPT_Type1_Attacking_5
-    x: 1647
-    y: 1193
-    width: 78
-    height: 147
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 3
-  - name: ASPT_Type1_Idling_0
-    x: 1173
-    y: 1191
-    width: 78
-    height: 149
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 0
-    paddingBottom: 1
-  - name: ASPT_Type1_Idling_1
-    x: 705
-    y: 867
-    width: 78
-    height: 146
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 3
-    paddingBottom: 1
-  - name: ASPT_Type1_Idling_2
-    x: 705
-    y: 575
-    width: 78
-    height: 145
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 4
-    paddingBottom: 1
-  - name: ASPT_Type1_Idling_3
-    x: 784
-    y: 876
-    width: 78
-    height: 140
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 9
-    paddingBottom: 1
-  - name: ASPT_Type1_Idling_4
-    x: 705
-    y: 429
-    width: 78
-    height: 145
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 4
-    paddingBottom: 1
-  - name: ASPT_Type1_Idling_5
-    x: 705
-    y: 1014
-    width: 78
-    height: 146
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 6
-    paddingTop: 3
-    paddingBottom: 1
-  - name: AST_Type1_Attacking_0
-    x: 784
-    y: 181
-    width: 62
-    height: 110
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
-    paddingTop: 0
-    paddingBottom: 0
-  - name: AST_Type1_Attacking_1
     x: 1361
     y: 1625
     width: 39
@@ -509,7 +67,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: AST_Type1_Attacking_2
+  - name: AGT_Type1_Attacking_2
     x: 1321
     y: 1625
     width: 39
@@ -522,20 +80,20 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: AST_Type1_Idling_0
-    x: 863
-    y: 939
-    width: 62
+  - name: AGT_Type1_Idling_0
+    x: 1884
+    y: 1230
+    width: 64
     height: 110
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 4
+    paddingLeft: 3
+    paddingRight: 3
     paddingTop: 0
     paddingBottom: 0
-  - name: AST_Type1_Idling_1
+  - name: AGT_Type1_Idling_1
     x: 1281
     y: 1625
     width: 39
@@ -548,9 +106,373 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: AST_Type1_Idling_2
-    x: 1241
+  - name: AGT_Type1_Idling_2
+    x: 1201
     y: 1625
+    width: 39
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Attacking_0
+    x: 642
+    y: 209
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Attacking_1
+    x: 705
+    y: 1050
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Attacking_2
+    x: 705
+    y: 939
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Attacking_3
+    x: 705
+    y: 162
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Attacking_4
+    x: 705
+    y: 828
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Attacking_5
+    x: 705
+    y: 495
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Idling_0
+    x: 705
+    y: 717
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Idling_1
+    x: 705
+    y: 606
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Idling_2
+    x: 768
+    y: 1050
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: APT_Type1_Idling_3
+    x: 705
+    y: 51
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ASPT_Type1_Attacking_0
+    x: 317
+    y: 124
+    width: 78
+    height: 149
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 0
+    paddingBottom: 1
+  - name: ASPT_Type1_Attacking_1
+    x: 1094
+    y: 1192
+    width: 78
+    height: 148
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 1
+    paddingBottom: 1
+  - name: ASPT_Type1_Attacking_2
+    x: 1173
+    y: 1193
+    width: 78
+    height: 147
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 2
+    paddingBottom: 1
+  - name: ASPT_Type1_Attacking_3
+    x: 1489
+    y: 1194
+    width: 78
+    height: 146
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 3
+    paddingBottom: 1
+  - name: ASPT_Type1_Attacking_4
+    x: 1726
+    y: 1195
+    width: 78
+    height: 145
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 4
+    paddingBottom: 1
+  - name: ASPT_Type1_Attacking_5
+    x: 1252
+    y: 1193
+    width: 78
+    height: 147
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 0
+    paddingBottom: 3
+  - name: ASPT_Type1_Idling_0
+    x: 1923
+    y: 1475
+    width: 78
+    height: 149
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 0
+    paddingBottom: 1
+  - name: ASPT_Type1_Idling_1
+    x: 1331
+    y: 1194
+    width: 78
+    height: 146
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 3
+    paddingBottom: 1
+  - name: ASPT_Type1_Idling_2
+    x: 1568
+    y: 1195
+    width: 78
+    height: 145
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 4
+    paddingBottom: 1
+  - name: ASPT_Type1_Idling_3
+    x: 1805
+    y: 1200
+    width: 78
+    height: 140
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 9
+    paddingBottom: 1
+  - name: ASPT_Type1_Idling_4
+    x: 1647
+    y: 1195
+    width: 78
+    height: 145
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 4
+    paddingBottom: 1
+  - name: ASPT_Type1_Idling_5
+    x: 1410
+    y: 1194
+    width: 78
+    height: 146
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 6
+    paddingRight: 6
+    paddingTop: 3
+    paddingBottom: 1
+  - name: AST_Type1_Attacking_0
+    x: 705
+    y: 273
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AST_Type1_Attacking_1
+    x: 1161
+    y: 1625
+    width: 39
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AST_Type1_Attacking_2
+    x: 1622
+    y: 1341
+    width: 39
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AST_Type1_Idling_0
+    x: 705
+    y: 384
+    width: 62
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AST_Type1_Idling_1
+    x: 1662
+    y: 1341
+    width: 39
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: AST_Type1_Idling_2
+    x: 1702
+    y: 1341
     width: 39
     height: 40
     borderLeft: 0
@@ -575,7 +497,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ATT_Type1_Attacking_1
-    x: 398
+    x: 465
     y: 2
     width: 66
     height: 107
@@ -588,7 +510,7 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 0
   - name: ATT_Type1_Attacking_2
-    x: 1735
+    x: 1802
     y: 1626
     width: 66
     height: 104
@@ -614,7 +536,7 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 0
   - name: ATT_Type1_Attacking_4
-    x: 1802
+    x: 1735
     y: 1626
     width: 66
     height: 104
@@ -627,7 +549,7 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 0
   - name: ATT_Type1_Attacking_5
-    x: 465
+    x: 398
     y: 2
     width: 66
     height: 107
@@ -653,8 +575,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ATT_Type1_Idling_1
-    x: 1662
-    y: 1341
+    x: 1241
+    y: 1625
     width: 39
     height: 40
     borderLeft: 0
@@ -666,7 +588,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ATT_Type1_Idling_2
-    x: 1622
+    x: 1742
     y: 1341
     width: 39
     height: 40
@@ -809,8 +731,8 @@ MonoBehaviour:
     paddingTop: 24
     paddingBottom: 123
   - name: Falstaff_Type1_Attacking_Downwards_0
-    x: 863
-    y: 589
+    x: 768
+    y: 986
     width: 54
     height: 63
     borderLeft: 0
@@ -835,8 +757,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_2
-    x: 863
-    y: 219
+    x: 768
+    y: 666
     width: 54
     height: 50
     borderLeft: 0
@@ -848,8 +770,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Downwards_3
-    x: 863
-    y: 270
+    x: 768
+    y: 717
     width: 54
     height: 50
     borderLeft: 0
@@ -887,8 +809,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 0
   - name: Falstaff_Type1_Attacking_Normal_0
-    x: 863
-    y: 372
+    x: 768
+    y: 819
     width: 54
     height: 51
     borderLeft: 0
@@ -900,8 +822,8 @@ MonoBehaviour:
     paddingTop: 16
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_1
-    x: 863
-    y: 321
+    x: 768
+    y: 768
     width: 54
     height: 50
     borderLeft: 0
@@ -926,8 +848,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_3
-    x: 926
-    y: 265
+    x: 831
+    y: 670
     width: 46
     height: 50
     borderLeft: 0
@@ -939,8 +861,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_4
-    x: 926
-    y: 14
+    x: 831
+    y: 420
     width: 46
     height: 49
     borderLeft: 0
@@ -952,8 +874,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 3
   - name: Falstaff_Type1_Attacking_Normal_5
-    x: 926
-    y: 64
+    x: 831
+    y: 470
     width: 46
     height: 49
     borderLeft: 0
@@ -965,8 +887,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 3
   - name: Falstaff_Type1_Dying_0
-    x: 926
-    y: 667
+    x: 768
+    y: 8
     width: 48
     height: 50
     borderLeft: 0
@@ -978,8 +900,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 10
   - name: Falstaff_Type1_Dying_1
-    x: 863
-    y: 168
+    x: 768
+    y: 615
     width: 54
     height: 50
     borderLeft: 0
@@ -991,8 +913,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 7
   - name: Falstaff_Type1_Dying_2
-    x: 863
-    y: 477
+    x: 705
+    y: 1
     width: 58
     height: 49
     borderLeft: 0
@@ -1004,7 +926,7 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 6
   - name: Falstaff_Type1_Dying_3
-    x: 926
+    x: 831
     y: 1072
     width: 66
     height: 44
@@ -1017,7 +939,7 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 7
   - name: Falstaff_Type1_Dying_4
-    x: 926
+    x: 831
     y: 1117
     width: 68
     height: 43
@@ -1121,8 +1043,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Falstaff_Type1_Moving_Normal_0
-    x: 863
-    y: 527
+    x: 768
+    y: 924
     width: 54
     height: 61
     borderLeft: 0
@@ -1134,8 +1056,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 9
   - name: Falstaff_Type1_Moving_Normal_1
-    x: 784
-    y: 6
+    x: 1884
+    y: 1166
     width: 54
     height: 63
     borderLeft: 0
@@ -1186,8 +1108,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 5
   - name: Falstaff_Type1_Moving_Normal_5
-    x: 863
-    y: 653
+    x: 1949
+    y: 1166
     width: 54
     height: 63
     borderLeft: 0
@@ -1199,8 +1121,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 7
   - name: Franscis_Type1_Attacking_Downwards_0
-    x: 926
-    y: 316
+    x: 831
+    y: 721
     width: 46
     height: 50
     borderLeft: 0
@@ -1212,8 +1134,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_1
-    x: 926
-    y: 114
+    x: 831
+    y: 370
     width: 46
     height: 49
     borderLeft: 0
@@ -1225,8 +1147,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_2
-    x: 926
-    y: 164
+    x: 831
+    y: 620
     width: 46
     height: 49
     borderLeft: 0
@@ -1238,8 +1160,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_3
-    x: 977
-    y: 972
+    x: 831
+    y: 570
     width: 46
     height: 49
     borderLeft: 0
@@ -1251,8 +1173,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_4
-    x: 926
-    y: 214
+    x: 831
+    y: 772
     width: 46
     height: 50
     borderLeft: 0
@@ -1264,8 +1186,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Downwards_5
-    x: 977
-    y: 1022
+    x: 831
+    y: 520
     width: 46
     height: 49
     borderLeft: 0
@@ -1277,8 +1199,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_0
-    x: 926
-    y: 718
+    x: 768
+    y: 212
     width: 48
     height: 50
     borderLeft: 0
@@ -1290,8 +1212,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_1
-    x: 926
-    y: 616
+    x: 768
+    y: 161
     width: 48
     height: 50
     borderLeft: 0
@@ -1303,8 +1225,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_2
-    x: 926
-    y: 465
+    x: 831
+    y: 921
     width: 48
     height: 49
     borderLeft: 0
@@ -1316,8 +1238,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_3
-    x: 926
-    y: 565
+    x: 768
+    y: 59
     width: 48
     height: 50
     borderLeft: 0
@@ -1329,8 +1251,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_4
-    x: 1998
-    y: 1680
+    x: 831
+    y: 1021
     width: 48
     height: 50
     borderLeft: 0
@@ -1343,7 +1265,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Attacking_Normal_5
     x: 1998
-    y: 1629
+    y: 1680
     width: 48
     height: 50
     borderLeft: 0
@@ -1355,8 +1277,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Dying_0
-    x: 926
-    y: 871
+    x: 1998
+    y: 1629
     width: 48
     height: 50
     borderLeft: 0
@@ -1368,8 +1290,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 10
   - name: Franscis_Type1_Dying_1
-    x: 926
-    y: 972
+    x: 768
+    y: 414
     width: 50
     height: 49
     borderLeft: 0
@@ -1381,8 +1303,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 9
   - name: Franscis_Type1_Dying_2
-    x: 863
-    y: 118
+    x: 768
+    y: 565
     width: 52
     height: 49
     borderLeft: 0
@@ -1394,8 +1316,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 8
   - name: Franscis_Type1_Dying_3
-    x: 863
-    y: 424
+    x: 768
+    y: 871
     width: 54
     height: 52
     borderLeft: 0
@@ -1433,8 +1355,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_0
-    x: 926
-    y: 820
+    x: 768
+    y: 263
     width: 48
     height: 50
     borderLeft: 0
@@ -1446,8 +1368,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_1
-    x: 926
-    y: 769
+    x: 768
+    y: 110
     width: 48
     height: 50
     borderLeft: 0
@@ -1459,8 +1381,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_2
-    x: 926
-    y: 922
+    x: 768
+    y: 314
     width: 50
     height: 49
     borderLeft: 0
@@ -1472,8 +1394,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Franscis_Type1_Moving_Downwards_3
-    x: 863
-    y: 67
+    x: 654
+    y: 953
     width: 50
     height: 50
     borderLeft: 0
@@ -1485,8 +1407,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Downwards_4
-    x: 926
-    y: 1022
+    x: 768
+    y: 364
     width: 50
     height: 49
     borderLeft: 0
@@ -1498,8 +1420,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Franscis_Type1_Moving_Downwards_5
-    x: 863
-    y: 17
+    x: 768
+    y: 464
     width: 50
     height: 49
     borderLeft: 0
@@ -1511,8 +1433,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: Franscis_Type1_Moving_Normal_0
-    x: 926
-    y: 416
+    x: 831
+    y: 823
     width: 48
     height: 48
     borderLeft: 0
@@ -1524,8 +1446,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_1
-    x: 926
-    y: 367
+    x: 831
+    y: 872
     width: 48
     height: 48
     borderLeft: 0
@@ -1537,8 +1459,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_2
-    x: 926
-    y: 515
+    x: 831
+    y: 971
     width: 48
     height: 49
     borderLeft: 0
@@ -1551,7 +1473,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_3
     x: 654
-    y: 800
+    y: 902
     width: 50
     height: 50
     borderLeft: 0
@@ -1577,7 +1499,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Franscis_Type1_Moving_Normal_5
     x: 654
-    y: 902
+    y: 800
     width: 50
     height: 50
     borderLeft: 0
@@ -1589,8 +1511,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Glow - outer
-    x: 654
-    y: 953
+    x: 768
+    y: 514
     width: 50
     height: 50
     borderLeft: 22
@@ -1602,8 +1524,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Attacking_0
-    x: 1161
-    y: 1625
+    x: 532
+    y: 4
     width: 39
     height: 40
     borderLeft: 0
@@ -1615,8 +1537,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Tower_Attacking_1
-    x: 1201
-    y: 1625
+    x: 596
+    y: 3
     width: 39
     height: 40
     borderLeft: 0
@@ -1758,32 +1680,6 @@ MonoBehaviour:
     paddingTop: 94
     paddingBottom: 189
   - name: Tower_Dying_0
-    x: 1702
-    y: 1341
-    width: 39
-    height: 40
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Tower_Dying_1
-    x: 1742
-    y: 1341
-    width: 39
-    height: 40
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Tower_Hitting_0
     x: 1782
     y: 1341
     width: 39
@@ -1796,7 +1692,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Tower_Hitting_1
+  - name: Tower_Dying_1
     x: 1822
     y: 1341
     width: 39
@@ -1809,7 +1705,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Tower_Idling_0
+  - name: Tower_Hitting_0
     x: 1862
     y: 1341
     width: 39
@@ -1822,9 +1718,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Tower_Idling_1
+  - name: Tower_Hitting_1
     x: 2002
     y: 1584
+    width: 39
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Tower_Idling_0
+    x: 2002
+    y: 1543
+    width: 39
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Tower_Idling_1
+    x: 2002
+    y: 1502
     width: 39
     height: 40
     borderLeft: 0

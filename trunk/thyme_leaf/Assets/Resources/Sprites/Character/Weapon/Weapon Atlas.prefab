@@ -173,7 +173,7 @@ MonoBehaviour:
     paddingBottom: 123
   - name: Bullet_0
     x: 470
-    y: 1111
+    y: 1090
     width: 20
     height: 20
     borderLeft: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Bullet_1
     x: 470
-    y: 1132
+    y: 1111
     width: 20
     height: 20
     borderLeft: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Bullet_3
     x: 470
-    y: 1090
+    y: 1132
     width: 20
     height: 20
     borderLeft: 0
@@ -901,7 +901,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: Laser_4
     x: 439
-    y: 37
+    y: 162
     width: 30
     height: 124
     borderLeft: 0
@@ -914,7 +914,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Laser_5
     x: 439
-    y: 162
+    y: 37
     width: 30
     height: 124
     borderLeft: 0

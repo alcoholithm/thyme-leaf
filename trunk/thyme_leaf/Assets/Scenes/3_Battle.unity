@@ -5510,7 +5510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0224ee225384f084ea40b0f91408589d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGlobal: 1
+  isGlobal: 0
   LOBBY: {fileID: 8300000, guid: 37b336420650fb648ad393167aefd30f, type: 3}
   BATTLE_1: {fileID: 8300000, guid: 6d2893f5ad3b55247810b3d7068402e8, type: 3}
   AT_FRANSIS_1_ATTACKING: {fileID: 8300000, guid: 181a4e9de32af29499c3f687161d282c,
@@ -9474,7 +9474,7 @@ MonoBehaviour:
   - {fileID: 100002, guid: 27187474f4f4cb646b18147ff45b1621, type: 2}
   trovants:
   - {fileID: 100008, guid: e4c0e83a5a6d7468ab7ab5ff0478f898, type: 2}
-  - {fileID: 100008, guid: c426ded8813e04db7857d5ad45b0c98b, type: 2}
+  - {fileID: 100008, guid: efd0b6e6658e740ef99ede2736abf5df, type: 2}
   wchats:
   - {fileID: 905565700}
   thouses:
@@ -14125,6 +14125,10 @@ Prefab:
     - target: {fileID: 100000, guid: 052d4485aa0182a4d879fa6851f7f78c, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 052d4485aa0182a4d879fa6851f7f78c, type: 2}
+      propertyPath: isGlobal
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 052d4485aa0182a4d879fa6851f7f78c, type: 2}
