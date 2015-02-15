@@ -72,11 +72,12 @@ MonoBehaviour:
   curentState: 0
   StageNumber: 1
   pathList: []
-  productID: 0
+  productID: -1
   selectedID: -1
   selectedEventUP: -1
   selectedRemove: -1
   NodeNULL: {fileID: 0}
+  mode: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

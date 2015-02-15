@@ -264,22 +264,26 @@ public class Hero : GameEntity, IStateMachineControllable<Hero>, IObserver
 				ui_sprite.flip = UIBasicSprite.Flip.Nothing;
 			}
 			
-			if(a < -45 && a > -135) //down
+//			if(a <= 0 && a > -180) //down
+//			{
+//				anim.Play(animation_name+"_Downwards_");
+//			}
+//			else if(a >= -45 && a <= 45)  //right
+//			{
+//				anim.Play(animation_name+"_Normal_");
+//			}
+//			else if(a <= -135 || a >= 135) //left
+//			{
+//				anim.Play(animation_name+"_Normal_");
+//			}
+			if(a > 10 && a < 170) //up
+			{
+				anim.Play(animation_name+"_Normal_");
+			}
+			else
 			{
 				anim.Play(animation_name+"_Downwards_");
 			}
-			else if(a >= -45 && a <= 45)  //right
-			{
-				anim.Play(animation_name+"_Normal_");
-			}
-			else if(a <= -135 || a >= 135) //left
-			{
-				anim.Play(animation_name+"_Normal_");
-			}
-//			else if(a > 45 && a < 135) //up
-//			{
-//				anim.Play("Python_Moving_Upwards_");
-//			}
 		}
 	}
 	
