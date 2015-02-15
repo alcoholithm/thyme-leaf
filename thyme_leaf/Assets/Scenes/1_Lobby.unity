@@ -9766,7 +9766,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: e276cea130543d14db7c5c1db828ff78, type: 2}
-  mSpriteName: lobby illustration
+  mSpriteName: Lobby Back
   mFillCenter: 1
 --- !u!1 &1987276651
 GameObject:

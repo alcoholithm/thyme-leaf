@@ -41,7 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 01a7cd2060249ef47989c83e8a702fcd, type: 2}
   mSprites:
-  - name: lobby illustration
+  - name: Lobby Back
     x: 0
     y: 1280
     width: 1024

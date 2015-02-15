@@ -46,7 +46,7 @@ MonoBehaviour:
       wave_setting_value_set:
       - first_delay_time: 5
         unit_num: 10
-        unit_type: 1
+        unit_type: 2
         unit_delay_time: 1
       - first_delay_time: 10
         unit_num: 10
@@ -54,7 +54,22 @@ MonoBehaviour:
         unit_delay_time: 1
       - first_delay_time: 15
         unit_num: 10
+        unit_type: 1
+        unit_delay_time: 1
+  - center_set:
+    - center_obj: {fileID: 0}
+      wave_setting_value_set:
+      - first_delay_time: 5
+        unit_num: 10
         unit_type: 2
+        unit_delay_time: 1
+      - first_delay_time: 10
+        unit_num: 10
+        unit_type: 0
+        unit_delay_time: 1
+      - first_delay_time: 15
+        unit_num: 10
+        unit_type: 1
         unit_delay_time: 1
   WaveSystemTrigger: 1
 --- !u!1001 &100100000

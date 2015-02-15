@@ -234,7 +234,7 @@ public class DataToFile : MonoBehaviour
 			tempsetting.GetComponent<SphereCollider>().enabled = false;
 
 			scriptPathNode tempFunc = tempsetting.GetComponent<scriptPathNode>();
-			Define.pathNode[c].obj.transform.localPosition = current_pos;
+			Define.pathNode[c].obj.transform.localPosition = (current_pos);
 			Define.pathNode[c].obj.transform.localScale = new Vector3(1,1,1);
 			tempFunc.DataInit();
 
