@@ -8891,8 +8891,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1019617038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .000244140625, z: .000244140625}
-  m_LocalScale: {x: .999935985, y: .999935985, z: .999935985}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1485746133}
   m_RootOrder: 0
@@ -10229,13 +10229,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 100
-  mHeight: 100
+  mWidth: 224
+  mHeight: 168
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 1.33333337
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -10247,7 +10247,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 944d2985a04cd174b8f5ef5f88a1affe, type: 2}
-  mSpriteName: Falstaff_Type1_Moving_Downwards_0
+  mSpriteName: Falstaff_Type1_Attacking_Downwards_0
   mFillCenter: 1
 --- !u!1001 &1231125909
 Prefab:
@@ -11644,7 +11644,7 @@ GameObject:
   - 114: {fileID: 1485746135}
   - 65: {fileID: 1485746134}
   m_Layer: 8
-  m_Name: 1 - [1-2] Spawn hero
+  m_Name: 1 - [1-2] Spawn Francsis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12196,7 +12196,7 @@ GameObject:
   - 114: {fileID: 1507038257}
   - 65: {fileID: 1507038256}
   m_Layer: 8
-  m_Name: 2 - [1-2] Spawn hero
+  m_Name: 2 - [1-2] Spawn Falstaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
