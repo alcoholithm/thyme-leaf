@@ -16,6 +16,38 @@ public class Missile : Projectile
         anim.Play(this._animName);
     }
 
+    protected override void MoveToTarget()
+    {
+        //------------ 예외처리 시작
+        if (isTouched)
+            return;
+
+        if (target == null)
+            return;
+
+        if (!target.gameObject.activeInHierarchy)
+            Spawner.Instance.Free(this.gameObject);
+        //------------ 예외처리 끝
+
+
+        // 목표물까지의 이동 및 회전
+        Vector3 direction = target.position - transform.position;
+
+        if (direction.magnitude < deltaThreshold)
+        {
+            Stop();
+            Explode();
+            Attack();
+        }
+        else
+        {
+            direction.z = 0;
+            transform.Translate(direction.normalized * movingSpeed * Time.deltaTime);
+
+            // 회전 구현 부탁드림
+        }
+    }
+
     /*
     * Followings are overrided methods of "Projectile"
     */
